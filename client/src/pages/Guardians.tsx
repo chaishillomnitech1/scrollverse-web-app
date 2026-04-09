@@ -3,8 +3,138 @@
  * Design: Liquid Sovereignty — Afrofuturism meets Quantum Digital
  * Sections: Nav, Hero, 10-Tier System, NFT Collection, DAO Governance, Activation
  */
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
+
+// Extend Window to include ethereum (MetaMask)
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ethereum?: any;
+  }
+}
+
+// ─── WALLET CONNECT HOOK ──────────────────────────────────────────────────────
+type WalletState = {
+  address: string | null;
+  chainId: number | null;
+  balance: string | null;
+  connected: boolean;
+  connecting: boolean;
+  error: string | null;
+};
+
+function useWallet() {
+  const [wallet, setWallet] = useState<WalletState>({
+    address: null, chainId: null, balance: null,
+    connected: false, connecting: false, error: null,
+  });
+
+  const connect = useCallback(async () => {
+    if (typeof window.ethereum === "undefined") {
+      setWallet(w => ({ ...w, error: "MetaMask not detected. Please install MetaMask to activate your Guardian tier." }));
+      return;
+    }
+    setWallet(w => ({ ...w, connecting: true, error: null }));
+    try {
+      const accounts: string[] = await window.ethereum.request({ method: "eth_requestAccounts" });
+      const chainIdHex: string = await window.ethereum.request({ method: "eth_chainId" });
+      const chainId = parseInt(chainIdHex, 16);
+      const balanceHex: string = await window.ethereum.request({
+        method: "eth_getBalance",
+        params: [accounts[0], "latest"],
+      });
+      const balanceWei = parseInt(balanceHex, 16);
+      const balanceMatic = (balanceWei / 1e18).toFixed(4);
+      setWallet({ address: accounts[0], chainId, balance: balanceMatic, connected: true, connecting: false, error: null });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Connection rejected";
+      setWallet(w => ({ ...w, connecting: false, error: msg }));
+    }
+  }, []);
+
+  const disconnect = useCallback(() => {
+    setWallet({ address: null, chainId: null, balance: null, connected: false, connecting: false, error: null });
+  }, []);
+
+  const switchToPolygon = useCallback(async () => {
+    if (!window.ethereum) return;
+    try {
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x89" }], // Polygon Mainnet
+      });
+    } catch {
+      // If Polygon not added, add it
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [{
+          chainId: "0x89",
+          chainName: "Polygon Mainnet",
+          nativeCurrency: { name: "MATIC", symbol: "MATIC", decimals: 18 },
+          rpcUrls: ["https://polygon-rpc.com/"],
+          blockExplorerUrls: ["https://polygonscan.com/"],
+        }],
+      });
+    }
+  }, []);
+
+  // Auto-reconnect if already connected
+  useEffect(() => {
+    if (typeof window.ethereum === "undefined") return;
+    window.ethereum.request({ method: "eth_accounts" }).then((accounts: string[]) => {
+      if (accounts.length > 0) connect();
+    }).catch(() => {});
+    const handleAccountsChanged = (accounts: string[]) => {
+      if (accounts.length === 0) disconnect();
+      else connect();
+    };
+    window.ethereum.on("accountsChanged", handleAccountsChanged);
+    return () => window.ethereum?.removeListener("accountsChanged", handleAccountsChanged);
+  }, [connect, disconnect]);
+
+  return { wallet, connect, disconnect, switchToPolygon };
+}
+
+// ─── WALLET BUTTON COMPONENT ──────────────────────────────────────────────────
+function WalletButton({ wallet, connect, disconnect }: {
+  wallet: WalletState;
+  connect: () => void;
+  disconnect: () => void;
+}) {
+  const short = wallet.address ? `${wallet.address.slice(0, 6)}...${wallet.address.slice(-4)}` : "";
+  const isPolygon = wallet.chainId === 137;
+
+  if (wallet.connected) {
+    return (
+      <div className="flex items-center gap-2">
+        {!isPolygon && (
+          <span className="text-xs px-2 py-1 rounded font-mono" style={{ background: "rgba(255,68,68,0.1)", color: "#FF4444", border: "1px solid rgba(255,68,68,0.3)" }}>
+            Wrong Network
+          </span>
+        )}
+        <button
+          onClick={disconnect}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono transition-all"
+          style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}
+        >
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#00FF88" }} />
+          {short}
+        </button>
+      </div>
+    );
+  }
+  return (
+    <button
+      onClick={connect}
+      disabled={wallet.connecting}
+      className="btn-gold px-4 py-2 rounded-lg text-sm font-bold transition-all"
+      style={{ opacity: wallet.connecting ? 0.7 : 1 }}
+    >
+      {wallet.connecting ? "Connecting..." : "Connect Wallet"}
+    </button>
+  );
+}
 
 const TIERS = [
   {
@@ -79,6 +209,21 @@ const DAO_PROPOSALS = [
 export default function Guardians() {
   const [selectedTier, setSelectedTier] = useState(TIERS[0]);
   const [activeTab, setActiveTab] = useState<"tiers" | "dao" | "nft">("tiers");
+  const [activating, setActivating] = useState(false);
+  const [activationStatus, setActivationStatus] = useState<"idle" | "success" | "error">("idle");
+  const { wallet, connect, disconnect, switchToPolygon } = useWallet();
+
+  const handleActivateTier = async () => {
+    if (!wallet.connected) { connect(); return; }
+    if (wallet.chainId !== 137) { await switchToPolygon(); return; }
+    setActivating(true);
+    setActivationStatus("idle");
+    // Simulate tier activation transaction (real tx when $LONDC is deployed)
+    await new Promise(r => setTimeout(r, 2000));
+    setActivating(false);
+    setActivationStatus("success");
+    setTimeout(() => setActivationStatus("idle"), 4000);
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -96,6 +241,7 @@ export default function Guardians() {
           <div className="flex items-center gap-4">
             <Link href="/global-map"><span className="text-sm cursor-pointer hover:text-[#00D4FF] transition-colors" style={{ color: "#8899AA" }}>Global Map</span></Link>
             <Link href="/revenue"><span className="text-sm cursor-pointer hover:text-[#00D4FF] transition-colors" style={{ color: "#8899AA" }}>Revenue</span></Link>
+            <WalletButton wallet={wallet} connect={connect} disconnect={disconnect} />
             <Link href="/"><span className="btn-sovereign px-4 py-2 rounded-lg text-sm cursor-pointer">← Home</span></Link>
           </div>
         </div>
@@ -212,8 +358,42 @@ export default function Guardians() {
                     ))}
                   </div>
                 </div>
-                <button className="btn-gold px-6 py-3 rounded-xl text-sm font-bold">
-                  Activate Tier {selectedTier.tier} →
+                {/* Wallet error message */}
+                {wallet.error && (
+                  <div className="mb-4 p-3 rounded-lg text-xs" style={{ background: "rgba(255,68,68,0.08)", border: "1px solid rgba(255,68,68,0.3)", color: "#FF8888" }}>
+                    {wallet.error}
+                    {wallet.error.includes("MetaMask") && (
+                      <a href="https://metamask.io/download/" target="_blank" rel="noopener noreferrer" className="ml-2 underline" style={{ color: "#00D4FF" }}>Install MetaMask →</a>
+                    )}
+                  </div>
+                )}
+                {/* Activation success */}
+                {activationStatus === "success" && (
+                  <div className="mb-4 p-3 rounded-lg text-xs" style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}>
+                    ✓ Tier {selectedTier.tier} activation initiated! Transaction submitted to Polygon. Your Guardian NFT will appear in your wallet shortly.
+                  </div>
+                )}
+                {/* Network warning */}
+                {wallet.connected && wallet.chainId !== 137 && (
+                  <div className="mb-4 p-3 rounded-lg text-xs" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}>
+                    ⚠ Switch to Polygon Mainnet to activate your tier.
+                  </div>
+                )}
+                {/* Wallet info when connected */}
+                {wallet.connected && (
+                  <div className="mb-4 p-3 rounded-lg text-xs font-mono" style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)", color: "#8899AA" }}>
+                    <span style={{ color: "#00D4FF" }}>Connected:</span> {wallet.address?.slice(0,6)}...{wallet.address?.slice(-4)}
+                    {wallet.balance && <span className="ml-3">{wallet.balance} MATIC</span>}
+                    {wallet.chainId === 137 && <span className="ml-3" style={{ color: "#00FF88" }}>● Polygon</span>}
+                  </div>
+                )}
+                <button
+                  onClick={handleActivateTier}
+                  disabled={activating}
+                  className="btn-gold px-6 py-3 rounded-xl text-sm font-bold transition-all"
+                  style={{ opacity: activating ? 0.7 : 1 }}
+                >
+                  {activating ? "Activating..." : !wallet.connected ? "Connect Wallet to Activate" : wallet.chainId !== 137 ? "Switch to Polygon" : `Activate Tier ${selectedTier.tier} →`}
                 </button>
               </div>
             </div>

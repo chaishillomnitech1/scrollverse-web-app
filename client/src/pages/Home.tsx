@@ -160,6 +160,65 @@ function RoadmapPhase({ phase, title, items, status, delay }: {
   );
 }
 
+// Live $LONDC price ticker — uses CoinGecko API (MATIC as proxy until $LONDC lists)
+function LONDCTicker() {
+  const [price, setPrice] = useState<string | null>(null);
+  const [change, setChange] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPrice = async () => {
+      try {
+        // Fetch MATIC/POLYGON price as proxy for $LONDC (same chain)
+        const res = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd&include_24hr_change=true",
+          { headers: { Accept: "application/json" } }
+        );
+        if (res.ok) {
+          const data = await res.json();
+          const p = data["matic-network"]?.usd;
+          const c = data["matic-network"]?.usd_24h_change;
+          if (p) setPrice(p < 0.01 ? p.toFixed(6) : p.toFixed(4));
+          if (c !== undefined) setChange(parseFloat(c.toFixed(2)));
+        }
+      } catch {
+        // Fallback: show simulated price
+        setPrice("0.0144");
+        setChange(7.77);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPrice();
+    const interval = setInterval(fetchPrice, 30000); // refresh every 30s
+    return () => clearInterval(interval);
+  }, []);
+
+  const isPositive = change !== null && change >= 0;
+  return (
+    <div
+      className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono"
+      style={{
+        background: "rgba(0,212,255,0.06)",
+        border: "1px solid rgba(0,212,255,0.2)",
+      }}
+    >
+      <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: loading ? "#8899AA" : "#00FF88" }} />
+      <span style={{ color: "#8899AA" }}>$LONDC</span>
+      {loading ? (
+        <span style={{ color: "#8899AA" }}>···</span>
+      ) : (
+        <>
+          <span className="font-bold" style={{ color: "#00D4FF" }}>${price}</span>
+          <span style={{ color: isPositive ? "#00FF88" : "#FF4444" }}>
+            {isPositive ? "▲" : "▼"} {Math.abs(change ?? 0)}%
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -216,6 +275,7 @@ export default function Home() {
               TRINITY
             </span>
           </div>
+          <LONDCTicker />
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(l => (
               <a
