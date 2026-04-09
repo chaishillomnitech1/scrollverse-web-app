@@ -4,7 +4,7 @@
  * Sections: Nav, Hero, Stats, Pillars, Token, Frequencies, Guardian, Roadmap, CTA, Footer
  */
 import { useEffect, useRef, useState } from "react";
-import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const TOKEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-token-MrdUrN6gWtHmpfWBB2zPsY.webp";
@@ -163,27 +163,40 @@ function RoadmapPhase({ phase, title, items, status, delay }: {
 // Guardian Waitlist Component
 function GuardianWaitlist() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [count, setCount] = useState(1247); // simulated live count, increments
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Simulate live guardian signups ticking up
-    const interval = setInterval(() => {
-      setCount(c => c + Math.floor(Math.random() * 3));
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
+  // Live Guardian count from server (DB + optional on-chain)
+  const { data: countData, refetch: refetchCount } = trpc.guardian.getCount.useQuery(undefined, {
+    refetchInterval: 30000, // refresh every 30s
+    staleTime: 15000,
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const subscribeMutation = trpc.guardian.subscribe.useMutation({
+    onSuccess: (data) => {
+      if (data.alreadyRegistered) {
+        setSuccessMsg("You are already in the Guardian waitlist. The empire awaits you.");
+      } else {
+        setSuccessMsg(data.message);
+        refetchCount();
+      }
+      setEmail("");
+      setErrorMsg(null);
+    },
+    onError: (err) => {
+      setErrorMsg(err.message ?? "Something went wrong. Please try again.");
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) return;
-    setStatus("loading");
-    // Simulate Mailchimp submission (replace with real endpoint when backend is live)
-    await new Promise(r => setTimeout(r, 1500));
-    setStatus("success");
-    setEmail("");
-    setCount(c => c + 1);
+    setErrorMsg(null);
+    subscribeMutation.mutate({ email });
   };
+
+  const displayCount = countData?.displayCount ?? 1247;
+  const isLive = countData?.isLive ?? false;
 
   return (
     <div className="sv-card rounded-2xl p-8 max-w-xl mx-auto text-center" style={{ border: "1px solid rgba(0,255,136,0.2)", background: "rgba(0,255,136,0.03)" }}>
@@ -191,33 +204,45 @@ function GuardianWaitlist() {
       <h3 className="text-2xl font-black text-white mb-2">Join the 144,000</h3>
       <p className="text-sm mb-2" style={{ color: "#8899AA" }}>Be among the first Guardians when $LONDC launches on Polygon Mainnet.</p>
       <div className="flex items-center justify-center gap-2 mb-6">
-        <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-        <span className="text-sm font-mono" style={{ color: "#00FF88" }}>{count.toLocaleString()} Guardians registered</span>
+        <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: isLive ? "#00FF88" : "#FFB800" }} />
+        <span className="text-sm font-mono" style={{ color: "#00FF88" }}>
+          {displayCount.toLocaleString()} Guardians registered
+        </span>
+        {isLive && (
+          <span className="text-xs font-mono px-1.5 py-0.5 rounded" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
+            ON-CHAIN
+          </span>
+        )}
       </div>
-      {status === "success" ? (
+      {successMsg ? (
         <div className="p-4 rounded-xl text-sm font-bold" style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}>
-          ✓ You are now in the Guardian waitlist. The empire welcomes you. KUN FAYAKŪN × ∞
+          ✓ {successMsg}
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex gap-3">
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="Enter your email address"
-            required
-            className="flex-1 px-4 py-3 rounded-xl text-sm outline-none"
-            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.2)", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
-          />
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="btn-gold px-6 py-3 rounded-xl text-sm font-bold flex-shrink-0"
-            style={{ opacity: status === "loading" ? 0.7 : 1 }}
-          >
-            {status === "loading" ? "..." : "Join"}
-          </button>
-        </form>
+        <>
+          <form onSubmit={handleSubmit} className="flex gap-3">
+            <input
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              required
+              className="flex-1 px-4 py-3 rounded-xl text-sm outline-none"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.2)", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
+            />
+            <button
+              type="submit"
+              disabled={subscribeMutation.isPending}
+              className="btn-gold px-6 py-3 rounded-xl text-sm font-bold flex-shrink-0"
+              style={{ opacity: subscribeMutation.isPending ? 0.7 : 1 }}
+            >
+              {subscribeMutation.isPending ? "..." : "Join"}
+            </button>
+          </form>
+          {errorMsg && (
+            <div className="mt-3 text-xs" style={{ color: "#FF4444" }}>{errorMsg}</div>
+          )}
+        </>
       )}
     </div>
   );

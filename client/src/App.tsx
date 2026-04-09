@@ -8,8 +8,8 @@ import Home from "./pages/Home";
 import GlobalMap from "./pages/GlobalMap";
 import Revenue from "./pages/Revenue";
 import Guardians from "./pages/Guardians";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
