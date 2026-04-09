@@ -4,6 +4,7 @@
  * Sections: Nav, Hero, Stats, Pillars, Token, Frequencies, Guardian, Roadmap, CTA, Footer
  */
 import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const TOKEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-token-MrdUrN6gWtHmpfWBB2zPsY.webp";
@@ -185,6 +186,9 @@ export default function Home() {
     { label: "Frequencies", href: "#frequencies" },
     { label: "Guardian", href: "#guardian" },
     { label: "Roadmap", href: "#roadmap" },
+    { label: "Global Map", href: "/global-map" },
+    { label: "Revenue", href: "/revenue" },
+    { label: "Guardians", href: "/guardians" },
   ];
 
   return (

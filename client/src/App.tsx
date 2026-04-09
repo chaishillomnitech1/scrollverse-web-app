@@ -5,11 +5,17 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import GlobalMap from "./pages/GlobalMap";
+import Revenue from "./pages/Revenue";
+import Guardians from "./pages/Guardians";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/global-map"} component={GlobalMap} />
+      <Route path={"/revenue"} component={Revenue} />
+      <Route path={"/guardians"} component={Guardians} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
