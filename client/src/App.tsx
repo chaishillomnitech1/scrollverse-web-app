@@ -8,6 +8,11 @@ import Home from "./pages/Home";
 import GlobalMap from "./pages/GlobalMap";
 import Revenue from "./pages/Revenue";
 import Guardians from "./pages/Guardians";
+import Academy from "./pages/Academy";
+import Dashboard from "./pages/Dashboard";
+import WalletConnect from "./pages/WalletConnect";
+import TokenStore from "./pages/TokenStore";
+
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -16,6 +21,10 @@ function Router() {
       <Route path={"/global-map"} component={GlobalMap} />
       <Route path={"/revenue"} component={Revenue} />
       <Route path={"/guardians"} component={Guardians} />
+      <Route path={"/academy"} component={Academy} />
+      <Route path={"/dashboard"} component={Dashboard} />
+      <Route path={"/wallet"} component={WalletConnect} />
+      <Route path={"/token"} component={TokenStore} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
