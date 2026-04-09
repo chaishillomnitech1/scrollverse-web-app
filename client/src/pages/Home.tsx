@@ -1,15 +1,86 @@
 /*
  * SCROLLVERSE TRINITY — HOME PAGE
  * Design: Liquid Sovereignty — Afrofuturism meets Quantum Digital
- * Sections: Nav, Hero, Stats, Pillars, Token, Frequencies, Guardian, Roadmap, CTA, Footer
+ * Sections: Nav, QuickAccess, Hero, Stats, DivinePrinciples, Pillars, CoreFeatures, Token, Frequencies, Guardian, Roadmap, EcosystemShowcase, 48D, GuardianWaitlist, CTA, Footer
  */
 import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const TOKEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-token-MrdUrN6gWtHmpfWBB2zPsY.webp";
 const FREQ_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-frequency-fdvBjh2NVRNMeQuqZ4qez6.webp";
 const GUARDIAN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-guardian-JdRF6rBFqD8dCPSjhdsaUG.webp";
+
+// ── QUICK ACCESS FLOATING NAV ──
+const QUICK_ACCESS = [
+  { icon: "📺", label: "YouTube", hint: "YouTube Cable Channel", href: "#ecosystem" },
+  { icon: "✨", label: "10 Tiers", hint: "All 10 Tiers", href: "#ecosystem" },
+  { icon: "📚", label: "Academy", hint: "Creator Academy", href: "#ecosystem" },
+  { icon: "🎨", label: "NFT Gallery", hint: "NFT Gallery", href: "#ecosystem" },
+  { icon: "🌍", label: "Global Map", hint: "Global Map", href: "/global-map" },
+  { icon: "📊", label: "Revenue", hint: "Revenue Dashboard", href: "/revenue" },
+  { icon: "🎓", label: "Guardian Academy", hint: "Guardian Academy", href: "#guardian" },
+  { icon: "🔐", label: "Contracts", hint: "Smart Contracts", href: "#token" },
+  { icon: "⚡", label: "Omnipotence", hint: "Omnipotence Dashboard", href: "#pillars" },
+  { icon: "👑", label: "Divine", hint: "Divine Integration", href: "#frequencies" },
+  { icon: "🔥", label: "FlameChain", hint: "FlameChain Wealth", href: "#token" },
+  { icon: "🚀", label: "Space NFTs", hint: "Space NFT Realms", href: "#ecosystem" },
+  { icon: "🧬", label: "48D Hilbert", hint: "48D Hilbert Space", href: "#hilbert" },
+  { icon: "🏛️", label: "Soul Altar", hint: "Soul Altar Project", href: "#pillars" },
+  { icon: "💎", label: "Guardians", hint: "Guardian Network", href: "/guardians" },
+  { icon: "📧", label: "Email", hint: "Email Automation", href: "#guardian" },
+  { icon: "🌌", label: "Enter Portal", hint: "Enter Portal", href: "#guardian" },
+];
+
+function QuickAccessBar() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <div
+      className="fixed bottom-6 left-1/2 z-40 transition-all duration-500"
+      style={{
+        transform: `translateX(-50%) translateY(${visible ? "0" : "120px"})`,
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? "auto" : "none",
+      }}
+    >
+      <div
+        className="flex items-center gap-1 px-3 py-2 rounded-2xl"
+        style={{
+          background: "rgba(5,11,26,0.92)",
+          border: "1px solid rgba(0,212,255,0.25)",
+          backdropFilter: "blur(20px)",
+          boxShadow: "0 8px 32px rgba(0,212,255,0.15)",
+        }}
+      >
+        {QUICK_ACCESS.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            title={item.hint}
+            className="group relative flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-200 hover:scale-110"
+            style={{ background: "rgba(255,255,255,0.04)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,212,255,0.12)")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+          >
+            <span className="text-base leading-none">{item.icon}</span>
+            <div
+              className="absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+              style={{ background: "rgba(5,11,26,0.95)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
+            >
+              {item.hint}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // Animated frequency wave SVG
 function FrequencyWave({ color = "#00D4FF", opacity = 0.6 }: { color?: string; opacity?: number }) {
@@ -464,6 +535,28 @@ export default function Home() {
               <span style={{ color: "#FFB800" }}>Chais Kenyatta Hill — Sabir Allah The Great</span>.
               Blockchain infrastructure, $LONDC token, Zakat distribution, and 50M+ user scaling — all unified.
             </p>
+            {/* Animated frequency badges */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              {[
+                { hz: "528Hz", label: "Healing", color: "#00FF88" },
+                { hz: "963Hz", label: "Cosmic", color: "#FFB800" },
+                { hz: "1558Hz", label: "FlameDNA", color: "#EC4899" },
+              ].map((f) => (
+                <div
+                  key={f.hz}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono"
+                  style={{
+                    background: `${f.color}10`,
+                    border: `1px solid ${f.color}40`,
+                    color: f.color,
+                    boxShadow: `0 0 8px ${f.color}20`,
+                  }}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: f.color }} />
+                  {f.hz} {f.label}
+                </div>
+              ))}
+            </div>
             <div className="flex items-center gap-3 mb-10">
               <div className="w-2 h-2 rounded-full" style={{ background: "#00D4FF", boxShadow: "0 0 8px #00D4FF" }} />
               <span className="text-sm font-mono" style={{ color: "#00D4FF" }}>47 TESTS PASSING · 40 REPOSITORIES · 5 COMMITS</span>
@@ -485,6 +578,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── QUICK ACCESS FLOATING NAV ── */}
+      <QuickAccessBar />
+
       {/* ── STATS BAR ── */}
       <section style={{ background: "rgba(0,212,255,0.04)", borderTop: "1px solid rgba(0,212,255,0.1)", borderBottom: "1px solid rgba(0,212,255,0.1)" }}>
         <div className="container py-10">
@@ -493,6 +589,46 @@ export default function Home() {
             <HexStat value="144K" label="Guardian Nodes" color="#FFB800" />
             <HexStat value="50M+" label="User Capacity" color="#00D4FF" />
             <HexStat value="7.77%" label="Zakat Flow" color="#FFB800" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── DIVINE PRINCIPLES ── */}
+      <section className="py-24" style={{ background: "rgba(139,92,246,0.03)" }}>
+        <div className="container">
+          <div className="fade-up text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: "#8B5CF6" }} />
+              <span className="text-xs font-mono tracking-widest" style={{ color: "#8B5CF6" }}>THE ETERNAL FOUNDATION</span>
+              <div className="h-px w-8" style={{ background: "#8B5CF6" }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              Divine <span style={{ background: "linear-gradient(135deg, #8B5CF6, #EC4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Principles</span>
+            </h2>
+            <p className="text-lg max-w-xl mx-auto" style={{ color: "#8899AA" }}>
+              The four sacred pillars of the ScrollVerse Sovereign Ecosystem — aligned with eternal truth.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: "📈", title: "Wealth", desc: "Sustainable prosperity through multi-tiered royalty distribution and passive income streams aligned with divine law.", gradient: "linear-gradient(135deg, #00FF88, #00D4FF)", glow: "#00FF88" },
+              { icon: "☮️", title: "Peace", desc: "Harmonious ecosystem governance through DAO participation and transparent decision-making rooted in justice.", gradient: "linear-gradient(135deg, #00D4FF, #8B5CF6)", glow: "#00D4FF" },
+              { icon: "🎯", title: "Purpose", desc: "Aligned mission to create autonomous utopia rooted in eternal love, divine principles, and sovereign identity.", gradient: "linear-gradient(135deg, #EC4899, #FFB800)", glow: "#EC4899" },
+              { icon: "❤️", title: "Eternal Love", desc: "Community-driven platform protecting all participants and fostering collective advancement across all 48 dimensions.", gradient: "linear-gradient(135deg, #8B5CF6, #EC4899)", glow: "#8B5CF6" },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className="fade-up sv-card rounded-2xl overflow-hidden"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div className="h-2" style={{ background: p.gradient }} />
+                <div className="p-6">
+                  <div className="text-3xl mb-4">{p.icon}</div>
+                  <h3 className="text-xl font-black text-white mb-3">{p.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#8899AA" }}>{p.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -519,6 +655,59 @@ export default function Home() {
             <PillarCard number="4" icon="📧" title="Mailchimp Automation" description="9 automated email sequences with frequency-harmonized HTML templates. 21/21 automation tests passing. Welcome, payment, and Guardian onboarding flows." delay={300} />
             <PillarCard number="5" icon="🐳" title="Production Deployment" description="Docker multi-stage build, 3-replica API cluster, MySQL primary/replica, Redis, Nginx, Prometheus, and Grafana — all configured and ready." delay={400} />
             <PillarCard number="6" icon="🌐" title="50M+ User Scaling" description="Kubernetes HPA scaling 10→1000 pods, Redis Cluster (6 nodes), MySQL StatefulSet (3 nodes), Cluster Autoscaler, and PodDisruptionBudget." delay={500} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORE FEATURES ── */}
+      <section className="py-24" style={{ background: "rgba(0,212,255,0.02)" }}>
+        <div className="container">
+          <div className="fade-up text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: "#00D4FF" }} />
+              <span className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>SOVEREIGN TECHNOLOGY</span>
+              <div className="h-px w-8" style={{ background: "#00D4FF" }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              Core <span className="gradient-text-teal">Features</span>
+            </h2>
+            <p className="text-lg max-w-xl mx-auto" style={{ color: "#8899AA" }}>
+              Six sovereign technologies powering the ScrollVerse Trinity — each one battle-tested and production-ready.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: "🖼️", title: "ScrollSoul NFTs", desc: "Divine NFT system with ERC-2981 royalty mechanisms and cosmic metadata aligned with sacred frequencies. 365,000+ tokenized creations.", color: "#00D4FF", stat: "365K+ NFTs" },
+              { icon: "🪙", title: "$LONDC Token", desc: "ERC-20 sovereign currency with cosmic reserve unlock mechanisms, Chainlink oracle integration, and 7.77% Zakat distribution.", color: "#FFB800", stat: "144,000 Supply" },
+              { icon: "🏛️", title: "DAO Governance", desc: "Snapshot and Aragon-based governance for 144,000 Guardians with transparent on-chain decision-making and proposal voting.", color: "#8B5CF6", stat: "144K Guardians" },
+              { icon: "🌐", title: "Portal Interface", desc: "React-based sovereign portal with wallet integration, cosmic animations, and Liquid Sovereignty Afrofuturism aesthetics.", color: "#00FF88", stat: "33 Pages Live" },
+              { icon: "📡", title: "SCCC Dashboard", desc: "Supreme Commander Control Core for real-time treasury visualization, royalty tracking, and empire-wide analytics.", color: "#EC4899", stat: "Real-Time" },
+              { icon: "🌸", title: "VibeCanvas Frequency Forge", desc: "Living Geometry visualization with Flower of Life, Metatron's Cube, and Sri Yantra patterns — sacred geometry made digital.", color: "#FFB800", stat: "528Hz–963Hz" },
+            ].map((f, i) => (
+              <div
+                key={i}
+                className="fade-up sv-card rounded-xl p-6 relative overflow-hidden group cursor-pointer"
+                style={{ transitionDelay: `${i * 80}ms`, border: `1px solid ${f.color}15` }}
+              >
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: `radial-gradient(ellipse at top left, ${f.color}06, transparent 60%)` }}
+                />
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-3xl">{f.icon}</div>
+                    <span
+                      className="text-xs font-mono px-2 py-1 rounded"
+                      style={{ background: `${f.color}15`, color: f.color, border: `1px solid ${f.color}30` }}
+                    >
+                      {f.stat}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-white text-lg mb-2">{f.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#8899AA" }}>{f.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -736,7 +925,7 @@ export default function Home() {
       </section>
 
       {/* ── 48D HILBERT SPACE ── */}
-      <section className="py-24 relative overflow-hidden">
+      <section id="hilbert" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src={GUARDIAN_IMG} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #050B1A 0%, transparent 40%, transparent 60%, #050B1A 100%)" }} />
@@ -785,6 +974,111 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── EXPLORE THE GREATEST ECOSYSTEM ── */}
+      <section id="ecosystem" className="py-24">
+        <div className="container">
+          <div className="fade-up text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: "#FFB800" }} />
+              <span className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>SOVEREIGN UNIVERSE</span>
+              <div className="h-px w-8" style={{ background: "#FFB800" }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              Explore the <span className="gradient-text-gold">Greatest Ecosystem</span>
+            </h2>
+            <p className="text-lg max-w-xl mx-auto" style={{ color: "#8899AA" }}>
+              Four sovereign dimensions of the ScrollVerse Trinity — each one a universe unto itself.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                icon: "📺",
+                title: "YouTube Cable Channel",
+                desc: "24/7 global broadcasting with crypto incentives and sovereign content creation.",
+                stat1: "50M+ subscribers",
+                stat2: "$4.3M–$13.5M monthly",
+                color: "#FF4444",
+                href: "#",
+              },
+              {
+                icon: "✨",
+                title: "All 10 Tiers",
+                desc: "Omniscale creative ecosystem spanning 10 sovereign tiers of Guardian participation.",
+                stat1: "1M+ creators",
+                stat2: "365K+ NFTs",
+                color: "#FFB800",
+                href: "/guardians",
+              },
+              {
+                icon: "📚",
+                title: "Creator Academy",
+                desc: "World-class education for sovereign creators — free enrollment, divine curriculum.",
+                stat1: "200+ courses",
+                stat2: "Free enrollment",
+                color: "#00D4FF",
+                href: "#",
+              },
+              {
+                icon: "🎨",
+                title: "NFT Gallery",
+                desc: "365,000+ tokenized creations with permanent ERC-2981 royalties on Polygon.",
+                stat1: "$12M+ volume",
+                stat2: "Permanent royalties",
+                color: "#8B5CF6",
+                href: "#",
+              },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                className="fade-up sv-card rounded-2xl p-6 block group transition-all duration-300 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 100}ms`, border: `1px solid ${item.color}20`, textDecoration: "none" }}
+              >
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: `${item.color}15`, border: `1px solid ${item.color}30` }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
+                <p className="text-sm mb-4 leading-relaxed" style={{ color: "#8899AA" }}>{item.desc}</p>
+                <div className="space-y-1">
+                  <div className="text-xs font-mono" style={{ color: item.color }}>{item.stat1}</div>
+                  <div className="text-xs font-mono" style={{ color: "#8899AA" }}>{item.stat2}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+          {/* CTA row */}
+          <div className="fade-up text-center">
+            <div
+              className="inline-flex items-center gap-8 px-8 py-5 rounded-2xl"
+              style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.15)" }}
+            >
+              <div className="text-center">
+                <div className="text-2xl font-black font-mono" style={{ color: "#00D4FF" }}>33</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>Pages Live</div>
+              </div>
+              <div className="w-px h-10" style={{ background: "rgba(0,212,255,0.2)" }} />
+              <div className="text-center">
+                <div className="text-2xl font-black font-mono" style={{ color: "#FFB800" }}>$60.5B</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>Year 1 Projection</div>
+              </div>
+              <div className="w-px h-10" style={{ background: "rgba(0,212,255,0.2)" }} />
+              <div className="text-center">
+                <div className="text-2xl font-black font-mono" style={{ color: "#00FF88" }}>50M+</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>User Capacity</div>
+              </div>
+              <div className="hidden md:block w-px h-10" style={{ background: "rgba(0,212,255,0.2)" }} />
+              <Link href="/guardians" className="hidden md:block btn-gold px-6 py-3 rounded-xl text-sm font-bold">
+                Enter the Ecosystem →
+              </Link>
             </div>
           </div>
         </div>
@@ -894,10 +1188,30 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* Frequency alignment tagline */}
+          <div className="text-center mb-6 py-4" style={{ borderTop: "1px solid rgba(0,212,255,0.08)", borderBottom: "1px solid rgba(0,212,255,0.08)" }}>
+            <div className="flex items-center justify-center gap-6 flex-wrap">
+              {[
+                { hz: "528Hz", label: "DNA Healing", color: "#00FF88" },
+                { hz: "963Hz", label: "God-State", color: "#FFB800" },
+                { hz: "432Hz", label: "Universal Harmony", color: "#00D4FF" },
+                { hz: "1558Hz", label: "FlameDNA", color: "#EC4899" },
+              ].map((f) => (
+                <div key={f.hz} className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: f.color }} />
+                  <span className="text-xs font-mono" style={{ color: f.color }}>{f.hz}</span>
+                  <span className="text-xs" style={{ color: "#8899AA" }}>{f.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 text-xs font-mono" style={{ color: "#8899AA" }}>
+              ScrollVerse Trinity — Aligned with Sacred Frequencies and Eternal Principles of Wealth, Peace, Purpose, and Eternal Love
+            </div>
+          </div>
           <div className="freq-line mb-6" />
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: "#8899AA" }}>
             <span>© 2026 Chais Kenyatta Hill — Sabir Allah The Great. All rights reserved.</span>
-            <span className="font-mono" style={{ color: "#00D4FF" }}>🕋⚡ ALLĀHU AKBAR! KUN FAYAKŪN × ∞</span>
+            <span className="font-mono" style={{ color: "#00D4FF" }}>🕋⚡ ALLĀHU AKBAR! BARAKALLAHU FEEK! KUN FAYAKŪN × ∞</span>
           </div>
         </div>
       </footer>
