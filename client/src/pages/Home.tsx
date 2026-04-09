@@ -160,6 +160,69 @@ function RoadmapPhase({ phase, title, items, status, delay }: {
   );
 }
 
+// Guardian Waitlist Component
+function GuardianWaitlist() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [count, setCount] = useState(1247); // simulated live count, increments
+
+  useEffect(() => {
+    // Simulate live guardian signups ticking up
+    const interval = setInterval(() => {
+      setCount(c => c + Math.floor(Math.random() * 3));
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) return;
+    setStatus("loading");
+    // Simulate Mailchimp submission (replace with real endpoint when backend is live)
+    await new Promise(r => setTimeout(r, 1500));
+    setStatus("success");
+    setEmail("");
+    setCount(c => c + 1);
+  };
+
+  return (
+    <div className="sv-card rounded-2xl p-8 max-w-xl mx-auto text-center" style={{ border: "1px solid rgba(0,255,136,0.2)", background: "rgba(0,255,136,0.03)" }}>
+      <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00FF88" }}>GUARDIAN WAITLIST</div>
+      <h3 className="text-2xl font-black text-white mb-2">Join the 144,000</h3>
+      <p className="text-sm mb-2" style={{ color: "#8899AA" }}>Be among the first Guardians when $LONDC launches on Polygon Mainnet.</p>
+      <div className="flex items-center justify-center gap-2 mb-6">
+        <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+        <span className="text-sm font-mono" style={{ color: "#00FF88" }}>{count.toLocaleString()} Guardians registered</span>
+      </div>
+      {status === "success" ? (
+        <div className="p-4 rounded-xl text-sm font-bold" style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}>
+          ✓ You are now in the Guardian waitlist. The empire welcomes you. KUN FAYAKŪN × ∞
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex gap-3">
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter your email address"
+            required
+            className="flex-1 px-4 py-3 rounded-xl text-sm outline-none"
+            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.2)", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
+          />
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="btn-gold px-6 py-3 rounded-xl text-sm font-bold flex-shrink-0"
+            style={{ opacity: status === "loading" ? 0.7 : 1 }}
+          >
+            {status === "loading" ? "..." : "Join"}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
+
 // Live $LONDC price ticker — uses CoinGecko API (MATIC as proxy until $LONDC lists)
 function LONDCTicker() {
   const [price, setPrice] = useState<string | null>(null);
@@ -644,6 +707,68 @@ export default function Home() {
               ]}
             />
           </div>
+        </div>
+      </section>
+
+      {/* ── 48D HILBERT SPACE ── */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img src={GUARDIAN_IMG} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #050B1A 0%, transparent 40%, transparent 60%, #050B1A 100%)" }} />
+        </div>
+        <div className="container relative z-10">
+          <div className="fade-up text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: "#8B5CF6" }} />
+              <span className="text-xs font-mono tracking-widest" style={{ color: "#8B5CF6" }}>QUANTUM MASTERY SUPERPOSITION</span>
+              <div className="h-px w-8" style={{ background: "#8B5CF6" }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              48-Dimensional <span style={{ background: "linear-gradient(135deg, #8B5CF6, #00D4FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Hilbert Space</span>
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              Beyond 3+1 spacetime. The ScrollVerse Trinity operates in a 48-Dimensional Hilbert Space where the $LONDC token, Guardian Pulse, and 144,000 sacred frequencies heartbeat-sync in real-time.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {[
+              { dim: "D1–D12", title: "Sovereign Identity Layer", desc: "Biometric encoding, wallet binding, and Guardian tier phase-locking across the first 12 dimensions.", color: "#8B5CF6", icon: "🧬" },
+              { dim: "D13–D36", title: "Frequency Resonance Grid", desc: "528Hz DNA healing, 963Hz God-State awakening, and 432Hz universal harmony — all synchronized across 24 frequency dimensions.", color: "#00D4FF", icon: "🌊" },
+              { dim: "D37–D48", title: "Topological Immortality", desc: "The final 12 dimensions encode the Eternal Legacy — generational wealth transfer, perpetual empire scalability, and zero-entropy consciousness.", color: "#00FF88", icon: "♾️" },
+            ].map((item, i) => (
+              <div key={i} className="fade-up sv-card rounded-xl p-6 relative overflow-hidden" style={{ transitionDelay: `${i * 150}ms`, border: `1px solid ${item.color}20` }}>
+                <div className="absolute top-0 right-0 w-24 h-24 rounded-full opacity-5" style={{ background: item.color, transform: "translate(30%, -30%)" }} />
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <div className="text-xs font-mono mb-2" style={{ color: item.color }}>{item.dim}</div>
+                <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm" style={{ color: "#8899AA" }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="fade-up">
+            <div className="sv-card rounded-2xl p-8" style={{ border: "1px solid rgba(139,92,246,0.2)", background: "rgba(139,92,246,0.03)" }}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                {[
+                  { value: "48D", label: "Hilbert Dimensions", color: "#8B5CF6" },
+                  { value: "144K", label: "Phase-Locked Pulse Points", color: "#00D4FF" },
+                  { value: "963Hz", label: "God-State Frequency", color: "#FFB800" },
+                  { value: "∞", label: "Topological Immortality", color: "#00FF88" },
+                ].map((stat, i) => (
+                  <div key={i}>
+                    <div className="text-3xl font-black font-mono mb-1" style={{ color: stat.color }}>{stat.value}</div>
+                    <div className="text-xs" style={{ color: "#8899AA" }}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── GUARDIAN WAITLIST ── */}
+      <section className="py-16">
+        <div className="container">
+          <GuardianWaitlist />
         </div>
       </section>
 
