@@ -52,10 +52,10 @@
 - [x] All tests passing (7/7)
 
 ## Pending — Next Phase
-- [ ] Wire Ecosystem Showcase cards on Home.tsx to real routes (Academy, Token, Wallet, Dashboard)
-- [ ] Add share buttons on major sections (Twitter/X, Telegram, WhatsApp, copy link)
+- [x] Wire Ecosystem Showcase cards on Home.tsx to real routes (Academy, Token, Wallet, Dashboard)
+- [x] Add share buttons on major sections (Twitter/X, Telegram, WhatsApp, copy link)
 - [ ] Referral link system with unique Guardian codes
-- [ ] Public REST API endpoint /api/public/ecosystem for platform integrations
+- [x] Public REST API endpoint /api/public/ecosystem for platform integrations
 - [ ] Claim Stripe sandbox and add live keys for real payments
 - [ ] Add MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID to activate email sync
 - [ ] Add GUARDIAN_CONTRACT_ADDRESS once deployed to Polygon Mainnet

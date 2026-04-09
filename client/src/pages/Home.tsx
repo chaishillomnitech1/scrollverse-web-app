@@ -14,10 +14,10 @@ const GUARDIAN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/X
 
 // ── QUICK ACCESS FLOATING NAV ──
 const QUICK_ACCESS = [
-  { icon: "📺", label: "YouTube", hint: "YouTube Cable Channel", href: "#ecosystem" },
-  { icon: "✨", label: "10 Tiers", hint: "All 10 Tiers", href: "#ecosystem" },
-  { icon: "📚", label: "Academy", hint: "Creator Academy", href: "#ecosystem" },
-  { icon: "🎨", label: "NFT Gallery", hint: "NFT Gallery", href: "#ecosystem" },
+  { icon: "📺", label: "YouTube", hint: "YouTube Cable Channel", href: "https://www.youtube.com/@scrollverse" },
+  { icon: "✨", label: "10 Tiers", hint: "All 10 Tiers", href: "/guardians" },
+  { icon: "📚", label: "Academy", hint: "Creator Academy", href: "/academy" },
+  { icon: "🎨", label: "NFT Gallery", hint: "NFT Gallery", href: "/token" },
   { icon: "🌍", label: "Global Map", hint: "Global Map", href: "/global-map" },
   { icon: "📊", label: "Revenue", hint: "Revenue Dashboard", href: "/revenue" },
   { icon: "🎓", label: "Guardian Academy", hint: "Guardian Academy", href: "#guardian" },
@@ -25,7 +25,7 @@ const QUICK_ACCESS = [
   { icon: "⚡", label: "Omnipotence", hint: "Omnipotence Dashboard", href: "#pillars" },
   { icon: "👑", label: "Divine", hint: "Divine Integration", href: "#frequencies" },
   { icon: "🔥", label: "FlameChain", hint: "FlameChain Wealth", href: "#token" },
-  { icon: "🚀", label: "Space NFTs", hint: "Space NFT Realms", href: "#ecosystem" },
+  { icon: "🚀", label: "Space NFTs", hint: "Space NFT Realms", href: "/token" },
   { icon: "🧬", label: "48D Hilbert", hint: "48D Hilbert Space", href: "#hilbert" },
   { icon: "🏛️", label: "Soul Altar", hint: "Soul Altar Project", href: "#pillars" },
   { icon: "💎", label: "Guardians", hint: "Guardian Network", href: "/guardians" },
@@ -574,6 +574,33 @@ export default function Home() {
                 Explore Pillars →
               </a>
             </div>
+            {/* Share row */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-xs font-mono" style={{ color: "#8899AA" }}>SHARE THE EMPIRE:</span>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Join the ScrollVerse Trinity — 144,000 Guardians, $LONDC token, Creator Academy. KUN FAYAKŪN × ∞')}&url=${encodeURIComponent('https://scrollport-xkjtdnvi.manus.space')}`}
+                target="_blank" rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:scale-105"
+                style={{ background: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.15)", color: "white" }}
+              >𝕏 Twitter</a>
+              <a
+                href={`https://t.me/share/url?url=${encodeURIComponent('https://scrollport-xkjtdnvi.manus.space')}&text=${encodeURIComponent('ScrollVerse Trinity — Join 144,000 Guardians. $LONDC Token. Creator Academy. KUN FAYAKŪN × ∞')}`}
+                target="_blank" rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:scale-105"
+                style={{ background: "rgba(0,136,204,0.2)", border: "1px solid rgba(0,136,204,0.4)", color: "#00D4FF" }}
+              >✈ Telegram</a>
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent('ScrollVerse Trinity — Join 144,000 Guardians. $LONDC Token on Polygon. Creator Academy. https://scrollport-xkjtdnvi.manus.space')}`}
+                target="_blank" rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:scale-105"
+                style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}
+              >💬 WhatsApp</a>
+              <button
+                onClick={() => { navigator.clipboard.writeText('https://scrollport-xkjtdnvi.manus.space'); }}
+                className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:scale-105"
+                style={{ background: "rgba(255,184,0,0.1)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}
+              >🔗 Copy Link</button>
+            </div>
           </div>
         </div>
       </section>
@@ -1004,7 +1031,7 @@ export default function Home() {
                 stat1: "50M+ subscribers",
                 stat2: "$4.3M–$13.5M monthly",
                 color: "#FF4444",
-                href: "#",
+                href: "https://www.youtube.com/@scrollverse",
               },
               {
                 icon: "✨",
@@ -1022,7 +1049,7 @@ export default function Home() {
                 stat1: "200+ courses",
                 stat2: "Free enrollment",
                 color: "#00D4FF",
-                href: "#",
+                href: "/academy",
               },
               {
                 icon: "🎨",
@@ -1031,7 +1058,7 @@ export default function Home() {
                 stat1: "$12M+ volume",
                 stat2: "Permanent royalties",
                 color: "#8B5CF6",
-                href: "#",
+                href: "/token",
               },
             ].map((item, i) => (
               <a

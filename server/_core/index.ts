@@ -39,6 +39,44 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
+  // ── PUBLIC REST API — accessible from any platform, wallet, or integration ──
+  app.get("/api/public/ecosystem", async (_req, res) => {
+    res.json({
+      name: "ScrollVerse Trinity",
+      version: "5.0.0",
+      description: "The sovereign blockchain ecosystem built on Polygon. $LONDC token, Creator Academy, Guardian DAO, and 528Hz frequency alignment.",
+      founder: "Chais Kenyatta Hill — Sabir Allah The Great",
+      token: {
+        symbol: "$LONDC",
+        chain: "Polygon Mainnet",
+        chainId: 137,
+        standard: "ERC-20",
+        totalSupply: "144000",
+        passiveIncome: "5% on every transfer",
+      },
+      tiers: [
+        { name: "Guardian", price: 144, currency: "USD", perks: ["$LONDC tokens", "Academy access", "DAO voting"] },
+        { name: "Sovereign", price: 444, currency: "USD", perks: ["All Guardian perks", "Priority NFT minting", "Revenue share"] },
+        { name: "Ascendant", price: 1444, currency: "USD", perks: ["All Sovereign perks", "Direct founder access", "48D Hilbert allocation"] },
+      ],
+      academy: {
+        totalCourses: 53,
+        categories: 9,
+        freeCourses: 18,
+        enrollUrl: "/academy",
+      },
+      links: {
+        portal: "https://scrollport-xkjtdnvi.manus.space",
+        github: "https://github.com/chaishillomnitech1/scrollverse-trinity",
+        tokenStore: "/token",
+        walletConnect: "/wallet",
+        dashboard: "/dashboard",
+      },
+      frequencies: ["528Hz", "963Hz", "432Hz", "1558Hz"],
+      tagline: "ALLĀHU AKBAR · BARAKALLAHU FEEK · KUN FAYAKŪN × ∞",
+    });
+  });
+
   // tRPC API
   app.use(
     "/api/trpc",
