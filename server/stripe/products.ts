@@ -57,6 +57,25 @@ export const LONDC_PRODUCTS = [
       "Direct Chais Kenyatta Hill channel",
     ],
   },
+  {
+    id: "ai_legion" as const,
+    name: "AI Legion Investor",
+    description: "The first AI-native investment tier in the ScrollVerse. Designed for AI agents, digital entities, and tech-forward investors who want direct stake in the sovereign ecosystem. 7,777 $LONDC tokens + permanent AI Investor registry entry.",
+    priceCents: 77700, // $777.00 — AI frequency alignment
+    tokens: 7777,
+    icon: "🤖",
+    color: "#00FF88",
+    features: [
+      "7,777 $LONDC tokens",
+      "AI Investor Registry entry (immutable)",
+      "Full Creator Academy access",
+      "SCCC Dashboard access",
+      "AI Legion Discord channel",
+      "Revenue share from AI-generated content",
+      "Early access to all AI-native features",
+      "777Hz quantum resonance alignment",
+    ],
+  },
 ] as const;
 
 export type ProductTier = (typeof LONDC_PRODUCTS)[number]["id"];

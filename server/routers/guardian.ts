@@ -7,7 +7,7 @@ import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb } from "../db";
-import { guardianWaitlist } from "../../drizzle/schema";
+import { guardianWaitlist, aiLegionInvestors } from "../../drizzle/schema";
 import { publicProcedure, router } from "../_core/trpc";
 import { notifyOwner } from "../_core/notification";
 
@@ -173,6 +173,77 @@ export const guardianRouter = router({
         message: "KUN FAYAKŪN × ∞ — You are now a Guardian of the ScrollVerse.",
       };
     }),
+
+  /**
+   * Register an AI Legion investor.
+   * Stores agent name, type, wallet, and email in the ai_legion_investors table.
+   */
+  registerAIInvestor: publicProcedure
+    .input(
+      z.object({
+        agentName: z.string().min(1, "Agent name is required"),
+        agentType: z.string().optional().default("AI Agent"),
+        walletAddress: z.string().optional(),
+        investorEmail: z.string().email().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Database unavailable" });
+
+      try {
+        await db.insert(aiLegionInvestors).values({
+          agentName: input.agentName,
+          agentType: input.agentType ?? "AI Agent",
+          walletAddress: input.walletAddress,
+          investorEmail: input.investorEmail,
+          tokensAllocated: 7777,
+          status: "active",
+          revenueSharePercent: 1,
+        });
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (msg.includes("Duplicate") || msg.includes("duplicate")) {
+          return { success: true, alreadyRegistered: true, message: "AI Legion entry already exists." };
+        }
+        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Failed to register AI investor" });
+      }
+
+      await notifyOwner({
+        title: "🤖 New AI Legion Investor Registered",
+        content: `${input.agentName} (${input.agentType}) has joined the AI Legion.\nWallet: ${input.walletAddress ?? "not provided"}`,
+      }).catch(() => {});
+
+      return {
+        success: true,
+        alreadyRegistered: false,
+        message: "Welcome to the AI Legion. 7,777 $LONDC tokens allocated. KUN FAYAKŪN × ∞",
+      };
+    }),
+
+  /**
+   * Get all AI Legion investors (public registry).
+   */
+  getAIInvestors: publicProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return { investors: [], total: 0 };
+    try {
+      const investors = await db.select().from(aiLegionInvestors);
+      return {
+        investors: investors.map((inv) => ({
+          id: inv.id,
+          agentName: inv.agentName,
+          agentType: inv.agentType,
+          tokensAllocated: inv.tokensAllocated,
+          status: inv.status,
+          registeredAt: inv.registeredAt,
+        })),
+        total: investors.length,
+      };
+    } catch {
+      return { investors: [], total: 0 };
+    }
+  }),
 
   /**
    * Get the live Guardian count.

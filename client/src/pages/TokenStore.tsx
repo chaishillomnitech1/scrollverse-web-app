@@ -171,6 +171,29 @@ export default function TokenStore() {
         </div>
       )}
 
+      {/* Direct Crypto Payment Option */}
+      <section className="py-10" style={{ borderTop: "1px solid rgba(0,212,255,0.08)" }}>
+        <div className="container">
+          <div className="rounded-2xl p-8 text-center" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)" }}>
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00D4FF" }}>PREFER CRYPTO? PAY DIRECTLY ON-CHAIN</div>
+            <h3 className="text-xl font-bold text-white mb-2">Send MATIC or USDC Directly</h3>
+            <p className="text-sm mb-4 max-w-xl mx-auto" style={{ color: "#8899AA" }}>No Stripe required. Send your Guardian tier amount directly to the sovereign treasury wallet on Polygon Mainnet. Zero middlemen. Immutable proof on-chain.</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link href="/crypto" className="px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 inline-block" style={{ background: "linear-gradient(135deg, #00D4FF, #0088FF)", color: "#050B1A" }}>
+                ₿ Open CryptoHub →
+              </Link>
+              <button
+                onClick={() => { navigator.clipboard.writeText("0x377956c1471d9ce142df6932895839243da23a2c"); toast.success("Wallet address copied!"); }}
+                className="px-6 py-3 rounded-xl text-sm font-mono transition-all hover:scale-105"
+                style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.25)", color: "#00D4FF" }}
+              >
+                📋 0x3779...3a2c
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Security badges */}
       <section className="py-12 border-t" style={{ borderColor: "rgba(0,212,255,0.08)" }}>
         <div className="container">

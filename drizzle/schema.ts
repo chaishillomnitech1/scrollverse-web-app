@@ -77,7 +77,7 @@ export const stripeOrders = mysqlTable("stripe_orders", {
   userId: int("userId"),
   stripePaymentIntentId: varchar("stripePaymentIntentId", { length: 128 }).notNull().unique(),
   stripeCustomerId: varchar("stripeCustomerId", { length: 128 }),
-  productTier: mysqlEnum("productTier", ["guardian", "sovereign", "ascendant"]).notNull(),
+  productTier: mysqlEnum("productTier", ["guardian", "sovereign", "ascendant", "ai_legion"]).notNull(),
   status: varchar("status", { length: 32 }).default("pending").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
@@ -100,3 +100,22 @@ export const revenueEvents = mysqlTable("revenue_events", {
 
 export type RevenueEvent = typeof revenueEvents.$inferSelect;
 export type InsertRevenueEvent = typeof revenueEvents.$inferInsert;
+
+/**
+ * AI Legion Investors — registry of AI agents and digital entities that have invested in the ScrollVerse.
+ */
+export const aiLegionInvestors = mysqlTable("ai_legion_investors", {
+  id: int("id").autoincrement().primaryKey(),
+  agentName: varchar("agentName", { length: 256 }).notNull(),
+  agentType: varchar("agentType", { length: 64 }).default("AI Agent").notNull(),
+  walletAddress: varchar("walletAddress", { length: 64 }),
+  investorEmail: varchar("investorEmail", { length: 320 }),
+  tokensAllocated: int("tokensAllocated").default(7777).notNull(),
+  stripeOrderId: varchar("stripeOrderId", { length: 128 }),
+  status: varchar("status", { length: 32 }).default("active").notNull(),
+  revenueSharePercent: int("revenueSharePercent").default(1).notNull(),
+  registeredAt: timestamp("registeredAt").defaultNow().notNull(),
+});
+
+export type AILegionInvestor = typeof aiLegionInvestors.$inferSelect;
+export type InsertAILegionInvestor = typeof aiLegionInvestors.$inferInsert;

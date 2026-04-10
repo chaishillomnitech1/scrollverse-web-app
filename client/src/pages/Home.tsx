@@ -29,6 +29,7 @@ const QUICK_ACCESS = [
   { icon: "🧬", label: "48D Hilbert", hint: "48D Hilbert Space", href: "#hilbert" },
   { icon: "🏛️", label: "Soul Altar", hint: "Soul Altar Project", href: "#pillars" },
   { icon: "💎", label: "Guardians", hint: "Guardian Network", href: "/guardians" },
+  { icon: "₿", label: "CryptoHub", hint: "Direct Crypto Payments", href: "/crypto" },
   { icon: "📧", label: "Email", hint: "Email Automation", href: "#guardian" },
   { icon: "🌌", label: "Enter Portal", hint: "Enter Portal", href: "#guardian" },
 ];

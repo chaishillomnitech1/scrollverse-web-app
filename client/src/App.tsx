@@ -12,6 +12,9 @@ import Academy from "./pages/Academy";
 import Dashboard from "./pages/Dashboard";
 import WalletConnect from "./pages/WalletConnect";
 import TokenStore from "./pages/TokenStore";
+import CryptoHub from "./pages/CryptoHub";
+import AILegion from "./pages/AILegion";
+import Deploy from "./pages/Deploy";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -25,6 +28,9 @@ function Router() {
       <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/wallet"} component={WalletConnect} />
       <Route path={"/token"} component={TokenStore} />
+      <Route path={"/crypto"} component={CryptoHub} />
+      <Route path={"/ai-legion"} component={AILegion} />
+      <Route path={"/deploy"} component={Deploy} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

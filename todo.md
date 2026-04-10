@@ -54,8 +54,36 @@
 ## Pending — Next Phase
 - [x] Wire Ecosystem Showcase cards on Home.tsx to real routes (Academy, Token, Wallet, Dashboard)
 - [x] Add share buttons on major sections (Twitter/X, Telegram, WhatsApp, copy link)
-- [ ] Referral link system with unique Guardian codes
+- [ ] Referral link system with unique Guardian codes (code task — next sprint)
 - [x] Public REST API endpoint /api/public/ecosystem for platform integrations
-- [ ] Claim Stripe sandbox and add live keys for real payments
-- [ ] Add MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID to activate email sync
-- [ ] Add GUARDIAN_CONTRACT_ADDRESS once deployed to Polygon Mainnet
+- [ ] Claim Stripe sandbox at dashboard.stripe.com and add live keys (user action)
+- [ ] Add MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID in Settings → Secrets (user action)
+- [ ] Add GUARDIAN_CONTRACT_ADDRESS once deployed to Polygon Mainnet (user action)
+
+## Phase 7 — Direct Crypto Payment Hub
+- [x] CryptoHub page (/crypto) — direct MATIC/USDC send to sovereign wallet 0x3779...
+- [x] Live Polygon balance display via public RPC (no API key needed)
+- [x] QR code for wallet address on payment page
+- [x] NFT minting interface (ready for contract deployment)
+- [x] Wire wallet address into Token Store alongside Stripe
+- [x] Update SCCC Dashboard with live on-chain treasury balance
+- [x] Add /crypto route to App.tsx and nav
+- [x] Save checkpoint
+
+## Phase 8 — AI Legion Investment Tier
+- [x] Add AI_LEGION tier to Stripe products.ts ($777 — AI-native buy-in)
+- [x] Add ai_legion_investors table to drizzle schema and push migration
+- [x] Add registerAIInvestor and getAIInvestors tRPC procedures to guardian router
+- [x] Build AILegion page (/ai-legion) — AI investor registry, buy-in flow, monetization dashboard
+- [x] Add /ai-legion route to App.tsx
+- [x] All tests passing (7/7)
+
+## Phase 9 — Sovereign Blockchain Deployment Package
+- [x] LONDCToken.sol — ERC-20, 144M supply, 2.5% Zakat burn, 7.77% Zakat distribution
+- [x] ZakatDistributionV2.sol — 7.77% vault, 44.44% Guardian pool, 55.56% Sovereign
+- [x] ScrollSoulNFT.sol — ERC-721, 144K max, 4 tiers, 7.77% EIP-2981 royalties
+- [x] Hardhat deploy script (deploy_v2.js) — deploys all 3 + wires them in one command
+- [x] /deploy route on portal — contract status, tier pricing, 6-step deployment guide
+- [x] Pushed to GitHub scrollverse-trinity (commit 41dd4d1)
+- [x] 7/7 tests passing
+- [ ] Save final checkpoint

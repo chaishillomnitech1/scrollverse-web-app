@@ -1,8 +1,36 @@
-import { useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+
+const SOVEREIGN_WALLET = "0x377956c1471d9ce142df6932895839243da23a2c";
+
+function useTreasuryBalance() {
+  const [balance, setBalance] = useState("···");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        const res = await fetch("https://polygon-rpc.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jsonrpc: "2.0", method: "eth_getBalance", params: [SOVEREIGN_WALLET, "latest"], id: 1 }),
+        });
+        const data = await res.json();
+        if (data.result) {
+          const matic = Number(BigInt(data.result)) / 1e18;
+          setBalance(matic.toFixed(4) + " MATIC");
+        }
+      } catch { setBalance("—"); }
+      finally { setLoading(false); }
+    };
+    fetchBalance();
+    const iv = setInterval(fetchBalance, 30000);
+    return () => clearInterval(iv);
+  }, []);
+  return { balance, loading };
+}
 
 const TIER_COLORS: Record<string, string> = {
   guardian: "#00D4FF",
@@ -90,6 +118,7 @@ function RevenueBar({
 
 export default function Dashboard() {
   const { user, isAuthenticated, loading } = useAuth();
+  const { balance: treasuryBalance, loading: treasuryLoading } = useTreasuryBalance();
   const { data: metrics, isLoading } = trpc.store.getDashboardMetrics.useQuery(undefined, {
     enabled: isAuthenticated,
     refetchInterval: 30000, // refresh every 30s
@@ -278,6 +307,18 @@ export default function Dashboard() {
                 sub="Portal · Academy · Store"
                 color="#8B5CF6"
               />
+            </div>
+
+            {/* On-chain treasury */}
+            <div className="rounded-xl p-5 mb-6 flex items-center justify-between" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.2)" }}>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: treasuryLoading ? "#8899AA" : "#00FF88" }} />
+                <div>
+                  <div className="text-xs font-mono" style={{ color: "#8899AA" }}>SOVEREIGN TREASURY · POLYGON MAINNET · LIVE</div>
+                  <div className="text-xl font-black font-mono" style={{ color: "#00FF88" }}>{treasuryBalance}</div>
+                </div>
+              </div>
+              <a href={`https://polygonscan.com/address/${SOVEREIGN_WALLET}`} target="_blank" rel="noopener noreferrer" className="text-xs font-mono underline" style={{ color: "#00FF88" }}>View on Polygonscan →</a>
             </div>
 
             {/* Revenue by tier */}
