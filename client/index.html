@@ -37,6 +37,22 @@
     <!-- Telegram / iMessage link preview -->
     <meta property="og:image:secure_url" content="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp" />
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Apple PWA Meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ScrollVerse" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/icons/icon-128x128.png" />
+    <link rel="apple-touch-startup-image" href="/icons/icon-512x512.png" />
+
+    <!-- Microsoft PWA -->
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png" />
+
     <!-- Theme color for browser chrome -->
     <meta name="theme-color" content="#050B1A" />
     <meta name="msapplication-TileColor" content="#050B1A" />
@@ -69,6 +85,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('[SW] ScrollVerse Service Worker registered:', reg.scope))
+            .catch(err => console.warn('[SW] Registration failed:', err));
+        });
+      }
+    </script>
     <script
       defer
       src="%VITE_ANALYTICS_ENDPOINT%/umami"

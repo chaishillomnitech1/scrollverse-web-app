@@ -15,6 +15,9 @@ import TokenStore from "./pages/TokenStore";
 import CryptoHub from "./pages/CryptoHub";
 import AILegion from "./pages/AILegion";
 import Deploy from "./pages/Deploy";
+import Telegram from "./pages/Telegram";
+import Discord from "./pages/Discord";
+import PWAInstallBanner from "./components/PWAInstallBanner";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -31,6 +34,8 @@ function Router() {
       <Route path={"/crypto"} component={CryptoHub} />
       <Route path={"/ai-legion"} component={AILegion} />
       <Route path={"/deploy"} component={Deploy} />
+      <Route path={"/telegram"} component={Telegram} />
+      <Route path={"/discord"} component={Discord} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -44,6 +49,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <PWAInstallBanner />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

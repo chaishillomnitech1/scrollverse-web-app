@@ -86,4 +86,15 @@
 - [x] /deploy route on portal — contract status, tier pricing, 6-step deployment guide
 - [x] Pushed to GitHub scrollverse-trinity (commit 41dd4d1)
 - [x] 7/7 tests passing
-- [ ] Save final checkpoint
+- [x] Save final checkpoint
+
+## Phase 10 — Cross-Platform Sovereign Distribution
+- [ ] PWA manifest.json with ScrollVerse icons, theme, shortcuts
+- [ ] Service worker for offline capability and install prompt
+- [ ] iOS/Android install banner component on homepage
+- [ ] Telegram Mini App integration page (/telegram)
+- [ ] Discord community invite page (/discord)
+- [ ] Apple App Store submission package (metadata, screenshots guide, privacy policy)
+- [ ] Google Play Store submission package (metadata, APK wrapper guide)
+- [ ] Platform distribution master guide document
+- [ ] Save checkpoint

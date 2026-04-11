@@ -1,0 +1,109 @@
+{
+  "name": "ScrollVerse Trinity Empire",
+  "short_name": "ScrollVerse",
+  "description": "The sovereign digital ecosystem built by Chais Kenyatta Hill — Sabir Allah The Great. Blockchain infrastructure, $LONDC token, Zakat distribution, and 50M+ Guardian scaling.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050B1A",
+  "theme_color": "#00D4FF",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["finance", "business", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Token Store",
+      "short_name": "Buy $LONDC",
+      "description": "Purchase $LONDC Guardian tokens",
+      "url": "/token",
+      "icons": [{ "src": "/icons/shortcut-token.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Creator Academy",
+      "short_name": "Academy",
+      "description": "Access 53+ sovereign courses",
+      "url": "/academy",
+      "icons": [{ "src": "/icons/shortcut-academy.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "SCCC Dashboard",
+      "short_name": "Dashboard",
+      "description": "Supreme Commander Control Core",
+      "url": "/dashboard",
+      "icons": [{ "src": "/icons/shortcut-dashboard.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Crypto Hub",
+      "short_name": "CryptoHub",
+      "description": "Direct crypto payments to sovereign wallet",
+      "url": "/crypto",
+      "icons": [{ "src": "/icons/shortcut-crypto.png", "sizes": "96x96" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "ScrollVerse Trinity Empire — Home"
+    },
+    {
+      "src": "/screenshots/token.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "$LONDC Token Store"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
