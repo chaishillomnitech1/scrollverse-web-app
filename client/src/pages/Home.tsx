@@ -1112,6 +1112,111 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── MUSIC DSP SECTION ── */}
+      <section id="music" className="py-24" style={{ background: "linear-gradient(180deg, transparent, rgba(0,212,255,0.02), transparent)" }}>
+        <div className="container">
+          <div className="fade-up text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: "#1DB954" }} />
+              <span className="text-xs font-mono tracking-widest" style={{ color: "#1DB954" }}>SOVEREIGN DSP — CHAIS THE GREAT</span>
+              <div className="h-px w-8" style={{ background: "#1DB954" }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              Listening <span style={{ color: "#1DB954" }}>IS</span> Investing
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              32+ sovereign tracks. Every stream is a stake. Every purchase is a partnership. Chais The Great is not just music — it is a living economy where fans become investors and art becomes immutable wealth.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
+            <div className="fade-up">
+              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(29,185,84,0.3)" }}>
+                <iframe
+                  src="https://open.spotify.com/embed/artist/3P0GWluMPNZ2xSCVffVGAr?utm_source=generator&theme=0"
+                  width="100%"
+                  height="280"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="fade-up space-y-4" style={{ transitionDelay: "200ms" }}>
+              {[
+                { icon: "🎵", title: "Stream = Stake", desc: "Every stream on the ScrollVerse DSP earns $LONDC micro-rewards. Listening is literally investing in the legacy.", color: "#1DB954" },
+                { icon: "💎", title: "Direct Revenue Share", desc: "Music Investors receive 1–5% of catalog revenue quarterly, paid in MATIC or USDC directly to your wallet.", color: "#00D4FF" },
+                { icon: "♾️", title: "Immutable Royalties", desc: "ScrollSoul NFTs carry 7.77% EIP-2981 royalties on every secondary sale — forever, on-chain, unstoppable.", color: "#FFB800" },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4 sv-card rounded-xl p-4">
+                  <div className="text-2xl flex-shrink-0">{item.icon}</div>
+                  <div>
+                    <div className="font-bold text-white mb-1">{item.title}</div>
+                    <div className="text-sm" style={{ color: "#8899AA" }}>{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+              <Link href="/music">
+                <button className="w-full py-3 rounded-xl font-bold text-sm transition-all hover:scale-105" style={{ background: "#1DB954", color: "white" }}>
+                  🎧 Explore Full Catalog — 32+ Tracks
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOCIAL HUB ── */}
+      <section id="connect" className="py-16">
+        <div className="container">
+          <div className="fade-up text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#E1306C" }}>ALL CHANNELS — ALL PLATFORMS</div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Connect with the Sovereign</h2>
+            <p className="text-base max-w-xl mx-auto" style={{ color: "#8899AA" }}>Every channel. Direct to the source. No middlemen, no gatekeepers.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[
+              { name: "Spotify", icon: "🎧", url: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr", color: "#1DB954" },
+              { name: "Instagram", icon: "📸", url: "https://www.instagram.com/chaisthegreat_mrwalk", color: "#E1306C" },
+              { name: "Facebook", icon: "👥", url: "https://www.facebook.com/share/17muPs8T9G/", color: "#1877F2" },
+              { name: "GitHub", icon: "💻", url: "https://github.com/chaishillomnitech1", color: "#00D4FF" },
+              { name: "CashApp", icon: "💸", url: "https://cash.app/$ChaisTheGreat", color: "#00D632" },
+              { name: "Sora AI", icon: "🎬", url: "https://sora.chatgpt.com/profile/omnit1", color: "#FFB800" },
+              { name: "Community Chat", icon: "💬", url: "/chat", color: "#00FF88", internal: true },
+              { name: "All Links", icon: "🌐", url: "/connect", color: "#8B5CF6", internal: true },
+            ].map((s) => (
+              s.internal ? (
+                <Link key={s.name} href={s.url}>
+                  <div
+                    className="fade-up flex flex-col items-center gap-2 p-4 rounded-xl cursor-pointer transition-all hover:scale-105"
+                    style={{ background: `${s.color}10`, border: `1px solid ${s.color}30` }}
+                  >
+                    <div className="text-2xl">{s.icon}</div>
+                    <div className="text-xs font-bold" style={{ color: s.color }}>{s.name}</div>
+                  </div>
+                </Link>
+              ) : (
+                <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer">
+                  <div
+                    className="fade-up flex flex-col items-center gap-2 p-4 rounded-xl cursor-pointer transition-all hover:scale-105"
+                    style={{ background: `${s.color}10`, border: `1px solid ${s.color}30` }}
+                  >
+                    <div className="text-2xl">{s.icon}</div>
+                    <div className="text-xs font-bold" style={{ color: s.color }}>{s.name}</div>
+                  </div>
+                </a>
+              )
+            ))}
+          </div>
+          <div className="text-center">
+            <Link href="/connect">
+              <button className="btn-sovereign px-8 py-3 rounded-xl text-sm font-bold">
+                View All Social Links & Direct Contact →
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── GUARDIAN WAITLIST ── */}
       <section className="py-16">
         <div className="container">

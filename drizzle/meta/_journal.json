@@ -29,6 +29,13 @@
       "when": 1775761173893,
       "tag": "0003_mixed_raider",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1775968332785,
+      "tag": "0004_flaky_captain_stacy",
+      "breakpoints": true
     }
   ]
 }

@@ -89,12 +89,23 @@
 - [x] Save final checkpoint
 
 ## Phase 10 — Cross-Platform Sovereign Distribution
-- [ ] PWA manifest.json with ScrollVerse icons, theme, shortcuts
-- [ ] Service worker for offline capability and install prompt
-- [ ] iOS/Android install banner component on homepage
-- [ ] Telegram Mini App integration page (/telegram)
-- [ ] Discord community invite page (/discord)
-- [ ] Apple App Store submission package (metadata, screenshots guide, privacy policy)
-- [ ] Google Play Store submission package (metadata, APK wrapper guide)
-- [ ] Platform distribution master guide document
-- [ ] Save checkpoint
+- [x] PWA manifest.json with ScrollVerse icons, theme, shortcuts
+- [x] Service worker for offline capability and install prompt
+- [x] iOS/Android install banner component on homepage
+- [x] Telegram Mini App integration page (/telegram)
+- [x] Discord community invite page (/discord)
+- [x] Apple App Store submission package (metadata, screenshots guide, privacy policy)
+- [x] Google Play Store submission package (metadata, APK wrapper guide)
+- [x] Platform distribution master guide document
+- [x] Save checkpoint (v7.0.0 — acd67b7a)
+
+## Phase 11 — Music Catalog + Social Hub + Community Chat + Skill
+
+- [x] Music page (/music) — Chais The Great full catalog (35+ tracks), Spotify embed, Vydia links, music investment pitch, direct purchase via Stripe/crypto
+- [x] Social Hub page (/connect) — all social links (Instagram, Facebook, Sora, Gamma), CashApp ($ChaisTheGreat, $chaisthegreat28), scrollverse.co domain
+- [x] Community Chat page (/chat) — real-time messaging with DB persistence, Guardian tier badges, tRPC polling
+- [x] chat_messages table in drizzle schema + migration
+- [x] Update Home.tsx with music section teaser and social links row
+- [x] Add /music, /connect, /chat routes to App.tsx and quick-access nav
+- [x] Create reusable ScrollVerse sovereign skill via skill-creator
+- [x] Run tests and save checkpoint (7/7 passing)

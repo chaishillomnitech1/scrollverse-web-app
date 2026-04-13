@@ -17,6 +17,9 @@ import AILegion from "./pages/AILegion";
 import Deploy from "./pages/Deploy";
 import Telegram from "./pages/Telegram";
 import Discord from "./pages/Discord";
+import Music from "./pages/Music";
+import Connect from "./pages/Connect";
+import Chat from "./pages/Chat";
 import PWAInstallBanner from "./components/PWAInstallBanner";
 
 function Router() {
@@ -36,6 +39,9 @@ function Router() {
       <Route path={"/deploy"} component={Deploy} />
       <Route path={"/telegram"} component={Telegram} />
       <Route path={"/discord"} component={Discord} />
+      <Route path={"/music"} component={Music} />
+      <Route path={"/connect"} component={Connect} />
+      <Route path={"/chat"} component={Chat} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

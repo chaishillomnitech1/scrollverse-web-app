@@ -119,3 +119,19 @@ export const aiLegionInvestors = mysqlTable("ai_legion_investors", {
 
 export type AILegionInvestor = typeof aiLegionInvestors.$inferSelect;
 export type InsertAILegionInvestor = typeof aiLegionInvestors.$inferInsert;
+
+/**
+ * Chat Messages — Guardian community real-time chat.
+ */
+export const chatMessages = mysqlTable("chat_messages", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId"),
+  displayName: varchar("displayName", { length: 128 }).notNull(),
+  message: text("message").notNull(),
+  channel: varchar("channel", { length: 64 }).default("general").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ChatMessage = typeof chatMessages.$inferSelect;
+export type InsertChatMessage = typeof chatMessages.$inferInsert;
