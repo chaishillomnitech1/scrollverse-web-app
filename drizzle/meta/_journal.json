@@ -43,6 +43,13 @@
       "when": 1776053527264,
       "tag": "0005_moaning_next_avengers",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1776226186975,
+      "tag": "0006_tiresome_vindicator",
+      "breakpoints": true
     }
   ]
 }

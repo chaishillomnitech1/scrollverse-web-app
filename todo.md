@@ -149,5 +149,5 @@
 - [x] ScrollPort Merchant Map page (/scrollport) — merchant node table, GPV metrics, Zakat cascade display, South Jersey/Philly/NYC/London/Dubai clusters
 - [x] 50M Trajectory Dashboard section — phase progress bars (South Jersey → Philadelphia → East Coast → National → Global 50M)
 - [x] Physical Wins Feed — live Guardian activation feed on homepage/dashboard
-- [ ] merchant_nodes table in drizzle schema + migration
-- [ ] merchantRouter tRPC procedures (getNodes, getStats, addNode)
+- [x] merchant_nodes table in drizzle schema + migration
+- [x] merchantRouter tRPC procedures (getNodes, getStats, addNode, getRecentActivations)

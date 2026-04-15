@@ -173,3 +173,28 @@ export const referralCodes = mysqlTable("referral_codes", {
 
 export type ReferralCode = typeof referralCodes.$inferSelect;
 export type InsertReferralCode = typeof referralCodes.$inferInsert;
+
+/**
+ * Merchant Nodes — ScrollPort sovereign merchant network.
+ */
+export const merchantNodes = mysqlTable("merchant_nodes", {
+  id: int("id").autoincrement().primaryKey(),
+  businessName: varchar("businessName", { length: 256 }).notNull(),
+  ownerName: varchar("ownerName", { length: 256 }).notNull(),
+  email: varchar("email", { length: 320 }),
+  city: varchar("city", { length: 128 }).notNull(),
+  state: varchar("state", { length: 64 }).notNull(),
+  country: varchar("country", { length: 64 }).default("USA").notNull(),
+  cluster: varchar("cluster", { length: 64 }).default("South Jersey").notNull(),
+  businessType: varchar("businessType", { length: 64 }).default("Retail").notNull(),
+  gpvMonthly: int("gpvMonthly").default(0).notNull(),
+  zakatAmount: int("zakatAmount").default(0).notNull(),
+  status: mysqlEnum("status", ["active", "pending", "inactive"]).default("pending").notNull(),
+  tier: mysqlEnum("tier", ["seed", "guardian", "sovereign", "ascendant"]).default("seed").notNull(),
+  referralCode: varchar("referralCode", { length: 32 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  activatedAt: timestamp("activatedAt"),
+});
+
+export type MerchantNode = typeof merchantNodes.$inferSelect;
+export type InsertMerchantNode = typeof merchantNodes.$inferInsert;
