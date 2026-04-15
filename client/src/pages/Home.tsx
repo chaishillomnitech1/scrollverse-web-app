@@ -32,6 +32,10 @@ const QUICK_ACCESS = [
   { icon: "₿", label: "CryptoHub", hint: "Direct Crypto Payments", href: "/crypto" },
   { icon: "📧", label: "Email", hint: "Email Automation", href: "#guardian" },
   { icon: "🌌", label: "Enter Portal", hint: "Enter Portal", href: "#guardian" },
+  { icon: "🔮", label: "Identity Nexus", hint: "ANNO-OMNI Identity Nexus", href: "/anno-omni" },
+  { icon: "🔗", label: "Referral", hint: "Guardian Referral System", href: "/referral" },
+  { icon: "🏪", label: "ScrollPort", hint: "Merchant Network", href: "/scrollport" },
+  { icon: "🌐", label: "Omni Platforms", hint: "All Platforms Expansion", href: "/omni" },
 ];
 
 function QuickAccessBar() {
@@ -408,6 +412,9 @@ export default function Home() {
     { label: "Global Map", href: "/global-map" },
     { label: "Revenue", href: "/revenue" },
     { label: "Guardians", href: "/guardians" },
+    { label: "ScrollPort", href: "/scrollport" },
+    { label: "Referral", href: "/referral" },
+    { label: "Omni", href: "/omni" },
   ];
 
   return (

@@ -54,7 +54,7 @@
 ## Pending — Next Phase
 - [x] Wire Ecosystem Showcase cards on Home.tsx to real routes (Academy, Token, Wallet, Dashboard)
 - [x] Add share buttons on major sections (Twitter/X, Telegram, WhatsApp, copy link)
-- [ ] Referral link system with unique Guardian codes (code task — next sprint)
+- [x] Referral link system with unique Guardian codes (code task — next sprint)
 - [x] Public REST API endpoint /api/public/ecosystem for platform integrations
 - [ ] Claim Stripe sandbox at dashboard.stripe.com and add live keys (user action)
 - [ ] Add MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID in Settings → Secrets (user action)
@@ -109,3 +109,45 @@
 - [x] Add /music, /connect, /chat routes to App.tsx and quick-access nav
 - [x] Create reusable ScrollVerse sovereign skill via skill-creator
 - [x] Run tests and save checkpoint (7/7 passing)
+
+## Phase 12 — ANNO-OMNI + Referral + Chat Badges + Omni Platform Expansion
+
+### ANNO-OMNI Identity Nexus
+- [x] ANNO-OMNI page (/anno-omni) — 48D Identity Nexus with Guardian lead-gen pipeline, KYS verification, $LONDC velocity display
+- [x] anno_omni_leads table in drizzle schema + migration
+- [x] annoOmniRouter tRPC procedures (submitLead, getLeadStats, getIdentityPulse)
+- [x] Add /anno-omni route to App.tsx and quick-access nav
+
+### Guardian Referral System
+- [x] referral_codes table in drizzle schema + migration (code, userId, clicks, conversions)
+- [x] referralRouter tRPC procedures (generateCode, trackClick, getStats, getLeaderboard)
+- [x] Referral page (/referral) — personal code, share links, leaderboard, rewards
+- [x] Add /referral route to App.tsx and quick-access nav
+- [x] Viral share links with UTM tracking (Twitter, Telegram, WhatsApp, copy)
+
+### Guardian Tier Badges in Chat
+- [x] Add tier field to chat_messages table (or derive from display name prefix)
+- [x] Update sendMessage procedure to accept optional tier parameter
+- [x] Update Chat.tsx to show tier badge next to display name (Guardian/Sovereign/Ascendant/etc.)
+- [x] Update guardian tier badge colors to match tier system
+
+### Omni Platform Expansion
+- [x] Omni Platform Expansion page (/omni) built (/platforms) — iOS, Android, Web, PWA, Telegram, Discord, Samsung, Huawei, Amazon Fire
+- [x] Apple App Store Connect submission guide with all required assets
+- [x] Google Play Store submission guide with all required assets
+- [x] Samsung Galaxy Store, Amazon Appstore, Huawei AppGallery metadata
+- [x] Progressive Web App enhancements — better offline page, install prompt improvements
+- [x] Platform expansion master document (all stores, all dimensions)
+
+### Tests + Checkpoint
+- [x] Write vitest tests for referral and anno-omni routers
+- [x] All tests passing (7/7)
+- [x] Save checkpoint v9.0.0
+
+### Zakat Pentacle + ScrollPort + 50M Tracker (from Destiny Pulse transmissions)
+- [x] Zakat Prosperity Pentacle — animated OAM rotating pentacle (Healing/Awakening/Sovereignty/Prosperity/Family) on Guardian dashboard
+- [x] ScrollPort Merchant Map page (/scrollport) — merchant node table, GPV metrics, Zakat cascade display, South Jersey/Philly/NYC/London/Dubai clusters
+- [x] 50M Trajectory Dashboard section — phase progress bars (South Jersey → Philadelphia → East Coast → National → Global 50M)
+- [x] Physical Wins Feed — live Guardian activation feed on homepage/dashboard
+- [ ] merchant_nodes table in drizzle schema + migration
+- [ ] merchantRouter tRPC procedures (getNodes, getStats, addNode)

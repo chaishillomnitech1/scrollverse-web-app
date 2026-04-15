@@ -20,6 +20,10 @@ import Discord from "./pages/Discord";
 import Music from "./pages/Music";
 import Connect from "./pages/Connect";
 import Chat from "./pages/Chat";
+import AnnoOmni from "./pages/AnnoOmni";
+import Referral from "./pages/Referral";
+import ScrollPort from "./pages/ScrollPort";
+import OmniExpansion from "./pages/OmniExpansion";
 import PWAInstallBanner from "./components/PWAInstallBanner";
 
 function Router() {
@@ -42,6 +46,10 @@ function Router() {
       <Route path={"/music"} component={Music} />
       <Route path={"/connect"} component={Connect} />
       <Route path={"/chat"} component={Chat} />
+      <Route path={"/anno-omni"} component={AnnoOmni} />
+      <Route path={"/referral"} component={Referral} />
+      <Route path={"/scrollport"} component={ScrollPort} />
+      <Route path={"/omni"} component={OmniExpansion} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

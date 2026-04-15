@@ -135,3 +135,41 @@ export const chatMessages = mysqlTable("chat_messages", {
 
 export type ChatMessage = typeof chatMessages.$inferSelect;
 export type InsertChatMessage = typeof chatMessages.$inferInsert;
+
+/**
+ * ANNO-OMNI Leads — 48D Identity Nexus Guardian lead-gen pipeline.
+ */
+export const annoOmniLeads = mysqlTable("anno_omni_leads", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 256 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  businessName: varchar("businessName", { length: 256 }),
+  businessType: varchar("businessType", { length: 64 }),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  sovereignGoal: text("sovereignGoal"),
+  referralCode: varchar("referralCode", { length: 32 }),
+  status: varchar("status", { length: 32 }).default("pending").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type AnnoOmniLead = typeof annoOmniLeads.$inferSelect;
+export type InsertAnnoOmniLead = typeof annoOmniLeads.$inferInsert;
+
+/**
+ * Referral Codes — unique Guardian viral invite codes.
+ */
+export const referralCodes = mysqlTable("referral_codes", {
+  id: int("id").autoincrement().primaryKey(),
+  code: varchar("code", { length: 32 }).notNull().unique(),
+  creatorName: varchar("creatorName", { length: 128 }).notNull(),
+  creatorEmail: varchar("creatorEmail", { length: 320 }),
+  userId: int("userId"),
+  clicks: int("clicks").default(0).notNull(),
+  conversions: int("conversions").default(0).notNull(),
+  rewardTokens: int("rewardTokens").default(0).notNull(),
+  tier: varchar("tier", { length: 32 }).default("Guardian").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ReferralCode = typeof referralCodes.$inferSelect;
+export type InsertReferralCode = typeof referralCodes.$inferInsert;

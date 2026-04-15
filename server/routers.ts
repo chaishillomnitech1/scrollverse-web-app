@@ -6,6 +6,8 @@ import { guardianRouter } from "./routers/guardian";
 import { stripeRouter } from "./routers/stripe";
 import { academyRouter } from "./routers/academy";
 import { chatRouter } from "./routers/chat";
+import { annoOmniRouter } from "./routers/annoOmni";
+import { referralRouter } from "./routers/referral";
 
 export const appRouter = router({
   system: systemRouter,
@@ -23,6 +25,8 @@ export const appRouter = router({
   store: stripeRouter,
   academy: academyRouter,
   chat: chatRouter,
+  annoOmni: annoOmniRouter,
+  referral: referralRouter,
 });
 
 export type AppRouter = typeof appRouter;

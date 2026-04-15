@@ -33,6 +33,18 @@ const FREQ_LABELS: Record<Frequency, string> = {
   "1558Hz": "FlameDNA",
 };
 
+// Derive Guardian tier badge from display name prefix or special names
+function getGuardianTier(displayName: string): { tier: string; color: string; icon: string } | null {
+  const name = displayName.toLowerCase();
+  if (name === "scrollverse" || name.includes("scrollverse")) return { tier: "SOVEREIGN", color: "#FFB800", icon: "👑" };
+  if (name.includes("[ascendant]") || name.startsWith("ascendant:")) return { tier: "ASCENDANT", color: "#FF6B35", icon: "🔥" };
+  if (name.includes("[sovereign]") || name.startsWith("sovereign:")) return { tier: "SOVEREIGN", color: "#FFB800", icon: "💎" };
+  if (name.includes("[guardian]") || name.startsWith("guardian:")) return { tier: "GUARDIAN", color: "#00D4FF", icon: "🛡️" };
+  if (name.includes("[legion]") || name.startsWith("legion:")) return { tier: "LEGION", color: "#00FF88", icon: "⚡" };
+  if (name.includes("chais") || name.includes("sabir")) return { tier: "SUPREME SOVEREIGN", color: "#FFB800", icon: "👑" };
+  return null;
+}
+
 const WELCOME_MESSAGES = [
   { id: -1, displayName: "ScrollVerse", message: "Welcome to the Guardian Community Chat. KUN FAYAKŪN × ∞ — speak your truth, build the empire.", channel: "general", frequency: "963Hz", createdAt: new Date(Date.now() - 60000) },
   { id: -2, displayName: "ScrollVerse", message: "This is a sovereign space. Respect all Guardians. No spam. No hate. Only elevation.", channel: "general", frequency: "528Hz", createdAt: new Date(Date.now() - 30000) },
@@ -252,6 +264,17 @@ export default function Chat() {
                         <span className="font-semibold text-sm" style={{ color: isSystem ? "#00D4FF" : "white" }}>
                           {msg.displayName}
                         </span>
+                        {(() => {
+                          const badge = getGuardianTier(msg.displayName);
+                          return badge ? (
+                            <span
+                              className="text-xs px-1.5 py-0.5 rounded font-mono inline-flex items-center gap-1"
+                              style={{ background: `${badge.color}15`, color: badge.color, border: `1px solid ${badge.color}40` }}
+                            >
+                              {badge.icon} {badge.tier}
+                            </span>
+                          ) : null;
+                        })()}
                         <span
                           className="text-xs px-1.5 py-0.5 rounded font-mono"
                           style={{ background: `${freqColor}15`, color: freqColor, border: `1px solid ${freqColor}30` }}
