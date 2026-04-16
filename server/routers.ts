@@ -9,6 +9,8 @@ import { chatRouter } from "./routers/chat";
 import { annoOmniRouter } from "./routers/annoOmni";
 import { referralRouter } from "./routers/referral";
 import { merchantRouter } from "./routers/merchant";
+import { aiCouncilRouter } from "./routers/aiCouncil";
+import { legionRouter } from "./routers/legion";
 
 export const appRouter = router({
   system: systemRouter,
@@ -29,6 +31,8 @@ export const appRouter = router({
   annoOmni: annoOmniRouter,
   referral: referralRouter,
   merchant: merchantRouter,
+  aiCouncil: aiCouncilRouter,
+  legion: legionRouter,
 });
 
 export type AppRouter = typeof appRouter;

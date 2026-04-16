@@ -415,6 +415,8 @@ export default function Home() {
     { label: "ScrollPort", href: "/scrollport" },
     { label: "Referral", href: "/referral" },
     { label: "Omni", href: "/omni" },
+    { label: "AI Council", href: "/ai-council" },
+    { label: "Legion", href: "/legion" },
   ];
 
   return (

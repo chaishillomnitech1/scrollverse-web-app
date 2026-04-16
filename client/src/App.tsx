@@ -24,6 +24,8 @@ import AnnoOmni from "./pages/AnnoOmni";
 import Referral from "./pages/Referral";
 import ScrollPort from "./pages/ScrollPort";
 import OmniExpansion from "./pages/OmniExpansion";
+import AiCouncil from "./pages/AiCouncil";
+import Legion from "./pages/Legion";
 import PWAInstallBanner from "./components/PWAInstallBanner";
 
 function Router() {
@@ -50,6 +52,8 @@ function Router() {
       <Route path={"/referral"} component={Referral} />
       <Route path={"/scrollport"} component={ScrollPort} />
       <Route path={"/omni"} component={OmniExpansion} />
+      <Route path={"/ai-council"} component={AiCouncil} />
+      <Route path={"/legion"} component={Legion} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

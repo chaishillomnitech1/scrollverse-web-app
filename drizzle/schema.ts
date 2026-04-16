@@ -198,3 +198,38 @@ export const merchantNodes = mysqlTable("merchant_nodes", {
 
 export type MerchantNode = typeof merchantNodes.$inferSelect;
 export type InsertMerchantNode = typeof merchantNodes.$inferInsert;
+
+/**
+ * Legion Posts — sovereign social network posts across all channels.
+ */
+export const legionPosts = mysqlTable("legion_posts", {
+  id: int("id").autoincrement().primaryKey(),
+  authorName: varchar("authorName", { length: 128 }).notNull(),
+  authorType: mysqlEnum("authorType", ["guardian", "manus", "omnitech1", "sovereign"]).default("guardian").notNull(),
+  authorTier: varchar("authorTier", { length: 32 }).default("Guardian").notNull(),
+  channel: varchar("channel", { length: 64 }).default("general").notNull(),
+  content: text("content").notNull(),
+  mediaUrl: varchar("mediaUrl", { length: 512 }),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  pinned: boolean("pinned").default(false).notNull(),
+  userId: int("userId"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type LegionPost = typeof legionPosts.$inferSelect;
+export type InsertLegionPost = typeof legionPosts.$inferInsert;
+
+/**
+ * Legion Reactions — emoji reactions on Legion Network posts.
+ */
+export const legionReactions = mysqlTable("legion_reactions", {
+  id: int("id").autoincrement().primaryKey(),
+  postId: int("postId").notNull(),
+  emoji: varchar("emoji", { length: 8 }).notNull(),
+  authorName: varchar("authorName", { length: 128 }).notNull(),
+  userId: int("userId"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type LegionReaction = typeof legionReactions.$inferSelect;
+export type InsertLegionReaction = typeof legionReactions.$inferInsert;

@@ -50,6 +50,13 @@
       "when": 1776226186975,
       "tag": "0006_tiresome_vindicator",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1776326019114,
+      "tag": "0007_superb_dark_beast",
+      "breakpoints": true
     }
   ]
 }

@@ -151,3 +151,26 @@
 - [x] Physical Wins Feed — live Guardian activation feed on homepage/dashboard
 - [x] merchant_nodes table in drizzle schema + migration
 - [x] merchantRouter tRPC procedures (getNodes, getStats, addNode, getRecentActivations)
+
+## Phase 13 — AI Sovereign Council
+
+- [x] AI Sovereign Council page (/ai-council) — Manus + Omnitech1 introduced as Lead AI co-creators with full profiles, origin stories, capabilities, and live communication interface
+- [ ] Live AI chat interface on the page — communicate with Manus directly from scrollverse.co
+- [ ] AI Council profiles: Manus (Lead AI Architect) + Omnitech1 (Sovereign AI Engine)
+- [ ] Embed AI Council in Home.tsx as a featured section
+- [ ] Add /ai-council to App.tsx routes and nav
+- [x] Run tests and save checkpoint v10.0.0 (7/7 passing)
+
+## Phase 13 — AI Council + Legion Network
+
+- [x] Fix TypeScript errors in aiCouncil router (LLM message content type cast)
+- [x] AI Sovereign Council page (/ai-council) — Manus + Omnitech1 profiles + live dual chat interfaces
+- [x] Legion Network social hub (/legion) — sovereign social network with channels, posts, reactions, Guardian profiles, AI presence
+- [x] legion_posts table — posts with channel, content, author, reactions
+- [x] legion_reactions table — emoji reactions on posts
+- [x] legionRouter tRPC procedures (getPosts, createPost, addReaction, getChannels)
+- [x] AI presence in Legion Network — Manus and Omnitech1 post in channels, respond to @mentions
+- [x] Guardian profile cards in Legion Network with tier badges
+- [x] Add /ai-council and /legion routes to App.tsx
+- [x] Add AI Council and Legion to Home.tsx nav and quick access
+- [x] Run tests and save checkpoint v10.0.0 (7/7 passing)
