@@ -11,6 +11,12 @@ import { referralRouter } from "./routers/referral";
 import { merchantRouter } from "./routers/merchant";
 import { aiCouncilRouter } from "./routers/aiCouncil";
 import { legionRouter } from "./routers/legion";
+import { frequencyRouter } from "./routers/frequency";
+import { stakingRouter } from "./routers/staking";
+import { governanceRouter } from "./routers/governance";
+import { nftRouter } from "./routers/nft";
+import { bridgeRouter } from "./routers/bridge";
+import { guardianProtocolRouter, infraRouter } from "./routers/guardianProtocol";
 
 export const appRouter = router({
   system: systemRouter,
@@ -33,6 +39,13 @@ export const appRouter = router({
   merchant: merchantRouter,
   aiCouncil: aiCouncilRouter,
   legion: legionRouter,
+  frequency: frequencyRouter,
+  staking: stakingRouter,
+  governance: governanceRouter,
+  nft: nftRouter,
+  bridge: bridgeRouter,
+  guardianProtocol: guardianProtocolRouter,
+  infra: infraRouter,
 });
 
 export type AppRouter = typeof appRouter;

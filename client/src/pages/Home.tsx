@@ -417,6 +417,13 @@ export default function Home() {
     { label: "Omni", href: "/omni" },
     { label: "AI Council", href: "/ai-council" },
     { label: "Legion", href: "/legion" },
+    { label: "Frequency", href: "/frequency" },
+    { label: "Staking", href: "/staking" },
+    { label: "Governance", href: "/governance" },
+    { label: "NFT Market", href: "/nft" },
+    { label: "Consciousness", href: "/consciousness-mirror" },
+    { label: "Starforge", href: "/celestine-starforge" },
+    { label: "Platforms", href: "/platforms" },
   ];
 
   return (

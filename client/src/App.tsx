@@ -27,6 +27,14 @@ import OmniExpansion from "./pages/OmniExpansion";
 import AiCouncil from "./pages/AiCouncil";
 import Legion from "./pages/Legion";
 import PWAInstallBanner from "./components/PWAInstallBanner";
+import Frequency from "./pages/Frequency";
+import Staking from "./pages/Staking";
+import Governance from "./pages/Governance";
+import NftMarketplace from "./pages/NftMarketplace";
+import GuardianProtocol from "./pages/GuardianProtocol";
+import ConsciousnessMirror from "./pages/ConsciousnessMirror";
+import CelestineStarforge from "./pages/CelestineStarforge";
+import Platforms from "./pages/Platforms";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -54,6 +62,14 @@ function Router() {
       <Route path={"/omni"} component={OmniExpansion} />
       <Route path={"/ai-council"} component={AiCouncil} />
       <Route path={"/legion"} component={Legion} />
+      <Route path={"/frequency"} component={Frequency} />
+      <Route path={"/staking"} component={Staking} />
+      <Route path={"/governance"} component={Governance} />
+      <Route path={"/nft"} component={NftMarketplace} />
+      <Route path={"/guardian-protocol"} component={GuardianProtocol} />
+      <Route path={"/consciousness-mirror"} component={ConsciousnessMirror} />
+      <Route path={"/celestine-starforge"} component={CelestineStarforge} />
+      <Route path={"/platforms"} component={Platforms} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

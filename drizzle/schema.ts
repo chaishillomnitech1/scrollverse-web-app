@@ -233,3 +233,165 @@ export const legionReactions = mysqlTable("legion_reactions", {
 
 export type LegionReaction = typeof legionReactions.$inferSelect;
 export type InsertLegionReaction = typeof legionReactions.$inferInsert;
+
+/**
+ * Frequency Activation Events — Sacred Frequency activations (528Hz/963Hz/432Hz).
+ */
+export const frequencyActivationEvents = mysqlTable("frequency_activation_events", {
+  id: int("id").autoincrement().primaryKey(),
+  frequency: varchar("frequency", { length: 16 }).notNull(),
+  activatedBy: varchar("activatedBy", { length: 128 }).notNull(),
+  userId: int("userId"),
+  duration: int("duration").default(60).notNull(), // seconds
+  intention: text("intention"),
+  guardianCount: int("guardianCount").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type FrequencyActivationEvent = typeof frequencyActivationEvents.$inferSelect;
+export type InsertFrequencyActivationEvent = typeof frequencyActivationEvents.$inferInsert;
+
+/**
+ * Staking Records — Multi-tier Guardian staking positions.
+ */
+export const stakingRecords = mysqlTable("staking_records", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId"),
+  walletAddress: varchar("walletAddress", { length: 64 }),
+  stakerName: varchar("stakerName", { length: 128 }).notNull(),
+  tier: mysqlEnum("tier", ["guardian", "sovereign", "supreme"]).notNull(),
+  amountLondc: int("amountLondc").notNull(),
+  apyPercent: int("apyPercent").notNull(), // stored as basis points (500 = 5%)
+  lockDays: int("lockDays").notNull(),
+  rewardsClaimed: int("rewardsClaimed").default(0).notNull(),
+  status: mysqlEnum("status", ["active", "completed", "withdrawn"]).default("active").notNull(),
+  stakedAt: timestamp("stakedAt").defaultNow().notNull(),
+  unlocksAt: timestamp("unlocksAt").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type StakingRecord = typeof stakingRecords.$inferSelect;
+export type InsertStakingRecord = typeof stakingRecords.$inferInsert;
+
+/**
+ * Governance Proposals — ScrollVerse DAO governance.
+ */
+export const governanceProposals = mysqlTable("governance_proposals", {
+  id: int("id").autoincrement().primaryKey(),
+  proposalId: varchar("proposalId", { length: 32 }).notNull().unique(),
+  title: varchar("title", { length: 256 }).notNull(),
+  description: text("description").notNull(),
+  proposerName: varchar("proposerName", { length: 128 }).notNull(),
+  proposerWallet: varchar("proposerWallet", { length: 64 }),
+  userId: int("userId"),
+  votesFor: int("votesFor").default(0).notNull(),
+  votesAgainst: int("votesAgainst").default(0).notNull(),
+  votingPower: int("votingPower").default(0).notNull(),
+  status: mysqlEnum("status", ["active", "passed", "rejected", "pending"]).default("pending").notNull(),
+  category: varchar("category", { length: 64 }).default("general").notNull(),
+  endsAt: timestamp("endsAt").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type GovernanceProposal = typeof governanceProposals.$inferSelect;
+export type InsertGovernanceProposal = typeof governanceProposals.$inferInsert;
+
+/**
+ * NFT Marketplace — ScrollSoul NFT collection tracking.
+ */
+export const nftMarketplace = mysqlTable("nft_marketplace", {
+  id: int("id").autoincrement().primaryKey(),
+  tokenId: int("tokenId").notNull().unique(),
+  name: varchar("name", { length: 256 }).notNull(),
+  tier: mysqlEnum("tier", ["pioneer", "guardian", "sovereign", "ascendant"]).notNull(),
+  ownerName: varchar("ownerName", { length: 128 }),
+  ownerWallet: varchar("ownerWallet", { length: 64 }),
+  userId: int("userId"),
+  priceUsd: int("priceUsd").default(0).notNull(),
+  priceLondc: int("priceLondc").default(0).notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  imageUrl: varchar("imageUrl", { length: 512 }),
+  listed: boolean("listed").default(false).notNull(),
+  mintedAt: timestamp("mintedAt").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type NftMarketplaceItem = typeof nftMarketplace.$inferSelect;
+export type InsertNftMarketplaceItem = typeof nftMarketplace.$inferInsert;
+
+/**
+ * Bridge Status — Cross-chain bridge health monitoring.
+ */
+export const bridgeStatus = mysqlTable("bridge_status", {
+  id: int("id").autoincrement().primaryKey(),
+  chainId: int("chainId").notNull(),
+  chainName: varchar("chainName", { length: 64 }).notNull(),
+  healthScore: int("healthScore").default(100).notNull(),
+  syncPercent: int("syncPercent").default(100).notNull(),
+  pendingTransfers: int("pendingTransfers").default(0).notNull(),
+  completedTransfers: int("completedTransfers").default(0).notNull(),
+  totalVolumeLondc: int("totalVolumeLondc").default(0).notNull(),
+  status: mysqlEnum("status", ["online", "degraded", "offline"]).default("online").notNull(),
+  lastSyncAt: timestamp("lastSyncAt").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type BridgeStatusRecord = typeof bridgeStatus.$inferSelect;
+export type InsertBridgeStatusRecord = typeof bridgeStatus.$inferInsert;
+
+/**
+ * Guardian Protocol Status — AI Guardian threat detection and metrics.
+ */
+export const guardianProtocolStatus = mysqlTable("guardian_protocol_status", {
+  id: int("id").autoincrement().primaryKey(),
+  activeGuardians: int("activeGuardians").default(0).notNull(),
+  threatsDetected: int("threatsDetected").default(0).notNull(),
+  threatsNeutralized: int("threatsNeutralized").default(0).notNull(),
+  protectionLevel: mysqlEnum("protectionLevel", ["standard", "elevated", "maximum", "sovereign"]).default("sovereign").notNull(),
+  aiStatus: varchar("aiStatus", { length: 32 }).default("ACTIVE").notNull(),
+  frequencyShield: varchar("frequencyShield", { length: 16 }).default("963Hz").notNull(),
+  uptime: int("uptime").default(100).notNull(), // percentage
+  recordedAt: timestamp("recordedAt").defaultNow().notNull(),
+});
+
+export type GuardianProtocolStatusRecord = typeof guardianProtocolStatus.$inferSelect;
+export type InsertGuardianProtocolStatusRecord = typeof guardianProtocolStatus.$inferInsert;
+
+/**
+ * Infrastructure Status — Kubernetes/Redis/CDN scaling metrics.
+ */
+export const infrastructureStatus = mysqlTable("infrastructure_status", {
+  id: int("id").autoincrement().primaryKey(),
+  activePods: int("activePods").default(10).notNull(),
+  maxPods: int("maxPods").default(1000).notNull(),
+  redisOpsPerSec: int("redisOpsPerSec").default(0).notNull(),
+  cdnEdgeLocations: int("cdnEdgeLocations").default(200).notNull(),
+  activeUsers: int("activeUsers").default(0).notNull(),
+  targetUsers: int("targetUsers").default(50000000).notNull(),
+  cpuPercent: int("cpuPercent").default(0).notNull(),
+  memoryPercent: int("memoryPercent").default(0).notNull(),
+  status: mysqlEnum("status", ["optimal", "scaling", "degraded"]).default("optimal").notNull(),
+  recordedAt: timestamp("recordedAt").defaultNow().notNull(),
+});
+
+export type InfrastructureStatusRecord = typeof infrastructureStatus.$inferSelect;
+export type InsertInfrastructureStatusRecord = typeof infrastructureStatus.$inferInsert;
+
+/**
+ * Token Stats — $LONDC live token statistics.
+ */
+export const tokenStats = mysqlTable("token_stats", {
+  id: int("id").autoincrement().primaryKey(),
+  priceUsd: varchar("priceUsd", { length: 32 }).default("0.0144").notNull(),
+  change24h: varchar("change24h", { length: 16 }).default("+7.77%").notNull(),
+  marketCap: varchar("marketCap", { length: 64 }).default("$2.07M").notNull(),
+  totalSupply: int("totalSupply").default(144000000).notNull(),
+  circulatingSupply: int("circulatingSupply").default(0).notNull(),
+  guardianCount: int("guardianCount").default(0).notNull(),
+  totalStaked: int("totalStaked").default(0).notNull(),
+  zakatDistributed: int("zakatDistributed").default(0).notNull(),
+  recordedAt: timestamp("recordedAt").defaultNow().notNull(),
+});
+
+export type TokenStatsRecord = typeof tokenStats.$inferSelect;
+export type InsertTokenStatsRecord = typeof tokenStats.$inferInsert;
