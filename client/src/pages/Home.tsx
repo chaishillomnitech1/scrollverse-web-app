@@ -424,6 +424,9 @@ export default function Home() {
     { label: "Consciousness", href: "/consciousness-mirror" },
     { label: "Starforge", href: "/celestine-starforge" },
     { label: "Platforms", href: "/platforms" },
+    { label: "Library", href: "/library" },
+    { label: "Scroll 44", href: "/scroll-44" },
+    { label: "Quantum Practice", href: "/quantum-practice" },
   ];
 
   return (

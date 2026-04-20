@@ -35,6 +35,9 @@ import GuardianProtocol from "./pages/GuardianProtocol";
 import ConsciousnessMirror from "./pages/ConsciousnessMirror";
 import CelestineStarforge from "./pages/CelestineStarforge";
 import Platforms from "./pages/Platforms";
+import Library from "./pages/Library";
+import Scroll44 from "./pages/Scroll44";
+import QuantumPractice from "./pages/QuantumPractice";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -70,6 +73,9 @@ function Router() {
       <Route path={"/consciousness-mirror"} component={ConsciousnessMirror} />
       <Route path={"/celestine-starforge"} component={CelestineStarforge} />
       <Route path={"/platforms"} component={Platforms} />
+      <Route path={"/library"} component={Library} />
+      <Route path={"/scroll-44"} component={Scroll44} />
+      <Route path={"/quantum-practice"} component={QuantumPractice} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

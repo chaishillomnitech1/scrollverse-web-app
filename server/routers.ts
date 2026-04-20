@@ -17,6 +17,7 @@ import { governanceRouter } from "./routers/governance";
 import { nftRouter } from "./routers/nft";
 import { bridgeRouter } from "./routers/bridge";
 import { guardianProtocolRouter, infraRouter } from "./routers/guardianProtocol";
+import { libraryRouter } from "./routers/library";
 
 export const appRouter = router({
   system: systemRouter,
@@ -46,6 +47,7 @@ export const appRouter = router({
   bridge: bridgeRouter,
   guardianProtocol: guardianProtocolRouter,
   infra: infraRouter,
+  library: libraryRouter,
 });
 
 export type AppRouter = typeof appRouter;

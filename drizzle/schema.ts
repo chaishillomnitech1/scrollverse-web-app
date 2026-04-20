@@ -395,3 +395,74 @@ export const tokenStats = mysqlTable("token_stats", {
 
 export type TokenStatsRecord = typeof tokenStats.$inferSelect;
 export type InsertTokenStatsRecord = typeof tokenStats.$inferInsert;
+
+/**
+ * ScrollVerse Books — sovereign digital library catalog.
+ * Includes books, scrolls, doctrines, and sacred texts.
+ */
+export const scrollverseBooks = mysqlTable("scrollverse_books", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 128 }).notNull().unique(),
+  title: varchar("title", { length: 256 }).notNull(),
+  subtitle: varchar("subtitle", { length: 512 }),
+  author: varchar("author", { length: 256 }).default("Chais Kenyatta Hill").notNull(),
+  category: mysqlEnum("category", ["scroll", "doctrine", "music", "prophecy", "manual", "codex"]).default("scroll").notNull(),
+  description: text("description"),
+  coverImageUrl: varchar("coverImageUrl", { length: 512 }),
+  pdfUrl: varchar("pdfUrl", { length: 512 }),
+  audioUrl: varchar("audioUrl", { length: 512 }),
+  motionVideoUrl: varchar("motionVideoUrl", { length: 512 }),
+  priceUsd: int("priceUsd").default(0).notNull(), // cents
+  priceLondc: int("priceLondc").default(0).notNull(),
+  tier: mysqlEnum("tier", ["free", "guardian", "sovereign", "ascendant"]).default("free").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  chapters: int("chapters").default(1).notNull(),
+  pages: int("pages").default(0).notNull(),
+  audioDurationMin: int("audioDurationMin").default(0).notNull(),
+  hasAudio: boolean("hasAudio").default(false).notNull(),
+  hasMotionVisual: boolean("hasMotionVisual").default(false).notNull(),
+  hasPdf: boolean("hasPdf").default(false).notNull(),
+  featured: boolean("featured").default(false).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  downloadCount: int("downloadCount").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ScrollverseBook = typeof scrollverseBooks.$inferSelect;
+export type InsertScrollverseBook = typeof scrollverseBooks.$inferInsert;
+
+/**
+ * Book Purchases — tracks which users purchased which books.
+ */
+export const bookPurchases = mysqlTable("book_purchases", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId"),
+  bookId: int("bookId").notNull(),
+  purchaserEmail: varchar("purchaserEmail", { length: 320 }),
+  purchaserName: varchar("purchaserName", { length: 256 }),
+  stripePaymentIntentId: varchar("stripePaymentIntentId", { length: 128 }),
+  amountPaidCents: int("amountPaidCents").default(0).notNull(),
+  format: mysqlEnum("format", ["pdf", "audio", "motion", "bundle"]).default("bundle").notNull(),
+  status: varchar("status", { length: 32 }).default("completed").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type BookPurchase = typeof bookPurchases.$inferSelect;
+export type InsertBookPurchase = typeof bookPurchases.$inferInsert;
+
+/**
+ * Audio Sessions — tracks audio listen sessions for analytics.
+ */
+export const audioSessions = mysqlTable("audio_sessions", {
+  id: int("id").autoincrement().primaryKey(),
+  bookId: int("bookId").notNull(),
+  userId: int("userId"),
+  listenerName: varchar("listenerName", { length: 128 }),
+  durationListenedSec: int("durationListenedSec").default(0).notNull(),
+  completedFull: boolean("completedFull").default(false).notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type AudioSession = typeof audioSessions.$inferSelect;
+export type InsertAudioSession = typeof audioSessions.$inferInsert;
