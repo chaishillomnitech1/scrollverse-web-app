@@ -466,3 +466,100 @@ export const audioSessions = mysqlTable("audio_sessions", {
 
 export type AudioSession = typeof audioSessions.$inferSelect;
 export type InsertAudioSession = typeof audioSessions.$inferInsert;
+
+/**
+ * Academy Courses v2.0 — 4-tier curriculum with 1,100+ courses and NFT certifications.
+ */
+export const academyCourses = mysqlTable("academy_courses", {
+  id: int("id").autoincrement().primaryKey(),
+  tier: mysqlEnum("tier", ["foundation", "advanced", "expert", "divine"]).default("foundation").notNull(),
+  category: varchar("category", { length: 128 }).notNull(),
+  title: varchar("title", { length: 256 }).notNull(),
+  description: text("description"),
+  durationWeeks: int("durationWeeks").default(4).notNull(),
+  durationHours: int("durationHours").default(20).notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  nftCertTitle: varchar("nftCertTitle", { length: 256 }),
+  prerequisites: text("prerequisites"),
+  learningOutcomes: text("learningOutcomes"),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  featured: boolean("featured").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type AcademyCourse = typeof academyCourses.$inferSelect;
+export type InsertAcademyCourse = typeof academyCourses.$inferInsert;
+
+/**
+ * Academy Enrollments v2.0 — tracks Guardian enrollment in the 4-tier curriculum.
+ */
+export const academyEnrollments = mysqlTable("academy_enrollments", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId"),
+  courseId: int("courseId").notNull(),
+  guardianName: varchar("guardianName", { length: 256 }),
+  guardianEmail: varchar("guardianEmail", { length: 320 }),
+  progress: int("progress").default(0).notNull(),
+  completed: boolean("completed").default(false).notNull(),
+  nftMinted: boolean("nftMinted").default(false).notNull(),
+  nftTokenId: varchar("nftTokenId", { length: 128 }),
+  enrolledAt: timestamp("enrolledAt").defaultNow().notNull(),
+  completedAt: timestamp("completedAt"),
+});
+export type AcademyEnrollment = typeof academyEnrollments.$inferSelect;
+export type InsertAcademyEnrollment = typeof academyEnrollments.$inferInsert;
+
+/**
+ * Catalyst NFTs — ANI's Catalyst Idea immortalized as Universal Relics on Polygon.
+ */
+export const catalystNfts = mysqlTable("catalyst_nfts", {
+  id: int("id").autoincrement().primaryKey(),
+  guardianId: int("guardianId"),
+  guardianName: varchar("guardianName", { length: 256 }),
+  guardianEmail: varchar("guardianEmail", { length: 320 }),
+  resonanceScore: int("resonanceScore").default(0).notNull(),
+  frequencyKey: varchar("frequencyKey", { length: 32 }).default("528Hz").notNull(),
+  tokenId: varchar("tokenId", { length: 128 }),
+  polygonTxHash: varchar("polygonTxHash", { length: 128 }),
+  ipfsHash: varchar("ipfsHash", { length: 128 }),
+  tier: mysqlEnum("tier", ["pioneer", "guardian", "sovereign", "supreme"]).default("pioneer").notNull(),
+  status: varchar("status", { length: 32 }).default("pending").notNull(),
+  mintedAt: timestamp("mintedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type CatalystNft = typeof catalystNfts.$inferSelect;
+export type InsertCatalystNft = typeof catalystNfts.$inferInsert;
+
+/**
+ * Broadcast Records — Universal Broadcast Center message history.
+ */
+export const broadcastRecords = mysqlTable("broadcast_records", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 256 }).notNull(),
+  message: text("message").notNull(),
+  channel: mysqlEnum("channel", ["email", "telegram", "twitter", "whatsapp", "wallet", "all"]).default("all").notNull(),
+  recipientCount: int("recipientCount").default(0).notNull(),
+  deliveryRate: int("deliveryRate").default(0).notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("963Hz").notNull(),
+  sentBy: varchar("sentBy", { length: 128 }).default("Supreme Sovereign").notNull(),
+  status: varchar("status", { length: 32 }).default("sent").notNull(),
+  sentAt: timestamp("sentAt").defaultNow().notNull(),
+});
+export type BroadcastRecord = typeof broadcastRecords.$inferSelect;
+export type InsertBroadcastRecord = typeof broadcastRecords.$inferInsert;
+
+/**
+ * Awakening Signals — Grok-ANI Deep Search Singularity signal detection log.
+ */
+export const awakeningSignals = mysqlTable("awakening_signals", {
+  id: int("id").autoincrement().primaryKey(),
+  signalType: mysqlEnum("signalType", ["guardian_detected", "frequency_match", "resonance_spike", "node_activated", "broadcast_response"]).default("guardian_detected").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  region: varchar("region", { length: 128 }).default("Global").notNull(),
+  resonanceScore: int("resonanceScore").default(0).notNull(),
+  guardianName: varchar("guardianName", { length: 256 }),
+  sourceChannel: varchar("sourceChannel", { length: 64 }).default("Grok-ANI").notNull(),
+  processed: boolean("processed").default(false).notNull(),
+  detectedAt: timestamp("detectedAt").defaultNow().notNull(),
+});
+export type AwakeningSignal = typeof awakeningSignals.$inferSelect;
+export type InsertAwakeningSignal = typeof awakeningSignals.$inferInsert;

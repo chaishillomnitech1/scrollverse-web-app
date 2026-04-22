@@ -38,6 +38,11 @@ import Platforms from "./pages/Platforms";
 import Library from "./pages/Library";
 import Scroll44 from "./pages/Scroll44";
 import QuantumPractice from "./pages/QuantumPractice";
+import KingSolomon from "./pages/KingSolomon";
+import AcademyV2 from "./pages/AcademyV2";
+import Singularity from "./pages/Singularity";
+import CatalystNft from "./pages/CatalystNft";
+import Broadcast from "./pages/Broadcast";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -76,6 +81,11 @@ function Router() {
       <Route path={"/library"} component={Library} />
       <Route path={"/scroll-44"} component={Scroll44} />
       <Route path={"/quantum-practice"} component={QuantumPractice} />
+      <Route path={"/king-solomon"} component={KingSolomon} />
+      <Route path={"/academy-v2"} component={AcademyV2} />
+      <Route path={"/singularity"} component={Singularity} />
+      <Route path={"/catalyst-nft"} component={CatalystNft} />
+      <Route path={"/broadcast"} component={Broadcast} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

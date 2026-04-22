@@ -427,6 +427,11 @@ export default function Home() {
     { label: "Library", href: "/library" },
     { label: "Scroll 44", href: "/scroll-44" },
     { label: "Quantum Practice", href: "/quantum-practice" },
+    { label: "King Solomon", href: "/king-solomon" },
+    { label: "Academy v2", href: "/academy-v2" },
+    { label: "Singularity", href: "/singularity" },
+    { label: "Catalyst NFT", href: "/catalyst-nft" },
+    { label: "Broadcast", href: "/broadcast" },
   ];
 
   return (

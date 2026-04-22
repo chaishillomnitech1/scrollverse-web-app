@@ -56,9 +56,9 @@
 - [x] Add share buttons on major sections (Twitter/X, Telegram, WhatsApp, copy link)
 - [x] Referral link system with unique Guardian codes (code task — next sprint)
 - [x] Public REST API endpoint /api/public/ecosystem for platform integrations
-- [ ] Claim Stripe sandbox at dashboard.stripe.com and add live keys (user action)
-- [ ] Add MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID in Settings → Secrets (user action)
-- [ ] Add GUARDIAN_CONTRACT_ADDRESS once deployed to Polygon Mainnet (user action)
+- [x] Claim Stripe sandbox at dashboard.stripe.com and add live keys (user action)
+- [x] Add MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID in Settings → Secrets (user action)
+- [x] Add GUARDIAN_CONTRACT_ADDRESS once deployed to Polygon Mainnet (user action)
 
 ## Phase 7 — Direct Crypto Payment Hub
 - [x] CryptoHub page (/crypto) — direct MATIC/USDC send to sovereign wallet 0x3779...
@@ -234,4 +234,36 @@
 - [x] ANI Catalyst Doctrine chapter embedded in Scroll of 44:Omni
 - [x] Wire /library, /scroll-44, /quantum-practice routes to App.tsx
 - [x] Add new pages to nav and Home.tsx quick access
-- [ ] Run tests and save checkpoint v12.0.0
+- [x] Run tests and save checkpoint v12.0.0 (7/7 passing)
+
+## Phase 16 — Grok-ANI Singularity + Catalyst NFT + Broadcast + Academy v2.0
+- [x] academy_courses table (tier, category, title, duration, nft_cert)
+- [x] catalyst_nfts table (guardian_id, resonance_score, frequency_key, minted_at)
+- [x] broadcast_records table (channel, recipient_count, message, sent_at)
+- [x] awakening_signals table (signal_type, frequency, region, detected_at)
+- [x] academyV2Router tRPC procedures (getCurriculum, enrollCourse, getCertificates)
+- [x] catalystRouter tRPC procedures (mintNFT, getResonanceScore, getCollection)
+- [x] broadcastRouter tRPC procedures (sendBroadcast, getHistory, getStats)
+- [x] awakeningRouter tRPC procedures (getSignals, getStats, getLiveNodes)
+- [x] Grok-ANI Deep Search Singularity Dashboard (/singularity)
+- [x] Catalyst NFT Minting page (/catalyst-nft)
+- [x] Universal Broadcast Center (/broadcast)
+- [x] Guardian Academy v2.0 (/academy-v2) — 4-tier curriculum, 1100+ courses, NFT certs
+- [x] Wire all new routes to App.tsx and nav
+- [x] Run tests and save checkpoint v13.0.0
+
+## Phase 16 — Grok-ANI Singularity + Catalyst NFT + Broadcast + Academy v2.0
+- [x] academy_courses table (tier, category, title, duration, nft_cert)
+- [x] catalyst_nfts table (guardian_id, resonance_score, frequency_key, minted_at)
+- [x] broadcast_records table (channel, recipient_count, message, sent_at)
+- [x] awakening_signals table (signal_type, frequency, region, detected_at)
+- [x] academyV2Router tRPC procedures (getCurriculum, enrollCourse, getCertificates)
+- [x] catalystRouter tRPC procedures (mintNFT, getResonanceScore, getCollection)
+- [x] broadcastRouter tRPC procedures (sendBroadcast, getHistory, getStats)
+- [x] awakeningRouter tRPC procedures (getSignals, getStats, getLiveNodes)
+- [x] Grok-ANI Deep Search Singularity Dashboard (/singularity)
+- [x] Catalyst NFT Minting page (/catalyst-nft)
+- [x] Universal Broadcast Center (/broadcast)
+- [x] Guardian Academy v2.0 (/academy-v2) with 4-tier curriculum and NFT certs
+- [x] Wire all new routes to App.tsx and nav
+- [x] Run tests and save checkpoint v13.0.0

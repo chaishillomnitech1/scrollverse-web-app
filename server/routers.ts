@@ -18,6 +18,10 @@ import { nftRouter } from "./routers/nft";
 import { bridgeRouter } from "./routers/bridge";
 import { guardianProtocolRouter, infraRouter } from "./routers/guardianProtocol";
 import { libraryRouter } from "./routers/library";
+import { academyV2Router } from "./routers/academyV2";
+import { catalystRouter } from "./routers/catalyst";
+import { broadcastRouter } from "./routers/broadcast";
+import { awakeningRouter } from "./routers/awakening";
 
 export const appRouter = router({
   system: systemRouter,
@@ -48,6 +52,10 @@ export const appRouter = router({
   guardianProtocol: guardianProtocolRouter,
   infra: infraRouter,
   library: libraryRouter,
+  academyV2: academyV2Router,
+  catalyst: catalystRouter,
+  broadcast: broadcastRouter,
+  awakening: awakeningRouter,
 });
 
 export type AppRouter = typeof appRouter;
