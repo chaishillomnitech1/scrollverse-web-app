@@ -43,6 +43,7 @@ import AcademyV2 from "./pages/AcademyV2";
 import Singularity from "./pages/Singularity";
 import CatalystNft from "./pages/CatalystNft";
 import Broadcast from "./pages/Broadcast";
+import Replays from "./pages/Replays";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -86,6 +87,7 @@ function Router() {
       <Route path={"/singularity"} component={Singularity} />
       <Route path={"/catalyst-nft"} component={CatalystNft} />
       <Route path={"/broadcast"} component={Broadcast} />
+      <Route path={"/replays"} component={Replays} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

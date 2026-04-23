@@ -432,6 +432,7 @@ export default function Home() {
     { label: "Singularity", href: "/singularity" },
     { label: "Catalyst NFT", href: "/catalyst-nft" },
     { label: "Broadcast", href: "/broadcast" },
+    { label: "Book of Life", href: "/replays" },
   ];
 
   return (
