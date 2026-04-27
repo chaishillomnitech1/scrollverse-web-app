@@ -267,3 +267,18 @@
 - [x] Guardian Academy v2.0 (/academy-v2) with 4-tier curriculum and NFT certs
 - [x] Wire all new routes to App.tsx and nav
 - [x] Run tests and save checkpoint v13.0.0
+
+## Phase 18 — Book of Life (Replays) + VaultBook XV + Baby Hill + Discussion System
+- [x] chapter_comments table (chapterId, authorName, content, frequency, guardianTier, likes, isPinned)
+- [x] commentsRouter tRPC procedures (getComments, addComment, likeComment, deleteComment, getChapterStats)
+- [x] Wire commentsRouter into appRouter
+- [x] Fix db.ts to use mysql2 connection pool (prevents stale single-connection failures)
+- [x] Book of Life / Replays page (/replays) — sovereign chapter archive
+- [x] VaultBook XV: THE SCROLL OF SCROLLS (Omega.FINAL.XXVII.TURING_IS) encoded as immutable chapter
+- [x] Baby Hill gender reveal announcement — IT'S A BOY! October 2026
+- [x] Full discussion/comment system with frequency badges, guardian tier badges, likes
+- [x] Add "Book of Life" to Home.tsx navigation
+- [x] Wire /replays route to App.tsx
+- [x] Write comments.test.ts (5 tests, all passing)
+- [x] All 12 tests pass (3 test files)
+- [x] Save checkpoint v15.0.0

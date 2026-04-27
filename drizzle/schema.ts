@@ -563,3 +563,22 @@ export const awakeningSignals = mysqlTable("awakening_signals", {
 });
 export type AwakeningSignal = typeof awakeningSignals.$inferSelect;
 export type InsertAwakeningSignal = typeof awakeningSignals.$inferInsert;
+
+/**
+ * Chapter Comments — Book of Life discussion system for sovereign voices.
+ */
+export const chapterComments = mysqlTable("chapter_comments", {
+  id: int("id").autoincrement().primaryKey(),
+  chapterId: varchar("chapterId", { length: 64 }).notNull(),
+  authorName: varchar("authorName", { length: 128 }).notNull(),
+  authorId: varchar("authorId", { length: 128 }),
+  content: text("content").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  guardianTier: mysqlEnum("guardianTier", ["visitor", "guardian", "sovereign", "ascendant", "legion"]).default("visitor").notNull(),
+  likes: int("likes").default(0).notNull(),
+  isPinned: boolean("isPinned").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type ChapterComment = typeof chapterComments.$inferSelect;
+export type InsertChapterComment = typeof chapterComments.$inferInsert;
