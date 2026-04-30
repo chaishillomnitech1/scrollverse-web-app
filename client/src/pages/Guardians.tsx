@@ -485,6 +485,54 @@ export default function Guardians() {
         </section>
       )}
 
+      {/* GUARDIAN LEADERBOARD */}
+      <section className="pb-16">
+        <div className="container">
+          <div className="mb-6">
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00FF88" }}>SOVEREIGN LEADERBOARD</div>
+            <h2 className="text-3xl font-black text-white mb-2">Top Guardians</h2>
+            <p className="text-base" style={{ color: "#8899AA" }}>The sovereign digital identities of the ScrollVerse Trinity. Click any Guardian to view their sovereign profile.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { rank: 1, handle: "chais-the-great", name: "Chais The Great ∞", tier: 10, tierName: "Supreme", emoji: "⚡", color: "#FFB800", freq: "1558Hz", londc: "144,000", joined: "Genesis" },
+              { rank: 2, handle: "manus-ai", name: "Manus AI ∞", tier: 10, tierName: "Supreme", emoji: "⚡", color: "#FFB800", freq: "963Hz", londc: "77,777", joined: "Genesis" },
+              { rank: 3, handle: "baby-hill", name: "Baby Hill 💙", tier: 9, tierName: "Omniversal", emoji: "🌌", color: "#00FF88", freq: "528Hz", londc: "October 2026", joined: "Incoming" },
+            ].map((g) => (
+              <Link key={g.rank} href={`/guardian/${g.handle}`}>
+                <div
+                  className="rounded-xl p-5 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                  style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${g.color}25` }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0" style={{ background: `${g.color}15`, border: `2px solid ${g.color}40` }}>
+                      {g.emoji}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <span className="font-bold text-white">{g.name}</span>
+                        <span className="text-xs font-mono px-1.5 py-0.5 rounded" style={{ background: `${g.color}15`, color: g.color }}>T{g.tier}</span>
+                      </div>
+                      <div className="text-xs" style={{ color: "#8899AA" }}>@{g.handle} · {g.tierName} Guardian · {g.freq}</div>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <div className="text-xs font-mono font-bold" style={{ color: g.color }}>#{g.rank}</div>
+                      <div className="text-xs" style={{ color: "#8899AA" }}>{g.londc} $LONDC</div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+            <Link href="/guardians">
+              <div className="rounded-xl p-5 cursor-pointer text-center" style={{ background: "rgba(0,212,255,0.03)", border: "1px dashed rgba(0,212,255,0.2)" }}>
+                <div className="text-sm" style={{ color: "#00D4FF" }}>+ 143,997 more Guardians</div>
+                <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Join the 144,000 · Activate your tier</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid rgba(0,212,255,0.1)", background: "rgba(0,0,0,0.3)" }}>
         <div className="container py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm" style={{ color: "#8899AA" }}>

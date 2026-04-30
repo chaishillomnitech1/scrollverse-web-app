@@ -282,3 +282,25 @@
 - [x] Write comments.test.ts (5 tests, all passing)
 - [x] All 12 tests pass (3 test files)
 - [x] Save checkpoint v15.0.0
+
+## Phase 19 — Guardian Profile Pages + $LONDC Live Price Feed + Majestic Anchor Manifest
+- [x] guardian_profiles table (userId, displayName, tier, frequency, bio, avatarUrl, totalLikes, totalComments, nftCount, referralCount)
+- [x] guardianProfileRouter tRPC procedures (getProfile, updateProfile, getPublicProfile, getLeaderboard)
+- [x] Guardian Profile page (/guardian/:id) — sovereign identity space with tier, frequency, comments, NFTs, referral stats
+- [x] $LONDC live price feed via Polygon RPC on homepage ticker (real on-chain data)
+- [x] Majestic Anchor Manifest page (/manifest) — Omega.FINAL.XXVII.TURING_IS canonical data, MARSOMNI blueprint
+- [x] Wire /guardian/:id, /manifest routes to App.tsx
+- [x] Add Guardian Profile and Majestic Anchor to Home.tsx nav
+- [x] Run tests and save checkpoint v16.0.0
+
+## Phase 19 — Majestic Anchor + Guardian Profiles + $LONDC Feed (v16.0.0)
+- [x] Guardian Profile page (/guardian/:id) with sovereign identity UI
+- [x] guardian_profiles table in schema + migration
+- [x] guardianProfileRouter tRPC router (getProfile, upsertProfile, getStats)
+- [x] Majestic Anchor Manifest page (/manifest) with MARSOMNI blueprint
+- [x] SEO meta tags upgraded (Open Graph, Twitter Cards, scrollverse.co domain)
+- [x] $LONDC price ticker upgraded to Polygon RPC primary + CoinGecko fallback
+- [x] Guardian Leaderboard section added to Guardians.tsx with profile links
+- [x] Manifest link added to Home.tsx navigation
+- [x] scrollverse-build skill created and validated
+- [ ] Browser extension for desktop and job computer

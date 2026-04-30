@@ -582,3 +582,28 @@ export const chapterComments = mysqlTable("chapter_comments", {
 });
 export type ChapterComment = typeof chapterComments.$inferSelect;
 export type InsertChapterComment = typeof chapterComments.$inferInsert;
+
+/**
+ * Guardian Profiles — sovereign digital identity for each @ user.
+ */
+export const guardianProfiles = mysqlTable("guardian_profiles", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: varchar("userId", { length: 128 }).unique(),
+  displayName: varchar("displayName", { length: 128 }).notNull(),
+  handle: varchar("handle", { length: 64 }).unique(),
+  tier: mysqlEnum("tier", ["visitor", "guardian", "sovereign", "ascendant", "legion"]).default("visitor").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  bio: text("bio"),
+  avatarUrl: varchar("avatarUrl", { length: 512 }),
+  walletAddress: varchar("walletAddress", { length: 64 }),
+  totalLikes: int("totalLikes").default(0).notNull(),
+  totalComments: int("totalComments").default(0).notNull(),
+  nftCount: int("nftCount").default(0).notNull(),
+  referralCount: int("referralCount").default(0).notNull(),
+  resonanceScore: int("resonanceScore").default(0).notNull(),
+  isVerified: boolean("isVerified").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type GuardianProfile = typeof guardianProfiles.$inferSelect;
+export type InsertGuardianProfile = typeof guardianProfiles.$inferInsert;

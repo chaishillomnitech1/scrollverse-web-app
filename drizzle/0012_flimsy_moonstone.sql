@@ -1,0 +1,22 @@
+CREATE TABLE `guardian_profiles` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`userId` varchar(128),
+	`displayName` varchar(128) NOT NULL,
+	`handle` varchar(64),
+	`tier` enum('visitor','guardian','sovereign','ascendant','legion') NOT NULL DEFAULT 'visitor',
+	`frequency` varchar(16) NOT NULL DEFAULT '528Hz',
+	`bio` text,
+	`avatarUrl` varchar(512),
+	`walletAddress` varchar(64),
+	`totalLikes` int NOT NULL DEFAULT 0,
+	`totalComments` int NOT NULL DEFAULT 0,
+	`nftCount` int NOT NULL DEFAULT 0,
+	`referralCount` int NOT NULL DEFAULT 0,
+	`resonanceScore` int NOT NULL DEFAULT 0,
+	`isVerified` boolean NOT NULL DEFAULT false,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `guardian_profiles_id` PRIMARY KEY(`id`),
+	CONSTRAINT `guardian_profiles_userId_unique` UNIQUE(`userId`),
+	CONSTRAINT `guardian_profiles_handle_unique` UNIQUE(`handle`)
+);

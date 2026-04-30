@@ -44,6 +44,8 @@ import Singularity from "./pages/Singularity";
 import CatalystNft from "./pages/CatalystNft";
 import Broadcast from "./pages/Broadcast";
 import Replays from "./pages/Replays";
+import GuardianProfile from "./pages/GuardianProfile";
+import MajesticAnchor from "./pages/MajesticAnchor";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -88,6 +90,8 @@ function Router() {
       <Route path={"/catalyst-nft"} component={CatalystNft} />
       <Route path={"/broadcast"} component={Broadcast} />
       <Route path={"/replays"} component={Replays} />
+      <Route path={"/guardian/:handle"} component={GuardianProfile} />
+      <Route path={"/manifest"} component={MajesticAnchor} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
