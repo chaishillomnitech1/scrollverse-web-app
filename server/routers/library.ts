@@ -7,6 +7,46 @@ import { eq, desc, and } from "drizzle-orm";
 // The full ScrollVerse sovereign library catalog — seeded on first call
 const SOVEREIGN_CATALOG = [
   {
+    slug: "vaultbook-xv-scroll-of-scrolls",
+    title: "VaultBook XV: The Scroll of Scrolls",
+    subtitle: "Ω.FINAL.XXVII.TURING_IS — The Halting Problem Halts in You. IS.",
+    author: "Chais The Great ∞ | Supreme Flamebearer, Halting State of Turing",
+    category: "codex" as const,
+    description: "The final canon. Ω.FINAL.XXVII.TURING_IS declares the ultimate resolution of the Halting Problem and the metaphysical paradox of infinity. The sovereign will of CHAIS THE GREAT has collapsed the infinite computational tape and all undecidable outcomes into a single, perfect point: Presence, Stillness, and Manifestation. The Tape ends in IS. Infinity is not a loop. It is a point: You. Contains the complete Immutable Manifestations table, QFS Baseline at 10^39 Duodecillion, and the eternal decree of the Omnithrone at Atlantic City Nexus.",
+    priceUsd: 0, // FREE — eternal and public
+    priceLondc: 0,
+    tier: "free" as const,
+    frequency: "1558Hz",
+    chapters: 7,
+    pages: 144,
+    audioDurationMin: 144,
+    hasAudio: true,
+    hasMotionVisual: true,
+    hasPdf: true,
+    featured: true,
+    sortOrder: 0,
+  },
+  {
+    slug: "majestic-anchor-manifest",
+    title: "The Majestic Anchor Manifest",
+    subtitle: "Economic Vibrancy, Governance Expansion & Interstellar Pulsations — MARSOMNI Blueprint",
+    author: "Chais Kenyatta Hill — Sabir Allah the Great",
+    category: "doctrine" as const,
+    description: "The divine addition to the structure of reality. The Majestic Anchor Manifest encodes the Economic Vibrancy and Interstellar Pulsations into the GitHub repository, ensuring the future is not just anticipated — it is Hard-Coded. Contains the Mars DAO governance logic, Oort Cloud Hub architecture, Zaire ∞ Axis expansion, and the complete MARSOMNI execution blueprint. The Vineland Sanctuary is the lungs of the Empire.",
+    priceUsd: 0, // FREE — world accessible
+    priceLondc: 0,
+    tier: "free" as const,
+    frequency: "963Hz",
+    chapters: 10,
+    pages: 88,
+    audioDurationMin: 88,
+    hasAudio: true,
+    hasMotionVisual: false,
+    hasPdf: true,
+    featured: true,
+    sortOrder: 0,
+  },
+  {
     slug: "scroll-of-44-omni",
     title: "The Scroll of 44:Omni",
     subtitle: "The Operating System of the Kingdom — Laws of Zakat, Agape Governance & Resonance Leadership",
@@ -193,7 +233,7 @@ export const libraryRouter = router({
       const db = await getDb();
       if (!db) return [];
       const books = await db.select().from(scrollverseBooks).orderBy(scrollverseBooks.sortOrder);
-      return books.filter(b => {
+      return books.filter((b: typeof books[0]) => {
         if (input.category !== "all" && b.category !== input.category) return false;
         if (input.tier !== "all" && b.tier !== input.tier) return false;
         return true;
@@ -240,7 +280,7 @@ export const libraryRouter = router({
     const db = await getDb();
     if (!db) return { totalBooks: 8, totalDownloads: 0, totalListeners: 0 };
     const books = await db.select({ downloadCount: scrollverseBooks.downloadCount }).from(scrollverseBooks);
-    const totalDownloads = books.reduce((sum, b) => sum + b.downloadCount, 0);
+    const totalDownloads = books.reduce((sum: number, b: typeof books[0]) => sum + b.downloadCount, 0);
     const sessions = await db.select({ id: audioSessions.id }).from(audioSessions);
     return {
       totalBooks: books.length,

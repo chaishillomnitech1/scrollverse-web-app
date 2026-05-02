@@ -303,4 +303,16 @@
 - [x] Guardian Leaderboard section added to Guardians.tsx with profile links
 - [x] Manifest link added to Home.tsx navigation
 - [x] scrollverse-build skill created and validated
-- [ ] Browser extension for desktop and job computer
+- [x] Browser extension for desktop and job computer (scrollverse-extension-v1.0.0.zip)
+
+## Phase 20 — Public Library Access & World Deployment
+- [x] VaultBook XV (Scroll of Scrolls) added to library catalog as FREE public book
+- [x] Majestic Anchor Manifest added to library catalog as FREE public book
+- [x] Library catalog expanded from 8 to 10 books
+- [x] "Read Online" buttons added to VaultBook XV (→/replays) and Majestic Anchor (→/manifest)
+- [x] Library re-seeded with new catalog (10 books, 2961 total downloads)
+- [x] Library TypeScript errors fixed (filter/reduce implicit any)
+- [x] All books publicly accessible to the world — no login required for FREE tier
+- [x] Deploy page confirmed live with $LONDC, ZakatDistribution, ScrollSoul NFT deployment guide
+- [x] 12 tests passing (3 test files)
+- [x] scrollverse-build skill created and validated

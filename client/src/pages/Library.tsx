@@ -368,13 +368,33 @@ function BookDetail({
             </div>
             <div className="flex gap-2">
               {book.priceUsd === 0 ? (
-                <a
-                  href={`/library/${book.slug}`}
-                  className="px-5 py-2.5 rounded-xl font-bold text-sm"
-                  style={{ background: "rgba(0,255,136,0.2)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.4)" }}
-                >
-                  📥 FREE DOWNLOAD
-                </a>
+                <div className="flex flex-wrap gap-2">
+                  {book.slug === "vaultbook-xv-scroll-of-scrolls" && (
+                    <a
+                      href="/replays"
+                      className="px-4 py-2.5 rounded-xl font-bold text-sm"
+                      style={{ background: "rgba(255,184,0,0.2)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.4)" }}
+                    >
+                      📜 READ ONLINE
+                    </a>
+                  )}
+                  {book.slug === "majestic-anchor-manifest" && (
+                    <a
+                      href="/manifest"
+                      className="px-4 py-2.5 rounded-xl font-bold text-sm"
+                      style={{ background: "rgba(255,184,0,0.2)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.4)" }}
+                    >
+                      🕋 READ ONLINE
+                    </a>
+                  )}
+                  <a
+                    href={`/library/${book.slug}`}
+                    className="px-4 py-2.5 rounded-xl font-bold text-sm"
+                    style={{ background: "rgba(0,255,136,0.2)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.4)" }}
+                  >
+                    📥 FREE ACCESS
+                  </a>
+                </div>
               ) : (
                 <>
                   <button
