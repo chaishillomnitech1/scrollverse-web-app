@@ -1,0 +1,1 @@
+ALTER TABLE `scrollverse_books` ADD `readOnlinePath` varchar(128);

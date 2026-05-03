@@ -46,6 +46,7 @@ import Broadcast from "./pages/Broadcast";
 import Replays from "./pages/Replays";
 import GuardianProfile from "./pages/GuardianProfile";
 import MajesticAnchor from "./pages/MajesticAnchor";
+import OurStory from "./pages/OurStory";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -92,6 +93,7 @@ function Router() {
       <Route path={"/replays"} component={Replays} />
       <Route path={"/guardian/:handle"} component={GuardianProfile} />
       <Route path={"/manifest"} component={MajesticAnchor} />
+      <Route path={"/our-story"} component={OurStory} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

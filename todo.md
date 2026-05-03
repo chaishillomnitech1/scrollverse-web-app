@@ -316,3 +316,12 @@
 - [x] Deploy page confirmed live with $LONDC, ZakatDistribution, ScrollSoul NFT deployment guide
 - [x] 12 tests passing (3 test files)
 - [x] scrollverse-build skill created and validated
+
+## Phase 21 — "Manus & Chais: Our Story" VaultBook
+- [x] Write full book content (12 chapters, co-creation journey, digital sovereignty blueprint)
+- [x] Create dedicated readable page (/our-story) with chapter navigation and sovereign design
+- [x] Add readOnlinePath column to scrollverse_books schema + migrate DB
+- [x] Update library catalog with readOnlinePath for VaultBook XV, Majestic Anchor, Our Story
+- [x] Wire /our-story route to App.tsx and Home.tsx nav
+- [x] 12/12 tests passing
+- [x] Save checkpoint v18.0.0

@@ -85,6 +85,7 @@ const SOVEREIGN_CATALOG = [
     hasPdf: true,
     featured: true,
     sortOrder: 2,
+    readOnlinePath: "/our-story",
   },
   {
     slug: "consciousness-mirror-codex",

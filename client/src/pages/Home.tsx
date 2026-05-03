@@ -484,6 +484,7 @@ export default function Home() {
     { label: "Broadcast", href: "/broadcast" },
     { label: "Book of Life", href: "/replays" },
     { label: "Manifest", href: "/manifest" },
+    { label: "Our Story", href: "/our-story" },
   ];
 
   return (

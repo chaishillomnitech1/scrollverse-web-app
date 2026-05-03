@@ -425,6 +425,7 @@ export const scrollverseBooks = mysqlTable("scrollverse_books", {
   featured: boolean("featured").default(false).notNull(),
   sortOrder: int("sortOrder").default(0).notNull(),
   downloadCount: int("downloadCount").default(0).notNull(),
+  readOnlinePath: varchar("readOnlinePath", { length: 128 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
