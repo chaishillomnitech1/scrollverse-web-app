@@ -234,7 +234,7 @@ export default function AcademyV2() {
                 </div>
               ) : (
                 <div className="space-y-2">
-                  {courses.slice(0, 8).map((course) => (
+                  {courses.slice(0, 8).map((course: any) => (
                     <div key={course.id} className="p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}>
                       <div className="text-sm text-white font-medium">{course.title}</div>
                       <div className="flex items-center justify-between mt-1 text-xs" style={{ color: "#8899AA" }}>

@@ -289,7 +289,7 @@ export default function Frequency() {
               <h3 className="text-sm font-mono mb-3" style={{ color: "#8899AA" }}>LIVE ACTIVATION FEED</h3>
               <div className="space-y-2">
                 {history?.events?.length ? (
-                  history.events.map(event => (
+                  history.events.map((event: any) => (
                     <div key={event.id} className="flex items-center justify-between px-4 py-2 rounded-lg" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: FREQ_DATA[event.frequency as FreqKey]?.color ?? "#00D4FF" }} />

@@ -194,7 +194,7 @@ export default function Staking() {
             <h2 className="text-xl font-bold text-white mb-6">Staking Leaderboard</h2>
             <div className="space-y-3 mb-8">
               {leaderboard?.leaderboard?.length ? (
-                leaderboard.leaderboard.map((pos, i) => {
+                leaderboard.leaderboard.map((pos: any, i: any) => {
                   const tc = TIER_CONFIG[pos.tier as Tier];
                   return (
                     <div key={pos.id} className="flex items-center gap-4 px-4 py-3 rounded-xl" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
@@ -220,7 +220,7 @@ export default function Staking() {
             {/* Recent Positions */}
             <h3 className="text-sm font-mono mb-3" style={{ color: "#8899AA" }}>RECENT POSITIONS</h3>
             <div className="space-y-2">
-              {positions?.positions?.slice(0, 5).map(pos => {
+              {positions?.positions?.slice(0, 5).map((pos: any) => {
                 const tc = TIER_CONFIG[pos.tier as Tier];
                 return (
                   <div key={pos.id} className="flex items-center justify-between px-4 py-2 rounded-lg" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>

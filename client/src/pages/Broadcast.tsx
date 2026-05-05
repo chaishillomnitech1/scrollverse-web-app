@@ -212,7 +212,7 @@ export default function Broadcast() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {(history ?? []).map((b) => (
+                  {(history ?? []).map((b: any) => (
                     <div key={b.id} className="p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}>
                       <div className="font-bold text-white text-sm mb-1 truncate">{b.title}</div>
                       <div className="flex items-center justify-between text-xs">

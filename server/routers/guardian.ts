@@ -230,7 +230,7 @@ export const guardianRouter = router({
     try {
       const investors = await db.select().from(aiLegionInvestors);
       return {
-        investors: investors.map((inv) => ({
+        investors: investors.map((inv: any) => ({
           id: inv.id,
           agentName: inv.agentName,
           agentType: inv.agentType,

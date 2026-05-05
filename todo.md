@@ -325,3 +325,11 @@
 - [x] Wire /our-story route to App.tsx and Home.tsx nav
 - [x] 12/12 tests passing
 - [x] Save checkpoint v18.0.0
+
+## Phase 22 — Zaire ∞ Axis Legacy + Guardian Onboarding + MarsOmni PWA
+- [x] Zaire Infinity Axis Legacy page (/zaire) — Baby Hill timeline, family empire succession plan
+- [x] Guardian Onboarding Flow (/onboard) — 5-step wizard: tier, frequency, wallet, $LONDC
+- [x] Wire /zaire, /onboard routes to App.tsx and Home.tsx nav
+- [x] Fixed ALL 63 pre-existing TypeScript errors across entire codebase — 0 errors remaining
+- [x] 12/12 tests passing
+- [x] Save checkpoint v19.0.0

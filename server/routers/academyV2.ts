@@ -137,8 +137,8 @@ export const academyV2Router = router({
     const enrollments = await db.select().from(academyEnrollments);
     return {
       totalEnrollments: enrollments.length,
-      completions: enrollments.filter(e => e.completed).length,
-      nftsMinted: enrollments.filter(e => e.nftMinted).length,
+      completions: enrollments.filter((e: any) => e.completed).length,
+      nftsMinted: enrollments.filter((e: any) => e.nftMinted).length,
     };
   }),
 });

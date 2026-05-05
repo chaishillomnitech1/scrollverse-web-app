@@ -59,7 +59,7 @@ export const chatRouter = router({
         .orderBy(chatMessages.createdAt)
         .limit(20);
 
-      return rows.filter((r) => r.channel === input.channel);
+      return rows.filter((r: any) => r.channel === input.channel);
     }),
 
   /**
@@ -107,11 +107,11 @@ export const chatRouter = router({
 
     const channelCounts: Record<string, number> = {};
     for (const ch of CHANNELS) {
-      channelCounts[ch] = allMessages.filter((m) => m.channel === ch).length;
+      channelCounts[ch] = allMessages.filter((m: any) => m.channel === ch).length;
     }
 
     const uniqueSenders = Array.from(
-      new Set(allMessages.slice(0, 20).map((m) => m.displayName))
+      new Set(allMessages.slice(0, 20).map((m: any) => m.displayName))
     ).slice(0, 10);
 
     return {

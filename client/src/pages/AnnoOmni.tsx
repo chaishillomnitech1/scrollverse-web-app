@@ -456,7 +456,7 @@ export default function AnnoOmni() {
               <div className="sv-card rounded-xl p-6">
                 <div className="text-xs font-mono mb-4" style={{ color: "#00D4FF" }}>RECENT ACTIVATIONS</div>
                 <div className="space-y-3">
-                  {pulse.recent.map(lead => (
+                  {pulse.recent.map((lead: any) => (
                     <div key={lead.id} className="flex items-center justify-between py-2 border-b" style={{ borderColor: "rgba(0,212,255,0.08)" }}>
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"

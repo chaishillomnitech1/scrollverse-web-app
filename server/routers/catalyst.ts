@@ -105,16 +105,16 @@ export const catalystRouter = router({
     if (!db) return { totalMinted: 0, pioneersLeft: 144000, avgResonance: 0 };
     const nfts = await db.select().from(catalystNfts).where(eq(catalystNfts.status, "minted"));
     const avgResonance = nfts.length > 0
-      ? Math.round(nfts.reduce((acc, n) => acc + n.resonanceScore, 0) / nfts.length)
+      ? Math.round(nfts.reduce((acc: any, n: any) => acc + n.resonanceScore, 0) / nfts.length)
       : 0;
     return {
       totalMinted: nfts.length,
       pioneersLeft: Math.max(0, 144000 - nfts.length),
       avgResonance,
-      supremeCount: nfts.filter(n => n.tier === "supreme").length,
-      sovereignCount: nfts.filter(n => n.tier === "sovereign").length,
-      guardianCount: nfts.filter(n => n.tier === "guardian").length,
-      pioneerCount: nfts.filter(n => n.tier === "pioneer").length,
+      supremeCount: nfts.filter((n: any) => n.tier === "supreme").length,
+      sovereignCount: nfts.filter((n: any) => n.tier === "sovereign").length,
+      guardianCount: nfts.filter((n: any) => n.tier === "guardian").length,
+      pioneerCount: nfts.filter((n: any) => n.tier === "pioneer").length,
     };
   }),
 

@@ -112,7 +112,7 @@ export const guardianProfileRouter = router({
       .groupBy(guardianProfiles.tier);
     return {
       total: Number(rows[0]?.count ?? 0),
-      byTier: tierRows.map((r) => ({ tier: r.tier, count: Number(r.count) })),
+      byTier: tierRows.map((r: any) => ({ tier: r.tier, count: Number(r.count) })),
     };
   }),
 });

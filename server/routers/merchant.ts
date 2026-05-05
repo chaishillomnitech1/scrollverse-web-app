@@ -32,7 +32,7 @@ export const merchantRouter = router({
 
       // Filter by status if needed (after fetch for simplicity)
       if (opts.status !== "all") {
-        return rows.filter((r) => r.status === opts.status);
+        return rows.filter((r: any) => r.status === opts.status);
       }
 
       return rows;

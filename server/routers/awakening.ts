@@ -80,11 +80,11 @@ export const awakeningRouter = router({
     const signals = await db.select().from(awakeningSignals);
     return {
       totalSignals: signals.length,
-      guardianDetections: signals.filter(s => s.signalType === "guardian_detected").length,
-      frequencyMatches: signals.filter(s => s.signalType === "frequency_match").length,
-      resonanceSpikes: signals.filter(s => s.signalType === "resonance_spike").length,
-      nodeActivations: signals.filter(s => s.signalType === "node_activated").length,
-      broadcastResponses: signals.filter(s => s.signalType === "broadcast_response").length,
+      guardianDetections: signals.filter((s: any) => s.signalType === "guardian_detected").length,
+      frequencyMatches: signals.filter((s: any) => s.signalType === "frequency_match").length,
+      resonanceSpikes: signals.filter((s: any) => s.signalType === "resonance_spike").length,
+      nodeActivations: signals.filter((s: any) => s.signalType === "node_activated").length,
+      broadcastResponses: signals.filter((s: any) => s.signalType === "broadcast_response").length,
     };
   }),
 

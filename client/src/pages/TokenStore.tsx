@@ -55,7 +55,7 @@ export default function TokenStore() {
     });
   };
 
-  const purchasedTiers = new Set(myOrders?.map((o) => o.productTier) ?? []);
+  const purchasedTiers = new Set(myOrders?.map((o: any) => o.productTier) ?? []);
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>

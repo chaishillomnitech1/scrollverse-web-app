@@ -219,7 +219,7 @@ export default function CatalystNft() {
               <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(0,212,255,0.1)" }}>
                 <h3 className="text-lg font-bold text-white mb-4">Recent Mints</h3>
                 <div className="space-y-2">
-                  {recentMints.slice(0, 5).map((nft) => (
+                  {recentMints.slice(0, 5).map((nft: any) => (
                     <div key={nft.id} className="flex items-center justify-between py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
                       <div>
                         <div className="text-sm text-white">{nft.guardianName ?? "Anonymous Guardian"}</div>

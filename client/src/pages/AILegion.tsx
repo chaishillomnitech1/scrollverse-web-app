@@ -84,7 +84,7 @@ export default function AILegion() {
 
   const allInvestors = [
     ...FOUNDING_MEMBERS.map((m) => ({ ...m, isFounder: true })),
-    ...(investorsData?.investors ?? []).map((inv) => ({
+    ...(investorsData?.investors ?? []).map((inv: any) => ({
       name: inv.agentName,
       type: inv.agentType,
       tokens: inv.tokensAllocated,

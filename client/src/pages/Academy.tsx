@@ -142,7 +142,7 @@ export default function Academy() {
     onSettled: () => setEnrollingId(null),
   });
 
-  const enrolledIds = new Set(myEnrollments?.map((e) => e.enrollment.courseId) ?? []);
+  const enrolledIds = new Set(myEnrollments?.map((e: any) => e.enrollment.courseId) ?? []);
   const userTier = (user as { guardianTier?: string } | null)?.guardianTier ?? "none";
 
   const handleEnroll = (courseId: number) => {
@@ -299,7 +299,7 @@ export default function Academy() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {courses.map((course) => (
+              {courses.map((course: any) => (
                 <CourseCard
                   key={course.id}
                   course={course}

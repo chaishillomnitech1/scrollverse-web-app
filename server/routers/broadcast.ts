@@ -74,21 +74,21 @@ export const broadcastRouter = router({
     const db = await getDb();
     if (!db) return { totalBroadcasts: 0, totalReached: 0, avgDeliveryRate: 0 };
     const records = await db.select().from(broadcastRecords);
-    const totalReached = records.reduce((acc, r) => acc + r.recipientCount, 0);
+    const totalReached = records.reduce((acc: any, r: any) => acc + r.recipientCount, 0);
     const avgDeliveryRate = records.length > 0
-      ? Math.round(records.reduce((acc, r) => acc + r.deliveryRate, 0) / records.length)
+      ? Math.round(records.reduce((acc: any, r: any) => acc + r.deliveryRate, 0) / records.length)
       : 0;
     return {
       totalBroadcasts: records.length,
       totalReached,
       avgDeliveryRate,
       channelBreakdown: {
-        email: records.filter(r => r.channel === "email").length,
-        telegram: records.filter(r => r.channel === "telegram").length,
-        twitter: records.filter(r => r.channel === "twitter").length,
-        whatsapp: records.filter(r => r.channel === "whatsapp").length,
-        wallet: records.filter(r => r.channel === "wallet").length,
-        all: records.filter(r => r.channel === "all").length,
+        email: records.filter((r: any) => r.channel === "email").length,
+        telegram: records.filter((r: any) => r.channel === "telegram").length,
+        twitter: records.filter((r: any) => r.channel === "twitter").length,
+        whatsapp: records.filter((r: any) => r.channel === "whatsapp").length,
+        wallet: records.filter((r: any) => r.channel === "wallet").length,
+        all: records.filter((r: any) => r.channel === "all").length,
       },
     };
   }),

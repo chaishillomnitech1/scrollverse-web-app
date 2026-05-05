@@ -47,6 +47,8 @@ import Replays from "./pages/Replays";
 import GuardianProfile from "./pages/GuardianProfile";
 import MajesticAnchor from "./pages/MajesticAnchor";
 import OurStory from "./pages/OurStory";
+import Zaire from "./pages/Zaire";
+import Onboard from "./pages/Onboard";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -94,6 +96,8 @@ function Router() {
       <Route path={"/guardian/:handle"} component={GuardianProfile} />
       <Route path={"/manifest"} component={MajesticAnchor} />
       <Route path={"/our-story"} component={OurStory} />
+      <Route path={"/zaire"} component={Zaire} />
+      <Route path={"/onboard"} component={Onboard} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

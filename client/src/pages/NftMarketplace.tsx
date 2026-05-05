@@ -111,7 +111,7 @@ export default function NftMarketplace() {
           <div>
             <h2 className="text-xl font-bold text-white mb-6">Recent Mints</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {recentMints.mints.map(nft => {
+              {recentMints.mints.map((nft: any) => {
                 const tc = TIER_CONFIG[nft.tier as Tier];
                 return (
                   <div key={nft.id} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${tc?.color ?? "#00D4FF"}30` }}>

@@ -135,7 +135,7 @@ export default function Dashboard() {
   }, [metrics?.totalRevenueCents]);
 
   const maxTierRevenue = useMemo(() => {
-    return Math.max(...(metrics?.byTier?.map((t) => Number(t.total)) ?? [0]));
+    return Math.max(...(metrics?.byTier?.map((t: any) => Number(t.total)) ?? [0]));
   }, [metrics?.byTier]);
 
   if (loading) {
@@ -332,7 +332,7 @@ export default function Dashboard() {
               >
                 <h2 className="font-bold text-white mb-6">Revenue by Tier</h2>
                 {metrics?.byTier && metrics.byTier.length > 0 ? (
-                  metrics.byTier.map((t) => (
+                  metrics.byTier.map((t: any) => (
                     <RevenueBar
                       key={t.tier}
                       tier={t.tier ?? "unknown"}
@@ -361,7 +361,7 @@ export default function Dashboard() {
                 <h2 className="font-bold text-white mb-6">Recent Activity</h2>
                 {metrics?.recentEvents && metrics.recentEvents.length > 0 ? (
                   <div className="space-y-3">
-                    {metrics.recentEvents.map((ev) => (
+                    {metrics.recentEvents.map((ev: any) => (
                       <div
                         key={ev.id}
                         className="flex items-center justify-between py-2 border-b"

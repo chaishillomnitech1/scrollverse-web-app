@@ -51,7 +51,7 @@ export const legionRouter = router({
       .from(legionPosts)
       .groupBy(legionPosts.channel);
 
-    const countMap = Object.fromEntries(counts.map(r => [r.channel, Number(r.count)]));
+    const countMap = Object.fromEntries(counts.map((r: { channel: string; count: number }) => [r.channel, Number(r.count)]));
 
     return {
       channels: CHANNELS.map(c => ({ ...c, postCount: countMap[c.id] ?? 0 })),
@@ -85,14 +85,14 @@ export const legionRouter = router({
         .limit(input.limit);
 
       // Get reactions for these posts
-      const postIds = posts.map(p => p.id);
+      const postIds = posts.map((p: { id: number }) => p.id);
       let reactionsMap: Record<number, { emoji: string; count: number; authors: string[] }[]> = {};
 
       if (postIds.length > 0) {
         const reactions = await db
           .select()
           .from(legionReactions)
-          .where(sql`${legionReactions.postId} IN (${sql.join(postIds.map(id => sql`${id}`), sql`, `)})`);
+          .where(sql`${legionReactions.postId} IN (${sql.join(postIds.map((id: number) => sql`${id}`), sql`, `)})`);
 
         // Group reactions by postId and emoji
         for (const r of reactions) {
@@ -108,7 +108,7 @@ export const legionRouter = router({
       }
 
       return {
-        posts: posts.reverse().map(p => ({
+        posts: posts.reverse().map((p: typeof posts[number]) => ({
           ...p,
           reactions: reactionsMap[p.id] ?? [],
         })),
@@ -141,7 +141,7 @@ export const legionRouter = router({
         .orderBy(legionPosts.createdAt)
         .limit(30);
 
-      return { posts: posts.map(p => ({ ...p, reactions: [] })) };
+      return { posts: posts.map((p: typeof posts[number]) => ({ ...p, reactions: [] })) };
     }),
 
   /**

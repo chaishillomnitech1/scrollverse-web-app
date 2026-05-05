@@ -532,7 +532,7 @@ export default function Library() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {books.map(book => (
+            {books.map((book: any) => (
               <BookCard key={book.id} book={book} onSelect={setSelectedBook} />
             ))}
           </div>

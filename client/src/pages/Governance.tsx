@@ -184,7 +184,7 @@ export default function Governance() {
         {/* Proposals List */}
         <div className="space-y-4">
           {data?.proposals?.length ? (
-            data.proposals.map(p => {
+            data.proposals.map((p: any) => {
               const totalVotes = p.votesFor + p.votesAgainst;
               const forPct = totalVotes > 0 ? Math.round((p.votesFor / totalVotes) * 100) : 0;
               const catColor = CATEGORY_COLORS[p.category] ?? "#8899AA";

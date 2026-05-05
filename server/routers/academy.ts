@@ -101,9 +101,9 @@ export const academyRouter = router({
             .orderBy(asc(courses.sortOrder));
           if (rows.length > 0) {
             let filtered = rows;
-            if (input?.category) filtered = filtered.filter((c) => c.category === input.category);
-            if (input?.tier) filtered = filtered.filter((c) => c.tier === input.tier);
-            if (input?.featured !== undefined) filtered = filtered.filter((c) => c.featured === input.featured);
+            if (input?.category) filtered = filtered.filter((c: any) => c.category === input.category);
+            if (input?.tier) filtered = filtered.filter((c: any) => c.tier === input.tier);
+            if (input?.featured !== undefined) filtered = filtered.filter((c: any) => c.featured === input.featured);
             return filtered;
           }
         } catch {

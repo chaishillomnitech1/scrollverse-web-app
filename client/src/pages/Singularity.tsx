@@ -191,7 +191,7 @@ export default function Singularity() {
                     <div className="text-sm">Awaiting awakening signals...</div>
                   </div>
                 ) : (
-                  (signals ?? []).map((signal) => (
+                  (signals ?? []).map((signal: any) => (
                     <div key={signal.id} className="p-3 rounded-lg" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}>
                       <SignalPulse type={signal.signalType} />
                       <div className="mt-1 text-xs" style={{ color: "#8899AA" }}>

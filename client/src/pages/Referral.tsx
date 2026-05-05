@@ -326,7 +326,7 @@ export default function Referral() {
                   </tr>
                 </thead>
                 <tbody>
-                  {leaderboard.map((entry, i) => (
+                  {leaderboard.map((entry: any, i: any) => (
                     <tr key={entry.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
                       <td className="px-6 py-4">
                         <span className="text-sm font-mono" style={{ color: i < 3 ? "#FFB800" : "#556677" }}>

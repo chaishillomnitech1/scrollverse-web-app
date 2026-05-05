@@ -86,9 +86,9 @@ export default function Chat() {
   // Append new polled messages
   useEffect(() => {
     if (newMessages.length > 0) {
-      setAllMessages((prev) => {
+      setAllMessages((prev: any) => {
         const existingIds = new Set(prev.map((m: any) => m.id));
-        const fresh = newMessages.filter((m) => !existingIds.has(m.id));
+        const fresh = newMessages.filter((m: any) => !existingIds.has(m.id));
         if (fresh.length === 0) return prev;
         setLastId(fresh[fresh.length - 1].id);
         return [...prev, ...fresh];
@@ -113,7 +113,7 @@ export default function Chat() {
         frequency,
         createdAt: new Date(),
       };
-      setAllMessages((prev) => [...prev, newMsg as any]);
+      setAllMessages((prev: any) => [...prev, newMsg as any]);
       setLastId(data.id);
     },
     onError: (err) => toast.error(err.message),
@@ -244,7 +244,7 @@ export default function Chat() {
             {isLoading ? (
               <div className="text-center py-8" style={{ color: "#556677" }}>Loading messages...</div>
             ) : (
-              allMessages.map((msg: any, i) => {
+              allMessages.map((msg: any, i: any) => {
                 const isSystem = msg.displayName === "ScrollVerse";
                 const freqColor = FREQ_COLORS[(msg.frequency as Frequency) || "528Hz"] || "#00D4FF";
                 return (
