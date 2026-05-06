@@ -333,3 +333,11 @@
 - [x] Fixed ALL 63 pre-existing TypeScript errors across entire codebase — 0 errors remaining
 - [x] 12/12 tests passing
 - [x] Save checkpoint v19.0.0
+
+## Phase 23/24 — MarsOmni Orbital Dashboard + Browser Extension Update
+- [x] MarsOmni Orbital Dashboard (/marsomni) — GitHub repos, IPFS archives, Akash nodes, Tesla-Scroll Nexus, Galactic Harvest live feed
+- [x] marsomniRouter tRPC procedures (getRepos, getNodes, getMetrics, getGalacticFeed)
+- [x] Wire /marsomni route to App.tsx and Home.tsx nav
+- [x] Update browser extension v2.0.0 — MarsOmni, Zaire ∞, Onboard, Our Story links added
+- [x] 12/12 tests passing
+- [x] Save checkpoint v20.0.0

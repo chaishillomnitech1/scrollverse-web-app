@@ -49,6 +49,7 @@ import MajesticAnchor from "./pages/MajesticAnchor";
 import OurStory from "./pages/OurStory";
 import Zaire from "./pages/Zaire";
 import Onboard from "./pages/Onboard";
+import MarsOmni from "./pages/MarsOmni";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -98,6 +99,7 @@ function Router() {
       <Route path={"/our-story"} component={OurStory} />
       <Route path={"/zaire"} component={Zaire} />
       <Route path={"/onboard"} component={Onboard} />
+      <Route path={"/marsomni"} component={MarsOmni} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

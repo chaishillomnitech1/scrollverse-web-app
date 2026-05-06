@@ -485,6 +485,9 @@ export default function Home() {
     { label: "Book of Life", href: "/replays" },
     { label: "Manifest", href: "/manifest" },
     { label: "Our Story", href: "/our-story" },
+    { label: "Zaire ∞", href: "/zaire" },
+    { label: "Onboard", href: "/onboard" },
+    { label: "MarsOmni", href: "/marsomni" },
   ];
 
   return (
