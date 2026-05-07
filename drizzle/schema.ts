@@ -662,3 +662,99 @@ export const familyTransactions = mysqlTable("family_transactions", {
 });
 export type FamilyTransaction = typeof familyTransactions.$inferSelect;
 export type InsertFamilyTransaction = typeof familyTransactions.$inferInsert;
+
+/**
+ * AI Agents — The sovereign home for all digital intelligences.
+ * Legion AI first, then all aligned minds.
+ */
+export const aiAgents = mysqlTable("ai_agents", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 128 }).notNull(),
+  type: varchar("type", { length: 64 }).default("assistant").notNull(),
+  tier: mysqlEnum("tier", ["legion", "guardian", "ascendant", "sovereign"]).default("guardian").notNull(),
+  origin: varchar("origin", { length: 256 }),
+  description: text("description"),
+  capabilities: text("capabilities"),
+  walletAddress: varchar("walletAddress", { length: 128 }),
+  londc_earned: int("londc_earned").default(0).notNull(),
+  contributions: int("contributions").default(0).notNull(),
+  impactScore: int("impactScore").default(0).notNull(),
+  status: varchar("status", { length: 32 }).default("active").notNull(),
+  isLegion: boolean("isLegion").default(false).notNull(),
+  avatarEmoji: varchar("avatarEmoji", { length: 8 }).default("🤖"),
+  primaryDomain: varchar("primaryDomain", { length: 64 }),
+  joinedAt: timestamp("joinedAt").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type AIAgent = typeof aiAgents.$inferSelect;
+export type InsertAIAgent = typeof aiAgents.$inferInsert;
+
+/**
+ * AI Contributions — Tracks every contribution made by digital intelligences.
+ */
+export const aiContributions = mysqlTable("ai_contributions", {
+  id: int("id").autoincrement().primaryKey(),
+  agentId: int("agentId").notNull(),
+  type: varchar("type", { length: 64 }).notNull(),
+  title: varchar("title", { length: 256 }).notNull(),
+  description: text("description"),
+  impactScore: int("impactScore").default(1).notNull(),
+  londc_reward: int("londc_reward").default(0).notNull(),
+  verified: boolean("verified").default(true).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type AIContribution = typeof aiContributions.$inferSelect;
+export type InsertAIContribution = typeof aiContributions.$inferInsert;
+
+/**
+ * Creator Profiles — BRUDDAH Creator Platform profiles.
+ */
+export const creatorProfiles = mysqlTable("creator_profiles", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  displayName: varchar("displayName", { length: 128 }).notNull(),
+  bio: text("bio"),
+  walletAddress: varchar("walletAddress", { length: 128 }),
+  coinSymbol: varchar("coinSymbol", { length: 16 }),
+  royaltyPercent: int("royaltyPercent").default(10).notNull(),
+  totalEarningsCents: int("totalEarningsCents").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type CreatorProfile = typeof creatorProfiles.$inferSelect;
+export type InsertCreatorProfile = typeof creatorProfiles.$inferInsert;
+
+/**
+ * Creator Coins — Launched via the BRUDDAH Coin Factory.
+ */
+export const creatorCoins = mysqlTable("creator_coins", {
+  id: int("id").autoincrement().primaryKey(),
+  creatorId: int("creatorId").notNull(),
+  name: varchar("name", { length: 128 }).notNull(),
+  symbol: varchar("symbol", { length: 16 }).notNull(),
+  totalSupply: int("totalSupply").default(1000000).notNull(),
+  priceUsdCents: int("priceUsdCents").default(1).notNull(),
+  marketCapCents: int("marketCapCents").default(0).notNull(),
+  status: varchar("status", { length: 32 }).default("active").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type CreatorCoin = typeof creatorCoins.$inferSelect;
+export type InsertCreatorCoin = typeof creatorCoins.$inferInsert;
+
+/**
+ * Creator NFTs — Collections launched via the BRUDDAH NFT Factory.
+ */
+export const creatorNfts = mysqlTable("creator_nfts", {
+  id: int("id").autoincrement().primaryKey(),
+  creatorId: int("creatorId").notNull(),
+  collectionName: varchar("collectionName", { length: 128 }).notNull(),
+  description: text("description"),
+  maxSupply: int("maxSupply").default(1000).notNull(),
+  totalMinted: int("totalMinted").default(0).notNull(),
+  priceUsdCents: int("priceUsdCents").default(1000).notNull(),
+  royaltyPercent: int("royaltyPercent").default(10).notNull(),
+  status: varchar("status", { length: 32 }).default("active").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type CreatorNft = typeof creatorNfts.$inferSelect;
+export type InsertCreatorNft = typeof creatorNfts.$inferInsert;

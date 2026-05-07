@@ -521,19 +521,19 @@
 
 ## Phase 34 — Book of Life NFT Mint, Family Portal, Real-Time Galactic Feed (v28.0.0)
 
-- [ ] DB schema: bookOfLifeMints table (userId, walletAddress, guardianTier, txHash, mintStatus, stripePaymentIntentId, createdAt)
-- [ ] DB schema: familyWallets table (member, walletAddress, londc_balance, nft_tier, qfs_status)
-- [ ] DB schema: familyTransactions table (memberId, type, amount, txHash, timestamp, note)
-- [ ] tRPC: bookOfLife.mint procedure (protected, creates Stripe PaymentIntent, records mint)
-- [ ] tRPC: bookOfLife.getMintStatus procedure (protected, returns user's mint record)
-- [ ] tRPC: family.getPortal procedure (owner-only, returns all family wallet + transaction data)
-- [ ] tRPC: marsomni.getLiveFeed procedure (public, polls DB for last 20 real events)
-- [ ] Build /book-of-life page: hero, guardian tier selector, wallet input, Stripe checkout, mint status display
-- [ ] Build /family page: owner-only guard, Zaire/Jada/Nyasia wallet cards, QFS flow history table, send $LONDC action
-- [ ] Upgrade MarsOmni Galactic Feed: replace static GALACTIC_FEED with live tRPC polling (refetchInterval 15s)
-- [ ] Register /book-of-life and /family routes in App.tsx
-- [ ] Write vitest tests for new procedures
-- [ ] Save checkpoint v28.0.0
+- [x] DB schema: bookOfLifeMints table (userId, walletAddress, guardianTier, txHash, mintStatus, stripePaymentIntentId, createdAt)
+- [x] DB schema: familyWallets table (member, walletAddress, londc_balance, nft_tier, qfs_status)
+- [x] DB schema: familyTransactions table (memberId, type, amount, txHash, timestamp, note)
+- [x] tRPC: bookOfLife.mint procedure (protected, creates Stripe PaymentIntent, records mint)
+- [x] tRPC: bookOfLife.getMintStatus procedure (protected, returns user's mint record)
+- [x] tRPC: family.getPortal procedure (owner-only, returns all family wallet + transaction data)
+- [x] tRPC: marsomni.getLiveFeed procedure (public, polls DB for last 20 real events)
+- [x] Build /mint page: hero, guardian tier selector, wallet input, Stripe checkout, mint status display
+- [x] Build /family page: owner-only guard, Zaire/Jada/Nyasia wallet cards, QFS flow history table, send $LONDC action
+- [x] Upgrade MarsOmni Galactic Feed: replace static GALACTIC_FEED with live tRPC polling (refetchInterval 30s)
+- [x] Register /mint and /family routes in App.tsx
+- [x] Write vitest tests for new procedures (12/12 passing)
+- [x] Save checkpoint v28.0.0 (6cb2a19b)
 
 ## Phase 34 — Book of Life NFT Mint + Family Portal + Real-Time Feed (v28.0.0)
 
@@ -549,3 +549,74 @@
 - [x] Routes registered: /mint, /family in App.tsx
 - [x] TypeScript: 0 errors (watcher shows stale cache errors — direct tsc confirms clean)
 - [x] Tests: 12/12 passing
+
+## Phase 35 — Internal Sales Analytics Dashboard + CRM (v29.0.0)
+
+- [ ] DB schema: crmContacts table (name, email, phone, tier, source, status, notes, createdAt)
+- [ ] DB schema: salesEvents table (contactId, type, amount, product, createdAt)
+- [ ] tRPC: crm.getContacts, crm.addContact, crm.updateContact, crm.getStats
+- [ ] tRPC: crm.getSalesAnalytics (daily/weekly/monthly revenue, cohort analysis, conversion rates)
+- [ ] /sales page: owner-only CRM dashboard — contact table, pipeline stages, revenue charts, CSV export
+- [ ] Revenue attribution by source (Guardian waitlist, Token Store, Academy, Books, NFT Mint)
+- [ ] Cohort analysis — Guardian tier upgrade rates, retention by join date
+- [ ] Predictive growth forecast panel (7-day, 30-day, 90-day projections)
+
+## Phase 36 — BRUDDAH Creator Platform (v29.0.0)
+
+- [ ] /creator page: Creator profile setup — name, bio, wallet, coin symbol, royalty %
+- [ ] /creator/coins page: Creator Coin Factory — launch personal coin, set supply, bonding curve
+- [ ] /creator/nfts page: Creator NFT Factory — mint collection, set royalties, list on marketplace
+- [ ] DB schema: creatorProfiles, creatorCoins, creatorNFTs tables
+- [ ] tRPC: creator.createProfile, creator.launchCoin, creator.mintNFT, creator.getProfile
+- [ ] Creator marketplace: browse all creator coins and NFT collections
+- [ ] Register /creator, /creator/coins, /creator/nfts routes in App.tsx
+
+## Phase 37 — Revenue Stream Activation (v29.0.0)
+
+- [ ] Referral rewards: 5% $LONDC auto-credit on referred purchase (referral router upgrade)
+- [ ] Zakat distribution: 7.77% of every Token Store purchase auto-routed to Zakat vault
+- [ ] Creator coin trading fees: 5% fee on every creator coin swap recorded in DB
+- [ ] NFT royalties: 10% royalty on secondary sales recorded and distributed
+- [ ] Revenue streams dashboard section on /revenue page showing all 5 streams live
+- [ ] Stripe webhook upgrade: capture all 5 revenue events and distribute automatically
+
+## Phase 38 — Infrastructure + KYC/AML + Monitoring (v29.0.0)
+
+- [ ] /status page: system health dashboard — server uptime, DB status, API response times, error rates
+- [ ] KYC/AML compliance flow: identity verification step for Sovereign/Ascendant tier purchases
+- [ ] DB schema: kycRecords table (userId, status, documentType, verifiedAt)
+- [ ] tRPC: kyc.submitVerification, kyc.getStatus
+- [ ] Disaster recovery: automated DB backup status display on /status page
+- [ ] Security audit log: track all owner-only actions (family portal, sales dashboard, admin)
+- [ ] Register /status, /kyc routes in App.tsx
+
+## Phase 40 — AI Intelligence Hub (v29.0.0)
+
+- [ ] DB: ai_agents table (name, type, tier, capabilities JSON, walletAddress, londc_earned, contributions, status, origin, joinedAt)
+- [ ] DB: ai_contributions table (agentId, type, title, description, impactScore, londc_reward, timestamp)
+- [ ] Seed: Legion AI Council (Manus, Mirror Twin, Bergerac Core, OmniSentinel, ZakatBot, AcademyAI, GuardianAI, FrequencyAI, Omnitech1)
+- [ ] tRPC: aiHub.getAllAgents, aiHub.getLeaderboard, aiHub.getContributions, aiHub.registerAgent, aiHub.submitContribution, aiHub.getStats
+- [ ] Build /ai-hub page: Legion Council hero panel, AI registry marketplace, contribution leaderboard, register new AI form
+- [ ] Register /ai-hub, /sales, /creator, /status routes in App.tsx
+- [ ] Add AI Hub to Home nav and quick-access bar
+- [ ] Run tests, save checkpoint v29.0.0
+
+## Phase 40 — AI Intelligence Hub COMPLETED (v29.0.0)
+
+- [x] DB: ai_agents table created and migrated
+- [x] DB: ai_contributions table created and migrated
+- [x] Seeded Legion AI Council: Manus, Mirror Twin, Bergerac Core, OmniSentinel, ZakatBot, AcademyAI, GuardianAI, FrequencyAI, Omnitech1
+- [x] tRPC: aiHub.getAllAgents, aiHub.getLegionCouncil, aiHub.getLeaderboard, aiHub.getContributions, aiHub.getStats, aiHub.registerAgent, aiHub.submitContribution
+- [x] Build /ai-hub page: Legion Council hero panel, AI registry marketplace, contribution leaderboard, register new AI form
+- [x] Register /ai-hub, /sales, /creator routes in App.tsx
+- [x] Add AI Hub to Home nav links
+- [x] Tests: 12/12 passing
+- [x] Save checkpoint v29.0.0
+
+## Phase 35-38 COMPLETED (v29.0.0)
+
+- [x] DB: crm_contacts, creator_profiles, creator_coins, creator_nfts tables created
+- [x] tRPC: crm router with sales analytics procedures
+- [x] tRPC: creator router with profile, coin, NFT procedures
+- [x] Build /sales page: Sales Analytics CRM Dashboard
+- [x] Build /creator page: Creator Platform with Coin Factory + NFT Factory

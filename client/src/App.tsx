@@ -59,6 +59,9 @@ import BookOfLife from "./pages/BookOfLife";
 import BookOfLifeMint from "./pages/BookOfLifeMint";
 import FamilyPortal from "./pages/FamilyPortal";
 import Song from "./pages/Song";
+import AIHub from "./pages/AIHub";
+import SalesDashboard from "./pages/SalesDashboard";
+import CreatorPlatform from "./pages/CreatorPlatform";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -118,6 +121,9 @@ function Router() {
       <Route path={"/mint"} component={BookOfLifeMint} />
       <Route path={"/family"} component={FamilyPortal} />
       <Route path={"/song"} component={Song} />
+      <Route path={"/ai-hub"} component={AIHub} />
+      <Route path={"/sales"} component={SalesDashboard} />
+      <Route path={"/creator"} component={CreatorPlatform} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

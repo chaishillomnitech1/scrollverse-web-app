@@ -514,6 +514,7 @@ export default function Home() {
     { label: "Referral", href: "/referral" },
     { label: "Omni", href: "/omni" },
     { label: "AI Council", href: "/ai-council" },
+    { label: "AI Hub", href: "/ai-hub" },
     { label: "Legion", href: "/legion" },
     { label: "Frequency", href: "/frequency" },
     { label: "Staking", href: "/staking" },
