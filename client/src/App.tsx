@@ -62,6 +62,8 @@ import Song from "./pages/Song";
 import AIHub from "./pages/AIHub";
 import SalesDashboard from "./pages/SalesDashboard";
 import CreatorPlatform from "./pages/CreatorPlatform";
+import SystemStatus from "./pages/SystemStatus";
+import KYCVerification from "./pages/KYCVerification";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -124,6 +126,8 @@ function Router() {
       <Route path={"/ai-hub"} component={AIHub} />
       <Route path={"/sales"} component={SalesDashboard} />
       <Route path={"/creator"} component={CreatorPlatform} />
+      <Route path={"/status"} component={SystemStatus} />
+      <Route path={"/kyc"} component={KYCVerification} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

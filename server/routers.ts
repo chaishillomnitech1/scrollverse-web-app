@@ -30,6 +30,8 @@ import { familyRouter } from "./routers/family";
 import { crmRouter } from "./routers/crm";
 import { creatorRouter } from "./routers/creator";
 import { aiHubRouter } from "./routers/aiHub";
+import { revenueRouter } from "./routers/revenue";
+import { kycRouter } from "./routers/kyc";
 
 export const appRouter = router({
   system: systemRouter,
@@ -72,6 +74,8 @@ export const appRouter = router({
   crm: crmRouter,
   creator: creatorRouter,
   aiHub: aiHubRouter,
+  revenue: revenueRouter,
+  kyc: kycRouter,
 });
 
 export type AppRouter = typeof appRouter;

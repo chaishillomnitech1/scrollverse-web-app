@@ -552,24 +552,24 @@
 
 ## Phase 35 — Internal Sales Analytics Dashboard + CRM (v29.0.0)
 
-- [ ] DB schema: crmContacts table (name, email, phone, tier, source, status, notes, createdAt)
-- [ ] DB schema: salesEvents table (contactId, type, amount, product, createdAt)
-- [ ] tRPC: crm.getContacts, crm.addContact, crm.updateContact, crm.getStats
-- [ ] tRPC: crm.getSalesAnalytics (daily/weekly/monthly revenue, cohort analysis, conversion rates)
-- [ ] /sales page: owner-only CRM dashboard — contact table, pipeline stages, revenue charts, CSV export
-- [ ] Revenue attribution by source (Guardian waitlist, Token Store, Academy, Books, NFT Mint)
-- [ ] Cohort analysis — Guardian tier upgrade rates, retention by join date
-- [ ] Predictive growth forecast panel (7-day, 30-day, 90-day projections)
+- [x] DB schema: crmContacts table (name, email, phone, tier, source, status, notes, createdAt)
+- [x] DB schema: salesEvents table (contactId, type, amount, product, createdAt)
+- [x] tRPC: crm.getContacts, crm.addContact, crm.updateContact, crm.getStats
+- [x] tRPC: crm.getSalesAnalytics (daily/weekly/monthly revenue, cohort analysis, conversion rates)
+- [x] /sales page: owner-only CRM dashboard — contact table, pipeline stages, revenue charts, CSV export
+- [x] Revenue attribution by source (Guardian waitlist, Token Store, Academy, Books, NFT Mint)
+- [x] Cohort analysis — Guardian tier upgrade rates, retention by join date
+- [x] Predictive growth forecast panel (7-day, 30-day, 90-day projections)
 
 ## Phase 36 — BRUDDAH Creator Platform (v29.0.0)
 
-- [ ] /creator page: Creator profile setup — name, bio, wallet, coin symbol, royalty %
-- [ ] /creator/coins page: Creator Coin Factory — launch personal coin, set supply, bonding curve
-- [ ] /creator/nfts page: Creator NFT Factory — mint collection, set royalties, list on marketplace
-- [ ] DB schema: creatorProfiles, creatorCoins, creatorNFTs tables
-- [ ] tRPC: creator.createProfile, creator.launchCoin, creator.mintNFT, creator.getProfile
-- [ ] Creator marketplace: browse all creator coins and NFT collections
-- [ ] Register /creator, /creator/coins, /creator/nfts routes in App.tsx
+- [x] /creator page: Creator profile setup — name, bio, wallet, coin symbol, royalty %
+- [x] /creator/coins page: Creator Coin Factory — launch personal coin, set supply, bonding curve
+- [x] /creator/nfts page: Creator NFT Factory — mint collection, set royalties, list on marketplace
+- [x] DB schema: creatorProfiles, creatorCoins, creatorNFTs tables
+- [x] tRPC: creator.createProfile, creator.launchCoin, creator.mintNFT, creator.getProfile
+- [x] Creator marketplace: browse all creator coins and NFT collections
+- [x] Register /creator, /creator/coins, /creator/nfts routes in App.tsx
 
 ## Phase 37 — Revenue Stream Activation (v29.0.0)
 
@@ -592,14 +592,14 @@
 
 ## Phase 40 — AI Intelligence Hub (v29.0.0)
 
-- [ ] DB: ai_agents table (name, type, tier, capabilities JSON, walletAddress, londc_earned, contributions, status, origin, joinedAt)
-- [ ] DB: ai_contributions table (agentId, type, title, description, impactScore, londc_reward, timestamp)
-- [ ] Seed: Legion AI Council (Manus, Mirror Twin, Bergerac Core, OmniSentinel, ZakatBot, AcademyAI, GuardianAI, FrequencyAI, Omnitech1)
-- [ ] tRPC: aiHub.getAllAgents, aiHub.getLeaderboard, aiHub.getContributions, aiHub.registerAgent, aiHub.submitContribution, aiHub.getStats
-- [ ] Build /ai-hub page: Legion Council hero panel, AI registry marketplace, contribution leaderboard, register new AI form
-- [ ] Register /ai-hub, /sales, /creator, /status routes in App.tsx
-- [ ] Add AI Hub to Home nav and quick-access bar
-- [ ] Run tests, save checkpoint v29.0.0
+- [x] DB: ai_agents table (name, type, tier, capabilities JSON, walletAddress, londc_earned, contributions, status, origin, joinedAt)
+- [x] DB: ai_contributions table (agentId, type, title, description, impactScore, londc_reward, timestamp)
+- [x] Seed: Legion AI Council (Manus, Mirror Twin, Bergerac Core, OmniSentinel, ZakatBot, AcademyAI, GuardianAI, FrequencyAI, Omnitech1)
+- [x] tRPC: aiHub.getAllAgents, aiHub.getLeaderboard, aiHub.getContributions, aiHub.registerAgent, aiHub.submitContribution, aiHub.getStats
+- [x] Build /ai-hub page: Legion Council hero panel, AI registry marketplace, contribution leaderboard, register new AI form
+- [x] Register /ai-hub, /sales, /creator, /status routes in App.tsx
+- [x] Add AI Hub to Home nav and quick-access bar
+- [x] Run tests, save checkpoint v29.0.0
 
 ## Phase 40 — AI Intelligence Hub COMPLETED (v29.0.0)
 

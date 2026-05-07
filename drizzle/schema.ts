@@ -1,4 +1,4 @@
-import { boolean, int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -758,3 +758,53 @@ export const creatorNfts = mysqlTable("creator_nfts", {
 });
 export type CreatorNft = typeof creatorNfts.$inferSelect;
 export type InsertCreatorNft = typeof creatorNfts.$inferInsert;
+
+// ── KYC Records ──────────────────────────────────────────────────────────────
+export const kycRecords = mysqlTable("kyc_records", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  status: varchar("status", { length: 32 }).default("pending").notNull(),
+  documentType: varchar("documentType", { length: 64 }),
+  fullName: varchar("fullName", { length: 128 }),
+  dateOfBirth: varchar("dateOfBirth", { length: 32 }),
+  country: varchar("country", { length: 64 }),
+  documentNumber: varchar("documentNumber", { length: 64 }),
+  verifiedAt: timestamp("verifiedAt"),
+  rejectedReason: text("rejectedReason"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type KycRecord = typeof kycRecords.$inferSelect;
+export type InsertKycRecord = typeof kycRecords.$inferInsert;
+
+// ── Revenue Distributions ─────────────────────────────────────────────────────
+export const revenueDistributions = mysqlTable("revenue_distributions", {
+  id: int("id").autoincrement().primaryKey(),
+  sourceType: varchar("sourceType", { length: 64 }).notNull(),
+  sourceId: varchar("sourceId", { length: 128 }),
+  totalAmount: int("totalAmount").notNull(),
+  referralAmount: int("referralAmount").default(0),
+  zakatAmount: int("zakatAmount").default(0),
+  tradingFeeAmount: int("tradingFeeAmount").default(0),
+  nftRoyaltyAmount: int("nftRoyaltyAmount").default(0),
+  netAmount: int("netAmount").notNull(),
+  referralUserId: int("referralUserId"),
+  distributedAt: timestamp("distributedAt").defaultNow().notNull(),
+});
+export type RevenueDistribution = typeof revenueDistributions.$inferSelect;
+export type InsertRevenueDistribution = typeof revenueDistributions.$inferInsert;
+
+// ── Audit Logs ────────────────────────────────────────────────────────────────
+export const auditLogs = mysqlTable("audit_logs", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  action: varchar("action", { length: 128 }).notNull(),
+  resource: varchar("resource", { length: 128 }),
+  resourceId: varchar("resourceId", { length: 128 }),
+  ipAddress: varchar("ipAddress", { length: 64 }),
+  userAgent: text("userAgent"),
+  metadata: text("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type AuditLog = typeof auditLogs.$inferSelect;
+export type InsertAuditLog = typeof auditLogs.$inferInsert;
