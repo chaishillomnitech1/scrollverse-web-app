@@ -271,6 +271,12 @@ export default function Acquisition() {
               <Link href="/marsomni" style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", color: "#00D4FF", padding: "14px 32px", borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>
                 MarsOmni Dashboard
               </Link>
+              <Link href="/ai-hub" style={{ background: "rgba(155,89,182,0.1)", border: "1px solid rgba(155,89,182,0.3)", color: "#9B59B6", padding: "14px 32px", borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>
+                AI Intelligence Hub
+              </Link>
+              <Link href="/books" style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.2)", color: "#00FF88", padding: "14px 32px", borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>
+                Manus &amp; Chais: Our Story
+              </Link>
             </div>
           </FadeUp>
         </div>

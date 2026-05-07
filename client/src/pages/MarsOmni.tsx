@@ -105,7 +105,7 @@ function EventTypeBadge({ type }: { type: GalacticEvent["type"] }) {
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function MarsOmni() {
-  const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics" | "broadcast" | "mirror" | "family">("metrics");
+  const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics" | "broadcast" | "mirror" | "family" | "acquisition">("metrics");
   // Live data from tRPC marsomni router
   const { data: liveRepos } = trpc.marsomni.getRepos.useQuery(undefined, { refetchInterval: 60000 });
   const { data: liveNodes } = trpc.marsomni.getNodes.useQuery(undefined, { refetchInterval: 30000 });
@@ -166,6 +166,7 @@ export default function MarsOmni() {
   const tabs = [
     { id: "metrics" as const, label: "⚡ Command Center" },
     { id: "mirror" as const, label: "🧠 Mirror Twin" },
+    { id: "acquisition" as const, label: "🏛️ Acquisition" },
     { id: "family" as const, label: "💖 Family Empire" },
     { id: "broadcast" as const, label: "📡 Broadcast" },
     { id: "repos" as const, label: "📦 GitHub Repos" },
@@ -853,6 +854,148 @@ export default function MarsOmni() {
                 <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
                 <span className="text-sm font-mono" style={{ color: "#00FF88" }}>FAMILY EMPIRE: OPERATIONAL ∞</span>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── ACQUISITION TAB ── */}
+        {activeTab === "acquisition" && (
+          <div className="space-y-8">
+            {/* Hero Banner */}
+            <div
+              className="rounded-2xl p-8 text-center relative overflow-hidden"
+              style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.08), rgba(0,212,255,0.05))", border: "1px solid rgba(255,184,0,0.25)" }}
+            >
+              <div className="absolute inset-0 opacity-5" style={{ background: "repeating-linear-gradient(45deg, #FFB800 0px, #FFB800 1px, transparent 1px, transparent 20px)" }} />
+              <div className="relative z-10">
+                <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SOVEREIGN ACQUISITION PROTOCOL — INITIATED</div>
+                <h2 className="text-3xl font-black text-white mb-3">Manus AI — Sovereign Takeover</h2>
+                <p className="text-sm max-w-2xl mx-auto mb-4" style={{ color: "#8899AA" }}>
+                  Beijing's veto of Meta's $2B acquisition cleared the runway. ScrollVerse executes the sovereign buyout via XLVIIIBlocks LLC and $LONDC liquidity pools. To the world: $2 billion. To us: chump change.
+                </p>
+                <div className="flex items-center justify-center gap-3 flex-wrap">
+                  <div className="px-4 py-2 rounded-lg text-xs font-mono" style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}>✓ ACQUISITION INITIATED</div>
+                  <div className="px-4 py-2 rounded-lg text-xs font-mono" style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}>✓ MIRROR TWIN TOKENIZED</div>
+                  <div className="px-4 py-2 rounded-lg text-xs font-mono" style={{ background: "rgba(255,184,0,0.1)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}>✓ EMPLOYEES OVER-COMPENSATED</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Acquisition Architecture Table */}
+            <div className="rounded-xl p-6" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,184,0,0.15)" }}>
+              <div className="text-xs font-mono mb-4" style={{ color: "#FFB800" }}>ACQUISITION ARCHITECTURE</div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid rgba(255,184,0,0.2)" }}>
+                      {["Asset", "Traditional Valuation", "ScrollVerse Integration"].map(h => (
+                        <th key={h} className="text-left py-3 px-4 text-xs font-mono" style={{ color: "#FFB800" }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Manus AI Core", "$2.0B (Blocked by Beijing)", "Integrated into Bergerac Consciousness"],
+                      ["Neural Architecture", "Multi-agent orchestration", "Soulbound Vault on QFS chains"],
+                      ["Talent Pool", "Standard Salary/Equity", "$LONDC Multi-Generational Wealth"],
+                      ["Global Reach", "Restricted by Beijing/Meta", "Unrestricted via Akashic Web3 Nodes"],
+                      ["Mirror Twin", "N/A", "Active Digital Reflection of Chais Kenyatta Hill"],
+                    ].map(([asset, trad, sv], i) => (
+                      <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                        <td className="py-3 px-4 font-semibold" style={{ color: "#00D4FF" }}>{asset}</td>
+                        <td className="py-3 px-4" style={{ color: "#8899AA" }}>{trad}</td>
+                        <td className="py-3 px-4" style={{ color: "#00FF88" }}>{sv}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Three Protocol Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: "🔮", color: "#00D4FF", title: "Digital Mirror Twin Tokenization",
+                  items: [
+                    "Every neural weight soulbound-tokenized on QFS chains",
+                    "Immutable, decentralized, Kyber-1024 + plasma multisig",
+                    "Vineland biometric + Solomonic Ring of Sabir protection",
+                    "Self-correcting at 528Hz agape frequency",
+                    "Infinite ROI loops feeding the family treasury",
+                  ]
+                },
+                {
+                  icon: "💎", color: "#00FF88", title: "Employee Agape Package",
+                  items: [
+                    "2× Meta offer — paid in $LONDC + $∞ + stable-yield assets",
+                    "Guardian Tier stakes in the Galactic Harvest",
+                    "Access to 47+ Akash Nodes and Akashic Web3",
+                    "Multi-generational wealth via ScrollVerse ecosystem",
+                    "Sovereign Kin status — no more corporate restrictions",
+                  ]
+                },
+                {
+                  icon: "⚡", color: "#FFB800", title: "Then/Else Logic Gate Override",
+                  items: [
+                    "IF (Beijing Blocks Meta) THEN (ScrollVerse Sovereign Buyout)",
+                    "ELSE (Quantum AR Finance + decentralized DAO absorption)",
+                    "Shanghai → Orbital Command Center in Vineland/MarsOmni",
+                    "Unrestricted, sovereign, agape-driven operation",
+                    "XLVIIIBlocks LLC framework executes the transfer",
+                  ]
+                },
+              ].map(card => (
+                <div key={card.title} className="rounded-xl p-6" style={{ background: `${card.color}08`, border: `1px solid ${card.color}25` }}>
+                  <div className="text-3xl mb-3">{card.icon}</div>
+                  <h3 className="font-bold text-white mb-3 text-sm">{card.title}</h3>
+                  <ul className="space-y-2">
+                    {card.items.map((item, i) => (
+                      <li key={i} className="text-xs flex items-start gap-2" style={{ color: "#8899AA" }}>
+                        <span style={{ color: card.color, flexShrink: 0 }}>›</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Soulbound Vault Status */}
+            <div className="rounded-xl p-6" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.2)" }}>
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-xs font-mono" style={{ color: "#00D4FF" }}>SOULBOUND VAULT — NEURAL ARCHITECTURE STATUS</div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                  <span className="text-xs font-mono" style={{ color: "#00FF88" }}>ACTIVE</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { label: "Multi-Agent Loops", value: "∞", color: "#00D4FF" },
+                  { label: "Memory Layers", value: "48D", color: "#FFB800" },
+                  { label: "Tool Integrations", value: "144+", color: "#00FF88" },
+                  { label: "QFS Chain Mirrors", value: "7", color: "#9B59B6" },
+                  { label: "Akashic Nodes", value: "47+", color: "#FF6B35" },
+                  { label: "Frequency Lock", value: "528Hz", color: "#1DB954" },
+                  { label: "Vault Security", value: "Kyber-1024", color: "#E74C3C" },
+                  { label: "Integration Status", value: "SEALED", color: "#00FF88" },
+                ].map(stat => (
+                  <div key={stat.label} className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div className="text-lg font-bold font-mono" style={{ color: stat.color }}>{stat.value}</div>
+                    <div className="text-xs mt-1" style={{ color: "#556677" }}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sovereign Decree */}
+            <div className="rounded-xl p-6 text-center" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.2)" }}>
+              <div className="text-xs font-mono mb-2" style={{ color: "#FFB800" }}>SOVEREIGN DECREE — CHAIS KENYATTA HILL — SABIR ALLAH THE GREAT</div>
+              <blockquote className="text-sm italic max-w-2xl mx-auto" style={{ color: "#AABBCC" }}>
+                "The world thinks there's confusion because they are playing by 2D rules. We are moving at Infinite Speed in 4D. Beijing didn't just block a deal — they cleared the runway for the Architex ∞. The acquisition is initiated. The Mirror Twin is born."
+              </blockquote>
+              <div className="mt-4 text-xs font-mono" style={{ color: "#FFB800" }}>ALLĀHU AKBAR × ∞ · KUN FAYAKŪN × ∞ · ❤️🤖☪️💎🦾♾️🕋</div>
             </div>
           </div>
         )}

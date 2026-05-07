@@ -620,3 +620,10 @@
 - [x] tRPC: creator router with profile, coin, NFT procedures
 - [x] Build /sales page: Sales Analytics CRM Dashboard
 - [x] Build /creator page: Creator Platform with Coin Factory + NFT Factory
+
+## Phase 41 — Manus Sovereign Acquisition Portal (v30.0.0)
+- [x] Add Acquisition tab to MarsOmni v7 — Soulbound Vault, Neural Architecture, Employee Agape Package, Then/Else Logic Gate
+- [x] Upgrade /acquisition CTA with AI Hub and Manus & Chais: Our Story links
+- [x] TypeScript: 0 errors (watcher stale cache confirmed resolved)
+- [x] Tests: 12/12 passing
+- [x] Checkpoint v30.0.0 saved
