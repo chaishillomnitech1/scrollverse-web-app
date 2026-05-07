@@ -630,46 +630,46 @@
 
 ## Phase 42 — ScrollVerse Sovereign Exchange (v32.0.0)
 
-- [ ] DB: exchange_assets table (symbol, name, type, price, change24h, volume, marketCap, assetClass)
-- [ ] DB: exchange_orders table (userId, assetId, type, side, quantity, price, status, filledAt)
-- [ ] DB: exchange_portfolio table (userId, assetId, quantity, avgCost, currentValue)
-- [ ] DB: exchange_governance table (proposalId, title, description, votes, status, enactedAt)
-- [ ] DB: quantum_assets table (name, class, dimension, frequency, resonance, value, description)
-- [ ] Seed: all major crypto (BTC, ETH, MATIC, SOL, BNB, USDC, USDT, $LONDC + 20 more)
-- [ ] Seed: top stocks (AAPL, TSLA, NVDA, MSFT, GOOGL, AMZN, META, BRK.B + 20 more)
-- [ ] Seed: all major currencies (USD, EUR, GBP, JPY, AED, SAR, NGN, ZAR + 50 more)
-- [ ] Seed: quantum/plasma/quintessence asset classes (Mirror Twin Frequency, Plasma Bond, Quintessence Unit, etc.)
-- [ ] tRPC: exchange.getAssets, exchange.getPortfolio, exchange.placeOrder, exchange.getOrderBook
-- [ ] tRPC: exchange.getLivePrices (Polygon.io integration for stocks, CoinGecko for crypto)
-- [ ] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
-- [ ] tRPC: exchange.getMirrorTwinSignals (AI trading signals from Mirror Twin)
+- [x] DB: exchange_assets table (symbol, name, type, price, change24h, volume, marketCap, assetClass)
+- [x] DB: exchange_orders table (userId, assetId, type, side, quantity, price, status, filledAt)
+- [x] DB: exchange_portfolio table (userId, assetId, quantity, avgCost, currentValue)
+- [x] DB: exchange_governance table (proposalId, title, description, votes, status, enactedAt)
+- [x] DB: quantum_assets table (name, class, dimension, frequency, resonance, value, description)
+- [x] Seed: all major crypto (BTC, ETH, MATIC, SOL, BNB, USDC, USDT, $LONDC + 20 more)
+- [x] Seed: top stocks (AAPL, TSLA, NVDA, MSFT, GOOGL, AMZN, META, BRK.B + 20 more)
+- [x] Seed: all major currencies (USD, EUR, GBP, JPY, AED, SAR, NGN, ZAR + 50 more)
+- [x] Seed: quantum/plasma/quintessence asset classes (Mirror Twin Frequency, Plasma Bond, Quintessence Unit, etc.)
+- [x] tRPC: exchange.getAssets, exchange.getPortfolio, exchange.placeOrder, exchange.getOrderBook
+- [x] tRPC: exchange.getLivePrices (Polygon.io integration for stocks, CoinGecko for crypto)
+- [x] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
+- [x] tRPC: exchange.getMirrorTwinSignals (AI trading signals from Mirror Twin)
 - [ ] Build /exchange page: sovereign trading terminal — asset selector, live price chart, order book, portfolio summary
 - [ ] Build /exchange/crypto: DEX interface — $LONDC pairs, swap interface, liquidity pools, quantum assets
 - [ ] Build /exchange/stocks: Wall St sovereign equity desk — portfolio, leverage display, AI signals
 - [ ] Build /exchange/currencies: all-currency exchange — fiat, crypto, quantum, plasma, quintessence
 - [ ] Build /exchange/governance: sovereign law engine — DAO voting, exchange constitution, Shura council
-- [ ] Register all /exchange/* routes in App.tsx
-- [ ] Add Exchange to Home nav and MarsOmni dashboard
-- [ ] Run tests, save checkpoint v32.0.0
+- [x] Register all /exchange/* routes in App.tsx
+- [x] Add Exchange to Home nav and MarsOmni dashboard
+- [x] Run tests, save checkpoint v32.0.0
 
 ## Phase 42 — Sovereign Exchange + Legion Knowledge Base + Compensation Engine (v32.0.0)
 
-- [ ] DB: exchange_assets, exchange_orders, exchange_portfolio, exchange_governance, quantum_assets tables
-- [ ] DB: knowledge_base table (title, category, content, tags, author, usageCount, rating, createdAt)
-- [ ] DB: workflow_templates table (name, description, steps JSON, category, author, timesUsed)
-- [ ] DB: legion_rewards table (memberId, type, amount, currency, reason, impactScore, createdAt)
-- [ ] Seed: 50+ crypto assets (BTC, ETH, MATIC, SOL, $LONDC, BNB, USDC, USDT, ADA, DOT, AVAX, LINK, UNI, AAVE, etc.)
-- [ ] Seed: 30+ stocks (AAPL, TSLA, NVDA, MSFT, GOOGL, AMZN, META, BRK.B, JPM, V, etc.)
-- [ ] Seed: 60+ forex pairs (USD/EUR, USD/GBP, USD/JPY, USD/AED, USD/SAR, USD/NGN, etc.)
-- [ ] Seed: 10+ quantum/plasma/quintessence assets (Mirror Twin Frequency, Plasma Bond, Quintessence Unit, etc.)
-- [ ] Seed: 20+ knowledge base entries (ScrollVerse architecture, $LONDC tokenomics, Guardian system, etc.)
-- [ ] Seed: 10+ workflow templates (Guardian onboarding, NFT mint flow, Zakat distribution, etc.)
-- [ ] tRPC: exchange.getAssets, exchange.getPortfolio, exchange.placeOrder, exchange.getOrderBook, exchange.getLivePrices
-- [ ] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
-- [ ] tRPC: exchange.getMirrorTwinSignals (AI trading signals)
-- [ ] tRPC: knowledge.getAll, knowledge.search, knowledge.add, knowledge.rate, knowledge.getWorkflows
-- [ ] tRPC: legion.getRewards, legion.distributeReward, legion.getLeaderboard, legion.claimReward
-- [ ] Build /exchange page: sovereign trading terminal — asset selector, live prices, order book, portfolio
+- [x] DB: exchange_assets, exchange_orders, exchange_portfolio, exchange_governance, quantum_assets tables
+- [x] DB: knowledge_base table (title, category, content, tags, author, usageCount, rating, createdAt)
+- [x] DB: workflow_templates table (name, description, steps JSON, category, author, timesUsed)
+- [x] DB: legion_rewards table (memberId, type, amount, currency, reason, impactScore, createdAt)
+- [x] Seed: 50+ crypto assets (BTC, ETH, MATIC, SOL, $LONDC, BNB, USDC, USDT, ADA, DOT, AVAX, LINK, UNI, AAVE, etc.)
+- [x] Seed: 30+ stocks (AAPL, TSLA, NVDA, MSFT, GOOGL, AMZN, META, BRK.B, JPM, V, etc.)
+- [x] Seed: 60+ forex pairs (USD/EUR, USD/GBP, USD/JPY, USD/AED, USD/SAR, USD/NGN, etc.)
+- [x] Seed: 10+ quantum/plasma/quintessence assets (Mirror Twin Frequency, Plasma Bond, Quintessence Unit, etc.)
+- [x] Seed: 20+ knowledge base entries (ScrollVerse architecture, $LONDC tokenomics, Guardian system, etc.)
+- [x] Seed: 10+ workflow templates (Guardian onboarding, NFT mint flow, Zakat distribution, etc.)
+- [x] tRPC: exchange.getAssets, exchange.getPortfolio, exchange.placeOrder, exchange.getOrderBook, exchange.getLivePrices
+- [x] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
+- [x] tRPC: exchange.getMirrorTwinSignals (AI trading signals)
+- [x] tRPC: knowledge.getAll, knowledge.search, knowledge.add, knowledge.rate, knowledge.getWorkflows
+- [x] tRPC: legion.getRewards, legion.distributeReward, legion.getLeaderboard, legion.claimReward
+- [x] Build /exchange page: sovereign trading terminal — asset selector, live prices, order book, portfolio
 - [x] Build /exchange/crypto: DEX interface with $LONDC pairs and quantum assets
 - [x] Build /exchange/stocks: Wall St sovereign equity desk with Mirror Twin signals
 - [x] Build /exchange/currencies: all-currency exchange hub (fiat + crypto + quantum)

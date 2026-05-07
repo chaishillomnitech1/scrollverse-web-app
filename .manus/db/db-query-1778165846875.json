@@ -1,0 +1,162 @@
+{
+  "query": "DESCRIBE exchange_assets",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute DESCRIBE exchange_assets",
+  "rows": [
+    {
+      "Field": "id",
+      "Type": "int",
+      "Null": "NO",
+      "Key": "PRI",
+      "Default": "NULL",
+      "Extra": "auto_increment"
+    },
+    {
+      "Field": "symbol",
+      "Type": "varchar(20)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "name",
+      "Type": "varchar(100)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "asset_class",
+      "Type": "enum('crypto','stock','forex','commodity','quantum','plasma','quintessence','index')",
+      "Null": "NO",
+      "Key": "",
+      "Default": "crypto",
+      "Extra": ""
+    },
+    {
+      "Field": "price",
+      "Type": "decimal(20,8)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "price_usd",
+      "Type": "decimal(20,8)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "change_24h",
+      "Type": "decimal(10,4)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "change_7d",
+      "Type": "decimal(10,4)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "volume_24h",
+      "Type": "decimal(30,2)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "market_cap",
+      "Type": "decimal(30,2)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "circulating_supply",
+      "Type": "decimal(30,2)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "description",
+      "Type": "text",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "logo_url",
+      "Type": "varchar(500)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "contract_address",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "chain",
+      "Type": "varchar(50)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "is_londc_pair",
+      "Type": "tinyint(1)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "is_sovereign",
+      "Type": "tinyint(1)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "rank_global",
+      "Type": "int",
+      "Null": "NO",
+      "Key": "",
+      "Default": "9999",
+      "Extra": ""
+    },
+    {
+      "Field": "created_at",
+      "Type": "bigint",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    }
+  ],
+  "messages": [],
+  "stdout": "Field\tType\tNull\tKey\tDefault\tExtra\nid\tint\tNO\tPRI\tNULL\tauto_increment\nsymbol\tvarchar(20)\tNO\t\tNULL\t\nname\tvarchar(100)\tNO\t\tNULL\t\nasset_class\tenum('crypto','stock','forex','commodity','quantum','plasma','quintessence','index')\tNO\t\tcrypto\t\nprice\tdecimal(20,8)\tNO\t\t0\t\nprice_usd\tdecimal(20,8)\tNO\t\t0\t\nchange_24h\tdecimal(10,4)\tNO\t\t0\t\nchange_7d\tdecimal(10,4)\tNO\t\t0\t\nvolume_24h\tdecimal(30,2)\tNO\t\t0\t\nmarket_cap\tdecimal(30,2)\tNO\t\t0\t\ncirculating_supply\tdecimal(30,2)\tNO\t\t0\t\ndescription\ttext\tYES\t\tNULL\t\nlogo_url\tvarchar(500)\tYES\t\tNULL\t\ncontract_address\tvarchar(100)\tYES\t\tNULL\t\nchain\tvarchar(50)\tYES\t\tNULL\t\nis_londc_pair\ttinyint(1)\tNO\t\t0\t\nis_sovereign\ttinyint(1)\tNO\t\t0\t\nrank_global\tint\tNO\t\t9999\t\ncreated_at\tbigint\tNO\t\t0\t\n",
+  "stderr": "",
+  "execution_time_ms": 263
+}

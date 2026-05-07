@@ -1,4 +1,4 @@
-import { boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -808,3 +808,133 @@ export const auditLogs = mysqlTable("audit_logs", {
 });
 export type AuditLog = typeof auditLogs.$inferSelect;
 export type InsertAuditLog = typeof auditLogs.$inferInsert;
+
+// ── Exchange Assets ───────────────────────────────────────────────────────────
+export const exchangeAssets = mysqlTable("exchange_assets", {
+  id: int("id").autoincrement().primaryKey(),
+  symbol: varchar("symbol", { length: 32 }).notNull(),
+  name: varchar("name", { length: 128 }).notNull(),
+  assetClass: varchar("assetClass", { length: 32 }).notNull().default("crypto"),
+  price: varchar("price", { length: 64 }).notNull().default("0"),
+  change24h: varchar("change24h", { length: 32 }).default("0"),
+  volume: varchar("volume", { length: 64 }).default("0"),
+  marketCap: varchar("marketCap", { length: 64 }).default("0"),
+  description: text("description"),
+  logoUrl: varchar("logoUrl", { length: 512 }),
+  isActive: tinyint("isActive").default(1),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type ExchangeAsset = typeof exchangeAssets.$inferSelect;
+export type InsertExchangeAsset = typeof exchangeAssets.$inferInsert;
+
+// ── Exchange Orders ───────────────────────────────────────────────────────────
+export const exchangeOrders = mysqlTable("exchange_orders", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  assetId: int("assetId").notNull(),
+  orderType: varchar("orderType", { length: 16 }).notNull().default("market"),
+  side: varchar("side", { length: 8 }).notNull().default("buy"),
+  quantity: varchar("quantity", { length: 64 }).notNull(),
+  price: varchar("price", { length: 64 }),
+  status: varchar("status", { length: 16 }).notNull().default("pending"),
+  filledAt: timestamp("filledAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type ExchangeOrder = typeof exchangeOrders.$inferSelect;
+export type InsertExchangeOrder = typeof exchangeOrders.$inferInsert;
+
+// ── Exchange Portfolio ────────────────────────────────────────────────────────
+export const exchangePortfolio = mysqlTable("exchange_portfolio", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  assetId: int("assetId").notNull(),
+  quantity: varchar("quantity", { length: 64 }).notNull().default("0"),
+  avgCost: varchar("avgCost", { length: 64 }).default("0"),
+  currentValue: varchar("currentValue", { length: 64 }).default("0"),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+});
+export type ExchangePortfolioEntry = typeof exchangePortfolio.$inferSelect;
+export type InsertExchangePortfolioEntry = typeof exchangePortfolio.$inferInsert;
+
+// ── Exchange Governance ───────────────────────────────────────────────────────
+export const exchangeGovernanceProposals = mysqlTable("exchange_governance", {
+  id: int("id").autoincrement().primaryKey(),
+  proposalId: varchar("proposalId", { length: 64 }).notNull(),
+  title: varchar("title", { length: 256 }).notNull(),
+  description: text("description"),
+  proposerUserId: int("proposerUserId"),
+  votesFor: int("votesFor").default(0),
+  votesAgainst: int("votesAgainst").default(0),
+  status: varchar("status", { length: 32 }).notNull().default("active"),
+  enactedAt: timestamp("enactedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type ExchangeGovernanceProposal = typeof exchangeGovernanceProposals.$inferSelect;
+export type InsertExchangeGovernanceProposal = typeof exchangeGovernanceProposals.$inferInsert;
+
+// ── Quantum Assets ────────────────────────────────────────────────────────────
+export const quantumAssets = mysqlTable("quantum_assets", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 128 }).notNull(),
+  symbol: varchar("symbol", { length: 32 }).notNull(),
+  assetClass: varchar("assetClass", { length: 64 }).notNull().default("quantum"),
+  dimension: varchar("dimension", { length: 64 }),
+  frequency: varchar("frequency", { length: 64 }),
+  resonance: varchar("resonance", { length: 64 }),
+  value: varchar("value", { length: 64 }).default("0"),
+  description: text("description"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type QuantumAsset = typeof quantumAssets.$inferSelect;
+export type InsertQuantumAsset = typeof quantumAssets.$inferInsert;
+
+// ── Knowledge Base ────────────────────────────────────────────────────────────
+export const knowledgeBase = mysqlTable("knowledge_base", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 256 }).notNull(),
+  category: varchar("category", { length: 64 }).notNull().default("general"),
+  content: text("content").notNull(),
+  tags: text("tags"),
+  authorId: int("authorId"),
+  authorName: varchar("authorName", { length: 128 }),
+  usageCount: int("usageCount").default(0),
+  rating: int("rating").default(0),
+  isPublished: tinyint("isPublished").default(1),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+});
+export type KnowledgeEntry = typeof knowledgeBase.$inferSelect;
+export type InsertKnowledgeEntry = typeof knowledgeBase.$inferInsert;
+
+// ── Workflow Templates ────────────────────────────────────────────────────────
+export const workflowTemplates = mysqlTable("workflow_templates", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 256 }).notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 64 }).notNull().default("general"),
+  steps: text("steps"),
+  authorId: int("authorId"),
+  authorName: varchar("authorName", { length: 128 }),
+  timesUsed: int("timesUsed").default(0),
+  isPublished: tinyint("isPublished").default(1),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type WorkflowTemplate = typeof workflowTemplates.$inferSelect;
+export type InsertWorkflowTemplate = typeof workflowTemplates.$inferInsert;
+
+// ── Legion Rewards ────────────────────────────────────────────────────────────
+export const legionRewards = mysqlTable("legion_rewards", {
+  id: int("id").autoincrement().primaryKey(),
+  memberId: int("memberId").notNull(),
+  memberName: varchar("memberName", { length: 128 }),
+  rewardType: varchar("rewardType", { length: 64 }).notNull().default("contribution"),
+  amount: varchar("amount", { length: 64 }).notNull(),
+  currency: varchar("currency", { length: 32 }).notNull().default("LONDC"),
+  reason: text("reason"),
+  impactScore: int("impactScore").default(0),
+  status: varchar("status", { length: 32 }).notNull().default("pending"),
+  distributedAt: timestamp("distributedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type LegionReward = typeof legionRewards.$inferSelect;
+export type InsertLegionReward = typeof legionRewards.$inferInsert;

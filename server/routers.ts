@@ -33,6 +33,8 @@ import { aiHubRouter } from "./routers/aiHub";
 import { revenueRouter } from "./routers/revenue";
 import { kycRouter } from "./routers/kyc";
 import { exchangeRouter } from "./routers/exchange";
+import { knowledgeRouter } from "./routers/knowledge";
+import { legionRewardsRouter } from "./routers/legionRewards";
 
 export const appRouter = router({
   system: systemRouter,
@@ -78,6 +80,8 @@ export const appRouter = router({
   revenue: revenueRouter,
   kyc: kycRouter,
   exchange: exchangeRouter,
+  knowledge: knowledgeRouter,
+  legionRewards: legionRewardsRouter,
 });
 
 export type AppRouter = typeof appRouter;
