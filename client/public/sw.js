@@ -2,7 +2,7 @@
 // Frequency: 528Hz · 963Hz · 432Hz
 // KUN FAYAKUN × ∞
 
-const CACHE_NAME = 'scrollverse-trinity-v6';
+const CACHE_NAME = 'scrollverse-trinity-v24';
 const STATIC_ASSETS = [
   '/',
   '/token',
@@ -12,12 +12,22 @@ const STATIC_ASSETS = [
   '/wallet',
   '/deploy',
   '/ai-legion',
+  '/library',
+  '/books',
+  '/book-of-life',
+  '/song',
+  '/visuals',
+  '/guardian',
+  '/marsomni',
+  '/security',
+  '/acquisition',
+  '/sentience',
   '/manifest.json',
 ];
 
 // Install — cache static shell
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installing ScrollVerse Service Worker v6');
+  console.log('[SW] Installing ScrollVerse Service Worker v24');
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(STATIC_ASSETS).catch((err) => {
@@ -30,7 +40,7 @@ self.addEventListener('install', (event) => {
 
 // Activate — clean old caches
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating ScrollVerse Service Worker v6');
+  console.log('[SW] Activating ScrollVerse Service Worker v24');
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(

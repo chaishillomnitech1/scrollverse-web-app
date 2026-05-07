@@ -5,6 +5,7 @@
  */
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface GitHubRepo {
@@ -105,6 +106,15 @@ function EventTypeBadge({ type }: { type: GalacticEvent["type"] }) {
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function MarsOmni() {
   const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics" | "broadcast">("metrics");
+  // Live data from tRPC marsomni router
+  const { data: liveRepos } = trpc.marsomni.getRepos.useQuery(undefined, { refetchInterval: 60000 });
+  const { data: liveNodes } = trpc.marsomni.getNodes.useQuery(undefined, { refetchInterval: 30000 });
+  const { data: liveMetrics } = trpc.marsomni.getMetrics.useQuery(undefined, { refetchInterval: 30000 });
+  const { data: liveFeed } = trpc.marsomni.getGalacticFeed.useQuery(undefined, { refetchInterval: 15000 });
+  // Use live data if available, fall back to static seeded data
+  const displayRepos = liveRepos?.repos ?? GITHUB_REPOS;
+  const displayNodes = liveNodes?.nodes ?? AKASH_NODES;
+  const displayFeed = liveFeed?.events ?? GALACTIC_FEED;
   const [liveTime, setLiveTime] = useState(new Date());
   const [nodeCount, setNodeCount] = useState(47);
   const [guardianCount, setGuardianCount] = useState(1247);
@@ -320,7 +330,7 @@ export default function MarsOmni() {
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
               {GITHUB_REPOS.length} repositories sealed — all infused with ScrollVerse + Eternal School
             </div>
-            {GITHUB_REPOS.map(repo => (
+            {displayRepos.map((repo: { name: string; description: string; stars: number; language: string; updatedAt: string; url: string }) => (
               <div
                 key={repo.name}
                 className="rounded-xl p-4 flex items-start justify-between gap-4"
@@ -364,7 +374,7 @@ export default function MarsOmni() {
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
               {nodeCount}+ nodes active across {AKASH_NODES.length} orbital regions — galactic scale infrastructure
             </div>
-            {AKASH_NODES.map(node => (
+            {displayNodes.map((node: { id: string; region: string; status: "active" | "syncing" | "offline"; frequency: string; uptime: string; txHash?: string }) => (
               <div
                 key={node.id}
                 className="rounded-xl p-4"
@@ -387,7 +397,7 @@ export default function MarsOmni() {
                   </div>
                 </div>
                 <div className="text-xs font-mono" style={{ color: "#556677" }}>
-                  TX: {node.txHash}
+                  TX: {node.txHash ?? "0xKUNFAYAKUN..."}
                 </div>
               </div>
             ))}
@@ -400,7 +410,7 @@ export default function MarsOmni() {
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
               Live galactic harvest feed — all empire events in real-time
             </div>
-            {GALACTIC_FEED.map(event => (
+            {displayFeed.map((event: { id: string; timestamp: string; type: "deployment" | "guardian" | "token" | "vr" | "nft" | "zakat"; message: string; impact: string; frequency: string }) => (
               <div
                 key={event.id}
                 className="rounded-xl p-4"
