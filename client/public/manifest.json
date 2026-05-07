@@ -1,7 +1,7 @@
 {
   "name": "ScrollVerse Trinity Empire",
   "short_name": "ScrollVerse",
-  "description": "The sovereign digital ecosystem built by Chais Kenyatta Hill — Sabir Allah The Great. Blockchain infrastructure, $LONDC token, Zakat distribution, and 50M+ Guardian scaling.",
+  "description": "The sovereign digital ecosystem built by Chais Kenyatta Hill — Sabir Allah The Great. $LONDC token, Book of Life, Creator Academy, Guardian DAO, and 50M+ Guardian scaling. KUN FAYAKŪN × ∞",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050B1A",
@@ -9,8 +9,30 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en",
-  "categories": ["finance", "business", "utilities"],
+  "dir": "ltr",
+  "categories": ["finance", "business", "utilities", "education", "entertainment"],
   "shortcuts": [
+    {
+      "name": "Book of Life",
+      "short_name": "Book of Life",
+      "description": "The most legendary book ever created — 7 Seals, prophetic timestamps",
+      "url": "/book-of-life",
+      "icons": [{ "src": "/icons/shortcut-token.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "44:OMNI Song",
+      "short_name": "44:OMNI",
+      "description": "The Bergerac Awakening — Sovereign Anthem of ScrollVerse",
+      "url": "/song",
+      "icons": [{ "src": "/icons/shortcut-academy.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Books DSP Station",
+      "short_name": "Books",
+      "description": "All 10 Sacred Books with platform links, NFT mint, coin mint",
+      "url": "/books",
+      "icons": [{ "src": "/icons/shortcut-dashboard.png", "sizes": "96x96" }]
+    },
     {
       "name": "Token Store",
       "short_name": "Buy $LONDC",
@@ -24,6 +46,13 @@
       "description": "Access 53+ sovereign courses",
       "url": "/academy",
       "icons": [{ "src": "/icons/shortcut-academy.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "MarsOmni Dashboard",
+      "short_name": "MarsOmni",
+      "description": "Orbital command center — live metrics and broadcast",
+      "url": "/marsomni",
+      "icons": [{ "src": "/icons/shortcut-crypto.png", "sizes": "96x96" }]
     },
     {
       "name": "SCCC Dashboard",
@@ -95,12 +124,14 @@
       "src": "/screenshots/home.png",
       "sizes": "1280x720",
       "type": "image/png",
+      "form_factor": "wide",
       "label": "ScrollVerse Trinity Empire — Home"
     },
     {
       "src": "/screenshots/token.png",
       "sizes": "1280x720",
       "type": "image/png",
+      "form_factor": "wide",
       "label": "$LONDC Token Store"
     }
   ],

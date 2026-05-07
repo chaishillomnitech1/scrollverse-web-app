@@ -1,0 +1,46 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://scrollverse.co/sitemap.xml
+
+# Disallow API and private routes
+Disallow: /api/
+Disallow: /api/trpc/
+Disallow: /api/oauth/
+
+# Allow all content pages
+Allow: /book-of-life
+Allow: /books
+Allow: /library
+Allow: /visuals
+Allow: /marsomni
+Allow: /token
+Allow: /guardians
+Allow: /academy
+Allow: /academy-v2
+Allow: /ai-council
+Allow: /ai-legion
+Allow: /legion
+Allow: /revenue
+Allow: /dashboard
+Allow: /security
+Allow: /acquisition
+Allow: /sentience
+Allow: /deploy
+Allow: /chat
+Allow: /connect
+Allow: /referral
+Allow: /music
+Allow: /global-map
+Allow: /scrollport
+Allow: /wallet
+Allow: /crypto
+Allow: /anno-omni
+Allow: /telegram
+Allow: /discord
+Allow: /platforms
+Allow: /replays
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

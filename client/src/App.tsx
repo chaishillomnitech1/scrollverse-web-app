@@ -56,6 +56,7 @@ import Sentience from "./pages/Sentience";
 import Books from "./pages/Books";
 import Visuals from "./pages/Visuals";
 import BookOfLife from "./pages/BookOfLife";
+import Song from "./pages/Song";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -112,6 +113,7 @@ function Router() {
       <Route path={"/books"} component={Books} />
       <Route path={"/visuals"} component={Visuals} />
       <Route path={"/book-of-life"} component={BookOfLife} />
+      <Route path={"/song"} component={Song} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

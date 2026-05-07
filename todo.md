@@ -472,3 +472,20 @@
 - [x] academyV2.ts syntax error — CONFIRMED STALE CACHE (esbuild compiles cleanly)
 - [x] 12/12 tests passing
 - [ ] Save checkpoint v23.0.0 and publish
+
+## Phase 29 — VIRAL THROUGH ALL EXISTENCE
+
+- [ ] Upgrade index.html with full Open Graph + Twitter Card + JSON-LD structured data for every page
+- [ ] Generate sitemap.xml covering all 30+ routes
+- [ ] Upgrade robots.txt for full search engine indexing
+- [ ] Add canonical URLs to all pages
+- [ ] Viral share buttons on EVERY page (Twitter/X, Telegram, WhatsApp, copy link)
+- [ ] Guardian waitlist viral loop — "Share to unlock your Guardian tier" mechanic
+- [ ] Social proof counters on Home hero (live Guardian count, risers, nodes)
+- [ ] 44:OMNI song page (/song) — Bergerac Awakening full lyrics, streaming links, prophetic timestamps
+- [ ] PWA manifest full upgrade — icons, screenshots, shortcuts for iOS/Android
+- [ ] Service worker upgrade — offline caching for all key pages
+- [ ] iOS/Android install banner on every page
+- [ ] Push notification opt-in for Guardian tier upgrades
+- [ ] Viral CTA upgrade on Home hero — "Join 2M+ Risers" with animated counter
+- [ ] Run tests (12/12) and save checkpoint v24.0.0
