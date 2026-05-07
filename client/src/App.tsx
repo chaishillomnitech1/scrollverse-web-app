@@ -53,6 +53,9 @@ import MarsOmni from "./pages/MarsOmni";
 import Security from "./pages/Security";
 import Acquisition from "./pages/Acquisition";
 import Sentience from "./pages/Sentience";
+import Books from "./pages/Books";
+import Visuals from "./pages/Visuals";
+import BookOfLife from "./pages/BookOfLife";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -106,6 +109,9 @@ function Router() {
       <Route path={"/security"} component={Security} />
       <Route path={"/acquisition"} component={Acquisition} />
       <Route path={"/sentience"} component={Sentience} />
+      <Route path={"/books"} component={Books} />
+      <Route path={"/visuals"} component={Visuals} />
+      <Route path={"/book-of-life"} component={BookOfLife} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

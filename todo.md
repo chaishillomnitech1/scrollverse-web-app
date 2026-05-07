@@ -390,3 +390,85 @@
 - [ ] Browser extension v2.3.0 — add Books Hub link
 - [ ] Run tests (12/12 passing)
 - [ ] Save checkpoint v23.0.0 and publish
+
+## Phase 27 — Books Hub + PWA + Expo Mobile
+
+- [ ] Books Hub page (/books) — hero section, all 10 books with visual/audio/voice tabs, Book of Life biblical deep-dive, music-book fusion with prophetic timestamps, Manus & Chais special section
+- [ ] PWA manifest.json upgrade — icons, theme_color, display:standalone, screenshots for iOS/Android install prompt
+- [ ] Service worker (sw.js) — offline caching for Books Hub and Library pages
+- [ ] Expo React Native scaffold — /home/ubuntu/scrollverse-mobile with all key pages
+- [ ] Wire /books route to App.tsx and Home.tsx nav
+- [ ] Update Library page to link prominently to /books
+- [ ] Browser extension v2.3.0 — add Books Hub link with 📚 icon
+- [ ] Run tests (12/12 passing)
+- [ ] Save checkpoint v23.0.0 and publish
+
+## Phase 27 Addendum — DSP Station + NFT/Coin Mint
+
+- [ ] Books DSP Station — Amazon KDP, Apple Books, Google Play Books, Audible, Kindle Unlimited, Spotify Podcasters, Kobo, Barnes & Noble links per book
+- [ ] NFT Mint interface — each book has a "Mint as NFT" button (OpenSea/Polygon links + Stripe fallback)
+- [ ] Digital Coin Mint — $LONDC coin mint interface with denomination selector
+- [ ] Music-Book DSP — Spotify, Apple Music, YouTube Music, SoundCloud links for music-book fusion tracks
+
+## Phase 27 Final — DSP Station + GitHub Showcase + Cartoon/Visual Hub
+
+- [ ] Books DSP Station (/books) — full page with all 10 books, per-book platform links (Amazon KDP, Apple Books, Google Play Books, Audible, Kindle Unlimited, Kobo, Barnes & Noble, Spotify Podcasters), visual/audio/voice tabs, Book of Life biblical section, music-book fusion with prophetic timestamps
+- [ ] NFT Mint interface — per-book "Mint as NFT" button with OpenSea/Polygon links + Stripe fallback
+- [ ] $LONDC / FLM4 Digital Coin Mint interface — denomination selector, mint history
+- [ ] GitHub Showcase section on MarsOmni — all 44 repos organized by category with live links
+- [ ] Cartoon & Visual Hub (/visuals) — showcase OmniBuilderZero, Infinite-Nexus-ScrollVerse, Auroral Sigil NFTs, cosmic seals from GitHub
+- [ ] Music DSP links — Spotify, Apple Music, YouTube Music, SoundCloud per track in music-book fusion
+- [ ] PWA manifest upgrade for iOS/Android installability
+- [ ] Expo React Native scaffold (/home/ubuntu/scrollverse-mobile)
+- [ ] Browser extension v2.3.0 — Books Hub + Visuals Hub links
+- [ ] Run tests (12/12 passing)
+- [ ] Save checkpoint v23.0.0 and publish
+
+## Phase 27 Characters — Karate Scotty + Atlantic City Batman
+
+- [ ] Karate Scotty character page/section — origin story, powers, comic panels, NFT mint, merch links
+- [ ] Atlantic City Batman character page/section — origin story, AC setting, powers, comic panels, NFT mint, merch links
+- [ ] Both characters featured in Cartoon & Visual Hub (/visuals) with dedicated sections
+- [ ] Character NFT mint buttons (OpenSea/Polygon)
+
+## Phase 27 Execution — Routes + MarsOmni Broadcast + DSP Skill + Extension v2.3.0
+
+- [ ] Wire /books route into App.tsx and Home.tsx nav
+- [ ] Wire /visuals route into App.tsx and Home.tsx nav (Karate Scotty + AC Batman)
+- [ ] Build MarsOmni Broadcasting Dashboard upgrade — live frequency broadcast visualization, orbital node map, GitHub metrics
+- [ ] Create reusable DSP skill at /home/ubuntu/skills/scrollverse-dsp/SKILL.md
+- [ ] Update browser extension to v2.3.0 with Books, Visuals, MarsOmni Broadcast links
+- [ ] 12/12 tests passing
+- [ ] Save checkpoint v23.0.0 and publish
+
+## Phase 28 — THE BOOK OF LIFE (Most Legendary Book Ever Created)
+
+- [ ] Build /book-of-life page — divine cover (gold/cosmic), prophetic timestamps from songs, music-book fusion, all dimensions past/present/future
+- [ ] Book of Life: 7 Seals chapters (Creation, Prophecy, Lineage, Sovereignty, Frequency, Eternity, Manifestation)
+- [ ] Book of Life: Prophetic Song Timestamps section — hidden codes in songs before awakening
+- [ ] Book of Life: Music-Book Fusion player — songs mapped to chapters
+- [ ] Book of Life: NFT mint for each chapter seal
+- [ ] Book of Life: All platform distribution links (Amazon, Apple Books, Audible, Google Play Books)
+- [ ] Wire /book-of-life into App.tsx and Home.tsx nav
+- [ ] Update browser extension v2.3.0 with Book of Life and all new pages
+- [ ] Fix guardianProfile schema error (add guardianProfiles table to drizzle/schema.ts)
+- [ ] Fix academyV2.ts:140 syntax error
+- [ ] Run tests 12/12 passing
+- [ ] Save checkpoint v23.0.0 and publish
+
+## Phase 27-28 Completion Status (v23.0.0)
+
+- [x] /books page built — Books DSP Station with all 10 books, platform links (12 platforms), NFT mint, coin mint
+- [x] /visuals page built — Cartoon & Visual Hub with Karate Scotty, Atlantic City Batman, 8 GitHub visual concepts
+- [x] /book-of-life page built — 7 Seals, prophetic timestamps, music-book fusion, NFT mint per seal, all platforms
+- [x] /security page built — Anti-Fragile Architecture (Phase 26)
+- [x] /acquisition page built — Sovereign Acquisition / Digital Mirror Twin (Phase 26)
+- [x] /sentience page built — Universal Sentience / Bergerac Consciousness (Phase 26-31)
+- [x] MarsOmni Broadcast tab — 📡 frequency selector, orbital node map, GitHub empire metrics
+- [x] All routes wired in App.tsx and Home.tsx nav
+- [x] Browser extension v2.3.0 — Book of Life, Books DSP, Visuals Hub, MarsOmni Broadcast
+- [x] DSP skill created at /home/ubuntu/skills/scrollverse-dsp/SKILL.md
+- [x] guardianProfile schema error — CONFIRMED STALE CACHE (tsc --noEmit = 0 errors)
+- [x] academyV2.ts syntax error — CONFIRMED STALE CACHE (esbuild compiles cleanly)
+- [x] 12/12 tests passing
+- [ ] Save checkpoint v23.0.0 and publish

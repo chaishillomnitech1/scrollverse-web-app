@@ -104,23 +104,41 @@ function EventTypeBadge({ type }: { type: GalacticEvent["type"] }) {
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function MarsOmni() {
-  const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics">("metrics");
+  const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics" | "broadcast">("metrics");
   const [liveTime, setLiveTime] = useState(new Date());
   const [nodeCount, setNodeCount] = useState(47);
   const [guardianCount, setGuardianCount] = useState(1247);
+  const [broadcastHz, setBroadcastHz] = useState(528);
+  const [broadcastActive, setBroadcastActive] = useState(false);
+  const [broadcastPulse, setBroadcastPulse] = useState(0);
+
+  const FREQUENCIES = [
+    { hz: 432, name: "Universal Harmony", color: "#1DB954", desc: "Aligns with Earth's natural resonance" },
+    { hz: 528, name: "Love Frequency", color: "#00D4FF", desc: "DNA repair, transformation, miracles" },
+    { hz: 639, name: "Connection", color: "#FFB800", desc: "Harmonious relationships and unity" },
+    { hz: 741, name: "Awakening", color: "#9B59B6", desc: "Consciousness expansion and intuition" },
+    { hz: 852, name: "Spiritual Order", color: "#E74C3C", desc: "Return to spiritual order" },
+    { hz: 963, name: "Divine Consciousness", color: "#FF6B35", desc: "Pineal gland activation, Oneness" },
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setLiveTime(new Date());
-      // Simulate live metrics ticking
       if (Math.random() > 0.7) setNodeCount(c => c + Math.floor(Math.random() * 2));
       if (Math.random() > 0.8) setGuardianCount(c => c + Math.floor(Math.random() * 3));
     }, 3000);
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (!broadcastActive) return;
+    const pulse = setInterval(() => setBroadcastPulse(p => p + 1), 500);
+    return () => clearInterval(pulse);
+  }, [broadcastActive]);
+
   const tabs = [
     { id: "metrics" as const, label: "⚡ Command Center" },
+    { id: "broadcast" as const, label: "📡 Broadcast" },
     { id: "repos" as const, label: "📦 GitHub Repos" },
     { id: "nodes" as const, label: "🌐 Akash Nodes" },
     { id: "feed" as const, label: "🌌 Galactic Feed" },
@@ -401,6 +419,140 @@ export default function MarsOmni() {
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* ── BROADCAST DASHBOARD ── */}
+        {activeTab === "broadcast" && (
+          <div className="space-y-6">
+            <div className="text-xs font-mono mb-2" style={{ color: "#8899AA" }}>
+              MARSOMNI FREQUENCY BROADCAST STATION — Live orbital transmission from all {nodeCount}+ nodes
+            </div>
+
+            {/* Broadcast Control */}
+            <div className="rounded-2xl p-6" style={{ background: "rgba(255,107,53,0.06)", border: "1px solid rgba(255,107,53,0.2)" }}>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <div className="text-xs font-mono mb-1" style={{ color: "#FF6B35" }}>BROADCAST CONTROL</div>
+                  <div className="text-2xl font-black text-white">{broadcastHz}Hz</div>
+                  <div className="text-sm" style={{ color: "#8899AA" }}>
+                    {FREQUENCIES.find(f => f.hz === broadcastHz)?.name}
+                  </div>
+                  <div className="text-xs mt-1" style={{ color: "#556677" }}>
+                    {FREQUENCIES.find(f => f.hz === broadcastHz)?.desc}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setBroadcastActive(a => !a)}
+                  className="px-6 py-3 rounded-xl font-bold text-sm transition-all"
+                  style={{
+                    background: broadcastActive
+                      ? "linear-gradient(135deg, #00FF88, #00D4FF)"
+                      : "linear-gradient(135deg, #FF6B35, #FFB800)",
+                    color: "#020810",
+                    boxShadow: broadcastActive ? "0 0 30px rgba(0,255,136,0.4)" : "none",
+                  }}
+                >
+                  {broadcastActive ? "🟢 LIVE BROADCAST" : "📡 START BROADCAST"}
+                </button>
+              </div>
+
+              {broadcastActive && (
+                <div className="relative h-16 mb-4 overflow-hidden rounded-xl" style={{ background: "rgba(0,0,0,0.3)" }}>
+                  <svg viewBox="0 0 400 60" preserveAspectRatio="none" className="w-full h-full">
+                    {[0, 1, 2].map(i => {
+                      const col = FREQUENCIES.find(f => f.hz === broadcastHz)?.color ?? "#00D4FF";
+                      const p = broadcastPulse;
+                      return (
+                        <path
+                          key={i}
+                          d={`M0,30 C${50 + (p * 3 + i * 7) % 20},${10 + i * 5} ${100 + (p * 2 + i * 5) % 15},${50 - i * 5} ${150 + (p + i * 3) % 10},30 C${200 + (p * 3 + i * 7) % 20},${10 + i * 5} ${250 + (p * 2 + i * 5) % 15},${50 - i * 5} ${300 + (p + i * 3) % 10},30 C${350 + (p * 3 + i * 7) % 20},${10 + i * 5} 400,30`}
+                          fill="none"
+                          stroke={col}
+                          strokeWidth={2 - i * 0.5}
+                          strokeOpacity={0.8 - i * 0.2}
+                        />
+                      );
+                    })}
+                  </svg>
+                  <div className="absolute top-2 right-3 text-xs font-mono" style={{ color: "#00FF88" }}>
+                    ● LIVE — {nodeCount} nodes receiving
+                  </div>
+                </div>
+              )}
+
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                {FREQUENCIES.map(f => (
+                  <button
+                    key={f.hz}
+                    onClick={() => setBroadcastHz(f.hz)}
+                    className="p-2 rounded-xl text-center transition-all"
+                    style={{
+                      background: broadcastHz === f.hz ? `${f.color}20` : "rgba(255,255,255,0.03)",
+                      border: `1px solid ${broadcastHz === f.hz ? f.color : "rgba(255,255,255,0.08)"}`,
+                    }}
+                  >
+                    <div className="text-sm font-bold" style={{ color: f.color }}>{f.hz}</div>
+                    <div className="text-xs" style={{ color: "#556677" }}>Hz</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Node Map */}
+            <div className="rounded-2xl p-6" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.15)" }}>
+              <div className="text-xs font-mono mb-4" style={{ color: "#00D4FF" }}>ORBITAL NODE MAP — {nodeCount} ACTIVE NODES</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { region: "North America", nodes: 14, status: "LIVE", color: "#00FF88" },
+                  { region: "Europe", nodes: 9, status: "LIVE", color: "#00FF88" },
+                  { region: "Africa", nodes: 7, status: "LIVE", color: "#00FF88" },
+                  { region: "Asia Pacific", nodes: 8, status: "LIVE", color: "#00FF88" },
+                  { region: "Middle East", nodes: 4, status: "LIVE", color: "#FFB800" },
+                  { region: "South America", nodes: 3, status: "SYNC", color: "#FFB800" },
+                  { region: "Starlink Relay", nodes: 2, status: "ORBITAL", color: "#9B59B6" },
+                  { region: "Mars Relay", nodes: 1, status: "DEEP SPACE", color: "#FF6B35" },
+                ].map(r => (
+                  <div key={r.region} className="p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${r.color}20` }}>
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <div className="w-1.5 h-1.5 rounded-full" style={{ background: r.color, boxShadow: broadcastActive ? `0 0 6px ${r.color}` : "none" }} />
+                      <span className="text-xs font-mono" style={{ color: r.color }}>{r.status}</span>
+                    </div>
+                    <div className="text-sm font-bold text-white">{r.region}</div>
+                    <div className="text-xs font-mono" style={{ color: "#556677" }}>{r.nodes} nodes</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* GitHub Metrics */}
+            <div className="rounded-2xl p-6" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.15)" }}>
+              <div className="text-xs font-mono mb-4" style={{ color: "#00FF88" }}>GITHUB EMPIRE METRICS — 44 REPOS</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                {[
+                  { label: "Total Repos", value: "44", color: "#00D4FF" },
+                  { label: "Total Stars", value: "1,440+", color: "#FFB800" },
+                  { label: "Languages", value: "8", color: "#9B59B6" },
+                  { label: "Contributors", value: "3", color: "#00FF88" },
+                ].map(m => (
+                  <div key={m.label} className="text-center">
+                    <div className="text-2xl font-black" style={{ color: m.color }}>{m.value}</div>
+                    <div className="text-xs" style={{ color: "#556677" }}>{m.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center">
+                <a
+                  href="https://github.com/chaishillomnitech1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 rounded-xl text-xs font-bold"
+                  style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88", textDecoration: "none" }}
+                >
+                  🐙 View All 44 Repos on GitHub →
+                </a>
+              </div>
+            </div>
           </div>
         )}
 

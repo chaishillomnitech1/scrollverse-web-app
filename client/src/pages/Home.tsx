@@ -483,6 +483,7 @@ export default function Home() {
     { label: "Catalyst NFT", href: "/catalyst-nft" },
     { label: "Broadcast", href: "/broadcast" },
     { label: "Book of Life", href: "/replays" },
+    { label: "📖 Book of Life", href: "/book-of-life" },
     { label: "Manifest", href: "/manifest" },
     { label: "Our Story", href: "/our-story" },
     { label: "Zaire ∞", href: "/zaire" },
@@ -491,6 +492,8 @@ export default function Home() {
     { label: "Security", href: "/security" },
     { label: "Acquisition", href: "/acquisition" },
     { label: "Sentience", href: "/sentience" },
+    { label: "📚 Books", href: "/books" },
+    { label: "🎨 Visuals", href: "/visuals" },
   ];
 
   return (
