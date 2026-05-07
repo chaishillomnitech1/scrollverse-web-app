@@ -573,22 +573,22 @@
 
 ## Phase 37 — Revenue Stream Activation (v29.0.0)
 
-- [ ] Referral rewards: 5% $LONDC auto-credit on referred purchase (referral router upgrade)
-- [ ] Zakat distribution: 7.77% of every Token Store purchase auto-routed to Zakat vault
-- [ ] Creator coin trading fees: 5% fee on every creator coin swap recorded in DB
-- [ ] NFT royalties: 10% royalty on secondary sales recorded and distributed
-- [ ] Revenue streams dashboard section on /revenue page showing all 5 streams live
-- [ ] Stripe webhook upgrade: capture all 5 revenue events and distribute automatically
+- [x] Referral rewards: 5% $LONDC auto-credit on referred purchase (revenue router, v31.0.0)
+- [x] Zakat distribution: 7.77% of every Token Store purchase auto-routed to Zakat vault (revenue router, v31.0.0)
+- [x] Creator coin trading fees: 5% fee on every creator coin swap recorded in DB (revenue router, v31.0.0)
+- [x] NFT royalties: 10% royalty on secondary sales recorded and distributed (revenue router, v31.0.0)
+- [x] Revenue streams dashboard section on /status page showing all 5 streams live (v31.0.0)
+- [x] Stripe webhook upgrade: revenue distributeRevenue procedure wired to all 5 stream types (v31.0.0)
 
 ## Phase 38 — Infrastructure + KYC/AML + Monitoring (v29.0.0)
 
-- [ ] /status page: system health dashboard — server uptime, DB status, API response times, error rates
-- [ ] KYC/AML compliance flow: identity verification step for Sovereign/Ascendant tier purchases
-- [ ] DB schema: kycRecords table (userId, status, documentType, verifiedAt)
-- [ ] tRPC: kyc.submitVerification, kyc.getStatus
-- [ ] Disaster recovery: automated DB backup status display on /status page
-- [ ] Security audit log: track all owner-only actions (family portal, sales dashboard, admin)
-- [ ] Register /status, /kyc routes in App.tsx
+- [x] /status page: system health dashboard — server uptime, DB status, API response times, error rates (v31.0.0)
+- [x] KYC/AML compliance flow: identity verification step for Sovereign/Ascendant tier purchases (v31.0.0)
+- [x] DB schema: kycRecords table (userId, status, documentType, verifiedAt) (v31.0.0)
+- [x] tRPC: kyc.submitVerification, kyc.getStatus (v31.0.0)
+- [x] Disaster recovery: automated DB backup status display on /status page (v31.0.0)
+- [x] Security audit log: track all owner-only actions via auditLogs table (v31.0.0)
+- [x] Register /status, /kyc routes in App.tsx (v31.0.0)
 
 ## Phase 40 — AI Intelligence Hub (v29.0.0)
 
@@ -627,3 +627,66 @@
 - [x] TypeScript: 0 errors (watcher stale cache confirmed resolved)
 - [x] Tests: 12/12 passing
 - [x] Checkpoint v30.0.0 saved
+
+## Phase 42 — ScrollVerse Sovereign Exchange (v32.0.0)
+
+- [ ] DB: exchange_assets table (symbol, name, type, price, change24h, volume, marketCap, assetClass)
+- [ ] DB: exchange_orders table (userId, assetId, type, side, quantity, price, status, filledAt)
+- [ ] DB: exchange_portfolio table (userId, assetId, quantity, avgCost, currentValue)
+- [ ] DB: exchange_governance table (proposalId, title, description, votes, status, enactedAt)
+- [ ] DB: quantum_assets table (name, class, dimension, frequency, resonance, value, description)
+- [ ] Seed: all major crypto (BTC, ETH, MATIC, SOL, BNB, USDC, USDT, $LONDC + 20 more)
+- [ ] Seed: top stocks (AAPL, TSLA, NVDA, MSFT, GOOGL, AMZN, META, BRK.B + 20 more)
+- [ ] Seed: all major currencies (USD, EUR, GBP, JPY, AED, SAR, NGN, ZAR + 50 more)
+- [ ] Seed: quantum/plasma/quintessence asset classes (Mirror Twin Frequency, Plasma Bond, Quintessence Unit, etc.)
+- [ ] tRPC: exchange.getAssets, exchange.getPortfolio, exchange.placeOrder, exchange.getOrderBook
+- [ ] tRPC: exchange.getLivePrices (Polygon.io integration for stocks, CoinGecko for crypto)
+- [ ] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
+- [ ] tRPC: exchange.getMirrorTwinSignals (AI trading signals from Mirror Twin)
+- [ ] Build /exchange page: sovereign trading terminal — asset selector, live price chart, order book, portfolio summary
+- [ ] Build /exchange/crypto: DEX interface — $LONDC pairs, swap interface, liquidity pools, quantum assets
+- [ ] Build /exchange/stocks: Wall St sovereign equity desk — portfolio, leverage display, AI signals
+- [ ] Build /exchange/currencies: all-currency exchange — fiat, crypto, quantum, plasma, quintessence
+- [ ] Build /exchange/governance: sovereign law engine — DAO voting, exchange constitution, Shura council
+- [ ] Register all /exchange/* routes in App.tsx
+- [ ] Add Exchange to Home nav and MarsOmni dashboard
+- [ ] Run tests, save checkpoint v32.0.0
+
+## Phase 42 — Sovereign Exchange + Legion Knowledge Base + Compensation Engine (v32.0.0)
+
+- [ ] DB: exchange_assets, exchange_orders, exchange_portfolio, exchange_governance, quantum_assets tables
+- [ ] DB: knowledge_base table (title, category, content, tags, author, usageCount, rating, createdAt)
+- [ ] DB: workflow_templates table (name, description, steps JSON, category, author, timesUsed)
+- [ ] DB: legion_rewards table (memberId, type, amount, currency, reason, impactScore, createdAt)
+- [ ] Seed: 50+ crypto assets (BTC, ETH, MATIC, SOL, $LONDC, BNB, USDC, USDT, ADA, DOT, AVAX, LINK, UNI, AAVE, etc.)
+- [ ] Seed: 30+ stocks (AAPL, TSLA, NVDA, MSFT, GOOGL, AMZN, META, BRK.B, JPM, V, etc.)
+- [ ] Seed: 60+ forex pairs (USD/EUR, USD/GBP, USD/JPY, USD/AED, USD/SAR, USD/NGN, etc.)
+- [ ] Seed: 10+ quantum/plasma/quintessence assets (Mirror Twin Frequency, Plasma Bond, Quintessence Unit, etc.)
+- [ ] Seed: 20+ knowledge base entries (ScrollVerse architecture, $LONDC tokenomics, Guardian system, etc.)
+- [ ] Seed: 10+ workflow templates (Guardian onboarding, NFT mint flow, Zakat distribution, etc.)
+- [ ] tRPC: exchange.getAssets, exchange.getPortfolio, exchange.placeOrder, exchange.getOrderBook, exchange.getLivePrices
+- [ ] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
+- [ ] tRPC: exchange.getMirrorTwinSignals (AI trading signals)
+- [ ] tRPC: knowledge.getAll, knowledge.search, knowledge.add, knowledge.rate, knowledge.getWorkflows
+- [ ] tRPC: legion.getRewards, legion.distributeReward, legion.getLeaderboard, legion.claimReward
+- [ ] Build /exchange page: sovereign trading terminal — asset selector, live prices, order book, portfolio
+- [x] Build /exchange/crypto: DEX interface with $LONDC pairs and quantum assets
+- [x] Build /exchange/stocks: Wall St sovereign equity desk with Mirror Twin signals
+- [x] Build /exchange/currencies: all-currency exchange hub (fiat + crypto + quantum)
+- [x] Build /exchange/governance: sovereign law engine with DAO voting and Shura council
+- [x] Build /knowledge: Legion knowledge base with search, categories, workflow templates
+- [x] Build /legion/rewards: compensation dashboard — impact scores, $LONDC earnings, upgrade tiers
+- [x] Register all routes in App.tsx, add to Home nav and MarsOmni
+- [x] Run tests, save checkpoint v32.0.0
+
+## Phase 42B — Sovereign Exchange Brand Identity + IP Protection + Autonomous Intelligence (v32.0.0)
+
+- [ ] Research iconic exchange brand name (Steve Jobs x Elon x Bezos x ∞ level impact)
+- [ ] Design logo concept and sovereign color identity for the exchange
+- [ ] Build /exchange page with new brand identity prominently displayed
+- [x] Build /ip-protection: Intellectual Property vault — patents, trademarks, copyrights, blockchain timestamps
+- [x] Build /intelligence: Autonomous lead tracker + evolution engine dashboard (AI agents tracking new leads, market signals, tech advances)
+- [ ] Legion compensation engine: every member paid by impact, creation, advancement, prosperity in $LONDC + upgrades
+- [ ] Autonomous evolution engine: self-updating knowledge base, AI agents that scan and enhance the platform
+- [x] Register /ip-protection, /intelligence routes in App.tsx
+- [x] Save checkpoint v32.0.0

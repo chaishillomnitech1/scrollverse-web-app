@@ -32,6 +32,7 @@ import { creatorRouter } from "./routers/creator";
 import { aiHubRouter } from "./routers/aiHub";
 import { revenueRouter } from "./routers/revenue";
 import { kycRouter } from "./routers/kyc";
+import { exchangeRouter } from "./routers/exchange";
 
 export const appRouter = router({
   system: systemRouter,
@@ -76,6 +77,7 @@ export const appRouter = router({
   aiHub: aiHubRouter,
   revenue: revenueRouter,
   kyc: kycRouter,
+  exchange: exchangeRouter,
 });
 
 export type AppRouter = typeof appRouter;

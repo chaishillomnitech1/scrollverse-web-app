@@ -64,6 +64,15 @@ import SalesDashboard from "./pages/SalesDashboard";
 import CreatorPlatform from "./pages/CreatorPlatform";
 import SystemStatus from "./pages/SystemStatus";
 import KYCVerification from "./pages/KYCVerification";
+import Exchange from "./pages/Exchange";
+import ExchangeCrypto from "./pages/ExchangeCrypto";
+import ExchangeStocks from "./pages/ExchangeStocks";
+import ExchangeCurrencies from "./pages/ExchangeCurrencies";
+import ExchangeGovernance from "./pages/ExchangeGovernance";
+import Knowledge from "./pages/Knowledge";
+import LegionRewards from "./pages/LegionRewards";
+import IPProtection from "./pages/IPProtection";
+import Intelligence from "./pages/Intelligence";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -128,6 +137,15 @@ function Router() {
       <Route path={"/creator"} component={CreatorPlatform} />
       <Route path={"/status"} component={SystemStatus} />
       <Route path={"/kyc"} component={KYCVerification} />
+      <Route path={"/exchange"} component={Exchange} />
+      <Route path={"/exchange/crypto"} component={ExchangeCrypto} />
+      <Route path={"/exchange/stocks"} component={ExchangeStocks} />
+      <Route path={"/exchange/currencies"} component={ExchangeCurrencies} />
+      <Route path={"/exchange/governance"} component={ExchangeGovernance} />
+      <Route path={"/knowledge"} component={Knowledge} />
+      <Route path={"/legion/rewards"} component={LegionRewards} />
+      <Route path={"/ip-protection"} component={IPProtection} />
+      <Route path={"/intelligence"} component={Intelligence} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
