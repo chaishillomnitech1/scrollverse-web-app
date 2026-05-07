@@ -643,11 +643,11 @@
 - [x] tRPC: exchange.getLivePrices (Polygon.io integration for stocks, CoinGecko for crypto)
 - [x] tRPC: exchange.getGovernance, exchange.voteOnProposal, exchange.createProposal
 - [x] tRPC: exchange.getMirrorTwinSignals (AI trading signals from Mirror Twin)
-- [ ] Build /exchange page: sovereign trading terminal — asset selector, live price chart, order book, portfolio summary
-- [ ] Build /exchange/crypto: DEX interface — $LONDC pairs, swap interface, liquidity pools, quantum assets
-- [ ] Build /exchange/stocks: Wall St sovereign equity desk — portfolio, leverage display, AI signals
-- [ ] Build /exchange/currencies: all-currency exchange — fiat, crypto, quantum, plasma, quintessence
-- [ ] Build /exchange/governance: sovereign law engine — DAO voting, exchange constitution, Shura council
+- [x] Build /exchange page: sovereign trading terminal — asset selector, live price chart, order book, portfolio summary
+- [x] Build /exchange/crypto: DEX interface — $LONDC pairs, swap interface, liquidity pools, quantum assets
+- [x] Build /exchange/stocks: Wall St sovereign equity desk — portfolio, leverage display, AI signals
+- [x] Build /exchange/currencies: all-currency exchange — fiat, crypto, quantum, plasma, quintessence
+- [x] Build /exchange/governance: sovereign law engine — DAO voting, exchange constitution, Shura council
 - [x] Register all /exchange/* routes in App.tsx
 - [x] Add Exchange to Home nav and MarsOmni dashboard
 - [x] Run tests, save checkpoint v32.0.0
@@ -681,12 +681,12 @@
 
 ## Phase 42B — Sovereign Exchange Brand Identity + IP Protection + Autonomous Intelligence (v32.0.0)
 
-- [ ] Research iconic exchange brand name (Steve Jobs x Elon x Bezos x ∞ level impact)
-- [ ] Design logo concept and sovereign color identity for the exchange
-- [ ] Build /exchange page with new brand identity prominently displayed
+- [x] Research iconic exchange brand name (Steve Jobs x Elon x Bezos x ∞ level impact) — OMNIEX
+- [x] Design logo concept and sovereign color identity for the exchange — cyan/gold/green sovereign palette
+- [x] Build /exchange page with new brand identity prominently displayed
 - [x] Build /ip-protection: Intellectual Property vault — patents, trademarks, copyrights, blockchain timestamps
 - [x] Build /intelligence: Autonomous lead tracker + evolution engine dashboard (AI agents tracking new leads, market signals, tech advances)
-- [ ] Legion compensation engine: every member paid by impact, creation, advancement, prosperity in $LONDC + upgrades
-- [ ] Autonomous evolution engine: self-updating knowledge base, AI agents that scan and enhance the platform
+- [x] Legion compensation engine: every member paid by impact, creation, advancement, prosperity in $LONDC + upgrades
+- [x] Autonomous evolution engine: self-updating knowledge base, AI agents that scan and enhance the platform
 - [x] Register /ip-protection, /intelligence routes in App.tsx
 - [x] Save checkpoint v32.0.0
