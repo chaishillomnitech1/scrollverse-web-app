@@ -715,3 +715,26 @@
 - [x] Generate 3 sovereign Instagram carousel images (ScrollVerse build, $LONDC explainer, Guardian activation)
 - [x] Post 3-slide carousel to @chaishill via Instagram connector — LIVE at instagram.com/p/DYCvBRkFBI-/
 - [x] Run tests, save checkpoint v35.0.0
+
+## Phase 46 — Autonomous Viral Empire Machine (v36.0.0)
+
+### Admin Creator Dashboard
+- [x] Build /admin/creators: review applications, approve creators, auto-generate referral codes, track activations + $LONDC earnings
+- [x] tRPC: admin-only procedures — listApplications, approveCreator, rejectCreator, getCreatorStats
+- [x] On approval: auto-generate unique referral code, store in referral_codes table, send Mailchimp welcome email
+- [x] Register /admin/creators route in App.tsx (admin role gated)
+
+### Stripe Referral Auto-Trigger
+- [x] Wire checkout.session.completed webhook to extract referral code from metadata
+- [x] Call legionRewards.activateWithReferral server-side on every successful Guardian purchase
+- [x] Update Stripe checkout session creation to pass referral_code in metadata when present
+- [x] Full referral → purchase → $LONDC distribution flow wired end-to-end
+
+### Autonomous 24/7 Viral Content Engine
+- [x] Build /api/scheduled/viral-post endpoint (POST, accepts content + image_url)
+- [x] Endpoint: receives AI-generated post content from scheduled task, logs it server-side
+- [x] Schedule autonomous viral posting task: every 8 hours, generate sovereign content + post to @chaishill forever
+- [x] Content rotation: 8 types — ScrollVerse build updates, $LONDC explainer, Guardian activation, OMNIEX exchange, sovereignty quotes, Afrofuturism visuals, creator economy, frequency alignment
+
+### Tests + Checkpoint
+- [x] Run tests (12/12 passing), save checkpoint v36.0.0

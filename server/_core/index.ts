@@ -77,6 +77,39 @@ async function startServer() {
     });
   });
 
+  // ── SCHEDULED TASK ENDPOINTS ─────────────────────────────────────────────
+  // Called by the autonomous viral content scheduled task agent every 8 hours
+  // The agent generates content via LLM, then POSTs here to log it
+  // The agent also posts directly to Instagram via MCP in its own environment
+  app.post("/api/scheduled/viral-post", async (req, res) => {
+    try {
+      const { caption, imageUrl, hashtags, platform, contentType } = req.body as {
+        caption?: string;
+        imageUrl?: string;
+        hashtags?: string[];
+        platform?: string;
+        contentType?: string;
+      };
+      if (!caption) {
+        return res.status(400).json({ error: "caption is required" });
+      }
+      console.log(`[ViralPost] ✨ ${platform ?? "instagram"} | ${contentType ?? "post"} | ${caption.slice(0, 80)}...`);
+      return res.json({
+        success: true,
+        message: "Viral post logged",
+        caption,
+        imageUrl: imageUrl ?? null,
+        hashtags: hashtags ?? [],
+        platform: platform ?? "instagram",
+        contentType: contentType ?? "post",
+        timestamp: new Date().toISOString(),
+      });
+    } catch (err) {
+      console.error("[ViralPost] Error:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
   // tRPC API
   app.use(
     "/api/trpc",

@@ -1,8 +1,8 @@
 import type { Express, Request, Response } from "express";
 import Stripe from "stripe";
 import { getDb } from "../db";
-import { stripeOrders, revenueEvents, users } from "../../drizzle/schema";
-import { eq } from "drizzle-orm";
+import { stripeOrders, revenueEvents, users, creatorApplications, referralCodes, legionRewards } from "../../drizzle/schema";
+import { eq, sql } from "drizzle-orm";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2026-03-25.dahlia",
@@ -11,7 +11,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export function registerStripeWebhook(app: Express) {
   app.post(
     "/api/stripe/webhook",
-    // express.raw is applied per-route here via the rawBody trick
     (req: Request, res: Response) => {
       const sig = req.headers["stripe-signature"];
       const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -23,7 +22,6 @@ export function registerStripeWebhook(app: Express) {
           console.warn("[Webhook] Missing stripe-signature or STRIPE_WEBHOOK_SECRET");
           return res.status(400).json({ error: "Missing signature" });
         }
-        // req.body is a Buffer when express.raw is used upstream
         event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : "Unknown error";
@@ -95,10 +93,69 @@ async function handleEvent(event: Stripe.Event) {
           if (newTier) {
             await db
               .update(users)
-              .set({ guardianTier: newTier, stripeCustomerId: typeof session.customer === "string" ? session.customer : undefined })
+              .set({
+                guardianTier: newTier,
+                stripeCustomerId: typeof session.customer === "string" ? session.customer : undefined,
+              })
               .where(eq(users.id, userId));
           }
         }
+
+        // ─── AUTO-DISTRIBUTE $LONDC REFERRAL REWARD ───────────────────────
+        // If a referral_code was passed in checkout metadata, reward the creator
+        const referralCode = session.metadata?.referral_code;
+        if (referralCode) {
+          try {
+            const [creator] = await db
+              .select()
+              .from(creatorApplications)
+              .where(eq(creatorApplications.referralCode, referralCode))
+              .limit(1);
+
+            if (creator && creator.status === "approved") {
+              // 7.77% sovereign commission on tier reward amounts
+              const tierRewardBase: Record<string, number> = {
+                guardian: 144,
+                sovereign: 444,
+                ascendant: 1444,
+              };
+              const base = tierRewardBase[productTier ?? "guardian"] ?? 144;
+              const loncReward = Math.round(base * 0.0777 * 100) / 100;
+
+              // Record in legion_rewards
+              await db.insert(legionRewards).values({
+                memberId: creator.id.toString(),
+                type: "referral_commission",
+                amount: loncReward.toString(),
+                currency: "LONDC",
+                reason: `Guardian activation via referral ${referralCode} — ${productTier} tier`,
+                impactScore: loncReward,
+              });
+
+              // Update creator application stats
+              await db
+                .update(creatorApplications)
+                .set({
+                  activationsCount: sql`${creatorApplications.activationsCount} + 1`,
+                  loncEarned: sql`CAST(CAST(${creatorApplications.loncEarned} AS DECIMAL(20,6)) + ${loncReward} AS CHAR)`,
+                })
+                .where(eq(creatorApplications.id, creator.id));
+
+              // Update referral_codes conversions counter
+              await db
+                .update(referralCodes)
+                .set({ conversions: sql`${referralCodes.conversions} + 1` })
+                .where(eq(referralCodes.code, referralCode));
+
+              console.log(
+                `[Webhook] ✅ Referral reward: ${loncReward} $LONDC → creator "${creator.name}" (code: ${referralCode})`
+              );
+            }
+          } catch (refErr) {
+            console.error("[Webhook] Referral reward error:", refErr);
+          }
+        }
+        // ─────────────────────────────────────────────────────────────────
       }
       break;
     }
