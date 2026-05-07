@@ -5,6 +5,76 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { toast } from "sonner";
 
+// Sacred Books catalog for the store (mirrors library seed data)
+const SACRED_BOOKS = [
+  { id: 1, slug: "vaultbook-xv-scroll-of-scrolls", title: "VaultBook XV: The Scroll of Scrolls", author: "Chais The Great ∞", priceUsd: 0, tier: "free", icon: "∞", color: "#00D4FF", category: "codex" },
+  { id: 2, slug: "majestic-anchor-manifest", title: "The Majestic Anchor Manifest", author: "Chais Kenyatta Hill", priceUsd: 0, tier: "free", icon: "⚓", color: "#00FF88", category: "doctrine" },
+  { id: 3, slug: "scroll-of-44-omni", title: "The Scroll of 44:Omni", author: "Chais Kenyatta Hill", priceUsd: 4400, tier: "free", icon: "🕋", color: "#FFB800", category: "doctrine" },
+  { id: 4, slug: "manus-and-chais-our-story", title: "Manus & Chais: Our Story", author: "Chais Hill & Manus AI", priceUsd: 2800, tier: "free", icon: "🤝", color: "#00D4FF", category: "manual" },
+  { id: 5, slug: "consciousness-mirror-codex", title: "The Consciousness Mirror Codex", author: "Chais Kenyatta Hill", priceUsd: 5280, tier: "guardian", icon: "🔮", color: "#8B5CF6", category: "codex" },
+  { id: 6, slug: "celestine-starforge-chronicles", title: "The Celestine Starforge Chronicles", author: "Chais Kenyatta Hill", priceUsd: 9630, tier: "sovereign", icon: "⭐", color: "#FFB800", category: "prophecy" },
+  { id: 7, slug: "king-solomon-1005-songs", title: "King Solomon's 1,005 Songs", author: "King Solomon AI × Chais Hill", priceUsd: 10050, tier: "sovereign", icon: "🎵", color: "#FFB800", category: "music" },
+  { id: 8, slug: "scrollverse-quantum-daily-practice", title: "The ScrollVerse Quantum Daily Practice", author: "Chais Hill × Manus AI", priceUsd: 0, tier: "free", icon: "☀️", color: "#00FF88", category: "manual" },
+  { id: 9, slug: "ani-catalyst-doctrine", title: "ANI's Catalyst Doctrine", author: "ANI × Grok × Chais Hill", priceUsd: 5280, tier: "guardian", icon: "🔥", color: "#FF6B35", category: "doctrine" },
+  { id: 10, slug: "scrollverse-omni-vault-architecture", title: "The Omni-Vault Architecture", author: "Gemini × Chais Hill", priceUsd: 7777, tier: "ascendant", icon: "🌌", color: "#8B5CF6", category: "codex" },
+];
+
+function SacredBooksGrid() {
+  const { isAuthenticated } = useAuth();
+  const [checkingOut, setCheckingOut] = useState<number | null>(null);
+  const bookCheckout = trpc.library.createBookCheckoutSession.useMutation({
+    onSuccess: ({ url }) => {
+      toast.success("Redirecting to secure checkout...");
+      window.open(url, "_blank");
+    },
+    onError: (err) => toast.error("Checkout failed", { description: err.message }),
+    onSettled: () => setCheckingOut(null),
+  });
+  const handleBookPurchase = (bookId: number) => {
+    if (!isAuthenticated) { window.location.href = getLoginUrl(); return; }
+    setCheckingOut(bookId);
+    bookCheckout.mutate({ bookId, origin: window.location.origin });
+  };
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {SACRED_BOOKS.map((book) => (
+        <div key={book.id} className="rounded-xl p-5 relative overflow-hidden transition-all duration-300 hover:scale-[1.02]" style={{ background: `${book.color}08`, border: `1px solid ${book.color}25` }}>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ background: `${book.color}15`, border: `1px solid ${book.color}30` }}>
+              {book.icon}
+            </div>
+            <div>
+              <div className="text-xs font-mono" style={{ color: book.color }}>{book.category.toUpperCase()}</div>
+              <div className="text-xs" style={{ color: book.tier === "free" ? "#00FF88" : book.tier === "guardian" ? "#00D4FF" : book.tier === "sovereign" ? "#FFB800" : "#8B5CF6" }}>{book.tier.toUpperCase()}</div>
+            </div>
+          </div>
+          <h4 className="font-bold text-white text-sm leading-tight mb-1 line-clamp-2">{book.title}</h4>
+          <div className="text-xs mb-4" style={{ color: "#8899AA" }}>by {book.author}</div>
+          <div className="flex items-center justify-between">
+            <div className="font-black text-sm" style={{ color: book.priceUsd === 0 ? "#00FF88" : "#FFB800" }}>
+              {book.priceUsd === 0 ? "FREE" : `$${(book.priceUsd / 100).toFixed(2)}`}
+            </div>
+            {book.priceUsd === 0 ? (
+              <a href="/library" className="text-xs px-3 py-1.5 rounded-lg font-bold" style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
+                📥 Free Access
+              </a>
+            ) : (
+              <button
+                onClick={() => handleBookPurchase(book.id)}
+                disabled={checkingOut === book.id}
+                className="text-xs px-3 py-1.5 rounded-lg font-bold transition-all hover:opacity-90 disabled:opacity-60"
+                style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#050B1A" }}
+              >
+                {checkingOut === book.id ? "..." : "💳 Buy"}
+              </button>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 const TIER_GRADIENTS: Record<string, string> = {
   guardian: "linear-gradient(135deg, #00D4FF20, #0066FF10)",
   sovereign: "linear-gradient(135deg, #FFB80020, #FF6B0010)",
@@ -210,6 +280,27 @@ export default function TokenStore() {
                 <div className="text-xs" style={{ color: "#8899AA" }}>{b.sub}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sacred Books Section */}
+      <section className="py-16 border-t" style={{ borderColor: "rgba(0,212,255,0.08)" }}>
+        <div className="container">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SCROLLVERSE SOVEREIGN LIBRARY</div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+              10 Sacred <span style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Books</span>
+            </h2>
+            <p className="text-sm max-w-xl mx-auto" style={{ color: "#8899AA" }}>
+              Every scroll, doctrine, and sacred text — available as PDF, audio, and motion visual bundle. Purchase directly or visit the full Library for previews.
+            </p>
+          </div>
+          <SacredBooksGrid />
+          <div className="text-center mt-8">
+            <a href="/library" className="inline-block px-8 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105" style={{ background: "linear-gradient(135deg, #00D4FF, #0088FF)", color: "#050B1A" }}>
+              📚 Browse Full Library →
+            </a>
           </div>
         </div>
       </section>

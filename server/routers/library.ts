@@ -319,6 +319,51 @@ export const libraryRouter = router({
       return { success: true };
     }),
 
+  // Create Stripe Checkout Session for a book purchase
+  createBookCheckoutSession: protectedProcedure
+    .input(z.object({
+      bookId: z.number(),
+      origin: z.string().url(),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      const Stripe = (await import("stripe")).default;
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2026-03-25.dahlia" as any });
+      const db = await getDb();
+      if (!db) throw new Error("Database unavailable");
+      const [book] = await db.select().from(scrollverseBooks).where(eq(scrollverseBooks.id, input.bookId)).limit(1);
+      if (!book) throw new Error("Book not found");
+      if (book.priceUsd === 0) throw new Error("This book is free \u2014 no checkout needed");
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "payment",
+        line_items: [{
+          price_data: {
+            currency: "usd",
+            unit_amount: book.priceUsd,
+            product_data: {
+              name: `ScrollVerse Library \u2014 ${book.title}`,
+              description: book.subtitle ?? book.description ?? "",
+            },
+          },
+          quantity: 1,
+        }],
+        customer_email: ctx.user.email ?? undefined,
+        client_reference_id: ctx.user.id.toString(),
+        metadata: {
+          user_id: ctx.user.id.toString(),
+          book_id: book.id.toString(),
+          book_slug: book.slug,
+          customer_email: ctx.user.email ?? "",
+          customer_name: ctx.user.name ?? "",
+          product_type: "book",
+        },
+        allow_promotion_codes: true,
+        success_url: `${input.origin}/library?purchased=${book.slug}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${input.origin}/library`,
+      });
+      return { url: session.url! };
+    }),
+
   // Get user's purchased books
   getMyPurchases: protectedProcedure.query(async ({ ctx }) => {
     const db = await getDb();

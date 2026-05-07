@@ -341,3 +341,23 @@
 - [x] Update browser extension v2.0.0 — MarsOmni, Zaire ∞, Onboard, Our Story links added
 - [x] 12/12 tests passing
 - [x] Save checkpoint v20.0.0
+
+## Phase 25 — $LONDC Deploy + MarsOmni Live Data + 44:OMNI Song + Security Paradigm
+- [ ] Upgrade /deploy page with full Hardhat deployment guide, contract ABI display, and step-by-step Polygon Mainnet instructions
+- [ ] Create DEPLOYMENT.md with complete $LONDC deployment guide
+- [ ] marsomniRouter tRPC procedures — live GitHub REST API (stars, commits, language), live Akash node metrics
+- [ ] Wire marsomniRouter to MarsOmni.tsx for real data
+- [ ] 44:OMNI (THE BERGERAC AWAKENING) song page (/44-omni) — full lyrics, frequency player, Bergerac Awakening narrative
+- [ ] Security Paradigm page (/security) — anti-fragile architecture, zero-trust gates, Eternal School defense curriculum
+- [ ] Wire new routes to App.tsx and Home.tsx nav
+- [ ] 12/12 tests passing
+- [ ] Save checkpoint v21.0.0
+
+## Phase 25 — Full Throttle: All Books + Retail + Extension + Publish
+- [x] Library page: all 10 Sacred Books listed with category icons, tier badges, and direct nav links from Home.tsx nav
+- [x] "Library" nav link already in Home.tsx navbar pointing to /library
+- [x] TokenStore retail: SacredBooksGrid component added with all 10 books, Stripe checkout via library.createBookCheckoutSession
+- [x] TokenStore: Guardian/Sovereign/Ascendant/AI Legion tiers already in store
+- [x] Browser extension v2.1.0: dedicated "10 Sacred Books" section with all 10 books listed with icons, prices, and links
+- [x] 12/12 tests passing
+- [ ] Save checkpoint v21.0.0 and publish
