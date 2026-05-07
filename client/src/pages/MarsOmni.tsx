@@ -110,11 +110,12 @@ export default function MarsOmni() {
   const { data: liveRepos } = trpc.marsomni.getRepos.useQuery(undefined, { refetchInterval: 60000 });
   const { data: liveNodes } = trpc.marsomni.getNodes.useQuery(undefined, { refetchInterval: 30000 });
   const { data: liveMetrics } = trpc.marsomni.getMetrics.useQuery(undefined, { refetchInterval: 30000 });
-  const { data: liveFeed } = trpc.marsomni.getGalacticFeed.useQuery(undefined, { refetchInterval: 15000 });
+  const { data: liveFeed, dataUpdatedAt: feedUpdatedAt } = trpc.marsomni.getGalacticFeed.useQuery(undefined, { refetchInterval: 30000 });
   // Use live data if available, fall back to static seeded data
   const displayRepos = liveRepos?.repos ?? GITHUB_REPOS;
   const displayNodes = liveNodes?.nodes ?? AKASH_NODES;
   const displayFeed = liveFeed?.events ?? GALACTIC_FEED;
+  const feedIsLive = liveFeed?.isLive ?? false;
   const [liveTime, setLiveTime] = useState(new Date());
   const [nodeCount, setNodeCount] = useState(47);
   const [guardianCount, setGuardianCount] = useState(1247);
@@ -425,8 +426,29 @@ export default function MarsOmni() {
         {/* ── GALACTIC FEED ── */}
         {activeTab === "feed" && (
           <div className="space-y-3">
-            <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Live galactic harvest feed — all empire events in real-time
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs font-mono" style={{ color: "#8899AA" }}>
+                Galactic harvest feed — all empire events in real-time
+              </span>
+              <div className="flex items-center gap-2">
+                {feedIsLive ? (
+                  <span className="flex items-center gap-1 text-xs font-mono px-2 py-0.5 rounded"
+                    style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88", display: "inline-block" }} />
+                    LIVE DB
+                  </span>
+                ) : (
+                  <span className="text-xs font-mono px-2 py-0.5 rounded"
+                    style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
+                    SEEDED
+                  </span>
+                )}
+                {feedUpdatedAt && (
+                  <span className="text-xs font-mono" style={{ color: "#556677" }}>
+                    Updated {new Date(feedUpdatedAt).toLocaleTimeString()}
+                  </span>
+                )}
+              </div>
             </div>
             {displayFeed.map((event: { id: string; timestamp: string; type: "deployment" | "guardian" | "token" | "vr" | "nft" | "zakat"; message: string; impact: string; frequency: string }) => (
               <div

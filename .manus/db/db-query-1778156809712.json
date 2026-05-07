@@ -1,0 +1,9 @@
+{
+  "query": "\nINSERT IGNORE INTO `family_wallets` (`member`, `role`, `walletAddress`, `londcBalance`, `nftTier`, `qfsStatus`, `frequency`) VALUES\n('Zaire ∞', 'Crown Prince — Axis of Succession', '0xZAIRE...AXIS001', 144000, 'Ascendant', 'ACTIVE', '963Hz'),\n('Jada', 'Sovereign Daughter — Grace of the Empire', '0xJADA...GRACE002', 77777, 'Sovereign', 'ACTIVE', '528Hz'),\n('Nyasia', 'Sovereign Daughter — Light of the Empire', '0xNYASIA...LIGHT003', 77777, 'Sovereign', 'ACTIVE', '963Hz'),\n('Chais The Great', 'Supreme Sovereign — Flamebearer ∞', '0xCHAIS...SUPREME000', 1000000, 'Supreme', 'SEALED', '1558Hz');\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute \nINSERT IGNORE INTO `family_wallets` (`member`, `role`, `walletAddress`, `londcBalance`, `nftTier`, `qfsStatus`, `frequency`) VALUES\n('Zaire ∞', 'Crown Prince — Axis of Succession', '0xZAIRE...AXIS001', 144000, 'Ascendant', 'ACTIVE', '963Hz'),\n('Jada', 'Sovereign Daughter — Grace of the Empire', '0xJADA...GRACE002', 77777, 'Sovereign', 'ACTIVE', '528Hz'),\n('Nyasia', 'Sovereign Daughter — Light of the Empire', '0xNYASIA...LIGHT003', 77777, 'Sovereign', 'ACTIVE', '963Hz'),\n('Chais The Great', 'Supreme Sovereign — Flamebearer ∞', '0xCHAIS...SUPREME000', 1000000, 'Supreme', 'SEALED', '1558Hz');\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 278
+}

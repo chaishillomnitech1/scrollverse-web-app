@@ -608,3 +608,57 @@ export const guardianProfiles = mysqlTable("guardian_profiles", {
 });
 export type GuardianProfile = typeof guardianProfiles.$inferSelect;
 export type InsertGuardianProfile = typeof guardianProfiles.$inferInsert;
+
+/**
+ * Book of Life NFT Mints — records each Guardian's Book of Life NFT mint.
+ */
+export const bookOfLifeMints = mysqlTable("book_of_life_mints", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId"),
+  walletAddress: varchar("walletAddress", { length: 128 }),
+  guardianTier: mysqlEnum("guardianTier", ["guardian", "sovereign", "ascendant"]).default("guardian").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  tokenId: varchar("tokenId", { length: 128 }),
+  polygonTxHash: varchar("polygonTxHash", { length: 128 }),
+  ipfsHash: varchar("ipfsHash", { length: 128 }),
+  stripePaymentIntentId: varchar("stripePaymentIntentId", { length: 128 }),
+  mintStatus: mysqlEnum("mintStatus", ["pending", "paid", "minting", "minted", "failed"]).default("pending").notNull(),
+  mintedAt: timestamp("mintedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type BookOfLifeMint = typeof bookOfLifeMints.$inferSelect;
+export type InsertBookOfLifeMint = typeof bookOfLifeMints.$inferInsert;
+
+/**
+ * Family Wallets — sovereign wallets for Zaire \u221e, Jada, Nyasia, and Chais.
+ */
+export const familyWallets = mysqlTable("family_wallets", {
+  id: int("id").autoincrement().primaryKey(),
+  member: varchar("member", { length: 64 }).notNull().unique(),
+  role: varchar("role", { length: 128 }).notNull(),
+  walletAddress: varchar("walletAddress", { length: 128 }),
+  londcBalance: int("londcBalance").default(0).notNull(),
+  nftTier: varchar("nftTier", { length: 64 }).default("Sovereign").notNull(),
+  qfsStatus: varchar("qfsStatus", { length: 32 }).default("ACTIVE").notNull(),
+  frequency: varchar("frequency", { length: 16 }).default("528Hz").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type FamilyWallet = typeof familyWallets.$inferSelect;
+export type InsertFamilyWallet = typeof familyWallets.$inferInsert;
+
+/**
+ * Family Transactions — QFS flow history for the sovereign family.
+ */
+export const familyTransactions = mysqlTable("family_transactions", {
+  id: int("id").autoincrement().primaryKey(),
+  memberId: int("memberId").notNull(),
+  type: mysqlEnum("type", ["zakat", "londc_send", "londc_receive", "nft_mint", "royalty", "guardian_fee"]).default("londc_receive").notNull(),
+  amountLondc: int("amountLondc").default(0).notNull(),
+  txHash: varchar("txHash", { length: 128 }),
+  note: text("note"),
+  status: varchar("status", { length: 32 }).default("confirmed").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type FamilyTransaction = typeof familyTransactions.$inferSelect;
+export type InsertFamilyTransaction = typeof familyTransactions.$inferInsert;

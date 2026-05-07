@@ -518,3 +518,34 @@
 - [x] 12/12 tests passing (v27.0.0)
 - [x] TypeScript: 0 errors (watcher false positive confirmed stale cache) (v27.0.0)
 - [x] Save checkpoint v27.0.0
+
+## Phase 34 — Book of Life NFT Mint, Family Portal, Real-Time Galactic Feed (v28.0.0)
+
+- [ ] DB schema: bookOfLifeMints table (userId, walletAddress, guardianTier, txHash, mintStatus, stripePaymentIntentId, createdAt)
+- [ ] DB schema: familyWallets table (member, walletAddress, londc_balance, nft_tier, qfs_status)
+- [ ] DB schema: familyTransactions table (memberId, type, amount, txHash, timestamp, note)
+- [ ] tRPC: bookOfLife.mint procedure (protected, creates Stripe PaymentIntent, records mint)
+- [ ] tRPC: bookOfLife.getMintStatus procedure (protected, returns user's mint record)
+- [ ] tRPC: family.getPortal procedure (owner-only, returns all family wallet + transaction data)
+- [ ] tRPC: marsomni.getLiveFeed procedure (public, polls DB for last 20 real events)
+- [ ] Build /book-of-life page: hero, guardian tier selector, wallet input, Stripe checkout, mint status display
+- [ ] Build /family page: owner-only guard, Zaire/Jada/Nyasia wallet cards, QFS flow history table, send $LONDC action
+- [ ] Upgrade MarsOmni Galactic Feed: replace static GALACTIC_FEED with live tRPC polling (refetchInterval 15s)
+- [ ] Register /book-of-life and /family routes in App.tsx
+- [ ] Write vitest tests for new procedures
+- [ ] Save checkpoint v28.0.0
+
+## Phase 34 — Book of Life NFT Mint + Family Portal + Real-Time Feed (v28.0.0)
+
+- [x] Schema: bookOfLifeMints, familyWallets, familyTransactions tables created via SQL
+- [x] Seeded familyWallets with Zaire ∞, Jada, Nyasia, Chais The Great (initial $LONDC balances)
+- [x] Seeded familyTransactions with QFS flow history
+- [x] bookOfLife tRPC router: getMintStats, getMintStatus, initiateMint (Stripe checkout), confirmMint
+- [x] family tRPC router: getPortal, getMemberTransactions, getAllTransactions, sendLondc (owner-only)
+- [x] /mint page: BookOfLifeMint.tsx — 3-tier selector (Guardian/Sovereign/Ascendant), Stripe checkout, Polygon wallet input, FAQ
+- [x] /family page: FamilyPortal.tsx — owner-only sovereign wallet dashboard, QFS flow history, send $LONDC form
+- [x] MarsOmni Galactic Feed upgraded to real-time tRPC polling (30s interval) — pulls live guardian signups, NFT mints, academy enrollments, legion posts, book purchases from DB
+- [x] Feed shows LIVE DB badge when real events present, SEEDED badge when falling back to static
+- [x] Routes registered: /mint, /family in App.tsx
+- [x] TypeScript: 0 errors (watcher shows stale cache errors — direct tsc confirms clean)
+- [x] Tests: 12/12 passing

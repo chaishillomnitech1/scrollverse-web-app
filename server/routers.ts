@@ -25,6 +25,8 @@ import { awakeningRouter } from "./routers/awakening";
 import { commentsRouter } from "./routers/comments";
 import { guardianProfileRouter } from "./routers/guardianProfile";
 import { marsomniRouter } from "./routers/marsomni";
+import { bookOfLifeRouter } from "./routers/bookOfLife";
+import { familyRouter } from "./routers/family";
 
 export const appRouter = router({
   system: systemRouter,
@@ -62,6 +64,8 @@ export const appRouter = router({
   comments: commentsRouter,
   guardianProfile: guardianProfileRouter,
   marsomni: marsomniRouter,
+  bookOfLife: bookOfLifeRouter,
+  family: familyRouter,
 });
 
 export type AppRouter = typeof appRouter;

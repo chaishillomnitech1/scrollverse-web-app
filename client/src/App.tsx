@@ -56,6 +56,8 @@ import Sentience from "./pages/Sentience";
 import Books from "./pages/Books";
 import Visuals from "./pages/Visuals";
 import BookOfLife from "./pages/BookOfLife";
+import BookOfLifeMint from "./pages/BookOfLifeMint";
+import FamilyPortal from "./pages/FamilyPortal";
 import Song from "./pages/Song";
 
 function Router() {
@@ -113,6 +115,8 @@ function Router() {
       <Route path={"/books"} component={Books} />
       <Route path={"/visuals"} component={Visuals} />
       <Route path={"/book-of-life"} component={BookOfLife} />
+      <Route path={"/mint"} component={BookOfLifeMint} />
+      <Route path={"/family"} component={FamilyPortal} />
       <Route path={"/song"} component={Song} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />

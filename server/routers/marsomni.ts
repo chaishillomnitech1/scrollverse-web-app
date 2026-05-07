@@ -3,6 +3,9 @@
  * Fetches real data from chaishillomnitech1 GitHub
  */
 import { publicProcedure, router } from "../_core/trpc";
+import { getDb } from "../db";
+import { guardianWaitlist, bookPurchases, academyEnrollments, bookOfLifeMints, legionPosts } from "../../drizzle/schema";
+import { desc } from "drizzle-orm";
 
 const GITHUB_ORG = "chaishillomnitech1";
 const GITHUB_API = "https://api.github.com";
@@ -125,10 +128,98 @@ export const marsomniRouter = router({
     };
   }),
 
-  getGalacticFeed: publicProcedure.query(() => {
+  getGalacticFeed: publicProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) {
+      return { events: getGalacticFeed(), lastUpdated: new Date().toISOString(), isLive: false };
+    }
+
+    type FeedEvent = { id: string; timestamp: string; type: "guardian" | "nft" | "deployment" | "token" | "vr" | "zakat"; message: string; impact: string; frequency: string };
+    const liveEvents: FeedEvent[] = [];
+
+    try {
+      // Guardian waitlist signups
+      const recentGuardians = await db.select().from(guardianWaitlist).orderBy(desc(guardianWaitlist.createdAt)).limit(5);
+      for (const g of recentGuardians) {
+        liveEvents.push({
+          id: `gw-${g.id}`,
+          timestamp: g.createdAt.toISOString(),
+          type: "guardian",
+          message: `New Guardian registered — ${g.tier} Tier`,
+          impact: `+${g.tier === "Sovereign" ? 444 : 144} $LONDC minted`,
+          frequency: "528Hz",
+        });
+      }
+
+      // Book of Life NFT mints
+      const recentMints = await db.select().from(bookOfLifeMints).orderBy(desc(bookOfLifeMints.createdAt)).limit(4);
+      for (const m of recentMints) {
+        liveEvents.push({
+          id: `bol-${m.id}`,
+          timestamp: m.createdAt.toISOString(),
+          type: "nft",
+          message: `Book of Life NFT minted — ${(m.guardianTier ?? "GUARDIAN").toUpperCase()} Seal`,
+          impact: m.mintStatus === "minted" ? "NFT on-chain" : "Mint pending",
+          frequency: m.frequency ?? "528Hz",
+        });
+      }
+
+      // Academy enrollments
+      const recentEnrollments = await db.select().from(academyEnrollments).orderBy(desc(academyEnrollments.enrolledAt)).limit(4);
+      for (const e of recentEnrollments) {
+        liveEvents.push({
+          id: `ae-${e.id}`,
+          timestamp: e.enrolledAt.toISOString(),
+          type: "vr",
+          message: `Guardian enrolled in Creator Academy`,
+          impact: `Knowledge activated`,
+          frequency: "432Hz",
+        });
+      }
+
+      // Legion posts
+      const recentPosts = await db.select().from(legionPosts).orderBy(desc(legionPosts.createdAt)).limit(3);
+      for (const p of recentPosts) {
+        liveEvents.push({
+          id: `lp-${p.id}`,
+          timestamp: p.createdAt.toISOString(),
+          type: "vr",
+          message: `${p.authorName} posted in #${p.channel}`,
+          impact: `${p.frequency} resonance`,
+          frequency: p.frequency ?? "528Hz",
+        });
+      }
+
+      // Book purchases
+      const recentBooks = await db.select().from(bookPurchases).orderBy(desc(bookPurchases.createdAt)).limit(3);
+      for (const b of recentBooks) {
+        liveEvents.push({
+          id: `bp-${b.id}`,
+          timestamp: b.createdAt.toISOString(),
+          type: "token",
+          message: `Sacred text downloaded from Library`,
+          impact: `+$LONDC royalty distributed`,
+          frequency: "963Hz",
+        });
+      }
+    } catch {
+      return { events: getGalacticFeed(), lastUpdated: new Date().toISOString(), isLive: false };
+    }
+
+    // Sort by timestamp descending, take top 20
+    liveEvents.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+    const topEvents = liveEvents.slice(0, 20);
+
+    // Pad with static events if we have fewer than 5 live ones
+    const staticEvents = getGalacticFeed();
+    const combined = topEvents.length >= 5
+      ? topEvents
+      : [...topEvents, ...staticEvents.slice(0, 10 - topEvents.length)];
+
     return {
-      events: getGalacticFeed(),
+      events: combined,
       lastUpdated: new Date().toISOString(),
+      isLive: topEvents.length > 0,
     };
   }),
 });
