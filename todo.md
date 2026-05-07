@@ -702,3 +702,16 @@
 - [x] tRPC: exchange.createProposal — protected, Guardian-only, stores to exchange_governance table
 - [x] Register /onboard route in App.tsx
 - [x] Run tests, save checkpoint v34.0.0
+
+## Phase 45 — Creator Partnership + Referral Rewards + Instagram Growth (v35.0.0)
+
+- [x] Build /partners: Creator Partnership landing page (Guardian tier benefits, referral earnings calculator, one-click application form)
+- [x] DB: creator_applications table (name, email, instagram, followers, niche, tier, status, referralCode, createdAt)
+- [x] tRPC: partners.applyAsCreator, partners.getApplications, partners.approveCreator
+- [x] Wire referral code system to Legion Rewards: on Guardian activation, auto-distribute $LONDC to referrer
+- [x] tRPC: legionRewards.activateWithReferral — auto-distributes $LONDC to creator on Guardian activation
+- [x] Update /legion/rewards to show real-time referral earnings and pending rewards
+- [x] Register /partners route in App.tsx and add to Home nav
+- [x] Generate 3 sovereign Instagram carousel images (ScrollVerse build, $LONDC explainer, Guardian activation)
+- [x] Post 3-slide carousel to @chaishill via Instagram connector — LIVE at instagram.com/p/DYCvBRkFBI-/
+- [x] Run tests, save checkpoint v35.0.0

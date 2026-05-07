@@ -938,3 +938,23 @@ export const legionRewards = mysqlTable("legion_rewards", {
 });
 export type LegionReward = typeof legionRewards.$inferSelect;
 export type InsertLegionReward = typeof legionRewards.$inferInsert;
+
+// ── CREATOR APPLICATIONS ──────────────────────────────────────────────────────
+export const creatorApplications = mysqlTable("creator_applications", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 200 }).notNull(),
+  email: varchar("email", { length: 200 }).notNull(),
+  instagram: varchar("instagram", { length: 100 }).notNull(),
+  followers: int("followers").default(0),
+  niche: varchar("niche", { length: 100 }),
+  tier: varchar("tier", { length: 50 }).default("guardian"),
+  bio: text("bio"),
+  status: varchar("status", { length: 50 }).default("pending"),
+  referralCode: varchar("referralCode", { length: 50 }),
+  loncEarned: varchar("loncEarned", { length: 64 }).default("0"),
+  activationsCount: int("activationsCount").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  approvedAt: timestamp("approvedAt"),
+});
+export type CreatorApplication = typeof creatorApplications.$inferSelect;
+export type InsertCreatorApplication = typeof creatorApplications.$inferInsert;

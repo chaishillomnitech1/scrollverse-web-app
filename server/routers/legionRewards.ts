@@ -5,7 +5,7 @@
 import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { getDb } from "../db";
-import { legionRewards } from "../../drizzle/schema";
+import { legionRewards, referralCodes } from "../../drizzle/schema";
 import { sql, desc, eq } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 
@@ -117,6 +117,68 @@ export const legionRewardsRouter = router({
         .orderBy(desc(legionRewards.createdAt))
         .limit(50);
       return results;
+    }),
+
+  // Activate a Guardian using a referral code — auto-distributes $LONDC to the creator
+  activateWithReferral: protectedProcedure
+    .input(z.object({
+      referralCode: z.string().min(1).max(64),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      const db = await getDb();
+
+      // Find the referral code
+      const [codeRow] = await db.select().from(referralCodes)
+        .where(eq(referralCodes.code, input.referralCode.toUpperCase()))
+        .limit(1);
+
+      if (!codeRow) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Referral code not found" });
+      }
+
+      // Determine reward rate by tier
+      const tierRates: Record<string, number> = {
+        guardian: 7.77,
+        sovereign: 14.4,
+        ascendant: 22.2,
+      };
+      const tier = (codeRow.tier ?? "guardian").toLowerCase();
+      const rate = tierRates[tier] ?? 7.77;
+
+      // Base activation value: 144 $LONDC per Guardian activation
+      const baseValue = 144;
+      const loncReward = parseFloat((baseValue * (rate / 100)).toFixed(4));
+
+      // Distribute $LONDC reward to the creator
+      await db.insert(legionRewards).values({
+        memberId: codeRow.userId ?? 0,
+        memberName: codeRow.creatorName,
+        rewardType: "referral",
+        amount: loncReward.toString(),
+        currency: "LONDC",
+        reason: `Referral activation by user #${ctx.user.id} via code ${input.referralCode}`,
+        impactScore: Math.floor(loncReward),
+        status: "distributed",
+        distributedAt: new Date(),
+      });
+
+      // Update referral code stats
+      await db.execute(
+        sql.raw(`UPDATE referral_codes SET conversions = conversions + 1, rewardTokens = rewardTokens + ${Math.floor(loncReward)} WHERE id = ${codeRow.id}`)
+      );
+
+      // Also update creator_applications activations count
+      await db.execute(
+        sql.raw(`UPDATE creator_applications SET activations_count = activations_count + 1 WHERE referral_code = '${input.referralCode.toUpperCase()}'`)
+      );
+
+      return {
+        success: true,
+        loncDistributed: loncReward,
+        creatorName: codeRow.creatorName,
+        tier,
+        message: `${loncReward} $LONDC distributed to ${codeRow.creatorName} for your activation!`,
+      };
     }),
 
   getStats: publicProcedure

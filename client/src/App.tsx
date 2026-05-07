@@ -73,6 +73,7 @@ import Knowledge from "./pages/Knowledge";
 import LegionRewards from "./pages/LegionRewards";
 import IPProtection from "./pages/IPProtection";
 import Intelligence from "./pages/Intelligence";
+import Partners from "./pages/Partners";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -146,6 +147,7 @@ function Router() {
       <Route path={"/legion/rewards"} component={LegionRewards} />
       <Route path={"/ip-protection"} component={IPProtection} />
       <Route path={"/intelligence"} component={Intelligence} />
+      <Route path={"/partners"} component={Partners} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

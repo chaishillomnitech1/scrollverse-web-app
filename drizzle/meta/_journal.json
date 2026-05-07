@@ -127,6 +127,13 @@
       "when": 1778165311861,
       "tag": "0017_left_tag",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1778168887634,
+      "tag": "0018_chief_mimic",
+      "breakpoints": true
     }
   ]
 }

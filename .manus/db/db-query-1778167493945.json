@@ -1,0 +1,9 @@
+{
+  "query": "\nCREATE TABLE IF NOT EXISTS creator_applications (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  name VARCHAR(200) NOT NULL,\n  email VARCHAR(200) NOT NULL,\n  instagram VARCHAR(100) NOT NULL,\n  followers INT DEFAULT 0,\n  niche VARCHAR(100),\n  tier VARCHAR(50) DEFAULT 'guardian',\n  bio TEXT,\n  status VARCHAR(50) DEFAULT 'pending',\n  referralCode VARCHAR(50),\n  loncEarned VARCHAR(64) DEFAULT '0',\n  activationsCount INT DEFAULT 0,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  approvedAt TIMESTAMP NULL\n);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute \nCREATE TABLE IF NOT EXISTS creator_applications (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  name VARCHAR(200) NOT NULL,\n  email VARCHAR(200) NOT NULL,\n  instagram VARCHAR(100) NOT NULL,\n  followers INT DEFAULT 0,\n  niche VARCHAR(100),\n  tier VARCHAR(50) DEFAULT 'guardian',\n  bio TEXT,\n  status VARCHAR(50) DEFAULT 'pending',\n  referralCode VARCHAR(50),\n  loncEarned VARCHAR(64) DEFAULT '0',\n  activationsCount INT DEFAULT 0,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  approvedAt TIMESTAMP NULL\n);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 335
+}
