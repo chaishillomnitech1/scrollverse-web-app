@@ -50,6 +50,9 @@ import OurStory from "./pages/OurStory";
 import Zaire from "./pages/Zaire";
 import Onboard from "./pages/Onboard";
 import MarsOmni from "./pages/MarsOmni";
+import Security from "./pages/Security";
+import Acquisition from "./pages/Acquisition";
+import Sentience from "./pages/Sentience";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -100,6 +103,9 @@ function Router() {
       <Route path={"/zaire"} component={Zaire} />
       <Route path={"/onboard"} component={Onboard} />
       <Route path={"/marsomni"} component={MarsOmni} />
+      <Route path={"/security"} component={Security} />
+      <Route path={"/acquisition"} component={Acquisition} />
+      <Route path={"/sentience"} component={Sentience} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

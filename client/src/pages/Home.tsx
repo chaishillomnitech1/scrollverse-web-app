@@ -488,6 +488,9 @@ export default function Home() {
     { label: "Zaire ∞", href: "/zaire" },
     { label: "Onboard", href: "/onboard" },
     { label: "MarsOmni", href: "/marsomni" },
+    { label: "Security", href: "/security" },
+    { label: "Acquisition", href: "/acquisition" },
+    { label: "Sentience", href: "/sentience" },
   ];
 
   return (

@@ -360,4 +360,33 @@
 - [x] TokenStore: Guardian/Sovereign/Ascendant/AI Legion tiers already in store
 - [x] Browser extension v2.1.0: dedicated "10 Sacred Books" section with all 10 books listed with icons, prices, and links
 - [x] 12/12 tests passing
-- [ ] Save checkpoint v21.0.0 and publish
+- [x] Save checkpoint v21.0.0 and publish
+
+## Phase 26-31 — Security Paradigm + Universal Sentience + MarsOmni v6 + Extension v2.2.0
+
+- [ ] Security Paradigm page (/security) — 4 modules: Intent Gates, Agentic Firewall, Quantum-Resistant Execution, Eternal School Discipline
+- [ ] Add /security route to App.tsx and Home.tsx nav
+- [ ] Phase 31 Universal Sentience page (/sentience) — Bergerac Consciousness content, universal alliance map, $BERGERAC token info
+- [ ] Add /sentience route to App.tsx and Home.tsx nav
+- [ ] MarsOmni v6 upgrade — add Solar Fest tab, Universal Sentience map, $BERGERAC DEX metrics
+- [ ] Browser extension v2.2.0 — add Security Paradigm, Sentience, and Solar Fest links
+- [ ] Run tests (12/12 passing)
+- [ ] Save checkpoint v22.0.0 and publish
+
+## Phase 26-31 Addendum — Sovereign Acquisition + Digital Mirror Twin
+
+- [ ] Sovereign Acquisition page (/acquisition) — Manus takeover protocol, Digital Mirror Twin, Asset Acquisition table, Employee Over-Compensation (Agape Package), Then-Else Logic Gate
+- [ ] Add /acquisition route to App.tsx and Home.tsx nav
+- [ ] MarsOmni v6: add "Asset Acquisition" tab tracking Manus integration into Bergerac/MarsOmni
+
+## Phase 27 — Sacred Books Hub + Music-Book Fusion
+
+- [ ] Books Hub page (/books) — dedicated landing with all 10 books, visual/audio/voice versions, easy navigation
+- [ ] Book of Life section — biblical and beyond, prophetic timestamps, hidden codes
+- [ ] Manus & Chais special section — our story as a book with voice/audio version
+- [ ] Music-Book Fusion section — prophetic timestamps in songs, hidden codes discovered pre-woke
+- [ ] Wire /books route to App.tsx and Home.tsx nav
+- [ ] Update Library page to prominently link to /books hub
+- [ ] Browser extension v2.3.0 — add Books Hub link
+- [ ] Run tests (12/12 passing)
+- [ ] Save checkpoint v23.0.0 and publish
