@@ -4,8 +4,10 @@
  * All 8 sacred texts available as PDF download, audio listen, and motion cartoon
  */
 import { useState, useRef, useEffect } from "react";
+import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { ViralShare } from "@/components/ViralShare";
 
 // Category colors
 const CATEGORY_COLORS: Record<string, string> = {
@@ -463,6 +465,30 @@ export default function Library() {
             Every scroll, doctrine, and sacred text — available as PDF download, audio listen, and motion cartoon visual. The empire's knowledge, permanently accessible.
           </p>
 
+          {/* Books Hub CTA */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <Link href="/books">
+              <a className="px-5 py-2.5 rounded-xl font-bold text-sm transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}>
+                📚 Books Hub — All 10 Sacred Texts
+              </a>
+            </Link>
+            <Link href="/book-of-life">
+              <a className="px-5 py-2.5 rounded-xl font-bold text-sm transition-all hover:opacity-90" style={{ background: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+                📖 Book of Life
+              </a>
+            </Link>
+            <Link href="/song">
+              <a className="px-5 py-2.5 rounded-xl font-bold text-sm transition-all hover:opacity-90" style={{ background: "rgba(29,185,84,0.1)", color: "#1DB954", border: "1px solid rgba(29,185,84,0.3)" }}>
+                🎵 44:OMNI Song
+              </a>
+            </Link>
+            <Link href="/visuals">
+              <a className="px-5 py-2.5 rounded-xl font-bold text-sm transition-all hover:opacity-90" style={{ background: "rgba(155,89,182,0.1)", color: "#9B59B6", border: "1px solid rgba(155,89,182,0.3)" }}>
+                🎨 Visual Universe
+              </a>
+            </Link>
+          </div>
+
           {/* Stats */}
           {stats && (
             <div className="flex items-center justify-center gap-6 flex-wrap">
@@ -548,9 +574,14 @@ export default function Library() {
           <p className="text-sm mb-5 max-w-lg mx-auto" style={{ color: "#8899AA" }}>
             10% of every book purchase flows directly into the Guardian Zakat Pool. Buying knowledge funds the empire. Reading is sovereignty. Listening is investing.
           </p>
-          <div className="flex flex-wrap gap-3 justify-center">
+          <ViralShare
+            title="ScrollVerse Digital Library — Sovereign Knowledge Vault"
+            text="📚 The ScrollVerse Digital Library — sacred texts, audio scrolls, and motion visuals. Every purchase funds the Guardian Zakat Pool. KUN FAYAKŪN × ∞"
+            url="https://scrollverse.co/library"
+          />
+          <div className="flex flex-wrap gap-3 justify-center mt-5">
             <a href="/token" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}>
-              💎 Get $LONDC to Unlock All
+              📎 Get $LONDC to Unlock All
             </a>
             <a href="/guardian" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>
               🛡️ Join Guardian Tier

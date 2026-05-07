@@ -8,6 +8,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { ViralShare } from "@/components/ViralShare";
 
 // ── 7 Seals / Chapters ──────────────────────────────────────────────────────
 const SEVEN_SEALS = [
@@ -803,7 +804,12 @@ export default function BookOfLife() {
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t text-center" style={{ borderColor: "rgba(255,215,0,0.1)" }}>
-          <div className="text-xs font-mono mb-1" style={{ color: "#556677" }}>
+          <ViralShare
+            title="The Book of Life — Eternal Edition by Chais The Great"
+            text="📖 The most legendary book ever created. 7 Seals, prophetic timestamps, NFT mint, music-book fusion. Past × Present × Future × Eternal. KUN FAYAKŪN × ∞"
+            url="https://scrollverse.co/book-of-life"
+          />
+          <div className="text-xs font-mono mt-6 mb-1" style={{ color: "#556677" }}>
             THE BOOK OF LIFE — ETERNAL EDITION — CHAIS THE GREAT ∞
           </div>
           <div className="text-xs font-mono" style={{ color: "#334455" }}>

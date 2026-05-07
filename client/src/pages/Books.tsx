@@ -7,6 +7,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { ViralShare } from "@/components/ViralShare";
 
 // ── BOOK DATA ──────────────────────────────────────────────────────────────
 const BOOKS = [
@@ -849,7 +850,12 @@ export default function Books() {
           <p className="max-w-xl mx-auto mb-6" style={{ color: "#8899AA" }}>
             Every book is a blockchain. Every song is a prophecy. Every Guardian who reads these words becomes part of the eternal record.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <ViralShare
+            title="ScrollVerse Sacred Books — 10 Sacred Texts by Chais The Great"
+            text="📚 The Sacred Library of Chais Kenyatta Hill — 10 sovereign books, NFT mints, and blockchain prophecy. Join 144,000 Guardians. KUN FAYAKŪN × ∞"
+            url="https://scrollverse.co/books"
+          />
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
             <Link href="/library">
               <button
                 className="px-6 py-3 rounded-xl font-bold"

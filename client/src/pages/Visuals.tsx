@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { ViralShare } from "@/components/ViralShare";
 
 // ── CHARACTERS ─────────────────────────────────────────────────────────────
 const CHARACTERS = [
@@ -597,7 +598,12 @@ export default function Visuals() {
       <div className="py-12 text-center" style={{ background: "linear-gradient(180deg, transparent, rgba(255,184,0,0.04))" }}>
         <div className="container">
           <p className="text-sm mb-4" style={{ color: "#8899AA" }}>Every character. Every concept. Every visual. Sovereign and eternal.</p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <ViralShare
+            title="ScrollVerse Visuals — Sovereign Characters, NFTs & Cartoon Universe"
+            text="🎨 Karate Scotty, Atlantic City Batman, Auroral Sigil NFTs — the ScrollVerse visual universe. Sovereign characters, NFT collections, and cosmic art. KUN FAYAKŪN × ∞"
+            url="https://scrollverse.co/visuals"
+          />
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
             <Link href="/books">
               <button className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "linear-gradient(135deg, #FFB800, #00D4FF)", color: "#050B1A" }}>
                 📚 Sacred Books

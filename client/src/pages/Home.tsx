@@ -109,6 +109,54 @@ function FrequencyWave({ color = "#00D4FF", opacity = 0.6 }: { color?: string; o
   );
 }
 
+// Live Stats Bar — pulls real data from tRPC
+function LiveStatsBar() {
+  const { data: guardianData } = trpc.guardian.getCount.useQuery(undefined, { staleTime: 30000, refetchInterval: 60000 });
+  const { data: libraryData } = trpc.library.getStats.useQuery(undefined, { staleTime: 60000 });
+  const { data: academyData } = trpc.academy.getStats.useQuery(undefined, { staleTime: 60000 });
+  const guardianCount = guardianData?.displayCount ?? 1247;
+  const isLive = guardianData?.isLive ?? false;
+  const downloads = libraryData?.totalDownloads ?? 0;
+  const enrollments = academyData?.totalEnrollments ?? 0;
+  const stats = [
+    { value: guardianCount >= 1000 ? `${(guardianCount / 1000).toFixed(1)}K` : guardianCount.toString(), label: "Guardian Nodes", color: "#00FF88", live: isLive },
+    { value: downloads > 0 ? downloads.toLocaleString() : "1,005+", label: "Library Downloads", color: "#00D4FF", live: downloads > 0 },
+    { value: enrollments > 0 ? enrollments.toLocaleString() : "500+", label: "Academy Enrollments", color: "#FFB800", live: enrollments > 0 },
+    { value: "7.77%", label: "Zakat Flow Rate", color: "#9B59B6", live: false },
+  ];
+  return (
+    <section style={{ background: "rgba(0,212,255,0.04)", borderTop: "1px solid rgba(0,212,255,0.1)", borderBottom: "1px solid rgba(0,212,255,0.1)" }}>
+      <div className="container py-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col items-center gap-2">
+              <div
+                className="relative w-28 h-28 flex items-center justify-center"
+                style={{
+                  background: `linear-gradient(135deg, ${s.color}15, ${s.color}05)`,
+                  border: `1px solid ${s.color}40`,
+                  clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                }}
+              >
+                <div className="text-center">
+                  <div className="text-xl font-bold" style={{ color: s.color, fontFamily: "'Space Mono', monospace" }}>{s.value}</div>
+                  {s.live && (
+                    <div className="flex items-center justify-center gap-1 mt-1">
+                      <div className="w-1 h-1 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                      <span className="text-xs font-mono" style={{ color: "#00FF88", fontSize: "9px" }}>LIVE</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="text-xs text-center" style={{ color: "#8899AA", fontFamily: "'Space Grotesk', sans-serif" }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Hexagonal stat card
 function HexStat({ value, label, color }: { value: string; label: string; color: string }) {
   return (
@@ -695,17 +743,8 @@ export default function Home() {
       {/* ── QUICK ACCESS FLOATING NAV ── */}
       <QuickAccessBar />
 
-      {/* ── STATS BAR ── */}
-      <section style={{ background: "rgba(0,212,255,0.04)", borderTop: "1px solid rgba(0,212,255,0.1)", borderBottom: "1px solid rgba(0,212,255,0.1)" }}>
-        <div className="container py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            <HexStat value="40" label="GitHub Repos" color="#00D4FF" />
-            <HexStat value="144K" label="Guardian Nodes" color="#FFB800" />
-            <HexStat value="50M+" label="User Capacity" color="#00D4FF" />
-            <HexStat value="7.77%" label="Zakat Flow" color="#FFB800" />
-          </div>
-        </div>
-      </section>
+      {/* ── STATS BAR (LIVE) ── */}
+      <LiveStatsBar />
 
       {/* ── DIVINE PRINCIPLES ── */}
       <section className="py-24" style={{ background: "rgba(139,92,246,0.03)" }}>
