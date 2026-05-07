@@ -6,6 +6,9 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const GOVERNANCE_LAWS = [
   { id: "LAW-001", title: "Zakat Protocol", status: "ENACTED", votes: 144, desc: "7.77% of all OMNIEX trading volume auto-distributed to the Zakat pool for community welfare.", category: "Finance" },
@@ -41,13 +44,42 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export default function ExchangeGovernance() {
-  const [activeTab, setActiveTab] = useState<"laws" | "proposals" | "shura" | "vote">("laws");
+  const [activeTab, setActiveTab] = useState<"laws" | "proposals" | "shura" | "vote" | "create">("laws");
   const [myVote, setMyVote] = useState<Record<string, "for" | "against" | null>>({});
+  const [form, setForm] = useState({ title: "", description: "", category: "fee", loncRequired: 144 });
+  const [submitted, setSubmitted] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const { data: proposals } = trpc.exchange.getGovernance.useQuery();
+  const utils = trpc.useUtils();
+
+  const createProposalMutation = trpc.exchange.createProposal.useMutation({
+    onSuccess: (data) => {
+      setSubmitted(true);
+      utils.exchange.getGovernance.invalidate();
+      toast.success("✓ Proposal Submitted: " + data.message);
+    },
+    onError: (err) => {
+      toast.error("Submission Failed: " + err.message);
+    },
+  });
+
+  const voteMutation = trpc.exchange.voteOnProposal.useMutation({
+    onSuccess: () => utils.exchange.getGovernance.invalidate(),
+  });
 
   const handleVote = (propId: string, vote: "for" | "against") => {
     setMyVote(prev => ({ ...prev, [propId]: prev[propId] === vote ? null : vote }));
+    voteMutation.mutate({ proposalId: propId, vote });
+  };
+
+  const handleCreateProposal = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      toast.error("Login required — Connect your Guardian account to submit proposals.");
+      return;
+    }
+    createProposalMutation.mutate(form as any);
   };
 
   return (
@@ -77,7 +109,7 @@ export default function ExchangeGovernance() {
 
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {(["laws", "proposals", "shura", "vote"] as const).map((tab) => (
+          {(["laws", "proposals", "shura", "vote", "create"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -88,7 +120,7 @@ export default function ExchangeGovernance() {
                 color: activeTab === tab ? "#FF6B35" : "#8899AA",
               }}
             >
-              {tab === "laws" ? "Sovereign Laws" : tab === "proposals" ? "Active Proposals" : tab === "shura" ? "Shura Council" : "Cast Your Vote"}
+              {tab === "laws" ? "Sovereign Laws" : tab === "proposals" ? "Active Proposals" : tab === "shura" ? "Shura Council" : tab === "vote" ? "Cast Your Vote" : "+ New Proposal"}
             </button>
           ))}
         </div>
@@ -239,6 +271,123 @@ export default function ExchangeGovernance() {
                 </p>
               </div>
             </div>
+          </div>
+        )}
+
+        {/* ── CREATE PROPOSAL ─────────────────────────────────────────────────────────────── */}
+        {activeTab === "create" && (
+          <div className="max-w-2xl mx-auto">
+            {submitted ? (
+              <div className="rounded-2xl p-10 text-center" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.3)" }}>
+                <div className="text-5xl mb-4">✅</div>
+                <h2 className="text-3xl font-black text-white mb-3">Proposal Sealed</h2>
+                <p className="text-sm mb-6" style={{ color: "#8899AA" }}>Your proposal has been submitted to the Shura Council. Voting opens immediately. KUN FAYAKŪN.</p>
+                <div className="flex gap-3 justify-center">
+                  <Button variant="outline" onClick={() => { setSubmitted(false); setForm({ title: "", description: "", category: "fee", loncRequired: 144 }); }}>Submit Another</Button>
+                  <Button onClick={() => setActiveTab("proposals")} style={{ background: "linear-gradient(135deg, #FF6B35, #FFB800)", color: "#050B1A" }}>View Proposals →</Button>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="mb-6">
+                  <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#FF6B35" }}>SHURA COUNCIL · PROPOSAL SUBMISSION</div>
+                  <h2 className="text-3xl font-black text-white mb-2">Submit a Sovereign Proposal</h2>
+                  <p className="text-sm" style={{ color: "#8899AA" }}>Every Guardian with 144+ $LONDC can propose laws, amendments, and protocol changes. The Shura Council reviews; the DAO votes.</p>
+                </div>
+
+                {!isAuthenticated && (
+                  <div className="rounded-xl p-4 mb-6" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.3)" }}>
+                    <p className="text-sm" style={{ color: "#FFB800" }}>⚠️ You must be logged in as a Guardian to submit proposals. <Link href="/onboard" className="underline">Activate Guardian →</Link></p>
+                  </div>
+                )}
+
+                <form onSubmit={handleCreateProposal} className="space-y-5">
+                  <div>
+                    <label className="block text-xs font-mono mb-2" style={{ color: "#8899AA" }}>PROPOSAL TITLE *</label>
+                    <input
+                      type="text"
+                      value={form.title}
+                      onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
+                      placeholder="e.g. Expand Guardian Staking Rewards to 14.4% APY"
+                      required
+                      minLength={10}
+                      maxLength={200}
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,107,53,0.2)", color: "white" }}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono mb-2" style={{ color: "#8899AA" }}>CATEGORY *</label>
+                    <select
+                      value={form.category}
+                      onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,107,53,0.2)", color: "white" }}
+                    >
+                      <option value="fee">Fee Structure</option>
+                      <option value="listing">Asset Listing</option>
+                      <option value="law">Sovereign Law</option>
+                      <option value="constitution">Constitutional Amendment</option>
+                      <option value="emergency">Emergency Protocol</option>
+                      <option value="quantum">Quantum / Dimensional</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono mb-2" style={{ color: "#8899AA" }}>PROPOSAL DESCRIPTION * (min 50 chars)</label>
+                    <textarea
+                      value={form.description}
+                      onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
+                      placeholder="Describe the proposal in detail. Include rationale, expected impact, and implementation steps. The Shura Council and Guardian DAO will review this."
+                      required
+                      minLength={50}
+                      rows={6}
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,107,53,0.2)", color: "white" }}
+                    />
+                    <div className="text-xs mt-1 text-right" style={{ color: form.description.length >= 50 ? "#00FF88" : "#8899AA" }}>
+                      {form.description.length} / 50 minimum
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono mb-2" style={{ color: "#8899AA" }}>$LONDC REQUIRED TO VOTE (minimum 144)</label>
+                    <input
+                      type="number"
+                      value={form.loncRequired}
+                      onChange={e => setForm(f => ({ ...f, loncRequired: Number(e.target.value) }))}
+                      min={144}
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,107,53,0.2)", color: "white" }}
+                    />
+                  </div>
+
+                  {/* Sovereign Oath */}
+                  <div className="rounded-xl p-4" style={{ background: "rgba(255,107,53,0.06)", border: "1px solid rgba(255,107,53,0.2)" }}>
+                    <p className="text-xs" style={{ color: "#8899AA" }}>
+                      By submitting this proposal, you affirm it aligns with the ScrollVerse sovereign principles: transparency, fairness, and the advancement of all Guardians. False proposals may be rejected by the Shura Council.
+                    </p>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={createProposalMutation.isPending || !isAuthenticated}
+                    className="w-full py-4 text-lg font-black"
+                    style={{ background: "linear-gradient(135deg, #FF6B35, #FFB800)", color: "#050B1A" }}
+                  >
+                    {createProposalMutation.isPending ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                        Sealing Proposal...
+                      </span>
+                    ) : (
+                      "⚡ Submit to Shura Council"
+                    )}
+                  </Button>
+                </form>
+              </>
+            )}
           </div>
         )}
       </div>

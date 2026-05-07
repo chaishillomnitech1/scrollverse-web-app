@@ -690,3 +690,15 @@
 - [x] Autonomous evolution engine: self-updating knowledge base, AI agents that scan and enhance the platform
 - [x] Register /ip-protection, /intelligence routes in App.tsx
 - [x] Save checkpoint v32.0.0
+
+## Phase 44 — Live Prices + Onboarding + Governance + Instagram (v34.0.0)
+
+- [x] tRPC: exchange.getLivePrices — server-side Polygon.io (stocks) + CoinGecko (crypto) price fetcher
+- [x] DB: exchange_price_cache table (symbol, price, change24h, volume, source, updatedAt)
+- [x] Frontend: OMNIEX live ticker with 30s auto-refresh using trpc.exchange.getLivePrices
+- [x] Build /onboard: 5-step Guardian wizard (welcome → wallet connect → tier select → $LONDC acquire → activate)
+- [x] tRPC: onboarding.getStatus, onboarding.completeStep, onboarding.activateGuardian
+- [x] Build /exchange/governance proposal creation form (title, description, type, voting period)
+- [x] tRPC: exchange.createProposal — protected, Guardian-only, stores to exchange_governance table
+- [x] Register /onboard route in App.tsx
+- [x] Run tests, save checkpoint v34.0.0

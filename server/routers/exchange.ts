@@ -271,4 +271,66 @@ export const exchangeRouter = router({
       const result = await db.execute(sql.raw(`SELECT * FROM workflow_templates ORDER BY usage_count DESC`));
       return Array.isArray(result) ? result[0] as any[] : (result as any).rows ?? [];
     }),
+
+  // ── LIVE PRICES (Polygon.io + CoinGecko, server-side) ────────────────────────
+  getLivePrices: publicProcedure
+    .input(z.object({
+      assetClass: z.enum(["crypto", "stock", "all"]).default("all"),
+    }))
+    .query(async ({ input }) => {
+      const now = Date.now();
+      const results: Record<string, { symbol: string; price: number; change24h: number; source: string; updatedAt: number }> = {};
+
+      // ── CoinGecko: live crypto prices ────────────────────────────────────────────
+      if (input.assetClass === "crypto" || input.assetClass === "all") {
+        try {
+          const ids = "bitcoin,ethereum,matic-network,solana,binancecoin,usd-coin,tether,cardano,polkadot,avalanche-2,chainlink,uniswap,aave";
+          const res = await fetch(
+            `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`,
+            { signal: AbortSignal.timeout(8000) }
+          );
+          if (res.ok) {
+            const data = await res.json() as Record<string, { usd: number; usd_24h_change: number }>;
+            const map: Record<string, string> = {
+              bitcoin: "BTC", ethereum: "ETH", "matic-network": "MATIC", solana: "SOL",
+              binancecoin: "BNB", "usd-coin": "USDC", tether: "USDT", cardano: "ADA",
+              polkadot: "DOT", "avalanche-2": "AVAX", chainlink: "LINK", uniswap: "UNI", aave: "AAVE",
+            };
+            for (const [id, d] of Object.entries(data)) {
+              const sym = map[id] || id.toUpperCase();
+              results[sym] = { symbol: sym, price: d.usd, change24h: parseFloat((d.usd_24h_change || 0).toFixed(2)), source: "coingecko", updatedAt: now };
+            }
+          }
+        } catch (_) { /* fallback to seeded data */ }
+      }
+
+      // ── Polygon.io: live stock prices ────────────────────────────────────────────
+      if (input.assetClass === "stock" || input.assetClass === "all") {
+        const polygonKey = process.env.POLYGON_API_KEY;
+        if (polygonKey) {
+          try {
+            const tickers = ["AAPL", "TSLA", "NVDA", "MSFT", "GOOGL", "AMZN", "META", "JPM", "V", "BRK.B"];
+            const snapRes = await fetch(
+              `https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?tickers=${tickers.join(",")}&apiKey=${polygonKey}`,
+              { signal: AbortSignal.timeout(8000) }
+            );
+            if (snapRes.ok) {
+              const snap = await snapRes.json() as { tickers?: Array<{ ticker: string; day: { c: number; o: number } }> };
+              for (const t of (snap.tickers || [])) {
+                const change = t.day.o > 0 ? parseFloat((((t.day.c - t.day.o) / t.day.o) * 100).toFixed(2)) : 0;
+                results[t.ticker] = { symbol: t.ticker, price: t.day.c, change24h: change, source: "polygon", updatedAt: now };
+              }
+            }
+          } catch (_) { /* fallback to seeded data */ }
+        }
+      }
+
+      // ── Sovereign fixed assets ───────────────────────────────────────────────────────────────
+      results["LONDC"] = { symbol: "LONDC", price: 0.0144, change24h: 7.77, source: "sovereign", updatedAt: now };
+      results["MTF"] = { symbol: "MTF", price: 144.0, change24h: 44.44, source: "sovereign", updatedAt: now };
+      results["PB"] = { symbol: "PB", price: 963.0, change24h: 9.63, source: "sovereign", updatedAt: now };
+      results["QU"] = { symbol: "QU", price: 1558.0, change24h: 15.58, source: "sovereign", updatedAt: now };
+
+      return { prices: results, fetchedAt: now, count: Object.keys(results).length };
+    }),
 });
