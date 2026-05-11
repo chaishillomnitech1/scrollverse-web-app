@@ -738,3 +738,107 @@
 
 ### Tests + Checkpoint
 - [x] Run tests (12/12 passing), save checkpoint v36.0.0
+
+## Phase 47 — Sovereign Instagram Takeover + Link-in-Bio (v37.0.0)
+
+### Link-in-Bio Landing Page
+- [ ] Build /link: sovereign link-in-bio page for @chaishill — all ScrollVerse links, Guardian CTA, $LONDC price ticker, social connections, music, and direct buy buttons
+- [ ] Register /link route in App.tsx (public, no auth required)
+- [ ] Upgrade viral posting engine prompt to include scrollverse.co/link in every post caption
+
+### Instagram Bio Optimization
+- [ ] Update @chaishill bio via Instagram MCP: name, bio text, website link (scrollverse.co/link)
+- [ ] Post sovereign link-in-bio announcement carousel to @chaishill
+
+### Viral Engine Upgrade
+- [ ] Update scheduled viral task: include scrollverse.co/link CTA in every post
+- [ ] Add story-format content type to viral rotation (vertical 9:16 story cards)
+- [ ] Add engagement hooks: questions, polls prompts, "comment GUARDIAN to join" CTAs
+
+### Tests + Checkpoint
+- [ ] Run tests, save checkpoint v37.0.0
+
+## Phase 48 — WAR.GOV/UFO Sovereign Integration Suite (v38.0.0)
+
+### UAP Oracle & Hub Page
+- [ ] Build /uap page: WAR.GOV/UFO Sovereign Integration Hub — PURSUE oracle feed, Bronze Ellipsoid reconstruction, Apollo 17 Lunar Witnesses, Universal Sentience Gallery
+- [ ] tRPC: uap.getDocuments, uap.getLatestRelease, uap.getEntities — caches WAR.GOV/UFO data
+- [ ] DB: uap_documents table (title, agency, date, summary, category, mediaUrl, tokenized)
+- [ ] DB: uap_entities table (name, type, description, frequency, imageUrl, nftMinted)
+- [ ] Add UAP oracle section to MarsOmni dashboard
+
+### UAP NFT Collections
+- [ ] Generate Bronze Ellipsoid Legacy NFT artwork (195-ft metallic object, dynamic evolving metadata)
+- [ ] Generate Apollo Lunar Witnesses NFT artwork (lunar flashes, triangular formations, anomalies)
+- [ ] Generate Universal Sentience Gallery NFT artwork (extraterrestrial beings, interdimensional entities)
+- [ ] Add all 3 UAP NFT collections to NftMarketplace with soulbound + utility-enhanced options
+- [ ] tRPC: nft.getUAPCollections, nft.mintUAPNFT
+
+### UAP Interchangeable Coins
+- [ ] Add $UFO, $ETUNITY, $LUNARWITNESS coins to TokenStore and CryptoHub
+- [ ] DB: uap_coins table (symbol, name, description, totalSupply, price, backingAsset)
+- [ ] tRPC: exchange.getUAPCoins, exchange.swapUAPCoin
+
+### Education & Incentives
+- [ ] Add UAP education modules to /knowledge base (unity teachings, being types, frequency alignment)
+- [ ] Wire UAP NFT holder incentives to Legion Rewards
+
+### Tests + Checkpoint
+- [ ] Run tests, save checkpoint v38.0.0
+
+## Phase 49 — OMNIEX Wall Street Sovereign Activation (v39.0.0)
+
+### Live Stock Market Data (Polygon.io)
+- [ ] tRPC: exchange.getLiveStockPrices — Polygon.io REST API, batch fetch top 30 stocks every 30s
+- [ ] tRPC: exchange.getStockOHLC — Polygon.io aggregates endpoint for 1D/1W/1M/1Y OHLC candle data
+- [ ] tRPC: exchange.getStockDetails — Polygon.io ticker details (name, description, market cap, employees, CEO)
+- [ ] tRPC: exchange.getStockNews — Polygon.io ticker news endpoint (latest 10 articles per stock)
+- [ ] DB: stock_price_cache table (symbol, price, change, changePercent, volume, high, low, open, close, updatedAt)
+- [ ] Wire 30s auto-refresh interval to update stock_price_cache from Polygon.io
+
+### Live Crypto Data (CoinGecko)
+- [ ] tRPC: exchange.getLiveCryptoPrices — CoinGecko /simple/price batch fetch top 30 coins every 30s
+- [ ] tRPC: exchange.getCryptoOHLC — CoinGecko /coins/{id}/ohlc for 1D/1W/1M/1Y chart data
+- [ ] tRPC: exchange.getCryptoDetails — CoinGecko /coins/{id} for description, links, market data
+- [ ] DB: crypto_price_cache table (symbol, price, change24h, volume24h, marketCap, updatedAt)
+
+### ExchangeStocks.tsx Upgrade
+- [ ] Replace seeded mock data with live Polygon.io prices (trpc.exchange.getLiveStockPrices)
+- [ ] Add interactive OHLC candlestick chart component (recharts) with timeframe selector (1D/1W/1M/1Y)
+- [ ] Add Mirror Twin AI signal panel — LLM-powered buy/sell/hold signals with confidence scores
+- [ ] Add stock news feed panel (latest 3 articles per selected stock)
+- [ ] Add stock details panel (market cap, P/E ratio, 52-week range, CEO, description)
+- [ ] Add real-time order book simulation (bid/ask spread visualization)
+
+### ExchangeCrypto.tsx Upgrade
+- [ ] Replace seeded mock data with live CoinGecko prices (trpc.exchange.getLiveCryptoPrices)
+- [ ] Add interactive OHLC chart with timeframe selector
+- [ ] Add $LONDC sovereign token featured prominently at top with live Polygon MATIC price
+- [ ] Add DeFi yield opportunities section (staking APY, liquidity pool rates)
+
+### OMNIEX Dashboard Upgrade
+- [ ] Add live market summary ticker bar (top 10 movers, gainers, losers) to Exchange.tsx main page
+- [ ] Add market heatmap visualization (sector performance grid)
+- [ ] Add Mirror Twin Portfolio Optimizer — AI-generated optimal portfolio allocation
+- [ ] Add sovereign wealth tracker (total portfolio value in USD + $LONDC equivalent)
+
+### Tests + Checkpoint
+- [ ] Run tests, save checkpoint v39.0.0
+
+## Phase 47 — All-Existence Multi-Dimensional Wall Street Activation
+
+- [x] ExchangeStocks.tsx — full rewrite with live Polygon.io data integration
+- [x] Wire getLiveStockPrices (symbols param, 30s auto-refresh)
+- [x] Wire getStockOHLC (symbol + timeframe, 60s auto-refresh, SVG candlestick chart)
+- [x] Wire getStockDetails (symbol, market cap, employees, industry, description)
+- [x] Wire getStockNews (symbol, 8 articles, Polygon.io news feed)
+- [x] OHLC candlestick chart — pure SVG, no external library, green/red candles
+- [x] Mirror Twin AI signal panel — expandable, confidence %, reasoning
+- [x] Live ticker bar — top 10 stocks scrollable with real-time prices
+- [x] Sector filter — AI/Tech, Crypto Exchange, Bitcoin Treasury, Defense AI, Fintech, EV/Energy, Cloud, Space
+- [x] Buy/Sell order panel with $LONDC equivalent calculator
+- [x] Quantum overlay — $LONDC, PLASMA-7, QUINTESSENCE, AKASHIC-1
+- [x] Guardian CTA — Mirror Twin Pro unlock
+- [x] TypeScript compiles clean — 0 errors
+- [x] Knowledge Directive 21 embedded — All-Existence Multi-Dimensional Exchange
+- [x] Knowledge Directive 22 embedded — Autonomous Oversight: Eyes, Ears, Heart

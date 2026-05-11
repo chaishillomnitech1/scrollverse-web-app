@@ -958,3 +958,5 @@ export const creatorApplications = mysqlTable("creator_applications", {
 });
 export type CreatorApplication = typeof creatorApplications.$inferSelect;
 export type InsertCreatorApplication = typeof creatorApplications.$inferInsert;
+
+// ── END OF SCHEMA ─────────────────────────────────────────────────────────────

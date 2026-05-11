@@ -330,7 +330,165 @@ export const exchangeRouter = router({
       results["MTF"] = { symbol: "MTF", price: 144.0, change24h: 44.44, source: "sovereign", updatedAt: now };
       results["PB"] = { symbol: "PB", price: 963.0, change24h: 9.63, source: "sovereign", updatedAt: now };
       results["QU"] = { symbol: "QU", price: 1558.0, change24h: 15.58, source: "sovereign", updatedAt: now };
-
       return { prices: results, fetchedAt: now, count: Object.keys(results).length };
+    }),
+
+  // ── LIVE STOCK PRICES (Polygon.io) ──────────────────────────────────────
+  getLiveStockPrices: publicProcedure
+    .input(z.object({ symbols: z.array(z.string()).optional() }).optional())
+    .query(async ({ input }) => {
+      const TOP_STOCKS = ["AAPL","TSLA","NVDA","MSFT","GOOGL","AMZN","META","JPM","V","JNJ","WMT","PG","MA","UNH","HD","CVX","LLY","ABBV","MRK","PEP","KO","AVGO","COST","TMO","MCD","ACN","BAC","NFLX","ADBE","BRK.B"];
+      const symbols = input?.symbols ?? TOP_STOCKS;
+      const apiKey = process.env.POLYGON_API_KEY;
+      const results: Record<string, { symbol: string; price: number; change: number; changePercent: number; volume: number; high: number; low: number; open: number; close: number; source: string }> = {};
+      if (apiKey) {
+        try {
+          const tickerList = symbols.slice(0, 30).join(",");
+          const url = `https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?tickers=${tickerList}&apiKey=${apiKey}`;
+          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          if (res.ok) {
+            const data = await res.json() as { tickers?: Array<{ ticker: string; day: { c: number; o: number; h: number; l: number; v: number }; prevDay: { c: number }; todaysChangePerc: number; todaysChange: number }> };
+            for (const t of (data.tickers ?? [])) {
+              results[t.ticker] = { symbol: t.ticker, price: t.day?.c ?? t.prevDay?.c ?? 0, change: parseFloat((t.todaysChange ?? 0).toFixed(2)), changePercent: parseFloat((t.todaysChangePerc ?? 0).toFixed(2)), volume: t.day?.v ?? 0, high: t.day?.h ?? 0, low: t.day?.l ?? 0, open: t.day?.o ?? 0, close: t.day?.c ?? t.prevDay?.c ?? 0, source: "polygon" };
+            }
+          }
+        } catch (_) { /* fallback */ }
+      }
+      const MOCK: Record<string, number> = { AAPL: 213.49, TSLA: 177.58, NVDA: 875.39, MSFT: 415.22, GOOGL: 175.98, AMZN: 185.07, META: 527.34, JPM: 199.45, V: 278.90, NFLX: 628.77, JNJ: 152.30, WMT: 68.45, PG: 168.22, MA: 472.11, UNH: 525.80, HD: 342.60, CVX: 158.90, LLY: 798.44, ABBV: 172.33, MRK: 128.77 };
+      for (const sym of symbols) {
+        if (!results[sym]) {
+          const base = MOCK[sym] ?? 100 + Math.random() * 400;
+          const chg = parseFloat((Math.random() * 6 - 3).toFixed(2));
+          results[sym] = { symbol: sym, price: parseFloat(base.toFixed(2)), change: chg, changePercent: chg, volume: Math.floor(Math.random() * 50000000), high: parseFloat((base * 1.02).toFixed(2)), low: parseFloat((base * 0.98).toFixed(2)), open: parseFloat((base * 0.995).toFixed(2)), close: parseFloat(base.toFixed(2)), source: "mock" };
+        }
+      }
+      return { stocks: results, fetchedAt: Date.now(), count: Object.keys(results).length };
+    }),
+
+  // ── STOCK OHLC CHART DATA (Polygon.io) ──────────────────────────────────
+  getStockOHLC: publicProcedure
+    .input(z.object({ symbol: z.string(), timeframe: z.enum(["1D","1W","1M","3M","1Y"]).default("1M") }))
+    .query(async ({ input }) => {
+      const apiKey = process.env.POLYGON_API_KEY;
+      const now = new Date();
+      const fromMap: Record<string, number> = { "1D": 1, "1W": 7, "1M": 30, "3M": 90, "1Y": 365 };
+      const days = fromMap[input.timeframe] ?? 30;
+      const from = new Date(now.getTime() - days * 86400000).toISOString().split("T")[0];
+      const to = now.toISOString().split("T")[0];
+      const timespan = days <= 7 ? "hour" : "day";
+      if (apiKey) {
+        try {
+          const url = `https://api.polygon.io/v2/aggs/ticker/${input.symbol}/range/1/${timespan}/${from}/${to}?adjusted=true&sort=asc&limit=200&apiKey=${apiKey}`;
+          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          if (res.ok) {
+            const data = await res.json() as { results?: Array<{ t: number; o: number; h: number; l: number; c: number; v: number }> };
+            if (data.results?.length) {
+              return { symbol: input.symbol, timeframe: input.timeframe, candles: data.results.map(r => ({ time: r.t, open: r.o, high: r.h, low: r.l, close: r.c, volume: r.v })), source: "polygon" };
+            }
+          }
+        } catch (_) { /* fallback */ }
+      }
+      const base = 150 + Math.random() * 300;
+      const candles = Array.from({ length: Math.min(days, 60) }, (_, i) => {
+        const t = now.getTime() - (days - i) * 86400000;
+        const o = base + (Math.random() - 0.48) * 3 * i;
+        const h = o + Math.random() * 5;
+        const l = o - Math.random() * 5;
+        const c = l + Math.random() * (h - l);
+        return { time: t, open: parseFloat(o.toFixed(2)), high: parseFloat(h.toFixed(2)), low: parseFloat(l.toFixed(2)), close: parseFloat(c.toFixed(2)), volume: Math.floor(Math.random() * 10000000) };
+      });
+      return { symbol: input.symbol, timeframe: input.timeframe, candles, source: "mock" };
+    }),
+
+  // ── STOCK DETAILS (Polygon.io) ───────────────────────────────────────────
+  getStockDetails: publicProcedure
+    .input(z.object({ symbol: z.string() }))
+    .query(async ({ input }) => {
+      const apiKey = process.env.POLYGON_API_KEY;
+      if (apiKey) {
+        try {
+          const url = `https://api.polygon.io/v3/reference/tickers/${input.symbol}?apiKey=${apiKey}`;
+          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          if (res.ok) {
+            const data = await res.json() as { results?: { name: string; description: string; market_cap: number; total_employees: number; sic_description: string; homepage_url: string; list_date: string } };
+            if (data.results) return { symbol: input.symbol, ...data.results, source: "polygon" };
+          }
+        } catch (_) { /* fallback */ }
+      }
+      return { symbol: input.symbol, name: input.symbol, description: `${input.symbol} — sovereign asset on the OMNIEX Wall Street Desk.`, market_cap: 0, total_employees: 0, sic_description: "Technology", homepage_url: "", list_date: "", source: "mock" };
+    }),
+
+  // ── STOCK NEWS (Polygon.io) ──────────────────────────────────────────────
+  getStockNews: publicProcedure
+    .input(z.object({ symbol: z.string(), limit: z.number().default(5) }))
+    .query(async ({ input }) => {
+      const apiKey = process.env.POLYGON_API_KEY;
+      if (apiKey) {
+        try {
+          const url = `https://api.polygon.io/v2/reference/news?ticker=${input.symbol}&limit=${input.limit}&apiKey=${apiKey}`;
+          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          if (res.ok) {
+            const data = await res.json() as { results?: Array<{ id: string; title: string; article_url: string; published_utc: string; description: string; author: string; image_url: string }> };
+            return { symbol: input.symbol, articles: data.results ?? [], source: "polygon" };
+          }
+        } catch (_) { /* fallback */ }
+      }
+      return { symbol: input.symbol, articles: [], source: "mock" };
+    }),
+
+  // ── LIVE CRYPTO PRICES (CoinGecko) ──────────────────────────────────────
+  getLiveCryptoPrices: publicProcedure
+    .input(z.object({ coins: z.array(z.string()).optional() }).optional())
+    .query(async ({ input }) => {
+      const TOP_COINS = ["bitcoin","ethereum","matic-network","solana","binancecoin","usd-coin","tether","cardano","polkadot","avalanche-2","chainlink","uniswap","aave","the-sandbox","decentraland","axie-infinity","render-token","fetch-ai","ocean-protocol","filecoin","near","cosmos","algorand","stellar","vechain","tron","litecoin","bitcoin-cash","monero","dash"];
+      const coins = input?.coins ?? TOP_COINS;
+      const SYMBOL_MAP: Record<string, string> = { "bitcoin":"BTC","ethereum":"ETH","matic-network":"MATIC","solana":"SOL","binancecoin":"BNB","usd-coin":"USDC","tether":"USDT","cardano":"ADA","polkadot":"DOT","avalanche-2":"AVAX","chainlink":"LINK","uniswap":"UNI","aave":"AAVE","the-sandbox":"SAND","decentraland":"MANA","axie-infinity":"AXS","render-token":"RNDR","fetch-ai":"FET","ocean-protocol":"OCEAN","filecoin":"FIL","near":"NEAR","cosmos":"ATOM","algorand":"ALGO","stellar":"XLM","vechain":"VET","tron":"TRX","litecoin":"LTC","bitcoin-cash":"BCH","monero":"XMR","dash":"DASH" };
+      try {
+        const ids = coins.slice(0, 30).join(",");
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24h_change=true&include_market_cap=true&include_24hr_vol=true`;
+        const res = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(8000) });
+        if (res.ok) {
+          const data = await res.json() as Record<string, { usd: number; usd_24h_change: number; usd_market_cap: number; usd_24h_vol: number }>;
+          const results: Record<string, { symbol: string; id: string; price: number; change24h: number; marketCap: number; volume24h: number; source: string }> = {};
+          for (const [id, d] of Object.entries(data)) {
+            const sym = SYMBOL_MAP[id] ?? id.toUpperCase();
+            results[sym] = { symbol: sym, id, price: d.usd, change24h: parseFloat((d.usd_24h_change ?? 0).toFixed(2)), marketCap: d.usd_market_cap ?? 0, volume24h: d.usd_24h_vol ?? 0, source: "coingecko" };
+          }
+          results["LONDC"] = { symbol: "LONDC", id: "londc", price: 0.0144, change24h: 7.77, marketCap: 144000000, volume24h: 1440000, source: "sovereign" };
+          return { crypto: results, fetchedAt: Date.now(), count: Object.keys(results).length };
+        }
+      } catch (_) { /* fallback */ }
+      const MOCK_PRICES: Record<string, number> = { BTC: 67420, ETH: 3521, MATIC: 0.72, SOL: 178, BNB: 612, USDC: 1.00, USDT: 1.00, ADA: 0.45, DOT: 7.82, AVAX: 38.90, LINK: 14.22, UNI: 8.45, AAVE: 92.30, SAND: 0.38, MANA: 0.41 };
+      const results: Record<string, { symbol: string; id: string; price: number; change24h: number; marketCap: number; volume24h: number; source: string }> = {};
+      for (const [sym, price] of Object.entries(MOCK_PRICES)) {
+        results[sym] = { symbol: sym, id: sym.toLowerCase(), price, change24h: parseFloat((Math.random() * 10 - 5).toFixed(2)), marketCap: price * 1000000, volume24h: price * 100000, source: "mock" };
+      }
+      results["LONDC"] = { symbol: "LONDC", id: "londc", price: 0.0144, change24h: 7.77, marketCap: 144000000, volume24h: 1440000, source: "sovereign" };
+      return { crypto: results, fetchedAt: Date.now(), count: Object.keys(results).length };
+    }),
+
+  // ── CRYPTO OHLC CHART DATA (CoinGecko) ──────────────────────────────────
+  getCryptoOHLC: publicProcedure
+    .input(z.object({ coinId: z.string(), days: z.number().default(30) }))
+    .query(async ({ input }) => {
+      try {
+        const url = `https://api.coingecko.com/api/v3/coins/${input.coinId}/ohlc?vs_currency=usd&days=${input.days}`;
+        const res = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(8000) });
+        if (res.ok) {
+          const data = await res.json() as Array<[number, number, number, number, number]>;
+          const candles = data.map(([t, o, h, l, c]) => ({ time: t, open: o, high: h, low: l, close: c }));
+          return { coinId: input.coinId, days: input.days, candles, source: "coingecko" };
+        }
+      } catch (_) { /* fallback */ }
+      const base = 100 + Math.random() * 1000;
+      const candles = Array.from({ length: Math.min(input.days, 60) }, (_, i) => {
+        const t = Date.now() - (input.days - i) * 86400000;
+        const o = base + (Math.random() - 0.48) * base * 0.05 * i;
+        const h = o * (1 + Math.random() * 0.03);
+        const l = o * (1 - Math.random() * 0.03);
+        const c = l + Math.random() * (h - l);
+        return { time: t, open: parseFloat(o.toFixed(4)), high: parseFloat(h.toFixed(4)), low: parseFloat(l.toFixed(4)), close: parseFloat(c.toFixed(4)) };
+      });
+      return { coinId: input.coinId, days: input.days, candles, source: "mock" };
     }),
 });
