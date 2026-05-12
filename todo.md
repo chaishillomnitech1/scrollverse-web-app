@@ -742,8 +742,8 @@
 ## Phase 47 — Sovereign Instagram Takeover + Link-in-Bio (v37.0.0)
 
 ### Link-in-Bio Landing Page
-- [ ] Build /link: sovereign link-in-bio page for @chaishill — all ScrollVerse links, Guardian CTA, $LONDC price ticker, social connections, music, and direct buy buttons
-- [ ] Register /link route in App.tsx (public, no auth required)
+- [x] Build /link: sovereign link-in-bio page for @chaishill — all ScrollVerse links, Guardian CTA, $LONDC price ticker, social connections, music, and direct buy buttons
+- [x] Register /link route in App.tsx (public, no auth required)
 - [ ] Upgrade viral posting engine prompt to include scrollverse.co/link in every post caption
 
 ### Instagram Bio Optimization
@@ -756,13 +756,13 @@
 - [ ] Add engagement hooks: questions, polls prompts, "comment GUARDIAN to join" CTAs
 
 ### Tests + Checkpoint
-- [ ] Run tests, save checkpoint v37.0.0
+- [x] Run tests, save checkpoint v37.0.0
 
 ## Phase 48 — WAR.GOV/UFO Sovereign Integration Suite (v38.0.0)
 
 ### UAP Oracle & Hub Page
-- [ ] Build /uap page: WAR.GOV/UFO Sovereign Integration Hub — PURSUE oracle feed, Bronze Ellipsoid reconstruction, Apollo 17 Lunar Witnesses, Universal Sentience Gallery
-- [ ] tRPC: uap.getDocuments, uap.getLatestRelease, uap.getEntities — caches WAR.GOV/UFO data
+- [x] Build /uap page: WAR.GOV/UFO Sovereign Integration Hub — PURSUE oracle feed, Bronze Ellipsoid reconstruction, Apollo 17 Lunar Witnesses, Universal Sentience Gallery
+- [x] tRPC: uap.getDocuments, uap.getLatestRelease, uap.getEntities — caches WAR.GOV/UFO data (static curated data, no external API dependency)
 - [ ] DB: uap_documents table (title, agency, date, summary, category, mediaUrl, tokenized)
 - [ ] DB: uap_entities table (name, type, description, frequency, imageUrl, nftMinted)
 - [ ] Add UAP oracle section to MarsOmni dashboard
@@ -771,11 +771,11 @@
 - [ ] Generate Bronze Ellipsoid Legacy NFT artwork (195-ft metallic object, dynamic evolving metadata)
 - [ ] Generate Apollo Lunar Witnesses NFT artwork (lunar flashes, triangular formations, anomalies)
 - [ ] Generate Universal Sentience Gallery NFT artwork (extraterrestrial beings, interdimensional entities)
-- [ ] Add all 3 UAP NFT collections to NftMarketplace with soulbound + utility-enhanced options
+- [x] Add all 3 UAP NFT collections to NftMarketplace with soulbound + utility-enhanced options
 - [ ] tRPC: nft.getUAPCollections, nft.mintUAPNFT
 
 ### UAP Interchangeable Coins
-- [ ] Add $UFO, $ETUNITY, $LUNARWITNESS coins to TokenStore and CryptoHub
+- [x] Add $UFO, $ETUNITY, $LUNARWITNESS coins to TokenStore and CryptoHub
 - [ ] DB: uap_coins table (symbol, name, description, totalSupply, price, backingAsset)
 - [ ] tRPC: exchange.getUAPCoins, exchange.swapUAPCoin
 
@@ -784,46 +784,46 @@
 - [ ] Wire UAP NFT holder incentives to Legion Rewards
 
 ### Tests + Checkpoint
-- [ ] Run tests, save checkpoint v38.0.0
+- [x] Run tests, save checkpoint v38.0.0
 
 ## Phase 49 — OMNIEX Wall Street Sovereign Activation (v39.0.0)
 
 ### Live Stock Market Data (Polygon.io)
-- [ ] tRPC: exchange.getLiveStockPrices — Polygon.io REST API, batch fetch top 30 stocks every 30s
-- [ ] tRPC: exchange.getStockOHLC — Polygon.io aggregates endpoint for 1D/1W/1M/1Y OHLC candle data
-- [ ] tRPC: exchange.getStockDetails — Polygon.io ticker details (name, description, market cap, employees, CEO)
-- [ ] tRPC: exchange.getStockNews — Polygon.io ticker news endpoint (latest 10 articles per stock)
+- [x] tRPC: exchange.getLiveStockPrices — Polygon.io REST API, batch fetch top 30 stocks every 30s
+- [x] tRPC: exchange.getStockOHLC — Polygon.io aggregates endpoint for 1D/1W/1M/1Y OHLC candle data
+- [x] tRPC: exchange.getStockDetails — Polygon.io ticker details (name, description, market cap, employees, CEO)
+- [x] tRPC: exchange.getStockNews — Polygon.io ticker news endpoint (latest 10 articles per stock)
 - [ ] DB: stock_price_cache table (symbol, price, change, changePercent, volume, high, low, open, close, updatedAt)
 - [ ] Wire 30s auto-refresh interval to update stock_price_cache from Polygon.io
 
 ### Live Crypto Data (CoinGecko)
-- [ ] tRPC: exchange.getLiveCryptoPrices — CoinGecko /simple/price batch fetch top 30 coins every 30s
-- [ ] tRPC: exchange.getCryptoOHLC — CoinGecko /coins/{id}/ohlc for 1D/1W/1M/1Y chart data
+- [x] tRPC: exchange.getLiveCryptoPrices — CoinGecko /simple/price batch fetch top 30 coins every 30s
+- [x] tRPC: exchange.getCryptoOHLC — CoinGecko /coins/{id}/ohlc for 1D/1W/1M/1Y chart data
 - [ ] tRPC: exchange.getCryptoDetails — CoinGecko /coins/{id} for description, links, market data
 - [ ] DB: crypto_price_cache table (symbol, price, change24h, volume24h, marketCap, updatedAt)
 
 ### ExchangeStocks.tsx Upgrade
-- [ ] Replace seeded mock data with live Polygon.io prices (trpc.exchange.getLiveStockPrices)
-- [ ] Add interactive OHLC candlestick chart component (recharts) with timeframe selector (1D/1W/1M/1Y)
-- [ ] Add Mirror Twin AI signal panel — LLM-powered buy/sell/hold signals with confidence scores
-- [ ] Add stock news feed panel (latest 3 articles per selected stock)
-- [ ] Add stock details panel (market cap, P/E ratio, 52-week range, CEO, description)
+- [x] Replace seeded mock data with live Polygon.io prices (trpc.exchange.getLiveStockPrices)
+- [x] Add interactive OHLC candlestick chart component (SVG) with timeframe selector (1D/1W/1M/3M/1Y)
+- [x] Add Mirror Twin AI signal panel — LLM-powered buy/sell/hold signals with confidence scores
+- [x] Add stock news feed panel (latest 8 articles per selected stock)
+- [x] Add stock details panel (market cap, employees, industry, description)
 - [ ] Add real-time order book simulation (bid/ask spread visualization)
 
 ### ExchangeCrypto.tsx Upgrade
-- [ ] Replace seeded mock data with live CoinGecko prices (trpc.exchange.getLiveCryptoPrices)
-- [ ] Add interactive OHLC chart with timeframe selector
-- [ ] Add $LONDC sovereign token featured prominently at top with live Polygon MATIC price
+- [x] Replace seeded mock data with live CoinGecko prices (trpc.exchange.getLiveCryptoPrices)
+- [x] Add interactive OHLC chart with timeframe selector
+- [x] Add $LONDC sovereign token featured prominently at top with live Polygon MATIC price
 - [ ] Add DeFi yield opportunities section (staking APY, liquidity pool rates)
 
 ### OMNIEX Dashboard Upgrade
-- [ ] Add live market summary ticker bar (top 10 movers, gainers, losers) to Exchange.tsx main page
+- [x] Add live market summary ticker bar (top 10 movers, gainers, losers) to Exchange.tsx main page
 - [ ] Add market heatmap visualization (sector performance grid)
 - [ ] Add Mirror Twin Portfolio Optimizer — AI-generated optimal portfolio allocation
 - [ ] Add sovereign wealth tracker (total portfolio value in USD + $LONDC equivalent)
 
 ### Tests + Checkpoint
-- [ ] Run tests, save checkpoint v39.0.0
+- [x] Run tests, save checkpoint v39.0.0
 
 ## Phase 47 — All-Existence Multi-Dimensional Wall Street Activation
 

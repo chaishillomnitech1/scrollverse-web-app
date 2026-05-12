@@ -76,6 +76,7 @@ import Intelligence from "./pages/Intelligence";
 import Partners from "./pages/Partners";
 import LinkInBio from "./pages/LinkInBio";
 import AdminCreators from "./pages/AdminCreators";
+import UAP from "./pages/UAP";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -152,6 +153,7 @@ function Router() {
       <Route path={"/partners"} component={Partners} />
       <Route path={"/link"} component={LinkInBio} />
       <Route path={"/admin/creators"} component={AdminCreators} />
+      <Route path={"/uap"} component={UAP} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
