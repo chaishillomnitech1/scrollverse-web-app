@@ -77,6 +77,9 @@ import Partners from "./pages/Partners";
 import LinkInBio from "./pages/LinkInBio";
 import AdminCreators from "./pages/AdminCreators";
 import UAP from "./pages/UAP";
+import MrWalkshit from "./pages/MrWalkshit";
+import CIEDS from "./pages/CIEDS";
+import WealthDashboard from "./pages/WealthDashboard";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -154,6 +157,9 @@ function Router() {
       <Route path={"/link"} component={LinkInBio} />
       <Route path={"/admin/creators"} component={AdminCreators} />
       <Route path={"/uap"} component={UAP} />
+      <Route path={"/mr-walkshit"} component={MrWalkshit} />
+      <Route path={"/cieds"} component={CIEDS} />
+      <Route path={"/wealth"} component={WealthDashboard} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

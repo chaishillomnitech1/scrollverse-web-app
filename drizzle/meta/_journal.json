@@ -134,6 +134,13 @@
       "when": 1778168887634,
       "tag": "0018_chief_mimic",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "5",
+      "when": 1778663905824,
+      "tag": "0019_quiet_valkyrie",
+      "breakpoints": true
     }
   ]
 }

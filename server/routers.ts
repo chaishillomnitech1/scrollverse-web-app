@@ -36,6 +36,7 @@ import { exchangeRouter } from "./routers/exchange";
 import { knowledgeRouter } from "./routers/knowledge";
 import { legionRewardsRouter } from "./routers/legionRewards";
 import { partnersRouter } from "./routers/partners";
+import { uapRouter } from "./routers/uap";
 
 export const appRouter = router({
   system: systemRouter,
@@ -84,6 +85,7 @@ export const appRouter = router({
   knowledge: knowledgeRouter,
   legionRewards: legionRewardsRouter,
   partners: partnersRouter,
+  uap: uapRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -959,4 +959,88 @@ export const creatorApplications = mysqlTable("creator_applications", {
 export type CreatorApplication = typeof creatorApplications.$inferSelect;
 export type InsertCreatorApplication = typeof creatorApplications.$inferInsert;
 
+// ── UAP Documents ─────────────────────────────────────────────────────────────
+export const uapDocuments = mysqlTable("uap_documents", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 512 }).notNull(),
+  agency: varchar("agency", { length: 128 }).notNull(),
+  date: varchar("date", { length: 32 }).notNull(),
+  summary: text("summary").notNull(),
+  category: varchar("category", { length: 64 }).notNull().default("general"),
+  mediaUrl: varchar("mediaUrl", { length: 512 }),
+  tokenized: tinyint("tokenized").default(0),
+  classificationLevel: varchar("classificationLevel", { length: 64 }).default("DECLASSIFIED"),
+  sourceUrl: varchar("sourceUrl", { length: 512 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type UapDocument = typeof uapDocuments.$inferSelect;
+export type InsertUapDocument = typeof uapDocuments.$inferInsert;
+
+// ── UAP Entities ──────────────────────────────────────────────────────────────
+export const uapEntities = mysqlTable("uap_entities", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 256 }).notNull(),
+  type: varchar("type", { length: 64 }).notNull().default("craft"),
+  description: text("description").notNull(),
+  frequency: varchar("frequency", { length: 64 }),
+  imageUrl: varchar("imageUrl", { length: 512 }),
+  nftMinted: tinyint("nftMinted").default(0),
+  nftCollection: varchar("nftCollection", { length: 128 }),
+  sightingsCount: int("sightingsCount").default(0),
+  firstSighted: varchar("firstSighted", { length: 64 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type UapEntity = typeof uapEntities.$inferSelect;
+export type InsertUapEntity = typeof uapEntities.$inferInsert;
+
+// ── UAP Coins ─────────────────────────────────────────────────────────────────
+export const uapCoins = mysqlTable("uap_coins", {
+  id: int("id").autoincrement().primaryKey(),
+  symbol: varchar("symbol", { length: 32 }).notNull(),
+  name: varchar("name", { length: 128 }).notNull(),
+  description: text("description"),
+  totalSupply: varchar("totalSupply", { length: 64 }).notNull(),
+  price: varchar("price", { length: 64 }).notNull().default("0"),
+  backingAsset: varchar("backingAsset", { length: 128 }),
+  logoUrl: varchar("logoUrl", { length: 512 }),
+  contractAddress: varchar("contractAddress", { length: 128 }),
+  chain: varchar("chain", { length: 64 }).default("Polygon"),
+  isActive: tinyint("isActive").default(1),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type UapCoin = typeof uapCoins.$inferSelect;
+export type InsertUapCoin = typeof uapCoins.$inferInsert;
+
+// ── Stock Price Cache ─────────────────────────────────────────────────────────
+export const stockPriceCache = mysqlTable("stock_price_cache", {
+  id: int("id").autoincrement().primaryKey(),
+  symbol: varchar("symbol", { length: 16 }).notNull(),
+  price: varchar("price", { length: 32 }).notNull(),
+  change: varchar("change", { length: 32 }).default("0"),
+  changePercent: varchar("changePercent", { length: 32 }).default("0"),
+  volume: varchar("volume", { length: 32 }).default("0"),
+  high: varchar("high", { length: 32 }).default("0"),
+  low: varchar("low", { length: 32 }).default("0"),
+  open: varchar("open", { length: 32 }).default("0"),
+  close: varchar("close", { length: 32 }).default("0"),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+});
+export type StockPriceCache = typeof stockPriceCache.$inferSelect;
+export type InsertStockPriceCache = typeof stockPriceCache.$inferInsert;
+
+// ── Crypto Price Cache ────────────────────────────────────────────────────────
+export const cryptoPriceCache = mysqlTable("crypto_price_cache", {
+  id: int("id").autoincrement().primaryKey(),
+  symbol: varchar("symbol", { length: 32 }).notNull(),
+  coinId: varchar("coinId", { length: 64 }).notNull(),
+  name: varchar("name", { length: 128 }).notNull(),
+  price: varchar("price", { length: 64 }).notNull(),
+  change24h: varchar("change24h", { length: 32 }).default("0"),
+  volume24h: varchar("volume24h", { length: 64 }).default("0"),
+  marketCap: varchar("marketCap", { length: 64 }).default("0"),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+});
+export type CryptoPriceCache = typeof cryptoPriceCache.$inferSelect;
+export type InsertCryptoPriceCache = typeof cryptoPriceCache.$inferInsert;
+
 // ── END OF SCHEMA ─────────────────────────────────────────────────────────────
