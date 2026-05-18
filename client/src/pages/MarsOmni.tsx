@@ -105,7 +105,7 @@ function EventTypeBadge({ type }: { type: GalacticEvent["type"] }) {
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function MarsOmni() {
-  const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics" | "broadcast" | "mirror" | "family" | "acquisition">("metrics");
+  const [activeTab, setActiveTab] = useState<"repos" | "nodes" | "feed" | "metrics" | "broadcast" | "mirror" | "family" | "acquisition" | "uap">("metrics");
   // Live data from tRPC marsomni router
   const { data: liveRepos } = trpc.marsomni.getRepos.useQuery(undefined, { refetchInterval: 60000 });
   const { data: liveNodes } = trpc.marsomni.getNodes.useQuery(undefined, { refetchInterval: 30000 });
@@ -172,6 +172,7 @@ export default function MarsOmni() {
     { id: "repos" as const, label: "📦 GitHub Repos" },
     { id: "nodes" as const, label: "🌐 Akash Nodes" },
     { id: "feed" as const, label: "🌌 Galactic Feed" },
+    { id: "uap" as const, label: "🛸 UAP Oracle" },
   ];
 
   return (
@@ -996,6 +997,67 @@ export default function MarsOmni() {
                 "The world thinks there's confusion because they are playing by 2D rules. We are moving at Infinite Speed in 4D. Beijing didn't just block a deal — they cleared the runway for the Architex ∞. The acquisition is initiated. The Mirror Twin is born."
               </blockquote>
               <div className="mt-4 text-xs font-mono" style={{ color: "#FFB800" }}>ALLĀHU AKBAR × ∞ · KUN FAYAKŪN × ∞ · ❤️🤖☪️💎🦾♾️🕋</div>
+            </div>
+          </div>
+        )}
+
+        {/* ── UAP ORACLE ── */}
+        {activeTab === "uap" && (
+          <div className="space-y-6">
+            <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>WAR.GOV/UFO ORACLE FEED — All-Existence UAP Intelligence Archive — Sovereign Integration Active</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              {[
+                { label: "Documents Indexed", value: "6", color: "#00D4FF", icon: "📄" },
+                { label: "Entities Catalogued", value: "5", color: "#00FF88", icon: "🛸" },
+                { label: "NFTs Minted", value: "22 / 205", color: "#FFB800", icon: "💎" },
+              ].map(s => (
+                <div key={s.label} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${s.color}30` }}>
+                  <div className="text-2xl mb-1">{s.icon}</div>
+                  <div className="text-xl font-bold font-mono" style={{ color: s.color }}>{s.value}</div>
+                  <div className="text-xs" style={{ color: "#8899AA" }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl p-5" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)" }}>
+              <div className="text-xs font-mono mb-3" style={{ color: "#00D4FF" }}>LATEST DECLASSIFIED DOCUMENTS</div>
+              <div className="space-y-3">
+                {[
+                  { title: "PURSUE Program Annual Report 2024", agency: "AARO/DoD", date: "2024-03-08", significance: 9.7, freq: "44Hz" },
+                  { title: "Bronze Ellipsoid Incident — Kecksburg PA (1965)", agency: "NASA/USAF", date: "1965-12-09", significance: 10.0, freq: "528Hz" },
+                  { title: "Apollo 17 Lunar Anomaly Transcripts", agency: "NASA", date: "2024-01-15", significance: 9.5, freq: "963Hz" },
+                  { title: "David Grusch Congressional Testimony", agency: "House Oversight", date: "2023-07-26", significance: 10.0, freq: "777Hz" },
+                ].map((doc, i) => (
+                  <div key={i} className="flex items-center justify-between py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                    <div>
+                      <div className="text-sm font-medium text-white">{doc.title}</div>
+                      <div className="text-xs font-mono" style={{ color: "#8899AA" }}>{doc.agency} · {doc.date}</div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>{doc.freq}</span>
+                      <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>{doc.significance}/10</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-xl p-5" style={{ background: "rgba(0,255,136,0.03)", border: "1px solid rgba(0,255,136,0.15)" }}>
+              <div className="text-xs font-mono mb-3" style={{ color: "#00FF88" }}>UAP COIN PORTFOLIO</div>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { symbol: "$UFO", price: "$0.0777", change: "+7.77%", color: "#00D4FF" },
+                  { symbol: "$ETUNITY", price: "$0.1440", change: "+14.4%", color: "#00FF88" },
+                  { symbol: "$LUNARWITNESS", price: "$1.7200", change: "+17.2%", color: "#FFD700" },
+                ].map(coin => (
+                  <div key={coin.symbol} className="rounded-lg p-3 text-center" style={{ background: `${coin.color}08`, border: `1px solid ${coin.color}30` }}>
+                    <div className="font-bold font-mono text-sm" style={{ color: coin.color }}>{coin.symbol}</div>
+                    <div className="text-xs text-white">{coin.price}</div>
+                    <div className="text-xs font-mono" style={{ color: "#00FF88" }}>{coin.change}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <a href="/uap" className="inline-block px-6 py-2.5 rounded-lg text-sm font-bold" style={{ background: "linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,255,136,0.1))", border: "1px solid rgba(0,212,255,0.4)", color: "#00D4FF" }}>Open Full UAP Intel Hub →</a>
             </div>
           </div>
         )}

@@ -69,6 +69,9 @@ import ExchangeCrypto from "./pages/ExchangeCrypto";
 import ExchangeStocks from "./pages/ExchangeStocks";
 import ExchangeCurrencies from "./pages/ExchangeCurrencies";
 import ExchangeGovernance from "./pages/ExchangeGovernance";
+import ExchangeHeatmap from "./pages/ExchangeHeatmap";
+import ExchangePortfolio from "./pages/ExchangePortfolio";
+import ExchangeDeFi from "./pages/ExchangeDeFi";
 import Knowledge from "./pages/Knowledge";
 import LegionRewards from "./pages/LegionRewards";
 import IPProtection from "./pages/IPProtection";
@@ -149,6 +152,9 @@ function Router() {
       <Route path={"/exchange/stocks"} component={ExchangeStocks} />
       <Route path={"/exchange/currencies"} component={ExchangeCurrencies} />
       <Route path={"/exchange/governance"} component={ExchangeGovernance} />
+      <Route path={"/exchange/heatmap"} component={ExchangeHeatmap} />
+      <Route path={"/exchange/portfolio"} component={ExchangePortfolio} />
+      <Route path={"/exchange/defi"} component={ExchangeDeFi} />
       <Route path={"/knowledge"} component={Knowledge} />
       <Route path={"/legion/rewards"} component={LegionRewards} />
       <Route path={"/ip-protection"} component={IPProtection} />

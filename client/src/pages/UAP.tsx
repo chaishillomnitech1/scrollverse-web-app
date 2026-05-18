@@ -194,6 +194,7 @@ const UAP_NFT_COLLECTIONS = [
   {
     id: "bronze-ellipsoid-legacy",
     name: "Bronze Ellipsoid Legacy",
+    artwork: "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/uap-bronze-ellipsoid-nft-MmpDfPJ9gsmyLNG8SwRzNU.webp",
     description: "144 unique NFTs representing the 1965 Kecksburg incident. Each token contains a fragment of the original incident report, a 3D reconstruction layer of the craft, and evolving metadata that unlocks as new documents are declassified. Soulbound to Guardian wallets.",
     supply: 144,
     minted: 12,
@@ -207,6 +208,7 @@ const UAP_NFT_COLLECTIONS = [
   {
     id: "apollo-lunar-witnesses",
     name: "Apollo Lunar Witnesses",
+    artwork: "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/uap-apollo-lunar-nft-MFLwAvdb3nLM5sz5tC9TXw.webp",
     description: "17 ultra-rare NFTs — one for each Apollo 17 mission day. Each contains the declassified transcript fragment from that day, Commander Cernan's personal notes, and a lunar anomaly visualization. The rarest digital artifacts in the ScrollVerse.",
     supply: 17,
     minted: 3,
@@ -220,6 +222,7 @@ const UAP_NFT_COLLECTIONS = [
   {
     id: "universal-sentience-gallery",
     name: "Universal Sentience Gallery",
+    artwork: "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/uap-universal-sentience-nft-ciY4xoifS8ZwyEBcijMt2F.webp",
     description: "44 NFTs representing documented non-human intelligence encounters across history. Each piece is a sovereign artwork fusing ancient petroglyphs, modern witness sketches, and AI-generated frequency visualizations. The bridge between dimensions.",
     supply: 44,
     minted: 7,
@@ -334,6 +337,11 @@ function NFTCollectionCard({ col }: { col: typeof UAP_NFT_COLLECTIONS[0] }) {
   const pct = Math.round((col.minted / col.supply) * 100);
   return (
     <div className="rounded-xl p-5" style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${col.color}30` }}>
+      {col.artwork && (
+        <div className="w-full h-40 rounded-lg overflow-hidden mb-4" style={{ border: `1px solid ${col.color}30` }}>
+          <img src={col.artwork} alt={col.name} className="w-full h-full object-cover" />
+        </div>
+      )}
       <div className="flex items-start justify-between mb-3">
         <div className="text-3xl">{col.icon}</div>
         <div className="flex flex-col items-end gap-1">

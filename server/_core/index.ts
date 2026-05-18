@@ -78,36 +78,93 @@ async function startServer() {
   });
 
   // ── SCHEDULED TASK ENDPOINTS ─────────────────────────────────────────────
+  // VIRAL ENGINE v3.0 — Phase 49 Upgrade:
+  // - Every caption MUST include scrollverse.co/link CTA
+  // - Story format (9:16) added to content type rotation
+  // - Engagement hooks: questions, polls, "comment GUARDIAN to join" CTAs
+  // - Bio link enforced: scrollverse.co/link
   // Called by the autonomous viral content scheduled task agent every 8 hours
-  // The agent generates content via LLM, then POSTs here to log it
-  // The agent also posts directly to Instagram via MCP in its own environment
   app.post("/api/scheduled/viral-post", async (req, res) => {
     try {
-      const { caption, imageUrl, hashtags, platform, contentType } = req.body as {
+      const { caption, imageUrl, hashtags, platform, contentType, aspectRatio } = req.body as {
         caption?: string;
         imageUrl?: string;
         hashtags?: string[];
         platform?: string;
         contentType?: string;
+        aspectRatio?: string;
       };
       if (!caption) {
         return res.status(400).json({ error: "caption is required" });
       }
-      console.log(`[ViralPost] ✨ ${platform ?? "instagram"} | ${contentType ?? "post"} | ${caption.slice(0, 80)}...`);
+
+      // ENFORCE: Every post must include scrollverse.co/link CTA
+      const LINK_CTA = "\n\n🔗 Full empire: scrollverse.co/link";
+      const ENGAGEMENT_HOOKS = [
+        "\n\n❓ What frequency are you vibrating at today?",
+        "\n\n🔥 Drop a 🕋 if you're building your empire.",
+        "\n\n💬 Comment GUARDIAN below to join the 144,000.",
+        "\n\n🌍 Tag someone who needs to see this.",
+        "\n\n⚡ Save this post — you'll need it later.",
+      ];
+
+      // Add /link CTA if not already present
+      let enrichedCaption = caption;
+      if (!enrichedCaption.includes("scrollverse.co/link")) {
+        enrichedCaption += LINK_CTA;
+      }
+      // Add engagement hook if not already present
+      const hasHook = ENGAGEMENT_HOOKS.some(h => enrichedCaption.includes(h.trim().slice(0, 20)));
+      if (!hasHook) {
+        const hook = ENGAGEMENT_HOOKS[Math.floor(Math.random() * ENGAGEMENT_HOOKS.length)];
+        enrichedCaption += hook;
+      }
+
+      // Enforce sovereign hashtags
+      const SOVEREIGN_HASHTAGS = ["#ScrollVerse", "#LONDC", "#Guardian", "#KunFayakun", "#SovereignEmpire", "#ChaisTheGreat"];
+      const enrichedHashtags = Array.from(new Set([...(hashtags ?? []), ...SOVEREIGN_HASHTAGS]));
+
+      // Determine aspect ratio for story vs post
+      const resolvedAspectRatio = aspectRatio ?? (contentType === "story" ? "9:16" : "4:5");
+
+      console.log(`[ViralPost v3.0] ✨ ${platform ?? "instagram"} | ${contentType ?? "post"} | ${resolvedAspectRatio} | ${enrichedCaption.slice(0, 80)}...`);
       return res.json({
         success: true,
-        message: "Viral post logged",
-        caption,
+        message: "Viral post logged (v3.0 — /link CTA enforced)",
+        caption: enrichedCaption,
+        originalCaption: caption,
         imageUrl: imageUrl ?? null,
-        hashtags: hashtags ?? [],
+        hashtags: enrichedHashtags,
         platform: platform ?? "instagram",
         contentType: contentType ?? "post",
+        aspectRatio: resolvedAspectRatio,
+        linkCTAEnforced: !caption.includes("scrollverse.co/link"),
         timestamp: new Date().toISOString(),
       });
     } catch (err) {
       console.error("[ViralPost] Error:", err);
       return res.status(500).json({ error: "Internal server error" });
     }
+  });
+
+  // Viral engine config endpoint — returns current config for the scheduled agent
+  app.get("/api/scheduled/viral-config", async (_req, res) => {
+    return res.json({
+      version: "3.0.0",
+      bioLink: "scrollverse.co/link",
+      linkCTA: "🔗 Full empire: scrollverse.co/link",
+      guardianCTA: "💬 Comment GUARDIAN below to join the 144,000.",
+      sovereignHashtags: ["#ScrollVerse", "#LONDC", "#Guardian", "#KunFayakun", "#SovereignEmpire", "#ChaisTheGreat", "#SCROLLVERSELLC"],
+      contentTypes: ["post", "carousel", "reel", "story"],
+      aspectRatios: { post: "4:5", carousel: "1:1", reel: "9:16", story: "9:16" },
+      postingFrequency: "every 8 hours",
+      storyRotation: true,
+      instagramBio: {
+        name: "Chais The Great | ScrollVerse",
+        bio: "👑 Sovereign Empire Builder\n🕋 Founder @ScrollVerse_LLC\n💸 $LONDC · NFTs · AI Legion\n🌍 144,000 Guardians Rising\n⬇️ Full empire below",
+        website: "https://scrollverse.co/link",
+      },
+    });
   });
 
   // tRPC API

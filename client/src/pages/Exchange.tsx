@@ -142,6 +142,9 @@ export default function Exchange() {
             <Link href="/exchange/stocks" style={{ color: "#8899AA" }} className="hover:text-[#FFB800] transition-colors">Wall St</Link>
             <Link href="/exchange/currencies" style={{ color: "#8899AA" }} className="hover:text-[#FFB800] transition-colors">Currencies</Link>
             <Link href="/exchange/governance" style={{ color: "#8899AA" }} className="hover:text-[#FFB800] transition-colors">Governance</Link>
+            <Link href="/exchange/heatmap" style={{ color: "#8899AA" }} className="hover:text-[#FFB800] transition-colors">Heatmap</Link>
+            <Link href="/exchange/portfolio" style={{ color: "#8899AA" }} className="hover:text-[#FFB800] transition-colors">Portfolio</Link>
+            <Link href="/exchange/defi" style={{ color: "#8899AA" }} className="hover:text-[#FFB800] transition-colors">DeFi</Link>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
@@ -374,6 +377,9 @@ export default function Exchange() {
               { href: "/exchange/stocks", label: "Wall St Desk", icon: "📈", color: "#00D4FF", sub: "Sovereign equity trading" },
               { href: "/exchange/currencies", label: "All Currencies", icon: "💱", color: "#00FF88", sub: "Fiat + Crypto + Quantum" },
               { href: "/exchange/governance", label: "Governance", icon: "⚖️", color: "#FF6B35", sub: "Sovereign law engine" },
+              { href: "/exchange/heatmap", label: "Market Heatmap", icon: "🔥", color: "#FF6B35", sub: "All-sector visual heat" },
+              { href: "/exchange/portfolio", label: "Portfolio AI", icon: "🧠", color: "#FFD700", sub: "Mirror Twin optimizer" },
+              { href: "/exchange/defi", label: "DeFi Yields", icon: "💧", color: "#00FF88", sub: "Multi-chain yield aggregator" },
             ].map((l, i) => (
               <Link
                 key={i}
