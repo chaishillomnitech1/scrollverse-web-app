@@ -83,6 +83,7 @@ import UAP from "./pages/UAP";
 import MrWalkshit from "./pages/MrWalkshit";
 import CIEDS from "./pages/CIEDS";
 import WealthDashboard from "./pages/WealthDashboard";
+import CHXToken from "./pages/CHXToken";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -166,6 +167,7 @@ function Router() {
       <Route path={"/mr-walkshit"} component={MrWalkshit} />
       <Route path={"/cieds"} component={CIEDS} />
       <Route path={"/wealth"} component={WealthDashboard} />
+      <Route path={"/chxtoken"} component={CHXToken} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

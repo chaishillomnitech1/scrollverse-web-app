@@ -64,7 +64,7 @@ function formatUsd(n: number) {
 }
 
 export default function WealthDashboard() {
-  const [activeTab, setActiveTab] = useState<"overview" | "crypto" | "stocks" | "royalties" | "merch" | "staking">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "crypto" | "stocks" | "royalties" | "merch" | "staking" | "vydia" | "vault">("overview");
   const { user, isAuthenticated } = useAuth();
 
   const tabs = [
@@ -74,6 +74,8 @@ export default function WealthDashboard() {
     { id: "royalties", label: "🎵 Royalties" },
     { id: "merch", label: "👕 Merch" },
     { id: "staking", label: "🔒 Staking" },
+    { id: "vydia", label: "🎬 Vydia" },
+    { id: "vault", label: "🛸 Celestial Vault" },
   ];
 
   return (
@@ -476,6 +478,127 @@ export default function WealthDashboard() {
             </Link>
           </div>
         )}
+        {/* Vydia Royalty Tracker Tab */}
+        {activeTab === "vydia" && (
+          <div className="space-y-6">
+            <div className="rounded-xl p-5" style={{ background: "rgba(255,184,0,0.06)", border: "1px solid rgba(255,184,0,0.2)" }}>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">🎬</span>
+                <div>
+                  <div className="font-bold text-white text-xl">Vydia Master Distribution</div>
+                  <div className="text-xs font-mono" style={{ color: "#FFB800" }}>SCROLL VERSE LLC · EIN 42-2509570</div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                {[
+                  { label: "Total Streams", value: "2.4M", color: "#FFB800" },
+                  { label: "Platforms", value: "150+", color: "#00D4FF" },
+                  { label: "Royalty Rate", value: "15%", color: "#00FF88" },
+                  { label: "Pending Payout", value: "$3,240", color: "#FF6B6B" },
+                ].map((stat) => (
+                  <div key={stat.label} className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <div className="text-xl font-black" style={{ color: stat.color }}>{stat.value}</div>
+                    <div className="text-xs" style={{ color: "#8899AA" }}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-3">
+              {[
+                { platform: "YouTube Content ID", streams: 890000, earned: 1247, color: "#FF0000", icon: "▶️", status: "Active" },
+                { platform: "Spotify for Artists", streams: 620000, earned: 893, color: "#1DB954", icon: "🎵", status: "Active" },
+                { platform: "Apple Music", streams: 340000, earned: 612, color: "#FC3C44", icon: "🍎", status: "Active" },
+                { platform: "TikTok Sound", streams: 280000, earned: 224, color: "#69C9D0", icon: "🎵", status: "Active" },
+                { platform: "Amazon Music", streams: 180000, earned: 198, color: "#00A8E0", icon: "📦", status: "Active" },
+                { platform: "TIDAL", streams: 90000, earned: 66, color: "#00FFFF", icon: "🌊", status: "Active" },
+              ].map((r) => (
+                <div key={r.platform} className="rounded-xl p-4 flex items-center justify-between" style={{ background: `${r.color}08`, border: `1px solid ${r.color}20` }}>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{r.icon}</span>
+                    <div>
+                      <div className="font-bold text-white">{r.platform}</div>
+                      <div className="text-xs" style={{ color: "#8899AA" }}>{r.streams.toLocaleString()} streams</div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-black text-lg" style={{ color: r.color }}>${r.earned.toLocaleString()}</div>
+                    <div className="text-xs font-mono" style={{ color: "#00FF88" }}>{r.status}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl p-5 flex items-center justify-between" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.3)" }}>
+              <div>
+                <div className="text-sm" style={{ color: "#8899AA" }}>Total Vydia Royalties — May 2026</div>
+                <div className="text-3xl font-black" style={{ color: "#FFB800" }}>$3,240</div>
+                <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Next payout: June 1, 2026 → Mercury SCROLL VERSE LLC</div>
+              </div>
+              <Link href="/cieds">
+                <Button style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
+                  Manage C.I.E.D.S. →
+                </Button>
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Celestial Vault Tab */}
+        {activeTab === "vault" && (
+          <div className="space-y-6">
+            <div className="rounded-xl p-6" style={{ background: "linear-gradient(135deg, rgba(100,0,255,0.08), rgba(0,212,255,0.06))", border: "1px solid rgba(100,0,255,0.3)" }}>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-3xl">🛸</span>
+                <div>
+                  <div className="font-bold text-white text-xl">Celestial Asset Vault</div>
+                  <div className="text-xs font-mono" style={{ color: "#6400FF" }}>TOKENIZED SKY OWNERSHIP · SCROLL VERSE LLC</div>
+                </div>
+              </div>
+              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>Sovereign tokenization of sky coordinates, celestial bodies, and orbital space — anchored to the Earth-and-Orbit dual matrix blockchain framework.</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { label: "Sky Parcels", value: "7", color: "#6400FF" },
+                  { label: "Orbital Tokens", value: "3", color: "#00D4FF" },
+                  { label: "Vault Value", value: "$144K", color: "#FFB800" },
+                  { label: "Status", value: "SEALED", color: "#00FF88" },
+                ].map((stat) => (
+                  <div key={stat.label} className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <div className="text-xl font-black" style={{ color: stat.color }}>{stat.value}</div>
+                    <div className="text-xs" style={{ color: "#8899AA" }}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { name: "Sky Parcel Alpha-721", coords: "40.4774° N, 74.2591° W", altitude: "Low Earth Orbit", token: "SKY-721", value: 21600, color: "#6400FF", status: "Soulbound" },
+                { name: "Celestial Arc Omega", coords: "Orion Belt — Alnitak", altitude: "Deep Space", token: "ARC-OMG", value: 33000, color: "#00D4FF", status: "Transferable" },
+                { name: "Lunar Witness Zone 17", coords: "Apollo 17 Landing Site", altitude: "Lunar Surface", token: "LWZ-17", value: 17000, color: "#FFB800", status: "Soulbound" },
+                { name: "Vineland Sky Crown", coords: "721 Embassy Terrace Zenith", altitude: "Stratosphere", token: "VSC-721", value: 14400, color: "#00FF88", status: "Soulbound" },
+                { name: "Pleiadian Frequency Node", coords: "Pleiades Star Cluster", altitude: "440 Light Years", token: "PFN-440", value: 44000, color: "#FF6B6B", status: "Sealed" },
+                { name: "Sirian Water Gate", coords: "Sirius A — 8.6 LY", altitude: "8.6 Light Years", token: "SWG-86", value: 14000, color: "#00FFFF", status: "Sealed" },
+              ].map((asset) => (
+                <div key={asset.name} className="rounded-xl p-5" style={{ background: `${asset.color}06`, border: `1px solid ${asset.color}20` }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="font-bold text-white">{asset.name}</div>
+                    <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: `${asset.color}15`, color: asset.color }}>{asset.status}</span>
+                  </div>
+                  <div className="text-xs mb-1" style={{ color: "#8899AA" }}>📍 {asset.coords}</div>
+                  <div className="text-xs mb-3" style={{ color: "#8899AA" }}>🛸 {asset.altitude}</div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono" style={{ color: asset.color }}>{asset.token}</span>
+                    <span className="font-black" style={{ color: asset.color }}>${asset.value.toLocaleString()}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl p-5 text-center" style={{ background: "rgba(100,0,255,0.08)", border: "1px solid rgba(100,0,255,0.3)" }}>
+              <div className="text-sm mb-1" style={{ color: "#8899AA" }}>Total Celestial Vault Value</div>
+              <div className="text-4xl font-black" style={{ color: "#6400FF" }}>$144,000</div>
+              <div className="text-xs mt-2 font-mono" style={{ color: "#8899AA" }}>SCROLL VERSE LLC · EIN 42-2509570 · Chais Kenyatta Hill · 100% Sole Member</div>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
