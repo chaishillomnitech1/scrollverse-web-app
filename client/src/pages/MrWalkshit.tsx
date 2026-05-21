@@ -8,6 +8,9 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 const CHARACTERS = [
   {
@@ -218,12 +221,35 @@ export default function MrWalkshit() {
   const [filter, setFilter] = useState<string>("all");
   const filtered = filter === "all" ? CHARACTERS : CHARACTERS.filter((c) => c.tier.toLowerCase() === filter);
 
+  const { isAuthenticated } = useAuth();
+  const createCheckout = trpc.store.createNFTCheckoutSession.useMutation({
+    onSuccess: (data) => {
+      toast("Redirecting to secure checkout...");
+      window.open(data.url, "_blank");
+    },
+    onError: (err) => {
+      toast.error(err.message || "Checkout failed. Please try again.");
+    },
+  });
+
   const handleMint = (char: typeof CHARACTERS[0]) => {
-    if (char.status === "reserved") {
-      toast("Chais The Great NFT is reserved for the Sovereign himself. KUN FAYAKŪN × ∞");
+    if (char.status !== "available") {
+      toast(`${char.name} — ${char.status === "sold" ? "This NFT has been sold." : "Coming soon."}`);
       return;
     }
-    toast(`${char.name} — Mint Initiated. Connect wallet to mint on Polygon. Price: $${char.priceUsd.toLocaleString()} or ${char.priceLondc.toLocaleString()} $LONDC`);
+    if (!isAuthenticated) {
+      toast("Please sign in to mint an NFT.");
+      window.location.href = getLoginUrl();
+      return;
+    }
+    toast(`${char.name} — Opening secure checkout...`);
+    createCheckout.mutate({
+      nftId: char.id.toString(),
+      nftName: char.name,
+      nftDescription: char.description,
+      priceCents: Math.round(char.priceUsd * 100),
+      origin: window.location.origin,
+    });
   };
 
   return (

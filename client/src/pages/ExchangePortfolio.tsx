@@ -51,7 +51,7 @@ function AllocationBar({ portfolio }: { portfolio: PortfolioAsset[] }) {
 
 export default function ExchangePortfolio() {
   const [portfolio, setPortfolio] = useState<PortfolioAsset[]>(DEFAULT_PORTFOLIO);
-  const [activeTab, setActiveTab] = useState<"overview" | "optimizer" | "rebalance">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "optimizer" | "rebalance" | "entities">("overview");
   const [isOptimizing, setIsOptimizing] = useState(false);
 
   const totalValue = portfolio.reduce((sum, a) => sum + a.value, 0);
@@ -83,6 +83,7 @@ export default function ExchangePortfolio() {
               { id: "overview", label: "Overview" },
               { id: "optimizer", label: "AI Optimizer" },
               { id: "rebalance", label: "Rebalance" },
+              { id: "entities", label: "Legal Entities" },
             ].map(t => (
               <button
                 key={t.id}
@@ -249,6 +250,114 @@ export default function ExchangePortfolio() {
               >
                 Execute Sovereign Rebalance
               </button>
+            </div>
+          </div>
+        )}
+
+        {/* Entity Overview Tab */}
+        {activeTab === "entities" && (
+          <div className="p-6">
+            <div className="mb-6">
+              <div className="text-xs font-mono mb-1" style={{ color: "#FFB800" }}>SCROLL VERSE LLC SOVEREIGN ENTITIES</div>
+              <h2 className="text-xl font-black text-white">Legal Entity Overview</h2>
+              <p className="text-sm mt-1" style={{ color: "#8899AA" }}>All entities under the SCROLL VERSE LLC umbrella — federally registered, state-chartered, and banking-ready.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {[
+                {
+                  name: "SCROLL VERSE LLC",
+                  type: "Primary Operating Entity",
+                  ein: "42-2509570",
+                  state: "New Jersey",
+                  formed: "May 12, 2026",
+                  charter: "0451463412",
+                  taxCert: "XXX-XXX-570/000",
+                  agent: "Chais Kenyatta Hill",
+                  address: "721 Embassy Terrace",
+                  status: "active",
+                  color: "#FFB800",
+                  icon: "🏛️",
+                  banking: "Mercury Bank — Under Review",
+                  bankingStatus: "pending",
+                },
+                {
+                  name: "XLVIII BLOCKS LLC",
+                  type: "Foundation Entity",
+                  ein: "Pending",
+                  state: "New Jersey",
+                  formed: "2024",
+                  charter: "Archived",
+                  taxCert: "N/A",
+                  agent: "Chais Kenyatta Hill",
+                  address: "721 Embassy Terrace",
+                  status: "archived",
+                  color: "#00D4FF",
+                  icon: "🔷",
+                  banking: "Pre-Mercury",
+                  bankingStatus: "archived",
+                },
+              ].map((entity) => (
+                <div key={entity.name} className="rounded-xl p-6" style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${entity.color}30` }}>
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="text-3xl">{entity.icon}</div>
+                      <div>
+                        <div className="font-black text-white text-lg">{entity.name}</div>
+                        <div className="text-xs font-mono" style={{ color: entity.color }}>{entity.type}</div>
+                      </div>
+                    </div>
+                    <span className="text-xs font-mono px-2 py-1 rounded" style={{
+                      background: entity.status === "active" ? "rgba(0,255,136,0.1)" : "rgba(136,153,170,0.1)",
+                      color: entity.status === "active" ? "#00FF88" : "#8899AA",
+                      border: `1px solid ${entity.status === "active" ? "rgba(0,255,136,0.3)" : "rgba(136,153,170,0.2)"}`,
+                    }}>
+                      {entity.status.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 text-xs">
+                    {[
+                      { label: "EIN", value: entity.ein },
+                      { label: "State", value: entity.state },
+                      { label: "Formed", value: entity.formed },
+                      { label: "Charter #", value: entity.charter },
+                      { label: "Registered Agent", value: entity.agent },
+                      { label: "Address", value: entity.address },
+                    ].map(row => (
+                      <div key={row.label}>
+                        <div style={{ color: "#556677" }}>{row.label}</div>
+                        <div className="font-mono text-white mt-0.5">{row.value}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                    <div className="text-xs" style={{ color: "#556677" }}>Banking</div>
+                    <div className="flex items-center gap-2 mt-1">
+                      <div className="w-2 h-2 rounded-full" style={{ background: entity.bankingStatus === "pending" ? "#FFB800" : "#8899AA" }} />
+                      <span className="text-xs font-mono" style={{ color: entity.bankingStatus === "pending" ? "#FFB800" : "#8899AA" }}>{entity.banking}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl p-6" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)" }}>
+              <div className="text-xs font-mono mb-3" style={{ color: "#00D4FF" }}>REVENUE FLOW</div>
+              <div className="flex flex-wrap gap-4 text-sm">
+                {[
+                  { from: "scrollverse.co", to: "Stripe", status: "live" },
+                  { from: "Stripe", to: "Mercury (SCROLL VERSE LLC)", status: "pending" },
+                  { from: "Mercury", to: "SCROLL VERSE LLC EIN 42-2509570", status: "pending" },
+                ].map((flow, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="font-mono" style={{ color: "#8899AA" }}>{flow.from}</span>
+                    <span style={{ color: "#00D4FF" }}>→</span>
+                    <span className="font-mono text-white">{flow.to}</span>
+                    <span className="text-xs px-1.5 py-0.5 rounded" style={{
+                      background: flow.status === "live" ? "rgba(0,255,136,0.1)" : "rgba(255,184,0,0.1)",
+                      color: flow.status === "live" ? "#00FF88" : "#FFB800",
+                    }}>{flow.status}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}

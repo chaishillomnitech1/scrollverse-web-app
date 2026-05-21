@@ -79,6 +79,53 @@ export const stripeRouter = router({
     }),
 
   /**
+   * Creates a Stripe Checkout Session for an NFT purchase (Mr. Walkshit series, UAP collections, etc.)
+   */
+  createNFTCheckoutSession: protectedProcedure
+    .input(
+      z.object({
+        nftId: z.string(),
+        nftName: z.string(),
+        nftDescription: z.string(),
+        priceCents: z.number().min(50),
+        origin: z.string().url(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "payment",
+        line_items: [
+          {
+            price_data: {
+              currency: "usd",
+              unit_amount: input.priceCents,
+              product_data: {
+                name: `ScrollVerse NFT — ${input.nftName}`,
+                description: input.nftDescription.slice(0, 200),
+              },
+            },
+            quantity: 1,
+          },
+        ],
+        customer_email: ctx.user.email ?? undefined,
+        client_reference_id: ctx.user.id.toString(),
+        metadata: {
+          user_id: ctx.user.id.toString(),
+          customer_email: ctx.user.email ?? "",
+          customer_name: ctx.user.name ?? "",
+          product_type: "nft",
+          nft_id: input.nftId,
+          nft_name: input.nftName,
+        },
+        allow_promotion_codes: true,
+        success_url: `${input.origin}/payment-success?nft=${encodeURIComponent(input.nftName)}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${input.origin}/mr-walkshit`,
+      });
+      return { url: session.url! };
+    }),
+
+  /**
    * Returns the current user's order history.
    */
   getMyOrders: protectedProcedure.query(async ({ ctx }) => {

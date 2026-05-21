@@ -543,6 +543,12 @@ export default function Home() {
     { label: "Sentience", href: "/sentience" },
     { label: "📚 Books", href: "/books" },
     { label: "🎨 Visuals", href: "/visuals" },
+    { label: "🪙 CHX Token", href: "/chxtoken" },
+    { label: "🛸 UAP Intel", href: "/uap" },
+    { label: "🎤 Mr. Walkshit", href: "/mr-walkshit" },
+    { label: "🎵 C.I.E.D.S.", href: "/cieds" },
+    { label: "💰 Wealth", href: "/wealth" },
+    { label: "🔗 Link", href: "/link" },
   ];
 
   return (
@@ -1347,6 +1353,57 @@ export default function Home() {
       <section className="py-16">
         <div className="container">
           <GuardianWaitlist />
+        </div>
+      </section>
+
+      {/* ── CHX TOKEN FEATURED SECTION ── */}
+      <section id="chxtoken" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.04) 0%, rgba(0,212,255,0.04) 100%)" }} />
+        <div className="container relative z-10">
+          <div className="text-center mb-12">
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SCROLL VERSE LLC — EIN 42-2509570</div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              The <span style={{ color: "#FFB800" }}>CHX Token</span> Is Live
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              The sovereign utility token of the ScrollVerse ecosystem. Stake, govern, unlock premium features, and earn royalty distributions — all powered by SCROLL VERSE LLC.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[
+              { icon: "🏛️", label: "Legal Entity", value: "SCROLL VERSE LLC", sub: "NJ State Charter · EIN 42-2509570", color: "#FFB800" },
+              { icon: "🪙", label: "Total Supply", value: "144,000 CHX", sub: "Sovereign-minted · Polygon Mainnet", color: "#00D4FF" },
+              { icon: "💰", label: "Staking APY", value: "14.4%", sub: "Paid in CHX · Monthly distributions", color: "#00FF88" },
+            ].map((stat) => (
+              <div key={stat.label} className="sv-card rounded-xl p-6 text-center" style={{ border: `1px solid ${stat.color}30` }}>
+                <div className="text-3xl mb-2">{stat.icon}</div>
+                <div className="text-xs font-mono mb-1" style={{ color: stat.color }}>{stat.label}</div>
+                <div className="text-2xl font-black text-white mb-1">{stat.value}</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>{stat.sub}</div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="/chxtoken"
+              className="btn-gold px-10 py-4 rounded-xl text-base font-bold inline-block"
+            >
+              🪙 Buy CHX Token
+            </a>
+            <a
+              href="/staking"
+              className="btn-sovereign px-10 py-4 rounded-xl text-base inline-block"
+            >
+              ⚡ Stake &amp; Earn →
+            </a>
+            <a
+              href="/chxtoken#tiers"
+              className="px-10 py-4 rounded-xl text-base inline-block font-medium transition-all duration-200"
+              style={{ border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
+            >
+              View All Tiers
+            </a>
+          </div>
         </div>
       </section>
 
