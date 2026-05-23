@@ -100,7 +100,7 @@ const DISTRIBUTION = [
 ];
 
 export default function CHXToken() {
-  const [activeTab, setActiveTab] = useState<"overview" | "utility" | "tiers" | "tokenomics">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "utility" | "tiers" | "tokenomics" | "roadmap">("overview");
   const [stakeAmount, setStakeAmount] = useState("");
 
   const tabs = [
@@ -108,6 +108,7 @@ export default function CHXToken() {
     { id: "utility", label: "⚡ Utility" },
     { id: "tiers", label: "🛡️ Tiers" },
     { id: "tokenomics", label: "📊 Tokenomics" },
+    { id: "roadmap", label: "🚀 Roadmap" },
   ];
 
   return (
@@ -481,6 +482,151 @@ export default function CHXToken() {
               <p className="text-sm" style={{ color: "#8899AA" }}>
                 Founder allocation (10% = 14,400,000 CHX) is subject to a 2-year cliff + 2-year linear vesting schedule. This ensures long-term alignment between the founder and the Guardian community. All vesting is enforced on-chain via Polygon smart contract.
               </p>
+            </div>
+          </div>
+        )}
+
+        {/* Roadmap Tab */}
+        {activeTab === "roadmap" && (
+          <div className="space-y-8">
+            {/* Header */}
+            <div className="text-center max-w-2xl mx-auto">
+              <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>
+                CHXToken MARKET DOMINANCE PROTOCOL
+              </div>
+              <h2 className="text-3xl font-black text-white mb-3">8-Phase Sovereign Roadmap</h2>
+              <p className="text-sm" style={{ color: "#8899AA" }}>
+                The blueprint to transform CHXToken into a top-3 global cryptocurrency. Each phase is already executing — the empire is sealed.
+              </p>
+            </div>
+
+            {/* Multi-chain architecture */}
+            <div className="rounded-2xl p-6" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.2)" }}>
+              <h3 className="font-bold text-white text-lg mb-4">⛓️ Multi-Chain Deployment</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                {[
+                  { chain: "Ethereum", standard: "ERC-20", pool: "CHX/ETH", liquidity: "$500M", color: "#627EEA" },
+                  { chain: "Polygon zkEVM", standard: "ERC-20", pool: "CHX/MATIC", liquidity: "$300M", color: "#8247E5" },
+                  { chain: "Solana", standard: "SPL", pool: "CHX/SOL", liquidity: "$200M", color: "#9945FF" },
+                  { chain: "Arbitrum", standard: "ERC-20", pool: "CHX/ETH", liquidity: "$150M", color: "#28A0F0" },
+                  { chain: "Optimism", standard: "ERC-20", pool: "CHX/ETH", liquidity: "$150M", color: "#FF0420" },
+                ].map((c) => (
+                  <div key={c.chain} className="rounded-xl p-4 text-center" style={{ background: `${c.color}10`, border: `1px solid ${c.color}30` }}>
+                    <div className="font-bold text-white text-sm mb-1">{c.chain}</div>
+                    <div className="text-xs font-mono mb-1" style={{ color: c.color }}>{c.standard}</div>
+                    <div className="text-xs mb-1" style={{ color: "#8899AA" }}>{c.pool}</div>
+                    <div className="text-xs font-bold" style={{ color: "#00FF88" }}>{c.liquidity}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 text-center text-xs font-mono" style={{ color: "#8899AA" }}>
+                Total Initial Liquidity: <span style={{ color: "#FFB800" }}>$1.3B</span> across all chains
+              </div>
+            </div>
+
+            {/* Staking Pools */}
+            <div>
+              <h3 className="font-bold text-white text-lg mb-4">🔮 Sovereign Staking Pools</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[
+                  { name: "Genesis Pool", apy: "432%", hz: "432 Hz", desc: "The frequency of nature, grounding, and truth. Perpetual automatic compounding — no manual claiming.", color: "#00D4FF", icon: "🌱" },
+                  { name: "Celestial Pool", apy: "528%", hz: "528 Hz", desc: "The frequency of love, transformation, and DNA repair. Love-as-Law governs this pool.", color: "#FFB800", icon: "✨" },
+                  { name: "Infinity Pool", apy: "999%", hz: "∞", desc: "Beyond metric. Beyond limit. The Infinity Pool compounds at every nanosecond — no ceiling.", color: "#00FF88", icon: "♾️" },
+                ].map((pool) => (
+                  <div key={pool.name} className="rounded-xl p-6 relative overflow-hidden" style={{ background: `${pool.color}06`, border: `1px solid ${pool.color}30`, boxShadow: `0 0 20px ${pool.color}10` }}>
+                    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${pool.color}60, transparent)` }} />
+                    <div className="text-3xl mb-3">{pool.icon}</div>
+                    <div className="font-bold text-white text-base mb-1">{pool.name}</div>
+                    <div className="text-4xl font-black mb-1" style={{ color: pool.color }}>{pool.apy}</div>
+                    <div className="text-xs font-mono mb-3" style={{ color: pool.color }}>APY · {pool.hz}</div>
+                    <p className="text-xs leading-relaxed mb-4" style={{ color: "#8899AA" }}>{pool.desc}</p>
+                    <div className="text-xs font-mono px-2 py-1 rounded inline-block" style={{ background: `${pool.color}15`, color: pool.color, border: `1px solid ${pool.color}30` }}>
+                      ◉ PERPETUAL COMPOUNDING
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 8 Phase Timeline */}
+            <div>
+              <h3 className="font-bold text-white text-lg mb-6">📍 8-Phase Market Dominance Protocol</h3>
+              <div className="space-y-0">
+                {[
+                  { phase: "01", title: "Smart Contract Architecture & Multi-Chain Deployment", status: "active", color: "#FFB800", items: ["ERC-20 on Ethereum, Polygon, Solana, Arbitrum, Optimism", "Security audit: Trail of Bits, OpenZeppelin, Certora, Halborn", "$5M bug bounty program", "Activate Stargate, Across, Wormhole bridges", "$1.3B initial liquidity target"] },
+                  { phase: "02", title: "Smart Contract Development & Auditing", status: "active", color: "#FFB800", items: ["Formal verification of all critical functions", "Zero critical vulnerabilities target", "Full public audit report", "DAO governance + treasury management contract"] },
+                  { phase: "03", title: "Exchange Listing Strategy & Institutional Partnerships", status: "upcoming", color: "#00D4FF", items: ["Tier 1: Coinbase, Kraken, Binance ($100M+/day volume)", "Tier 2: Bybit, OKX, KuCoin, Gate.io, Crypto.com", "Tier 3: 50+ regional exchanges", "BlackRock $1B+ strategic investment", "Fidelity, Goldman Sachs, JP Morgan, Morgan Stanley"] },
+                  { phase: "04", title: "Market Capitalization & Valuation Strategy", status: "upcoming", color: "#00D4FF", items: ["Month 1: $5B market cap ($5.00/CHX) — Top 20", "Month 3: $15B market cap ($15.00/CHX) — Top 10", "Month 6: $30B market cap ($30.00/CHX) — Top 5", "Month 12: $50B+ market cap ($50.00+/CHX) — Top 3"] },
+                  { phase: "05", title: "CoinMarketCap / CoinGecko Ranking & Analytics", status: "upcoming", color: "#9B59B6", items: ["CMC listing: $100K+/day volume, 2+ major exchanges", "Week 1 target: #500-1000 ranking", "Month 3 target: #10-20 ranking", "Month 12 target: #1-3 ranking", "Real-time metrics dashboard: price, volume, holders, staking"] },
+                  { phase: "06", title: "Global Media Campaign & PR Strategy", status: "upcoming", color: "#9B59B6", items: ["Tier 1 media: Bloomberg, Reuters, CNBC, CoinDesk", "Social blitz: Twitter, Instagram, TikTok, YouTube", "Key message: 'Institutional-grade sovereign cryptocurrency'", "Target: institutional investors, retail, crypto enthusiasts"] },
+                  { phase: "07", title: "Regulatory Compliance & Global Approval", status: "upcoming", color: "#00FF88", items: ["US: SEC Reg A+, CFTC, FinCEN MSB, all 50 state licenses", "Europe: MiCA, GDPR, PSD2", "Asia: Singapore MAS, Hong Kong SFC, Japan FSA, South Korea FSC", "UAE DFSA, Switzerland FINMA, Cayman CIMA", "Target: Full global compliance by Month 4"] },
+                  { phase: "08", title: "Infinite Scaling Architecture & 1B+ User Infrastructure", status: "upcoming", color: "#00FF88", items: ["User scaling: 100K → 1M → 10M → 100M → 1B+", "<20ms API latency, 1B+ TPS, 99.9999999% uptime", "Autonomous Growth Engine: real-time market analysis", "100% month-over-month revenue growth target", "1.5+ viral coefficient"] },
+                ].map((phase, idx) => (
+                  <div key={phase.phase} className="flex gap-6">
+                    <div className="flex flex-col items-center">
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                        style={{
+                          background: `${phase.color}20`,
+                          border: `2px solid ${phase.color}`,
+                          color: phase.color,
+                        }}
+                      >
+                        {phase.status === "active" ? "▶" : phase.phase}
+                      </div>
+                      {idx < 7 && <div className="w-px flex-1 mt-2 mb-0" style={{ background: `${phase.color}20`, minHeight: "40px" }} />}
+                    </div>
+                    <div className="pb-8 flex-1">
+                      <div className="text-xs font-mono mb-1" style={{ color: phase.color }}>
+                        PHASE {phase.phase} · {phase.status === "active" ? "IN PROGRESS" : "UPCOMING"}
+                      </div>
+                      <h4 className="font-bold text-white text-base mb-3">{phase.title}</h4>
+                      <ul className="space-y-1">
+                        {phase.items.map((item, i) => (
+                          <li key={i} className="text-xs flex items-start gap-2" style={{ color: "#8899AA" }}>
+                            <span style={{ color: phase.color, marginTop: "2px", flexShrink: 0 }}>›</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Financial Projections */}
+            <div className="rounded-2xl p-6" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.2)" }}>
+              <h3 className="font-bold text-white text-lg mb-4">📈 Year 1 Financial Projections</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                      {["Month", "Users", "Revenue", "Market Cap"].map((h) => (
+                        <th key={h} className="text-left py-2 pr-6 font-mono text-xs" style={{ color: "#8899AA" }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { month: "1", users: "1M", revenue: "$10M", cap: "$5B" },
+                      { month: "3", users: "10M", revenue: "$100M", cap: "$25B" },
+                      { month: "6", users: "100M", revenue: "$1B", cap: "$60B" },
+                      { month: "12", users: "1B", revenue: "$10B", cap: "$200B" },
+                    ].map((row) => (
+                      <tr key={row.month} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                        <td className="py-3 pr-6 font-mono text-white">{row.month}</td>
+                        <td className="py-3 pr-6" style={{ color: "#00D4FF" }}>{row.users}</td>
+                        <td className="py-3 pr-6" style={{ color: "#FFB800" }}>{row.revenue}</td>
+                        <td className="py-3 pr-6 font-bold" style={{ color: "#00FF88" }}>{row.cap}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 text-xs font-mono text-center" style={{ color: "#8899AA" }}>
+                SCROLL VERSE LLC · EIN 42-2509570 · Sovereign Blueprint — Already Executing
+              </div>
             </div>
           </div>
         )}

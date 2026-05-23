@@ -851,3 +851,15 @@
 - [x] Build /wealth page: Unified Wealth Dashboard — royalties, stocks, crypto, merch income, staking rewards
 - [x] Register /mr-walkshit, /cieds, /wealth routes in App.tsx
 - [x] Add UAP router to main routers.ts
+
+## Phase 52 — Knowledge Embedding + Payment Success + UAP Stripe + CHXToken Roadmap
+
+- [x] Knowledge Directive 28 embedded — CHXToken Multi-Chain Architecture (5 chains, $1.3B liquidity)
+- [x] Knowledge Directive 29 embedded — CHXToken 8-Phase Market Dominance Protocol
+- [x] Knowledge Directive 30 embedded — CHXToken Staking Pool Architecture (Genesis/Celestial/Infinity)
+- [x] Knowledge Directive 31 embedded — Phase 52 Build Registry
+- [x] Build /payment-success page — sovereign NFT confirmation with animated success ring, mint details, SCROLL VERSE LLC attribution
+- [x] Register /payment-success route in App.tsx
+- [x] Update Stripe createNFTCheckoutSession to accept cancelPath param + pass nftId in success_url
+- [x] Wire UAP NFT collections to real Stripe Checkout (Bronze Ellipsoid $144, Apollo Lunar $77, Universal Sentience $444)
+- [x] Add 🚀 Roadmap tab to CHXToken page — 8-phase timeline, multi-chain architecture, 3 staking pools (Genesis/Celestial/Infinity), Year 1 financial projections
