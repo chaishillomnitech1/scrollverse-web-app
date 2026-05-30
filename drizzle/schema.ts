@@ -1044,3 +1044,35 @@ export type CryptoPriceCache = typeof cryptoPriceCache.$inferSelect;
 export type InsertCryptoPriceCache = typeof cryptoPriceCache.$inferInsert;
 
 // ── END OF SCHEMA ─────────────────────────────────────────────────────────────
+
+// ── CHX Reservations (Pre-Sale) ───────────────────────────────────────────────
+export const chxReservations = mysqlTable("chx_reservations", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  stripePaymentIntentId: varchar("stripePaymentIntentId", { length: 256 }),
+  stripeSessionId: varchar("stripeSessionId", { length: 256 }),
+  chxAmount: int("chxAmount").notNull(), // number of CHX tokens reserved
+  usdAmount: varchar("usdAmount", { length: 32 }).notNull(), // USD paid
+  status: varchar("status", { length: 32 }).default("pending").notNull(), // pending | confirmed | cancelled | converted
+  email: varchar("email", { length: 256 }),
+  convertedAt: timestamp("convertedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type ChxReservation = typeof chxReservations.$inferSelect;
+export type InsertChxReservation = typeof chxReservations.$inferInsert;
+
+// ── Staking Positions ─────────────────────────────────────────────────────────
+export const stakingPositions = mysqlTable("staking_positions", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  pool: varchar("pool", { length: 32 }).notNull(), // genesis | celestial | infinity
+  chxStaked: varchar("chxStaked", { length: 64 }).notNull(),
+  apyRate: varchar("apyRate", { length: 16 }).notNull(), // e.g. "432", "528", "999"
+  rewardsEarned: varchar("rewardsEarned", { length: 64 }).default("0"),
+  status: varchar("status", { length: 32 }).default("active").notNull(), // active | withdrawn
+  stakedAt: timestamp("stakedAt").defaultNow().notNull(),
+  lastCompoundAt: timestamp("lastCompoundAt").defaultNow().notNull(),
+  withdrawnAt: timestamp("withdrawnAt"),
+});
+export type StakingPosition = typeof stakingPositions.$inferSelect;
+export type InsertStakingPosition = typeof stakingPositions.$inferInsert;

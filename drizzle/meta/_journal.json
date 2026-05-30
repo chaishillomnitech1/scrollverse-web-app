@@ -141,6 +141,13 @@
       "when": 1778663905824,
       "tag": "0019_quiet_valkyrie",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "5",
+      "when": 1779522416334,
+      "tag": "0020_strong_payback",
+      "breakpoints": true
     }
   ]
 }

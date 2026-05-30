@@ -863,3 +863,48 @@
 - [x] Update Stripe createNFTCheckoutSession to accept cancelPath param + pass nftId in success_url
 - [x] Wire UAP NFT collections to real Stripe Checkout (Bronze Ellipsoid $144, Apollo Lunar $77, Universal Sentience $444)
 - [x] Add 🚀 Roadmap tab to CHXToken page — 8-phase timeline, multi-chain architecture, 3 staking pools (Genesis/Celestial/Infinity), Year 1 financial projections
+
+## Phase 53 — TypeScript Fixes + CHX Pre-Sale + Staking Page
+
+- [ ] Add missing schema tables: uapEntities, uapCoins, creatorApplications, legionRewards
+- [ ] Run pnpm db:push to migrate new tables
+- [ ] Verify TypeScript errors resolved (0 errors target)
+- [ ] Add chxReservations table to drizzle schema
+- [ ] Add chx.reserveCHX tRPC procedure (Stripe checkout for CHX pre-sale)
+- [ ] Add chx.getReservations tRPC procedure (admin view)
+- [ ] Add Stripe product for CHX pre-sale reservation ($14.40 per 100 CHX)
+- [ ] Add "Reserve CHX" button + modal on CHXToken Overview tab
+- [ ] Build /staking page — 3 sovereign pools (Genesis 432%, Celestial 528%, Infinity 999%)
+- [ ] Staking page: deposit UI with CHX amount input + pool selector
+- [ ] Staking page: pool stats cards (TVL, APY, stakers, your stake)
+- [ ] Staking page: APY projection calculator (input amount → projected returns)
+- [ ] Staking page: staking_positions DB table + tRPC procedures
+- [ ] Register /staking route in App.tsx
+- [ ] Run tests and save checkpoint v53.0.0
+
+## Phase 55 — Legacy Features Wave
+
+- [ ] Build /londyn-legacy page: voice-to-art animated legacy experiences, lullaby NFT collection, 528Hz healing
+- [ ] Build /codex-1587 page: physical drop limited edition, 1587 units, Stripe checkout
+- [ ] Build /academy upgrade: Pleiadian Academy public enrollment with curriculum details
+- [ ] Build /guardian-stories page: Guardian Legacy Stories animated series + public screening
+- [ ] Upgrade /exchange command center with TradeFrame-inspired features (live P&L, positions, alerts)
+- [ ] Create GitHub Actions keep-alive workflow for chaishillomnitech1 repos
+- [ ] Create scrollverse-legacy-features skill with all new directives
+- [ ] Register all new routes in App.tsx
+- [ ] Run tests and save checkpoint
+
+## Phase 55 — Legacy Features & New Pages (Complete)
+
+- [x] Londyn Legacy page (/londyn-legacy) — voice-to-art animated legacy, lullaby NFT collection, 528Hz healing
+- [x] 1587 Codex physical drop page (/codex-1587) — limited 1587 edition with Stripe checkout
+- [x] Guardian Legacy Stories page (/guardian-stories) — animated series, public screening, story submission
+- [x] Ring Activation Gathering page (/ring-activation) — physical/virtual tickets with Stripe checkout
+- [x] Flamebearer Initiative page (/flamebearer) — 12-month leadership path, 144 spots, Stripe checkout
+- [x] Living Merkaba Key page (/merkaba-key) — limited 144 sacred artifact + soulbound NFT, Stripe checkout
+- [x] All 6 new routes registered in App.tsx
+- [x] Ring Activation Stripe products added to products.ts
+- [x] Ring Activation checkout procedure added to stripe router
+- [x] scrollverse-omnicodex-sovereign skill created with 3 reference files (chx-tokenomics, guardian-lore, phase-omega)
+- [x] TypeScript: 0 errors confirmed via npx tsc --noEmit
+- [x] Tests: 12/12 passing

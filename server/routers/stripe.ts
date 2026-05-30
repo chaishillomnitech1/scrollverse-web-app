@@ -2,7 +2,7 @@ import Stripe from "stripe";
 import { z } from "zod";
 import { getDb } from "../db";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
-import { LONDC_PRODUCTS } from "../stripe/products";
+import { LONDC_PRODUCTS, CHX_PRESALE_PRODUCTS } from "../stripe/products";
 import { stripeOrders, revenueEvents, users } from "../../drizzle/schema";
 import { eq, desc, sql } from "drizzle-orm";
 
@@ -126,6 +126,72 @@ export const stripeRouter = router({
     }),
 
   /**
+   * Returns CHX pre-sale product tiers.
+   */
+  getCHXProducts: publicProcedure.query(() => {
+    return CHX_PRESALE_PRODUCTS.map((p) => ({
+      id: p.id,
+      name: p.name,
+      description: p.description,
+      priceCents: p.priceCents,
+      chxAmount: p.chxAmount,
+      icon: p.icon,
+      color: p.color,
+      poolEligibility: p.poolEligibility,
+      apy: p.apy,
+      features: p.features,
+      popular: "popular" in p ? p.popular : false,
+    }));
+  }),
+
+  /**
+   * Creates a Stripe Checkout Session for CHX pre-sale reservation.
+   */
+  createCHXCheckout: protectedProcedure
+    .input(
+      z.object({
+        tier: z.enum(["chx_seed", "chx_celestial", "chx_infinity"]),
+        origin: z.string().url(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const product = CHX_PRESALE_PRODUCTS.find((p) => p.id === input.tier);
+      if (!product) throw new Error("Invalid CHX pre-sale tier");
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "payment",
+        line_items: [
+          {
+            price_data: {
+              currency: "usd",
+              unit_amount: product.priceCents,
+              product_data: {
+                name: `ScrollVerse CHX Token \u2014 ${product.name}`,
+                description: `${product.chxAmount.toLocaleString()} CHX tokens. ${product.poolEligibility} Pool (${product.apy}% APY).`,
+              },
+            },
+            quantity: 1,
+          },
+        ],
+        customer_email: ctx.user.email ?? undefined,
+        client_reference_id: ctx.user.id.toString(),
+        metadata: {
+          user_id: ctx.user.id.toString(),
+          customer_email: ctx.user.email ?? "",
+          customer_name: ctx.user.name ?? "",
+          product_type: "chx_presale",
+          chx_tier: input.tier,
+          chx_amount: product.chxAmount.toString(),
+          pool: product.poolEligibility,
+        },
+        allow_promotion_codes: true,
+        success_url: `${input.origin}/payment-success?type=chx&tier=${input.tier}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${input.origin}/chxtoken`,
+      });
+      return { url: session.url! };
+    }),
+
+  /**
    * Returns the current user's order history.
    */
   getMyOrders: protectedProcedure.query(async ({ ctx }) => {
@@ -184,4 +250,48 @@ export const stripeRouter = router({
       orderCount: Number(orderCount?.count ?? 0),
     };
   }),
+
+  createRingActivationTicket: protectedProcedure
+    .input(
+      z.object({
+        tier: z.enum(["virtual", "physical", "sovereign"]),
+        origin: z.string().url(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { RING_ACTIVATION_PRODUCTS } = await import("../stripe/products.js");
+      const product = RING_ACTIVATION_PRODUCTS.find((p) => p.id === input.tier);
+      if (!product) throw new Error("Invalid ticket tier");
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "payment",
+        line_items: [
+          {
+            price_data: {
+              currency: "usd",
+              unit_amount: product.priceCents,
+              product_data: {
+                name: `Ring Activation Gathering — ${product.name}`,
+                description: product.description,
+              },
+            },
+            quantity: 1,
+          },
+        ],
+        customer_email: ctx.user.email ?? undefined,
+        client_reference_id: ctx.user.id.toString(),
+        metadata: {
+          user_id: ctx.user.id.toString(),
+          customer_email: ctx.user.email ?? "",
+          customer_name: ctx.user.name ?? "",
+          product_type: "ring_activation_ticket",
+          tier: input.tier,
+        },
+        allow_promotion_codes: true,
+        success_url: `${input.origin}/payment-success?session_id={CHECKOUT_SESSION_ID}&type=ring_activation`,
+        cancel_url: `${input.origin}/ring-activation`,
+      });
+      return { url: session.url! };
+    }),
+
 });

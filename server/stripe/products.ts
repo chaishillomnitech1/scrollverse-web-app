@@ -79,3 +79,108 @@ export const LONDC_PRODUCTS = [
 ] as const;
 
 export type ProductTier = (typeof LONDC_PRODUCTS)[number]["id"];
+
+/**
+ * CHX Token Pre-Sale Tiers
+ * Reserve CHX before public launch. Prices in USD cents.
+ */
+export const CHX_PRESALE_PRODUCTS = [
+  {
+    id: "chx_seed" as const,
+    name: "CHX Seed Round",
+    description: "Early seed allocation. 10,000 CHX tokens at $0.01 each. Genesis Pool eligibility (432% APY). First 1,000 reservations only.",
+    priceCents: 10000, // $100.00
+    chxAmount: 10000,
+    icon: "🌱",
+    color: "#00FF88",
+    poolEligibility: "Genesis",
+    apy: 432,
+    features: [
+      "10,000 CHX tokens",
+      "Genesis Pool access (432% APY)",
+      "Seed price: $0.01/CHX",
+      "Vesting: 6 months cliff, 12 months linear",
+      "Guardian NFT airdrop eligible",
+      "Early adopter badge",
+    ],
+  },
+  {
+    id: "chx_celestial" as const,
+    name: "CHX Celestial Round",
+    description: "Celestial allocation. 100,000 CHX tokens at $0.005 each. Celestial Pool eligibility (528% APY). Sovereign status unlocked.",
+    priceCents: 50000, // $500.00
+    chxAmount: 100000,
+    icon: "✨",
+    color: "#FFB800",
+    poolEligibility: "Celestial",
+    apy: 528,
+    popular: true,
+    features: [
+      "100,000 CHX tokens",
+      "Celestial Pool access (528% APY)",
+      "Celestial price: $0.005/CHX",
+      "Vesting: 3 months cliff, 9 months linear",
+      "Sovereign NFT airdrop",
+      "SCCC Dashboard access",
+      "DAO governance voting power",
+    ],
+  },
+  {
+    id: "chx_infinity" as const,
+    name: "CHX Infinity Round",
+    description: "The ultimate pre-sale tier. 1,000,000 CHX tokens at $0.001 each. Infinity Pool eligibility (999% APY). Ascendant council seat.",
+    priceCents: 100000, // $1,000.00
+    chxAmount: 1000000,
+    icon: "♾️",
+    color: "#9B59B6",
+    poolEligibility: "Infinity",
+    apy: 999,
+    features: [
+      "1,000,000 CHX tokens",
+      "Infinity Pool access (999% APY)",
+      "Infinity price: $0.001/CHX",
+      "No vesting — immediate unlock at TGE",
+      "Ascendant council seat",
+      "Multi-chain bridge access (5 chains)",
+      "Direct Chais Kenyatta Hill channel",
+      "Lifetime ecosystem access",
+    ],
+  },
+] as const;
+export type CHXPresaleTier = (typeof CHX_PRESALE_PRODUCTS)[number]["id"];
+
+// ─── Ring Activation Gathering — Event Tickets ──────────────────────────────
+export const RING_ACTIVATION_PRODUCTS = [
+  {
+    id: "virtual" as const,
+    name: "Virtual Guardian Pass",
+    description: "Live-streamed Ring Activation Gathering — access from anywhere in the world. Includes replay + digital ceremony kit.",
+    priceCents: 4400, // $44.00
+    icon: "🌐",
+    color: "#00D4FF",
+    features: ["Live stream access", "Digital ceremony kit", "Guardian community Discord", "Replay archive"],
+  },
+  {
+    id: "physical" as const,
+    name: "Physical Gathering Ticket",
+    description: "In-person Ring Activation Gathering — Vineland, NJ anchor point. Limited to 144 seats.",
+    priceCents: 14400, // $144.00
+    icon: "🔥",
+    color: "#FFB800",
+    features: ["In-person attendance", "Physical ceremony kit", "Sacred geometry workshop", "Guardian network dinner", "Signed 1587 Codex fragment"],
+    featured: true,
+    limited: 144,
+  },
+  {
+    id: "sovereign" as const,
+    name: "Sovereign Flame Council",
+    description: "VIP access + direct seat on the Flame Council. Includes private session with Chais Kenyatta Hill.",
+    priceCents: 44400, // $444.00
+    icon: "👑",
+    color: "#00FF88",
+    features: ["Everything in Physical", "Private 1:1 session", "Flame Council founding seat", "CHX token allocation (1,000 CHX)", "Eternal archive entry", "Lifetime Guardian status"],
+    limited: 44,
+  },
+] as const;
+
+export type RingActivationTier = (typeof RING_ACTIVATION_PRODUCTS)[number]["id"];

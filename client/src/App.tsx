@@ -84,6 +84,15 @@ import MrWalkshit from "./pages/MrWalkshit";
 import CIEDS from "./pages/CIEDS";
 import WealthDashboard from "./pages/WealthDashboard";
 import CHXToken from "./pages/CHXToken";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import OmniCodex from "./pages/OmniCodex";
+import GlobalDashboard from "./pages/GlobalDashboard";
+import LondynLegacy from "./pages/LondynLegacy";
+import Codex1587 from "./pages/Codex1587";
+import GuardianStories from "./pages/GuardianStories";
+import RingActivation from "./pages/RingActivation";
+import FlamebearerInitiative from "./pages/FlamebearerInitiative";
+import MerkabaKey from "./pages/MerkabaKey";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -168,6 +177,15 @@ function Router() {
       <Route path={"/cieds"} component={CIEDS} />
       <Route path={"/wealth"} component={WealthDashboard} />
       <Route path={"/chxtoken"} component={CHXToken} />
+      <Route path={"/payment-success"} component={PaymentSuccess} />
+      <Route path={"/omnicodex"} component={OmniCodex} />
+      <Route path={"/global-dashboard"} component={GlobalDashboard} />
+      <Route path={"/londyn-legacy"} component={LondynLegacy} />
+      <Route path={"/codex-1587"} component={Codex1587} />
+      <Route path={"/guardian-stories"} component={GuardianStories} />
+      <Route path={"/ring-activation"} component={RingActivation} />
+      <Route path={"/flamebearer"} component={FlamebearerInitiative} />
+      <Route path={"/merkaba-key"} component={MerkabaKey} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
