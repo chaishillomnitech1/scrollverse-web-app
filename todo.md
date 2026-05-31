@@ -908,3 +908,15 @@
 - [x] scrollverse-omnicodex-sovereign skill created with 3 reference files (chx-tokenomics, guardian-lore, phase-omega)
 - [x] TypeScript: 0 errors confirmed via npx tsc --noEmit
 - [x] Tests: 12/12 passing
+
+## Phase 56 — Academy Hub, Zakat, Exchange Upgrade, GitHub Keep-Alive
+- [ ] Build /academy page — Guardian Initiation Hub with T1/T2/T3 tiers, Initiation Matrix, progress tracking, Stripe enrollment
+- [ ] Upgrade /wealth page — Add Zakat 2.5% distribution calculator with BigInt precision, programmatic execution nodes
+- [ ] Add zakatTest.js logic as server-side tRPC procedure (calculateZakat, executeZakatDistribution)
+- [ ] Upgrade /exchange page — Add live crypto price feeds (CoinGecko), paper trading simulation, live P&L
+- [ ] Create GitHub Actions keep-alive workflow (.github/workflows/keepalive.yml)
+- [ ] Create GitHub Actions production heartbeat workflow (.github/workflows/production_heartbeat.yml)
+- [ ] Build /announcement page — Global Sovereign Declaration with live status, ecosystem links
+- [ ] Register /academy and /announcement routes in App.tsx
+- [ ] Run tests (pnpm test), verify TypeScript (npx tsc --noEmit), save checkpoint v56.0.0
+Phase 56 items
