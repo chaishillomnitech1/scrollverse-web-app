@@ -549,6 +549,9 @@ export default function Home() {
     { label: "🎵 C.I.E.D.S.", href: "/cieds" },
     { label: "💰 Wealth", href: "/wealth" },
     { label: "🔗 Link", href: "/link" },
+    { label: "🏛️ Academy Hub", href: "/academy-hub" },
+    { label: "🕌 Zakat Engine", href: "/zakat" },
+    { label: "📢 Announcements", href: "/announcements" },
   ];
 
   return (

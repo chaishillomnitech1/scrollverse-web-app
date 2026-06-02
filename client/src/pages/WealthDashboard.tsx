@@ -599,6 +599,25 @@ export default function WealthDashboard() {
           </div>
         )}
 
+        {/* ── Zakat Engine Banner ── */}
+        <div
+          className="mt-8 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4"
+          style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.08), rgba(0,255,136,0.04))", border: "1px solid rgba(255,184,0,0.2)" }}
+        >
+          <div>
+            <div className="text-xs font-mono mb-1" style={{ color: "#FFB800" }}>◈ ZAKAT DISTRIBUTION ENGINE — 2.5% SOVEREIGN PURIFICATION</div>
+            <h3 className="text-lg font-bold text-white">Programmatic Zakat Calculator</h3>
+            <p className="text-sm mt-1" style={{ color: "#64748B" }}>Calculate your 2.5% Zakat obligation and distribute across all 8 Qur'anic nodes automatically. KUN FAYAKŪN × ∞</p>
+          </div>
+          <Link href="/zakat">
+            <button
+              className="px-6 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105 flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", color: "#020204" }}
+            >
+              Open Zakat Engine
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

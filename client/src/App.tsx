@@ -93,6 +93,13 @@ import GuardianStories from "./pages/GuardianStories";
 import RingActivation from "./pages/RingActivation";
 import FlamebearerInitiative from "./pages/FlamebearerInitiative";
 import MerkabaKey from "./pages/MerkabaKey";
+import AcademyHub from "./pages/AcademyHub";
+import ZakatEngine from "./pages/ZakatEngine";
+import GlobalAnnouncement from "./pages/GlobalAnnouncement";
+import Kepler452b from "./pages/Kepler452b";
+import KeplerNFT from "./pages/KeplerNFT";
+import GuardianVoyage from "./pages/GuardianVoyage";
+import DeepExa from "./pages/DeepExa";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -186,6 +193,13 @@ function Router() {
       <Route path={"/ring-activation"} component={RingActivation} />
       <Route path={"/flamebearer"} component={FlamebearerInitiative} />
       <Route path={"/merkaba-key"} component={MerkabaKey} />
+      <Route path={"/academy-hub"} component={AcademyHub} />
+      <Route path={"/zakat"} component={ZakatEngine} />
+      <Route path={"/announcements"} component={GlobalAnnouncement} />
+      <Route path={"/kepler"} component={Kepler452b} />
+      <Route path={"/kepler-nft"} component={KeplerNFT} />
+      <Route path={"/voyage"} component={GuardianVoyage} />
+      <Route path={"/deepexa"} component={DeepExa} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

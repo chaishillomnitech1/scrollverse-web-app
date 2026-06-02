@@ -920,3 +920,15 @@
 - [ ] Register /academy and /announcement routes in App.tsx
 - [ ] Run tests (pnpm test), verify TypeScript (npx tsc --noEmit), save checkpoint v56.0.0
 Phase 56 items
+
+## Phase 57 — Kepler-452b Sovereign Systems + DeepExa + Announcement
+
+- [x] Kepler-452b public booking page (/kepler) — real reservation flow with Stripe
+- [x] Kepler-452b Land NFT minting page (/kepler-nft) — 144,000 parcels, 3 tiers (0.144/0.444/1.44 ETH)
+- [x] Guardian Initiation Voyage registration (/voyage) — first 144 seats, $77,777 with 7.77% Zakat
+- [x] DeepExa integration page (/deepexa) — sovereign list architect with Zakat automation
+- [x] Global Announcement updated with Kepler-452b critical decree (pinned, June 2 2026)
+- [x] sitemap.xml updated with all Phase 57 routes
+- [x] All 4 new routes registered in App.tsx
+- [x] Tests: 12/12 passing
+- [x] Checkpoint v57.0.0 saved
