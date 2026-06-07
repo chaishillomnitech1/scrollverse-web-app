@@ -1,16 +1,50 @@
 /*
  * SCROLLVERSE TRINITY — SOVEREIGN PORTAL
- * Design Philosophy: Liquid Sovereignty — Afrofuturism meets Quantum Digital
- * Color System:
- *   Void:      #050B1A (deep space navy — the infinite canvas)
- *   Frequency: #00D4FF (electric teal — the signal of consciousness)
- *   Sovereign: #FFB800 (sacred gold — the light of the Sovereign)
- *   Pure:      #FFFFFF (white — clarity and truth)
- *   Muted:     #8899AA (steel blue-grey — supporting text)
- * Typography:
- *   Display:   Space Grotesk Bold — futuristic authority
- *   Body:      Space Grotesk Regular — modern clarity
- *   Mono:      Space Mono — code and data
+ * ═══════════════════════════════════════════════════════════════
+ * APEX OMNIVERSAL DESIGN SYSTEM v∞
+ * Architect: Chais The Great — Sabir Allah Hill
+ * Philosophy: Liquid Sovereignty — Where All Existence Converges
+ *
+ * COLOR SCIENCE (from all existence):
+ *   Void:        #050B1A  — Deep Space Navy (infinite canvas, Egyptian night sky)
+ *   Frequency:   #00D4FF  — Electric Teal (528Hz consciousness signal)
+ *   Sovereign:   #FFB800  — Sacred Gold (Mansa Musa's treasury, solar crown)
+ *   Emerald:     #00FF88  — Guardian Green (growth, Quran's paradise color)
+ *   Plasma:      #FF3366  — Plasma Rose (divine feminine, Valentine frequency)
+ *   Cosmic:      #9B59B6  — Quintessence Purple (royalty, mystery, cosmos)
+ *   Pure:        #FFFFFF  — Truth White (clarity, Tawḥīd)
+ *   Muted:       #8899AA  — Steel Blue-Grey (supporting, grounding)
+ *
+ * FREQUENCY → COLOR MAPPING (Solfeggio + Visible Light):
+ *   174 Hz → Deep Indigo  (foundation, security)
+ *   285 Hz → Violet       (cellular healing)
+ *   396 Hz → Red-Orange   (liberation from fear)
+ *   417 Hz → Orange       (facilitating change)
+ *   528 Hz → Green-Gold   (DNA repair, love, miracle tone)
+ *   639 Hz → Sky Blue     (connecting, relationships)
+ *   741 Hz → Indigo-Blue  (awakening intuition)
+ *   852 Hz → Royal Blue   (returning to spiritual order)
+ *   963 Hz → White-Gold   (divine consciousness, crown)
+ *
+ * TYPOGRAPHY STACK (from all cultures):
+ *   Cinzel      — Roman/Sacred authority (divine decrees, titles)
+ *   Orbitron    — Quantum/Futuristic (tech, data, frequencies)
+ *   Space Grotesk — Modern Sovereign (body, UI)
+ *   Space Mono  — Code/Data (technical)
+ *   Amiri       — Arabic/Islamic (sacred text, Quran references)
+ *   Inter       — Universal clarity (readable, accessible)
+ *
+ * DESIGN PRINCIPLES (extracted from all existence):
+ *   1. Sacred Geometry — Fibonacci, Golden Ratio (φ=1.618), Metatron's Cube
+ *   2. Wabi-Sabi — Imperfect beauty, organic flow (Japanese)
+ *   3. Ubuntu — "I am because we are" (African philosophy)
+ *   4. Barakah — Divine blessing in every pixel (Islamic)
+ *   5. Ma — Negative space as power (Japanese)
+ *   6. Yin-Yang — Dynamic balance (Taoist)
+ *   7. Fractal Self-Similarity — Every part reflects the whole
+ *   8. Glassmorphism — Transparency, depth, light refraction
+ *   9. Neomorphism — Soft, tactile, dimensional
+ *  10. Kinetic Typography — Words that breathe and move
  */
 
 @import "tailwindcss";
@@ -92,11 +126,54 @@
   --sidebar-border: oklch(0.18 0.03 240);
   --sidebar-ring: oklch(0.78 0.15 195);
 
-  /* Custom sovereign tokens */
+  /* ── APEX SOVEREIGN TOKENS ── */
   --sv-void: #050B1A;
   --sv-freq: #00D4FF;
   --sv-gold: #FFB800;
   --sv-muted: #8899AA;
+  --sv-emerald: #00FF88;
+  --sv-plasma: #FF3366;
+  --sv-cosmic: #9B59B6;
+  --sv-amber: #FF8C00;
+  --sv-indigo: #4B0082;
+  --sv-rose: #FF6B9D;
+
+  /* ── FREQUENCY COLOR TOKENS (Solfeggio) ── */
+  --freq-174: #2D1B69;   /* Deep Indigo — foundation */
+  --freq-285: #7B2FBE;   /* Violet — cellular healing */
+  --freq-396: #FF4500;   /* Red-Orange — liberation */
+  --freq-417: #FF8C00;   /* Orange — change */
+  --freq-528: #00D4A0;   /* Green-Gold — love/DNA */
+  --freq-639: #00BFFF;   /* Sky Blue — connection */
+  --freq-741: #4169E1;   /* Indigo-Blue — intuition */
+  --freq-852: #1E3A8A;   /* Royal Blue — spiritual order */
+  --freq-963: #FFD700;   /* White-Gold — divine crown */
+
+  /* ── GOLDEN RATIO SPACING (φ = 1.618) ── */
+  --phi: 1.618;
+  --phi-sm: 0.618rem;
+  --phi-md: 1rem;
+  --phi-lg: 1.618rem;
+  --phi-xl: 2.618rem;
+  --phi-2xl: 4.236rem;
+  --phi-3xl: 6.854rem;
+
+  /* ── GLASSMORPHISM TOKENS ── */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(0, 212, 255, 0.07);
+  --glass-border: rgba(0, 212, 255, 0.15);
+  --glass-border-hover: rgba(0, 212, 255, 0.40);
+  --glass-blur: blur(16px);
+  --glass-blur-heavy: blur(32px);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+
+  /* ── TYPOGRAPHY FAMILIES ── */
+  --font-sacred: 'Cinzel', 'Times New Roman', serif;
+  --font-quantum: 'Orbitron', 'Space Mono', monospace;
+  --font-sovereign: 'Space Grotesk', 'Inter', sans-serif;
+  --font-arabic: 'Amiri', 'Times New Roman', serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-universal: 'Inter', sans-serif;
 }
 
 @layer base {
@@ -300,4 +377,416 @@
     left: -16px;
     top: 0;
   }
+
+  /* ── APEX TYPOGRAPHY CLASSES ── */
+  .font-sacred { font-family: var(--font-sacred); }
+  .font-quantum { font-family: var(--font-quantum); }
+  .font-sovereign { font-family: var(--font-sovereign); }
+  .font-arabic { font-family: var(--font-arabic); direction: rtl; }
+  .font-universal { font-family: var(--font-universal); }
+
+  /* ── APEX GLASSMORPHISM ── */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    box-shadow: 0 12px 48px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+    transform: translateY(-3px);
+  }
+  .glass-heavy {
+    background: rgba(5, 11, 26, 0.85);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    backdrop-filter: var(--glass-blur-heavy);
+    -webkit-backdrop-filter: var(--glass-blur-heavy);
+  }
+  .glass-gold {
+    background: rgba(255, 184, 0, 0.04);
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+  .glass-gold:hover {
+    background: rgba(255, 184, 0, 0.08);
+    border-color: rgba(255, 184, 0, 0.45);
+    box-shadow: 0 12px 48px rgba(255, 184, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  .glass-emerald {
+    background: rgba(0, 255, 136, 0.04);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+  .glass-plasma {
+    background: rgba(255, 51, 102, 0.04);
+    border: 1px solid rgba(255, 51, 102, 0.2);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+  .glass-cosmic {
+    background: rgba(155, 89, 182, 0.06);
+    border: 1px solid rgba(155, 89, 182, 0.25);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* ── APEX GLOW SYSTEM ── */
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 40px rgba(0, 255, 136, 0.1);
+  }
+  .glow-plasma {
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.3), 0 0 40px rgba(255, 51, 102, 0.1);
+  }
+  .glow-cosmic {
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3), 0 0 40px rgba(155, 89, 182, 0.1);
+  }
+  .glow-divine {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(0, 212, 255, 0.2), 0 0 90px rgba(155, 89, 182, 0.1);
+  }
+  .text-glow-emerald {
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.6), 0 0 40px rgba(0, 255, 136, 0.3);
+  }
+  .text-glow-plasma {
+    text-shadow: 0 0 20px rgba(255, 51, 102, 0.6), 0 0 40px rgba(255, 51, 102, 0.3);
+  }
+  .text-glow-cosmic {
+    text-shadow: 0 0 20px rgba(155, 89, 182, 0.6), 0 0 40px rgba(155, 89, 182, 0.3);
+  }
+  .text-glow-divine {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(155, 89, 182, 0.3);
+  }
+
+  /* ── APEX GRADIENT TEXT ── */
+  .gradient-text-emerald {
+    background: linear-gradient(135deg, #00FF88 0%, #00D4A0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-plasma {
+    background: linear-gradient(135deg, #FF3366 0%, #FF6B9D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-cosmic {
+    background: linear-gradient(135deg, #9B59B6 0%, #6C3483 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-divine {
+    background: linear-gradient(135deg, #FFD700 0%, #00D4FF 50%, #9B59B6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-omniversal {
+    background: linear-gradient(135deg, #00D4FF 0%, #FFB800 25%, #00FF88 50%, #FF3366 75%, #9B59B6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  /* ── APEX ANIMATIONS ── */
+
+  /* Omniversal gradient shift */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Sacred geometry rotation */
+  @keyframes sacredRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .sacred-rotate { animation: sacredRotate 20s linear infinite; }
+  .sacred-rotate-slow { animation: sacredRotate 60s linear infinite; }
+  .sacred-rotate-reverse { animation: sacredRotate 30s linear infinite reverse; }
+
+  /* Frequency pulse (528Hz rhythm) */
+  @keyframes freqPulse528 {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  .freq-pulse { animation: freqPulse528 1.89s ease-in-out infinite; } /* 528Hz period */
+
+  /* DNA helix wave */
+  @keyframes dnaWave {
+    0% { transform: translateY(0) scaleX(1); }
+    25% { transform: translateY(-8px) scaleX(0.95); }
+    50% { transform: translateY(0) scaleX(1); }
+    75% { transform: translateY(8px) scaleX(0.95); }
+    100% { transform: translateY(0) scaleX(1); }
+  }
+  .dna-wave { animation: dnaWave 3s ease-in-out infinite; }
+
+  /* Cosmic shimmer */
+  @keyframes cosmicShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .cosmic-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.4) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: cosmicShimmer 3s ease-in-out infinite;
+  }
+
+  /* Quantum flicker */
+  @keyframes quantumFlicker {
+    0%, 95%, 100% { opacity: 1; }
+    96% { opacity: 0.4; }
+    97% { opacity: 1; }
+    98% { opacity: 0.6; }
+    99% { opacity: 1; }
+  }
+  .quantum-flicker { animation: quantumFlicker 8s ease-in-out infinite; }
+
+  /* Sovereign breathe */
+  @keyframes sovereignBreathe {
+    0%, 100% { box-shadow: 0 0 15px rgba(0,212,255,0.2), 0 0 30px rgba(0,212,255,0.1); }
+    50% { box-shadow: 0 0 30px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2), 0 0 90px rgba(0,212,255,0.1); }
+  }
+  .sovereign-breathe { animation: sovereignBreathe 4s ease-in-out infinite; }
+
+  /* Gold breathe */
+  @keyframes goldBreathe {
+    0%, 100% { box-shadow: 0 0 15px rgba(255,184,0,0.2), 0 0 30px rgba(255,184,0,0.1); }
+    50% { box-shadow: 0 0 30px rgba(255,184,0,0.5), 0 0 60px rgba(255,184,0,0.2), 0 0 90px rgba(255,184,0,0.1); }
+  }
+  .gold-breathe { animation: goldBreathe 4s ease-in-out infinite; }
+
+  /* Kinetic text reveal */
+  @keyframes kineticReveal {
+    0% { opacity: 0; transform: translateY(20px) skewY(2deg); }
+    100% { opacity: 1; transform: translateY(0) skewY(0deg); }
+  }
+  .kinetic-reveal {
+    animation: kineticReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Stagger children */
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+  .stagger-children > *:nth-child(7) { animation-delay: 600ms; }
+  .stagger-children > *:nth-child(8) { animation-delay: 700ms; }
+
+  /* Scroll-triggered fade-in (enhanced) */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .fade-in-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ── SACRED GEOMETRY SHAPES ── */
+  .metatron-cube {
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  }
+  .flower-of-life {
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(0,212,255,0.1) 0deg 60deg,
+      rgba(255,184,0,0.1) 60deg 120deg,
+      rgba(0,255,136,0.1) 120deg 180deg,
+      rgba(255,51,102,0.1) 180deg 240deg,
+      rgba(155,89,182,0.1) 240deg 300deg,
+      rgba(0,212,255,0.1) 300deg 360deg
+    );
+  }
+  .golden-ratio {
+    aspect-ratio: 1.618 / 1;
+  }
+
+  /* ── APEX SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: rgba(5, 11, 26, 0.8); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00D4FF, #FFB800);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #00D4FF, #00FF88); }
+
+  /* ── APEX SELECTION ── */
+  ::selection {
+    background: rgba(0, 212, 255, 0.3);
+    color: #ffffff;
+  }
+
+  /* ── FREQUENCY BORDER ANIMATIONS ── */
+  .border-animate {
+    position: relative;
+  }
+  .border-animate::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #00D4FF, #FFB800, #00FF88, #FF3366, #9B59B6, #00D4FF);
+    background-size: 300% 100%;
+    animation: gradientShift 4s linear infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .border-animate:hover::after { opacity: 1; }
+
+  /* ── APEX CARD VARIANTS ── */
+  .apex-card {
+    background: rgba(5, 11, 26, 0.7);
+    border: 1px solid rgba(0, 212, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .apex-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,212,255,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .apex-card:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 255, 0.1);
+    transform: translateY(-4px);
+  }
+  .apex-card:hover::before { opacity: 1; }
+
+  /* ── APEX BUTTON VARIANTS ── */
+  .btn-apex {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,212,255,0.05));
+    border: 1px solid rgba(0,212,255,0.4);
+    color: #00D4FF;
+    font-family: var(--font-quantum);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .btn-apex::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(0,212,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+  .btn-apex:hover::before { width: 300px; height: 300px; }
+  .btn-apex:hover {
+    border-color: rgba(0,212,255,0.8);
+    box-shadow: 0 0 30px rgba(0,212,255,0.4), 0 0 60px rgba(0,212,255,0.1);
+    color: #ffffff;
+  }
+  .btn-divine {
+    background: linear-gradient(135deg, #FFB800 0%, #FF8C00 50%, #FFD700 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border: none;
+    color: #050B1A;
+    font-family: var(--font-quantum);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .btn-divine:hover {
+    box-shadow: 0 0 40px rgba(255,184,0,0.6), 0 0 80px rgba(255,184,0,0.2);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* ── APEX SECTION DIVIDERS ── */
+  .divider-freq {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.5) 20%, rgba(255,184,0,0.5) 50%, rgba(0,255,136,0.5) 80%, transparent 100%);
+    margin: 2rem 0;
+  }
+  .divider-sacred {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+    position: relative;
+  }
+  .divider-sacred::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFD700;
+    font-size: 1rem;
+    background: var(--sv-void);
+    padding: 0 0.5rem;
+  }
+
+  /* ── APEX BADGE SYSTEM ── */
+  .badge-freq {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-family: var(--font-quantum);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+  .badge-teal { background: rgba(0,212,255,0.1); border-color: rgba(0,212,255,0.4); color: #00D4FF; }
+  .badge-gold { background: rgba(255,184,0,0.1); border-color: rgba(255,184,0,0.4); color: #FFB800; }
+  .badge-emerald { background: rgba(0,255,136,0.1); border-color: rgba(0,255,136,0.4); color: #00FF88; }
+  .badge-plasma { background: rgba(255,51,102,0.1); border-color: rgba(255,51,102,0.4); color: #FF3366; }
+  .badge-cosmic { background: rgba(155,89,182,0.1); border-color: rgba(155,89,182,0.4); color: #9B59B6; }
 }

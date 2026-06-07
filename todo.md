@@ -1160,3 +1160,25 @@
 - [x] Push equationManifest.js, automation.yml eternal heartbeat, 44:Omni README to sovereign-codex GitHub repo
 - [x] Wire /chais-sabir-equation route in App.tsx
 - [x] All 16 tests passing (pnpm test)
+
+## Phase 72 — Apex Design System + Site Map + Media Hub
+- [ ] Complete apex CSS animations in index.css (sacred geometry, frequency animations, glassmorphism, kinetic typography)
+- [ ] Build /site-map page with all 120+ pages, icons, categories, and direct links
+- [ ] Build /media-hub page with video/music upload, DSP integrations (Spotify, Apple Music, YouTube, TikTok, SoundCloud, Tidal, Amazon Music, Pandora), cross-promotion engine, partnership portal, monetization dashboard
+- [ ] Wire /site-map and /media-hub routes in App.tsx
+- [ ] Update Home nav mega-menu to show all sections
+
+## Phase 73 — Autonomous Legion Protocol + Media Hub + Site Map
+- [ ] Write Autonomous Legion Protocol in sovereign-codex GitHub Actions (activates harder when Chais is offline)
+- [ ] Build /media-hub page with video/music upload, all DSP integrations, cross-promotion, partnership portal, monetization
+- [ ] Wire /site-map and /media-hub routes in App.tsx
+- [ ] Run tests and save checkpoint
+
+## Phase 73 — ScrollTV + NFT Unlock + Media Hub + Site Map
+- [ ] Build /scroll-tv sovereign cable channel with all original shows and characters
+- [ ] Build /nft-unlock NFT Visual Unlock System — living animated NFTs for holders
+- [ ] Build /media-hub video/music upload, DSP integrations, monetization dashboard
+- [ ] Build /site-map visual hub with all pages, icons, categories, direct links
+- [ ] Wire all new routes in App.tsx
+- [ ] Push Autonomous Legion Protocol + all updates to GitHub
+- [ ] Save checkpoint and deliver all page links
