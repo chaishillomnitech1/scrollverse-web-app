@@ -1120,3 +1120,58 @@ export const casinoJackpot = mysqlTable("casino_jackpot", {
 });
 export type CasinoJackpot = typeof casinoJackpot.$inferSelect;
 export type InsertCasinoJackpot = typeof casinoJackpot.$inferInsert;
+
+// ── Knick Blockchain — Trivia-to-Earn NFT Engine ──────────────────────────────
+export const knickTrivia = mysqlTable("knick_trivia", {
+  id: int("id").autoincrement().primaryKey(),
+  question: text("question").notNull(),
+  optionA: varchar("optionA", { length: 255 }).notNull(),
+  optionB: varchar("optionB", { length: 255 }).notNull(),
+  optionC: varchar("optionC", { length: 255 }).notNull(),
+  optionD: varchar("optionD", { length: 255 }).notNull(),
+  correctAnswer: varchar("correctAnswer", { length: 1 }).notNull(), // A, B, C, or D
+  difficulty: varchar("difficulty", { length: 20 }).notNull(), // easy | hard | legendary
+  nftRarity: varchar("nftRarity", { length: 20 }).notNull(), // common | rare | epic | legendary
+  xpReward: int("xpReward").default(10).notNull(),
+  funFact: text("funFact"),
+  era: varchar("era", { length: 100 }), // e.g. "Ewing Era", "Starks Era", "Modern Era"
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type KnickTrivia = typeof knickTrivia.$inferSelect;
+export type InsertKnickTrivia = typeof knickTrivia.$inferInsert;
+
+export const knickNfts = mysqlTable("knick_nfts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  questionId: int("questionId").notNull(),
+  rarity: varchar("rarity", { length: 20 }).notNull(), // common | rare | epic | legendary
+  // Coin customization — user can personalize their $KNICK coin
+  coinName: varchar("coinName", { length: 100 }).default("$KNICK").notNull(),
+  coinSymbol: varchar("coinSymbol", { length: 20 }).default("KNICK").notNull(),
+  coinColor: varchar("coinColor", { length: 7 }).default("#FFB800").notNull(), // hex color
+  coinGradient: varchar("coinGradient", { length: 7 }).default("#00D4FF").notNull(),
+  coinLogo: varchar("coinLogo", { length: 50 }).default("🏀").notNull(),
+  coinSlogan: varchar("coinSlogan", { length: 100 }).default("Never Stop. Never Settle.").notNull(),
+  tokenId: varchar("tokenId", { length: 255 }),
+  imageUrl: varchar("imageUrl", { length: 1024 }),
+  xpEarned: int("xpEarned").default(0).notNull(),
+  streakBonus: boolean("streakBonus").default(false).notNull(),
+  mintedAt: timestamp("mintedAt").defaultNow().notNull(),
+});
+export type KnickNft = typeof knickNfts.$inferSelect;
+export type InsertKnickNft = typeof knickNfts.$inferInsert;
+
+export const knickUserStats = mysqlTable("knick_user_stats", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull().unique(),
+  totalAnswered: int("totalAnswered").default(0).notNull(),
+  correctAnswers: int("correctAnswers").default(0).notNull(),
+  currentStreak: int("currentStreak").default(0).notNull(),
+  bestStreak: int("bestStreak").default(0).notNull(),
+  totalXp: int("totalXp").default(0).notNull(),
+  nftsEarned: int("nftsEarned").default(0).notNull(),
+  rank: varchar("rank", { length: 50 }).default("Rookie").notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+});
+export type KnickUserStats = typeof knickUserStats.$inferSelect;
+export type InsertKnickUserStats = typeof knickUserStats.$inferInsert;

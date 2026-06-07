@@ -105,6 +105,12 @@ import Casino from "./pages/Casino";
 import KnicksNFT from "./pages/KnicksNFT";
 import SynterAnalytics from "./pages/SynterAnalytics";
 import MassiveStorage from "./pages/MassiveStorage";
+import ManusAmbassador from "./pages/ManusAmbassador";
+import SovereignLegacy from "./pages/SovereignLegacy";
+import JPMMirror from "./pages/JPMMirror";
+import AILegionApex from "./pages/AILegionApex";
+import SovereignBank from "./pages/SovereignBank";
+import SovereignCodex from "./pages/SovereignCodex";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -210,6 +216,12 @@ function Router() {
       <Route path={"/knicks-nft"} component={KnicksNFT} />
       <Route path={"/synter"} component={SynterAnalytics} />
       <Route path={"/storage"} component={MassiveStorage} />
+      <Route path={"/manus"} component={ManusAmbassador} />
+      <Route path={"/sovereign-legacy"} component={SovereignLegacy} />
+      <Route path={"/jpm-mirror"} component={JPMMirror} />
+      <Route path={"/ai-legion-apex"} component={AILegionApex} />
+      <Route path={"/sovereign-bank"} component={SovereignBank} />
+      <Route path={"/sovereign-codex"} component={SovereignCodex} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

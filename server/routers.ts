@@ -43,6 +43,8 @@ import { massiveRouter } from "./routers/massive";
 import { casinoRouter } from "./routers/casino";
 import { notificationsRouter } from "./routers/notifications";
 import { chxRouter } from "./routers/chx";
+import { knickRouter } from "./routers/knick";
+import { aiLegionRouter } from "./routers/aiLegion";
 
 export const appRouter = router({
   system: systemRouter,
@@ -98,6 +100,8 @@ export const appRouter = router({
   casino: casinoRouter,
   notifications: notificationsRouter,
   chx: chxRouter,
+  knick: knickRouter,
+  aiLegion: aiLegionRouter,
 });
 
 export type AppRouter = typeof appRouter;
