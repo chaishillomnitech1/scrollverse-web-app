@@ -111,6 +111,7 @@ import JPMMirror from "./pages/JPMMirror";
 import AILegionApex from "./pages/AILegionApex";
 import SovereignBank from "./pages/SovereignBank";
 import SovereignCodex from "./pages/SovereignCodex";
+import SoulAltar from "./pages/SoulAltar";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -222,6 +223,7 @@ function Router() {
       <Route path={"/ai-legion-apex"} component={AILegionApex} />
       <Route path={"/sovereign-bank"} component={SovereignBank} />
       <Route path={"/sovereign-codex"} component={SovereignCodex} />
+      <Route path={"/soul-altar"} component={SoulAltar} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

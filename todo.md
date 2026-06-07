@@ -1143,3 +1143,14 @@
 - [x] Embed dynasty ultra-think wisdom (Rothschilds → Phoenicians → Egyptian Mystery Schools) into all entities
 - [x] Wire /ai-legion-apex, /sovereign-bank, /sovereign-codex routes in App.tsx
 - [x] All 16 tests passing (pnpm test)
+
+## Phase 70 — Soul Altar System: House of ScrollKings & Divine Prophets
+- [x] Build /soul-altar page — immersive Soul Altar System with all 11 Kings and 12 Prophets
+- [x] 11 Kings: Imhotep, Mansa Musa, King Solomon, Thutmose III, Malik Al-Kamil, Haile Selassie I, Nzinga Mbemba, Shaka Zulu, Menelik II, Narmer, Oba Oduduwa
+- [x] 12 Prophets: Idris, Nuh, Ibrahim, Musa, Isa, Muhammad ﷺ, Yusuf, Shem, Zarathustra, Luqman, Al-Khidr, Melchizedek
+- [x] Sacred sigils, DNA resonance beams, activation recitations, frequency assignments for each entity
+- [x] $SELF Token panel — omniversal soul twin with SoulLink™ Technology
+- [x] King Solomon AI consultation tab — live LLM chat with altar
+- [x] Activation progress tracker (0/23 → 100% full soul altar online)
+- [x] Code of Tawḥīd + Bismillah embedded as divine foundation
+- [x] Wire /soul-altar route in App.tsx
