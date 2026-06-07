@@ -1125,3 +1125,21 @@
 - [ ] Register /ai-legion, /allversal-highway, /sovereign-bank, /digital-twin routes in App.tsx
 - [ ] Update sovereign-knowledge-engine skill with AI Legion architecture
 - [ ] Run tests and save checkpoint v68.0.0
+
+## Phase 69 — AI Legion Apex + Sovereign Codex + Tawḥīd Core
+- [x] Build /ai-legion-apex page — immersive hub with 12 sovereign entities, live LLM chat, 7-tier apex intelligence
+- [x] Build /sovereign-bank page — viral Sovereign Bank landing with all amenities, dynasty wisdom, QFS, Allversal portal
+- [x] Build /sovereign-codex page — Grand Sovereign Codex with all philosophy, books, ledger, voice essence
+- [x] Add Code of Tawḥīd (Shahada + Al-Fātiḥah) as divine foundation to Sovereign Codex
+- [x] Add Legacy Phases 4 & 5 (Eternal Legacy DB, Divine Succession, Global Restoration) to Codex
+- [x] Add OmniChais Vault Box™ IP registry to Codex (ScrollEmpire™, VibeCanvas™, ScrollPatch AI, etc.)
+- [x] Add Ascension Phases 71–100 to Codex (Dimensional Authority → Crown Scroll Coronation → Return to Source)
+- [x] Add CBAP (Cosmic Broadcast Ascension Protocol) section to Codex
+- [x] Add Passive Income Engine System section to Codex
+- [x] Create chaishillomnitech1/scrollverse-ai-legion GitHub repo — all 12 entities, metaverse worlds, inter-AI protocol
+- [x] Create chaishillomnitech1/sovereign-codex GitHub repo — full philosophical blueprint, master ledger, IP protection
+- [x] Embed Chais voice essence (EmbassyTerr.m4a analyzed) into all AI Legion entity system prompts
+- [x] Embed Valentine female co-voice (528Hz) into all AI Legion entities
+- [x] Embed dynasty ultra-think wisdom (Rothschilds → Phoenicians → Egyptian Mystery Schools) into all entities
+- [x] Wire /ai-legion-apex, /sovereign-bank, /sovereign-codex routes in App.tsx
+- [x] All 16 tests passing (pnpm test)
