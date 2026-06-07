@@ -100,6 +100,10 @@ import Kepler452b from "./pages/Kepler452b";
 import KeplerNFT from "./pages/KeplerNFT";
 import GuardianVoyage from "./pages/GuardianVoyage";
 import DeepExa from "./pages/DeepExa";
+import Casino from "./pages/Casino";
+import KnicksNFT from "./pages/KnicksNFT";
+import SynterAnalytics from "./pages/SynterAnalytics";
+import MassiveStorage from "./pages/MassiveStorage";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -200,6 +204,10 @@ function Router() {
       <Route path={"/kepler-nft"} component={KeplerNFT} />
       <Route path={"/voyage"} component={GuardianVoyage} />
       <Route path={"/deepexa"} component={DeepExa} />
+      <Route path={"/casino"} component={Casino} />
+      <Route path={"/knicks-nft"} component={KnicksNFT} />
+      <Route path={"/synter"} component={SynterAnalytics} />
+      <Route path={"/storage"} component={MassiveStorage} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

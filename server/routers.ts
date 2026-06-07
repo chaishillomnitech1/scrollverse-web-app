@@ -38,6 +38,10 @@ import { legionRewardsRouter } from "./routers/legionRewards";
 import { partnersRouter } from "./routers/partners";
 import { uapRouter } from "./routers/uap";
 import { globalDashboardRouter } from "./routers/globalDashboard";
+import { synterRouter } from "./routers/synter";
+import { massiveRouter } from "./routers/massive";
+import { casinoRouter } from "./routers/casino";
+import { notificationsRouter } from "./routers/notifications";
 
 export const appRouter = router({
   system: systemRouter,
@@ -88,6 +92,10 @@ export const appRouter = router({
   partners: partnersRouter,
   uap: uapRouter,
   globalDashboard: globalDashboardRouter,
+  synter: synterRouter,
+  massive: massiveRouter,
+  casino: casinoRouter,
+  notifications: notificationsRouter,
 });
 
 export type AppRouter = typeof appRouter;

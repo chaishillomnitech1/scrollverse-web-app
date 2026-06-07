@@ -932,3 +932,16 @@ Phase 56 items
 - [x] All 4 new routes registered in App.tsx
 - [x] Tests: 12/12 passing
 - [x] Checkpoint v57.0.0 saved
+
+## Phase 58 — Casino, Notifications, Synter Ads, Massive Storage
+
+- [ ] Custom in-app notification system (bell icon, real-time Guardian alerts, owner push)
+- [ ] ScrollVerse Casino page (/casino) — provably fair slots, lose-to-earn 10% kickback, jackpots
+- [ ] Casino: multiple game types (slots, spin wheel, scratch card) — interchangeable evolving games
+- [ ] Casino: crypto incentives, Guardian tier bonuses, NFT payout minting
+- [ ] Synter Ads analytics page (/synter) registered in App.tsx
+- [ ] Massive.com storage vault page (/storage) registered in App.tsx
+- [ ] Massive tRPC router wired (upload, list, delete, presigned URL)
+- [ ] Synter tRPC router wired (track event, submit lead, campaign stats)
+- [ ] All routes registered in App.tsx
+- [ ] Tests passing + checkpoint v58.0.0

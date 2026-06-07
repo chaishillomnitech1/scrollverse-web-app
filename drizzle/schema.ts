@@ -1076,3 +1076,47 @@ export const stakingPositions = mysqlTable("staking_positions", {
 });
 export type StakingPosition = typeof stakingPositions.$inferSelect;
 export type InsertStakingPosition = typeof stakingPositions.$inferInsert;
+
+// ── In-App Notifications ──────────────────────────────────────────────────────
+export const notifications = mysqlTable("notifications", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  title: varchar("title", { length: 200 }).notNull(),
+  message: text("message").notNull(),
+  type: varchar("type", { length: 32 }).default("info").notNull(),
+  link: varchar("link", { length: 512 }),
+  readAt: timestamp("readAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type Notification = typeof notifications.$inferSelect;
+export type InsertNotification = typeof notifications.$inferInsert;
+
+// ── Casino Game Sessions ──────────────────────────────────────────────────────
+export const casinoSessions = mysqlTable("casino_sessions", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  game: varchar("game", { length: 64 }).notNull(),
+  betAmount: varchar("betAmount", { length: 32 }).notNull(),
+  outcome: varchar("outcome", { length: 32 }).notNull(),
+  payout: varchar("payout", { length: 32 }).default("0").notNull(),
+  kickback: varchar("kickback", { length: 32 }).default("0").notNull(),
+  serverSeed: varchar("serverSeed", { length: 128 }).notNull(),
+  clientSeed: varchar("clientSeed", { length: 128 }).notNull(),
+  nonce: int("nonce").default(0).notNull(),
+  result: text("result"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type CasinoSession = typeof casinoSessions.$inferSelect;
+export type InsertCasinoSession = typeof casinoSessions.$inferInsert;
+
+// ── Casino Jackpot Pool ───────────────────────────────────────────────────────
+export const casinoJackpot = mysqlTable("casino_jackpot", {
+  id: int("id").autoincrement().primaryKey(),
+  poolName: varchar("poolName", { length: 64 }).notNull(),
+  currentAmount: varchar("currentAmount", { length: 64 }).default("0").notNull(),
+  lastWonAt: timestamp("lastWonAt"),
+  lastWinnerId: int("lastWinnerId"),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+});
+export type CasinoJackpot = typeof casinoJackpot.$inferSelect;
+export type InsertCasinoJackpot = typeof casinoJackpot.$inferInsert;
