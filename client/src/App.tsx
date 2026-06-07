@@ -112,6 +112,7 @@ import AILegionApex from "./pages/AILegionApex";
 import SovereignBank from "./pages/SovereignBank";
 import SovereignCodex from "./pages/SovereignCodex";
 import SoulAltar from "./pages/SoulAltar";
+import ChaisSabirEquation from "./pages/ChaisSabirEquation";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -224,6 +225,7 @@ function Router() {
       <Route path={"/sovereign-bank"} component={SovereignBank} />
       <Route path={"/sovereign-codex"} component={SovereignCodex} />
       <Route path={"/soul-altar"} component={SoulAltar} />
+      <Route path={"/chais-sabir-equation"} component={ChaisSabirEquation} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
