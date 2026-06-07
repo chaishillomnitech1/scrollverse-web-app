@@ -961,3 +961,16 @@
 - [x] TypeScript: 0 real errors (npx tsc --noEmit)
 - [x] Tests: 16/16 passing
 - [x] Checkpoint v59.0.0 saved
+
+## Phase 60 — Compound Rewards Engine + CHX Admin Dashboard + Guardian Push Notifications + scrollverse-trinity Skill
+
+- [x] Build compound rewards heartbeat job (server/jobs/compoundRewards.ts) — daily APY compounding for all active stakingPositions
+- [x] Register daily cron job in server index (node-cron, 00:05 UTC) — compounds rewards + fires in-app notifications to each staker
+- [x] Build /admin/chx-reservations page — full admin dashboard with stats, progress bar, status filter, revenue breakdown, CSV export
+- [x] Register /admin/chx-reservations route in App.tsx
+- [x] Wire Guardian push notifications on new stake (staking router) — in-app notification + notifyOwner()
+- [x] Wire CHX reservation confirmation notification (Stripe webhook) — in-app notification + notifyOwner() on checkout.session.completed
+- [x] Wire casino jackpot owner notification (casino router) — notifyOwner() on jackpot hit
+- [x] Create scrollverse-trinity skill — complete reusable knowledge base with philosophy, schema, routes, patterns, design tokens
+- [x] All 16 tests passing
+- [x] 0 real TypeScript errors

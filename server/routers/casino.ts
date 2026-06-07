@@ -9,6 +9,7 @@ import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { getDb } from "../db";
 import { casinoSessions, casinoJackpot, notifications, users } from "../../drizzle/schema";
 import { eq, desc } from "drizzle-orm";
+import { notifyOwner } from "../_core/notification";
 
 // ── Provably Fair PRNG ────────────────────────────────────────────────────────
 function generateServerSeed(): string {
@@ -233,6 +234,13 @@ export const casinoRouter = router({
           link: "/casino",
           createdAt: new Date(),
         });
+        // Notify owner of jackpot / big win
+        if (outcome === "jackpot") {
+          await notifyOwner({
+            title: "🎰 JACKPOT HIT — ScrollVerse Casino",
+            content: `User ${ctx.user.id} hit a JACKPOT on the slots! Payout: ${payout} $LONDC. Reels: ${reels.join(" ")}. Bet: ${bet} $LONDC.`,
+          });
+        }
       }
 
       return {

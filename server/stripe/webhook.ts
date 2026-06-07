@@ -1,8 +1,9 @@
 import type { Express, Request, Response } from "express";
 import Stripe from "stripe";
 import { getDb } from "../db";
-import { stripeOrders, revenueEvents, users, creatorApplications, referralCodes, legionRewards } from "../../drizzle/schema";
+import { stripeOrders, revenueEvents, users, creatorApplications, referralCodes, legionRewards, chxReservations, notifications } from "../../drizzle/schema";
 import { eq, sql } from "drizzle-orm";
+import { notifyOwner } from "../_core/notification";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2026-03-25.dahlia",
@@ -157,6 +158,41 @@ async function handleEvent(event: Stripe.Event) {
         }
         // ─────────────────────────────────────────────────────────────────
       }
+
+      // ─── CHX RESERVATION CONFIRMATION ────────────────────────────────
+      // If this is a CHX pre-sale reservation, confirm it and notify the buyer
+      const chxType = session.metadata?.type;
+      const chxUserId = session.metadata?.userId ? parseInt(session.metadata.userId) : null;
+      const chxAmount = session.metadata?.chxAmount ? parseInt(session.metadata.chxAmount) : null;
+      if (chxType === "chx_reservation" && chxUserId && chxAmount) {
+        try {
+          // Confirm the reservation
+          await db
+            .update(chxReservations)
+            .set({ status: "confirmed", stripePaymentIntentId: typeof session.payment_intent === "string" ? session.payment_intent : null })
+            .where(eq(chxReservations.stripeSessionId, session.id));
+
+          // Fire in-app notification to the buyer
+          await db.insert(notifications).values({
+            userId: chxUserId,
+            title: "🟡 CHX Reservation Confirmed!",
+            message: `Your reservation of ${chxAmount.toLocaleString()} CHX tokens has been confirmed. You'll receive your tokens when $CHX launches on Polygon Mainnet. KUN FAYAK\u016aN \u00d7 \u221e`,
+            type: "chx",
+            link: "/chxtoken",
+          });
+
+          // Notify owner
+          await notifyOwner({
+            title: "🟡 CHX Reservation Confirmed",
+            content: `User ${chxUserId} confirmed reservation of ${chxAmount.toLocaleString()} CHX. Payment: $${((session.amount_total ?? 0) / 100).toFixed(2)} USD.`,
+          });
+
+          console.log(`[Webhook] \u2705 CHX reservation confirmed: ${chxAmount} CHX for user ${chxUserId}`);
+        } catch (chxErr) {
+          console.error("[Webhook] CHX reservation confirmation error:", chxErr);
+        }
+      }
+      // ─────────────────────────────────────────────────────────────────
       break;
     }
 

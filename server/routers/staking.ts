@@ -1,8 +1,9 @@
 import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { getDb } from "../db";
-import { stakingRecords, stakingPositions } from "../../drizzle/schema";
+import { stakingRecords, stakingPositions, notifications } from "../../drizzle/schema";
 import { desc, eq, count, sum, and } from "drizzle-orm";
+import { notifyOwner } from "../_core/notification";
 
 const SOVEREIGN_POOLS = {
   genesis: { name: "Genesis Pool", apy: 432, hz: "432 Hz", minChx: 100, color: "#00D4FF", icon: "🌱" },
@@ -170,6 +171,22 @@ export const stakingRouter = router({
         })
         .$returningId();
       const annualReward = (input.chxAmount * cfg.apy) / 100;
+
+      // Fire in-app notification to the staker
+      await db.insert(notifications).values({
+        userId: ctx.user.id,
+        title: `${cfg.icon} Staked in ${cfg.name}!`,
+        message: `You've staked ${input.chxAmount.toLocaleString()} CHX in the ${cfg.name} at ${cfg.apy}% APY. Estimated annual reward: ${Math.floor(annualReward).toLocaleString()} CHX. Rewards compound daily. KUN FAYAKŪN × ∞`,
+        type: "staking",
+        link: "/staking",
+      });
+
+      // Notify owner of new staker
+      await notifyOwner({
+        title: `⚡ New Staker — ${cfg.name}`,
+        content: `User ${ctx.user.id} staked ${input.chxAmount.toLocaleString()} CHX in ${cfg.name} (${cfg.apy}% APY). Est. annual reward: ${Math.floor(annualReward).toLocaleString()} CHX.`,
+      });
+
       return {
         success: true,
         positionId: row.id,

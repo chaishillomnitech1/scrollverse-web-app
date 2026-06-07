@@ -8,6 +8,10 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerStripeWebhook } from "../stripe/webhook";
+import { heartbeatRouter } from "../jobs/heartbeat";
+import cron from "node-cron";
+import { compoundStakingRewards } from "../jobs/compoundRewards";
+import { notifyOwner } from "./notification";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -39,6 +43,9 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
+
+  // Heartbeat endpoints for scheduled jobs (compound rewards, etc.)
+  app.use("/api/heartbeat", heartbeatRouter);
   // ── PUBLIC REST API — accessible from any platform, wallet, or integration ──
   app.get("/api/public/ecosystem", async (_req, res) => {
     res.json({
@@ -195,3 +202,22 @@ async function startServer() {
 }
 
 startServer().catch(console.error);
+
+// ── DAILY COMPOUND REWARDS CRON ─────────────────────────────────────────────
+// Runs every day at 00:05 UTC — compounds staking rewards for all active positions
+cron.schedule("5 0 * * *", async () => {
+  console.log("[Cron] Running daily staking compound rewards...");
+  try {
+    const result = await compoundStakingRewards();
+    console.log(`[Cron] Compound complete: ${result.processed} positions, +${result.totalNewRewards.toFixed(4)} CHX distributed`);
+    if (result.errors.length > 0) {
+      console.error("[Cron] Compound errors:", result.errors);
+    }
+    await notifyOwner({
+      title: "⚡ Daily Staking Compound Complete",
+      content: `Processed ${result.processed} positions. Total new rewards: ${result.totalNewRewards.toFixed(4)} CHX.${result.errors.length > 0 ? ` Errors: ${result.errors.join(", ")}` : ""}`,
+    });
+  } catch (err) {
+    console.error("[Cron] Compound rewards job failed:", err);
+  }
+}, { timezone: "UTC" });

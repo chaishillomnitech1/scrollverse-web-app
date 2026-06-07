@@ -79,6 +79,7 @@ import Intelligence from "./pages/Intelligence";
 import Partners from "./pages/Partners";
 import LinkInBio from "./pages/LinkInBio";
 import AdminCreators from "./pages/AdminCreators";
+import AdminCHXReservations from "./pages/AdminCHXReservations";
 import UAP from "./pages/UAP";
 import MrWalkshit from "./pages/MrWalkshit";
 import CIEDS from "./pages/CIEDS";
@@ -183,6 +184,7 @@ function Router() {
       <Route path={"/partners"} component={Partners} />
       <Route path={"/link"} component={LinkInBio} />
       <Route path={"/admin/creators"} component={AdminCreators} />
+      <Route path={"/admin/chx-reservations"} component={AdminCHXReservations} />
       <Route path={"/uap"} component={UAP} />
       <Route path={"/mr-walkshit"} component={MrWalkshit} />
       <Route path={"/cieds"} component={CIEDS} />
