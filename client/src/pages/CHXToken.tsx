@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 const TOKENOMICS = [
   { label: "Total Supply", value: "144,000,000", color: "#FFB800", icon: "🏛️" },
@@ -99,9 +102,45 @@ const DISTRIBUTION = [
   { label: "Ecosystem Partners", pct: 5, color: "#6400FF" },
 ];
 
+// Price: $14.40 per 100 CHX = $0.144/CHX
+const CHX_PRICE_PER_100 = 14.40;
+
 export default function CHXToken() {
   const [activeTab, setActiveTab] = useState<"overview" | "utility" | "tiers" | "tokenomics" | "roadmap">("overview");
   const [stakeAmount, setStakeAmount] = useState("");
+  const [showReserveModal, setShowReserveModal] = useState(false);
+  const [reserveAmount, setReserveAmount] = useState("1000");
+  const { isAuthenticated } = useAuth();
+
+  const reserveCHX = trpc.chx.reserveCHX.useMutation({
+    onSuccess: (data) => {
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        toast.success("CHX reservation confirmed!");
+        setShowReserveModal(false);
+      }
+    },
+    onError: (err) => {
+      toast.error(err.message || "Reservation failed. Please try again.");
+    },
+  });
+
+  const handleReserve = () => {
+    if (!isAuthenticated) {
+      window.location.href = getLoginUrl();
+      return;
+    }
+    const amt = parseInt(reserveAmount);
+    if (isNaN(amt) || amt < 100) {
+      toast.error("Minimum reservation is 100 CHX.");
+      return;
+    }
+    reserveCHX.mutate({ chxAmount: amt, origin: window.location.origin });
+  };
+
+  const chxAmt = parseInt(reserveAmount) || 0;
+  const usdTotal = ((chxAmt / 100) * CHX_PRICE_PER_100).toFixed(2);
 
   const tabs = [
     { id: "overview", label: "🏛️ Overview" },
@@ -113,6 +152,107 @@ export default function CHXToken() {
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
+      {/* Reserve CHX Modal */}
+      {showReserveModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) setShowReserveModal(false); }}
+        >
+          <div
+            className="w-full max-w-md rounded-2xl p-8"
+            style={{ background: "#0A1628", border: "1px solid rgba(255,184,0,0.3)", boxShadow: "0 0 60px rgba(255,184,0,0.15)" }}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-black text-white">Reserve CHX Tokens</h2>
+              <button
+                onClick={() => setShowReserveModal(false)}
+                className="text-2xl leading-none"
+                style={{ color: "#8899AA" }}
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="rounded-xl p-4 mb-6" style={{ background: "rgba(255,184,0,0.06)", border: "1px solid rgba(255,184,0,0.2)" }}>
+              <div className="text-xs font-mono mb-1" style={{ color: "#8899AA" }}>Pre-Sale Price</div>
+              <div className="text-2xl font-black" style={{ color: "#FFB800" }}>$0.1440 / CHX</div>
+              <div className="text-xs mt-1" style={{ color: "#8899AA" }}>$14.40 per 100 CHX · Minimum 100 CHX</div>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-2" style={{ color: "#8899AA" }}>
+                CHX Amount
+              </label>
+              <input
+                type="number"
+                value={reserveAmount}
+                onChange={(e) => setReserveAmount(e.target.value)}
+                min={100}
+                step={100}
+                className="w-full px-4 py-3 rounded-xl text-white text-lg font-bold outline-none"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,184,0,0.3)",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                }}
+              />
+            </div>
+
+            {/* Quick amounts */}
+            <div className="flex gap-2 mb-6">
+              {[100, 500, 1000, 5000].map((amt) => (
+                <button
+                  key={amt}
+                  onClick={() => setReserveAmount(String(amt))}
+                  className="flex-1 py-2 rounded-lg text-xs font-bold transition-all"
+                  style={{
+                    background: reserveAmount === String(amt) ? "rgba(255,184,0,0.2)" : "rgba(255,255,255,0.04)",
+                    border: `1px solid ${reserveAmount === String(amt) ? "rgba(255,184,0,0.5)" : "rgba(255,255,255,0.1)"}`,
+                    color: reserveAmount === String(amt) ? "#FFB800" : "#8899AA",
+                  }}
+                >
+                  {amt.toLocaleString()}
+                </button>
+              ))}
+            </div>
+
+            {/* Price breakdown */}
+            <div className="rounded-xl p-4 mb-6" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.15)" }}>
+              <div className="flex justify-between text-sm mb-2">
+                <span style={{ color: "#8899AA" }}>CHX Amount</span>
+                <span className="font-bold text-white">{chxAmt.toLocaleString()} CHX</span>
+              </div>
+              <div className="flex justify-between text-sm mb-2">
+                <span style={{ color: "#8899AA" }}>Price per CHX</span>
+                <span style={{ color: "#FFB800" }}>$0.1440</span>
+              </div>
+              <div className="border-t pt-2 mt-2 flex justify-between" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+                <span className="font-bold text-white">Total (USD)</span>
+                <span className="text-xl font-black" style={{ color: "#00FF88" }}>${usdTotal}</span>
+              </div>
+            </div>
+
+            <Button
+              onClick={handleReserve}
+              disabled={reserveCHX.isPending || chxAmt < 100}
+              className="w-full py-4 text-base font-black"
+              style={{
+                background: "linear-gradient(135deg, #FFB800, #FF8C00)",
+                color: "#050B1A",
+                opacity: reserveCHX.isPending || chxAmt < 100 ? 0.6 : 1,
+              }}
+            >
+              {reserveCHX.isPending ? "Processing..." : `Reserve ${chxAmt.toLocaleString()} CHX → $${usdTotal}`}
+            </Button>
+
+            <p className="text-xs text-center mt-3" style={{ color: "#8899AA" }}>
+              Secured via Stripe · SCROLL VERSE LLC · EIN 42-2509570
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div
         className="relative overflow-hidden"
@@ -145,7 +285,7 @@ export default function CHXToken() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Button
-              onClick={() => toast.info("CHX token launch coming soon. Join the Guardian waitlist to be first.")}
+              onClick={() => setShowReserveModal(true)}
               style={{
                 background: "linear-gradient(135deg, #FFB800, #FF8C00)",
                 color: "#050B1A",
@@ -154,7 +294,7 @@ export default function CHXToken() {
                 padding: "0.75rem 2rem",
               }}
             >
-              Buy CHX →
+              Reserve CHX →
             </Button>
             <Link href="/exchange/crypto">
               <Button
@@ -230,7 +370,7 @@ export default function CHXToken() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div>
                   <div className="text-sm font-mono mb-1" style={{ color: "#8899AA" }}>
-                    CHX / USD — Polygon Mainnet
+                    CHX / USD — Pre-Sale Price
                   </div>
                   <div className="text-5xl font-black text-white mb-2">$0.1440</div>
                   <div className="flex items-center gap-2">
@@ -256,6 +396,32 @@ export default function CHXToken() {
               </div>
             </div>
 
+            {/* Pre-Sale CTA */}
+            <div
+              className="rounded-2xl p-6"
+              style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.1), rgba(255,140,0,0.06))", border: "1px solid rgba(255,184,0,0.3)" }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#FFB800" }}>LIVE PRE-SALE</div>
+                  <h3 className="text-xl font-black text-white mb-1">Reserve CHX at $0.1440</h3>
+                  <p className="text-sm" style={{ color: "#8899AA" }}>Minimum 100 CHX · $14.40 per 100 CHX · Secured via Stripe</p>
+                </div>
+                <Button
+                  onClick={() => setShowReserveModal(true)}
+                  className="flex-shrink-0"
+                  style={{
+                    background: "linear-gradient(135deg, #FFB800, #FF8C00)",
+                    color: "#050B1A",
+                    fontWeight: 700,
+                    padding: "0.75rem 2rem",
+                  }}
+                >
+                  Reserve Now →
+                </Button>
+              </div>
+            </div>
+
             {/* About */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
@@ -267,24 +433,24 @@ export default function CHXToken() {
                   CHX is the sovereign utility token of the ScrollVerse ecosystem, issued by SCROLL VERSE LLC under EIN 42-2509570. It powers access to Guardian tiers, AI oracle feeds, music distribution rights, NFT minting, and governance voting across the entire empire.
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: "#8899AA" }}>
-                  Built on Polygon for near-zero gas fees and instant settlement. The total supply of 144,000,000 CHX mirrors the sacred number of Guardians — sealed by divine decree on May 12, 2026.
+                  With a fixed supply of 144,000,000 tokens and a deflationary burn mechanism, CHX is designed for long-term value appreciation as the ScrollVerse ecosystem grows.
                 </p>
               </div>
               <div
                 className="rounded-xl p-6"
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
               >
-                <h3 className="text-lg font-bold text-white mb-3">Legal Foundation</h3>
+                <h3 className="text-lg font-bold text-white mb-3">Token Fundamentals</h3>
                 <div className="space-y-3">
                   {[
-                    { label: "Issuing Entity", value: "SCROLL VERSE LLC" },
+                    { label: "Token Name", value: "CHX" },
+                    { label: "Network", value: "Polygon (ERC-20)" },
+                    { label: "Total Supply", value: "144,000,000 CHX" },
+                    { label: "Pre-Sale Price", value: "$0.1440 / CHX" },
+                    { label: "Issuer", value: "SCROLL VERSE LLC" },
                     { label: "EIN", value: "42-2509570" },
-                    { label: "State", value: "New Jersey" },
-                    { label: "Formation", value: "May 12, 2026" },
-                    { label: "Sole Member", value: "Chais Kenyatta Hill" },
-                    { label: "Network", value: "Polygon (MATIC)" },
                   ].map((item) => (
-                    <div key={item.label} className="flex justify-between text-sm border-b pb-2" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                    <div key={item.label} className="flex justify-between text-sm">
                       <span style={{ color: "#8899AA" }}>{item.label}</span>
                       <span className="font-medium text-white">{item.value}</span>
                     </div>
@@ -292,133 +458,94 @@ export default function CHXToken() {
                 </div>
               </div>
             </div>
-
-            {/* Quick Stake */}
-            <div
-              className="rounded-xl p-6"
-              style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.2)" }}
-            >
-              <h3 className="text-lg font-bold text-white mb-2">Quick Stake CHX</h3>
-              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>
-                Stake CHX to earn 15% platform revenue share. Minimum 1,000 CHX.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <input
-                  type="number"
-                  value={stakeAmount}
-                  onChange={(e) => setStakeAmount(e.target.value)}
-                  placeholder="Enter CHX amount"
-                  className="flex-1 min-w-48 px-4 py-2 rounded-lg text-sm outline-none"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(0,255,136,0.2)",
-                    color: "white",
-                  }}
-                />
-                <Button
-                  onClick={() => toast.info("CHX staking launches with token. Join Guardian waitlist.")}
-                  style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
-                >
-                  Stake Now →
-                </Button>
-              </div>
-            </div>
           </div>
         )}
 
         {/* Utility Tab */}
         {activeTab === "utility" && (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {UTILITY.map((u) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {UTILITY.map((u) => (
+              <div
+                key={u.title}
+                className="rounded-xl p-6"
+                style={{ background: `${u.color}06`, border: `1px solid ${u.color}20` }}
+              >
+                <div className="text-3xl mb-3">{u.icon}</div>
+                <h3 className="font-bold text-white mb-2">{u.title}</h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "#8899AA" }}>{u.description}</p>
                 <div
-                  key={u.title}
-                  className="rounded-xl p-5"
-                  style={{ background: `${u.color}06`, border: `1px solid ${u.color}20` }}
+                  className="text-xs font-mono px-3 py-1.5 rounded-lg inline-block"
+                  style={{ background: `${u.color}15`, color: u.color, border: `1px solid ${u.color}30` }}
                 >
-                  <div className="text-3xl mb-3">{u.icon}</div>
-                  <h3 className="font-bold text-white mb-2">{u.title}</h3>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: "#8899AA" }}>
-                    {u.description}
-                  </p>
-                  <div
-                    className="inline-block text-xs font-mono px-2 py-1 rounded"
-                    style={{ background: `${u.color}15`, color: u.color }}
-                  >
-                    Requires: {u.requirement}
-                  </div>
+                  Requires: {u.requirement}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         )}
 
         {/* Tiers Tab */}
         {activeTab === "tiers" && (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {TIERS.map((tier) => (
-                <div
-                  key={tier.name}
-                  className="rounded-xl p-5 relative"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {TIERS.map((tier) => (
+              <div
+                key={tier.name}
+                className="rounded-2xl p-6 relative"
+                style={{
+                  background: tier.featured ? `${tier.color}08` : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${tier.featured ? tier.color + "40" : "rgba(255,255,255,0.08)"}`,
+                  boxShadow: tier.featured ? `0 0 30px ${tier.color}15` : "none",
+                }}
+              >
+                {tier.featured && (
+                  <div
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full"
+                    style={{ background: tier.color, color: "#050B1A" }}
+                  >
+                    MOST POPULAR
+                  </div>
+                )}
+                <div className="font-black text-2xl mb-1" style={{ color: tier.color }}>{tier.name}</div>
+                <div className="text-3xl font-black text-white mb-1">{tier.chx.toLocaleString()} CHX</div>
+                <div className="text-sm mb-4" style={{ color: "#8899AA" }}>{tier.price}</div>
+                <ul className="space-y-2 mb-6">
+                  {tier.perks.map((perk) => (
+                    <li key={perk} className="text-sm flex items-start gap-2" style={{ color: "#8899AA" }}>
+                      <span style={{ color: tier.color }}>✓</span>
+                      {perk}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  onClick={() => {
+                    setReserveAmount(String(tier.chx));
+                    setShowReserveModal(true);
+                  }}
+                  className="w-full"
                   style={{
-                    background: tier.featured ? `${tier.color}10` : "rgba(255,255,255,0.03)",
-                    border: `1px solid ${tier.featured ? tier.color + "60" : "rgba(255,255,255,0.08)"}`,
-                    boxShadow: tier.featured ? `0 0 30px ${tier.color}20` : "none",
+                    background: tier.featured ? `linear-gradient(135deg, ${tier.color}, #FF8C00)` : `${tier.color}20`,
+                    color: tier.featured ? "#050B1A" : tier.color,
+                    border: tier.featured ? "none" : `1px solid ${tier.color}40`,
+                    fontWeight: 700,
                   }}
                 >
-                  {tier.featured && (
-                    <div
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full"
-                      style={{ background: tier.color, color: "#050B1A" }}
-                    >
-                      MOST POPULAR
-                    </div>
-                  )}
-                  <div className="text-center mb-4">
-                    <div className="font-black text-xl text-white mb-1">{tier.name}</div>
-                    <div className="text-3xl font-black" style={{ color: tier.color }}>
-                      {tier.chx.toLocaleString()}
-                    </div>
-                    <div className="text-xs font-mono" style={{ color: "#8899AA" }}>
-                      CHX · {tier.price}
-                    </div>
-                  </div>
-                  <ul className="space-y-2 mb-4">
-                    {tier.perks.map((perk) => (
-                      <li key={perk} className="text-xs flex items-start gap-2" style={{ color: "#8899AA" }}>
-                        <span style={{ color: tier.color }}>›</span>
-                        {perk}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className="w-full"
-                    size="sm"
-                    onClick={() => toast.info(`${tier.name} tier unlocks at CHX launch. Join the waitlist.`)}
-                    style={{
-                      background: `${tier.color}15`,
-                      color: tier.color,
-                      border: `1px solid ${tier.color}30`,
-                    }}
-                  >
-                    Get {tier.name} →
-                  </Button>
-                </div>
-              ))}
-            </div>
+                  Reserve {tier.chx.toLocaleString()} CHX
+                </Button>
+              </div>
+            ))}
           </div>
         )}
 
         {/* Tokenomics Tab */}
         {activeTab === "tokenomics" && (
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Distribution */}
               <div
-                className="rounded-xl p-6"
+                className="rounded-2xl p-6"
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
               >
-                <h3 className="font-bold text-white text-lg mb-4">Token Distribution</h3>
+                <h3 className="font-bold text-white text-lg mb-6">Token Distribution</h3>
                 <div className="space-y-4">
                   {DISTRIBUTION.map((d) => (
                     <div key={d.label}>
@@ -428,7 +555,7 @@ export default function CHXToken() {
                       </div>
                       <div className="h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
                         <div
-                          className="h-2 rounded-full transition-all duration-500"
+                          className="h-full rounded-full"
                           style={{ width: `${d.pct}%`, background: d.color }}
                         />
                       </div>
@@ -436,36 +563,30 @@ export default function CHXToken() {
                   ))}
                 </div>
               </div>
+
+              {/* Supply schedule */}
               <div
-                className="rounded-xl p-6"
+                className="rounded-2xl p-6"
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
               >
-                <h3 className="font-bold text-white text-lg mb-4">Token Schedule</h3>
+                <h3 className="font-bold text-white text-lg mb-6">Supply Schedule</h3>
                 <div className="space-y-3">
                   {[
-                    { phase: "Genesis", date: "Q3 2026", amount: "14,400,000 CHX", status: "upcoming", color: "#FFB800" },
-                    { phase: "Guardian Sale", date: "Q3 2026", amount: "21,600,000 CHX", status: "upcoming", color: "#00D4FF" },
-                    { phase: "DEX Listing", date: "Q4 2026", amount: "7,200,000 CHX", status: "upcoming", color: "#00FF88" },
-                    { phase: "Staking Rewards", date: "Ongoing", amount: "72,000,000 CHX", status: "upcoming", color: "#6400FF" },
-                    { phase: "Treasury", date: "Locked 2Y", amount: "28,800,000 CHX", status: "locked", color: "#8899AA" },
+                    { phase: "Pre-Sale", supply: "7,200,000", pct: "5%", color: "#FFB800" },
+                    { phase: "Public Sale", supply: "14,400,000", pct: "10%", color: "#00D4FF" },
+                    { phase: "Guardian Rewards", supply: "36,000,000", pct: "25%", color: "#00FF88" },
+                    { phase: "Ecosystem Fund", supply: "21,600,000", pct: "15%", color: "#6400FF" },
+                    { phase: "Treasury", supply: "50,400,000", pct: "35%", color: "#FF6B6B" },
+                    { phase: "Team (4yr vest)", supply: "14,400,000", pct: "10%", color: "#FC3C44" },
                   ].map((s) => (
-                    <div
-                      key={s.phase}
-                      className="flex items-center justify-between p-3 rounded-lg"
-                      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
-                    >
-                      <div>
-                        <div className="font-medium text-white text-sm">{s.phase}</div>
-                        <div className="text-xs" style={{ color: "#8899AA" }}>{s.date}</div>
+                    <div key={s.phase} className="flex justify-between items-center text-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full" style={{ background: s.color }} />
+                        <span style={{ color: "#8899AA" }}>{s.phase}</span>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm font-bold" style={{ color: s.color }}>{s.amount}</div>
-                        <div
-                          className="text-xs font-mono"
-                          style={{ color: s.status === "locked" ? "#8899AA" : "#00FF88" }}
-                        >
-                          {s.status === "locked" ? "LOCKED" : "SCHEDULED"}
-                        </div>
+                        <span className="font-bold text-white">{s.supply}</span>
+                        <span className="ml-2 text-xs" style={{ color: s.color }}>{s.pct}</span>
                       </div>
                     </div>
                   ))}
@@ -473,15 +594,46 @@ export default function CHXToken() {
               </div>
             </div>
 
-            {/* Vesting */}
+            {/* Staking input */}
             <div
-              className="rounded-xl p-6"
-              style={{ background: "rgba(100,0,255,0.06)", border: "1px solid rgba(100,0,255,0.2)" }}
+              className="rounded-2xl p-6"
+              style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.2)" }}
             >
-              <h3 className="font-bold text-white text-lg mb-2">Founder Vesting</h3>
-              <p className="text-sm" style={{ color: "#8899AA" }}>
-                Founder allocation (10% = 14,400,000 CHX) is subject to a 2-year cliff + 2-year linear vesting schedule. This ensures long-term alignment between the founder and the Guardian community. All vesting is enforced on-chain via Polygon smart contract.
-              </p>
+              <h3 className="font-bold text-white text-lg mb-4">Staking Calculator</h3>
+              <div className="flex gap-4 items-end">
+                <div className="flex-1">
+                  <label className="block text-sm mb-2" style={{ color: "#8899AA" }}>CHX to stake</label>
+                  <input
+                    type="number"
+                    value={stakeAmount}
+                    onChange={(e) => setStakeAmount(e.target.value)}
+                    placeholder="Enter CHX amount"
+                    className="w-full px-4 py-3 rounded-xl text-white outline-none"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.3)" }}
+                  />
+                </div>
+                <Link href="/staking">
+                  <Button style={{ background: "linear-gradient(135deg, #00D4FF, #0099CC)", color: "#050B1A", fontWeight: 700 }}>
+                    Stake Now
+                  </Button>
+                </Link>
+              </div>
+              {stakeAmount && !isNaN(Number(stakeAmount)) && (
+                <div className="mt-4 grid grid-cols-3 gap-4">
+                  {[
+                    { pool: "Genesis (432%)", apy: 4.32, color: "#00D4FF" },
+                    { pool: "Celestial (528%)", apy: 5.28, color: "#FFB800" },
+                    { pool: "Infinity (999%)", apy: 9.99, color: "#00FF88" },
+                  ].map((p) => (
+                    <div key={p.pool} className="text-center p-3 rounded-xl" style={{ background: `${p.color}08`, border: `1px solid ${p.color}20` }}>
+                      <div className="text-xs mb-1" style={{ color: "#8899AA" }}>{p.pool}</div>
+                      <div className="font-black" style={{ color: p.color }}>
+                        +{(Number(stakeAmount) * p.apy).toLocaleString(undefined, { maximumFractionDigits: 0 })} CHX/yr
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -489,17 +641,6 @@ export default function CHXToken() {
         {/* Roadmap Tab */}
         {activeTab === "roadmap" && (
           <div className="space-y-8">
-            {/* Header */}
-            <div className="text-center max-w-2xl mx-auto">
-              <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>
-                CHXToken MARKET DOMINANCE PROTOCOL
-              </div>
-              <h2 className="text-3xl font-black text-white mb-3">8-Phase Sovereign Roadmap</h2>
-              <p className="text-sm" style={{ color: "#8899AA" }}>
-                The blueprint to transform CHXToken into a top-3 global cryptocurrency. Each phase is already executing — the empire is sealed.
-              </p>
-            </div>
-
             {/* Multi-chain architecture */}
             <div className="rounded-2xl p-6" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.2)" }}>
               <h3 className="font-bold text-white text-lg mb-4">⛓️ Multi-Chain Deployment</h3>
@@ -647,15 +788,22 @@ export default function CHXToken() {
             Be among the first to hold CHX when it launches on Polygon Mainnet. The empire is sealed. The token is sovereign.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
+            <Button
+              onClick={() => setShowReserveModal(true)}
+              style={{
+                background: "linear-gradient(135deg, #FFB800, #FF8C00)",
+                color: "#050B1A",
+                fontWeight: 700,
+              }}
+            >
+              Reserve CHX Now →
+            </Button>
             <Link href="/guardians">
               <Button
-                style={{
-                  background: "linear-gradient(135deg, #FFB800, #FF8C00)",
-                  color: "#050B1A",
-                  fontWeight: 700,
-                }}
+                variant="outline"
+                style={{ borderColor: "rgba(0,255,136,0.4)", color: "#00FF88", background: "transparent" }}
               >
-                Join Guardian Waitlist →
+                Join Guardian Waitlist
               </Button>
             </Link>
             <Link href="/exchange/crypto">

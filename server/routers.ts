@@ -42,6 +42,7 @@ import { synterRouter } from "./routers/synter";
 import { massiveRouter } from "./routers/massive";
 import { casinoRouter } from "./routers/casino";
 import { notificationsRouter } from "./routers/notifications";
+import { chxRouter } from "./routers/chx";
 
 export const appRouter = router({
   system: systemRouter,
@@ -96,6 +97,7 @@ export const appRouter = router({
   massive: massiveRouter,
   casino: casinoRouter,
   notifications: notificationsRouter,
+  chx: chxRouter,
 });
 
 export type AppRouter = typeof appRouter;

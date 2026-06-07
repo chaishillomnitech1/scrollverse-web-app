@@ -1,8 +1,14 @@
 import { z } from "zod";
-import { publicProcedure, router } from "../_core/trpc";
+import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { getDb } from "../db";
-import { stakingRecords } from "../../drizzle/schema";
-import { desc, eq, count, sum } from "drizzle-orm";
+import { stakingRecords, stakingPositions } from "../../drizzle/schema";
+import { desc, eq, count, sum, and } from "drizzle-orm";
+
+const SOVEREIGN_POOLS = {
+  genesis: { name: "Genesis Pool", apy: 432, hz: "432 Hz", minChx: 100, color: "#00D4FF", icon: "🌱" },
+  celestial: { name: "Celestial Pool", apy: 528, hz: "528 Hz", minChx: 500, color: "#FFB800", icon: "✨" },
+  infinity: { name: "Infinity Pool", apy: 999, hz: "∞", minChx: 1000, color: "#00FF88", icon: "♾️" },
+};
 
 const STAKING_TIERS = {
   guardian: { lockDays: 30, apyBasisPoints: 500, minAmount: 144, label: "Guardian", color: "#00D4FF" },
@@ -105,5 +111,89 @@ export const stakingRouter = router({
         .limit(input.limit);
 
       return { leaderboard };
+    }),
+
+  // ── Sovereign Pool procedures ──────────────────────────────────────────────
+
+  getPoolStats: publicProcedure.query(async () => {
+    const db = await getDb();
+    const pools = await Promise.all(
+      (["genesis", "celestial", "infinity"] as const).map(async (pool) => {
+        const cfg = SOVEREIGN_POOLS[pool];
+        const rows = await db
+          .select({ total: sum(stakingPositions.chxStaked), cnt: count() })
+          .from(stakingPositions)
+          .where(and(eq(stakingPositions.pool, pool), eq(stakingPositions.status, "active")));
+        return {
+          id: pool,
+          ...cfg,
+          tvl: Number(rows[0]?.total ?? 0),
+          stakers: rows[0]?.cnt ?? 0,
+        };
+      })
+    );
+    return { pools };
+  }),
+
+  getMyPositions: protectedProcedure.query(async ({ ctx }) => {
+    const db = await getDb();
+    const positions = await db
+      .select()
+      .from(stakingPositions)
+      .where(and(eq(stakingPositions.userId, ctx.user.id), eq(stakingPositions.status, "active")))
+      .orderBy(desc(stakingPositions.stakedAt));
+    return { positions };
+  }),
+
+  stakeInPool: protectedProcedure
+    .input(z.object({
+      pool: z.enum(["genesis", "celestial", "infinity"]),
+      chxAmount: z.number().min(1),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      const db = await getDb();
+      const cfg = SOVEREIGN_POOLS[input.pool];
+      if (input.chxAmount < cfg.minChx) {
+        throw new Error(`Minimum stake for ${cfg.name} is ${cfg.minChx} CHX`);
+      }
+      const [row] = await db
+        .insert(stakingPositions)
+        .values({
+          userId: ctx.user.id,
+          pool: input.pool,
+          chxStaked: String(input.chxAmount),
+          apyRate: String(cfg.apy),
+          rewardsEarned: "0",
+          status: "active",
+          stakedAt: new Date(),
+          lastCompoundAt: new Date(),
+        })
+        .$returningId();
+      const annualReward = (input.chxAmount * cfg.apy) / 100;
+      return {
+        success: true,
+        positionId: row.id,
+        pool: input.pool,
+        chxStaked: input.chxAmount,
+        apy: cfg.apy,
+        estimatedAnnualReward: Math.floor(annualReward),
+        message: `${input.chxAmount} CHX staked in ${cfg.name} at ${cfg.apy}% APY. Est. annual reward: ${Math.floor(annualReward)} CHX`,
+      };
+    }),
+
+  withdrawFromPool: protectedProcedure
+    .input(z.object({ positionId: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      const db = await getDb();
+      const [pos] = await db
+        .select()
+        .from(stakingPositions)
+        .where(and(eq(stakingPositions.id, input.positionId), eq(stakingPositions.userId, ctx.user.id)));
+      if (!pos) throw new Error("Position not found");
+      await db
+        .update(stakingPositions)
+        .set({ status: "withdrawn", withdrawnAt: new Date() })
+        .where(eq(stakingPositions.id, input.positionId));
+      return { success: true, message: "Position withdrawn successfully" };
     }),
 });

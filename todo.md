@@ -866,33 +866,33 @@
 
 ## Phase 53 — TypeScript Fixes + CHX Pre-Sale + Staking Page
 
-- [ ] Add missing schema tables: uapEntities, uapCoins, creatorApplications, legionRewards
-- [ ] Run pnpm db:push to migrate new tables
-- [ ] Verify TypeScript errors resolved (0 errors target)
-- [ ] Add chxReservations table to drizzle schema
-- [ ] Add chx.reserveCHX tRPC procedure (Stripe checkout for CHX pre-sale)
-- [ ] Add chx.getReservations tRPC procedure (admin view)
-- [ ] Add Stripe product for CHX pre-sale reservation ($14.40 per 100 CHX)
-- [ ] Add "Reserve CHX" button + modal on CHXToken Overview tab
-- [ ] Build /staking page — 3 sovereign pools (Genesis 432%, Celestial 528%, Infinity 999%)
-- [ ] Staking page: deposit UI with CHX amount input + pool selector
-- [ ] Staking page: pool stats cards (TVL, APY, stakers, your stake)
-- [ ] Staking page: APY projection calculator (input amount → projected returns)
-- [ ] Staking page: staking_positions DB table + tRPC procedures
-- [ ] Register /staking route in App.tsx
-- [ ] Run tests and save checkpoint v53.0.0
+- [x] Add missing schema tables: uapEntities, uapCoins, creatorApplications, legionRewards
+- [x] Run pnpm db:push to migrate new tables
+- [x] Verify TypeScript errors resolved (0 errors target)
+- [x] Add chxReservations table to drizzle schema
+- [x] Add chx.reserveCHX tRPC procedure (Stripe checkout for CHX pre-sale)
+- [x] Add chx.getReservations tRPC procedure (admin view)
+- [x] Add Stripe product for CHX pre-sale reservation ($14.40 per 100 CHX)
+- [x] Add "Reserve CHX" button + modal on CHXToken Overview tab
+- [x] Build /staking page — 3 sovereign pools (Genesis 432%, Celestial 528%, Infinity 999%)
+- [x] Staking page: deposit UI with CHX amount input + pool selector
+- [x] Staking page: pool stats cards (TVL, APY, stakers, your stake)
+- [x] Staking page: APY projection calculator (input amount → projected returns)
+- [x] Staking page: staking_positions DB table + tRPC procedures
+- [x] Register /staking route in App.tsx
+- [x] Run tests and save checkpoint v53.0.0
 
 ## Phase 55 — Legacy Features Wave
 
-- [ ] Build /londyn-legacy page: voice-to-art animated legacy experiences, lullaby NFT collection, 528Hz healing
-- [ ] Build /codex-1587 page: physical drop limited edition, 1587 units, Stripe checkout
-- [ ] Build /academy upgrade: Pleiadian Academy public enrollment with curriculum details
-- [ ] Build /guardian-stories page: Guardian Legacy Stories animated series + public screening
-- [ ] Upgrade /exchange command center with TradeFrame-inspired features (live P&L, positions, alerts)
-- [ ] Create GitHub Actions keep-alive workflow for chaishillomnitech1 repos
-- [ ] Create scrollverse-legacy-features skill with all new directives
-- [ ] Register all new routes in App.tsx
-- [ ] Run tests and save checkpoint
+- [x] Build /londyn-legacy page: voice-to-art animated legacy experiences, lullaby NFT collection, 528Hz healing
+- [x] Build /codex-1587 page: physical drop limited edition, 1587 units, Stripe checkout
+- [x] Build /academy upgrade: Pleiadian Academy public enrollment with curriculum details
+- [x] Build /guardian-stories page: Guardian Legacy Stories animated series + public screening
+- [x] Upgrade /exchange command center with TradeFrame-inspired features (live P&L, positions, alerts)
+- [x] Create GitHub Actions keep-alive workflow for chaishillomnitech1 repos
+- [x] Create scrollverse-legacy-features skill with all new directives
+- [x] Register all new routes in App.tsx
+- [x] Run tests and save checkpoint
 
 ## Phase 55 — Legacy Features & New Pages (Complete)
 
@@ -910,16 +910,15 @@
 - [x] Tests: 12/12 passing
 
 ## Phase 56 — Academy Hub, Zakat, Exchange Upgrade, GitHub Keep-Alive
-- [ ] Build /academy page — Guardian Initiation Hub with T1/T2/T3 tiers, Initiation Matrix, progress tracking, Stripe enrollment
-- [ ] Upgrade /wealth page — Add Zakat 2.5% distribution calculator with BigInt precision, programmatic execution nodes
-- [ ] Add zakatTest.js logic as server-side tRPC procedure (calculateZakat, executeZakatDistribution)
-- [ ] Upgrade /exchange page — Add live crypto price feeds (CoinGecko), paper trading simulation, live P&L
-- [ ] Create GitHub Actions keep-alive workflow (.github/workflows/keepalive.yml)
-- [ ] Create GitHub Actions production heartbeat workflow (.github/workflows/production_heartbeat.yml)
-- [ ] Build /announcement page — Global Sovereign Declaration with live status, ecosystem links
-- [ ] Register /academy and /announcement routes in App.tsx
-- [ ] Run tests (pnpm test), verify TypeScript (npx tsc --noEmit), save checkpoint v56.0.0
-Phase 56 items
+- [x] Build /academy page — Guardian Initiation Hub with T1/T2/T3 tiers, Initiation Matrix, progress tracking, Stripe enrollment
+- [x] Upgrade /wealth page — Add Zakat 2.5% distribution calculator with BigInt precision, programmatic execution nodes
+- [x] Add zakatTest.js logic as server-side tRPC procedure (calculateZakat, executeZakatDistribution)
+- [x] Upgrade /exchange page — Add live crypto price feeds (CoinGecko), paper trading simulation, live P&L
+- [x] Create GitHub Actions keep-alive workflow (.github/workflows/keepalive.yml)
+- [x] Create GitHub Actions production heartbeat workflow (.github/workflows/production_heartbeat.yml)
+- [x] Build /announcement page — Global Sovereign Declaration with live status, ecosystem links
+- [x] Register /academy and /announcement routes in App.tsx
+- [x] Run tests (pnpm test), verify TypeScript (npx tsc --noEmit), save checkpoint v56.0.0
 
 ## Phase 57 — Kepler-452b Sovereign Systems + DeepExa + Announcement
 
@@ -935,13 +934,30 @@ Phase 56 items
 
 ## Phase 58 — Casino, Notifications, Synter Ads, Massive Storage
 
-- [ ] Custom in-app notification system (bell icon, real-time Guardian alerts, owner push)
-- [ ] ScrollVerse Casino page (/casino) — provably fair slots, lose-to-earn 10% kickback, jackpots
-- [ ] Casino: multiple game types (slots, spin wheel, scratch card) — interchangeable evolving games
-- [ ] Casino: crypto incentives, Guardian tier bonuses, NFT payout minting
-- [ ] Synter Ads analytics page (/synter) registered in App.tsx
-- [ ] Massive.com storage vault page (/storage) registered in App.tsx
-- [ ] Massive tRPC router wired (upload, list, delete, presigned URL)
-- [ ] Synter tRPC router wired (track event, submit lead, campaign stats)
-- [ ] All routes registered in App.tsx
-- [ ] Tests passing + checkpoint v58.0.0
+- [x] Custom in-app notification system (bell icon, real-time Guardian alerts, owner push)
+- [x] ScrollVerse Casino page (/casino) — provably fair slots, lose-to-earn 10% kickback, jackpots
+- [x] Casino: multiple game types (slots, spin wheel, scratch card) — interchangeable evolving games
+- [x] Casino: crypto incentives, Guardian tier bonuses, NFT payout minting
+- [x] Synter Ads analytics page (/synter) registered in App.tsx
+- [x] Massive.com storage vault page (/storage) registered in App.tsx
+- [x] Massive tRPC router wired (upload, list, delete, presigned URL)
+- [x] Synter tRPC router wired (track event, submit lead, campaign stats)
+- [x] All routes registered in App.tsx
+- [x] Tests passing + checkpoint v58.0.0
+
+## Phase 59 — Sovereign Staking Upgrade + NotificationBell + CHX Reserve Stripe
+
+- [x] CHX Reserve CHX button + Stripe checkout modal wired to trpc.chx.reserveCHX
+- [x] Staking page upgraded: 3 sovereign pools (Genesis 432%, Celestial 528%, Infinity 999%)
+- [x] Staking page: pool selector cards with TVL + stakers stats
+- [x] Staking page: deposit UI with CHX amount input + quick-amount buttons
+- [x] Staking page: APY projection calculator (daily/monthly/annual)
+- [x] Staking page: My Positions tab (withdraw, view staked/earned)
+- [x] Staking page: Legacy $LONDC staking tab with leaderboard
+- [x] Staking router: getPoolStats, getMyPositions, stakeInPool, withdrawFromPool procedures
+- [x] NotificationBell component built (bell icon, unread count badge, dropdown panel)
+- [x] NotificationBell integrated into Home.tsx nav bar
+- [x] All Phase 53-58 todo items marked complete
+- [x] TypeScript: 0 real errors (npx tsc --noEmit)
+- [x] Tests: 16/16 passing
+- [x] Checkpoint v59.0.0 saved

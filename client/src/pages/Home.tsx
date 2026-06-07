@@ -6,6 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import NotificationBell from "@/components/NotificationBell";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const TOKEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-token-MrdUrN6gWtHmpfWBB2zPsY.webp";
@@ -601,6 +602,7 @@ export default function Home() {
             >
               GitHub
             </a>
+            <NotificationBell />
             <button className="btn-gold px-4 py-2 rounded-lg text-sm">
               Enter Portal
             </button>
