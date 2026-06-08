@@ -553,6 +553,15 @@ export default function Home() {
     { label: "🏛️ Academy Hub", href: "/academy-hub" },
     { label: "🕌 Zakat Engine", href: "/zakat" },
     { label: "📢 Announcements", href: "/announcements" },
+    { label: "🎮 Gaming Hub", href: "/gaming-hub" },
+    { label: "📡 StreamVerse", href: "/stream-verse" },
+    { label: "📺 ScrollTV", href: "/scroll-tv" },
+    { label: "🎵 MediaHub", href: "/media-hub" },
+    { label: "🪙 NFT Unlock", href: "/nft-unlock" },
+    { label: "🗺️ Site Map", href: "/site-map" },
+    { label: "🏦 Sovereign Bank", href: "/sovereign-bank" },
+    { label: "⚡ AI Legion Apex", href: "/ai-legion-apex" },
+    { label: "🌅 Soul Altar", href: "/soul-altar" },
   ];
 
   return (
@@ -1247,6 +1256,54 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ── CINEMATIC MOMENT ── */}
+      <section id="cinematic" className="relative overflow-hidden" style={{ background: "#000", padding: "0" }}>
+        {/* Top letterbox */}
+        <div style={{ height: "clamp(16px, 3vw, 48px)", background: "#000" }} />
+        {/* Film grain overlay */}
+        <div className="absolute inset-0 z-10 pointer-events-none" style={{ opacity: 0.04, backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")" }} />
+        {/* Video wrapper */}
+        <div className="relative" style={{ maxWidth: "820px", margin: "0 auto" }}>
+          {/* Filmmaker caption — top left */}
+          <div className="absolute top-3 left-4 z-20" style={{ fontFamily: "'Space Mono', monospace" }}>
+            <div className="text-[9px] tracking-[0.35em] uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>ScrollVerse Archive</div>
+            <div className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,184,0,0.45)" }}>Uncut · Unfiltered · Sovereign</div>
+          </div>
+          {/* Scene number — top right */}
+          <div className="absolute top-3 right-4 z-20 text-right" style={{ fontFamily: "'Space Mono', monospace" }}>
+            <div className="text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(0,212,255,0.4)" }}>RAW FOOTAGE</div>
+            <div className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>2024 · Atlantic City</div>
+          </div>
+          {/* The video — cinematic color grade via CSS filter */}
+          <video
+            src="https://drive.google.com/uc?export=download&id=1UwA-uh1lLI9M1syYNbrDxHzh0N9Eo4N6"
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full block"
+            style={{
+              filter: "contrast(1.1) saturate(0.82) brightness(0.9) sepia(0.08)",
+              display: "block",
+            }}
+          />
+          {/* Bottom cinematic bar */}
+          <div
+            className="w-full flex items-center justify-between px-5 py-3"
+            style={{
+              background: "rgba(0,0,0,0.9)",
+              borderTop: "1px solid rgba(255,184,0,0.1)",
+              fontFamily: "'Space Mono', monospace",
+            }}
+          >
+            <span className="text-[10px] tracking-widest" style={{ color: "rgba(0,212,255,0.45)" }}>KUN FAYAKŪN × ∞</span>
+            <span className="text-[10px] italic" style={{ color: "rgba(255,255,255,0.2)" }}>Nothing is a mistake if context helps us feel</span>
+            <span className="text-[10px] tracking-widest" style={{ color: "rgba(255,184,0,0.45)" }}>CHAIS THE GREAT</span>
+          </div>
+        </div>
+        {/* Bottom letterbox */}
+        <div style={{ height: "clamp(16px, 3vw, 48px)", background: "#000" }} />
       </section>
 
       {/* ── MUSIC DSP SECTION ── */}

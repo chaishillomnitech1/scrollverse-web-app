@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Upload, Music, Film, Globe, DollarSign, Users, Zap, Star, BarChart3, Link2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useToast } from "@/hooks/use-toast";
+// toast removed
 
 const DSPS = [
   { name: "Spotify", color: "#1DB954", icon: "🎵", users: "602M" },
@@ -50,10 +50,10 @@ const REVENUE_STREAMS = [
 export default function MediaHub() {
   const [activeTab, setActiveTab] = useState<"upload" | "dsps" | "partnerships" | "revenue">("upload");
   const [uploadType, setUploadType] = useState<"video" | "music">("music");
-  const { toast } = useToast();
+  
 
   const handleUpload = () => {
-    toast({
+    console.log({
       title: "Upload Portal",
       description: "Full upload system activating — connect wallet and sign in to upload your content.",
     });
