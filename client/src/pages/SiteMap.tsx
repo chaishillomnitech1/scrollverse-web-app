@@ -75,6 +75,8 @@ const ALL_PAGES: PageEntry[] = [
   { path: "/anno-omni", label: "ANNO-OMNI", icon: "🔮", description: "48D Identity Nexus — Guardian lead-gen pipeline and KYS verification", category: "Guardian Network" },
 
   // ── MEDIA & CREATOR ──
+  { path: "/scroll-tv", label: "ScrollTV", icon: "📺", description: "Sovereign cable channel — Batman, Karate Scotty, Bergerac, Nipsey Legacy, AI Legion Chronicles, all shows", category: "Media & Creator", badge: "LIVE", badgeColor: "#00FF88" },
+  { path: "/nft-unlock", label: "NFT Living Worlds", icon: "🌌", description: "Your NFTs are living universes — Legion entities live and evolve inside each one", category: "NFT & Blockchain", badge: "NEW", badgeColor: "#9B59B6" },
   { path: "/music", label: "Music Catalog", icon: "🎶", description: "Chais The Great full catalog — 35+ tracks, Spotify, Vydia, direct purchase", category: "Media & Creator", badge: "NEW", badgeColor: "#00FF88" },
   { path: "/media-hub", label: "Media Hub", icon: "🎬", description: "Upload video & music — DSP integrations, cross-promotion, monetization", category: "Media & Creator", badge: "NEW", badgeColor: "#00FF88" },
   { path: "/visuals", label: "Visuals", icon: "🎨", description: "ScrollVerse visual art, NFT art, and creative assets", category: "Media & Creator" },

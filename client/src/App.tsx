@@ -113,6 +113,10 @@ import SovereignBank from "./pages/SovereignBank";
 import SovereignCodex from "./pages/SovereignCodex";
 import SoulAltar from "./pages/SoulAltar";
 import ChaisSabirEquation from "./pages/ChaisSabirEquation";
+import ScrollTV from "./pages/ScrollTV";
+import NFTUnlock from "./pages/NFTUnlock";
+import MediaHub from "./pages/MediaHub";
+import SiteMap from "./pages/SiteMap";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -226,6 +230,10 @@ function Router() {
       <Route path={"/sovereign-codex"} component={SovereignCodex} />
       <Route path={"/soul-altar"} component={SoulAltar} />
       <Route path={"/chais-sabir-equation"} component={ChaisSabirEquation} />
+      <Route path={"/scroll-tv"} component={ScrollTV} />
+      <Route path={"/nft-unlock"} component={NFTUnlock} />
+      <Route path={"/media-hub"} component={MediaHub} />
+      <Route path={"/site-map"} component={SiteMap} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
