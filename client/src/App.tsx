@@ -117,6 +117,12 @@ import ScrollTV from "./pages/ScrollTV";
 import NFTUnlock from "./pages/NFTUnlock";
 import MediaHub from "./pages/MediaHub";
 import SiteMap from "./pages/SiteMap";
+import GamingHub from "./pages/GamingHub";
+import StreamVerse from "./pages/StreamVerse";
+import KnickBlockchain from "./pages/KnickBlockchain";
+import NipseyLegacy from "./pages/NipseyLegacy";
+import DigitalTwin from "./pages/DigitalTwin";
+import AllversalHighway from "./pages/AllversalHighway";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -234,6 +240,12 @@ function Router() {
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />
       <Route path={"/site-map"} component={SiteMap} />
+      <Route path={"/gaming-hub"} component={GamingHub} />
+      <Route path={"/stream-verse"} component={StreamVerse} />
+      <Route path={"/knick-blockchain"} component={KnickBlockchain} />
+      <Route path={"/nipsey-legacy"} component={NipseyLegacy} />
+      <Route path={"/digital-twin"} component={DigitalTwin} />
+      <Route path={"/allversal-highway"} component={AllversalHighway} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
