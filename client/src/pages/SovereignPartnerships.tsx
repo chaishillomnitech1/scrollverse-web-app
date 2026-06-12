@@ -16,7 +16,9 @@ const PROOF_METRICS = [
   { label: "Equation Sealed", value: "June 11, 2026", icon: "🔐", proof: "Blockchain timestamped" },
 ];
 
-const PARTNERS = [
+type Company = { name: string; ceo: string; role: string; angle: string; value: string; priority?: boolean; active?: boolean; };
+type PartnerGroup = { category: string; color: string; companies: Company[] };
+const PARTNERS: PartnerGroup[] = [
   {
     category: "AI & Technology",
     color: "#00D4FF",

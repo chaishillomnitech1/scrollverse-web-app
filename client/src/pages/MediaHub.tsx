@@ -65,8 +65,7 @@ export default function MediaHub() {
   
 
   const handleUpload = (type: string) => {
-    toast({
-      title: `${type} Upload Portal`,
+    toast.success(`${type} Upload Portal`, {
       description: "Full upload integration activating — connect your Sovereign Bank account to begin distribution. KUN FAYAKŪN × ∞",
     });
   };
