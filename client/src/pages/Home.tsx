@@ -553,6 +553,8 @@ export default function Home() {
     { label: "🏛️ Academy Hub", href: "/academy-hub" },
     { label: "🕌 Zakat Engine", href: "/zakat" },
     { label: "📢 Announcements", href: "/announcements" },
+    { label: "🤝 Partnerships", href: "/sovereign-partnerships" },
+    { label: "🗺️ Site Map", href: "/site-map" },
   ];
 
   return (

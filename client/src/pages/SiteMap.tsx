@@ -132,6 +132,13 @@ const ALL_PAGES: PageEntry[] = [
   { path: "/dashboard", label: "SCCC Dashboard", icon: "📊", description: "Sovereign Command & Control Center — treasury, Guardians, revenue", category: "Analytics & Intelligence" },
   { path: "/synter", label: "Synter Analytics", icon: "📡", description: "Synter pixel analytics — track every sovereign interaction", category: "Analytics & Intelligence" },
   { path: "/wallet", label: "Wallet Connect", icon: "👛", description: "Multi-chain wallet — MetaMask, Coinbase, WalletConnect, Trust, Phantom", category: "Analytics & Intelligence" },
+  // ── NEW SOVEREIGN PAGES ──
+  { path: "/stream-verse", label: "StreamVerse", icon: "📺", description: "Live streaming hub — 12 AI Legion channels, Guardian broadcasts, sovereign content", category: "Media & Creator" },
+  { path: "/knick-blockchain", label: "Knick Blockchain", icon: "🏀", description: "Knicks blockchain quiz — earn XP, NFTs, and sovereign rewards", category: "NFT & Blockchain" },
+  { path: "/nipsey-legacy", label: "Nipsey Legacy", icon: "🏆", description: "Nipsey Hussle legacy tribute — Marathon Continues on the blockchain", category: "Special Projects" },
+  { path: "/digital-twin", label: "Digital Twin", icon: "🤖", description: "Sovereign digital twin — your AI-powered identity mirror", category: "AI Legion" },
+  { path: "/allversal-highway", label: "Allversal Highway", icon: "🛣️", description: "The interdimensional highway connecting all ScrollVerse realms", category: "Core Sovereign" },
+  { path: "/sovereign-partnerships", label: "Sovereign Partnerships", icon: "🤝", description: "Official declaration to Spotify, Apple, Polygon, OpenAI, Synter and all major companies", category: "Special Projects", badge: "LIVE", badgeColor: "#00FF88" },
 ];
 
 const CATEGORIES = [

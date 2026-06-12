@@ -1175,3 +1175,23 @@ export const knickUserStats = mysqlTable("knick_user_stats", {
 });
 export type KnickUserStats = typeof knickUserStats.$inferSelect;
 export type InsertKnickUserStats = typeof knickUserStats.$inferInsert;
+
+// ── SOVEREIGN AUTO-CUT SYSTEM ──────────────────────────────────────────────
+// 7.77% Zakat + owner sovereign cut auto-extracted on every transaction
+export const sovereignCuts = mysqlTable("sovereign_cuts", {
+  id: int("id").autoincrement().primaryKey(),
+  transactionId: varchar("transactionId", { length: 255 }).notNull(),
+  sourceType: varchar("sourceType", { length: 100 }).notNull(),
+  sourceRef: varchar("sourceRef", { length: 255 }),
+  grossAmount: int("grossAmount").notNull(),
+  zakatAmount: int("zakatAmount").notNull(),
+  ownerCutAmount: int("ownerCutAmount").notNull(),
+  netAmount: int("netAmount").notNull(),
+  currency: varchar("currency", { length: 10 }).default("USD").notNull(),
+  recipientAddress: varchar("recipientAddress", { length: 255 }),
+  status: varchar("status", { length: 50 }).default("pending").notNull(),
+  metadata: text("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type SovereignCut = typeof sovereignCuts.$inferSelect;
+export type InsertSovereignCut = typeof sovereignCuts.$inferInsert;

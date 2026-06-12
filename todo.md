@@ -1182,3 +1182,10 @@
 - [ ] Wire all new routes in App.tsx
 - [ ] Push Autonomous Legion Protocol + all updates to GitHub
 - [ ] Save checkpoint and deliver all page links
+
+## Phase 75 — Sovereign Auto-Cut + Partnerships + MediaHub Epic
+- [ ] Build sovereign revenue auto-cut router: 7.77% Zakat + owner cut auto-extracted on all transactions
+- [ ] Add /revenue-dashboard page showing live sovereign cut extractions across all streams
+- [ ] Build /partnerships page with sovereign intro letter + partner grid (Spotify, Apple, Polygon, Twitch, OpenSea, YouTube Music, Tidal, Amazon Music, Discord, Chainlink)
+- [ ] Enhance MediaHub with drag-and-drop upload, waveform visualizer, DSP tracker, earnings dashboard
+- [ ] Push full codebase to GitHub (scrollverse-web-app) and save checkpoint
