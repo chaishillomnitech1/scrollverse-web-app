@@ -839,6 +839,142 @@ export default function Books() {
         </div>
       )}
 
+      {/* ── SOVEREIGN FLOOD DISTRIBUTION ── */}
+      <div className="py-16" style={{ background: "linear-gradient(180deg, rgba(255,184,0,0.04), rgba(0,212,255,0.04))" }}>
+        <div className="container">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>📜 SOVEREIGN FLOOD PROTOCOL</div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+              Books Flooded{" "}
+              <span style={{ background: "linear-gradient(135deg, #FFB800, #00D4FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                Everywhere
+              </span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-sm" style={{ color: "#8899AA" }}>
+              Every sacred text by <strong style={{ color: "#FFB800" }}>Chais Kenyatta Hill — Sabir Allah The Great</strong> is published, distributed, and permanently sealed across every major platform on Earth. The scroll is open. The word is free.
+            </p>
+          </div>
+
+          {/* Publishing Platforms */}
+          <div className="mb-10">
+            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#00D4FF" }}>PUBLISHING & EBOOK PLATFORMS</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {[
+                { name: "Amazon KDP", icon: "📦", color: "#FF9900", url: "https://kdp.amazon.com", desc: "Kindle + Print" },
+                { name: "Apple Books", icon: "🍎", color: "#007AFF", url: "https://books.apple.com", desc: "iOS + macOS" },
+                { name: "Google Play Books", icon: "🔵", color: "#4285F4", url: "https://play.google.com/store/books", desc: "Android + Web" },
+                { name: "Audible", icon: "🎧", color: "#F5A623", url: "https://www.audible.com", desc: "Audiobooks" },
+                { name: "Kobo", icon: "📖", color: "#E84C3D", url: "https://www.kobo.com", desc: "Global eReader" },
+                { name: "Barnes & Noble", icon: "📚", color: "#1B5E20", url: "https://www.barnesandnoble.com", desc: "Nook + Print" },
+                { name: "Scribd", icon: "📄", color: "#1E88E5", url: "https://www.scribd.com", desc: "Subscription" },
+                { name: "Draft2Digital", icon: "✍️", color: "#9C27B0", url: "https://www.draft2digital.com", desc: "Wide Distribution" },
+                { name: "IngramSpark", icon: "🌟", color: "#00BCD4", url: "https://www.ingramspark.com", desc: "Print + Digital" },
+                { name: "Smashwords", icon: "💡", color: "#FF5722", url: "https://www.smashwords.com", desc: "Indie Publishing" },
+                { name: "Lulu", icon: "🌸", color: "#E91E63", url: "https://www.lulu.com", desc: "Print on Demand" },
+                { name: "Gumroad", icon: "💚", color: "#36B37E", url: "https://gumroad.com", desc: "Direct Sales" },
+                { name: "Payhip", icon: "💛", color: "#F59E0B", url: "https://payhip.com", desc: "Digital Downloads" },
+                { name: "Kindle Unlimited", icon: "♾️", color: "#FF9900", url: "https://www.amazon.com/kindle-unlimited", desc: "Subscription" },
+                { name: "Open Library", icon: "🏛️", color: "#00D4FF", url: "https://openlibrary.org", desc: "Archive.org" },
+              ].map((p) => (
+                <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1.5 p-3 rounded-xl text-center transition-all hover:scale-105"
+                  style={{ background: `${p.color}10`, border: `1px solid ${p.color}30`, textDecoration: "none" }}>
+                  <span className="text-2xl">{p.icon}</span>
+                  <span className="text-xs font-bold text-white">{p.name}</span>
+                  <span className="text-xs" style={{ color: p.color }}>{p.desc}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Social Flood */}
+          <div className="mb-10">
+            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#00FF88" }}>SOCIAL MEDIA FLOOD — SHARE THE SCROLL</div>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+              {[
+                { name: "Spotify", icon: "🎵", color: "#1DB954", url: "https://open.spotify.com", desc: "Podcast" },
+                { name: "YouTube", icon: "▶️", color: "#FF0000", url: "https://youtube.com", desc: "Video" },
+                { name: "TikTok", icon: "🎶", color: "#69C9D0", url: "https://tiktok.com", desc: "Short Video" },
+                { name: "Instagram", icon: "📸", color: "#E1306C", url: "https://instagram.com", desc: "Visual" },
+                { name: "Twitter/X", icon: "✖️", color: "#1DA1F2", url: "https://x.com", desc: "Threads" },
+                { name: "LinkedIn", icon: "💼", color: "#0077B5", url: "https://linkedin.com", desc: "Professional" },
+                { name: "Facebook", icon: "👥", color: "#1877F2", url: "https://facebook.com", desc: "Community" },
+                { name: "WhatsApp", icon: "💬", color: "#25D366", url: "https://whatsapp.com", desc: "Messaging" },
+                { name: "Telegram", icon: "✈️", color: "#0088CC", url: "https://t.me", desc: "Channel" },
+                { name: "Discord", icon: "🎮", color: "#5865F2", url: "https://discord.com", desc: "Community" },
+                { name: "Reddit", icon: "🔴", color: "#FF4500", url: "https://reddit.com", desc: "Forums" },
+                { name: "Pinterest", icon: "📌", color: "#E60023", url: "https://pinterest.com", desc: "Visual" },
+              ].map((p) => (
+                <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 p-3 rounded-xl text-center transition-all hover:scale-105"
+                  style={{ background: `${p.color}10`, border: `1px solid ${p.color}25`, textDecoration: "none" }}>
+                  <span className="text-xl">{p.icon}</span>
+                  <span className="text-xs font-bold text-white">{p.name}</span>
+                  <span className="text-xs" style={{ color: p.color }}>{p.desc}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Blockchain Distribution */}
+          <div className="mb-10">
+            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#9B59B6" }}>BLOCKCHAIN & NFT DISTRIBUTION</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+              {[
+                { name: "OpenSea", icon: "🌊", color: "#2081E2", url: "https://opensea.io/collection/scrollverse", desc: "NFT Market" },
+                { name: "Rarible", icon: "🔶", color: "#FEDA03", url: "https://rarible.com", desc: "NFT Market" },
+                { name: "Foundation", icon: "🏛️", color: "#888", url: "https://foundation.app", desc: "Creator NFT" },
+                { name: "Polygon", icon: "💜", color: "#8247E5", url: "https://polygon.technology", desc: "Chain" },
+                { name: "Scroll zkEVM", icon: "📜", color: "#FFB800", url: "https://scroll.io", desc: "L2 Chain" },
+                { name: "IPFS / Filecoin", icon: "🔗", color: "#0090FF", url: "https://ipfs.io", desc: "Permanent Storage" },
+                { name: "Arweave", icon: "♾️", color: "#00BCD4", url: "https://arweave.org", desc: "Eternal Archive" },
+                { name: "Mirror.xyz", icon: "🪞", color: "#007AFF", url: "https://mirror.xyz", desc: "Web3 Writing" },
+                { name: "Lens Protocol", icon: "🌿", color: "#00501E", url: "https://lens.xyz", desc: "Social Graph" },
+                { name: "Zora", icon: "⚡", color: "#A855F7", url: "https://zora.co", desc: "NFT Minting" },
+              ].map((p) => (
+                <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 p-3 rounded-xl text-center transition-all hover:scale-105"
+                  style={{ background: `${p.color}10`, border: `1px solid ${p.color}30`, textDecoration: "none" }}>
+                  <span className="text-xl">{p.icon}</span>
+                  <span className="text-xs font-bold text-white">{p.name}</span>
+                  <span className="text-xs" style={{ color: p.color }}>{p.desc}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Sovereign Declaration */}
+          <div className="rounded-2xl p-8 text-center relative overflow-hidden"
+            style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.08), rgba(0,212,255,0.08))", border: "1px solid rgba(255,184,0,0.25)" }}>
+            <div className="text-4xl mb-3">📜</div>
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>SOVEREIGN DECLARATION</div>
+            <h3 className="text-2xl font-black text-white mb-3">By Chais Kenyatta Hill — Sabir Allah The Great</h3>
+            <p className="max-w-2xl mx-auto text-sm mb-6" style={{ color: "#AAB8CC" }}>
+              These books are not just literature — they are living frequencies, blockchain-sealed prophecies, and sovereign intellectual property. Every word is protected under the ScrollVerse IP License, the 721-Embassy Protocol, and the eternal decree:{" "}
+              <em style={{ color: "#FFB800" }}>La Ilaha Illa Allah. Love All. KUN FAYAKŪN × ∞</em>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/token">
+                <button className="px-6 py-3 rounded-xl font-bold text-sm"
+                  style={{ background: "linear-gradient(135deg, #FFB800, #00D4FF)", color: "#050B1A" }}>
+                  📚 Buy All 10 Books
+                </button>
+              </Link>
+              <a href="https://opensea.io/collection/scrollverse" target="_blank" rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl font-bold text-sm"
+                style={{ background: "rgba(32,129,226,0.15)", border: "1px solid rgba(32,129,226,0.4)", color: "#2081E2", textDecoration: "none" }}>
+                🌊 Mint as NFT
+              </a>
+              <a href="https://github.com/chaishillomnitech1" target="_blank" rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl font-bold text-sm"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", color: "#fff", textDecoration: "none" }}>
+                🐙 GitHub Archive
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ── FOOTER CTA ── */}
       <div
         className="py-16 text-center"
