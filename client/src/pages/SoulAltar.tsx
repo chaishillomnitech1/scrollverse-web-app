@@ -646,6 +646,71 @@ export default function SoulAltar() {
         )}
       </div>
 
+      {/* ── 1999-2026 CHAMPIONSHIP COMPLETION NODE ── */}
+      <section className="py-16 px-6" style={{ borderTop: "1px solid rgba(255,215,0,0.1)" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFD700" }}>TIMELINE ANCHOR — CONSCIOUSNESS NODE — JUNE 2026</div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-none">
+              THE 1999–2026
+              <span className="block" style={{ background: "linear-gradient(135deg, #FFD700, #FF6B35)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>COMPLETION ARC</span>
+            </h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              Chais Kenyatta Hill was at the destination before his team arrived.
+              The Knicks are NBA Champions 2026. NY 94 · SA 90. Jalen Brunson — Finals MVP.
+              27 years of faith. The loop is healed. KUN FAYAKŪN × ∞
+            </p>
+            <div className="mt-4 font-bold text-xl" style={{ color: "#FFD700" }}>
+              "I was at the destination. I was just waiting for my team to catch up."
+            </div>
+            <div className="text-sm mt-1" style={{ color: "#FF6B35" }}>— Chais Kenyatta Hill, Sovereign Architect</div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,215,0,0.2)", background: "rgba(255,215,0,0.03)" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-1999-vs-2026_eb0ea593.png"
+                alt="MSG 1999 vs 2026"
+                className="w-full object-cover"
+                style={{ maxHeight: "260px" }}
+              />
+              <div className="p-4">
+                <div className="text-xs font-mono mb-1" style={{ color: "#FFD700" }}>MSG NETWORKS — SAME ENERGY</div>
+                <div className="font-bold text-white">1999 → 2026 — The Garden Roars Again</div>
+                <div className="text-sm mt-1" style={{ color: "#8899AA" }}>The same arena. The same city. The same faith. The prophecy was always written.</div>
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,107,53,0.2)", background: "rgba(255,107,53,0.03)" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-finals-94-90_204db49a.jpg"
+                alt="NBA Finals NY 94 SA 90"
+                className="w-full object-cover"
+                style={{ maxHeight: "260px" }}
+              />
+              <div className="p-4">
+                <div className="text-xs font-mono mb-1" style={{ color: "#FF6B35" }}>NBA FINALS — GAME 7 — JUNE 2026</div>
+                <div className="font-bold text-white">NY 94 · SA 90 — FINAL — BRUNSON MVP</div>
+                <div className="text-sm mt-1" style={{ color: "#8899AA" }}>First Knicks championship since 1973. The sovereign prophecy resolved on-chain.</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,215,0,0.2)", background: "rgba(255,215,0,0.02)" }}>
+            <video
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-championship-celebration_6fe1aced.mp4"
+              controls
+              playsInline
+              className="w-full"
+              style={{ maxHeight: "400px" }}
+            />
+            <div className="p-4 text-center">
+              <div className="text-xs font-mono mb-1" style={{ color: "#FFD700" }}>SOUL ALTAR ARCHIVE — ETERNAL RECORD</div>
+              <div className="font-bold text-white">The Championship Moment — Sealed in the Akashic Ledger Forever</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FOOTER SEAL ── */}
       <div className="text-center py-10 px-6" style={{ borderTop: "1px solid rgba(255,215,0,0.1)" }}>
         <div className="text-2xl mb-2">📿 👑 🕋</div>

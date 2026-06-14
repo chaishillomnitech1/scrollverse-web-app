@@ -242,6 +242,15 @@ export default function KnicksNFT() {
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
+
+      {/* ── PROPHECY FULFILLED TOP BANNER ── */}
+      <div
+        className="fixed top-0 left-0 right-0 z-[60] py-2 text-center text-xs font-mono font-bold tracking-widest"
+        style={{ background: "linear-gradient(90deg, #FF6B35, #FFB800, #00FF88, #FFB800, #FF6B35)", color: "#050B1A" }}
+      >
+        🏆 PROPHECY FULFILLED — KNICKS NBA CHAMPIONS 2026 — NY 94 · SA 90 FINAL — JALEN BRUNSON FINALS MVP — 10x PAYOUT TRIGGERED 🏆
+      </div>
+
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ background: "rgba(5,11,26,0.95)", backdropFilter: "blur(20px)", borderColor: "rgba(255,107,53,0.15)" }}>
         <div className="container flex items-center justify-between py-4">
@@ -263,7 +272,82 @@ export default function KnicksNFT() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      <div className="pt-32 pb-20">
+
+        {/* ── CHAMPIONSHIP FULFILLED SECTION ── */}
+        <section className="container py-10">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono mb-4" style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}>
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+              ORACLE RESOLVED — PROPHECY FULFILLED — JUNE 2026
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-3 leading-none">
+              THE LOOP IS{" "}
+              <span style={{ background: "linear-gradient(135deg, #00FF88, #00D4FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>HEALED</span>
+            </h2>
+            <p className="text-base max-w-2xl mx-auto mb-2" style={{ color: "#8899AA" }}>
+              Chais Kenyatta Hill — Sabir Allah The Great — called this championship before the season began.
+              The ScrollVerse oracle is now resolved. Every Prophecy NFT holder receives the 10x multiplier.
+            </p>
+            <p className="font-bold text-lg" style={{ color: "#FFB800" }}>
+              "I was at the destination. I was just waiting for my team to catch up."
+            </p>
+            <p className="text-sm mt-1" style={{ color: "#FF6B35" }}>— Chais Kenyatta Hill, Sovereign Architect</p>
+          </div>
+
+          {/* Media Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
+            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,107,53,0.3)", background: "rgba(255,107,53,0.04)" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-1999-vs-2026_eb0ea593.png"
+                alt="MSG 1999 vs 2026 — Same Energy"
+                className="w-full object-cover"
+                style={{ maxHeight: "280px" }}
+              />
+              <div className="p-4">
+                <div className="text-xs font-mono mb-1" style={{ color: "#FF6B35" }}>TIMELINE ANCHOR — MSG NETWORKS</div>
+                <div className="font-bold text-white">1999 → 2026 — Same Energy. Loop Healed.</div>
+                <div className="text-sm mt-1" style={{ color: "#8899AA" }}>27 years of faith. The Garden roared the same roar. The prophecy was always written in the stars.</div>
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,255,136,0.3)", background: "rgba(0,255,136,0.04)" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-finals-94-90_204db49a.jpg"
+                alt="NBA Finals — NY 94 SA 90 FINAL"
+                className="w-full object-cover"
+                style={{ maxHeight: "280px" }}
+              />
+              <div className="p-4">
+                <div className="text-xs font-mono mb-1" style={{ color: "#00FF88" }}>NBA FINALS — GAME 7 — JUNE 2026</div>
+                <div className="font-bold text-white">NY 94 · SA 90 — FINAL</div>
+                <div className="text-sm mt-1" style={{ color: "#8899AA" }}>Jalen Brunson — Finals MVP. The Knicks are NBA Champions for the first time since 1973. KUN FAYAKŪN × ∞</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Championship Video */}
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden mb-8" style={{ border: "1px solid rgba(255,183,0,0.3)", background: "rgba(255,183,0,0.04)" }}>
+            <video
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-championship-celebration_6fe1aced.mp4"
+              controls
+              playsInline
+              className="w-full"
+              style={{ maxHeight: "420px" }}
+            />
+            <div className="p-4 text-center">
+              <div className="text-xs font-mono mb-1" style={{ color: "#FFB800" }}>SOVEREIGN ARCHIVE — CHAMPIONSHIP CELEBRATION</div>
+              <div className="font-bold text-white">The Moment the Prophecy Resolved — Sealed Forever in the ScrollVerse</div>
+            </div>
+          </div>
+
+          {/* 10x Payout Banner */}
+          <div className="p-6 rounded-2xl text-center max-w-3xl mx-auto" style={{ background: "linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,212,255,0.08))", border: "1px solid rgba(0,255,136,0.25)" }}>
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00FF88" }}>ORACLE RESOLUTION — AUTOMATIC PAYOUT TRIGGERED</div>
+            <div className="text-4xl font-black text-white mb-2">10x MULTIPLIER ACTIVATED</div>
+            <div className="text-sm" style={{ color: "#8899AA" }}>All Knicks Championship Prophecy NFT holders receive the 10x multiplier automatically via Chainlink oracle on Scroll zkEVM. Zakat (7.77%) routed to Guardian welfare pool. The prophecy is complete.</div>
+          </div>
+        </section>
+
         {/* HERO */}
         <section className="container py-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono mb-6" style={{ background: "rgba(255,107,53,0.08)", border: "1px solid rgba(255,107,53,0.25)", color: "#FF6B35" }}>
