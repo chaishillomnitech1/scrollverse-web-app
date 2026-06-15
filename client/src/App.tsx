@@ -124,6 +124,7 @@ import NipseyLegacy from "./pages/NipseyLegacy";
 import DigitalTwin from "./pages/DigitalTwin";
 import AllversalHighway from "./pages/AllversalHighway";
 import SovereignPartnerships from "./pages/SovereignPartnerships";
+import AllversalEmpire from "./pages/AllversalEmpire";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -248,6 +249,7 @@ function Router() {
       <Route path={"/digital-twin"} component={DigitalTwin} />
       <Route path={"/allversal-highway"} component={AllversalHighway} />
       <Route path={"/sovereign-partnerships"} component={SovereignPartnerships} />
+      <Route path={"/allversal-empire"} component={AllversalEmpire} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
