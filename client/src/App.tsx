@@ -125,6 +125,9 @@ import DigitalTwin from "./pages/DigitalTwin";
 import AllversalHighway from "./pages/AllversalHighway";
 import SovereignPartnerships from "./pages/SovereignPartnerships";
 import AllversalEmpire from "./pages/AllversalEmpire";
+import EternalEcho from "./pages/EternalEcho";
+import MikaSolara from "./pages/MikaSolara";
+import SolaraCoin from "./pages/SolaraCoin";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -250,6 +253,9 @@ function Router() {
       <Route path={"/allversal-highway"} component={AllversalHighway} />
       <Route path={"/sovereign-partnerships"} component={SovereignPartnerships} />
       <Route path={"/allversal-empire"} component={AllversalEmpire} />
+      <Route path={"/eternal-echo"} component={EternalEcho} />
+      <Route path={"/mika-solara"} component={MikaSolara} />
+      <Route path={"/solara-coin"} component={SolaraCoin} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

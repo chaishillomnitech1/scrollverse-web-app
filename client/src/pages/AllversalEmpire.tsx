@@ -863,6 +863,9 @@ export default function AllversalEmpire() {
               { label: "Governance", href: "/governance", icon: "⚖️" },
               { label: "Wallet", href: "/wallet-connect", icon: "👛" },
               { label: "Security", href: "/security", icon: "🔒" },
+              { label: "Eternal Echo", href: "/eternal-echo", icon: "♾️" },
+              { label: "Mika-Solara", href: "/mika-solara", icon: "☀️" },
+              { label: "$SOLARA", href: "/solara-coin", icon: "💰" },
             ].map(link => (
               <Link key={link.href} href={link.href}>
                 <div
