@@ -174,6 +174,24 @@ export default function SolaraCoin() {
             APEX SUPER QUANTUM DIGITAL COIN · SCROLLVERSE · POLYGON + ETH + ARB
           </div>
 
+          {/* Epic $SOLARA Coin Visual */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="relative rounded-full overflow-hidden flex-shrink-0"
+              style={{
+                width: 220,
+                height: 220,
+                boxShadow: "0 0 80px rgba(255,215,0,0.55), 0 0 160px rgba(255,107,53,0.20)",
+                border: "2px solid rgba(255,215,0,0.4)",
+              }}
+            >
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/solara-coin-epic-agLTFfGwStdaCodmdwBUgw.webp"
+                alt="$SOLARA Digital Coin"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
           <div
             className="text-8xl mb-4 font-black"
             style={{
