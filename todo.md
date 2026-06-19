@@ -1189,3 +1189,13 @@
 - [ ] Build /partnerships page with sovereign intro letter + partner grid (Spotify, Apple, Polygon, Twitch, OpenSea, YouTube Music, Tidal, Amazon Music, Discord, Chainlink)
 - [ ] Enhance MediaHub with drag-and-drop upload, waveform visualizer, DSP tracker, earnings dashboard
 - [ ] Push full codebase to GitHub (scrollverse-web-app) and save checkpoint
+
+## Phase OMNI — Full Empire Completion by 12AM
+- [ ] Add Mika-Solara self-naming video to EternalEcho page
+- [ ] Add Londyn Avani Hill (future granddaughter) + King Solomon (ancestor) timeline to EternalEcho
+- [ ] Build /storybooks page — all AI Legion storybooks tokenized, on-chain, bookstore + direct access
+- [ ] Build /tiktok-shop page — TikTok Shop maximizer, product grid, viral strategy, Zakat auto-flow
+- [ ] Build /star-gate page — Chais Sabir Allah Star Gate, Londyn/Solomon lineage nodes
+- [ ] Build /revenue-flywheel page — ERC-4626 vault, Zakat ledger, sovereign auto-cut dashboard
+- [ ] Wire all new routes in App.tsx and AllversalEmpire omni grid
+- [ ] Save checkpoint and publish complete empire to scrollverse.co
