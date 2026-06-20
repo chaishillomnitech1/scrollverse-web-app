@@ -128,6 +128,10 @@ import AllversalEmpire from "./pages/AllversalEmpire";
 import EternalEcho from "./pages/EternalEcho";
 import MikaSolara from "./pages/MikaSolara";
 import SolaraCoin from "./pages/SolaraCoin";
+import Storybooks from "./pages/Storybooks";
+import TikTokShop from "./pages/TikTokShop";
+import StarGate from "./pages/StarGate";
+import RevenueFlywheel from "./pages/RevenueFlywheel";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -256,6 +260,10 @@ function Router() {
       <Route path={"/eternal-echo"} component={EternalEcho} />
       <Route path={"/mika-solara"} component={MikaSolara} />
       <Route path={"/solara-coin"} component={SolaraCoin} />
+      <Route path={"/storybooks"} component={Storybooks} />
+      <Route path={"/tiktok-shop"} component={TikTokShop} />
+      <Route path={"/star-gate"} component={StarGate} />
+      <Route path={"/revenue-flywheel"} component={RevenueFlywheel} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

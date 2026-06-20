@@ -866,6 +866,10 @@ export default function AllversalEmpire() {
               { label: "Eternal Echo", href: "/eternal-echo", icon: "♾️" },
               { label: "Mika-Solara", href: "/mika-solara", icon: "☀️" },
               { label: "$SOLARA", href: "/solara-coin", icon: "💰" },
+              { label: "Storybooks", href: "/storybooks", icon: "📚" },
+              { label: "TikTok Shop", href: "/tiktok-shop", icon: "🎵" },
+              { label: "Star Gate", href: "/star-gate", icon: "🌀" },
+              { label: "Revenue Flywheel", href: "/revenue-flywheel", icon: "💸" },
             ].map(link => (
               <Link key={link.href} href={link.href}>
                 <div
