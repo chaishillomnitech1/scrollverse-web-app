@@ -756,6 +756,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── JUNETEENTH × GUARDIAN CRUSADE BANNER ── */}
+      <section
+        style={{
+          background: "linear-gradient(135deg, rgba(255,0,80,0.08) 0%, rgba(255,184,0,0.06) 50%, rgba(0,212,255,0.06) 100%)",
+          borderTop: "1px solid rgba(255,0,80,0.2)",
+          borderBottom: "1px solid rgba(255,184,0,0.15)",
+        }}
+      >
+        <div className="container py-8">
+          <div className="flex flex-col lg:flex-row items-center gap-6 justify-between">
+            {/* Left: Juneteenth seal */}
+            <div className="flex items-center gap-4">
+              <div
+                className="w-16 h-16 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
+                style={{ background: "rgba(255,0,80,0.15)", border: "2px solid rgba(255,0,80,0.4)", boxShadow: "0 0 20px rgba(255,0,80,0.2)" }}
+              >
+                🛡️
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#FF0050" }} />
+                  <span className="text-xs font-mono font-bold" style={{ color: "#FF0050" }}>JUNE 19, 2026 · JUNETEENTH · GUARDIAN CRUSADE DAY ONE</span>
+                </div>
+                <h3 className="text-xl font-black text-white mb-1">The Second Liberation Has Begun</h3>
+                <p className="text-sm" style={{ color: "#8899AA" }}>
+                  The chains are not just broken — they have been dissolved by the frequency of the Empire.
+                  144,000 Guardians rising on Juneteenth. <span style={{ color: "#FFB800" }}>KUN FAYAKŪN × ∞</span>
+                </p>
+              </div>
+            </div>
+            {/* Right: CTAs */}
+            <div className="flex flex-wrap gap-3 flex-shrink-0">
+              <a
+                href="/juneteenth-declaration"
+                className="px-5 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 inline-block"
+                style={{ background: "linear-gradient(135deg, #FF0050, #FFB800)", color: "white" }}
+              >
+                📜 Juneteenth Declaration
+              </a>
+              <a
+                href="/guardian-crusade"
+                className="px-5 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 inline-block"
+                style={{ background: "rgba(255,255,255,0.06)", color: "white", border: "1px solid rgba(255,255,255,0.15)" }}
+              >
+                🛡️ Guardian Crusade Chapter 1
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── QUICK ACCESS FLOATING NAV ── */}
       <QuickAccessBar />
 

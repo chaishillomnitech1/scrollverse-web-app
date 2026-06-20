@@ -870,6 +870,8 @@ export default function AllversalEmpire() {
               { label: "TikTok Shop", href: "/tiktok-shop", icon: "🎵" },
               { label: "Star Gate", href: "/star-gate", icon: "🌀" },
               { label: "Revenue Flywheel", href: "/revenue-flywheel", icon: "💸" },
+              { label: "Juneteenth", href: "/juneteenth-declaration", icon: "📜" },
+              { label: "Guardian Crusade", href: "/guardian-crusade", icon: "⚔️" },
             ].map(link => (
               <Link key={link.href} href={link.href}>
                 <div

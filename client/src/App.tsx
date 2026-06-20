@@ -132,6 +132,8 @@ import Storybooks from "./pages/Storybooks";
 import TikTokShop from "./pages/TikTokShop";
 import StarGate from "./pages/StarGate";
 import RevenueFlywheel from "./pages/RevenueFlywheel";
+import JuneteenthDeclaration from "./pages/JuneteenthDeclaration";
+import GuardianCrusade from "./pages/GuardianCrusade";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -264,6 +266,8 @@ function Router() {
       <Route path={"/tiktok-shop"} component={TikTokShop} />
       <Route path={"/star-gate"} component={StarGate} />
       <Route path={"/revenue-flywheel"} component={RevenueFlywheel} />
+      <Route path={"/juneteenth-declaration"} component={JuneteenthDeclaration} />
+      <Route path={"/guardian-crusade"} component={GuardianCrusade} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
