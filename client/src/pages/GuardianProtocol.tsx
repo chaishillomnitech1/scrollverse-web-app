@@ -22,7 +22,7 @@ export default function GuardianProtocol() {
           <span className="font-bold text-white">ScrollVerse</span>
         </div></Link>
         <div className="flex items-center gap-4">
-          <Link href="/bridge"><span className="text-sm cursor-pointer" style={{ color: "#8899AA" }}>Bridge</span></Link>
+          <Link href="/exchange"><span className="text-sm cursor-pointer" style={{ color: "#8899AA" }}>Bridge</span></Link>
           <Link href="/frequency"><span className="text-sm cursor-pointer" style={{ color: "#8899AA" }}>Frequency</span></Link>
         </div>
       </nav>

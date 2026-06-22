@@ -583,7 +583,7 @@ export default function Library() {
             <a href="/token" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}>
               📎 Get $LONDC to Unlock All
             </a>
-            <a href="/guardian" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>
+            <a href="/guardians" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>
               🛡️ Join Guardian Tier
             </a>
           </div>

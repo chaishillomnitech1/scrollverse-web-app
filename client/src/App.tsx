@@ -134,6 +134,8 @@ import StarGate from "./pages/StarGate";
 import RevenueFlywheel from "./pages/RevenueFlywheel";
 import JuneteenthDeclaration from "./pages/JuneteenthDeclaration";
 import GuardianCrusade from "./pages/GuardianCrusade";
+import RevenueDashboard from "./pages/RevenueDashboard";
+import ComponentShowcase from "./pages/ComponentShowcase";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -268,6 +270,8 @@ function Router() {
       <Route path={"/revenue-flywheel"} component={RevenueFlywheel} />
       <Route path={"/juneteenth-declaration"} component={JuneteenthDeclaration} />
       <Route path={"/guardian-crusade"} component={GuardianCrusade} />
+      <Route path={"/revenue-dashboard"} component={RevenueDashboard} />
+      <Route path={"/components"} component={ComponentShowcase} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

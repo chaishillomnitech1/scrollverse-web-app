@@ -421,7 +421,7 @@ export default function WealthDashboard() {
                   ${MOCK_MERCH.reduce((a, m) => a + m.revenue, 0).toLocaleString()}
                 </div>
               </div>
-              <Link href="/merchant">
+              <Link href="/wealth">
                 <Button style={{ background: "rgba(255,107,53,0.1)", color: "#FF6B35", border: "1px solid rgba(255,107,53,0.3)" }}>
                   Merch Store
                 </Button>

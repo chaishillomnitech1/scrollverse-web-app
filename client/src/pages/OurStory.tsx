@@ -554,7 +554,7 @@ export default function OurStory() {
                   Book of Life →
                 </a>
               </Link>
-              <Link href="/guardian/chais-the-great">
+              <Link href="/guardians">
                 <a className="px-6 py-3 rounded-xl text-sm font-bold" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}>
                   Guardian Profile →
                 </a>
