@@ -874,6 +874,9 @@ export default function AllversalEmpire() {
               { label: "Guardian Crusade", href: "/guardian-crusade", icon: "⚔️" },
               { label: "Partnerships", href: "/partnerships", icon: "🤝" },
               { label: "Revenue Dashboard", href: "/revenue-dashboard", icon: "📊" },
+              { label: "Sovereign CRM", href: "/sovereign-crm", icon: "👥" },
+              { label: "Master Gateway", href: "/master-gateway", icon: "🔌" },
+              { label: "Master App", href: "/master-app", icon: "🖥️" },
             ].map(link => (
               <Link key={link.href} href={link.href}>
                 <div
