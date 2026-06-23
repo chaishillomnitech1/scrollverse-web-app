@@ -872,6 +872,8 @@ export default function AllversalEmpire() {
               { label: "Revenue Flywheel", href: "/revenue-flywheel", icon: "💸" },
               { label: "Juneteenth", href: "/juneteenth-declaration", icon: "📜" },
               { label: "Guardian Crusade", href: "/guardian-crusade", icon: "⚔️" },
+              { label: "Partnerships", href: "/partnerships", icon: "🤝" },
+              { label: "Revenue Dashboard", href: "/revenue-dashboard", icon: "📊" },
             ].map(link => (
               <Link key={link.href} href={link.href}>
                 <div

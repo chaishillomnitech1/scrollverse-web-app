@@ -136,6 +136,7 @@ import JuneteenthDeclaration from "./pages/JuneteenthDeclaration";
 import GuardianCrusade from "./pages/GuardianCrusade";
 import RevenueDashboard from "./pages/RevenueDashboard";
 import ComponentShowcase from "./pages/ComponentShowcase";
+import Partnerships from "./pages/Partnerships";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -272,6 +273,7 @@ function Router() {
       <Route path={"/guardian-crusade"} component={GuardianCrusade} />
       <Route path={"/revenue-dashboard"} component={RevenueDashboard} />
       <Route path={"/components"} component={ComponentShowcase} />
+      <Route path={"/partnerships"} component={Partnerships} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

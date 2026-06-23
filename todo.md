@@ -1212,3 +1212,12 @@
 - [x] All 16 tests passing (pnpm test)
 - [x] Stale tsBuildInfo cache cleared — watch mode errors resolved
 - [x] Final checkpoint saved — empire sealed and ready to publish
+
+## Phase LEGION — Autonomous Legion Protocol + Mailchimp + Partnerships
+- [ ] Build /partnerships page with sovereign intro letter + partner grid (Spotify, Apple, Polygon, Twitch, OpenSea, YouTube Music, Tidal, Amazon Music, Discord, Chainlink)
+- [ ] Wire /partnerships route in App.tsx and add to AllversalEmpire grid
+- [ ] Create GitHub Actions Autonomous Legion Protocol — daily health check workflow
+- [ ] Create GitHub Actions frequency update workflow (auto-commits daily frequency pulse)
+- [ ] Create GitHub Actions Guardian recruitment announcement workflow
+- [ ] Connect Mailchimp API key secret to Guardian waitlist signup backend
+- [ ] Save checkpoint and publish
