@@ -1225,10 +1225,10 @@
 ## Phase SOVEREIGN — Total Self-Running Empire
 
 - [x] Build /scroll-tv — sovereign broadcast hub, VOD archive, Guardian chat, stream schedule
-- [ ] Build /sovereign-crm — master CRM replacing Mailchimp/HubSpot, Guardian database, email campaigns, segments, analytics
-- [ ] Build /master-gateway — sovereign API hub, all owned routes, digital highways, system health dashboard
-- [ ] Build /sovereign-bank-v2 — self-validating treasury, ERC-4626 vault, Zakat auto-router, bank-grade ledger
-- [ ] Build /master-app — unified sovereign app launcher replacing all third-party app dependencies
-- [ ] Wire all new routes in App.tsx and add to AllversalEmpire grid
-- [ ] Add backend tRPC procedures for CRM contacts, email campaigns, broadcast management
-- [ ] Save final checkpoint and publish
+- [x] Build /sovereign-crm — master CRM replacing Mailchimp/HubSpot, Guardian database, email campaigns, segments, analytics
+- [x] Build /master-gateway — sovereign API hub, all owned routes, digital highways, system health dashboard
+- [x] Build /sovereign-bank-v2 — self-validating treasury, ERC-4626 vault, Zakat auto-router, bank-grade ledger
+- [x] Build /master-app — unified sovereign app launcher replacing all third-party app dependencies
+- [x] Wire all new routes in App.tsx and add to AllversalEmpire grid
+- [x] Add backend tRPC procedures for CRM contacts, email campaigns, broadcast management
+- [x] Save final checkpoint and publish
