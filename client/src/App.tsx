@@ -140,6 +140,11 @@ import Partnerships from "./pages/Partnerships";
 import SovereignCRM from "./pages/SovereignCRM";
 import MasterGateway from "./pages/MasterGateway";
 import MasterApp from "./pages/MasterApp";
+import SovereignBroadcast from "./pages/SovereignBroadcast";
+import AITwin from "./pages/AITwin";
+import NBADraftGenesis from "./pages/NBADraftGenesis";
+import SovereignManifesto from "./pages/SovereignManifesto";
+import ChaisNumberOne from "./pages/ChaisNumberOne";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -280,6 +285,11 @@ function Router() {
       <Route path={"/sovereign-crm"} component={SovereignCRM} />
       <Route path={"/master-gateway"} component={MasterGateway} />
       <Route path={"/master-app"} component={MasterApp} />
+      <Route path={"/sovereign-broadcast"} component={SovereignBroadcast} />
+      <Route path={"/ai-twin"} component={AITwin} />
+      <Route path={"/nba-draft-genesis"} component={NBADraftGenesis} />
+      <Route path={"/sovereign-manifesto"} component={SovereignManifesto} />
+      <Route path={"/chais-number-one"} component={ChaisNumberOne} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

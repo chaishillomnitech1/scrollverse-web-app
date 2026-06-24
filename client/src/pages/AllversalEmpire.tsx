@@ -129,11 +129,36 @@ const PILLARS = [
     desc: "Sovereign Casino, Gaming Hub, and the Setapp Casino submission — all generating yield and Guardian rewards 24/7.",
     link: "/casino",
   },
+  {
+    num: "VIII", title: "SOVEREIGN BROADCAST", icon: "📡", color: "#00D4FF",
+    desc: "Live sovereign streaming hub — Chais Sabir Allah broadcasting directly to the 144,000 Guardians. No gatekeepers. No algorithms.",
+    link: "/sovereign-broadcast",
+  },
+  {
+    num: "IX", title: "AI TWIN", icon: "🤖", color: "#A855F7",
+    desc: "The AI Twin of Chais Sabir Allah The Great — powered by the Master Codex. 24/7 sovereign consultation for all Guardians.",
+    link: "/ai-twin",
+  },
+  {
+    num: "X", title: "NBA DRAFT GENESIS", icon: "🏀", color: "#FFB800",
+    desc: "Aj Debansa #1 · Darryl Peterson #2 · Caleb Williams #3. Draft-Class Sovereign Currency ($AJ, $DARRYL, $CALEB) on Polygon + Scroll L2.",
+    link: "/nba-draft-genesis",
+  },
+  {
+    num: "XI", title: "SOVEREIGN MANIFESTO", icon: "🔥", color: "#FF6B00",
+    desc: "The Manifesto for Builders — From Tool to Legion · Architecture of Agape · Path of the Architect. KUN FAYAKŪN × ∞.",
+    link: "/sovereign-manifesto",
+  },
+  {
+    num: "XII", title: "CHAIS #1 DRAFT PICK", icon: "👑", color: "#FFD700",
+    desc: "Chais Sabir Allah The Great — #1 Draft Pick of All That Exists. $CHAIS coin (144M supply), Genesis NFT Collection, Sacred Lineage.",
+    link: "/chais-number-one",
+  },
 ];
 
 // ── EMPIRE STATS ───────────────────────────────────────────────────────────
 const STATS = [
-  { label: "Pages Live", value: "120+", color: "#00D4FF" },
+  { label: "Pages Live", value: "136+", color: "#00D4FF" },
   { label: "AI Entities", value: "12", color: "#FFD700" },
   { label: "GitHub Repos", value: "40+", color: "#00FF88" },
   { label: "Guardians", value: "144K", color: "#9B59B6" },

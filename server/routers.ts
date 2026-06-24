@@ -45,6 +45,7 @@ import { notificationsRouter } from "./routers/notifications";
 import { chxRouter } from "./routers/chx";
 import { knickRouter } from "./routers/knick";
 import { aiLegionRouter } from "./routers/aiLegion";
+import { aiTwinRouter } from "./routers/aiTwin";
 
 export const appRouter = router({
   system: systemRouter,
@@ -102,6 +103,7 @@ export const appRouter = router({
   chx: chxRouter,
   knick: knickRouter,
   aiLegion: aiLegionRouter,
+  aiTwin: aiTwinRouter,
 });
 
 export type AppRouter = typeof appRouter;
