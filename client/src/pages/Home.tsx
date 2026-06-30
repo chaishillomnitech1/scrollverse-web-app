@@ -520,6 +520,10 @@ export default function Home() {
     { label: "AI Hub", href: "/ai-hub" },
     { label: "Legion", href: "/legion" },
     { label: "Frequency", href: "/frequency" },
+    { label: "Sacred Freq", href: "/sacred-frequencies" },
+    { label: "Zernio", href: "/zernio-distribution" },
+    { label: "Fleet", href: "/red-diamond-fleet" },
+    { label: "♟️ OmniChess", href: "/omni-chess" },
     { label: "Staking", href: "/staking" },
     { label: "Governance", href: "/governance" },
     { label: "NFT Market", href: "/nft" },
@@ -902,6 +906,7 @@ export default function Home() {
               { icon: "🏛️", title: "DAO Governance", desc: "Snapshot and Aragon-based governance for 144,000 Guardians with transparent on-chain decision-making and proposal voting.", color: "#8B5CF6", stat: "144K Guardians" },
               { icon: "🌐", title: "Portal Interface", desc: "React-based sovereign portal with wallet integration, cosmic animations, and Liquid Sovereignty Afrofuturism aesthetics.", color: "#00FF88", stat: "33 Pages Live" },
               { icon: "📡", title: "SCCC Dashboard", desc: "Supreme Commander Control Core for real-time treasury visualization, royalty tracking, and empire-wide analytics.", color: "#EC4899", stat: "Real-Time" },
+              { icon: "♟️", title: "OmniChess™", desc: "Sovereign chess engine with gamified legacy learning, $LONDC wagering, AI opponents, and the Scroll Chess Sovereignty Protocol.", color: "#FFB800", stat: "Scroll Chess", href: "/omni-chess" },
               { icon: "🌸", title: "VibeCanvas Frequency Forge", desc: "Living Geometry visualization with Flower of Life, Metatron's Cube, and Sri Yantra patterns — sacred geometry made digital.", color: "#FFB800", stat: "528Hz–963Hz" },
             ].map((f, i) => (
               <div

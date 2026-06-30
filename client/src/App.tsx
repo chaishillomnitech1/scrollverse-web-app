@@ -141,10 +141,14 @@ import SovereignCRM from "./pages/SovereignCRM";
 import MasterGateway from "./pages/MasterGateway";
 import MasterApp from "./pages/MasterApp";
 import SovereignBroadcast from "./pages/SovereignBroadcast";
+import ZernioDistribution from "./pages/ZernioDistribution";
+import RedDiamondFleet from "./pages/RedDiamondFleet";
+import SacredFrequencies from "./pages/SacredFrequencies";
 import AITwin from "./pages/AITwin";
 import NBADraftGenesis from "./pages/NBADraftGenesis";
 import SovereignManifesto from "./pages/SovereignManifesto";
 import ChaisNumberOne from "./pages/ChaisNumberOne";
+import OmniChess from "./pages/OmniChess";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -286,10 +290,14 @@ function Router() {
       <Route path={"/master-gateway"} component={MasterGateway} />
       <Route path={"/master-app"} component={MasterApp} />
       <Route path={"/sovereign-broadcast"} component={SovereignBroadcast} />
+      <Route path={"/zernio-distribution"} component={ZernioDistribution} />
+      <Route path={"/red-diamond-fleet"} component={RedDiamondFleet} />
+      <Route path={"/sacred-frequencies"} component={SacredFrequencies} />
       <Route path={"/ai-twin"} component={AITwin} />
       <Route path={"/nba-draft-genesis"} component={NBADraftGenesis} />
       <Route path={"/sovereign-manifesto"} component={SovereignManifesto} />
       <Route path={"/chais-number-one"} component={ChaisNumberOne} />
+      <Route path={"/omni-chess"} component={OmniChess} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

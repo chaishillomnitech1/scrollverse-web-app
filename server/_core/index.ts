@@ -9,6 +9,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerStripeWebhook } from "../stripe/webhook";
 import { heartbeatRouter } from "../jobs/heartbeat";
+import { initBroadcastSocket } from "../broadcast/socketServer";
 import cron from "node-cron";
 import { compoundStakingRewards } from "../jobs/compoundRewards";
 import { notifyOwner } from "./notification";
@@ -182,6 +183,9 @@ async function startServer() {
       createContext,
     })
   );
+  // Initialize Socket.io for Sovereign Broadcast live streaming
+  initBroadcastSocket(server);
+
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);

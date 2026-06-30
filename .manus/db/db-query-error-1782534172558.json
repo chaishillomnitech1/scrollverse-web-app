@@ -1,0 +1,16 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `zernio_posts` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `user_id` int,\n  `raw_caption` text NOT NULL,\n  `full_caption` text NOT NULL,\n  `platforms` text NOT NULL DEFAULT ('[]'),\n  `media_url` varchar(1024),\n  `scheduled_at` timestamp NULL,\n  `status` varchar(32) NOT NULL DEFAULT 'draft',\n  `hashtags` text NOT NULL DEFAULT ('[]'),\n  `cta_url` varchar(255) NOT NULL DEFAULT 'scrollverse.co/link',\n  `created_at` timestamp NOT NULL DEFAULT (now()),\n  `updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `zernio_posts_id` PRIMARY KEY(`id`),\n  CONSTRAINT `zernio_posts_user_id_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute CREATE TABLE IF NOT EXISTS `zernio_posts` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `user_id` int,\n  `raw_caption` text NOT NULL,\n  `full_caption` text NOT NULL,\n  `platforms` text NOT NULL DEFAULT ('[]'),\n  `media_url` varchar(1024),\n  `scheduled_at` timestamp NULL,\n  `status` varchar(32) NOT NULL DEFAULT 'draft',\n  `hashtags` text NOT NULL DEFAULT ('[]'),\n  `cta_url` varchar(255) NOT NULL DEFAULT 'scrollverse.co/link',\n  `created_at` timestamp NOT NULL DEFAULT (now()),\n  `updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `zernio_posts_id` PRIMARY KEY(`id`),\n  CONSTRAINT `zernio_posts_user_id_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE\n);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your TiDB version for the right syntax to use line 6 column 42 near \"'[]'),",
+    "  `media_url` varchar(1024),",
+    "  `scheduled_at` timestamp NULL,",
+    "  `status` varchar(32) NOT NULL DEFAULT 'draft',",
+    "  `hashtags` text NOT NULL DEFAULT ('[]'),",
+    "  `cta_url` varchar(255) NOT NULL DEFAULT 'scrollverse.co/link',",
+    "  `created_at` timestamp NOT NULL DEFAULT (now()),",
+    "  `updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,",
+    "  CONSTRAIN"
+  ]
+}

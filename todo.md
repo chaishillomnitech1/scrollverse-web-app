@@ -1245,3 +1245,35 @@
 - [x] Add AI Twin tRPC procedure (invokeLLM with Chais persona system prompt)
 - [x] Add broadcast session tRPC procedure
 - [x] Save final checkpoint
+
+## Phase 21 — Session Persistence + Live Broadcast + Zernio + Knicks Father's Day NFT
+- [ ] Add ai_twin_sessions table to drizzle schema and push migration
+- [ ] Add aiTwin.createSession, aiTwin.getSessions, aiTwin.getSession tRPC procedures
+- [ ] Update AI Twin page to load/save sessions with full conversation history
+- [ ] Install socket.io and wire live WebSocket broadcast into Sovereign Broadcast page
+- [ ] Add broadcast_sessions table for live session tracking
+- [ ] Add Zernio social distribution page (/zernio) with multi-platform publish UI
+- [ ] Add ZERNIO_API_KEY secret and zernio tRPC router
+- [ ] Add Knicks Father's Day 2025 NFT card to /knicks-nft page
+- [ ] Wire all new routes in App.tsx
+- [ ] Run tests and save checkpoint
+
+## Phase 21 — Live Broadcast WebSocket, Zernio Distribution, Legion Vehicles
+
+- [ ] Wire Socket.io into Express server for real-time live broadcast
+- [ ] Update Sovereign Broadcast page with real WebSocket client
+- [ ] Build /zernio-distribution sovereign social distribution page
+- [ ] Add Legion vehicle navigation/protection feature to Red Diamond Fleet page
+
+## Phase 22 — OmniChess + Sacred Frequencies + Zernio + Fleet Integration
+
+- [x] Build OmniChess™ / Scroll Chess Sovereignty Protocol page (/omni-chess) with interactive board, AI opponents, $LONDC wagering, learning modules, piece lore, and leaderboard
+- [x] Add OmniChess to Home page nav links and Core Features grid
+- [x] Fix stripe webhook legionRewards field mismatch (memberId int, rewardType field name)
+- [x] Install publora/skills from GitHub into local skills directory
+- [x] Build Sacred Frequencies / Biofield Activation page (/sacred-frequencies) with Quranic integration
+- [x] Build Zernio Social Distribution page (/zernio-distribution) with tRPC backend and zernio_posts table
+- [x] Build Red Diamond Fleet page (/red-diamond-fleet) with Legion vehicle navigation and frequency shield protocol
+- [x] Upgrade SovereignBroadcast.tsx with real Socket.io client
+- [x] Fix all TypeScript errors in AITwin.tsx and ZernioDistribution.tsx
+- [x] All 16 tests passing (4 test files)

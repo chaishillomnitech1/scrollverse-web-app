@@ -431,6 +431,86 @@ export default function KnicksNFT() {
           </div>
         </section>
 
+        {/* FATHER'S DAY SPECIAL EDITION NFT */}
+        <section className="container py-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="text-xs font-mono mb-2" style={{ color: "#FFB800" }}>SPECIAL EDITION MINT</div>
+              <h2 className="text-3xl font-black text-white">Father's Day Genesis NFT</h2>
+              <p className="text-sm mt-2" style={{ color: "#8899AA" }}>Honoring the lineage — Knicks × ScrollVerse × Sovereign Legacy</p>
+            </div>
+            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,184,0,0.3)", background: "rgba(255,184,0,0.04)" }}>
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Image side */}
+                <div className="relative overflow-hidden" style={{ minHeight: "400px" }}>
+                  <img
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/knicks-fathers-day-2025_0256d1e5.jpg"
+                    alt="Knicks Father's Day — Jalen Brunson & Father"
+                    className="w-full h-full object-cover"
+                    style={{ minHeight: "400px" }}
+                  />
+                  <div className="absolute top-4 left-4">
+                    <div className="px-3 py-1 rounded-full text-xs font-bold" style={{ background: "rgba(255,184,0,0.9)", color: "#050B1A" }}>LEGENDARY</div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4" style={{ background: "linear-gradient(to top, rgba(5,11,26,0.95), transparent)" }}>
+                    <div className="text-xs font-mono" style={{ color: "#FFB800" }}>KNICKS × SCROLLVERSE × FATHER'S DAY 2025</div>
+                    <div className="text-white font-bold text-lg">Brunson Legacy Edition</div>
+                  </div>
+                </div>
+                {/* Details side */}
+                <div className="p-8 flex flex-col justify-between">
+                  <div>
+                    <div className="text-xs font-mono mb-3" style={{ color: "#FFB800" }}>NFT #FD-001 — GENESIS TIER</div>
+                    <h3 className="text-2xl font-black text-white mb-3">The Brunson Lineage</h3>
+                    <p className="text-sm leading-relaxed mb-6" style={{ color: "#8899AA" }}>
+                      Father's Day 2025 — Jalen Brunson and his father Rick Brunson, both NBA players, both warriors. This Genesis NFT commemorates the sovereign lineage of the Knicks dynasty and the sacred bond between fathers and sons. Sealed on Scroll zkEVM. Zakat-routed. Eternal.
+                    </p>
+                    <div className="space-y-3 mb-6">
+                      {[
+                        { label: "Edition", value: "Father's Day 2025 Genesis" },
+                        { label: "Supply", value: "144 — Soulbound" },
+                        { label: "Chain", value: "Scroll zkEVM" },
+                        { label: "Zakat", value: "7.77% auto-routed" },
+                        { label: "Lineage", value: "Jalen × Rick Brunson" },
+                        { label: "Rarity", value: "LEGENDARY — 1 of 144" },
+                      ].map(t => (
+                        <div key={t.label} className="flex justify-between text-sm">
+                          <span style={{ color: "#8899AA" }}>{t.label}</span>
+                          <span className="font-bold text-white">{t.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <div>
+                        <div className="text-xs" style={{ color: "#8899AA" }}>Mint Price</div>
+                        <div className="text-2xl font-black" style={{ color: "#FFB800" }}>0.144 ETH</div>
+                        <div className="text-xs" style={{ color: "#8899AA" }}>≈ $444 USD</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs" style={{ color: "#8899AA" }}>Minted</div>
+                        <div className="text-xl font-bold text-white">77 / 144</div>
+                        <div className="w-24 h-1.5 rounded-full mt-1" style={{ background: "rgba(255,184,0,0.2)" }}>
+                          <div className="h-full rounded-full" style={{ width: "53%", background: "#FFB800" }} />
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="w-full py-4 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-90"
+                      style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
+                      onClick={() => alert("Father's Day Genesis NFT mint coming soon — connect wallet to join the waitlist.")}
+                    >
+                      🏀 Mint Father's Day Genesis NFT
+                    </button>
+                    <div className="text-center text-xs" style={{ color: "#8899AA" }}>Scroll zkEVM · ERC-721 Soulbound · Zakat-routed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SMART CONTRACT INFO */}
         <section className="container py-20">
           <div className="max-w-3xl mx-auto rounded-2xl p-8" style={{ background: "rgba(255,107,53,0.04)", border: "1px solid rgba(255,107,53,0.2)" }}>

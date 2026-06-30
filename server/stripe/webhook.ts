@@ -125,12 +125,13 @@ async function handleEvent(event: Stripe.Event) {
 
               // Record in legion_rewards
               await db.insert(legionRewards).values({
-                memberId: creator.id.toString(),
-                type: "referral_commission",
+                memberId: creator.id,
+                memberName: creator.name,
+                rewardType: "referral_commission",
                 amount: loncReward.toString(),
                 currency: "LONDC",
                 reason: `Guardian activation via referral ${referralCode} — ${productTier} tier`,
-                impactScore: loncReward,
+                impactScore: Math.round(loncReward),
               });
 
               // Update creator application stats

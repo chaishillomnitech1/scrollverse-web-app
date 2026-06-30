@@ -1195,3 +1195,70 @@ export const sovereignCuts = mysqlTable("sovereign_cuts", {
 });
 export type SovereignCut = typeof sovereignCuts.$inferSelect;
 export type InsertSovereignCut = typeof sovereignCuts.$inferInsert;
+
+// ── AI TWIN SESSIONS ────────────────────────────────────────────────────────
+// Persistent conversation sessions with the Chais Sabir Allah AI Twin
+export const aiTwinSessions = mysqlTable("ai_twin_sessions", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").references(() => users.id, { onDelete: "cascade" }),
+  guestId: varchar("guestId", { length: 128 }), // for unauthenticated users
+  title: varchar("title", { length: 255 }).default("New Consultation").notNull(),
+  messages: text("messages").notNull().default("[]"), // JSON array of {role, content}
+  messageCount: int("messageCount").default(0).notNull(),
+  lastMessageAt: timestamp("lastMessageAt").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type AiTwinSession = typeof aiTwinSessions.$inferSelect;
+export type InsertAiTwinSession = typeof aiTwinSessions.$inferInsert;
+
+// ── BROADCAST SESSIONS ──────────────────────────────────────────────────────
+// Sovereign Broadcast live session tracking
+export const broadcastSessions = mysqlTable("broadcast_sessions", {
+  id: int("id").autoincrement().primaryKey(),
+  hostId: int("hostId").references(() => users.id, { onDelete: "set null" }),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  status: mysqlEnum("status", ["scheduled", "live", "ended"]).default("scheduled").notNull(),
+  viewerCount: int("viewerCount").default(0).notNull(),
+  peakViewers: int("peakViewers").default(0).notNull(),
+  streamKey: varchar("streamKey", { length: 128 }),
+  scheduledAt: timestamp("scheduledAt"),
+  startedAt: timestamp("startedAt"),
+  endedAt: timestamp("endedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type BroadcastSession = typeof broadcastSessions.$inferSelect;
+export type InsertBroadcastSession = typeof broadcastSessions.$inferInsert;
+
+// ── BROADCAST CHAT MESSAGES ─────────────────────────────────────────────────
+export const broadcastChat = mysqlTable("broadcast_chat", {
+  id: int("id").autoincrement().primaryKey(),
+  sessionId: int("sessionId").references(() => broadcastSessions.id, { onDelete: "cascade" }).notNull(),
+  userId: int("userId").references(() => users.id, { onDelete: "set null" }),
+  displayName: varchar("displayName", { length: 128 }).default("Guardian").notNull(),
+  tier: varchar("tier", { length: 64 }).default("Guardian").notNull(),
+  content: text("content").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type BroadcastChatMessage = typeof broadcastChat.$inferSelect;
+export type InsertBroadcastChatMessage = typeof broadcastChat.$inferInsert;
+
+// ── ZERNIO POSTS ─────────────────────────────────────────────────────────────
+// Sovereign Social Distribution — posts with auto-injected hashtags + CTA
+export const zernio_posts = mysqlTable("zernio_posts", {
+  id: int("id").autoincrement().primaryKey(),
+  user_id: int("user_id").references(() => users.id, { onDelete: "cascade" }),
+  raw_caption: text("raw_caption").notNull(),
+  full_caption: text("full_caption").notNull(),
+  platforms: text("platforms").notNull().default("[]"),
+  media_url: varchar("media_url", { length: 1024 }),
+  scheduled_at: timestamp("scheduled_at"),
+  status: varchar("status", { length: 32 }).default("draft").notNull(),
+  hashtags: text("hashtags").notNull().default("[]"),
+  cta_url: varchar("cta_url", { length: 255 }).default("scrollverse.co/link").notNull(),
+  created_at: timestamp("created_at").defaultNow().notNull(),
+  updated_at: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type ZernioPost = typeof zernio_posts.$inferSelect;
+export type InsertZernioPost = typeof zernio_posts.$inferInsert;
