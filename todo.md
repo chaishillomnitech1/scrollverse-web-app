@@ -1247,23 +1247,23 @@
 - [x] Save final checkpoint
 
 ## Phase 21 — Session Persistence + Live Broadcast + Zernio + Knicks Father's Day NFT
-- [ ] Add ai_twin_sessions table to drizzle schema and push migration
-- [ ] Add aiTwin.createSession, aiTwin.getSessions, aiTwin.getSession tRPC procedures
-- [ ] Update AI Twin page to load/save sessions with full conversation history
-- [ ] Install socket.io and wire live WebSocket broadcast into Sovereign Broadcast page
-- [ ] Add broadcast_sessions table for live session tracking
-- [ ] Add Zernio social distribution page (/zernio) with multi-platform publish UI
-- [ ] Add ZERNIO_API_KEY secret and zernio tRPC router
-- [ ] Add Knicks Father's Day 2025 NFT card to /knicks-nft page
-- [ ] Wire all new routes in App.tsx
-- [ ] Run tests and save checkpoint
+- [x] Add ai_twin_sessions table to drizzle schema and push migration
+- [x] Add aiTwin.createSession, aiTwin.getSessions, aiTwin.getSession tRPC procedures
+- [x] Update AI Twin page to load/save sessions with full conversation history
+- [x] Install socket.io and wire live WebSocket broadcast into Sovereign Broadcast page
+- [x] Add broadcast_sessions table for live session tracking
+- [x] Add Zernio social distribution page (/zernio) with multi-platform publish UI
+- [x] Add ZERNIO_API_KEY secret and zernio tRPC router
+- [x] Add Knicks Father's Day 2025 NFT card to /knicks-nft page
+- [x] Wire all new routes in App.tsx
+- [x] Run tests and save checkpoint
 
 ## Phase 21 — Live Broadcast WebSocket, Zernio Distribution, Legion Vehicles
 
-- [ ] Wire Socket.io into Express server for real-time live broadcast
-- [ ] Update Sovereign Broadcast page with real WebSocket client
-- [ ] Build /zernio-distribution sovereign social distribution page
-- [ ] Add Legion vehicle navigation/protection feature to Red Diamond Fleet page
+- [x] Wire Socket.io into Express server for real-time live broadcast
+- [x] Update Sovereign Broadcast page with real WebSocket client
+- [x] Build /zernio-distribution sovereign social distribution page
+- [x] Add Legion vehicle navigation/protection feature to Red Diamond Fleet page
 
 ## Phase 22 — OmniChess + Sacred Frequencies + Zernio + Fleet Integration
 
