@@ -1,4 +1,4 @@
-import { boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
+import { bigint, boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -1262,3 +1262,32 @@ export const zernio_posts = mysqlTable("zernio_posts", {
 });
 export type ZernioPost = typeof zernio_posts.$inferSelect;
 export type InsertZernioPost = typeof zernio_posts.$inferInsert;
+
+// ── OMNI CHESS PvP TABLES ─────────────────────────────────────────────────────
+export const chess_matches = mysqlTable("chess_matches", {
+  id: int("id").autoincrement().primaryKey(),
+  challenger_id: int("challenger_id").notNull(),
+  opponent_id: int("opponent_id").notNull(),
+  status: varchar("status", { length: 20 }).notNull().default("pending"),
+  wager_amount: int("wager_amount").notNull().default(0),
+  wager_tier: varchar("wager_tier", { length: 20 }).notNull().default("none"),
+  board_state: text("board_state"),
+  current_turn: varchar("current_turn", { length: 10 }).notNull().default("white"),
+  challenger_color: varchar("challenger_color", { length: 10 }).notNull().default("white"),
+  winner_id: int("winner_id"),
+  move_history: text("move_history"),
+  created_at: bigint("created_at", { mode: "number" }).notNull().default(0),
+  updated_at: bigint("updated_at", { mode: "number" }).notNull().default(0),
+});
+export type ChessMatch = typeof chess_matches.$inferSelect;
+export type InsertChessMatch = typeof chess_matches.$inferInsert;
+
+export const chess_wager_escrow = mysqlTable("chess_wager_escrow", {
+  id: int("id").autoincrement().primaryKey(),
+  match_id: int("match_id").notNull(),
+  user_id: int("user_id").notNull(),
+  amount: int("amount").notNull().default(0),
+  status: varchar("status", { length: 20 }).notNull().default("held"),
+  created_at: bigint("created_at", { mode: "number" }).notNull().default(0),
+});
+export type ChessWagerEscrow = typeof chess_wager_escrow.$inferSelect;

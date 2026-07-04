@@ -183,6 +183,13 @@
       "when": 1782534141098,
       "tag": "0025_flashy_hobgoblin",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "5",
+      "when": 1783137994447,
+      "tag": "0026_daily_mephistopheles",
+      "breakpoints": true
     }
   ]
 }

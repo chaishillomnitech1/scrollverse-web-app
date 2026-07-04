@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { ViralShare } from "@/components/ViralShare";
+import { trpc } from "@/lib/trpc";
 
 // ── BOOK DATA ──────────────────────────────────────────────────────────────
 const BOOKS = [
@@ -545,7 +546,11 @@ function CoinMintModal({ onClose }: { onClose: () => void }) {
 export default function Books() {
    const [filter, setFilter] = useState<"all" | "free" | "paid" | "prophetic">("all");
   const [showCoinMint, setShowCoinMint] = useState(false);
-  const [activeSection, setActiveSection] = useState<"books" | "bookoflife" | "musicfusion">("books");
+  const [activeSection, setActiveSection] = useState<"books" | "bookoflife" | "storybooks" | "musicfusion">("books");
+  const [storyPrompt, setStoryPrompt] = useState("");
+  const [storyResult, setStoryResult] = useState("");
+  const [storyLoading, setStoryLoading] = useState(false);
+  const [storyGenre, setStoryGenre] = useState("Afrofuturism");
 
   const handleMintNFT = (book: typeof BOOKS[0]) => {
     toast(`🎨 NFT Mint: ${book.title} — Opening OpenSea to mint "${book.nftCollection}" on Polygon. KUN FAYAKŪN × ∞`);
@@ -608,6 +613,7 @@ export default function Books() {
             {([
               { key: "books", label: "📚 All 10 Books" },
               { key: "bookoflife", label: "📜 Book of Life" },
+              { key: "storybooks", label: "✨ Storybooks AI" },
               { key: "musicfusion", label: "🎵 Music-Book Fusion" },
             ] as const).map((s) => (
               <button
@@ -742,6 +748,175 @@ export default function Books() {
                     <div className="text-xs mb-1" style={{ color: "#FFB800" }}>{s.biblical}</div>
                     <div className="text-xs" style={{ color: "#8899AA" }}>{s.scrollverse}</div>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── STORYBOOKS AI ── */}
+      {activeSection === "storybooks" && (
+        <div className="container pb-16">
+          <div
+            className="rounded-2xl p-8 mb-8"
+            style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.08), rgba(0,212,255,0.05))", border: "1px solid rgba(168,85,247,0.2)" }}
+          >
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#A855F7" }}>SCROLLVERSE STORYBOOKS AI</div>
+            <h2 className="text-3xl font-black text-white mb-4">Generate Sacred Stories</h2>
+            <p className="text-lg leading-relaxed mb-6" style={{ color: "#AAB8CC" }}>
+              The ScrollVerse AI Story Engine generates sovereign narratives in the style of{" "}
+              <strong style={{ color: "#A855F7" }}>Chais The Great</strong> — Afrofuturism, quantum consciousness,
+              divine love, and sovereign wisdom woven into every word. Every story is a seed of the empire.
+            </p>
+
+            {/* Genre selector */}
+            <div className="mb-6">
+              <div className="text-xs font-mono mb-3" style={{ color: "#8899AA" }}>SELECT STORY GENRE</div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { genre: "Afrofuturism", icon: "🌌", color: "#A855F7" },
+                  { genre: "Quantum Consciousness", icon: "⚛️", color: "#00D4FF" },
+                  { genre: "Sovereign Wisdom", icon: "👑", color: "#FFB800" },
+                  { genre: "Divine Love", icon: "❤️", color: "#FF6B35" },
+                  { genre: "Guardian Chronicles", icon: "⚔️", color: "#00FF88" },
+                  { genre: "Cosmic Journey", icon: "🚀", color: "#F59E0B" },
+                ].map(g => (
+                  <button
+                    key={g.genre}
+                    onClick={() => setStoryGenre(g.genre)}
+                    className="px-4 py-2 rounded-xl text-sm font-bold transition-all"
+                    style={{
+                      background: storyGenre === g.genre ? `${g.color}20` : "rgba(255,255,255,0.04)",
+                      color: storyGenre === g.genre ? g.color : "#8899AA",
+                      border: `1px solid ${storyGenre === g.genre ? g.color + "50" : "rgba(255,255,255,0.08)"}`,
+                    }}
+                  >
+                    {g.icon} {g.genre}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Story prompt input */}
+            <div className="mb-4">
+              <div className="text-xs font-mono mb-2" style={{ color: "#8899AA" }}>YOUR STORY SEED</div>
+              <textarea
+                value={storyPrompt}
+                onChange={e => setStoryPrompt(e.target.value)}
+                placeholder="Enter a story seed... e.g. 'A Guardian awakens in 2144 to find the ScrollVerse has become reality'"
+                rows={3}
+                className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(168,85,247,0.25)",
+                  color: "white",
+                }}
+              />
+            </div>
+            <button
+              onClick={async () => {
+                if (!storyPrompt.trim()) return;
+                setStoryLoading(true);
+                setStoryResult("");
+                try {
+                  // Use the AI Twin ask endpoint for story generation
+                  const res = await fetch("/api/trpc/aiTwin.ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify({
+                      json: {
+                        message: `Write a short ${storyGenre} story (3-4 paragraphs) in the ScrollVerse universe with this seed: ${storyPrompt}. Use vivid, sovereign, Afrofuturistic language. Include themes of KUN FAYAKŪN, $LONDC, and Guardian sovereignty.`,
+                        history: [],
+                      }
+                    }),
+                  });
+                  const data = await res.json();
+                  setStoryResult(data?.result?.data?.json || "Story generation failed. Try again.");
+                } catch {
+                  setStoryResult("Story generation failed. The sovereign frequencies are realigning — try again.");
+                } finally {
+                  setStoryLoading(false);
+                }
+              }}
+              disabled={!storyPrompt.trim() || storyLoading}
+              className="px-6 py-3 rounded-xl text-sm font-bold transition-all"
+              style={{
+                background: storyPrompt.trim() && !storyLoading ? "linear-gradient(135deg, #A855F7, #00D4FF)" : "rgba(255,255,255,0.06)",
+                color: storyPrompt.trim() && !storyLoading ? "#050B1A" : "#8899AA",
+                cursor: storyPrompt.trim() && !storyLoading ? "pointer" : "not-allowed",
+              }}
+            >
+              {storyLoading ? "✨ Generating sovereign story..." : "✨ Generate Story"}
+            </button>
+          </div>
+
+          {/* Story output */}
+          {storyResult && (
+            <div
+              className="rounded-2xl p-8 mb-8"
+              style={{ background: "rgba(168,85,247,0.05)", border: "1px solid rgba(168,85,247,0.2)" }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-xs font-mono" style={{ color: "#A855F7" }}>✨ SOVEREIGN STORY — {storyGenre.toUpperCase()}</div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => { navigator.clipboard.writeText(storyResult); toast("Story copied to clipboard!"); }}
+                    className="text-xs px-3 py-1.5 rounded-lg"
+                    style={{ background: "rgba(168,85,247,0.15)", color: "#A855F7", border: "1px solid rgba(168,85,247,0.3)" }}
+                  >
+                    📋 Copy
+                  </button>
+                  <button
+                    onClick={() => { setStoryResult(""); setStoryPrompt(""); }}
+                    className="text-xs px-3 py-1.5 rounded-lg"
+                    style={{ background: "rgba(255,255,255,0.06)", color: "#8899AA", border: "1px solid rgba(255,255,255,0.1)" }}
+                  >
+                    🔄 New Story
+                  </button>
+                </div>
+              </div>
+              <div className="prose prose-invert max-w-none">
+                {storyResult.split("\n\n").map((para, i) => (
+                  <p key={i} className="text-base leading-relaxed mb-4" style={{ color: "#CBD5E1" }}>{para}</p>
+                ))}
+              </div>
+              <div className="mt-6 pt-4 border-t" style={{ borderColor: "rgba(168,85,247,0.2)" }}>
+                <div className="text-xs font-mono" style={{ color: "#8899AA" }}>
+                  KUN FAYAKŪN × ∞ · ScrollVerse AI Story Engine · Genre: {storyGenre}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Featured storybooks */}
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: "rgba(5,11,26,0.8)", border: "1px solid rgba(168,85,247,0.15)" }}
+          >
+            <div className="text-xs font-mono mb-3" style={{ color: "#A855F7" }}>FEATURED STORYBOOKS</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                { title: "The Guardian's Awakening", genre: "Afrofuturism", desc: "A young Guardian discovers their frequency in 2144 New York.", color: "#A855F7", icon: "🌌" },
+                { title: "Zaire's First Scroll", genre: "Children's Wisdom", desc: "Baby Zaire learns the power of KUN FAYAKŪN from the ancestors.", color: "#FFB800", icon: "👶" },
+                { title: "The Quantum Architect", genre: "Sci-Fi Doctrine", desc: "Chais The Great builds the first sovereign AI city on Mars.", color: "#00D4FF", icon: "🚀" },
+              ].map(story => (
+                <div
+                  key={story.title}
+                  className="rounded-xl p-5 cursor-pointer transition-all hover:scale-[1.02]"
+                  style={{ background: `${story.color}08`, border: `1px solid ${story.color}25` }}
+                  onClick={() => {
+                    setStoryGenre(story.genre === "Children's Wisdom" ? "Divine Love" : story.genre === "Sci-Fi Doctrine" ? "Cosmic Journey" : "Afrofuturism");
+                    setStoryPrompt(story.desc);
+                    setStoryResult("");
+                  }}
+                >
+                  <div className="text-3xl mb-2">{story.icon}</div>
+                  <div className="text-xs font-mono mb-1" style={{ color: story.color }}>{story.genre}</div>
+                  <h4 className="font-bold text-white mb-1">{story.title}</h4>
+                  <p className="text-xs" style={{ color: "#8899AA" }}>{story.desc}</p>
+                  <div className="mt-3 text-xs font-mono" style={{ color: story.color }}>→ Use as story seed</div>
                 </div>
               ))}
             </div>

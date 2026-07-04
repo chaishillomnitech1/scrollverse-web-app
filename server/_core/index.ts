@@ -10,6 +10,7 @@ import { serveStatic, setupVite } from "./vite";
 import { registerStripeWebhook } from "../stripe/webhook";
 import { heartbeatRouter } from "../jobs/heartbeat";
 import { initBroadcastSocket } from "../broadcast/socketServer";
+import { initChessSocket } from "../chess/chessSocket";
 import cron from "node-cron";
 import { compoundStakingRewards } from "../jobs/compoundRewards";
 import { notifyOwner } from "./notification";
@@ -185,6 +186,8 @@ async function startServer() {
   );
   // Initialize Socket.io for Sovereign Broadcast live streaming
   initBroadcastSocket(server);
+  // Initialize Socket.io for OmniChess PvP live matches
+  initChessSocket(server);
 
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {

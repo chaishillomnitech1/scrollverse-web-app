@@ -149,6 +149,8 @@ import NBADraftGenesis from "./pages/NBADraftGenesis";
 import SovereignManifesto from "./pages/SovereignManifesto";
 import ChaisNumberOne from "./pages/ChaisNumberOne";
 import OmniChess from "./pages/OmniChess";
+import KnicksLegacy from "./pages/KnicksLegacy";
+import ThothHawk from "./pages/ThothHawk";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -298,6 +300,8 @@ function Router() {
       <Route path={"/sovereign-manifesto"} component={SovereignManifesto} />
       <Route path={"/chais-number-one"} component={ChaisNumberOne} />
       <Route path={"/omni-chess"} component={OmniChess} />
+      <Route path={"/knicks-legacy"} component={KnicksLegacy} />
+      <Route path={"/thoth-hawk"} component={ThothHawk} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -453,6 +453,42 @@ export default function ZernioDistribution() {
                   >
                     ⏰ Schedule (optional)
                   </label>
+                  {/* Sovereign-aligned time presets */}
+                  <div className="mb-3">
+                    <div className="text-xs font-mono mb-2" style={{ color: "#8899AA" }}>SOVEREIGN TIME PRESETS</div>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { label: "4:44 AM", hour: 4, min: 44, desc: "Manifestation Hour" },
+                        { label: "7:07 AM", hour: 7, min: 7, desc: "Divine Opening" },
+                        { label: "11:11 AM", hour: 11, min: 11, desc: "Portal Alignment" },
+                        { label: "3:33 PM", hour: 15, min: 33, desc: "Trinity Frequency" },
+                        { label: "8:17 PM", hour: 20, min: 17, desc: "7:77 Sovereign Hour" },
+                        { label: "11:11 PM", hour: 23, min: 11, desc: "Night Seal" },
+                      ].map(preset => {
+                        const now = new Date();
+                        const target = new Date(now);
+                        target.setHours(preset.hour, preset.min, 0, 0);
+                        if (target <= now) target.setDate(target.getDate() + 1);
+                        const iso = target.toISOString().slice(0, 16);
+                        return (
+                          <button
+                            key={preset.label}
+                            type="button"
+                            onClick={() => setScheduledAt(iso)}
+                            className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
+                            style={{
+                              background: scheduledAt === iso ? "rgba(0,255,136,0.2)" : "rgba(255,255,255,0.04)",
+                              border: `1px solid ${scheduledAt === iso ? "rgba(0,255,136,0.5)" : "rgba(255,255,255,0.1)"}`,
+                              color: scheduledAt === iso ? "#00FF88" : "#8899AA",
+                            }}
+                            title={preset.desc}
+                          >
+                            {preset.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                   <input
                     type="datetime-local"
                     value={scheduledAt}
@@ -465,6 +501,11 @@ export default function ZernioDistribution() {
                       colorScheme: "dark",
                     }}
                   />
+                  {scheduledAt && (
+                    <div className="mt-1 text-xs font-mono" style={{ color: "#A855F7" }}>
+                      ⏳ Scheduled: {new Date(scheduledAt).toLocaleString()} — KUN FAYAKūN × ∞
+                    </div>
+                  )}
                 </div>
 
                 {/* Actions */}

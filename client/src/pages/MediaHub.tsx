@@ -60,7 +60,7 @@ const ARTISTS = [
 ];
 
 export default function MediaHub() {
-  const [activeTab, setActiveTab] = useState<"overview" | "upload" | "artists" | "dsps" | "revenue" | "partnerships">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "player" | "gallery" | "upload" | "artists" | "dsps" | "revenue" | "partnerships">("overview");
   const [uploadType, setUploadType] = useState<"music" | "video" | null>(null);
   
 
@@ -72,6 +72,8 @@ export default function MediaHub() {
 
   const tabs = [
     { id: "overview", label: "📊 Overview" },
+    { id: "player", label: "🎧 Music Player" },
+    { id: "gallery", label: "🖼️ Visual Gallery" },
     { id: "upload", label: "📤 Upload" },
     { id: "artists", label: "🎤 Artists" },
     { id: "dsps", label: "🌐 DSP Network" },
@@ -408,6 +410,156 @@ export default function MediaHub() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* MUSIC PLAYER */}
+        {activeTab === "player" && (
+          <div>
+            <div className="text-xs font-mono tracking-widest mb-4" style={{ color: "#1DB954" }}>◎ SOVEREIGN MUSIC PLAYER</div>
+            <p className="text-sm mb-8" style={{ color: "#8899AA" }}>
+              Stream the ScrollVerse catalog across all platforms. Every frequency is a sovereign transmission.
+              KUN FAYAKŪN × ∞
+            </p>
+
+            {/* Featured tracks */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                { title: "Kun Fayakun (Original)", artist: "Chais The Great", freq: "528Hz", color: "#FFB800", platform: "spotify", embedId: "37i9dQZF1DXcBWIGoYBM5M" },
+                { title: "Sovereign Rise", artist: "Chais The Great", freq: "963Hz", color: "#00D4FF", platform: "spotify", embedId: "37i9dQZF1DXcBWIGoYBM5M" },
+                { title: "Agape Eternal", artist: "Chais The Great", freq: "432Hz", color: "#00FF88", platform: "spotify", embedId: "37i9dQZF1DXcBWIGoYBM5M" },
+                { title: "Zaire Legacy", artist: "Chais The Great", freq: "444Hz", color: "#A855F7", platform: "spotify", embedId: "37i9dQZF1DXcBWIGoYBM5M" },
+              ].map((track, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl overflow-hidden"
+                  style={{ background: `${track.color}08`, border: `1px solid ${track.color}25` }}
+                >
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <div>
+                        <div className="font-bold text-white">{track.title}</div>
+                        <div className="text-xs" style={{ color: track.color }}>{track.artist}</div>
+                      </div>
+                      <div
+                        className="px-2 py-0.5 rounded-full text-xs font-mono"
+                        style={{ background: `${track.color}20`, color: track.color, border: `1px solid ${track.color}40` }}
+                      >
+                        {track.freq}
+                      </div>
+                    </div>
+                    {/* Spotify embed */}
+                    <iframe
+                      src={`https://open.spotify.com/embed/playlist/${track.embedId}?utm_source=generator&theme=0`}
+                      width="100%"
+                      height="80"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      className="rounded-xl"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* DSP Links */}
+            <div
+              className="rounded-2xl p-6"
+              style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(29,185,84,0.2)" }}
+            >
+              <div className="text-xs font-mono mb-4" style={{ color: "#1DB954" }}>STREAM ON ALL PLATFORMS</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { name: "Spotify", url: "https://open.spotify.com", icon: "🎧", color: "#1DB954" },
+                  { name: "Apple Music", url: "https://music.apple.com", icon: "🎵", color: "#FC3C44" },
+                  { name: "YouTube Music", url: "https://music.youtube.com", icon: "▶️", color: "#FF0000" },
+                  { name: "SoundCloud", url: "https://soundcloud.com", icon: "☁️", color: "#FF5500" },
+                  { name: "Tidal", url: "https://tidal.com", icon: "🌊", color: "#00D4FF" },
+                  { name: "Amazon Music", url: "https://music.amazon.com", icon: "🎶", color: "#FF9900" },
+                  { name: "Audiomack", url: "https://audiomack.com", icon: "🔊", color: "#FFA500" },
+                  { name: "Boomplay", url: "https://www.boomplay.com", icon: "🌍", color: "#00C853" },
+                ].map(p => (
+                  <a
+                    key={p.name}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 p-3 rounded-xl transition-all hover:scale-[1.02]"
+                    style={{ background: `${p.color}10`, border: `1px solid ${p.color}25`, textDecoration: "none" }}
+                  >
+                    <span>{p.icon}</span>
+                    <span className="text-sm font-bold" style={{ color: p.color }}>{p.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* VISUAL GALLERY */}
+        {activeTab === "gallery" && (
+          <div>
+            <div className="text-xs font-mono tracking-widest mb-4" style={{ color: "#A855F7" }}>◎ SOVEREIGN VISUAL GALLERY</div>
+            <p className="text-sm mb-8" style={{ color: "#8899AA" }}>
+              The ScrollVerse visual empire — album art, sovereign imagery, Afrofuturistic visuals, and digital art
+              from the ScrollVerse universe. Every image is a frequency. Every visual is a decree.
+            </p>
+
+            {/* Gallery grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+              {[
+                { title: "Sovereign Rise", category: "Album Art", color: "#FFB800", emoji: "🌟", desc: "The dawn of the empire" },
+                { title: "Guardian Protocol", category: "Visual Art", color: "#00D4FF", emoji: "⚡", desc: "144,000 Guardians rising" },
+                { title: "Quantum Frequencies", category: "Digital Art", color: "#A855F7", emoji: "⚛️", desc: "Sacred sound visualized" },
+                { title: "Zaire's World", category: "Family", color: "#00FF88", emoji: "👶", desc: "The heir to the empire" },
+                { title: "MSG Forever", category: "Sports Art", color: "#F58426", emoji: "🏀", desc: "Knicks sovereignty" },
+                { title: "$LONDC Genesis", category: "Crypto Art", color: "#FFD700", emoji: "💰", desc: "The sovereign coin" },
+                { title: "KUN FAYAKŪN", category: "Sacred Art", color: "#FF6B35", emoji: "✨", desc: "Be! And it is." },
+                { title: "Omni-Vault", category: "Architecture", color: "#00D4FF", emoji: "🌌", desc: "The infinite vault" },
+                { title: "Sacred Frequencies", category: "Sound Art", color: "#1DB954", emoji: "🎵", desc: "963Hz visualized" },
+                { title: "AI Legion", category: "Digital Art", color: "#EC4899", emoji: "🤖", desc: "The sovereign AI army" },
+                { title: "Sovereign Bank", category: "Finance Art", color: "#FFB800", emoji: "🏦", desc: "The wealth temple" },
+                { title: "ScrollVerse Map", category: "Cartography", color: "#00D4FF", emoji: "🗺️", desc: "The empire mapped" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:shadow-lg"
+                  style={{ background: `${item.color}08`, border: `1px solid ${item.color}25` }}
+                >
+                  <div
+                    className="aspect-square flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${item.color}15, ${item.color}05)` }}
+                  >
+                    <div className="text-6xl">{item.emoji}</div>
+                  </div>
+                  <div className="p-3">
+                    <div className="text-xs font-mono mb-0.5" style={{ color: item.color }}>{item.category}</div>
+                    <div className="font-bold text-white text-sm">{item.title}</div>
+                    <div className="text-xs" style={{ color: "#8899AA" }}>{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Upload to gallery CTA */}
+            <div
+              className="rounded-2xl p-8 text-center"
+              style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.08), rgba(0,212,255,0.05))", border: "1px solid rgba(168,85,247,0.2)" }}
+            >
+              <div className="text-4xl mb-3">🖼️</div>
+              <h3 className="text-xl font-black text-white mb-2">Upload to the Gallery</h3>
+              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>
+                Add your sovereign visual art to the ScrollVerse gallery. NFT-mintable on Polygon.
+              </p>
+              <button
+                onClick={() => setActiveTab("upload")}
+                className="px-6 py-3 rounded-xl font-bold text-sm"
+                style={{ background: "linear-gradient(135deg, #A855F7, #00D4FF)", color: "#050B1A" }}
+              >
+                📤 Upload Visual Art
+              </button>
             </div>
           </div>
         )}

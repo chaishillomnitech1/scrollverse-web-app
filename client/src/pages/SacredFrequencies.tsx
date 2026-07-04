@@ -3,7 +3,7 @@
  * Quranic resonance, solfeggio frequencies, and sovereign biofield protocols
  * Design: Deep cosmic dark with frequency-colored accents
  */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "wouter";
 
 // ── Frequency data ─────────────────────────────────────────────────────────
@@ -313,6 +313,138 @@ export default function SacredFrequencies() {
   const [activationProtocol, setActivationProtocol] = useState<typeof PROTOCOLS[0] | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // ── Web Audio API ──
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const leftOscRef = useRef<OscillatorNode | null>(null);
+  const rightOscRef = useRef<OscillatorNode | null>(null);
+  const gainRef = useRef<GainNode | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animFrameRef = useRef<number | null>(null);
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [audioVolume, setAudioVolume] = useState(0.5);
+
+  const stopAudio = useCallback(() => {
+    if (leftOscRef.current) { try { leftOscRef.current.stop(); } catch {} leftOscRef.current = null; }
+    if (rightOscRef.current) { try { rightOscRef.current.stop(); } catch {} rightOscRef.current = null; }
+    if (gainRef.current) gainRef.current = null;
+    if (animFrameRef.current) { cancelAnimationFrame(animFrameRef.current); animFrameRef.current = null; }
+    setAudioPlaying(false);
+  }, []);
+
+  const playFrequency = useCallback((hzStr: string) => {
+    stopAudio();
+    const hz = parseFloat(hzStr);
+    if (isNaN(hz)) return;
+
+    // Create or reuse AudioContext
+    if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
+      audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+    }
+    const ctx = audioCtxRef.current;
+    if (ctx.state === "suspended") ctx.resume();
+
+    // Analyser for visualization
+    const analyser = ctx.createAnalyser();
+    analyser.fftSize = 256;
+    analyserRef.current = analyser;
+
+    // Master gain
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(audioVolume, ctx.currentTime);
+    gainRef.current = gain;
+
+    // Channel merger for binaural (left = base freq, right = base + 7Hz beat)
+    const merger = ctx.createChannelMerger(2);
+
+    // Left oscillator (base frequency)
+    const leftOsc = ctx.createOscillator();
+    leftOsc.type = "sine";
+    leftOsc.frequency.setValueAtTime(hz, ctx.currentTime);
+    const leftGain = ctx.createGain();
+    leftGain.gain.setValueAtTime(0.5, ctx.currentTime);
+    leftOsc.connect(leftGain);
+    leftGain.connect(merger, 0, 0);
+    leftOscRef.current = leftOsc;
+
+    // Right oscillator (binaural beat offset: +7Hz for theta/alpha range)
+    const beatOffset = hz < 300 ? 4 : hz < 600 ? 7 : 10;
+    const rightOsc = ctx.createOscillator();
+    rightOsc.type = "sine";
+    rightOsc.frequency.setValueAtTime(hz + beatOffset, ctx.currentTime);
+    const rightGain = ctx.createGain();
+    rightGain.gain.setValueAtTime(0.5, ctx.currentTime);
+    rightOsc.connect(rightGain);
+    rightGain.connect(merger, 0, 1);
+    rightOscRef.current = rightOsc;
+
+    merger.connect(analyser);
+    analyser.connect(gain);
+    gain.connect(ctx.destination);
+
+    leftOsc.start();
+    rightOsc.start();
+    setAudioPlaying(true);
+
+    // Canvas visualization
+    const drawWave = () => {
+      const canvas = canvasRef.current;
+      if (!canvas || !analyserRef.current) return;
+      const canvasCtx = canvas.getContext("2d");
+      if (!canvasCtx) return;
+      const bufferLength = analyserRef.current.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+      analyserRef.current.getByteTimeDomainData(dataArray);
+      canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+      canvasCtx.fillStyle = "rgba(3,8,18,0.8)";
+      canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+      const freq = SOLFEGGIO.find(f => f.hz === hzStr);
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = freq?.color ?? "#00D4FF";
+      canvasCtx.shadowBlur = 8;
+      canvasCtx.shadowColor = freq?.color ?? "#00D4FF";
+      canvasCtx.beginPath();
+      const sliceWidth = canvas.width / bufferLength;
+      let x = 0;
+      for (let i = 0; i < bufferLength; i++) {
+        const v = dataArray[i] / 128.0;
+        const y = (v * canvas.height) / 2;
+        if (i === 0) canvasCtx.moveTo(x, y);
+        else canvasCtx.lineTo(x, y);
+        x += sliceWidth;
+      }
+      canvasCtx.lineTo(canvas.width, canvas.height / 2);
+      canvasCtx.stroke();
+      animFrameRef.current = requestAnimationFrame(drawWave);
+    };
+    drawWave();
+  }, [stopAudio, audioVolume]);
+
+  // Update gain when volume changes
+  useEffect(() => {
+    if (gainRef.current && audioCtxRef.current) {
+      gainRef.current.gain.setValueAtTime(audioVolume, audioCtxRef.current.currentTime);
+    }
+  }, [audioVolume]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      stopAudio();
+      if (audioCtxRef.current) { audioCtxRef.current.close(); audioCtxRef.current = null; }
+    };
+  }, [stopAudio]);
+
+  const handleFrequencyActivate = (hz: string) => {
+    if (activeHz === hz) {
+      setActiveHz(null);
+      stopAudio();
+    } else {
+      setActiveHz(hz);
+      playFrequency(hz);
+    }
+  };
+
   const activeFreq = SOLFEGGIO.find((f) => f.hz === activeHz);
 
   const startActivation = (protocol: typeof PROTOCOLS[0]) => {
@@ -466,12 +598,61 @@ export default function SacredFrequencies() {
               Each frequency resonates with a specific aspect of divine healing and sovereign consciousness.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Audio Controls */}
+              <div className="col-span-full mb-2">
+                <div
+                  className="rounded-xl p-4 flex flex-wrap items-center gap-4"
+                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(0,212,255,0.15)" }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-2.5 h-2.5 rounded-full"
+                      style={{ background: audioPlaying ? "#00FF88" : "#8899AA", boxShadow: audioPlaying ? "0 0 8px #00FF88" : "none", animation: audioPlaying ? "pulse 1.5s infinite" : "none" }}
+                    />
+                    <span className="text-xs font-mono" style={{ color: audioPlaying ? "#00FF88" : "#8899AA" }}>
+                      {audioPlaying ? `${activeHz} BINAURAL ACTIVE` : "SELECT A FREQUENCY TO ACTIVATE"}
+                    </span>
+                  </div>
+                  {audioPlaying && (
+                    <>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono" style={{ color: "#8899AA" }}>VOL</span>
+                        <input
+                          type="range"
+                          min="0"
+                          max="1"
+                          step="0.05"
+                          value={audioVolume}
+                          onChange={e => setAudioVolume(parseFloat(e.target.value))}
+                          className="w-24 accent-yellow-400"
+                        />
+                        <span className="text-xs font-mono" style={{ color: "#FFB800" }}>{Math.round(audioVolume * 100)}%</span>
+                      </div>
+                      <button
+                        onClick={stopAudio}
+                        className="px-3 py-1 rounded-lg text-xs font-bold"
+                        style={{ background: "rgba(255,68,68,0.15)", color: "#FF4444", border: "1px solid rgba(255,68,68,0.3)" }}
+                      >
+                        ⏹ Stop
+                      </button>
+                    </>
+                  )}
+                  <canvas
+                    ref={canvasRef}
+                    width={300}
+                    height={48}
+                    className="rounded-lg ml-auto"
+                    style={{ background: "rgba(0,0,0,0.3)", display: audioPlaying ? "block" : "none" }}
+                  />
+                </div>
+              </div>
+
               {SOLFEGGIO.map((freq) => (
                 <FrequencyCard
                   key={freq.hz}
                   freq={freq}
                   active={activeHz === freq.hz}
-                  onActivate={(hz) => setActiveHz(activeHz === hz ? null : hz)}
+                  onActivate={handleFrequencyActivate}
                 />
               ))}
             </div>

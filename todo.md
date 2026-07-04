@@ -1277,3 +1277,31 @@
 - [x] Upgrade SovereignBroadcast.tsx with real Socket.io client
 - [x] Fix all TypeScript errors in AITwin.tsx and ZernioDistribution.tsx
 - [x] All 16 tests passing (4 test files)
+
+## Phase 23 — PvP Chess, Audio Engine, Zernio Scheduler, Books, Media Hub
+
+- [ ] Create scrollverse-sovereign-dev reusable skill (done above, mark complete)
+- [ ] OmniChess PvP: Add chess_matches and chess_wagers DB tables
+- [ ] OmniChess PvP: Add Socket.io /api/chess namespace with match lifecycle events
+- [ ] OmniChess PvP: Update OmniChess.tsx with challenge/accept/play/resign live PvP UI
+- [ ] Sacred Frequencies: Wire Web Audio API binaural tone generator (963Hz, 528Hz, 432Hz, 174Hz, 285Hz)
+- [ ] Zernio Auto-Scheduler: Read periodic-updates.md and add scheduled_posts table + heartbeat job
+- [ ] Zernio Auto-Scheduler: Update ZernioDistribution.tsx with schedule queue UI
+- [ ] Books page: Highlight all authored books (Book of Life, Nyasia's Cookbook, OmniCodex, etc.) with rich cards
+- [ ] Storybooks/Gemini Motion Picture: Build /storybooks page with animated cinematic story cards
+- [ ] Media Hub: Full operational media page with S3 upload, music streaming, visuals gallery, video player
+- [ ] Add all new routes to App.tsx and Home.tsx nav
+- [ ] Run tests and save checkpoint
+- [ ] Knicks Legacy NFT Collection: Build /knicks-legacy page (Anthony Mason RIP, Mitchell Robinson Farewell, John Starks, Jamal Crawford, J.R. Smith) with digital coins and fun facts
+
+## Phase 23 — Completed Items (continued)
+- [x] OmniChess PvP: Add Socket.io /api/chess-socket namespace with match lifecycle events (chessSocket.ts)
+- [x] OmniChess PvP: Update OmniChess.tsx with Live PvP tab — challenge/accept/play/resign live PvP UI
+- [x] Sacred Frequencies: Wire Web Audio API binaural tone generator (963Hz, 528Hz, 432Hz, 174Hz, 285Hz) + canvas visualizer
+- [x] Zernio Auto-Scheduler: Add sovereign time preset buttons to ZernioDistribution.tsx schedule UI
+- [x] Knicks Legacy NFT Collection: Build /knicks-legacy page (Anthony Mason RIP, Mitchell Robinson Farewell, John Starks, Jamal Crawford, J.R. Smith) with digital coins and fun facts
+- [x] Books page: Add AI Storybooks section with animated story generator powered by LLM
+- [x] Media Hub: Add Music Player tab (Spotify/SoundCloud embeds) and Visual Gallery tab
+- [x] Thoth-Hawk OKA Jewelry Showcase: Build /thoth-hawk page — full sovereign jewelry collection (pendant, chain, ring, bracelets, ChronoVisor watch, crown) with 4 tabs, frequency encoding, OKA system, commission flow
+- [x] Home.tsx nav: Add Knicks Legacy, Media Hub, Thoth-Hawk OKA links
+- [x] App.tsx: Add /thoth-hawk route

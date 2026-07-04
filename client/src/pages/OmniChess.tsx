@@ -7,13 +7,14 @@
  * frequency resonance overlays, Afrofuturist chess mythology
  */
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { io, Socket } from "socket.io-client";
 
 // ── CONSTANTS ──────────────────────────────────────────────────────────────────
 
@@ -419,7 +420,138 @@ function LeaderboardRow({ player, index }: { player: typeof TOP_PLAYERS[0]; inde
 
 export default function OmniChess() {
   const { user, isAuthenticated } = useAuth();
-  const [activeTab, setActiveTab] = useState<"play" | "learn" | "wager" | "lore" | "leaderboard">("play");
+  const [activeTab, setActiveTab] = useState<"play" | "pvp" | "learn" | "wager" | "lore" | "leaderboard">("play");
+
+  // ── PvP Socket State ──
+  const [pvpSocket, setPvpSocket] = useState<Socket | null>(null);
+  const [pvpConnected, setPvpConnected] = useState(false);
+  const [pvpMatchId, setPvpMatchId] = useState<string | null>(null);
+  const [pvpOpponent, setPvpOpponent] = useState<string | null>(null);
+  const [pvpBoard, setPvpBoard] = useState<(string | null)[][]>(INITIAL_BOARD);
+  const [pvpTurn, setPvpTurn] = useState<"white" | "black">("white");
+  const [pvpStatus, setPvpStatus] = useState<"idle" | "searching" | "matched" | "playing" | "finished">("idle");
+  const [pvpWager, setPvpWager] = useState<number>(100);
+  const [pvpChallengeUser, setPvpChallengeUser] = useState("");
+  const [pvpMessages, setPvpMessages] = useState<{ from: string; text: string; ts: number }[]>([]);
+  const [pvpMyColor, setPvpMyColor] = useState<"white" | "black">("white");
+  const [pvpSelectedSquare, setPvpSelectedSquare] = useState<[number, number] | null>(null);
+  const [pvpMoveCount, setPvpMoveCount] = useState(0);
+  const [pvpTimer, setPvpTimer] = useState(600); // 10 min per side
+  const pvpTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Connect to chess socket when PvP tab is active
+  useEffect(() => {
+    if (activeTab !== "pvp") return;
+    const sock = io(window.location.origin, {
+      path: "/api/chess-socket",
+      transports: ["websocket", "polling"],
+    });
+    sock.on("connect", () => {
+      setPvpConnected(true);
+      toast.success("⚡ Connected to OmniChess PvP Arena");
+    });
+    sock.on("disconnect", () => {
+      setPvpConnected(false);
+    });
+    sock.on("matched", (data: { matchId: string; opponent: string; color: "white" | "black"; wager: number }) => {
+      setPvpMatchId(data.matchId);
+      setPvpOpponent(data.opponent);
+      setPvpMyColor(data.color);
+      setPvpStatus("playing");
+      setPvpBoard(INITIAL_BOARD);
+      setPvpTurn("white");
+      setPvpMoveCount(0);
+      setPvpTimer(600);
+      toast.success(`⚔️ Matched vs ${data.opponent} — You play ${data.color.toUpperCase()}!`);
+    });
+    sock.on("move", (data: { board: (string | null)[][]; turn: "white" | "black"; moveCount: number }) => {
+      setPvpBoard(data.board);
+      setPvpTurn(data.turn);
+      setPvpMoveCount(data.moveCount);
+    });
+    sock.on("chat", (data: { from: string; text: string; ts: number }) => {
+      setPvpMessages(prev => [...prev.slice(-49), data]);
+    });
+    sock.on("resigned", (data: { player: string }) => {
+      setPvpStatus("finished");
+      toast.info(`🏳️ ${data.player} resigned — Victory sealed!`);
+    });
+    sock.on("gameOver", (data: { winner: string; reason: string }) => {
+      setPvpStatus("finished");
+      toast.success(`🏆 ${data.winner} wins — ${data.reason}`);
+    });
+    sock.on("challenge", (data: { from: string; wager: number; matchId: string }) => {
+      toast(
+        `⚔️ ${data.from} challenges you! ${data.wager} $LONDC wager`,
+        {
+          action: {
+            label: "Accept",
+            onClick: () => sock.emit("acceptChallenge", { matchId: data.matchId }),
+          },
+          duration: 15000,
+        }
+      );
+    });
+    setPvpSocket(sock);
+    return () => {
+      sock.disconnect();
+      setPvpSocket(null);
+      setPvpConnected(false);
+    };
+  }, [activeTab]);
+
+  // PvP timer countdown
+  useEffect(() => {
+    if (pvpStatus === "playing") {
+      pvpTimerRef.current = setInterval(() => setPvpTimer(t => Math.max(0, t - 1)), 1000);
+    } else {
+      if (pvpTimerRef.current) clearInterval(pvpTimerRef.current);
+    }
+    return () => { if (pvpTimerRef.current) clearInterval(pvpTimerRef.current); };
+  }, [pvpStatus]);
+
+  const handlePvpSquareClick = useCallback((row: number, col: number) => {
+    if (pvpStatus !== "playing" || !pvpSocket) return;
+    const isMyTurn = pvpTurn === pvpMyColor;
+    if (!isMyTurn) { toast.error("Wait for your turn"); return; }
+    if (!pvpSelectedSquare) {
+      const piece = pvpBoard[row][col];
+      if (!piece) return;
+      const isWhitePiece = piece === piece.toUpperCase();
+      if ((pvpMyColor === "white" && !isWhitePiece) || (pvpMyColor === "black" && isWhitePiece)) {
+        toast.error("That's not your piece");
+        return;
+      }
+      setPvpSelectedSquare([row, col]);
+    } else {
+      const [fromRow, fromCol] = pvpSelectedSquare;
+      if (fromRow === row && fromCol === col) { setPvpSelectedSquare(null); return; }
+      pvpSocket.emit("move", { matchId: pvpMatchId, from: [fromRow, fromCol], to: [row, col] });
+      setPvpSelectedSquare(null);
+    }
+  }, [pvpStatus, pvpSocket, pvpTurn, pvpMyColor, pvpBoard, pvpSelectedSquare, pvpMatchId]);
+
+  const handlePvpChallenge = () => {
+    if (!pvpSocket || !pvpChallengeUser.trim()) return;
+    pvpSocket.emit("challenge", { to: pvpChallengeUser.trim(), wager: pvpWager });
+    toast.success(`⚔️ Challenge sent to ${pvpChallengeUser}!`);
+    setPvpStatus("searching");
+  };
+
+  const handlePvpResign = () => {
+    if (!pvpSocket || !pvpMatchId) return;
+    pvpSocket.emit("resign", { matchId: pvpMatchId });
+    setPvpStatus("finished");
+    toast.info("🏳️ You resigned — Honor in defeat.");
+  };
+
+  const handleQuickMatch = () => {
+    if (!pvpSocket) return;
+    if (!isAuthenticated) { toast.error("Login to play PvP"); return; }
+    pvpSocket.emit("quickMatch", { wager: pvpWager });
+    setPvpStatus("searching");
+    toast.success("🔍 Searching for a worthy opponent...");
+  };
   const [selectedOpponent, setSelectedOpponent] = useState<string | null>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [pulseActive, setPulseActive] = useState(false);
@@ -447,6 +579,7 @@ export default function OmniChess() {
 
   const TABS = [
     { id: "play", label: "⚔️ Play", },
+    { id: "pvp", label: "🌐 Live PvP", },
     { id: "learn", label: "📚 Learn", },
     { id: "wager", label: "💎 Wager", },
     { id: "lore", label: "🕋 Lore", },
@@ -632,6 +765,297 @@ export default function OmniChess() {
                 ))}
               </div>
             </div>
+          </div>
+        )}
+
+        {/* ── LIVE PvP TAB ── */}
+        {activeTab === "pvp" && (
+          <div className="flex flex-col gap-8">
+            {/* Header */}
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: pvpConnected ? FREQ_GREEN : "#FF4444", boxShadow: pvpConnected ? `0 0 8px ${FREQ_GREEN}` : "none", animation: pvpConnected ? "pulse 2s infinite" : "none" }}
+                />
+                <span className="text-xs font-mono" style={{ color: pvpConnected ? FREQ_GREEN : "#FF4444" }}>
+                  {pvpConnected ? "ARENA ONLINE" : "CONNECTING..."}
+                </span>
+              </div>
+              <div className="text-xs font-mono mb-1" style={{ color: FREQ_CYAN }}>OMNI CHESS™ LIVE PvP ARENA</div>
+              <h2 className="text-3xl font-black text-white mb-2">Sovereign vs Sovereign</h2>
+              <p className="text-sm max-w-xl mx-auto" style={{ color: "#8899AA" }}>
+                Real-time chess with $LONDC wagers. Every move synced live. Every victory sealed on-chain.
+              </p>
+            </div>
+
+            {/* Status: Idle / Searching / Playing / Finished */}
+            {pvpStatus === "idle" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Quick Match */}
+                <div className="rounded-xl p-6" style={{ background: BG_CARD, border: `1px solid ${FREQ_CYAN}30` }}>
+                  <div className="text-xs font-mono mb-3" style={{ color: FREQ_CYAN }}>QUICK MATCH</div>
+                  <h3 className="text-xl font-black text-white mb-2">Find a Random Opponent</h3>
+                  <p className="text-sm mb-4" style={{ color: "#8899AA" }}>Matched by wager tier. First available Guardian in the arena.</p>
+                  <div className="mb-4">
+                    <div className="text-xs font-mono mb-2" style={{ color: FREQ_GOLD }}>SELECT WAGER</div>
+                    <div className="grid grid-cols-4 gap-2">
+                      {[100, 500, 1000, 5000].map(w => (
+                        <button
+                          key={w}
+                          onClick={() => setPvpWager(w)}
+                          className="py-2 rounded-lg text-xs font-bold transition-all"
+                          style={{
+                            background: pvpWager === w ? `${FREQ_GOLD}30` : "rgba(255,255,255,0.03)",
+                            border: `1px solid ${pvpWager === w ? FREQ_GOLD + "60" : BORDER_GLOW}`,
+                            color: pvpWager === w ? FREQ_GOLD : "#8899AA",
+                          }}
+                        >
+                          {w.toLocaleString()}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <Button
+                    onClick={handleQuickMatch}
+                    disabled={!pvpConnected}
+                    className="w-full font-bold"
+                    style={{ background: `linear-gradient(135deg, ${FREQ_CYAN}, ${FREQ_GREEN})`, color: "#050B1A", border: "none" }}
+                  >
+                    🔍 Find Match — {pvpWager.toLocaleString()} $LONDC
+                  </Button>
+                </div>
+
+                {/* Direct Challenge */}
+                <div className="rounded-xl p-6" style={{ background: BG_CARD, border: `1px solid ${FREQ_GOLD}30` }}>
+                  <div className="text-xs font-mono mb-3" style={{ color: FREQ_GOLD }}>DIRECT CHALLENGE</div>
+                  <h3 className="text-xl font-black text-white mb-2">Challenge a Guardian</h3>
+                  <p className="text-sm mb-4" style={{ color: "#8899AA" }}>Enter a Guardian's username to send a direct challenge with your chosen wager.</p>
+                  <input
+                    type="text"
+                    value={pvpChallengeUser}
+                    onChange={e => setPvpChallengeUser(e.target.value)}
+                    placeholder="Guardian username..."
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none mb-3"
+                    style={{ background: "rgba(255,255,255,0.05)", border: `1px solid ${BORDER_GLOW}`, color: "white" }}
+                  />
+                  <Button
+                    onClick={handlePvpChallenge}
+                    disabled={!pvpConnected || !pvpChallengeUser.trim()}
+                    className="w-full font-bold"
+                    style={{ background: `linear-gradient(135deg, ${FREQ_GOLD}30, ${FREQ_GOLD}10)`, border: `1px solid ${FREQ_GOLD}50`, color: FREQ_GOLD }}
+                  >
+                    ⚔️ Send Challenge — {pvpWager.toLocaleString()} $LONDC
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {pvpStatus === "searching" && (
+              <div className="text-center py-16">
+                <div className="text-6xl mb-6" style={{ animation: "spin 3s linear infinite" }}>♔</div>
+                <div className="text-xl font-black text-white mb-2">Searching the Arena...</div>
+                <div className="text-sm mb-6" style={{ color: "#8899AA" }}>Scanning for a worthy sovereign opponent at {pvpWager.toLocaleString()} $LONDC</div>
+                <div className="flex justify-center gap-2 mb-6">
+                  {[0,1,2].map(i => (
+                    <div key={i} className="w-2 h-2 rounded-full" style={{ background: FREQ_CYAN, animation: `pulse 1.5s ${i * 0.5}s infinite` }} />
+                  ))}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => { setPvpStatus("idle"); }}
+                  style={{ borderColor: FREQ_GOLD + "40", color: FREQ_GOLD }}
+                >
+                  Cancel Search
+                </Button>
+              </div>
+            )}
+
+            {pvpStatus === "playing" && (
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Live Board */}
+                <div className="lg:col-span-2 flex flex-col gap-4">
+                  {/* Match header */}
+                  <div
+                    className="rounded-xl p-4 flex items-center justify-between"
+                    style={{ background: BG_CARD, border: `1px solid ${FREQ_CYAN}30` }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">{pvpMyColor === "white" ? "♔" : "♚"}</div>
+                      <div>
+                        <div className="font-bold text-white text-sm">You ({pvpMyColor})</div>
+                        <div className="text-xs font-mono" style={{ color: pvpTurn === pvpMyColor ? FREQ_GREEN : "#8899AA" }}>
+                          {pvpTurn === pvpMyColor ? "● YOUR TURN" : "○ WAITING"}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="font-mono text-lg font-bold" style={{ color: FREQ_GOLD }}>
+                        {Math.floor(pvpTimer / 60)}:{String(pvpTimer % 60).padStart(2, "0")}
+                      </div>
+                      <div className="text-xs" style={{ color: "#8899AA" }}>Move #{pvpMoveCount + 1}</div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <div className="font-bold text-white text-sm text-right">{pvpOpponent}</div>
+                        <div className="text-xs font-mono text-right" style={{ color: pvpTurn !== pvpMyColor ? FREQ_GREEN : "#8899AA" }}>
+                          {pvpTurn !== pvpMyColor ? "● THEIR TURN" : "○ WAITING"}
+                        </div>
+                      </div>
+                      <div className="text-2xl">{pvpMyColor === "white" ? "♚" : "♔"}</div>
+                    </div>
+                  </div>
+
+                  {/* PvP Chess Board */}
+                  <div
+                    className="rounded-xl overflow-hidden mx-auto"
+                    style={{ border: `2px solid ${pvpTurn === pvpMyColor ? FREQ_GREEN + "60" : BORDER_GLOW}`, maxWidth: "480px", width: "100%" }}
+                  >
+                    {pvpBoard.map((row, ri) => (
+                      <div key={ri} className="flex">
+                        {row.map((piece, ci) => {
+                          const isLight = (ri + ci) % 2 === 0;
+                          const isSelected = pvpSelectedSquare?.[0] === ri && pvpSelectedSquare?.[1] === ci;
+                          const isWhitePiece = piece && piece === piece.toUpperCase();
+                          const pieceSymbol = piece ? ({
+                            K: "♔", Q: "♕", R: "♖", B: "♗", N: "♘", P: "♙",
+                            k: "♚", q: "♛", r: "♜", b: "♝", n: "♞", p: "♟",
+                          }[piece] ?? piece) : null;
+                          return (
+                            <div
+                              key={ci}
+                              onClick={() => handlePvpSquareClick(ri, ci)}
+                              className="flex-1 aspect-square flex items-center justify-center cursor-pointer transition-all duration-150"
+                              style={{
+                                background: isSelected
+                                  ? `${FREQ_GREEN}40`
+                                  : isLight
+                                  ? "rgba(255,184,0,0.08)"
+                                  : "rgba(0,0,0,0.4)",
+                                border: isSelected ? `1px solid ${FREQ_GREEN}` : "none",
+                                fontSize: "clamp(14px, 3vw, 28px)",
+                              }}
+                            >
+                              {pieceSymbol && (
+                                <span style={{ color: isWhitePiece ? "#FFFFFF" : FREQ_GOLD, textShadow: `0 0 8px ${isWhitePiece ? "rgba(255,255,255,0.5)" : FREQ_GOLD + "80"}` }}>
+                                  {pieceSymbol}
+                                </span>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-center gap-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handlePvpResign}
+                      style={{ borderColor: "#FF444440", color: "#FF4444" }}
+                    >
+                      🏳️ Resign
+                    </Button>
+                    <div
+                      className="px-4 py-2 rounded-lg text-xs font-mono"
+                      style={{ background: `${FREQ_GOLD}15`, border: `1px solid ${FREQ_GOLD}30`, color: FREQ_GOLD }}
+                    >
+                      💎 {pvpWager.toLocaleString()} $LONDC wagered
+                    </div>
+                  </div>
+                </div>
+
+                {/* Chat + Info Panel */}
+                <div className="flex flex-col gap-4">
+                  <div
+                    className="rounded-xl p-4 flex flex-col gap-3"
+                    style={{ background: BG_CARD, border: `1px solid ${BORDER_GLOW}`, height: "400px" }}
+                  >
+                    <div className="text-xs font-mono" style={{ color: FREQ_CYAN }}>SOVEREIGN CHAT</div>
+                    <div className="flex-1 overflow-y-auto flex flex-col gap-2">
+                      {pvpMessages.length === 0 && (
+                        <div className="text-xs text-center py-4" style={{ color: "#8899AA" }}>No messages yet — speak sovereign</div>
+                      )}
+                      {pvpMessages.map((msg, i) => (
+                        <div key={i} className="text-xs">
+                          <span style={{ color: FREQ_GOLD }}>{msg.from}: </span>
+                          <span style={{ color: "#CCCCCC" }}>{msg.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="Send message..."
+                        className="flex-1 px-3 py-2 rounded-lg text-xs outline-none"
+                        style={{ background: "rgba(255,255,255,0.05)", border: `1px solid ${BORDER_GLOW}`, color: "white" }}
+                        onKeyDown={e => {
+                          if (e.key === "Enter" && pvpSocket && pvpMatchId) {
+                            pvpSocket.emit("chat", { matchId: pvpMatchId, text: (e.target as HTMLInputElement).value });
+                            (e.target as HTMLInputElement).value = "";
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Match stats */}
+                  <div className="rounded-xl p-4" style={{ background: BG_CARD, border: `1px solid ${BORDER_GLOW}` }}>
+                    <div className="text-xs font-mono mb-3" style={{ color: FREQ_GOLD }}>MATCH INFO</div>
+                    <div className="grid grid-cols-2 gap-3 text-center">
+                      <div>
+                        <div className="text-lg font-black" style={{ color: FREQ_CYAN }}>{pvpMoveCount}</div>
+                        <div className="text-xs" style={{ color: "#8899AA" }}>Moves</div>
+                      </div>
+                      <div>
+                        <div className="text-lg font-black" style={{ color: FREQ_GOLD }}>{pvpWager.toLocaleString()}</div>
+                        <div className="text-xs" style={{ color: "#8899AA" }}>$LONDC</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {pvpStatus === "finished" && (
+              <div className="text-center py-16">
+                <div className="text-6xl mb-4">🏆</div>
+                <h3 className="text-3xl font-black text-white mb-2">Game Over</h3>
+                <p className="text-sm mb-6" style={{ color: "#8899AA" }}>The board has spoken. The sovereign has been revealed.</p>
+                <Button
+                  onClick={() => { setPvpStatus("idle"); setPvpBoard(INITIAL_BOARD); setPvpMatchId(null); setPvpOpponent(null); }}
+                  className="font-bold px-8"
+                  style={{ background: `linear-gradient(135deg, ${FREQ_GOLD}, ${FREQ_CYAN})`, color: "#050B1A", border: "none" }}
+                >
+                  ⚔️ Play Again
+                </Button>
+              </div>
+            )}
+
+            {/* Arena Stats */}
+            {pvpStatus === "idle" && (
+              <div
+                className="rounded-xl p-6"
+                style={{ background: `linear-gradient(135deg, ${FREQ_CYAN}05, ${FREQ_GOLD}05)`, border: `1px solid ${BORDER_GLOW}` }}
+              >
+                <div className="text-xs font-mono mb-4" style={{ color: FREQ_CYAN }}>ARENA STATS</div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  {[
+                    { label: "Online Guardians", value: "247", color: FREQ_GREEN },
+                    { label: "Active Matches", value: "44", color: FREQ_CYAN },
+                    { label: "$LONDC in Play", value: "144K", color: FREQ_GOLD },
+                    { label: "Games Today", value: "777", color: FREQ_PURPLE },
+                  ].map(s => (
+                    <div key={s.label}>
+                      <div className="text-2xl font-black font-mono" style={{ color: s.color }}>{s.value}</div>
+                      <div className="text-xs" style={{ color: "#8899AA" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
