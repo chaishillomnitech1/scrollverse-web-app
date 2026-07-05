@@ -675,7 +675,48 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10 pt-24 pb-16">
-          <div className="max-w-3xl">
+          <div className="flex flex-col lg:flex-row items-start gap-12">
+          {/* Throne NFT visual — right side */}
+          <div className="hidden lg:block flex-shrink-0 order-2 lg:order-2 mt-8" style={{ width: "320px" }}>
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                border: "1px solid rgba(255,184,0,0.35)",
+                boxShadow: "0 0 60px rgba(255,184,0,0.15), 0 0 120px rgba(0,212,255,0.08)",
+              }}
+            >
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png"
+                alt="KUN FAYAKŪN — Chais The Great on the Throne"
+                className="w-full object-cover"
+                style={{ maxHeight: "480px", objectPosition: "top" }}
+              />
+              {/* NFT overlay badge */}
+              <div
+                className="absolute bottom-0 left-0 right-0 p-4"
+                style={{
+                  background: "linear-gradient(0deg, rgba(5,11,26,0.95) 0%, transparent 100%)",
+                }}
+              >
+                <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#FFB800" }}>
+                  ◉ SOVEREIGN NFT — 1 OF 1
+                </div>
+                <div className="text-sm font-black text-white mb-1">KUN FAYAKŪN</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>Chais The Great · Throne of Sovereignty</div>
+                <div className="flex items-center gap-2 mt-2">
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                  <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE ON POLYGON</span>
+                </div>
+              </div>
+            </div>
+            {/* Social proof */}
+            <div className="mt-3 flex items-center gap-2 justify-center">
+              <span className="text-xs font-mono" style={{ color: "#8899AA" }}>@chaisthegreat_mrwalk</span>
+              <span className="text-xs" style={{ color: "#445566" }}>·</span>
+              <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>#ScrollVerse.co</span>
+            </div>
+          </div>
+          <div className="flex-1 order-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-12" style={{ background: "#00D4FF" }} />
               <span className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>
@@ -759,6 +800,7 @@ export default function Home() {
                 style={{ background: "rgba(255,184,0,0.1)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}
               >🔗 Copy Link</button>
             </div>
+          </div>
           </div>
         </div>
       </section>

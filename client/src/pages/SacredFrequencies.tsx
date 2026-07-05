@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 /**
  * SACRED FREQUENCIES — ScrollVerse Biofield Activation Center
  * Quranic resonance, solfeggio frequencies, and sovereign biofield protocols
@@ -473,6 +474,7 @@ export default function SacredFrequencies() {
   }, [activationRunning, activationProtocol]);
 
   return (
+    <PageTransition>
     <div
       className="min-h-screen"
       style={{ background: "#030812", fontFamily: "'Space Grotesk', sans-serif" }}
@@ -877,5 +879,6 @@ export default function SacredFrequencies() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

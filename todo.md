@@ -1280,19 +1280,19 @@
 
 ## Phase 23 — PvP Chess, Audio Engine, Zernio Scheduler, Books, Media Hub
 
-- [ ] Create scrollverse-sovereign-dev reusable skill (done above, mark complete)
-- [ ] OmniChess PvP: Add chess_matches and chess_wagers DB tables
-- [ ] OmniChess PvP: Add Socket.io /api/chess namespace with match lifecycle events
-- [ ] OmniChess PvP: Update OmniChess.tsx with challenge/accept/play/resign live PvP UI
-- [ ] Sacred Frequencies: Wire Web Audio API binaural tone generator (963Hz, 528Hz, 432Hz, 174Hz, 285Hz)
-- [ ] Zernio Auto-Scheduler: Read periodic-updates.md and add scheduled_posts table + heartbeat job
-- [ ] Zernio Auto-Scheduler: Update ZernioDistribution.tsx with schedule queue UI
-- [ ] Books page: Highlight all authored books (Book of Life, Nyasia's Cookbook, OmniCodex, etc.) with rich cards
-- [ ] Storybooks/Gemini Motion Picture: Build /storybooks page with animated cinematic story cards
-- [ ] Media Hub: Full operational media page with S3 upload, music streaming, visuals gallery, video player
-- [ ] Add all new routes to App.tsx and Home.tsx nav
-- [ ] Run tests and save checkpoint
-- [ ] Knicks Legacy NFT Collection: Build /knicks-legacy page (Anthony Mason RIP, Mitchell Robinson Farewell, John Starks, Jamal Crawford, J.R. Smith) with digital coins and fun facts
+- [x] Create scrollverse-sovereign-dev reusable skill (done above, mark complete)
+- [x] OmniChess PvP: Add chess_matches and chess_wagers DB tables
+- [x] OmniChess PvP: Add Socket.io /api/chess namespace with match lifecycle events
+- [x] OmniChess PvP: Update OmniChess.tsx with challenge/accept/play/resign live PvP UI
+- [x] Sacred Frequencies: Wire Web Audio API binaural tone generator (963Hz, 528Hz, 432Hz, 174Hz, 285Hz)
+- [x] Zernio Auto-Scheduler: Read periodic-updates.md and add scheduled_posts table + heartbeat job
+- [x] Zernio Auto-Scheduler: Update ZernioDistribution.tsx with schedule queue UI
+- [x] Books page: Highlight all authored books (Book of Life, Nyasia's Cookbook, OmniCodex, etc.) with rich cards
+- [x] Storybooks/Gemini Motion Picture: Build /storybooks page with animated cinematic story cards
+- [x] Media Hub: Full operational media page with S3 upload, music streaming, visuals gallery, video player
+- [x] Add all new routes to App.tsx and Home.tsx nav
+- [x] Run tests and save checkpoint
+- [x] Knicks Legacy NFT Collection: Build /knicks-legacy page (Anthony Mason RIP, Mitchell Robinson Farewell, John Starks, Jamal Crawford, J.R. Smith) with digital coins and fun facts
 
 ## Phase 23 — Completed Items (continued)
 - [x] OmniChess PvP: Add Socket.io /api/chess-socket namespace with match lifecycle events (chessSocket.ts)
@@ -1305,3 +1305,13 @@
 - [x] Thoth-Hawk OKA Jewelry Showcase: Build /thoth-hawk page — full sovereign jewelry collection (pendant, chain, ring, bracelets, ChronoVisor watch, crown) with 4 tabs, frequency encoding, OKA system, commission flow
 - [x] Home.tsx nav: Add Knicks Legacy, Media Hub, Thoth-Hawk OKA links
 - [x] App.tsx: Add /thoth-hawk route
+
+## Phase 23+ — Skill, Transitions, Gem Effects, Throne Visual
+
+- [x] Validate and deliver scrollverse-sovereign-dev skill (Phase 23 process knowledge added)
+- [x] Build SacredGeometryLoader component (Flower of Life canvas animation, 963Hz pulse)
+- [x] Build PageTransition component (fade + slide-up, 420ms ease-out)
+- [x] Add interactive GemInspector to ThothHawk OKA jewelry cards (3 modes: Normal, 10x Loupe, Spectrum)
+- [x] Upload KUN-FAYAKUN throne image to CDN and add to Home page hero as sovereign NFT card
+- [x] Wire PageTransition into all Phase 23 modules: SacredFrequencies, MediaHub, ZernioDistribution, OmniChess, Books, KnicksLegacy, ThothHawk
+- [x] All 16 tests passing

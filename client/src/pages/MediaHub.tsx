@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 /*
  * SCROLLVERSE MEDIA HUB — Sovereign DSP Empire
  * Surpasses Spotify, Apple Music, Vydia, SoundCloud in every dimension
@@ -82,6 +83,7 @@ export default function MediaHub() {
   ] as const;
 
   return (
+    <PageTransition>
     <div className="min-h-screen" style={{ background: "linear-gradient(180deg,#050B1A 0%,#0A0F1E 50%,#050B1A 100%)", fontFamily: "'Space Grotesk',sans-serif" }}>
       
 
@@ -586,5 +588,6 @@ export default function MediaHub() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

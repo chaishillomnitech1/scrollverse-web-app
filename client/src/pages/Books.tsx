@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 /*
  * SCROLLVERSE BOOKS DSP STATION
  * The Sacred Library of Chais Kenyatta Hill — Sabir Allah The Great
@@ -569,6 +570,7 @@ export default function Books() {
   });
 
   return (
+    <PageTransition>
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
       {showCoinMint && <CoinMintModal onClose={() => setShowCoinMint(false)} />}
 
@@ -1194,5 +1196,6 @@ export default function Books() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

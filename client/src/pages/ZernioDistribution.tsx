@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 /**
  * ZERNIO — Sovereign Social Distribution Hub
  * ScrollVerse's own DSP-style social post scheduler & distributor
@@ -216,6 +217,7 @@ export default function ZernioDistribution() {
   }, [posts]);
 
   return (
+    <PageTransition>
     <div
       className="min-h-screen"
       style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}
@@ -868,5 +870,6 @@ export default function ZernioDistribution() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

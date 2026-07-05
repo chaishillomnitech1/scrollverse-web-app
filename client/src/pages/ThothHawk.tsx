@@ -7,6 +7,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import PageTransition from "@/components/PageTransition";
 
 // ── FREQUENCY ENCODINGS ──────────────────────────────────────────────────────
 const SACRED_FREQUENCIES = [
@@ -156,6 +157,203 @@ const ENCODED_BEINGS = [
   { name: "Chais Sabir Allah", role: "Sovereign Architect, Flamebearer", freq: "∞Hz", color: "#FF6B35", symbol: "🔥" },
 ];
 
+// ── GEM INSPECT COMPONENT ────────────────────────────────────────────────────
+function GemInspector({ piece }: { piece: typeof COLLECTION[0] }) {
+  const [hoveredGem, setHoveredGem] = useState<string | null>(null);
+  const [inspectMode, setInspectMode] = useState<"normal" | "loupe" | "spectrum">("normal");
+
+  // Extract gem types from materials
+  const gems = piece.materials.filter((m) =>
+    m.toLowerCase().includes("diamond") ||
+    m.toLowerCase().includes("ruby") ||
+    m.toLowerCase().includes("emerald") ||
+    m.toLowerCase().includes("alexandrite") ||
+    m.toLowerCase().includes("sapphire")
+  );
+
+  const gemColors: Record<string, string> = {
+    diamond: "#E8F4FD",
+    "vs1 diamond": "#E8F4FD",
+    "white diamond": "#F0F8FF",
+    "vivid pink diamond": "#FFB6C1",
+    "vivid blue diamond": "#87CEEB",
+    "vivid green diamond": "#90EE90",
+    "vivid orange diamond": "#FFA07A",
+    "yellow diamond": "#FFEC8B",
+    "colored diamond": "#DDA0DD",
+    ruby: "#DC143C",
+    "pigeon-blood ruby": "#8B0000",
+    emerald: "#50C878",
+    "colombian emerald": "#00A86B",
+    alexandrite: "#4B0082",
+    sapphire: "#0F52BA",
+  };
+
+  function getGemColor(gem: string): string {
+    const key = gem.toLowerCase();
+    for (const [k, v] of Object.entries(gemColors)) {
+      if (key.includes(k)) return v;
+    }
+    return piece.color;
+  }
+
+  const modes = [
+    { id: "normal" as const, label: "Normal", icon: "👁" },
+    { id: "loupe" as const, label: "10x Loupe", icon: "🔍" },
+    { id: "spectrum" as const, label: "Spectrum", icon: "🌈" },
+  ];
+
+  return (
+    <div
+      className="rounded-xl p-4 mt-4"
+      style={{
+        background: "rgba(5,11,26,0.6)",
+        border: `1px solid ${piece.color}25`,
+      }}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-xs font-mono tracking-widest" style={{ color: piece.color }}>
+          💎 GEM INSPECTOR
+        </div>
+        <div className="flex gap-1">
+          {modes.map((m) => (
+            <button
+              key={m.id}
+              onClick={() => setInspectMode(m.id)}
+              className="px-2 py-1 rounded text-xs font-mono transition-all duration-200"
+              style={{
+                background: inspectMode === m.id ? `${piece.color}20` : "transparent",
+                color: inspectMode === m.id ? piece.color : "#8899AA",
+                border: `1px solid ${inspectMode === m.id ? piece.color + "40" : "transparent"}`,
+              }}
+            >
+              {m.icon} {m.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {gems.length > 0 ? (
+        <div className="flex flex-wrap gap-2">
+          {gems.map((gem) => {
+            const gc = getGemColor(gem);
+            const isHovered = hoveredGem === gem;
+            return (
+              <div
+                key={gem}
+                onMouseEnter={() => setHoveredGem(gem)}
+                onMouseLeave={() => setHoveredGem(null)}
+                className="relative cursor-pointer select-none"
+                style={{
+                  transition: "all 0.35s cubic-bezier(0.34,1.56,0.64,1)",
+                  transform: isHovered
+                    ? "perspective(400px) rotateY(18deg) rotateX(-6deg) scale(1.12)"
+                    : "perspective(400px) rotateY(0deg) rotateX(0deg) scale(1)",
+                }}
+              >
+                <div
+                  className="px-3 py-2 rounded-lg text-xs font-medium"
+                  style={{
+                    background: isHovered
+                      ? `linear-gradient(135deg, ${gc}40, ${gc}15)`
+                      : `${gc}15`,
+                    border: `1px solid ${gc}${isHovered ? "80" : "35"}`,
+                    color: isHovered ? gc : "#AAB8CC",
+                    boxShadow: isHovered
+                      ? `0 0 20px ${gc}50, 0 0 40px ${gc}20, inset 0 1px 0 ${gc}40`
+                      : "none",
+                    transition: "all 0.35s cubic-bezier(0.34,1.56,0.64,1)",
+                  }}
+                >
+                  {/* Facet shimmer */}
+                  {isHovered && (
+                    <div
+                      className="absolute inset-0 rounded-lg pointer-events-none"
+                      style={{
+                        background: `linear-gradient(135deg, transparent 30%, ${gc}30 50%, transparent 70%)`,
+                        animation: "shimmer 1.2s ease-in-out infinite",
+                      }}
+                    />
+                  )}
+                  {/* Sparkle particles */}
+                  {isHovered && ["-top-1 -right-1", "-bottom-1 -left-1", "top-0 left-1/2"].map((pos, i) => (
+                    <div
+                      key={i}
+                      className={`absolute w-1 h-1 rounded-full pointer-events-none`}
+                      style={{
+                        top: i === 0 ? "-4px" : i === 1 ? "auto" : "0",
+                        bottom: i === 1 ? "-4px" : "auto",
+                        left: i === 0 ? "auto" : i === 1 ? "-4px" : "50%",
+                        right: i === 0 ? "-4px" : "auto",
+                        background: gc,
+                        boxShadow: `0 0 6px ${gc}`,
+                        animation: `sparkle${i} 0.8s ease-in-out ${i * 0.15}s infinite`,
+                        opacity: 0.9,
+                      }}
+                    />
+                  ))}
+                  <span className="relative z-10">{gem}</span>
+                </div>
+
+                {/* Tooltip on hover */}
+                {isHovered && (
+                  <div
+                    className="absolute bottom-full left-1/2 mb-2 px-3 py-2 rounded-lg text-xs whitespace-nowrap z-20"
+                    style={{
+                      transform: "translateX(-50%)",
+                      background: "rgba(5,11,26,0.95)",
+                      border: `1px solid ${gc}40`,
+                      color: gc,
+                      boxShadow: `0 4px 20px rgba(0,0,0,0.5), 0 0 10px ${gc}20`,
+                    }}
+                  >
+                    {inspectMode === "loupe" && (
+                      <div className="font-mono">
+                        🔍 Clarity: VVS1 · Cut: Excellent · Carat: Premium
+                      </div>
+                    )}
+                    {inspectMode === "spectrum" && (
+                      <div className="font-mono">
+                        🌈 Refractive Index: 2.42 · Dispersion: 0.044
+                      </div>
+                    )}
+                    {inspectMode === "normal" && (
+                      <div>{gem} — Sovereign Grade</div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="text-xs" style={{ color: "#8899AA" }}>
+          Hover over material tags above to inspect gem details.
+        </div>
+      )}
+
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        @keyframes sparkle0 {
+          0%, 100% { opacity: 0; transform: scale(0.5); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        @keyframes sparkle1 {
+          0%, 100% { opacity: 0; transform: scale(0.5); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        @keyframes sparkle2 {
+          0%, 100% { opacity: 0; transform: scale(0.5) translateX(-50%); }
+          50% { opacity: 1; transform: scale(1.2) translateX(-50%); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export default function ThothHawk() {
   const [activeTab, setActiveTab] = useState<"collection" | "frequencies" | "oka" | "commission">("collection");
   const [selectedPiece, setSelectedPiece] = useState<typeof COLLECTION[0] | null>(null);
@@ -168,6 +366,7 @@ export default function ThothHawk() {
   ] as const;
 
   return (
+    <PageTransition>
     <div
       className="min-h-screen"
       style={{
@@ -494,7 +693,10 @@ export default function ThothHawk() {
                           ))}
                         </div>
 
-                        <div className="flex gap-3">
+                        {/* Gem Inspector — interactive hover inspect */}
+                        <GemInspector piece={piece} />
+
+                        <div className="flex gap-3 mt-4">
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
@@ -1005,5 +1207,6 @@ export default function ThothHawk() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

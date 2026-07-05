@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 /**
  * OMNI CHESS™ — SCROLL CHESS SOVEREIGNTY PROTOCOL
  * Gamified Legacy Learning | Sovereign Chess Engine
@@ -587,6 +588,7 @@ export default function OmniChess() {
   ] as const;
 
   return (
+    <PageTransition>
     <div
       className="min-h-screen"
       style={{ background: BG_DEEP, fontFamily: "'Space Grotesk', sans-serif", color: "white" }}
@@ -1346,5 +1348,6 @@ export default function OmniChess() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

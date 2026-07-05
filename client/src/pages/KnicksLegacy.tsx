@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 /**
  * KNICKS LEGACY — ScrollVerse NFT Collection
  * 5 Warrior Tribute Cards: New York Knicks legends reimagined as Sovereign Warriors
@@ -422,6 +423,7 @@ export default function KnicksLegacy() {
   const totalLONDC = WARRIORS.reduce((acc, w) => acc + w.$LONDC, 0);
 
   return (
+    <PageTransition>
     <div className="min-h-screen" style={{ background: BG_DARK, fontFamily: "'Space Grotesk', sans-serif" }}>
       {/* NAV */}
       <nav
@@ -553,5 +555,6 @@ export default function KnicksLegacy() {
         <WarriorModal warrior={selectedWarrior} onClose={() => setSelectedWarrior(null)} />
       )}
     </div>
+    </PageTransition>
   );
 }
