@@ -294,4 +294,51 @@ export const stripeRouter = router({
       return { url: session.url! };
     }),
 
+  /**
+   * Creates a Stripe Checkout Session for a book purchase from the ScrollVerse Library.
+   */
+  createBookCheckout: protectedProcedure
+    .input(
+      z.object({
+        bookSlug: z.string(),
+        bookTitle: z.string(),
+        priceUsd: z.number().positive(),
+        origin: z.string().url(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const priceCents = Math.round(input.priceUsd * 100);
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "payment",
+        line_items: [
+          {
+            price_data: {
+              currency: "usd",
+              unit_amount: priceCents,
+              product_data: {
+                name: `ScrollVerse Book — ${input.bookTitle}`,
+                description: `Digital edition: PDF + Audio + Motion Visual bundle. Sovereign ownership. Instant delivery.`,
+              },
+            },
+            quantity: 1,
+          },
+        ],
+        customer_email: ctx.user.email ?? undefined,
+        client_reference_id: ctx.user.id.toString(),
+        metadata: {
+          user_id: ctx.user.id.toString(),
+          customer_email: ctx.user.email ?? "",
+          customer_name: ctx.user.name ?? "",
+          product_type: "book_purchase",
+          book_slug: input.bookSlug,
+          book_title: input.bookTitle,
+        },
+        allow_promotion_codes: true,
+        success_url: `${input.origin}/payment-success?session_id={CHECKOUT_SESSION_ID}&type=book&book=${input.bookSlug}`,
+        cancel_url: `${input.origin}/books`,
+      });
+      return { url: session.url! };
+    }),
+
 });

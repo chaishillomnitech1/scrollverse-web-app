@@ -154,6 +154,7 @@ import ThothHawk from "./pages/ThothHawk";
 import Shifter from "./pages/Shifter";
 import KnicksNation from "./pages/KnicksNation";
 import Aegis from "./pages/Aegis";
+import SovereignCinema from "./pages/SovereignCinema";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -308,6 +309,7 @@ function Router() {
       <Route path={"/shifter"} component={Shifter} />
       <Route path={"/knicks-nation"} component={KnicksNation} />
       <Route path={"/aegis"} component={Aegis} />
+      <Route path={"/sovereign-cinema"} component={SovereignCinema} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -81,7 +81,7 @@ export default function Shifter() {
 
   const handleMint = () => {
     if (!user) {
-      window.location.href = getLoginUrl("/shifter");
+      window.location.href = getLoginUrl();
       return;
     }
     setMintStatus("loading");

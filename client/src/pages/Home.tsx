@@ -9,6 +9,346 @@ import { trpc } from "@/lib/trpc";
 import NotificationBell from "@/components/NotificationBell";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
+const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
+
+// ── SOVEREIGN THRONE NFT — 1 OF 1 EPIC COMPONENT ──────────────────────────
+function SovereignThroneNFT() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [glowIntensity, setGlowIntensity] = useState(1);
+  const [crowned, setCrowned] = useState(false);
+
+  // Particle canvas — orbiting crown rings
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    canvas.width = 320;
+    canvas.height = 500;
+
+    interface Particle { x: number; y: number; angle: number; radius: number; speed: number; size: number; color: string; orbit: number; }
+    const particles: Particle[] = [];
+    const COLORS = ["#FFB800", "#00D4FF", "#00FF88", "#FF6B35", "#EC4899", "#FFB800"];
+    const cx = 160, cy = 200;
+
+    for (let i = 0; i < 80; i++) {
+      const orbit = 80 + Math.random() * 120;
+      particles.push({
+        x: cx, y: cy,
+        angle: Math.random() * Math.PI * 2,
+        radius: orbit,
+        speed: (0.003 + Math.random() * 0.008) * (Math.random() > 0.5 ? 1 : -1),
+        size: 1 + Math.random() * 3,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        orbit,
+      });
+    }
+
+    // Crown sparks — burst from top
+    const sparks: { x: number; y: number; vx: number; vy: number; life: number; color: string }[] = [];
+    const addSparks = () => {
+      for (let i = 0; i < 6; i++) {
+        sparks.push({
+          x: cx + (Math.random() - 0.5) * 40,
+          y: 40 + Math.random() * 20,
+          vx: (Math.random() - 0.5) * 3,
+          vy: -1 - Math.random() * 3,
+          life: 1,
+          color: Math.random() > 0.5 ? "#FFB800" : "#00D4FF",
+        });
+      }
+    };
+
+    let frame = 0;
+    let animId: number;
+    const animate = () => {
+      ctx.clearRect(0, 0, 320, 500);
+
+      // Deep space bg gradient
+      const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 260);
+      bg.addColorStop(0, "rgba(10,20,50,0.0)");
+      bg.addColorStop(1, "rgba(5,11,26,0.0)");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, 320, 500);
+
+      // Pulsing crown halo rings
+      const pulse = 0.7 + 0.3 * Math.sin(frame * 0.04);
+      const pulse2 = 0.5 + 0.5 * Math.sin(frame * 0.025 + 1);
+      [140, 165, 195].forEach((r, i) => {
+        ctx.beginPath();
+        ctx.arc(cx, cy, r * pulse, 0, Math.PI * 2);
+        ctx.strokeStyle = i === 0 ? `rgba(255,184,0,${0.25 * pulse2})` : i === 1 ? `rgba(0,212,255,${0.15 * pulse2})` : `rgba(0,255,136,${0.1 * pulse2})`;
+        ctx.lineWidth = i === 0 ? 2 : 1;
+        ctx.stroke();
+      });
+
+      // Orbiting particles
+      particles.forEach(p => {
+        p.angle += p.speed;
+        p.x = cx + Math.cos(p.angle) * p.orbit;
+        p.y = cy + Math.sin(p.angle) * p.orbit * 0.35; // elliptical orbit
+        const alpha = 0.4 + 0.6 * Math.abs(Math.sin(p.angle));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + Math.floor(alpha * 255).toString(16).padStart(2, "0");
+        ctx.fill();
+        // Comet tail
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(cx + Math.cos(p.angle - p.speed * 8) * p.orbit, cy + Math.sin(p.angle - p.speed * 8) * p.orbit * 0.35);
+        ctx.strokeStyle = p.color + "30";
+        ctx.lineWidth = p.size * 0.5;
+        ctx.stroke();
+      });
+
+      // Crown sparks
+      if (frame % 12 === 0) addSparks();
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        s.x += s.vx; s.y += s.vy; s.vy += 0.08; s.life -= 0.025;
+        if (s.life <= 0) { sparks.splice(i, 1); continue; }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = s.color + Math.floor(s.life * 255).toString(16).padStart(2, "0");
+        ctx.fill();
+      }
+
+      // Sovereign frequency scan line
+      const scanY = (frame * 1.5) % 500;
+      const scanGrad = ctx.createLinearGradient(0, scanY - 20, 0, scanY + 20);
+      scanGrad.addColorStop(0, "rgba(0,212,255,0)");
+      scanGrad.addColorStop(0.5, "rgba(0,212,255,0.08)");
+      scanGrad.addColorStop(1, "rgba(0,212,255,0)");
+      ctx.fillStyle = scanGrad;
+      ctx.fillRect(0, scanY - 20, 320, 40);
+
+      frame++;
+      animId = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  // Sovereign 963Hz + 528Hz binaural audio engine
+  const toggleAudio = () => {
+    if (audioPlaying) {
+      audioCtxRef.current?.close();
+      audioCtxRef.current = null;
+      setAudioPlaying(false);
+      return;
+    }
+    const ctx = new AudioContext();
+    audioCtxRef.current = ctx;
+
+    // 963Hz — Crown frequency
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.frequency.value = 963;
+    osc1.type = "sine";
+    gain1.gain.value = 0.08;
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+    osc1.start();
+
+    // 528Hz — DNA repair / love frequency
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.frequency.value = 528;
+    osc2.type = "sine";
+    gain2.gain.value = 0.06;
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+    osc2.start();
+
+    // 111Hz — deep sovereign bass pulse
+    const osc3 = ctx.createOscillator();
+    const gain3 = ctx.createGain();
+    osc3.frequency.value = 111;
+    osc3.type = "triangle";
+    gain3.gain.value = 0.04;
+    osc3.connect(gain3);
+    gain3.connect(ctx.destination);
+    osc3.start();
+
+    // LFO modulation — breathing pulse
+    const lfo = ctx.createOscillator();
+    const lfoGain = ctx.createGain();
+    lfo.frequency.value = 0.1;
+    lfoGain.gain.value = 0.03;
+    lfo.connect(lfoGain);
+    lfoGain.connect(gain1.gain);
+    lfo.start();
+
+    setAudioPlaying(true);
+  };
+
+  // Crown activation on hover
+  const handleMouseEnter = () => {
+    setGlowIntensity(2.5);
+    setCrowned(true);
+  };
+  const handleMouseLeave = () => {
+    setGlowIntensity(1);
+    setCrowned(false);
+  };
+
+  return (
+    <div
+      className="hidden lg:block flex-shrink-0 order-2 lg:order-2 mt-8 relative"
+      style={{ width: "320px" }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Particle canvas — sits behind the card */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{ width: "320px", height: "500px", mixBlendMode: "screen" }}
+      />
+
+      {/* Main NFT card */}
+      <div
+        className="relative rounded-2xl overflow-hidden transition-all duration-700"
+        style={{
+          border: crowned ? "1px solid rgba(255,184,0,0.8)" : "1px solid rgba(255,184,0,0.35)",
+          boxShadow: crowned
+            ? `0 0 ${80 * glowIntensity}px rgba(255,184,0,0.4), 0 0 ${160 * glowIntensity}px rgba(0,212,255,0.2), 0 0 ${40 * glowIntensity}px rgba(255,184,0,0.6) inset`
+            : "0 0 60px rgba(255,184,0,0.15), 0 0 120px rgba(0,212,255,0.08)",
+          transform: crowned ? "scale(1.03) translateY(-4px)" : "scale(1)",
+        }}
+      >
+        {/* Holographic shimmer overlay */}
+        <div
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{
+            background: crowned
+              ? "linear-gradient(135deg, rgba(255,184,0,0.08) 0%, rgba(0,212,255,0.06) 50%, rgba(0,255,136,0.04) 100%)"
+              : "transparent",
+            transition: "background 0.5s ease",
+          }}
+        />
+
+        {/* Crown icon — animated when active */}
+        <div
+          className="absolute top-3 right-3 z-30 text-2xl transition-all duration-500"
+          style={{
+            filter: crowned ? "drop-shadow(0 0 12px #FFB800) drop-shadow(0 0 24px #FFB800)" : "drop-shadow(0 0 4px #FFB800)",
+            transform: crowned ? "scale(1.4) rotate(-5deg)" : "scale(1)",
+            animation: "float 3s ease-in-out infinite",
+          }}
+        >
+          👑
+        </div>
+
+        {/* NFT image */}
+        <img
+          src={THRONE_IMG}
+          alt="KUN FAYAKŪN — Chais The Great on the Throne"
+          className="w-full object-cover transition-all duration-700"
+          style={{
+            maxHeight: "480px",
+            objectPosition: "top",
+            filter: crowned
+              ? "brightness(1.15) contrast(1.05) saturate(1.2)"
+              : "brightness(1) contrast(1) saturate(1)",
+          }}
+        />
+
+        {/* Frequency waveform bars — animated at bottom */}
+        <div className="absolute bottom-16 left-0 right-0 z-20 flex items-end justify-center gap-0.5 px-4" style={{ height: "32px" }}>
+          {Array.from({ length: 32 }).map((_, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-sm"
+              style={{
+                height: `${20 + Math.sin(i * 0.8) * 12}px`,
+                background: i % 3 === 0 ? "#FFB800" : i % 3 === 1 ? "#00D4FF" : "#00FF88",
+                opacity: audioPlaying ? 0.9 : 0.3,
+                animation: audioPlaying ? `waveBar ${0.3 + (i % 5) * 0.1}s ease-in-out infinite alternate` : "none",
+                transformOrigin: "bottom",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* NFT overlay badge */}
+        <div
+          className="absolute bottom-0 left-0 right-0 p-4 z-20"
+          style={{
+            background: "linear-gradient(0deg, rgba(5,11,26,0.97) 0%, rgba(5,11,26,0.7) 60%, transparent 100%)",
+          }}
+        >
+          <div className="flex items-center justify-between mb-1">
+            <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>
+              ◉ SOVEREIGN NFT — 1 OF 1
+            </div>
+            {/* Audio toggle */}
+            <button
+              onClick={toggleAudio}
+              className="text-xs font-mono px-2 py-1 rounded-lg transition-all duration-300"
+              style={{
+                background: audioPlaying ? "rgba(255,184,0,0.2)" : "rgba(0,212,255,0.1)",
+                border: audioPlaying ? "1px solid rgba(255,184,0,0.5)" : "1px solid rgba(0,212,255,0.3)",
+                color: audioPlaying ? "#FFB800" : "#00D4FF",
+                boxShadow: audioPlaying ? "0 0 8px rgba(255,184,0,0.3)" : "none",
+              }}
+            >
+              {audioPlaying ? "◼ 963Hz" : "▶ FREQ"}
+            </button>
+          </div>
+          <div className="text-sm font-black text-white mb-0.5">KUN FAYAKŪN</div>
+          <div className="text-xs mb-1" style={{ color: "#8899AA" }}>Chais The Great · Throne of Sovereignty</div>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+              <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE ON POLYGON</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#FFB800", animation: "pulse 2s ease-in-out infinite" }} />
+              <span className="text-xs font-mono" style={{ color: "#FFB800" }}>963Hz ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Social proof + mint CTA */}
+      <div className="mt-3 space-y-2">
+        <div className="flex items-center gap-2 justify-center">
+          <span className="text-xs font-mono" style={{ color: "#8899AA" }}>@chaisthegreat_mrwalk</span>
+          <span className="text-xs" style={{ color: "#445566" }}>·</span>
+          <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>#ScrollVerse.co</span>
+        </div>
+        <a
+          href="/nft"
+          className="block w-full py-2.5 rounded-xl text-center text-xs font-bold tracking-widest transition-all duration-300 hover:scale-105"
+          style={{
+            background: "linear-gradient(135deg, #FFB800, #FF6B35, #FFB800)",
+            backgroundSize: "200% 100%",
+            color: "#050B1A",
+            boxShadow: "0 0 20px rgba(255,184,0,0.3)",
+            animation: "shimmerBg 3s linear infinite",
+          }}
+        >
+          ◈ VIEW SOVEREIGN NFT VAULT
+        </a>
+      </div>
+
+      {/* CSS animations injected inline */}
+      <style>{`
+        @keyframes waveBar {
+          from { transform: scaleY(0.3); }
+          to { transform: scaleY(1); }
+        }
+        @keyframes shimmerBg {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+      `}</style>
+    </div>
+  );
+}
 const TOKEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-token-MrdUrN6gWtHmpfWBB2zPsY.webp";
 const FREQ_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-frequency-fdvBjh2NVRNMeQuqZ4qez6.webp";
 const GUARDIAN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-guardian-JdRF6rBFqD8dCPSjhdsaUG.webp";
@@ -568,6 +908,7 @@ export default function Home() {
     { label: "🎭 SHIFTER", href: "/shifter" },
     { label: "🏀 Knicks Nation", href: "/knicks-nation" },
     { label: "✦ Aegis Healing", href: "/aegis" },
+    { label: "🎬 Sovereign Cinema", href: "/sovereign-cinema" },
   ];
 
   return (
@@ -680,46 +1021,8 @@ export default function Home() {
 
         <div className="container relative z-10 pt-24 pb-16">
           <div className="flex flex-col lg:flex-row items-start gap-12">
-          {/* Throne NFT visual — right side */}
-          <div className="hidden lg:block flex-shrink-0 order-2 lg:order-2 mt-8" style={{ width: "320px" }}>
-            <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{
-                border: "1px solid rgba(255,184,0,0.35)",
-                boxShadow: "0 0 60px rgba(255,184,0,0.15), 0 0 120px rgba(0,212,255,0.08)",
-              }}
-            >
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png"
-                alt="KUN FAYAKŪN — Chais The Great on the Throne"
-                className="w-full object-cover"
-                style={{ maxHeight: "480px", objectPosition: "top" }}
-              />
-              {/* NFT overlay badge */}
-              <div
-                className="absolute bottom-0 left-0 right-0 p-4"
-                style={{
-                  background: "linear-gradient(0deg, rgba(5,11,26,0.95) 0%, transparent 100%)",
-                }}
-              >
-                <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#FFB800" }}>
-                  ◉ SOVEREIGN NFT — 1 OF 1
-                </div>
-                <div className="text-sm font-black text-white mb-1">KUN FAYAKŪN</div>
-                <div className="text-xs" style={{ color: "#8899AA" }}>Chais The Great · Throne of Sovereignty</div>
-                <div className="flex items-center gap-2 mt-2">
-                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-                  <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE ON POLYGON</span>
-                </div>
-              </div>
-            </div>
-            {/* Social proof */}
-            <div className="mt-3 flex items-center gap-2 justify-center">
-              <span className="text-xs font-mono" style={{ color: "#8899AA" }}>@chaisthegreat_mrwalk</span>
-              <span className="text-xs" style={{ color: "#445566" }}>·</span>
-              <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>#ScrollVerse.co</span>
-            </div>
-          </div>
+          {/* Throne NFT visual — 1 OF 1 EPIC */}
+          <SovereignThroneNFT />
           <div className="flex-1 order-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-12" style={{ background: "#00D4FF" }} />

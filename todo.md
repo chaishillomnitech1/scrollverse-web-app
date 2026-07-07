@@ -1352,3 +1352,25 @@
 - [x] Total sovereign supply: 24,954 coins
 - [x] PageTransition + SacredGeometryLoader wired into KnicksNation
 - [x] CID swap guide for Bridges and King remaining slots
+
+## Phase 26 — Sovereign Cinema + Motion Picture Experience
+- [ ] Build /sovereign-cinema page — full cinematic experience with films, movies, Gemini storybooks, voice, motion
+- [ ] Upgrade /storybooks — Gemini Motion Picture living animated experience with voice narration
+- [ ] Activate NftMarketplace minting flow (remove "coming soon")
+- [ ] Activate KnicksNFT Father's Day Genesis mint flow
+- [ ] Activate SovereignLegacy minting flow
+- [ ] Wire book Stripe checkout in Books.tsx (createBookCheckout)
+- [ ] Wire /sovereign-cinema route in App.tsx
+- [ ] Add Sovereign Cinema nav link to Home.tsx
+- [ ] Run tests and save checkpoint
+
+## Phase 26 — Sovereign Cinema + Motion Picture Experience
+- [ ] Build /sovereign-cinema page — full cinematic experience with films, movies, Gemini storybooks, voice, motion
+- [ ] Upgrade /storybooks — Gemini Motion Picture living animated experience with voice narration
+- [ ] Activate NftMarketplace minting flow (remove coming soon)
+- [ ] Activate KnicksNFT Fathers Day Genesis mint flow
+- [ ] Activate SovereignLegacy minting flow
+- [ ] Wire book Stripe checkout in Books.tsx (createBookCheckout)
+- [ ] Wire /sovereign-cinema route in App.tsx
+- [ ] Add Sovereign Cinema nav link to Home.tsx
+- [ ] Run tests and save checkpoint

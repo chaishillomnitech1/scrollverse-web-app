@@ -10,6 +10,8 @@ import { Link } from "wouter";
 import { toast } from "sonner";
 import { ViralShare } from "@/components/ViralShare";
 import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 // ── BOOK DATA ──────────────────────────────────────────────────────────────
 const BOOKS = [
@@ -283,10 +285,12 @@ const COIN_DENOMINATIONS = [
 ];
 
 // ── BOOK CARD ──────────────────────────────────────────────────────────────
-function BookCard({ book, onMintNFT, onMintCoin }: {
+function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
   book: typeof BOOKS[0];
   onMintNFT: (book: typeof BOOKS[0]) => void;
   onMintCoin: (book: typeof BOOKS[0]) => void;
+  onPurchase: (book: typeof BOOKS[0]) => void;
+  isPurchasing: boolean;
 }) {
   const [tab, setTab] = useState<"read" | "platforms" | "nft">("read");
 
@@ -385,14 +389,14 @@ function BookCard({ book, onMintNFT, onMintCoin }: {
             </div>
             <div className="mt-3 flex gap-2">
               {book.price ? (
-                <Link href="/token">
-                  <button
-                    className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90"
-                    style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#050B1A" }}
-                  >
-                    Purchase — ${book.price}
-                  </button>
-                </Link>
+                <button
+                  onClick={() => onPurchase(book)}
+                  disabled={isPurchasing}
+                  className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
+                  style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#050B1A" }}
+                >
+                  {isPurchasing ? "Opening Checkout..." : `Purchase — $${book.price}`}
+                </button>
               ) : (
                 <Link href={book.platforms[0].url}>
                   <button
@@ -545,7 +549,17 @@ function CoinMintModal({ onClose }: { onClose: () => void }) {
 
 // ── MAIN PAGE ──────────────────────────────────────────────────────────────
 export default function Books() {
-   const [filter, setFilter] = useState<"all" | "free" | "paid" | "prophetic">("all");
+  const { isAuthenticated } = useAuth();
+  const bookCheckout = trpc.store.createBookCheckout.useMutation({
+    onSuccess: (data) => { window.location.href = data.url; },
+    onError: (err) => toast.error(`Checkout error: ${err.message}`),
+  });
+  const handleBookPurchase = (book: typeof BOOKS[0]) => {
+    if (!book.price) return;
+    if (!isAuthenticated) { window.location.href = getLoginUrl(); return; }
+    bookCheckout.mutate({ bookSlug: book.id, bookTitle: book.title, priceUsd: book.price, origin: window.location.origin });
+  };
+  const [filter, setFilter] = useState<"all" | "free" | "paid" | "prophetic">("all");
   const [showCoinMint, setShowCoinMint] = useState(false);
   const [activeSection, setActiveSection] = useState<"books" | "bookoflife" | "storybooks" | "musicfusion">("books");
   const [storyPrompt, setStoryPrompt] = useState("");
@@ -667,7 +681,7 @@ export default function Books() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {filteredBooks.map((book) => (
-              <BookCard key={book.id} book={book} onMintNFT={handleMintNFT} onMintCoin={handleMintCoin} />
+              <BookCard key={book.id} book={book} onMintNFT={handleMintNFT} onMintCoin={handleMintCoin} onPurchase={handleBookPurchase} isPurchasing={bookCheckout.isPending} />
             ))}
           </div>
         </div>
