@@ -259,6 +259,140 @@ export default function LondynLegacy() {
           </div>
         </div>
 
+        {/* ── #LONDYN LULLABY — LIFETIME INSTRUCTION ── */}
+        <div className="mb-14">
+          <div
+            className="rounded-2xl overflow-hidden relative"
+            style={{ background: "linear-gradient(135deg, #0a0318, #0d0520, #0a0318)", border: "1px solid rgba(255,184,0,0.25)" }}
+          >
+            {/* Starfield shimmer */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 60% 30%, rgba(255,184,0,0.08) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(0,212,255,0.06) 0%, transparent 50%)" }} />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 p-8 md:p-12">
+              {/* Book Cover Art */}
+              <div className="flex-shrink-0 relative group">
+                <div
+                  className="absolute -inset-3 rounded-2xl opacity-40 blur-xl transition-opacity duration-500 group-hover:opacity-70"
+                  style={{ background: "linear-gradient(135deg, #FFB800, #A78BFA, #00D4FF)" }}
+                />
+                <img
+                  src="https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm"
+                  alt="Londyn's Lullaby — Lifetime Instruction by Chais The Great"
+                  className="relative rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                  style={{ width: "240px", height: "360px", objectFit: "cover", border: "2px solid rgba(255,184,0,0.4)" }}
+                />
+                {/* IPFS Verified Badge */}
+                <div
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono whitespace-nowrap"
+                  style={{ background: "rgba(0,255,136,0.15)", border: "1px solid rgba(0,255,136,0.4)", color: "#00FF88" }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />
+                  VERIFIED ON IPFS
+                </div>
+              </div>
+
+              {/* Info Panel */}
+              <div className="flex-1 text-center lg:text-left">
+                <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>#LONDYNLULLABY · LIFETIME INSTRUCTION</div>
+                <h2
+                  className="text-4xl md:text-5xl font-black mb-2 leading-tight"
+                  style={{ background: "linear-gradient(135deg, #FFB800, #ffffff, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                >
+                  Londyn's Lullaby
+                </h2>
+                <div className="text-lg font-bold mb-4" style={{ color: "#C4D0E0" }}>Lifetime Instruction</div>
+                <div className="text-sm mb-1" style={{ color: "#8899AA" }}>By <span style={{ color: "#FFB800" }}>Chais The Great</span> — Chais Kenyatta Hill · Sabir Allah The Great</div>
+
+                <p className="text-sm leading-relaxed mb-6 max-w-lg" style={{ color: "#8899AA" }}>
+                  A sacred book of lifetime instruction — lullabies, wisdom, and sovereign love letters written from a father to his daughter Londyn. Every word is a frequency. Every page is a blockchain. Every lesson is eternal.
+                </p>
+
+                {/* Stats row */}
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-6">
+                  {[
+                    { label: "Format", value: "Book + NFT", color: "#FFB800" },
+                    { label: "Chain", value: "Polygon", color: "#A78BFA" },
+                    { label: "Frequency", value: "528Hz", color: "#00D4FF" },
+                    { label: "Editions", value: "144", color: "#00FF88" },
+                  ].map(s => (
+                    <div key={s.label} className="text-center">
+                      <div className="font-black text-base" style={{ color: s.color }}>{s.value}</div>
+                      <div className="text-xs" style={{ color: "#667788" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* IPFS Verification block */}
+                <div
+                  className="rounded-xl p-4 mb-5 text-left"
+                  style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.15)" }}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
+                    <span className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>ON-CHAIN · POLYGON · IPFS VERIFIED</span>
+                  </div>
+                  <div className="text-xs font-mono mb-1" style={{ color: "#8899AA" }}>
+                    CID: <span style={{ color: "#C4D0E0" }}>bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm</span>
+                  </div>
+                  <div className="text-xs font-mono" style={{ color: "#8899AA" }}>
+                    Storage ID: <span style={{ color: "#C4D0E0" }}>019f3b13-a17c-7600-bf4e-46e25cbb3653</span>
+                  </div>
+                  <div className="flex gap-3 mt-3 flex-wrap">
+                    <a
+                      href="https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono px-3 py-1.5 rounded-lg transition-all hover:opacity-80"
+                      style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
+                    >
+                      ↗ View on IPFS
+                    </a>
+                    <a
+                      href="https://app.pinata.cloud/ipfs/files"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono px-3 py-1.5 rounded-lg transition-all hover:opacity-80"
+                      style={{ background: "rgba(255,184,0,0.1)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}
+                    >
+                      ✓ Verify on Pinata
+                    </a>
+                  </div>
+                </div>
+
+                {/* CTA buttons */}
+                <div className="flex gap-3 flex-wrap justify-center lg:justify-start">
+                  <button
+                    onClick={() => { toast("Londyn's Lullaby NFT Mint", { description: "Minting 144 editions on Polygon — launching soon. KUN FAYAKŪN × ∞" }); }}
+                    className="px-6 py-3 rounded-xl font-black text-sm transition-all hover:scale-105"
+                    style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
+                  >
+                    👑 Mint NFT Edition
+                  </button>
+                  <a
+                    href="https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 rounded-xl font-bold text-sm transition-all hover:opacity-80"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#C4D0E0" }}
+                  >
+                    📖 View Book Art
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom sovereign seal */}
+            <div
+              className="relative z-10 text-center py-4 px-8"
+              style={{ borderTop: "1px solid rgba(255,184,0,0.1)", background: "rgba(255,184,0,0.03)" }}
+            >
+              <div className="text-xs font-mono" style={{ color: "#FFB800" }}>
+                KUN FAYAKŪN × ∞ — Londyn Kenyatta Hill · Princess of the ScrollVerse Empire · Eternal Legacy Sealed on Polygon
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Voice-to-Art Studio */}
         <div className="mb-12">
           <VoiceToArtStudio />
