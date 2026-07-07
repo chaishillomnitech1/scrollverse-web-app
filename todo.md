@@ -1374,3 +1374,11 @@
 - [ ] Wire /sovereign-cinema route in App.tsx
 - [ ] Add Sovereign Cinema nav link to Home.tsx
 - [ ] Run tests and save checkpoint
+
+## Phase 30 — Junior Movies AI Studio + DSP Intelligence + NFT Upgrades
+
+- [ ] Build JuniorMoviesStudio.tsx — AI creative studio for children with AI chat, comic book creator, cartoon maker, real history lessons
+- [ ] Build DSPIntelligence.tsx — every DSP ever studied, cover art + publishing add-ons, CapCut + visual apps, artist-friendly
+- [ ] Upgrade JuniorMoviesNFT.tsx — Connect Wallet button in mint modal, glowing hover effects, smooth 3D flip transitions
+- [ ] Create scrollverse-empire-build reusable skill with skill-creator
+- [ ] Wire all new routes + nav links in App.tsx and Home.tsx

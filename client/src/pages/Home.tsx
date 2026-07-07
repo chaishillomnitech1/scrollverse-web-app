@@ -912,6 +912,9 @@ export default function Home() {
     { label: "🎙 ScrollCast", href: "/podcast" },
     { label: "🎬 Junior Movies", href: "/junior-movies" },
     { label: "🏺 JME NFT Vault", href: "/junior-movies-nft" },
+    { label: "🌌 JME Universe", href: "/jme-universe" },
+    { label: "🎨 Junior Studio", href: "/junior-studio" },
+    { label: "◈ OmniVault", href: "/omni-vault" },
     { label: "📚 Scroll Library", href: "/scroll-library" },
     { label: "☪ 99 Names", href: "/99-names" },
   ];

@@ -160,6 +160,9 @@ import JuniorMovies from "./pages/JuniorMovies";
 import NamesOfAllah from "./pages/NamesOfAllah";
 import ScrollLibrary from "./pages/ScrollLibrary";
 import JuniorMoviesNFT from "./pages/JuniorMoviesNFT";
+import OmniVault from "./pages/OmniVault";
+import JMEUniverse from "./pages/JMEUniverse";
+import JuniorMoviesStudio from "./pages/JuniorMoviesStudio";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -320,6 +323,9 @@ function Router() {
       <Route path={"/99-names"} component={NamesOfAllah} />
       <Route path={"/scroll-library"} component={ScrollLibrary} />
       <Route path={"/junior-movies-nft"} component={JuniorMoviesNFT} />
+      <Route path={"/omni-vault"} component={OmniVault} />
+      <Route path={"/jme-universe"} component={JMEUniverse} />
+      <Route path={"/junior-studio"} component={JuniorMoviesStudio} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
