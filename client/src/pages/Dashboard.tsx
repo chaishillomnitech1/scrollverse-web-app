@@ -401,6 +401,40 @@ export default function Dashboard() {
           </>
         )}
 
+        {/* IPFS On-Chain Verification Panel */}
+        <div
+          className="rounded-xl p-5 mb-2"
+          style={{ background: "rgba(0,255,136,0.03)", border: "1px solid rgba(0,255,136,0.15)" }}
+        >
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: "#00FF88" }} />
+              <div>
+                <div className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>ECOSYSTEM ASSETS LIVE ON IPFS · POLYGON MAINNET</div>
+                <div className="text-xs mt-0.5" style={{ color: "#667788" }}>All NFTs, media, and sovereign content are pinned and verifiable on-chain.</div>
+              </div>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {[
+                { label: "#LondynLullaby", url: "https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm", color: "#00FF88" },
+                { label: "KnicksNation NFTs", url: "https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeie4kdb2nr7tvvk2jgsyvu65azmz7msoa7m3ag63jehtso3fvwdvgq", color: "#00D4FF" },
+                { label: "Verify on Pinata", url: "https://app.pinata.cloud/ipfs/files", color: "#FFB800" },
+              ].map(link => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80 whitespace-nowrap"
+                  style={{ background: `${link.color}10`, border: `1px solid ${link.color}30`, color: link.color }}
+                >
+                  ↗ {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Quick links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[

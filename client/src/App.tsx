@@ -169,6 +169,9 @@ import GatesOne from "./pages/GatesOne";
 import SovereignStoryArchive from "./pages/SovereignStoryArchive";
 import SovereignCards from "./pages/SovereignCards";
 import Subscribe from "./pages/Subscribe";
+import ChaisCatalog from "./pages/ChaisCatalog";
+import ChaisVideos from "./pages/ChaisVideos";
+import RizzBurna from "./pages/RizzBurna";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -338,6 +341,9 @@ function Router() {
       <Route path={"/story-archive"} component={SovereignStoryArchive} />
       <Route path={"/sovereign-cards"} component={SovereignCards} />
       <Route path={"/subscribe"} component={Subscribe} />
+      <Route path={"/chais-catalog"} component={ChaisCatalog} />
+      <Route path={"/chais-videos"} component={ChaisVideos} />
+      <Route path={"/rizz-burna"} component={RizzBurna} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

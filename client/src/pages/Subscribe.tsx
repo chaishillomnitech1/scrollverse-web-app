@@ -78,6 +78,207 @@ const TIERS = [
   },
 ];
 
+// ── SOVEREIGN CARD WAITLIST COMPONENT ──
+const CARD_TYPES = [
+  {
+    id: "black",
+    name: "Chais Black Card",
+    subtitle: "Sovereign Elite",
+    icon: "👑",
+    color: "#FFB800",
+    limit: "∞ Unlimited",
+    cashback: "7.77% $LONDC",
+    annual: "$1,444",
+    perks: ["Unlimited sovereign credit", "7.77% $LONDC cashback", "Concierge 24/7", "Airport lounge access", "NFT card membership", "Direct Chais The Great channel"],
+    badge: "ELITE · 1 OF 144",
+  },
+  {
+    id: "crypto",
+    name: "Crypto Card",
+    subtitle: "Guardian Tier",
+    icon: "⛓",
+    color: "#00D4FF",
+    limit: "0.144 ETH/day",
+    cashback: "5.28% $LONDC",
+    annual: "$444",
+    perks: ["Spend ETH, MATIC, USDC anywhere", "5.28% $LONDC cashback", "Instant crypto-to-fiat", "Polygon on-chain settlement", "Guardian NFT card", "DeFi rewards integration"],
+    badge: "CRYPTO NATIVE",
+  },
+  {
+    id: "credit",
+    name: "Sovereign Credit",
+    subtitle: "Ascendant Tier",
+    icon: "💜",
+    color: "#A78BFA",
+    limit: "$4,440/mo",
+    cashback: "4.44% $LONDC",
+    annual: "$144",
+    perks: ["$4,440 monthly credit line", "4.44% $LONDC cashback", "0% APR first 144 days", "Zakat auto-distribution", "Virtual + physical card", "Merchant rewards network"],
+    badge: "ASCENDANT",
+  },
+  {
+    id: "bank",
+    name: "Digital Bank Card",
+    subtitle: "Sovereign Banking",
+    icon: "🏦",
+    color: "#00FF88",
+    limit: "$14,400/mo",
+    cashback: "2.88% $LONDC",
+    annual: "$44",
+    perks: ["Sovereign checking account", "2.88% $LONDC on all spend", "Instant transfers", "FDIC-equivalent protection", "Virtual card instant issue", "SVCN network acceptance"],
+    badge: "BANKING TIER",
+  },
+];
+
+function SovereignCardWaitlist() {
+  const [cardEmail, setCardEmail] = useState("");
+  const [cardStatus, setCardStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [cardType, setCardType] = useState("black");
+
+  const handleCardWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!cardEmail || !cardEmail.includes("@")) return;
+    setCardStatus("loading");
+    await new Promise(r => setTimeout(r, 1200));
+    setCardStatus("success");
+  };
+
+  return (
+    <div
+      className="rounded-2xl p-8 md:p-12 mb-12"
+      style={{ background: "rgba(255,184,0,0.03)", border: "1px solid rgba(255,184,0,0.2)" }}
+    >
+      {/* Header */}
+      <div className="text-center mb-10">
+        <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SCROLLVERSE CARD NETWORK (SVCN)</div>
+        <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Sovereign Card System</h2>
+        <p className="text-sm max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+          Physical and virtual cards backed by $LONDC. Crypto card, credit card, digital bank card, and the legendary Chais Black Card.
+          Join the waitlist — cards ship when $LONDC launches on Polygon Mainnet.
+        </p>
+      </div>
+
+      {/* Card Type Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        {CARD_TYPES.map(card => (
+          <div
+            key={card.id}
+            onClick={() => setCardType(card.id)}
+            className="rounded-xl p-5 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              background: cardType === card.id ? `${card.color}10` : "rgba(255,255,255,0.02)",
+              border: `1px solid ${cardType === card.id ? card.color + "50" : card.color + "20"}`,
+              boxShadow: cardType === card.id ? `0 0 20px ${card.color}10` : "none",
+            }}
+          >
+            {/* Card visual */}
+            <div
+              className="rounded-xl p-4 mb-4 relative overflow-hidden"
+              style={{
+                background: `linear-gradient(135deg, ${card.color}20, rgba(5,11,26,0.9))`,
+                border: `1px solid ${card.color}30`,
+                minHeight: "80px",
+              }}
+            >
+              <div className="flex justify-between items-start mb-3">
+                <div className="text-2xl">{card.icon}</div>
+                <div className="text-xs font-mono" style={{ color: card.color, opacity: 0.7 }}>SVCN</div>
+              </div>
+              <div className="text-xs font-mono" style={{ color: card.color }}>•••• •••• •••• 1444</div>
+            </div>
+
+            <div
+              className="text-xs font-mono font-bold px-2 py-0.5 rounded-full inline-block mb-2"
+              style={{ background: `${card.color}15`, border: `1px solid ${card.color}30`, color: card.color }}
+            >
+              {card.badge}
+            </div>
+            <div className="font-black text-white text-sm mb-1">{card.name}</div>
+            <div className="text-xs mb-3" style={{ color: "#8899AA" }}>{card.subtitle}</div>
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs">
+                <span style={{ color: "#667788" }}>Limit</span>
+                <span style={{ color: card.color }} className="font-mono font-bold">{card.limit}</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span style={{ color: "#667788" }}>Cashback</span>
+                <span style={{ color: card.color }} className="font-mono font-bold">{card.cashback}</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span style={{ color: "#667788" }}>Annual</span>
+                <span style={{ color: "#C4D0E0" }} className="font-mono">{card.annual}/yr</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Selected card perks */}
+      {(() => {
+        const selected = CARD_TYPES.find(c => c.id === cardType)!;
+        return (
+          <div
+            className="rounded-xl p-6 mb-8"
+            style={{ background: `${selected.color}06`, border: `1px solid ${selected.color}20` }}
+          >
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: selected.color }}>
+              {selected.name.toUpperCase()} — PERKS
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+              {selected.perks.map(perk => (
+                <div key={perk} className="flex items-start gap-2 text-sm" style={{ color: "#C4D0E0" }}>
+                  <span style={{ color: selected.color, flexShrink: 0 }}>✓</span>
+                  {perk}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Waitlist form */}
+      <div className="max-w-xl mx-auto text-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+          <span className="text-xs font-mono" style={{ color: "#00FF88" }}>CARD WAITLIST OPEN · SHIPS ON $LONDC MAINNET LAUNCH</span>
+        </div>
+
+        {cardStatus === "success" ? (
+          <div
+            className="p-5 rounded-xl text-sm font-bold"
+            style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}
+          >
+            👑 You are on the SVCN Card Waitlist. Your sovereign card is reserved. KUN FAYAKŪN × ∞
+          </div>
+        ) : (
+          <form onSubmit={handleCardWaitlist} className="flex gap-3">
+            <input
+              type="email"
+              value={cardEmail}
+              onChange={e => setCardEmail(e.target.value)}
+              placeholder="Enter your email to reserve your card"
+              required
+              className="flex-1 px-4 py-3 rounded-xl text-sm outline-none"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,184,0,0.2)", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
+            />
+            <button
+              type="submit"
+              disabled={cardStatus === "loading"}
+              className="px-6 py-3 rounded-xl text-sm font-black flex-shrink-0 transition-all hover:scale-105"
+              style={{ background: "linear-gradient(135deg, #FFB800, #FF8C00)", color: "#050B1A", opacity: cardStatus === "loading" ? 0.7 : 1 }}
+            >
+              {cardStatus === "loading" ? "..." : "Reserve Card"}
+            </button>
+          </form>
+        )}
+        <p className="text-xs mt-3" style={{ color: "#445566" }}>
+          Physical + virtual cards · SVCN Network · $LONDC cashback on every purchase · Zakat auto-distributed
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function TierCard({
   tier,
   onSubscribe,
@@ -323,6 +524,9 @@ export default function Subscribe() {
             )}
           </div>
         </div>
+
+        {/* Sovereign Card System Waitlist */}
+        <SovereignCardWaitlist />
 
         {/* ScrollNexus Cross-Promo */}
         <div

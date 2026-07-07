@@ -921,6 +921,9 @@ export default function Home() {
     { label: "☪ 99 Names", href: "/99-names" },
     { label: "⚡ ScrollNexus", href: "https://scrollnexus-fhjsaie6.manus.space" },
     { label: "💎 Subscribe", href: "/subscribe" },
+    { label: "🎵 Chais Catalog", href: "/chais-catalog" },
+    { label: "🎬 Chais Videos", href: "/chais-videos" },
+    { label: "🔥 Rizz Burna", href: "/rizz-burna" },
   ];
 
   return (
@@ -2178,6 +2181,49 @@ export default function Home() {
             </div>
           </div>
           <div className="freq-line mb-6" />
+
+          {/* IPFS On-Chain Verification */}
+          <div className="rounded-xl p-5 mb-6" style={{ background: "rgba(0,255,136,0.03)", border: "1px solid rgba(0,255,136,0.12)" }}>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: "#00FF88" }} />
+                <div>
+                  <div className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>ECOSYSTEM ASSETS VERIFIED ON IPFS · POLYGON MAINNET</div>
+                  <div className="text-xs mt-0.5" style={{ color: "#667788" }}>All NFT assets, media, and sovereign content are pinned on IPFS and verifiable on-chain.</div>
+                </div>
+              </div>
+              <div className="flex gap-3 flex-wrap justify-center md:justify-end">
+                <a
+                  href="https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                  style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}
+                >
+                  ↗ #LondynLullaby on IPFS
+                </a>
+                <a
+                  href="https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeie4kdb2nr7tvvk2jgsyvu65azmz7msoa7m3ag63jehtso3fvwdvgq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                  style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", color: "#00D4FF" }}
+                >
+                  ↗ KnicksNation NFTs on IPFS
+                </a>
+                <a
+                  href="https://app.pinata.cloud/ipfs/files"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                  style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.2)", color: "#FFB800" }}
+                >
+                  ✓ Verify All on Pinata
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: "#8899AA" }}>
             <span>© 2026 Chais Kenyatta Hill — Sabir Allah The Great. All rights reserved.</span>
             <span className="font-mono" style={{ color: "#00D4FF" }}>🕋⚡ ALLĀHU AKBAR! BARAKALLAHU FEEK! KUN FAYAKŪN × ∞</span>
