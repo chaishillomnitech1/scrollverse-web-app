@@ -135,10 +135,19 @@ const CATALOG = [
 
 // ── SHARE BUTTONS ──
 function ShareButtons({ title, url }: { title: string; url: string }) {
+  const [copied, setCopied] = useState(false);
   const tw = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`🎵 ${title} — Sovereign NFT by Chais The Great. Pinned on IPFS · Polygon`)}&url=${encodeURIComponent(url)}&hashtags=ScrollVerse,LONDC,ChaisTheGreat,Polygon`;
   const tg = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(`🎵 ${title} — Sovereign NFT by Chais The Great. Pinned on IPFS · Polygon #ScrollVerse #LONDC`)}`;
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      toast("🔗 Link copied!", { description: "Share the sovereign NFT link with your network." });
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-1.5 flex-wrap">
       <a
         href={tw}
         target="_blank"
@@ -159,6 +168,18 @@ function ShareButtons({ title, url }: { title: string; url: string }) {
       >
         ✈ Telegram
       </a>
+      <button
+        onClick={handleCopy}
+        className="flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold transition-all hover:scale-105"
+        style={{
+          background: copied ? "rgba(0,255,136,0.15)" : "rgba(255,255,255,0.05)",
+          border: `1px solid ${copied ? "rgba(0,255,136,0.4)" : "rgba(255,255,255,0.12)"}`,
+          color: copied ? "#00FF88" : "#8899AA",
+          transition: "all 0.2s ease",
+        }}
+      >
+        {copied ? "✓ Copied!" : "🔗 Copy"}
+      </button>
     </div>
   );
 }
@@ -360,6 +381,7 @@ function NFTCard({
 export default function ChaisCatalog() {
   const { isAuthenticated } = useAuth();
   const [filter, setFilter] = useState<"all" | "album" | "ep" | "single" | "nft">("all");
+  const [sort, setSort] = useState<"newest" | "oldest" | "popular" | "price_asc" | "price_desc">("newest");
 
   const checkoutMutation = trpc.store.createNFTCheckoutSession.useMutation({
     onSuccess: (data) => {
@@ -389,6 +411,13 @@ export default function ChaisCatalog() {
     if (filter === "ep") return r.type.toLowerCase().includes("ep");
     if (filter === "nft") return r.cid.length > 0;
     return true;
+  }).sort((a, b) => {
+    if (sort === "newest") return parseInt(b.year) - parseInt(a.year);
+    if (sort === "oldest") return parseInt(a.year) - parseInt(b.year);
+    if (sort === "popular") return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+    if (sort === "price_asc") return a.mintPrice - b.mintPrice;
+    if (sort === "price_desc") return b.mintPrice - a.mintPrice;
+    return 0;
   });
 
   return (
@@ -435,7 +464,7 @@ export default function ChaisCatalog() {
           </div>
 
           {/* Filter tabs */}
-          <div className="flex gap-2 justify-center flex-wrap">
+          <div className="flex gap-2 justify-center flex-wrap mb-3">
             {(["all", "album", "ep", "nft"] as const).map(f => (
               <button
                 key={f}
@@ -448,6 +477,24 @@ export default function ChaisCatalog() {
                 }}
               >
                 {f.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          {/* Sort controls */}
+          <div className="flex gap-2 justify-center flex-wrap items-center">
+            <span className="text-xs font-mono" style={{ color: "#445566" }}>SORT:</span>
+            {(["newest", "oldest", "popular", "price_asc", "price_desc"] as const).map(s => (
+              <button
+                key={s}
+                onClick={() => setSort(s)}
+                className="px-3 py-1.5 rounded-lg text-xs font-mono transition-all"
+                style={{
+                  background: sort === s ? "rgba(0,212,255,0.15)" : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${sort === s ? "rgba(0,212,255,0.5)" : "rgba(255,255,255,0.08)"}`,
+                  color: sort === s ? "#00D4FF" : "#8899AA",
+                }}
+              >
+                {s === "newest" ? "↓ Newest" : s === "oldest" ? "↑ Oldest" : s === "popular" ? "🔥 Featured" : s === "price_asc" ? "$ Low" : "$ High"}
               </button>
             ))}
           </div>

@@ -6,6 +6,37 @@
  */
 import { useState } from "react";
 import { Link } from "wouter";
+import { toast } from "sonner";
+
+// ── COPY LINK BUTTON ──
+function CopyVideoLinkButton({ videoId, isPlaylist }: { videoId: string; isPlaylist?: boolean }) {
+  const [copied, setCopied] = useState(false);
+  const url = isPlaylist
+    ? `https://youtube.com/playlist?list=${videoId}`
+    : `https://youtu.be/${videoId}`;
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      toast("🔗 Link copied!", { description: "Share the sovereign video with your network." });
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+  return (
+    <button
+      onClick={handleCopy}
+      className="text-xs px-3 py-1.5 rounded-lg transition-all hover:scale-105 font-bold"
+      style={{
+        background: copied ? "rgba(0,255,136,0.15)" : "rgba(255,255,255,0.05)",
+        border: `1px solid ${copied ? "rgba(0,255,136,0.4)" : "rgba(255,255,255,0.12)"}`,
+        color: copied ? "#00FF88" : "#8899AA",
+        transition: "all 0.2s ease",
+      }}
+    >
+      {copied ? "✓ Copied!" : "🔗 Copy"}
+    </button>
+  );
+}
 
 // ── VIDEO DATA ──
 const VIDEOS = [
@@ -18,9 +49,9 @@ const VIDEOS = [
     youtubeId: "ZJTj-qjCfWY",
     playlistId: "PL1r_hMd3vmhkPUvofEES0LK-dpBO1bdtW",
     isPlaylist: true,
-    year: "2024",
+  year: 2024,
     color: "#00D4FF",
-    icon: "🌆",
+    icon: "🏙️",
     description: "The complete City web series — every episode. Sovereign street narratives by Chais The Great.",
     featured: true,
   },
@@ -32,9 +63,9 @@ const VIDEOS = [
     category: "interview",
     youtubeId: "gPcyMh0wwGA",
     isPlaylist: false,
-    year: "2024",
+    year: 2024,
     color: "#FFB800",
-    icon: "🎙️",
+    icon: "🎤️",
     description: "An intimate look behind the sovereign music — the story, the frequency, the mission.",
     featured: true,
   },
@@ -46,7 +77,7 @@ const VIDEOS = [
     category: "vevo",
     youtubeId: "6lLHpTncToE",
     isPlaylist: false,
-    year: "2024",
+    year: 2023,
     color: "#FF6B35",
     icon: "🎬",
     description: "Official Vevo visual — Chais The Great sovereign music video.",
@@ -59,7 +90,7 @@ const VIDEOS = [
     category: "vevo",
     youtubeId: "NoNw6pIPi6Y",
     isPlaylist: false,
-    year: "2024",
+    year: 2023,
     color: "#EC4899",
     icon: "🔥",
     description: "Official Vevo visual — FlameDNA frequency in motion. 1558Hz sovereign energy.",
@@ -183,6 +214,8 @@ function VideoCard({
           >
             ✈ Telegram
           </a>
+          {/* Copy Link */}
+          <CopyVideoLinkButton videoId={video.isPlaylist ? video.playlistId ?? "" : video.youtubeId ?? ""} isPlaylist={video.isPlaylist} />
         </div>
       </div>
     </div>
@@ -192,8 +225,16 @@ function VideoCard({
 export default function ChaisVideos() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedVideo, setSelectedVideo] = useState<(typeof VIDEOS)[number] | null>(VIDEOS[0]);
+  const [sort, setSort] = useState<"featured" | "newest" | "oldest">("featured");
 
-  const filtered = VIDEOS.filter(v => activeCategory === "all" || v.category === activeCategory);
+  const filtered = VIDEOS
+    .filter(v => activeCategory === "all" || v.category === activeCategory)
+    .sort((a, b) => {
+      if (sort === "featured") return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+      if (sort === "newest") return (b.year ?? 0) - (a.year ?? 0);
+      if (sort === "oldest") return (a.year ?? 0) - (b.year ?? 0);
+      return 0;
+    });
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -222,7 +263,7 @@ export default function ChaisVideos() {
           </p>
 
           {/* Category filter */}
-          <div className="flex gap-2 justify-center flex-wrap">
+          <div className="flex gap-2 justify-center flex-wrap mb-3">
             {CATEGORIES.map(cat => (
               <button
                 key={cat.id}
@@ -235,6 +276,24 @@ export default function ChaisVideos() {
                 }}
               >
                 {cat.label}
+              </button>
+            ))}
+          </div>
+          {/* Sort controls */}
+          <div className="flex gap-2 justify-center flex-wrap items-center">
+            <span className="text-xs font-mono" style={{ color: "#445566" }}>SORT:</span>
+            {(["featured", "newest", "oldest"] as const).map(s => (
+              <button
+                key={s}
+                onClick={() => setSort(s)}
+                className="px-3 py-1.5 rounded-lg text-xs font-mono transition-all"
+                style={{
+                  background: sort === s ? "rgba(0,212,255,0.15)" : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${sort === s ? "rgba(0,212,255,0.5)" : "rgba(255,255,255,0.08)"}`,
+                  color: sort === s ? "#00D4FF" : "#8899AA",
+                }}
+              >
+                {s === "featured" ? "🔥 Featured" : s === "newest" ? "↓ Newest" : "↑ Oldest"}
               </button>
             ))}
           </div>
