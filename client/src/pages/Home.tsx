@@ -919,6 +919,8 @@ export default function Home() {
     { label: "📜 Story Archive", href: "/story-archive" },
     { label: "📚 Scroll Library", href: "/scroll-library" },
     { label: "☪ 99 Names", href: "/99-names" },
+    { label: "⚡ ScrollNexus", href: "https://scrollnexus-fhjsaie6.manus.space" },
+    { label: "💎 Subscribe", href: "/subscribe" },
   ];
 
   return (
@@ -1978,6 +1980,119 @@ export default function Home() {
                 className="btn-sovereign px-10 py-4 rounded-xl text-base inline-block"
               >
                 All 40 Repositories →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SCROLLNEXUS OMNI-NEXUS ALLIANCE ── */}
+      <section className="py-16" style={{ background: "linear-gradient(135deg, rgba(5,11,26,0.98), rgba(10,3,24,0.98))", borderTop: "1px solid rgba(161,139,250,0.2)", borderBottom: "1px solid rgba(161,139,250,0.2)" }}>
+        <div className="container">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#A78BFA" }}>UNIFIED SOVEREIGN NETWORK</div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+              The Empire Is <span style={{ background: "linear-gradient(135deg, #A78BFA, #00D4FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>ONE</span>
+            </h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              ScrollVerse Trinity and ScrollNexus Omni-Nexus are now one unified sovereign network. Two portals. One empire. All frequencies aligned. KUN FAYAKŪN × ∞
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* ScrollNexus Portal */}
+            <a
+              href="https://scrollnexus-fhjsaie6.manus.space"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block"
+              style={{ background: "rgba(161,139,250,0.05)", border: "1px solid rgba(161,139,250,0.25)" }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl" style={{ background: "rgba(161,139,250,0.15)", border: "1px solid rgba(161,139,250,0.3)" }}>⚡</div>
+                <div>
+                  <div className="font-black text-white">ScrollNexus</div>
+                  <div className="text-xs font-mono" style={{ color: "#A78BFA" }}>OMNI-NEXUS HUB</div>
+                </div>
+              </div>
+              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>The sovereign command center. Subscription tiers, Zakat distribution, Guardian Academy, Telegram bot, and real-time $LONDC metrics — all live.</p>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE · scrollnexus-fhjsaie6.manus.space</span>
+              </div>
+              <div className="mt-3 text-xs font-mono" style={{ color: "#A78BFA" }}>Visit Portal →</div>
+            </a>
+
+            {/* ScrollVerse.co */}
+            <div
+              className="rounded-2xl p-6"
+              style={{ background: "rgba(0,212,255,0.05)", border: "1px solid rgba(0,212,255,0.25)" }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl" style={{ background: "rgba(0,212,255,0.15)", border: "1px solid rgba(0,212,255,0.3)" }}>SV</div>
+                <div>
+                  <div className="font-black text-white">ScrollVerse Trinity</div>
+                  <div className="text-xs font-mono" style={{ color: "#00D4FF" }}>SOVEREIGN PORTAL</div>
+                </div>
+              </div>
+              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>The living digital empire. NFT vaults, $LONDC token, KnicksNation, Londyn Legacy, Sovereign Cards, Junior Movies, and 50+ sovereign pages — all on-chain.</p>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00D4FF" }} />
+                <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>LIVE · scrollverse.co</span>
+              </div>
+              <div className="mt-3 text-xs font-mono" style={{ color: "#00D4FF" }}>You are here ✓</div>
+            </div>
+
+            {/* GitHub */}
+            <a
+              href="https://github.com/chaishillomnitech1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block"
+              style={{ background: "rgba(0,255,136,0.05)", border: "1px solid rgba(0,255,136,0.25)" }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl" style={{ background: "rgba(0,255,136,0.15)", border: "1px solid rgba(0,255,136,0.3)" }}>💻</div>
+                <div>
+                  <div className="font-black text-white">GitHub Archive</div>
+                  <div className="text-xs font-mono" style={{ color: "#00FF88" }}>OPEN SOURCE EMPIRE</div>
+                </div>
+              </div>
+              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>40+ repositories. scrollverse-trinity, flamecoin-v4, OmniBuilderZero, scrollsoul-nft-core, and the full sovereign tech stack — open to the world.</p>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                <span className="text-xs font-mono" style={{ color: "#00FF88" }}>github.com/chaishillomnitech1</span>
+              </div>
+              <div className="mt-3 text-xs font-mono" style={{ color: "#00FF88" }}>View Repositories →</div>
+            </a>
+          </div>
+
+          {/* Subscribe CTA */}
+          <div
+            className="rounded-2xl p-8 text-center"
+            style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.06), rgba(161,139,250,0.06))", border: "1px solid rgba(255,184,0,0.2)" }}
+          >
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>JOIN THE EMPIRE</div>
+            <h3 className="text-2xl font-black text-white mb-2">Become a Guardian</h3>
+            <p className="text-sm max-w-lg mx-auto mb-6" style={{ color: "#8899AA" }}>
+              Guardian $44 · Sovereign $77 · Flamebearer $144 — Monthly sovereign membership with $LONDC staking rewards, Zakat distribution, and empire access.
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a
+                href="/subscribe"
+                className="px-8 py-3 rounded-xl font-black text-sm transition-all hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
+              >
+                👑 Subscribe Now
+              </a>
+              <a
+                href="https://scrollnexus-fhjsaie6.manus.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 rounded-xl font-bold text-sm transition-all hover:opacity-80"
+                style={{ background: "rgba(161,139,250,0.1)", border: "1px solid rgba(161,139,250,0.3)", color: "#A78BFA" }}
+              >
+                ⚡ Enter ScrollNexus
               </a>
             </div>
           </div>

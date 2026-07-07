@@ -348,6 +348,75 @@ export default function JuniorMovies() {
         </div>
       </div>
 
+      {/* ── FULL WATCH — ZJTj-qjCfWY ── */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 mb-12">
+        <div
+          className="rounded-2xl overflow-hidden"
+          style={{ border: "1px solid rgba(0,255,136,0.35)", boxShadow: "0 0 60px rgba(0,255,136,0.08)" }}
+        >
+          <div
+            className="flex items-center justify-between px-6 py-3"
+            style={{ background: "rgba(0,255,136,0.06)", borderBottom: "1px solid rgba(0,255,136,0.2)" }}
+          >
+            <div className="flex items-center gap-3">
+              <div
+                className="text-xs font-bold px-3 py-1 rounded-full"
+                style={{ background: "rgba(0,255,136,0.2)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.4)" }}
+              >
+                🎬 FULL WATCH
+              </div>
+              <span className="text-white font-black text-lg">Junior Movies</span>
+              <span style={{ color: "#8899AA" }}>— Sovereign Cinema Full Feature</span>
+            </div>
+            <div className="hidden md:flex gap-2">
+              {["Full Length", "Sovereign", "528Hz"].map(tag => (
+                <span key={tag} className="text-xs px-2 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.06)", color: "#8899AA" }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Full Watch Embed — always visible, no click required */}
+          <div className="relative" style={{ paddingBottom: "56.25%", height: 0 }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/ZJTj-qjCfWY?rel=0&modestbranding=1&color=white"
+              title="Junior Movies Entertainment — Full Watch"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+
+          <div className="p-6" style={{ background: "rgba(255,255,255,0.02)" }}>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#C4D0E0" }}>
+              Full sovereign cinema experience from Junior Movies Entertainment. Ancient wisdom, divine frequency, and stories that change the world — watch the complete feature here. Part of the ScrollVerse Trinity Empire. KUN FAYAKŪN × ∞
+            </p>
+            <div className="flex gap-3 flex-wrap">
+              <a
+                href="https://youtu.be/ZJTj-qjCfWY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg text-sm font-bold"
+                style={{ background: "rgba(255,0,0,0.15)", color: "#FF4444", border: "1px solid rgba(255,0,0,0.3)" }}
+              >
+                ▶ Open on YouTube
+              </a>
+              <a
+                href={YOUTUBE_CHANNEL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg text-sm font-bold"
+                style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
+              >
+                🎬 Subscribe to Channel
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* YouTube Channel Embed */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 mb-12">
         <div

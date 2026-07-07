@@ -1405,3 +1405,12 @@
 - [x] Wire /sovereign-cards route in App.tsx
 - [x] Add 💳 Sovereign Cards nav link to Home.tsx
 - [x] 16/16 tests passing
+
+## Phase 35 — Phase 6 Final Integrations: Unified Sovereign Network
+- [x] Junior Movies full watch YouTube embed (ZJTj-qjCfWY) — always-visible responsive player
+- [x] ScrollNexus Omni-Nexus cross-promotion section on Home.tsx (3-card grid + Subscribe CTA)
+- [x] GitHub cross-promotion wired (chaishillomnitech1)
+- [x] /subscribe page — Guardian $44, Sovereign $77, Flamebearer $144 with Stripe checkout + tier cards
+- [x] Guardian waitlist email capture on /subscribe with tier selector
+- [x] ⚡ ScrollNexus and 💎 Subscribe nav links added to Home.tsx navLinks
+- [x] /subscribe route registered in App.tsx
