@@ -1391,3 +1391,17 @@
 - [x] Add IPFS verification badges to KnicksNation card front + back (View on IPFS, Verify on Pinata, Polygon seal)
 - [x] Add IPFS on-chain verification section to JuniorMoviesNFT card back (View on IPFS, Pinata, Polygon)
 - [x] 16/16 tests passing
+
+## Phase 33 — ScrollVerse Sovereign Card System (SVCN)
+- [x] Build SovereignCards.tsx — full sovereign card system page at /sovereign-cards
+- [x] Chais The Great Black Card — 1-of-1 elite, unlimited credit, 7.77% $LONDC cashback, invite-only
+- [x] ScrollVerse Crypto Card — spend $LONDC/MATIC/USDC/ETH anywhere, 5.28% cashback
+- [x] ScrollVerse Credit Card — $4,440 sovereign credit line, 4.44% $LONDC, 0% APR 144 days
+- [x] ScrollVerse Digital Bank Card — full banking suite, 9.63% APY, auto-Zakat 2.5%
+- [x] 3D flip card visuals with holographic shimmer, chip, NFC badge, tilt-on-hover
+- [x] Apply modal with full application form and sovereign confirmation
+- [x] Card Dashboard — live spending tracker, $LONDC earned, recent transactions
+- [x] SVCN Network section — feature grid + SVCN vs Visa/Mastercard comparison table
+- [x] Wire /sovereign-cards route in App.tsx
+- [x] Add 💳 Sovereign Cards nav link to Home.tsx
+- [x] 16/16 tests passing

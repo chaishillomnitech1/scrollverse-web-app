@@ -915,6 +915,7 @@ export default function Home() {
     { label: "🌌 JME Universe", href: "/jme-universe" },
     { label: "🎨 Junior Studio", href: "/junior-studio" },
     { label: "◈ OmniVault", href: "/omni-vault" },
+    { label: "💳 Sovereign Cards", href: "/sovereign-cards" },
     { label: "📜 Story Archive", href: "/story-archive" },
     { label: "📚 Scroll Library", href: "/scroll-library" },
     { label: "☪ 99 Names", href: "/99-names" },
