@@ -492,6 +492,74 @@ export default function SovereignBroadcast() {
           </div>
         </div>
 
+        {/* ── INSTAGRAM REELS + SPOTIFY ── */}
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Instagram */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-1 h-7 rounded-full" style={{ background: "linear-gradient(#E1306C, #833AB4)" }} />
+              <h2 className="text-xl font-black text-white">Sovereign Transmissions</h2>
+              <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(225,48,108,0.1)", border: "1px solid rgba(225,48,108,0.3)", color: "#E1306C" }}>INSTAGRAM</span>
+            </div>
+            <div className="space-y-3">
+              {[
+                { url: "https://www.instagram.com/reel/DaYmjOaBSKa/", label: "KUN FAYAKŪN — Throne Broadcast", caption: "The Sovereign sits. The Empire breathes. #ScrollVerse.co" },
+                { url: "https://www.facebook.com/share/r/1E8yiRX9xH/", label: "Facebook — Sovereign Transmission", caption: "The frequency is set. The Legion is watching." },
+              ].map((reel, i) => (
+                <a key={i} href={reel.url} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl transition-all hover:scale-[1.02] block"
+                  style={{ background: "rgba(225,48,108,0.05)", border: "1px solid rgba(225,48,108,0.15)" }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0"
+                    style={{ background: "linear-gradient(135deg,#E1306C,#833AB4)" }}>📸</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-white text-sm">{reel.label}</div>
+                    <div className="text-xs mt-0.5 truncate" style={{ color: "#8899AA" }}>{reel.caption}</div>
+                  </div>
+                  <span className="text-xs font-bold flex-shrink-0" style={{ color: "#E1306C" }}>▶ Watch</span>
+                </a>
+              ))}
+            </div>
+            {/* KUN-FAYAKUN throne visual */}
+            <div className="mt-4 rounded-xl overflow-hidden relative" style={{ border: "1px solid rgba(255,184,0,0.25)" }}>
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png"
+                alt="KUN FAYAKŪN — Chais The Great on the Throne" className="w-full object-cover" style={{ maxHeight: "280px" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-4" style={{ background: "linear-gradient(transparent,rgba(5,11,26,0.95))" }}>
+                <div className="text-xs font-mono mb-0.5" style={{ color: "#FFB800" }}>◉ SOVEREIGN NFT — 1 OF 1</div>
+                <div className="font-black text-white">KUN FAYAKŪN</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>@chaisthegreat_mrwalk · #ScrollVerse.co</div>
+              </div>
+            </div>
+          </div>
+          {/* Spotify */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-1 h-7 rounded-full" style={{ background: "linear-gradient(#1DB954,#0a8a3a)" }} />
+              <h2 className="text-xl font-black text-white">Music Catalog</h2>
+              <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(29,185,84,0.1)", border: "1px solid rgba(29,185,84,0.3)", color: "#1DB954" }}>SPOTIFY</span>
+            </div>
+            <div className="rounded-xl overflow-hidden mb-3" style={{ border: "1px solid rgba(29,185,84,0.2)" }}>
+              <iframe src="https://open.spotify.com/embed/artist/3P0GWluMPNZ2xSCVffVGAr?utm_source=generator&theme=0"
+                width="100%" height="352" frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy" title="Chais The Great — Spotify Catalog" />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: "Apple Music", url: "https://music.apple.com/", color: "#FC3C44" },
+                { label: "Tidal", url: "https://tidal.com/", color: "#00FFFF" },
+                { label: "Amazon Music", url: "https://music.amazon.com/", color: "#00A8E0" },
+                { label: "YouTube Music", url: "https://music.youtube.com/", color: "#FF0000" },
+              ].map(dsp => (
+                <a key={dsp.label} href={dsp.url} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:scale-105"
+                  style={{ background: `${dsp.color}15`, border: `1px solid ${dsp.color}40`, color: dsp.color }}>
+                  🎵 {dsp.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="mt-16 text-center py-8 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div className="text-xs font-mono" style={{ color: "#8899AA" }}>
             KUN FAYAKŪN × ∞ · La ilaha illallah · Sovereign Broadcast Network · scrollverse.co

@@ -564,6 +564,9 @@ export default function Home() {
     { label: "🏀 Knicks Legacy", href: "/knicks-legacy" },
     { label: "🎵 Media Hub", href: "/media-hub" },
     { label: "🌟 Thoth-Hawk OKA", href: "/thoth-hawk" },
+    { label: "📡 Sovereign Broadcast", href: "/sovereign-broadcast" },
+    { label: "🎭 SHIFTER", href: "/shifter" },
+    { label: "🏀 Knicks Nation", href: "/knicks-nation" },
   ];
 
   return (

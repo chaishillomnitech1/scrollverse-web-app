@@ -1315,3 +1315,40 @@
 - [x] Upload KUN-FAYAKUN throne image to CDN and add to Home page hero as sovereign NFT card
 - [x] Wire PageTransition into all Phase 23 modules: SacredFrequencies, MediaHub, ZernioDistribution, OmniChess, Books, KnicksLegacy, ThothHawk
 - [x] All 16 tests passing
+
+## Phase 24 — Sovereign Broadcast + SHIFTER + Knicks Nation
+
+- [x] Wire /sovereign-broadcast route in App.tsx (SovereignBroadcast.tsx already built)
+- [x] Wire /shifter route in App.tsx (Shifter.tsx already built)
+- [x] Wire /knicks-nation route in App.tsx
+- [x] Add Sovereign Broadcast nav link to Home.tsx navLinks
+- [x] Add SHIFTER nav link to Home.tsx navLinks
+- [x] Add Knicks Nation nav link to Home.tsx navLinks
+- [x] Build KnicksNation.tsx — Sovereign 9 with real Brunson Pinata CID (bafybeigbqlnsij75ixhaje4b463ii4apjdseoenp5hhd2yjm3ktvnk2ooe)
+- [x] 3x3 flip grid with front (portrait) and back (sovereign coin) animation
+- [x] YES NUMBER ON badge on every card
+- [x] Stats bar: NBA Top Shot $91.7M (7d) / $146.3M (30d) / $1.25B all-time
+- [x] Mint interface at 0.09 ETH with quantity selector
+- [x] Gold particle canvas background
+- [x] Total sovereign supply: 24,954 coins
+- [x] PageTransition + SacredGeometryLoader wired into KnicksNation
+- [x] CID swap guide for Bridges #25 and King #30 remaining slots
+
+
+## Phase 24 — Sovereign Broadcast + SHIFTER + Knicks Nation
+
+- [x] Wire /sovereign-broadcast route in App.tsx (SovereignBroadcast.tsx already built)
+- [x] Wire /shifter route in App.tsx (Shifter.tsx already built)
+- [x] Wire /knicks-nation route in App.tsx
+- [x] Add Sovereign Broadcast nav link to Home.tsx navLinks
+- [x] Add SHIFTER nav link to Home.tsx navLinks
+- [x] Add Knicks Nation nav link to Home.tsx navLinks
+- [x] Build KnicksNation.tsx with real Brunson Pinata CID (bafybeigbqlnsij75ixhaje4b463ii4apjdseoenp5hhd2yjm3ktvnk2ooe)
+- [x] 3x3 flip grid with front (portrait) and back (sovereign coin) animation
+- [x] YES NUMBER ON badge on every card
+- [x] Stats bar: NBA Top Shot 91.7M (7d) / 146.3M (30d) / 1.25B all-time
+- [x] Mint interface at 0.09 ETH with quantity selector
+- [x] Gold particle canvas background
+- [x] Total sovereign supply: 24,954 coins
+- [x] PageTransition + SacredGeometryLoader wired into KnicksNation
+- [x] CID swap guide for Bridges and King remaining slots
