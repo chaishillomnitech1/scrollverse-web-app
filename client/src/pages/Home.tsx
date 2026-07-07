@@ -909,6 +909,7 @@ export default function Home() {
     { label: "🏀 Knicks Nation", href: "/knicks-nation" },
     { label: "✦ Aegis Healing", href: "/aegis" },
     { label: "🎬 Sovereign Cinema", href: "/sovereign-cinema" },
+    { label: "🎙 ScrollCast", href: "/podcast" },
   ];
 
   return (
