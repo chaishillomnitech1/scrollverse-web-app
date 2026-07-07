@@ -1382,3 +1382,12 @@
 - [ ] Upgrade JuniorMoviesNFT.tsx — Connect Wallet button in mint modal, glowing hover effects, smooth 3D flip transitions
 - [ ] Create scrollverse-empire-build reusable skill with skill-creator
 - [ ] Wire all new routes + nav links in App.tsx and Home.tsx
+
+## Phase 32 — IPFS On-Chain Validation + Story Archive + Knicks Real CIDs + Junior Movie Highlight
+- [x] Add Story Archive nav link to Home.tsx navLinks array
+- [x] Wire SovereignStoryArchive import + route /story-archive in App.tsx
+- [x] Update KnicksNation.tsx with 5 real Pinata CIDs: Ewing (THE ANCHOR), Towns (THE TOWER), OG (THE WING), King (THE ASSASSIN), Frazier (THE FLOOR GENERAL)
+- [x] Add Junior Movie highlight (RA — The Sun God) section to JuniorMovies.tsx styled like Thoth embed
+- [x] Add IPFS verification badges to KnicksNation card front + back (View on IPFS, Verify on Pinata, Polygon seal)
+- [x] Add IPFS on-chain verification section to JuniorMoviesNFT card back (View on IPFS, Pinata, Polygon)
+- [x] 16/16 tests passing

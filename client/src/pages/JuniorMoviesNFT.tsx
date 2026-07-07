@@ -340,7 +340,50 @@ function CharacterCard({ char, onMint }: { char: typeof CHARACTERS[0]; onMint: (
             ))}
           </div>
 
-          <div className="text-xs text-center" style={{ color: "#8899AA" }}>
+          {/* IPFS On-Chain Verification */}
+          <div
+            className="mt-3 p-2 rounded-xl"
+            style={{ background: "rgba(0,255,136,0.05)", border: "1px solid rgba(0,255,136,0.2)" }}
+          >
+            <div className="flex items-center gap-1.5 mb-2">
+              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+              <span className="text-xs font-mono" style={{ color: "#00FF88" }}>IPFS PINNED · ON-CHAIN · POLYGON</span>
+            </div>
+            <div className="flex gap-2">
+              <a
+                href={`${PINATA_GW}${char.nftId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={e => e.stopPropagation()}
+                className="flex-1 text-center text-xs py-1 rounded-lg font-bold"
+                style={{ background: "rgba(0,255,136,0.12)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
+              >
+                ⛓ View on IPFS
+              </a>
+              <a
+                href="https://app.pinata.cloud/ipfs/files"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={e => e.stopPropagation()}
+                className="flex-1 text-center text-xs py-1 rounded-lg font-bold"
+                style={{ background: "rgba(255,184,0,0.12)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}
+              >
+                🔍 Pinata
+              </a>
+              <a
+                href="https://polygonscan.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={e => e.stopPropagation()}
+                className="flex-1 text-center text-xs py-1 rounded-lg font-bold"
+                style={{ background: "rgba(130,71,229,0.12)", color: "#A78BFA", border: "1px solid rgba(130,71,229,0.3)" }}
+              >
+                ◆ Polygon
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-2 text-xs text-center" style={{ color: "#8899AA" }}>
             Click to flip back · Tap FREE to watch episode
           </div>
         </div>

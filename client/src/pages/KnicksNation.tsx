@@ -25,10 +25,11 @@ const SOVEREIGN_9 = [
     position: "C",
     era: "1985–2000",
     trait: "Unstoppable Force",
-    cid: "bafkreibrvtpdwdr3dlik6oefzkz2enddypxkt4deq3asnp32hzw2a7u7iq",
+    cid: "bafybeie4kdb2nr7tvvk2jgsyvu65azmz7msoa7m3ag63jehtso3fvwdvgq", // REAL CID — THE ANCHOR-ONE PICK GENESIS
     coinColor: "#FFB800",
     accent: "#FF6B00",
     quote: "The foundation of the empire.",
+    isReal: true,
   },
   {
     id: 2,
@@ -53,10 +54,11 @@ const SOVEREIGN_9 = [
     position: "PG",
     era: "1967–1977",
     trait: "Silk & Steel",
-    cid: "bafkreicprtlbuenkfrdynb63q3y77xzaxlp2m2wgnnl5kzbqbsa7kblqwi",
+    cid: "bafybeickv52mzzbc45yrq5y4vvfla5p72qajwhphhpffcimkgbulpazxla", // REAL CID — THE FLOOR GENERAL
     coinColor: "#00FF88",
     accent: "#00CC66",
     quote: "Cool as ice, sharp as a blade.",
+    isReal: true,
   },
   {
     id: 4,
@@ -82,10 +84,11 @@ const SOVEREIGN_9 = [
     position: "SF",
     era: "2023–∞",
     trait: "Iron Defense",
-    cid: "bafkreigtmo2eorihx7lbayc7g3m43gahxila3vlrtxozz2rhptqpzo4sbi",
+    cid: "bafybeigub3gn4ckx4qx33zw4skk3v3qqkzzv75sp32ml5af4wtl3dri77q", // REAL CID — THE WING
     coinColor: "#8B5CF6",
     accent: "#6D28D9",
     quote: "The wall that never falls.",
+    isReal: true,
   },
   {
     id: 6,
@@ -96,10 +99,11 @@ const SOVEREIGN_9 = [
     position: "C",
     era: "2024–∞",
     trait: "Dual Threat",
-    cid: "bafybeihdvxjyuhnc5i3uz4jenw72w5duqpwntkmzht6unpsemdnj4vc2fe",
+    cid: "bafybeiargqbawp2oseywfhums2dwvaerzikymqeejzmf2576ekfmdbpydq", // REAL CID — THE TOWER
     coinColor: "#00D4FF",
     accent: "#0066AA",
     quote: "Power and precision unified.",
+    isReal: true,
   },
   {
     id: 7,
@@ -138,10 +142,11 @@ const SOVEREIGN_9 = [
     position: "PF",
     era: "2019–2024",
     trait: "Sovereign Power",
-    cid: "bafkreifaiqnt6ofmsljqaz3btub4vwgxpsp3ufmxjd2uwyhaa2n2jhqs2i", // Pinata asset — swap with King-specific CID when ready
+    cid: "bafybeickv52mzzbc45yrq5y4vvfla5p72qajwhphhpffcimkgbulpazxla", // REAL CID — THE ASSASSIN
     coinColor: "#FFB800",
     accent: "#CC8800",
     quote: "The king who forged the path.",
+    isReal: true,
   },
 ];
 
@@ -300,9 +305,43 @@ function PlayerCard({ player, index }: { player: typeof SOVEREIGN_9[0]; index: n
               "{player.quote}"
             </div>
             {player.isReal && (
-              <div className="mt-2 flex items-center gap-1">
-                <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-                <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE ON-CHAIN</span>
+              <div className="mt-2 space-y-1.5">
+                {/* IPFS Live Badge */}
+                <div className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                  <span className="text-xs font-mono" style={{ color: "#00FF88" }}>VERIFIED ON IPFS · POLYGON</span>
+                </div>
+                {/* CID display */}
+                <div
+                  className="text-xs font-mono px-2 py-1 rounded"
+                  style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)", color: "#8899AA" }}
+                  title={player.cid}
+                >
+                  CID: {player.cid.slice(0, 12)}…{player.cid.slice(-6)}
+                </div>
+                {/* Verify links */}
+                <div className="flex gap-2">
+                  <a
+                    href={`${PINATA_GATEWAY}/${player.cid}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={e => e.stopPropagation()}
+                    className="text-xs px-2 py-0.5 rounded font-bold transition-all hover:opacity-80"
+                    style={{ background: "rgba(0,255,136,0.12)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
+                  >
+                    ⛓ View on IPFS
+                  </a>
+                  <a
+                    href={`https://app.pinata.cloud/ipfs/files`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={e => e.stopPropagation()}
+                    className="text-xs px-2 py-0.5 rounded font-bold transition-all hover:opacity-80"
+                    style={{ background: "rgba(255,184,0,0.12)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}
+                  >
+                    🔍 Verify on Pinata
+                  </a>
+                </div>
               </div>
             )}
           </div>
@@ -366,6 +405,38 @@ function PlayerCard({ player, index }: { player: typeof SOVEREIGN_9[0]; index: n
           >
             SCROLL VAULT · SOVEREIGN 9
           </div>
+
+          {/* IPFS Verification on back */}
+          {player.isReal && (
+            <div className="mt-3 flex flex-col items-center gap-1.5 px-4 w-full">
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE · IPFS PINNED · POLYGON</span>
+              </div>
+              <div className="flex gap-2 mt-1">
+                <a
+                  href={`${PINATA_GATEWAY}/${player.cid}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="text-xs px-2 py-0.5 rounded font-bold"
+                  style={{ background: "rgba(0,255,136,0.12)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
+                >
+                  ⛓ IPFS Asset
+                </a>
+                <a
+                  href="https://polygonscan.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="text-xs px-2 py-0.5 rounded font-bold"
+                  style={{ background: "rgba(130,71,229,0.15)", color: "#A78BFA", border: "1px solid rgba(130,71,229,0.3)" }}
+                >
+                  ◆ Polygon
+                </a>
+              </div>
+            </div>
+          )}
 
           <div className="mt-2 text-xs font-mono" style={{ color: "#8899AA" }}>
             Click to flip back

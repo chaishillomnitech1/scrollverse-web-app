@@ -9,6 +9,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 
 const THOTH_VIDEO_ID = "Lb5t_F7UlR4";
+const JME_CHANNEL_VIDEO_ID = "PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSK"; // JME channel playlist
+const JME_HIGHLIGHT_VIDEO_ID = "Lb5t_F7UlR4"; // Second highlight — JME Episode 2 (same channel, different embed style)
 const YOUTUBE_CHANNEL = "https://youtube.com/@juniormoviesentertainment";
 const CHANNEL_HANDLE = "@juniormoviesentertainment";
 
@@ -22,6 +24,7 @@ const CHANNEL_STATS = [
 export default function JuniorMovies() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeVideo2, setActiveVideo2] = useState<string | null>(null);
   const [channelExpanded, setChannelExpanded] = useState(false);
 
   useEffect(() => {
@@ -221,6 +224,123 @@ export default function JuniorMovies() {
                   style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}
                 >
                   🎬 Full Cinema
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* JME HIGHLIGHT — Second Featured Film */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 mb-12">
+        <div
+          className="rounded-2xl overflow-hidden"
+          style={{ border: "1px solid rgba(0,212,255,0.3)", boxShadow: "0 0 60px rgba(0,212,255,0.08)" }}
+        >
+          <div
+            className="flex items-center justify-between px-6 py-3"
+            style={{ background: "rgba(0,212,255,0.06)", borderBottom: "1px solid rgba(0,212,255,0.2)" }}
+          >
+            <div className="flex items-center gap-3">
+              <div
+                className="text-xs font-bold px-3 py-1 rounded-full"
+                style={{ background: "rgba(0,212,255,0.2)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.4)" }}
+              >
+                ✨ JME HIGHLIGHT
+              </div>
+              <span className="text-white font-black text-lg">RA</span>
+              <span style={{ color: "#8899AA" }}>— The Sun God Rises</span>
+            </div>
+            <div className="hidden md:flex gap-2">
+              {["Solar Sovereign", "528Hz", "Empire"].map(tag => (
+                <span key={tag} className="text-xs px-2 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.06)", color: "#8899AA" }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Video */}
+          <div className="relative" style={{ paddingBottom: "56.25%", height: 0 }}>
+            {activeVideo2 === "jme-ra" ? (
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed?listType=user_uploads&list=juniormoviesentertainment&index=1&autoplay=1&rel=0&modestbranding=1`}
+                title="RA — Junior Movies Entertainment"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div
+                className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+                style={{ background: "linear-gradient(135deg, #0a0a1a, #001a2e)" }}
+                onClick={() => setActiveVideo2("jme-ra")}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "radial-gradient(ellipse at center, rgba(0,212,255,0.15) 0%, rgba(3,8,18,0.9) 70%)",
+                  }}
+                />
+                {/* Animated sun rays */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute"
+                      style={{
+                        width: "2px",
+                        height: "80px",
+                        background: "linear-gradient(to top, transparent, rgba(255,184,0,0.4))",
+                        transform: `rotate(${i * 45}deg) translateY(-60px)`,
+                        transformOrigin: "bottom center",
+                        animation: `spin 8s linear infinite`,
+                      }}
+                    />
+                  ))}
+                </div>
+                <div
+                  className="relative z-10 w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                  style={{ background: "rgba(255,0,0,0.9)", boxShadow: "0 0 40px rgba(255,0,0,0.5)" }}
+                >
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6" style={{ background: "linear-gradient(to top, rgba(3,8,18,0.95), transparent)" }}>
+                  <div className="text-3xl font-black text-white mb-1">RA — THE SUN GOD</div>
+                  <div style={{ color: "#00D4FF" }}>Junior Movies Entertainment × ScrollVerse</div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="p-6" style={{ background: "rgba(255,255,255,0.02)" }}>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#C4D0E0" }}>
+              Ra — the supreme solar deity, source of all light and life. A Junior Movies Entertainment sovereign production channeling the frequency of 528Hz — the love frequency, the DNA repair code. The sun rises. The empire awakens. KUN FAYAKŪN × ∞
+            </p>
+            <div className="flex gap-3 flex-wrap">
+              <a
+                href={YOUTUBE_CHANNEL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg text-sm font-bold"
+                style={{ background: "rgba(255,0,0,0.15)", color: "#FF4444", border: "1px solid rgba(255,0,0,0.3)" }}
+              >
+                ▶ Watch on YouTube
+              </a>
+              <button
+                onClick={() => setActiveVideo2(activeVideo2 === "jme-ra" ? null : "jme-ra")}
+                className="px-4 py-2 rounded-lg text-sm font-bold"
+                style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}
+              >
+                {activeVideo2 === "jme-ra" ? "⏹ Close Player" : "▶ Play Here"}
+              </button>
+              <Link href="/jme-universe">
+                <span
+                  className="px-4 py-2 rounded-lg text-sm font-bold cursor-pointer"
+                  style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
+                >
+                  🌌 JME Universe
                 </span>
               </Link>
             </div>
