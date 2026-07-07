@@ -163,6 +163,9 @@ import JuniorMoviesNFT from "./pages/JuniorMoviesNFT";
 import OmniVault from "./pages/OmniVault";
 import JMEUniverse from "./pages/JMEUniverse";
 import JuniorMoviesStudio from "./pages/JuniorMoviesStudio";
+import ScrollAcademy from "./pages/ScrollAcademy";
+import EcosystemOverview from "./pages/EcosystemOverview";
+import GatesOne from "./pages/GatesOne";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -326,6 +329,9 @@ function Router() {
       <Route path={"/omni-vault"} component={OmniVault} />
       <Route path={"/jme-universe"} component={JMEUniverse} />
       <Route path={"/junior-studio"} component={JuniorMoviesStudio} />
+      <Route path={"/scrollacademy"} component={ScrollAcademy} />
+      <Route path={"/ecosystem"} component={EcosystemOverview} />
+      <Route path={"/gates-one"} component={GatesOne} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
