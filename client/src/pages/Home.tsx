@@ -567,6 +567,7 @@ export default function Home() {
     { label: "📡 Sovereign Broadcast", href: "/sovereign-broadcast" },
     { label: "🎭 SHIFTER", href: "/shifter" },
     { label: "🏀 Knicks Nation", href: "/knicks-nation" },
+    { label: "✦ Aegis Healing", href: "/aegis" },
   ];
 
   return (

@@ -124,7 +124,7 @@ const SOVEREIGN_9 = [
     position: "SF",
     era: "2024–∞",
     trait: "Two-Way Sovereign",
-    cid: "bafkreih4bnkpqp5r7qzpkfbvxhzxkzxkzxkzxkzxkzxkzxkzxkzxkzxk", // SWAP: replace with your CID
+    cid: "bafybeihdvxjyuhnc5i3uz4jenw72w5duqpwntkmzht6unpsemdnj4vc2fe", // Pinata asset — swap with Bridges-specific CID when ready
     coinColor: "#00FF88",
     accent: "#00AA55",
     quote: "The bridge to the promised land.",
@@ -138,7 +138,7 @@ const SOVEREIGN_9 = [
     position: "PF",
     era: "2019–2024",
     trait: "Sovereign Power",
-    cid: "bafkreig4bnkpqp5r7qzpkfbvxhzxkzxkzxkzxkzxkzxkzxkzxkzxkzxk", // SWAP: replace with your CID
+    cid: "bafkreifaiqnt6ofmsljqaz3btub4vwgxpsp3ufmxjd2uwyhaa2n2jhqs2i", // Pinata asset — swap with King-specific CID when ready
     coinColor: "#FFB800",
     accent: "#CC8800",
     quote: "The king who forged the path.",

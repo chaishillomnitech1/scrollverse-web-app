@@ -153,6 +153,7 @@ import KnicksLegacy from "./pages/KnicksLegacy";
 import ThothHawk from "./pages/ThothHawk";
 import Shifter from "./pages/Shifter";
 import KnicksNation from "./pages/KnicksNation";
+import Aegis from "./pages/Aegis";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -306,6 +307,7 @@ function Router() {
       <Route path={"/thoth-hawk"} component={ThothHawk} />
       <Route path={"/shifter"} component={Shifter} />
       <Route path={"/knicks-nation"} component={KnicksNation} />
+      <Route path={"/aegis"} component={Aegis} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
