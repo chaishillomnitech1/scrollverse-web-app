@@ -12,6 +12,14 @@ import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 
+// ── SHIMMER ANIMATION STYLE ──
+const shimmerStyle = `
+  @keyframes shimmerSlide {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+`;
+
 // ── CATALOG DATA ──
 // Each release: cover art on IPFS, NFT metadata, Stripe mint price
 const CATALOG = [
@@ -125,6 +133,36 @@ const CATALOG = [
   },
 ];
 
+// ── SHARE BUTTONS ──
+function ShareButtons({ title, url }: { title: string; url: string }) {
+  const tw = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`🎵 ${title} — Sovereign NFT by Chais The Great. Pinned on IPFS · Polygon`)}&url=${encodeURIComponent(url)}&hashtags=ScrollVerse,LONDC,ChaisTheGreat,Polygon`;
+  const tg = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(`🎵 ${title} — Sovereign NFT by Chais The Great. Pinned on IPFS · Polygon #ScrollVerse #LONDC`)}`;
+  return (
+    <div className="flex gap-2">
+      <a
+        href={tw}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={e => e.stopPropagation()}
+        className="flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold transition-all hover:scale-105"
+        style={{ background: "rgba(29,161,242,0.12)", border: "1px solid rgba(29,161,242,0.35)", color: "#1DA1F2" }}
+      >
+        𝕏 Share
+      </a>
+      <a
+        href={tg}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={e => e.stopPropagation()}
+        className="flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold transition-all hover:scale-105"
+        style={{ background: "rgba(0,136,204,0.12)", border: "1px solid rgba(0,136,204,0.35)", color: "#0088CC" }}
+      >
+        ✈ Telegram
+      </a>
+    </div>
+  );
+}
+
 // ── NFT CARD COMPONENT ──
 function NFTCard({
   release,
@@ -136,18 +174,32 @@ function NFTCard({
   minting: boolean;
 }) {
   const [flipped, setFlipped] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const shortCid = release.cid.slice(0, 8) + "..." + release.cid.slice(-6);
+  const shareUrl = `${typeof window !== "undefined" ? window.location.origin : "https://scrollverse.co"}/chais-catalog#${release.id}`;
 
   return (
     <div
       className="relative cursor-pointer"
-      style={{ perspective: "1000px", minHeight: "420px" }}
+      style={{ perspective: "1200px", minHeight: "420px" }}
       onClick={() => setFlipped(!flipped)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
+      {/* Glow halo on hover */}
       <div
-        className="relative w-full h-full transition-transform duration-700"
+        className="absolute -inset-1 rounded-2xl transition-opacity duration-500 pointer-events-none"
+        style={{
+          background: `radial-gradient(ellipse at 50% 50%, ${release.color}30, transparent 70%)`,
+          opacity: hovered && !flipped ? 1 : 0,
+          filter: "blur(12px)",
+        }}
+      />
+      <div
+        className="relative w-full h-full"
         style={{
           transformStyle: "preserve-3d",
+          transition: "transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)",
           transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
           minHeight: "420px",
         }}
@@ -172,9 +224,27 @@ function NFTCard({
               background: `linear-gradient(135deg, ${release.color}20, rgba(5,11,26,0.8))`,
               border: `1px solid ${release.color}30`,
               height: "160px",
+              transition: "box-shadow 0.4s ease",
+              boxShadow: hovered && !flipped ? `0 0 28px ${release.color}35, inset 0 0 20px ${release.color}10` : "none",
             }}
           >
-            <div className="text-6xl">{release.icon}</div>
+            {/* Shimmer overlay on hover */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `linear-gradient(105deg, transparent 40%, ${release.color}18 50%, transparent 60%)`,
+                backgroundSize: "200% 100%",
+                animation: hovered && !flipped ? "shimmerSlide 1.6s linear infinite" : "none",
+                opacity: hovered && !flipped ? 1 : 0,
+                transition: "opacity 0.3s ease",
+              }}
+            />
+            <div
+              className="text-6xl transition-transform duration-500"
+              style={{ transform: hovered && !flipped ? "scale(1.12) rotate(-3deg)" : "scale(1) rotate(0deg)" }}
+            >
+              {release.icon}
+            </div>
             {/* IPFS live badge */}
             <div
               className="absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-mono"
@@ -208,19 +278,23 @@ function NFTCard({
                 </span>
               ))}
             </div>
-            <div className="mt-auto flex items-center justify-between">
-              <div>
-                <div className="text-2xl font-black" style={{ color: release.color }}>${release.mintPrice}</div>
-                <div className="text-xs font-mono" style={{ color: "#667788" }}>Mint NFT · $LONDC rewards</div>
+            <div className="mt-auto">
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <div className="text-2xl font-black" style={{ color: release.color }}>${release.mintPrice}</div>
+                  <div className="text-xs font-mono" style={{ color: "#667788" }}>Mint NFT · $LONDC rewards</div>
+                </div>
+                <button
+                  onClick={(e) => { e.stopPropagation(); onMint(release.id, release.mintPriceCents, release.title); }}
+                  disabled={minting}
+                  className="px-4 py-2 rounded-xl text-xs font-black transition-all hover:scale-105 active:scale-95 disabled:opacity-60"
+                  style={{ background: `linear-gradient(135deg, ${release.color}, ${release.color}CC)`, color: "#050B1A", boxShadow: `0 0 16px ${release.color}40` }}
+                >
+                  {minting ? "..." : "Mint NFT"}
+                </button>
               </div>
-              <button
-                onClick={(e) => { e.stopPropagation(); onMint(release.id, release.mintPriceCents, release.title); }}
-                disabled={minting}
-                className="px-4 py-2 rounded-xl text-xs font-black transition-all hover:scale-105 disabled:opacity-60"
-                style={{ background: `linear-gradient(135deg, ${release.color}, ${release.color}CC)`, color: "#050B1A" }}
-              >
-                {minting ? "..." : "Mint NFT"}
-              </button>
+              {/* Social sharing */}
+              <ShareButtons title={release.title} url={shareUrl} />
             </div>
           </div>
         </div>
@@ -319,6 +393,7 @@ export default function ChaisCatalog() {
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
+      <style>{shimmerStyle}</style>
       {/* Ambient */}
       <div className="fixed inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 20% 20%, rgba(255,184,0,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(0,212,255,0.04) 0%, transparent 50%)" }} />
 

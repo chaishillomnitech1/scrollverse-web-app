@@ -142,8 +142,8 @@ function VideoCard({
         <div className="text-xs mb-2" style={{ color: "#8899AA" }}>{video.subtitle}</div>
         <p className="text-xs leading-relaxed" style={{ color: "#667788" }}>{video.description}</p>
 
-        {/* YouTube link */}
-        <div className="mt-3 flex gap-2">
+        {/* YouTube link + Social sharing */}
+        <div className="mt-3 flex flex-wrap gap-2">
           <a
             href={video.isPlaylist
               ? `https://youtube.com/playlist?list=${video.playlistId}`
@@ -161,6 +161,28 @@ function VideoCard({
               Full Playlist
             </div>
           )}
+          {/* Twitter share */}
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🎬 ${video.title} — Chais The Great. Watch now:`)}&url=${encodeURIComponent(video.isPlaylist ? `https://youtube.com/playlist?list=${video.playlistId}` : `https://youtu.be/${video.youtubeId}`)}&hashtags=ScrollVerse,ChaisTheGreat,LONDC`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            className="text-xs px-3 py-1.5 rounded-lg transition-all hover:scale-105"
+            style={{ background: "rgba(29,161,242,0.1)", border: "1px solid rgba(29,161,242,0.3)", color: "#1DA1F2" }}
+          >
+            𝕏 Share
+          </a>
+          {/* Telegram share */}
+          <a
+            href={`https://t.me/share/url?url=${encodeURIComponent(video.isPlaylist ? `https://youtube.com/playlist?list=${video.playlistId}` : `https://youtu.be/${video.youtubeId}`)}&text=${encodeURIComponent(`🎬 ${video.title} — Chais The Great #ScrollVerse #LONDC`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            className="text-xs px-3 py-1.5 rounded-lg transition-all hover:scale-105"
+            style={{ background: "rgba(0,136,204,0.1)", border: "1px solid rgba(0,136,204,0.3)", color: "#0088CC" }}
+          >
+            ✈ Telegram
+          </a>
         </div>
       </div>
     </div>
