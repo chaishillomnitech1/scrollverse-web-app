@@ -159,6 +159,7 @@ import SovereignPodcast from "./pages/SovereignPodcast";
 import JuniorMovies from "./pages/JuniorMovies";
 import NamesOfAllah from "./pages/NamesOfAllah";
 import ScrollLibrary from "./pages/ScrollLibrary";
+import JuniorMoviesNFT from "./pages/JuniorMoviesNFT";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -318,6 +319,7 @@ function Router() {
       <Route path={"/junior-movies"} component={JuniorMovies} />
       <Route path={"/99-names"} component={NamesOfAllah} />
       <Route path={"/scroll-library"} component={ScrollLibrary} />
+      <Route path={"/junior-movies-nft"} component={JuniorMoviesNFT} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

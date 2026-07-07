@@ -910,6 +910,10 @@ export default function Home() {
     { label: "✦ Aegis Healing", href: "/aegis" },
     { label: "🎬 Sovereign Cinema", href: "/sovereign-cinema" },
     { label: "🎙 ScrollCast", href: "/podcast" },
+    { label: "🎬 Junior Movies", href: "/junior-movies" },
+    { label: "🏺 JME NFT Vault", href: "/junior-movies-nft" },
+    { label: "📚 Scroll Library", href: "/scroll-library" },
+    { label: "☪ 99 Names", href: "/99-names" },
   ];
 
   return (
