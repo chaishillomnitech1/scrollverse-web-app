@@ -1,0 +1,37 @@
+{
+  "query": "INSERT INTO staking_positions (userId, pool, chxStaked, apyRate, rewardsEarned, status, stakedAt, lastCompoundAt) VALUES (1, 'genesis', '144000', '432', '0', 'active', NOW(), NOW()), (1, 'celestial', '528000', '528', '0', 'active', NOW(), NOW()), (1, 'infinity', '999000', '999', '0', 'active', NOW(), NOW()); SELECT id, userId, pool, chxStaked, apyRate, rewardsEarned, status FROM staking_positions WHERE userId = 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute INSERT INTO staking_positions (userId, pool, chxStaked, apyRate, rewardsEarned, status, stakedAt, lastCompoundAt) VALUES (1, 'genesis', '144000', '432', '0', 'active', NOW(), NOW()), (1, 'celestial', '528000', '528', '0', 'active', NOW(), NOW()), (1, 'infinity', '999000', '999', '0', 'active', NOW(), NOW()); SELECT id, userId, pool, chxStaked, apyRate, rewardsEarned, status FROM staking_positions WHERE userId = 1;",
+  "rows": [
+    {
+      "id": "1",
+      "userId": "1",
+      "pool": "genesis",
+      "chxStaked": "144000",
+      "apyRate": "432",
+      "rewardsEarned": "0",
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "pool": "celestial",
+      "chxStaked": "528000",
+      "apyRate": "528",
+      "rewardsEarned": "0",
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "pool": "infinity",
+      "chxStaked": "999000",
+      "apyRate": "999",
+      "rewardsEarned": "0",
+      "status": "active"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserId\tpool\tchxStaked\tapyRate\trewardsEarned\tstatus\n1\t1\tgenesis\t144000\t432\t0\tactive\n2\t1\tcelestial\t528000\t528\t0\tactive\n3\t1\tinfinity\t999000\t999\t0\tactive\n",
+  "stderr": "",
+  "execution_time_ms": 283
+}

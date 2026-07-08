@@ -907,6 +907,7 @@ export default function Home() {
     { label: "📡 Sovereign Broadcast", href: "/sovereign-broadcast" },
     { label: "🎭 SHIFTER", href: "/shifter" },
     { label: "🏀 Knicks Nation", href: "/knicks-nation" },
+    { label: "🏀 Sovereign 9", href: "/sovereign-9" },
     { label: "✦ Aegis Healing", href: "/aegis" },
     { label: "🎬 Sovereign Cinema", href: "/sovereign-cinema" },
     { label: "🎙 ScrollCast", href: "/podcast" },

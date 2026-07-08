@@ -153,6 +153,7 @@ import KnicksLegacy from "./pages/KnicksLegacy";
 import ThothHawk from "./pages/ThothHawk";
 import Shifter from "./pages/Shifter";
 import KnicksNation from "./pages/KnicksNation";
+import Sovereign9 from "./pages/Sovereign9";
 import Aegis from "./pages/Aegis";
 import SovereignCinema from "./pages/SovereignCinema";
 import SovereignPodcast from "./pages/SovereignPodcast";
@@ -325,6 +326,7 @@ function Router() {
       <Route path={"/thoth-hawk"} component={ThothHawk} />
       <Route path={"/shifter"} component={Shifter} />
       <Route path={"/knicks-nation"} component={KnicksNation} />
+      <Route path={"/sovereign-9"} component={Sovereign9} />
       <Route path={"/aegis"} component={Aegis} />
       <Route path={"/sovereign-cinema"} component={SovereignCinema} />
       <Route path={"/podcast"} component={SovereignPodcast} />

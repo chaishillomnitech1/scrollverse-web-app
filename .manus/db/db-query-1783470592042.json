@@ -1,0 +1,9 @@
+{
+  "query": "SELECT COUNT(*) as total_positions, status FROM staking_positions GROUP BY status; SELECT * FROM staking_positions LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute SELECT COUNT(*) as total_positions, status FROM staking_positions GROUP BY status; SELECT * FROM staking_positions LIMIT 5;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 952
+}

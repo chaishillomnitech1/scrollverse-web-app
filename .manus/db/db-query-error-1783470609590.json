@@ -1,0 +1,19 @@
+{
+  "query": "DESCRIBE staking_positions; SELECT id, open_id, name FROM users LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user PSrE8DiJ4ksy2na.17f203c986ea --database XkJtdnvin6DhqjiCQ3fUyz --execute DESCRIBE staking_positions; SELECT id, open_id, name FROM users LIMIT 5;",
+  "returncode": 1,
+  "logs": [
+    "Field\tType\tNull\tKey\tDefault\tExtra",
+    "id\tint\tNO\tPRI\tNULL\tauto_increment",
+    "userId\tint\tNO\t\tNULL\t",
+    "pool\tvarchar(32)\tNO\t\tNULL\t",
+    "chxStaked\tvarchar(64)\tNO\t\tNULL\t",
+    "apyRate\tvarchar(16)\tNO\t\tNULL\t",
+    "rewardsEarned\tvarchar(64)\tYES\t\t0\t",
+    "status\tvarchar(32)\tNO\t\tactive\t",
+    "stakedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\t",
+    "lastCompoundAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\t",
+    "withdrawnAt\ttimestamp\tYES\t\tNULL",
+    "ERROR 1054 (42S22) at line 1: Unknown column 'open_id' in 'field list'"
+  ]
+}

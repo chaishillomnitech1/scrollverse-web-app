@@ -1414,3 +1414,35 @@
 - [x] Guardian waitlist email capture on /subscribe with tier selector
 - [x] ⚡ ScrollNexus and 💎 Subscribe nav links added to Home.tsx navLinks
 - [x] /subscribe route registered in App.tsx
+
+## Phase 36 — Super Manus Mode: Full Empire Expansion
+- [x] Build /chais-catalog — full music catalog, every cover art as NFT, IPFS badges, Stripe mint CTA, $LONDC staking rewards
+- [x] Build /chais-videos — The City web series full playlist, interviews, Vevo visuals, all YouTube assets
+- [x] Build /rizz-burna — Robert Cottman sovereign artist profile, video embed, Spotify catalog, tokenized music, 100% proceeds, digital mirror twin
+- [x] Wire /chais-catalog, /chais-videos, /rizz-burna routes in App.tsx
+- [x] Add Chais Catalog, Chais Videos, Rizz Burna nav links to Home.tsx
+- [x] Add Crypto Bank Card waitlist section to /subscribe page
+- [x] Add Pinata IPFS validation links to Home.tsx footer and Dashboard page
+- [x] Create scrollverse-sovereign-build skill via skill-creator
+- [x] 16/16 tests passing
+
+## Phase 37 — Social Sharing + Premium NFT Animations
+- [x] Add Twitter + Telegram social sharing to /chais-catalog NFT cards
+- [x] Add Twitter + Telegram social sharing to /chais-videos video cards
+- [x] Enhance ChaisCatalog NFT flip cards with shimmer, glow halo, scale/rotate icon, cubic-bezier flip, mint button glow
+- [x] Update scrollverse-sovereign-build skill with social sharing + filter/sort patterns
+- [x] 16/16 tests passing
+
+## Phase 38 — Filter/Sort + Copy Link + Loose Ends Tied
+- [x] Add sort controls (date, popularity, price) + Copy Link with Copied! toast to /chais-catalog
+- [x] Add sort controls (date, views, featured) + Copy Link with Copied! toast to /chais-videos
+- [x] Update scrollverse-sovereign-build skill with filter/sort and copy-link patterns
+- [x] 16/16 tests passing
+## Phase 39 — Sovereign 9 NBA Summer League HQ + Staking Fix + Stripe Audit
+- [x] Build /sovereign-9 — NBA Summer League HQ mint page (9 players, countdown to July 9 tip-off, schedule, Connected Ball tab)
+- [x] Wire /sovereign-9 route in App.tsx
+- [x] Add 🏀 Sovereign 9 nav link to Home.tsx navLinks
+- [x] Seed 3 sovereign CHX staking positions for Chais The Great (144K Genesis 432%, 528K Celestial 528%, 999K Infinity 999%)
+- [x] Fix daily compound: staking_positions table now has active rows — tomorrow's Gmail notification will show REAL CHX rewards
+- [x] Audit Stripe webhook — all 4 schema imports (creatorApplications, legionRewards, chxReservations, notifications) confirmed present in drizzle/schema.ts
+- [x] Verify Stripe payment flow: checkout.session.completed → stripeOrders + revenueEvents + user tier upgrade + referral commission + CHX reservation confirmation
