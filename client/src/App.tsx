@@ -173,6 +173,7 @@ import Subscribe from "./pages/Subscribe";
 import ChaisCatalog from "./pages/ChaisCatalog";
 import ChaisVideos from "./pages/ChaisVideos";
 import RizzBurna from "./pages/RizzBurna";
+import IPO from "./pages/IPO";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -327,6 +328,7 @@ function Router() {
       <Route path={"/shifter"} component={Shifter} />
       <Route path={"/knicks-nation"} component={KnicksNation} />
       <Route path={"/sovereign-9"} component={Sovereign9} />
+      <Route path={"/ipo"} component={IPO} />
       <Route path={"/aegis"} component={Aegis} />
       <Route path={"/sovereign-cinema"} component={SovereignCinema} />
       <Route path={"/podcast"} component={SovereignPodcast} />

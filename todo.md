@@ -1446,3 +1446,10 @@
 - [x] Fix daily compound: staking_positions table now has active rows — tomorrow's Gmail notification will show REAL CHX rewards
 - [x] Audit Stripe webhook — all 4 schema imports (creatorApplications, legionRewards, chxReservations, notifications) confirmed present in drizzle/schema.ts
 - [x] Verify Stripe payment flow: checkout.session.completed → stripeOrders + revenueEvents + user tier upgrade + referral commission + CHX reservation confirmation
+## Phase 40 — Sovereign Reign: Bank + IPO + All Purchase Paths Live
+- [x] Build /sovereign-bank — confirmed fully built (Self-Approval Protocol, Franchise System, Yield Calculator, Zakat Routing)
+- [x] Build /ipo — ScrollVerse Trinity public launch investor portal (valuation, tokenomics, equity tiers, public offering CTA)
+- [x] Maximize all purchase paths — IPO page wires Stripe checkout for all 4 investment tiers
+- [x] Wire /sovereign-bank and /ipo routes in App.tsx
+- [x] Add 🏦 Sovereign Bank and 📈 IPO / Public Offering nav links to Home.tsx
+- [x] Run tests (16/16 passing) and save checkpoint

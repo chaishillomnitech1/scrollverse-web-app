@@ -925,6 +925,8 @@ export default function Home() {
     { label: "🎵 Chais Catalog", href: "/chais-catalog" },
     { label: "🎬 Chais Videos", href: "/chais-videos" },
     { label: "🔥 Rizz Burna", href: "/rizz-burna" },
+    { label: "🏦 Sovereign Bank", href: "/sovereign-bank" },
+    { label: "📈 IPO / Public Offering", href: "/ipo" },
   ];
 
   return (
