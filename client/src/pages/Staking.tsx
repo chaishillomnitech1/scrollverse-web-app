@@ -167,23 +167,86 @@ export default function Staking() {
                 {!isAuthenticated && <p className="text-xs text-center mt-2" style={{ color: "#8899AA" }}>Login required to stake CHX</p>}
               </div>
 
-              {/* APY Calculator */}
+              {/* CHX ROI Calculator — Enhanced */}
               <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <h3 className="text-lg font-bold text-white mb-4">APY Projection Calculator</h3>
+                <h3 className="text-lg font-bold text-white mb-1">CHX ROI Calculator</h3>
+                <p className="text-xs mb-4" style={{ color: "#8899AA" }}>Project your daily, monthly, and yearly returns in CHX + USD</p>
+
+                {/* Pool selector inside calculator */}
+                <div className="flex gap-2 mb-4">
+                  {(["genesis", "celestial", "infinity"] as const).map(p => {
+                    const c = POOL_CONFIG[p];
+                    return (
+                      <button key={p} onClick={() => setSelectedPool(p)}
+                        className="flex-1 py-1.5 rounded-lg text-xs font-mono transition-all"
+                        style={{
+                          background: selectedPool === p ? `${c.color}18` : "rgba(255,255,255,0.03)",
+                          border: `1px solid ${selectedPool === p ? c.color : "rgba(255,255,255,0.08)"}`,
+                          color: selectedPool === p ? c.color : "#8899AA",
+                        }}>
+                        {c.apy}%
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Annual headline */}
                 <div className="text-center py-4 rounded-xl mb-4" style={{ background: `${pool.color}08`, border: `1px solid ${pool.color}20` }}>
                   <div className="text-xs font-mono mb-1" style={{ color: pool.color }}>{pool.name} · {pool.apy}% APY</div>
-                  <div className="text-5xl font-black" style={{ color: pool.color, fontFamily: "'Space Mono', monospace" }}>{amountNum > 0 ? estimatedAnnual.toLocaleString() : "—"}</div>
+                  <div className="text-5xl font-black" style={{ color: pool.color, fontFamily: "'Space Mono', monospace" }}>
+                    {amountNum > 0 ? estimatedAnnual.toLocaleString() : "—"}
+                  </div>
                   <div className="text-sm mt-1" style={{ color: "#8899AA" }}>CHX / year</div>
+                  {amountNum > 0 && (
+                    <div className="text-xs mt-1 font-mono" style={{ color: "#FFB800" }}>
+                      ≈ ${(estimatedAnnual * 0.0144).toFixed(2)} USD / year
+                    </div>
+                  )}
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {[{ label: "Daily", value: estimatedDaily }, { label: "Monthly", value: estimatedMonthly }, { label: "Annual", value: estimatedAnnual }, { label: "Staked", value: Math.floor(amountNum) }].map(({ label, value }) => (
+
+                {/* Daily / Monthly / Annual / USD grid */}
+                <div className="grid grid-cols-2 gap-3 mb-3">
+                  {[
+                    { label: "Daily CHX", value: estimatedDaily, usd: (estimatedDaily * 0.0144).toFixed(4) },
+                    { label: "Monthly CHX", value: estimatedMonthly, usd: (estimatedMonthly * 0.0144).toFixed(2) },
+                    { label: "Annual CHX", value: estimatedAnnual, usd: (estimatedAnnual * 0.0144).toFixed(2) },
+                    { label: "5-Year CHX", value: estimatedAnnual * 5, usd: (estimatedAnnual * 5 * 0.0144).toFixed(2) },
+                  ].map(({ label, value, usd }) => (
                     <div key={label} className="rounded-xl p-3 text-center" style={{ background: "rgba(255,255,255,0.03)" }}>
-                      <div className="text-lg font-black" style={{ color: "#FFFFFF", fontFamily: "'Space Mono', monospace" }}>{value > 0 ? value.toLocaleString() : "—"}</div>
+                      <div className="text-base font-black" style={{ color: "#FFFFFF", fontFamily: "'Space Mono', monospace" }}>
+                        {value > 0 ? value.toLocaleString() : "—"}
+                      </div>
                       <div className="text-xs" style={{ color: "#8899AA" }}>{label}</div>
+                      {value > 0 && (
+                        <div className="text-xs font-mono mt-0.5" style={{ color: "#FFB800" }}>${usd}</div>
+                      )}
                     </div>
                   ))}
                 </div>
-                <p className="text-xs mt-4 text-center" style={{ color: "#4A5568" }}>Projections are estimates. Actual rewards may vary.</p>
+
+                {/* All-pool comparison */}
+                {amountNum > 0 && (
+                  <div className="rounded-xl p-3" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.12)" }}>
+                    <div className="text-xs font-mono mb-2" style={{ color: "#00D4FF" }}>ALL POOL COMPARISON (ANNUAL)</div>
+                    <div className="space-y-1.5">
+                      {(["genesis", "celestial", "infinity"] as const).map(p => {
+                        const c = POOL_CONFIG[p];
+                        const ann = Math.floor((amountNum * c.apy) / 100);
+                        return (
+                          <div key={p} className="flex items-center justify-between text-xs">
+                            <span style={{ color: c.color }}>{c.name} ({c.apy}%)</span>
+                            <span className="font-mono font-bold" style={{ color: "#FFFFFF" }}>
+                              {ann.toLocaleString()} CHX
+                              <span className="ml-1" style={{ color: "#FFB800" }}>(${(ann * 0.0144).toFixed(2)})</span>
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                <p className="text-xs mt-3 text-center" style={{ color: "#4A5568" }}>CHX price: $0.0144 · Projections are estimates. Actual rewards may vary.</p>
               </div>
             </div>
           </div>

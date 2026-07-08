@@ -115,6 +115,137 @@ const TIMELINE = [
   { phase: "Q1 2026", title: "Global Reign", desc: "50M+ users. Cross-chain expansion. Mobile app. Enterprise partnerships. Utopia protocol.", status: "upcoming" },
 ];
 
+// ── CHX ROI CALCULATOR COMPONENT ──
+const CHX_PRICE = 0.0144;
+const IPO_POOLS = [
+  { id: "genesis", name: "Genesis Pool", apy: 432, color: "#00D4FF", icon: "🌊", minStake: 1000 },
+  { id: "celestial", name: "Celestial Pool", apy: 528, color: "#FFB800", icon: "✨", minStake: 5000 },
+  { id: "infinity", name: "Infinity Pool", apy: 999, color: "#00FF88", icon: "♾️", minStake: 10000 },
+];
+
+function IPOROICalculator() {
+  const [amount, setAmount] = useState(10000);
+  const [activePool, setActivePool] = useState("genesis");
+  const pool = IPO_POOLS.find(p => p.id === activePool) ?? IPO_POOLS[0];
+
+  const daily = Math.floor((amount * pool.apy) / 100 / 365);
+  const monthly = Math.floor(daily * 30);
+  const annual = Math.floor((amount * pool.apy) / 100);
+  const fiveYear = annual * 5;
+
+  const presets = [1000, 5000, 10000, 50000, 100000, 144000];
+
+  return (
+    <div className="mt-10 rounded-2xl p-8" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)" }}>
+      <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>CHX STAKING ROI CALCULATOR</div>
+      <h3 className="text-2xl font-black text-white mb-1">Project Your Sovereign Returns</h3>
+      <p className="text-sm mb-6" style={{ color: "#8899AA" }}>Enter your CHX amount and select a pool to see daily, monthly, and yearly earnings in CHX + USD.</p>
+
+      {/* Pool selector */}
+      <div className="flex gap-3 mb-6 flex-wrap">
+        {IPO_POOLS.map(p => (
+          <button key={p.id} onClick={() => setActivePool(p.id)}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200"
+            style={{
+              background: activePool === p.id ? `${p.color}18` : "rgba(255,255,255,0.03)",
+              border: `1px solid ${activePool === p.id ? p.color : "rgba(255,255,255,0.08)"}`,
+              color: activePool === p.id ? p.color : "#8899AA",
+              boxShadow: activePool === p.id ? `0 0 20px ${p.color}20` : "none",
+            }}>
+            <span>{p.icon}</span>
+            <span>{p.name}</span>
+            <span className="font-mono">{p.apy}% APY</span>
+          </button>
+        ))}
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        {/* Input side */}
+        <div>
+          <label className="text-xs font-mono mb-2 block" style={{ color: "#8899AA" }}>CHX AMOUNT TO STAKE</label>
+          <div className="relative mb-3">
+            <input
+              type="number"
+              value={amount}
+              onChange={e => setAmount(Math.max(0, parseInt(e.target.value) || 0))}
+              className="w-full px-4 py-3 rounded-xl text-white text-xl font-black outline-none"
+              style={{ background: "rgba(255,255,255,0.05)", border: `1px solid ${pool.color}40`, fontFamily: "'Space Mono', monospace" }}
+            />
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-mono" style={{ color: pool.color }}>CHX</span>
+          </div>
+          {/* Presets */}
+          <div className="flex gap-2 flex-wrap mb-4">
+            {presets.map(p => (
+              <button key={p} onClick={() => setAmount(p)}
+                className="px-3 py-1.5 rounded-lg text-xs font-mono transition-all"
+                style={{
+                  background: amount === p ? `${pool.color}18` : "rgba(255,255,255,0.04)",
+                  border: `1px solid ${amount === p ? pool.color : "rgba(255,255,255,0.08)"}`,
+                  color: amount === p ? pool.color : "#8899AA",
+                }}>
+                {p.toLocaleString()}
+              </button>
+            ))}
+          </div>
+          {/* USD equivalent of stake */}
+          <div className="p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.03)" }}>
+            <div className="text-xs" style={{ color: "#8899AA" }}>Your stake value at $0.0144/CHX</div>
+            <div className="text-xl font-black" style={{ color: pool.color, fontFamily: "'Space Mono', monospace" }}>
+              ${(amount * CHX_PRICE).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD
+            </div>
+          </div>
+        </div>
+
+        {/* Results side */}
+        <div className="space-y-3">
+          {[
+            { label: "Daily Earnings", chx: daily, period: "/ day" },
+            { label: "Monthly Earnings", chx: monthly, period: "/ month" },
+            { label: "Annual Earnings", chx: annual, period: "/ year" },
+            { label: "5-Year Projection", chx: fiveYear, period: "/ 5 yrs" },
+          ].map(({ label, chx, period }) => (
+            <div key={label} className="flex items-center justify-between rounded-xl p-4"
+              style={{ background: `${pool.color}08`, border: `1px solid ${pool.color}18` }}>
+              <div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>{label}</div>
+                <div className="text-xs font-mono" style={{ color: pool.color }}>{period}</div>
+              </div>
+              <div className="text-right">
+                <div className="text-lg font-black" style={{ color: "#FFFFFF", fontFamily: "'Space Mono', monospace" }}>
+                  {chx.toLocaleString()} CHX
+                </div>
+                <div className="text-xs font-mono" style={{ color: "#FFB800" }}>
+                  ≈ ${(chx * CHX_PRICE).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* All-pool comparison */}
+      <div className="mt-6 rounded-xl p-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="text-xs font-mono mb-3" style={{ color: "#8899AA" }}>ANNUAL COMPARISON ACROSS ALL POOLS</div>
+        <div className="grid grid-cols-3 gap-3">
+          {IPO_POOLS.map(p => {
+            const ann = Math.floor((amount * p.apy) / 100);
+            return (
+              <div key={p.id} className="rounded-xl p-3 text-center"
+                style={{ background: `${p.color}08`, border: `1px solid ${p.color}20` }}>
+                <div className="text-xs font-mono mb-1" style={{ color: p.color }}>{p.name}</div>
+                <div className="text-lg font-black" style={{ color: "#FFFFFF", fontFamily: "'Space Mono', monospace" }}>{ann.toLocaleString()}</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>CHX / yr</div>
+                <div className="text-xs font-mono mt-1" style={{ color: "#FFB800" }}>${(ann * CHX_PRICE).toFixed(2)}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <p className="text-xs mt-4 text-center" style={{ color: "#4A5568" }}>CHX price: $0.0144 · Projections are estimates based on stated APY. Actual rewards may vary. KUN FAYAKŪN × ∞</p>
+    </div>
+  );
+}
+
 function TokenomicsBar() {
   return (
     <div className="space-y-3">
@@ -292,6 +423,101 @@ export default function IPO() {
         </div>
       </div>
 
+      {/* ── LIVE INVESTMENT TICKER ── */}
+      <style>{`
+        @keyframes tickerScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .sv-ticker-track { animation: tickerScroll 35s linear infinite; }
+        .sv-ticker-track:hover { animation-play-state: paused; }
+      `}</style>
+      <div className="overflow-hidden py-2" style={{ background: "rgba(0,212,255,0.05)", borderTop: "1px solid rgba(0,212,255,0.15)", borderBottom: "1px solid rgba(0,212,255,0.15)" }}>
+        <div className="flex sv-ticker-track">
+          {[
+            { label: "Seed Investor", value: "+$144", color: "#00D4FF" },
+            { label: "Series A", value: "+$1,440", color: "#FFB800" },
+            { label: "Guardian Activated", value: "10,000 CHX", color: "#00FF88" },
+            { label: "Strategic Partner", value: "+$14,400", color: "#00FF88" },
+            { label: "Sovereign Tier", value: "100,000 CHX", color: "#FFB800" },
+            { label: "Empire Architect", value: "+$144,000", color: "#FF00FF" },
+            { label: "Daily Compound", value: "36,724 CHX", color: "#00D4FF" },
+            { label: "Asset Validation", value: "$35T+", color: "#FFB800" },
+            { label: "Infinity Pool", value: "999% APY", color: "#00FF88" },
+            { label: "$CHX Launch Price", value: "$0.0144", color: "#00D4FF" },
+            { label: "Market Cap Target", value: "$144M", color: "#FFB800" },
+            { label: "Guardian Network", value: "144,000", color: "#FF6B6B" },
+          ].concat([
+            { label: "Seed Investor", value: "+$144", color: "#00D4FF" },
+            { label: "Series A", value: "+$1,440", color: "#FFB800" },
+            { label: "Guardian Activated", value: "10,000 CHX", color: "#00FF88" },
+            { label: "Strategic Partner", value: "+$14,400", color: "#00FF88" },
+            { label: "Sovereign Tier", value: "100,000 CHX", color: "#FFB800" },
+            { label: "Empire Architect", value: "+$144,000", color: "#FF00FF" },
+            { label: "Daily Compound", value: "36,724 CHX", color: "#00D4FF" },
+            { label: "Asset Validation", value: "$35T+", color: "#FFB800" },
+            { label: "Infinity Pool", value: "999% APY", color: "#00FF88" },
+            { label: "$CHX Launch Price", value: "$0.0144", color: "#00D4FF" },
+            { label: "Market Cap Target", value: "$144M", color: "#FFB800" },
+            { label: "Guardian Network", value: "144,000", color: "#FF6B6B" },
+          ]).map((item, i) => (
+            <div key={i} className="flex-shrink-0 flex items-center gap-3 px-6 py-1.5">
+              <span className="text-xs" style={{ color: item.color }}>◆</span>
+              <span className="text-xs font-mono" style={{ color: "#8899AA" }}>{item.label}</span>
+              <span className="text-xs font-bold font-mono" style={{ color: item.color }}>{item.value}</span>
+              <span className="text-xs" style={{ color: "rgba(255,255,255,0.1)" }}>|</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── $144M MARKET CAP PROGRESS BAR ── */}
+      <div className="container py-6">
+        <div className="rounded-2xl p-6" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.15)" }}>
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#FFB800" }}>$144M MARKET CAP GOAL — SOVEREIGN WALL STREET LISTING</div>
+              <div className="text-sm" style={{ color: "#8899AA" }}>Progress toward $CHX public listing at $0.0144/token on Polygon Mainnet</div>
+            </div>
+            <div className="text-right">
+              <div className="text-2xl font-black" style={{ color: "#FFB800", fontFamily: "'Space Mono', monospace" }}>1.5%</div>
+              <div className="text-xs" style={{ color: "#8899AA" }}>of $144M goal</div>
+            </div>
+          </div>
+          {/* Progress bar */}
+          <div className="relative h-5 rounded-full overflow-hidden mb-2" style={{ background: "rgba(255,255,255,0.05)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-1000"
+              style={{ width: "1.5%", background: "linear-gradient(90deg, #00D4FF, #FFB800, #00FF88)", boxShadow: "0 0 20px rgba(255,184,0,0.5)" }}
+            />
+            {/* Milestone markers */}
+            {[25, 50, 75].map(m => (
+              <div key={m} className="absolute top-0 bottom-0 w-px" style={{ left: `${m}%`, background: "rgba(255,255,255,0.15)" }} />
+            ))}
+          </div>
+          {/* Milestone labels */}
+          <div className="flex justify-between text-xs font-mono" style={{ color: "#4A5568" }}>
+            <span style={{ color: "#FFB800" }}>$0 ← NOW</span>
+            <span>$36M (25%)</span>
+            <span>$72M (50%)</span>
+            <span>$108M (75%)</span>
+            <span>$144M 🏆</span>
+          </div>
+          <div className="mt-4 grid grid-cols-3 gap-4 text-center">
+            {[
+              { label: "Total Raised (Test)", value: "$2,160", color: "#00FF88" },
+              { label: "Investors Registered", value: "144+", color: "#00D4FF" },
+              { label: "CHX Pre-Allocated", value: "1.67M", color: "#FFB800" },
+            ].map(s => (
+              <div key={s.label} className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.03)" }}>
+                <div className="text-lg font-black" style={{ color: s.color, fontFamily: "'Space Mono', monospace" }}>{s.value}</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* ── TABS ── */}
       <div className="container pb-16">
         <div className="flex flex-wrap gap-2 mb-8">
@@ -378,6 +604,9 @@ export default function IPO() {
                 </div>
               </div>
             </div>
+
+            {/* CHX ROI Calculator — IPO version */}
+            <IPOROICalculator />
           </div>
         )}
 

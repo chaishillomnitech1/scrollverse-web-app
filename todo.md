@@ -1453,3 +1453,10 @@
 - [x] Wire /sovereign-bank and /ipo routes in App.tsx
 - [x] Add 🏦 Sovereign Bank and 📈 IPO / Public Offering nav links to Home.tsx
 - [x] Run tests (16/16 passing) and save checkpoint
+## Phase 41 — Skill + IPO Ticker + CHX ROI Calculator
+
+- [x] Read skill-creator SKILL.md and update scrollverse-sovereign-build skill with Phase 40-41 patterns (IPO portal, Sovereign Bank, staking compound fix, ROI calculator, live ticker)
+- [x] Add live scrolling investment ticker to IPO page (auto-scrolling sovereign investment activity, hover-to-pause)
+- [x] Add dynamic $144M market cap progress bar to IPO page (milestone markers at 25/50/75%, 3 live stats cards)
+- [x] Build interactive CHX ROI calculator on /staking (daily/monthly/annual/5yr CHX + USD, all-pool comparison) and /ipo (IPOROICalculator with presets, pool selector, 4-period projections)
+- [x] Run tests (16/16 passing) and save Phase 41 checkpoint
