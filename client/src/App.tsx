@@ -174,6 +174,7 @@ import ChaisCatalog from "./pages/ChaisCatalog";
 import ChaisVideos from "./pages/ChaisVideos";
 import RizzBurna from "./pages/RizzBurna";
 import IPO from "./pages/IPO";
+import DSPIntelligence from "./pages/DSPIntelligence";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -348,6 +349,7 @@ function Router() {
       <Route path={"/chais-catalog"} component={ChaisCatalog} />
       <Route path={"/chais-videos"} component={ChaisVideos} />
       <Route path={"/rizz-burna"} component={RizzBurna} />
+      <Route path={"/dsp-intelligence"} component={DSPIntelligence} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

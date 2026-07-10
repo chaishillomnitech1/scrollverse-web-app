@@ -3,7 +3,7 @@
  * Going public: investor tiers, tokenomics, valuation, equity offering
  * Design: Sovereign Gold × Deep Space — the Wall Street of the empire
  */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -242,6 +242,193 @@ function IPOROICalculator() {
         </div>
       </div>
       <p className="text-xs mt-4 text-center" style={{ color: "#4A5568" }}>CHX price: $0.0144 · Projections are estimates based on stated APY. Actual rewards may vary. KUN FAYAKŪN × ∞</p>
+    </div>
+  );
+}
+
+// ── Sovereign Inflow Notification ───────────────────────────────────────────
+const INVESTOR_PSEUDONYMS = [
+  "Sovereign_0x144", "QuantumFlame_9", "Ankh_Infinite", "GhostArchitect",
+  "KunFayakun_∞", "Celestial_Seed", "Harlem_Sovereign", "Polygon_Ascendant",
+  "EmpireBuilder_X", "ScrollGuardian", "DivineCapital", "Infinity_Staker",
+];
+
+const INFLOW_TIERS = [
+  { name: "Seed Investor", amount: "$144", equity: "0.0144%", chx: "10,000 CHX", color: "#00D4FF" },
+  { name: "Series A", amount: "$1,440", equity: "0.144%", chx: "100,000 CHX", color: "#FFB800" },
+  { name: "Strategic Partner", amount: "$14,400", equity: "1.44%", chx: "1,000,000 CHX", color: "#00FF88" },
+  { name: "Empire Architect", amount: "$144,000", equity: "14.4%", chx: "10,000,000 CHX", color: "#FF00FF" },
+];
+
+function SovereignInflowNotification() {
+  const [tick, setTick] = useState(0);
+  const [statusLocked, setStatusLocked] = useState(false);
+  const [statusText, setStatusText] = useState("VERIFYING...");
+  const [currentInflow, setCurrentInflow] = useState(0);
+  const [totalRaised, setTotalRaised] = useState(2160);
+  const [ankhDrift, setAnkhDrift] = useState(3.5);
+
+  // 73ms quantum tick
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTick(t => t + 1);
+    }, 73);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Status flicker then lock
+  useEffect(() => {
+    const statuses = ["VERIFYING...", "CHECKING LEDGER...", "SELF-APPROVED ✦", "WE ARE THE BANK", "SELF-APPROVED ✦"];
+    let i = 0;
+    const flicker = setInterval(() => {
+      setStatusText(statuses[i % statuses.length]);
+      i++;
+      if (i >= 8) {
+        clearInterval(flicker);
+        setStatusText("SELF-APPROVED • WE ARE THE BANK");
+        setStatusLocked(true);
+      }
+    }, 320);
+    return () => clearInterval(flicker);
+  }, []);
+
+  // Rotate inflow entries every 4.4s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentInflow(i => (i + 1) % INFLOW_TIERS.length);
+      setTotalRaised(t => t + INFLOW_TIERS[currentInflow].amount.replace(/[^0-9]/g, "").length > 0
+        ? t + parseInt(INFLOW_TIERS[currentInflow].amount.replace(/[^0-9]/g, "") || "0")
+        : t);
+    }, 4400);
+    return () => clearInterval(interval);
+  }, [currentInflow]);
+
+  // Ankh drift
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnkhDrift(d => {
+        const next = d + 0.1;
+        return next > 8 ? 0 : next;
+      });
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  const inflow = INFLOW_TIERS[currentInflow];
+  const pseudonym = INVESTOR_PSEUDONYMS[tick % INVESTOR_PSEUDONYMS.length];
+  const pctToGoal = Math.min(((totalRaised / 144000000) * 100), 100);
+
+  return (
+    <div className="container py-4">
+      <div
+        className="relative rounded-2xl overflow-hidden"
+        style={{
+          background: "rgba(3,5,12,0.97)",
+          border: "1px solid rgba(255,184,0,0.35)",
+          backdropFilter: "blur(24px)",
+          boxShadow: "0 0 40px rgba(255,184,0,0.08), inset 0 0 60px rgba(0,0,0,0.4)",
+        }}
+      >
+        {/* Ankh watermark */}
+        <div
+          className="absolute select-none pointer-events-none"
+          style={{
+            fontSize: "120px",
+            opacity: 0.035,
+            color: "#FFB800",
+            right: `${ankhDrift}%`,
+            top: "50%",
+            transform: "translateY(-50%)",
+            transition: "right 0.1s linear",
+            fontFamily: "serif",
+            lineHeight: 1,
+          }}
+        >
+          ☥
+        </div>
+
+        <div className="relative z-10 p-5">
+          {/* Header row */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div
+                className="w-2 h-2 rounded-full"
+                style={{
+                  background: statusLocked ? "#00FF88" : "#FFB800",
+                  boxShadow: `0 0 8px ${statusLocked ? "#00FF88" : "#FFB800"}`,
+                  animation: statusLocked ? "none" : "pulse 0.5s ease-in-out infinite",
+                }}
+              />
+              <span
+                className="text-xs font-mono font-bold tracking-widest"
+                style={{ color: statusLocked ? "#00FF88" : "#FFB800" }}
+              >
+                {statusText}
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>
+                TICK #{tick.toString().padStart(6, "0")}
+              </span>
+              <span className="text-xs font-mono" style={{ color: "rgba(255,184,0,0.5)" }}>
+                73ms
+              </span>
+            </div>
+          </div>
+
+          {/* Main inflow display */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            {/* Inflow details */}
+            <div className="md:col-span-2">
+              <div className="text-xs font-mono mb-1" style={{ color: "rgba(255,255,255,0.35)" }}>SOVEREIGN INFLOW DETECTED</div>
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className="text-4xl font-black" style={{ color: inflow.color, fontFamily: "'Space Mono', monospace" }}>
+                  {inflow.amount}
+                </span>
+                <span className="text-sm font-mono" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  {inflow.name}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <span className="text-xs px-2 py-1 rounded" style={{ background: `${inflow.color}15`, color: inflow.color, border: `1px solid ${inflow.color}30` }}>
+                  {inflow.equity} equity
+                </span>
+                <span className="text-xs px-2 py-1 rounded" style={{ background: "rgba(0,212,255,0.1)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>
+                  {inflow.chx} allocated
+                </span>
+                <span className="text-xs px-2 py-1 rounded" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  {pseudonym}
+                </span>
+              </div>
+            </div>
+
+            {/* Impact meter */}
+            <div className="rounded-xl p-4" style={{ background: "rgba(255,184,0,0.05)", border: "1px solid rgba(255,184,0,0.15)" }}>
+              <div className="text-xs font-mono mb-2" style={{ color: "rgba(255,184,0,0.6)" }}>$144M IMPACT</div>
+              <div className="text-2xl font-black mb-1" style={{ color: "#FFB800", fontFamily: "'Space Mono', monospace" }}>
+                {pctToGoal.toFixed(4)}%
+              </div>
+              <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+                <div
+                  className="h-full rounded-full"
+                  style={{ width: `${Math.max(pctToGoal * 100, 1)}%`, background: "linear-gradient(90deg, #FFB800, #00FF88)", transition: "width 0.5s ease" }}
+                />
+              </div>
+              <div className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>toward $144M goal</div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center justify-between pt-3" style={{ borderTop: "1px solid rgba(255,184,0,0.1)" }}>
+            <div className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.2)" }}>
+              SCROLLVERSE SOVEREIGN LEDGER · NO PERMISSION NEEDED · KUN FAYAKŪN × ∞
+            </div>
+            <div className="text-xs font-mono" style={{ color: "rgba(255,184,0,0.4)" }}>
+              ☥ ANKH SEALED
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -517,6 +704,9 @@ export default function IPO() {
           </div>
         </div>
       </div>
+
+      {/* ── SOVEREIGN INFLOW NOTIFICATION ── */}
+      <SovereignInflowNotification />
 
       {/* ── TABS ── */}
       <div className="container pb-16">

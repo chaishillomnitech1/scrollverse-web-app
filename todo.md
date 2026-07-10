@@ -1460,3 +1460,13 @@
 - [x] Add dynamic $144M market cap progress bar to IPO page (milestone markers at 25/50/75%, 3 live stats cards)
 - [x] Build interactive CHX ROI calculator on /staking (daily/monthly/annual/5yr CHX + USD, all-pool comparison) and /ipo (IPOROICalculator with presets, pool selector, 4-period projections)
 - [x] Run tests (16/16 passing) and save Phase 41 checkpoint
+## Phase 42 — NFT Minting Activation + DSP Intelligence + Sovereign Inflow Notification
+- [x] Fix SovereignLegacy (/sovereign-legacy) mint button — replaced coming-soon alert with live Stripe createNFTCheckoutSession ($144 per name)
+- [x] Fix KnicksNFT (/knicks-nft) Father's Day Genesis button — replaced coming-soon alert with Stripe checkout
+- [x] Rewrite NftMarketplace (/nft) — all mint buttons now use live Stripe NFT checkout (no coming-soon alerts)
+- [x] Build DSPIntelligence.tsx — comprehensive DSP intelligence page with all 12 platforms (Spotify, Apple Music, YouTube Music, TIDAL, Amazon Music, Deezer, SoundCloud, Pandora, Boomplay, Anghami, Audiomack, Beatport)
+- [x] DSP page includes: Cover Art Studio (3 packages: $44/$144/$444), Publishing Rights (6 services), Royalty Calculator (per-platform comparison, all-DSP bundle $144/yr)
+- [x] Add Sovereign Inflow Notification component to IPO page — 73ms quantum tick counter, SELF-APPROVED • WE ARE THE BANK status (flickers then locks), Ankh watermark drifting, dark matte gold border, tier/amount/equity/CHX/pseudonym display, $144M impact meter
+- [x] Wire /dsp-intelligence route in App.tsx
+- [x] Add 🎵 DSP Intelligence nav link to Home.tsx navLinks array
+- [x] Run tests (16/16 passing) and save Phase 42 checkpoint

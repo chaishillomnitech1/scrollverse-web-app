@@ -16,6 +16,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 // ── Sacred Color Palette ──────────────────────────────────────────────────────
 const GOLD = "#FFB800";
@@ -273,6 +275,10 @@ function FigureCard({ figure, color }: { figure: typeof SOVEREIGNS[0]["figures"]
 // ── Main Page ─────────────────────────────────────────────────────────────────
 export default function SovereignLegacy() {
   const { isAuthenticated } = useAuth();
+  const nftCheckout = trpc.stripe.createNFTCheckoutSession.useMutation({
+    onSuccess: (data) => { window.location.href = data.url; },
+    onError: (err) => { toast.error(err.message || "Checkout failed"); },
+  });
   const [nameFilter, setNameFilter] = useState<string>("All");
   const [selectedName, setSelectedName] = useState<typeof NAMES_OF_ALLAH[0] | null>(null);
   const [activeSection, setActiveSection] = useState("99-names");
@@ -468,7 +474,13 @@ export default function SovereignLegacy() {
                         window.location.href = getLoginUrl();
                         return;
                       }
-                      alert("Minting coming soon — connect your wallet to mint this sacred NFT.");
+                      nftCheckout.mutate({
+                        nftId: `sovereign-legacy-name-${selectedName?.n ?? 0}-${Date.now()}`,
+                        nftName: `${selectedName?.tr ?? "Sacred Name"} — ${selectedName?.en ?? ""}`,
+                        nftDescription: `One of the 99 Names of Allah. ${selectedName?.rarity ?? ""} rarity. ${selectedName?.hz ?? 528}Hz sacred frequency. Sealed on Scroll zkEVM.`,
+                        priceUsd: 144,
+                        origin: window.location.origin,
+                      });
                     }}
                   >
                     Mint This Name — 144 $CHX

@@ -927,6 +927,7 @@ export default function Home() {
     { label: "🔥 Rizz Burna", href: "/rizz-burna" },
     { label: "🏦 Sovereign Bank", href: "/sovereign-bank" },
     { label: "📈 IPO / Public Offering", href: "/ipo" },
+    { label: "🎵 DSP Intelligence", href: "/dsp-intelligence" },
   ];
 
   return (

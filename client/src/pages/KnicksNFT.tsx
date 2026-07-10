@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 const PROPHECIES = [
   {
@@ -228,16 +230,31 @@ export default function KnicksNFT() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleMint = async (id: string) => {
+  const nftCheckout = trpc.stripe.createNFTCheckoutSession.useMutation({
+    onSuccess: (data) => {
+      if (data?.url) window.location.href = data.url;
+    },
+    onError: (err) => {
+      toast.error(err.message || "Checkout failed. Please try again.");
+      setMintStatus({});
+    },
+  });
+
+  const handleMint = (id: string) => {
     if (!user) {
       window.location.href = getLoginUrl();
       return;
     }
+    const prophecy = PROPHECIES.find(p => p.id === id);
+    if (!prophecy) return;
     setMintStatus(s => ({ ...s, [id]: "pending" }));
-    // Simulate mint (replace with real contract call via wagmi/ethers)
-    await new Promise(r => setTimeout(r, 2000));
-    setMintStatus(s => ({ ...s, [id]: "success" }));
-    setTimeout(() => setMintStatus(s => ({ ...s, [id]: "idle" })), 4000);
+    nftCheckout.mutate({
+      nftId: `knicks-prophecy-${id}-${Date.now()}`,
+      nftName: `Knicks Prophecy NFT: ${prophecy.title}`,
+      nftDescription: prophecy.description,
+      priceUsd: parseInt(prophecy.priceUSD.replace(/[^0-9]/g, "")),
+      origin: window.location.origin,
+    });
   };
 
   return (
@@ -497,11 +514,21 @@ export default function KnicksNFT() {
                       </div>
                     </div>
                     <button
-                      className="w-full py-4 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-90"
+                      className="w-full py-4 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-90 disabled:opacity-60"
                       style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
-                      onClick={() => alert("Father's Day Genesis NFT mint coming soon — connect wallet to join the waitlist.")}
+                      disabled={nftCheckout.isPending}
+                      onClick={() => {
+                        if (!user) { window.location.href = getLoginUrl(); return; }
+                        nftCheckout.mutate({
+                          nftId: `fathers-day-genesis-${Date.now()}`,
+                          nftName: "Father's Day Genesis NFT",
+                          nftDescription: "Father's Day 2025 — Jalen Brunson and his father Rick Brunson. Sacred sovereign lineage sealed on Scroll zkEVM.",
+                          priceUsd: 144,
+                          origin: window.location.origin,
+                        });
+                      }}
                     >
-                      🏀 Mint Father's Day Genesis NFT
+                      {nftCheckout.isPending ? "Opening Checkout..." : "🏀 Mint Father's Day Genesis NFT — $144"}
                     </button>
                     <div className="text-center text-xs" style={{ color: "#8899AA" }}>Scroll zkEVM · ERC-721 Soulbound · Zakat-routed</div>
                   </div>
