@@ -230,7 +230,7 @@ export default function KnicksNFT() {
     return () => clearInterval(interval);
   }, []);
 
-  const nftCheckout = trpc.stripe.createNFTCheckoutSession.useMutation({
+  const nftCheckout = trpc.store.createNFTCheckoutSession.useMutation({
     onSuccess: (data) => {
       if (data?.url) window.location.href = data.url;
     },

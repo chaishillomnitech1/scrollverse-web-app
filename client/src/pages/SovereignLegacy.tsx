@@ -275,7 +275,7 @@ function FigureCard({ figure, color }: { figure: typeof SOVEREIGNS[0]["figures"]
 // ── Main Page ─────────────────────────────────────────────────────────────────
 export default function SovereignLegacy() {
   const { isAuthenticated } = useAuth();
-  const nftCheckout = trpc.stripe.createNFTCheckoutSession.useMutation({
+  const nftCheckout = trpc.store.createNFTCheckoutSession.useMutation({
     onSuccess: (data) => { window.location.href = data.url; },
     onError: (err) => { toast.error(err.message || "Checkout failed"); },
   });

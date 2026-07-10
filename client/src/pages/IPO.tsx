@@ -491,7 +491,7 @@ export default function IPO() {
   const [wallet, setWallet] = useState("");
   const [registered, setRegistered] = useState(false);
 
-  const createCheckout = trpc.stripe.createCheckoutSession.useMutation();
+  const createCheckout = trpc.store.createCheckoutSession.useMutation();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();

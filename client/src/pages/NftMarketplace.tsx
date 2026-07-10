@@ -27,7 +27,7 @@ export default function NftMarketplace() {
 
   const totalSupply = 144000 + 14400 + 1444 + 144;
 
-  const nftCheckout = trpc.stripe.createNFTCheckoutSession.useMutation({
+  const nftCheckout = trpc.store.createNFTCheckoutSession.useMutation({
     onSuccess: (data) => {
       if (data?.url) window.location.href = data.url;
       setMintingTier(null);

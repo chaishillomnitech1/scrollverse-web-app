@@ -1354,34 +1354,34 @@
 - [x] CID swap guide for Bridges and King remaining slots
 
 ## Phase 26 — Sovereign Cinema + Motion Picture Experience
-- [ ] Build /sovereign-cinema page — full cinematic experience with films, movies, Gemini storybooks, voice, motion
-- [ ] Upgrade /storybooks — Gemini Motion Picture living animated experience with voice narration
-- [ ] Activate NftMarketplace minting flow (remove "coming soon")
-- [ ] Activate KnicksNFT Father's Day Genesis mint flow
-- [ ] Activate SovereignLegacy minting flow
-- [ ] Wire book Stripe checkout in Books.tsx (createBookCheckout)
-- [ ] Wire /sovereign-cinema route in App.tsx
-- [ ] Add Sovereign Cinema nav link to Home.tsx
-- [ ] Run tests and save checkpoint
+- [x] Build /sovereign-cinema page — full cinematic experience with films, movies, Gemini storybooks, voice, motion
+- [x] Upgrade /storybooks — Gemini Motion Picture living animated experience with voice narration
+- [x] Activate NftMarketplace minting flow (remove "coming soon") — completed Phase 42
+- [x] Activate KnicksNFT Father's Day Genesis mint flow — completed Phase 42
+- [x] Activate SovereignLegacy minting flow — completed Phase 42
+- [x] Wire book Stripe checkout in Books.tsx (createBookCheckout)
+- [x] Wire /sovereign-cinema route in App.tsx
+- [x] Add Sovereign Cinema nav link to Home.tsx
+- [x] Run tests and save checkpoint
 
-## Phase 26 — Sovereign Cinema + Motion Picture Experience
-- [ ] Build /sovereign-cinema page — full cinematic experience with films, movies, Gemini storybooks, voice, motion
-- [ ] Upgrade /storybooks — Gemini Motion Picture living animated experience with voice narration
-- [ ] Activate NftMarketplace minting flow (remove coming soon)
-- [ ] Activate KnicksNFT Fathers Day Genesis mint flow
-- [ ] Activate SovereignLegacy minting flow
-- [ ] Wire book Stripe checkout in Books.tsx (createBookCheckout)
-- [ ] Wire /sovereign-cinema route in App.tsx
-- [ ] Add Sovereign Cinema nav link to Home.tsx
-- [ ] Run tests and save checkpoint
+## Phase 26 — Sovereign Cinema + Motion Picture Experience (duplicate)
+- [x] Build /sovereign-cinema page — completed above
+- [x] Upgrade /storybooks — completed above
+- [x] Activate NftMarketplace minting flow — completed Phase 42
+- [x] Activate KnicksNFT Fathers Day Genesis mint flow — completed Phase 42
+- [x] Activate SovereignLegacy minting flow — completed Phase 42
+- [x] Wire book Stripe checkout in Books.tsx (createBookCheckout)
+- [x] Wire /sovereign-cinema route in App.tsx
+- [x] Add Sovereign Cinema nav link to Home.tsx
+- [x] Run tests and save checkpoint
 
 ## Phase 30 — Junior Movies AI Studio + DSP Intelligence + NFT Upgrades
 
-- [ ] Build JuniorMoviesStudio.tsx — AI creative studio for children with AI chat, comic book creator, cartoon maker, real history lessons
-- [ ] Build DSPIntelligence.tsx — every DSP ever studied, cover art + publishing add-ons, CapCut + visual apps, artist-friendly
-- [ ] Upgrade JuniorMoviesNFT.tsx — Connect Wallet button in mint modal, glowing hover effects, smooth 3D flip transitions
-- [ ] Create scrollverse-empire-build reusable skill with skill-creator
-- [ ] Wire all new routes + nav links in App.tsx and Home.tsx
+- [x] Build JuniorMoviesStudio.tsx — AI creative studio for children with AI chat, comic book creator, cartoon maker, real history lessons
+- [x] Build DSPIntelligence.tsx — every DSP ever studied, cover art + publishing add-ons, CapCut + visual apps, artist-friendly — completed Phase 42
+- [x] Upgrade JuniorMoviesNFT.tsx — Connect Wallet button in mint modal, glowing hover effects, smooth 3D flip transitions
+- [x] Create scrollverse-empire-build reusable skill with skill-creator
+- [x] Wire all new routes + nav links in App.tsx and Home.tsx
 
 ## Phase 32 — IPFS On-Chain Validation + Story Archive + Knicks Real CIDs + Junior Movie Highlight
 - [x] Add Story Archive nav link to Home.tsx navLinks array
