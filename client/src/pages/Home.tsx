@@ -928,6 +928,7 @@ export default function Home() {
     { label: "🏦 Sovereign Bank", href: "/sovereign-bank" },
     { label: "📈 IPO / Public Offering", href: "/ipo" },
     { label: "🎵 DSP Intelligence", href: "/dsp-intelligence" },
+    { label: "🛡️ My Dashboard", href: "/guardian-dashboard" },
   ];
 
   return (

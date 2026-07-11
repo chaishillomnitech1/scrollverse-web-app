@@ -4,7 +4,7 @@
  * Each Guardian gets a sovereign code — every conversion earns $LONDC rewards
  */
 import { z } from "zod";
-import { router, publicProcedure } from "../_core/trpc";
+import { router, publicProcedure, protectedProcedure } from "../_core/trpc";
 import { getDb } from "../db";
 import { referralCodes } from "../../drizzle/schema";
 import { desc, eq, sql } from "drizzle-orm";
@@ -166,5 +166,56 @@ export const referralRouter = router({
       totalConversions: result?.totalConversions ?? 0,
       totalRewardTokens: result?.totalRewardTokens ?? 0,
     };
+  }),
+
+  /**
+   * Get or create the current user's personal referral code.
+   * Used by the Guardian Dashboard to show the user their sovereign link.
+   */
+  getMyReferralCode: protectedProcedure.mutation(async ({ ctx }) => {
+    const db = await getDb();
+    if (!db) throw new Error("Database unavailable");
+
+    // Check if user already has a code
+    const existing = await db
+      .select()
+      .from(referralCodes)
+      .where(eq(referralCodes.userId, ctx.user.id))
+      .limit(1);
+
+    if (existing.length > 0) {
+      return existing[0];
+    }
+
+    // Auto-generate a sovereign code for this user
+    const prefix = (ctx.user.name ?? "GUARDIAN")
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "")
+      .slice(0, 4)
+      .padEnd(4, "X");
+    const random = Math.random().toString(36).substring(2, 7).toUpperCase();
+    const code = `SV-${prefix}-${random}`;
+
+    const [row] = await db
+      .insert(referralCodes)
+      .values({
+        code,
+        userId: ctx.user.id,
+        creatorName: ctx.user.name ?? "Guardian",
+        creatorEmail: ctx.user.email ?? null,
+        tier: "Guardian",
+        clicks: 0,
+        conversions: 0,
+        rewardTokens: 0,
+      })
+      .$returningId();
+
+    const [created] = await db
+      .select()
+      .from(referralCodes)
+      .where(eq(referralCodes.id, row.id))
+      .limit(1);
+
+    return created;
   }),
 });

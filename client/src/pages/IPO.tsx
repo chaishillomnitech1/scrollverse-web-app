@@ -483,6 +483,13 @@ function CounterStat({ end, label, color, prefix = "", suffix = "" }: { end: num
   );
 }
 
+// ── Tier data for success overlay lookup ───────────────────────────────────────────
+const TIER_SUCCESS_DATA: Record<string, { name: string; amount: string; chx: string; equity: string; color: string; icon: string }> = {
+  guardian: { name: "Seed Investor", amount: "$144", chx: "10,000 CHX", equity: "0.0144%", color: "#00D4FF", icon: "🌱" },
+  sovereign: { name: "Series A", amount: "$1,440", chx: "100,000 CHX", equity: "0.144%", color: "#FFB800", icon: "👑" },
+  ascendant: { name: "Strategic Partner", amount: "$14,400", chx: "1,000,000 CHX", equity: "1.44%", color: "#00FF88", icon: "⚡" },
+};
+
 export default function IPO() {
   const { user, isAuthenticated } = useAuth();
   const [activeTab, setActiveTab] = useState<"overview" | "tiers" | "tokenomics" | "timeline" | "register">("overview");
@@ -490,6 +497,23 @@ export default function IPO() {
   const [email, setEmail] = useState("");
   const [wallet, setWallet] = useState("");
   const [registered, setRegistered] = useState(false);
+  const [showSuccessOverlay, setShowSuccessOverlay] = useState(false);
+  const [successTierKey, setSuccessTierKey] = useState<string>("guardian");
+  const [overlayAnkhPulse, setOverlayAnkhPulse] = useState(false);
+
+  // Detect Stripe checkout return
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      const tier = params.get("tier") ?? "guardian";
+      setSuccessTierKey(tier);
+      setShowSuccessOverlay(true);
+      // Clean URL without reload
+      window.history.replaceState({}, "", window.location.pathname);
+      // Pulse Ankh after 400ms
+      setTimeout(() => setOverlayAnkhPulse(true), 400);
+    }
+  }, []);
 
   const createCheckout = trpc.store.createCheckoutSession.useMutation();
 
@@ -514,7 +538,9 @@ export default function IPO() {
     };
     const stripeTier = tierMap[tier.name] ?? "guardian";
     try {
-      const result = await createCheckout.mutateAsync({ tier: stripeTier, origin: window.location.origin });
+      // Pass tier and success flag in success_url via origin param
+      const successOrigin = `${window.location.origin}${window.location.pathname}?success=true&tier=${stripeTier}`;
+      const result = await createCheckout.mutateAsync({ tier: stripeTier, origin: successOrigin });
       if (result.url) window.location.href = result.url;
     } catch {
       // fallback
@@ -529,8 +555,93 @@ export default function IPO() {
     { id: "register", label: "✍️ Register Interest" },
   ] as const;
 
+  const successTier = TIER_SUCCESS_DATA[successTierKey] ?? TIER_SUCCESS_DATA.guardian;
+
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
+
+      {/* ── INFLOW CONFIRMED OVERLAY ── */}
+      {showSuccessOverlay && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.96)", backdropFilter: "blur(24px)" }}
+        >
+          {/* Radial glow behind Ankh */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: `radial-gradient(ellipse 60% 60% at 50% 40%, ${successTier.color}18 0%, transparent 70%)` }}
+          />
+          <div className="relative z-10 text-center max-w-lg px-8 py-12">
+            {/* Ankh */}
+            <div
+              className="text-8xl mb-6 transition-all duration-700"
+              style={{
+                filter: overlayAnkhPulse ? `drop-shadow(0 0 40px ${successTier.color}) drop-shadow(0 0 80px ${successTier.color}88)` : "none",
+                transform: overlayAnkhPulse ? "scale(1.15)" : "scale(1)",
+              }}
+            >
+              ☥
+            </div>
+            {/* Status line */}
+            <div className="text-xs font-mono tracking-[0.4em] mb-3" style={{ color: "#00FF88" }}>
+              INFLOW CONFIRMED • SOVEREIGN LEDGER SEALED
+            </div>
+            {/* Main headline */}
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-2" style={{ lineHeight: 1.1 }}>
+              WELCOME TO
+            </h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: successTier.color, lineHeight: 1.1 }}>
+              THE EMPIRE
+            </h2>
+            {/* Tier card */}
+            <div
+              className="rounded-2xl p-6 mb-6 text-left"
+              style={{
+                background: `${successTier.color}0A`,
+                border: `1px solid ${successTier.color}40`,
+                boxShadow: `0 0 40px ${successTier.color}15`,
+              }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">{successTier.icon}</span>
+                <div>
+                  <div className="text-xs font-mono" style={{ color: successTier.color }}>INVESTMENT TIER</div>
+                  <div className="text-xl font-black text-white">{successTier.name}</div>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { label: "Invested", value: successTier.amount },
+                  { label: "CHX Allocated", value: successTier.chx },
+                  { label: "Equity", value: successTier.equity },
+                ].map(s => (
+                  <div key={s.label} className="rounded-xl p-3 text-center" style={{ background: "rgba(255,255,255,0.04)" }}>
+                    <div className="text-sm font-black" style={{ color: successTier.color, fontFamily: "'Space Mono', monospace" }}>{s.value}</div>
+                    <div className="text-xs" style={{ color: "#8899AA" }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Doctrine line */}
+            <div className="text-xs font-mono mb-6" style={{ color: "rgba(255,255,255,0.3)" }}>
+              SELF-APPROVED • WE ARE THE BANK • KUN FAYAKŪN × ∞
+            </div>
+            {/* CTA */}
+            <button
+              onClick={() => setShowSuccessOverlay(false)}
+              className="w-full py-4 rounded-xl font-black text-lg transition-all duration-200 hover:scale-[1.02]"
+              style={{
+                background: `linear-gradient(135deg, ${successTier.color}, ${successTier.color}CC)`,
+                color: "#050B1A",
+                boxShadow: `0 0 30px ${successTier.color}40`,
+              }}
+            >
+              ENTER THE PORTAL →
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* ── NAV ── */}
       <nav className="sticky top-0 z-50 border-b" style={{ background: "rgba(5,11,26,0.97)", backdropFilter: "blur(20px)", borderColor: "rgba(255,184,0,0.12)" }}>
         <div className="container flex items-center justify-between py-4">

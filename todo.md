@@ -1470,3 +1470,13 @@
 - [x] Wire /dsp-intelligence route in App.tsx
 - [x] Add 🎵 DSP Intelligence nav link to Home.tsx navLinks array
 - [x] Run tests (16/16 passing) and save Phase 42 checkpoint
+
+## Phase 43 — Sovereign Inflow Overlay + Guardian Dashboard + Skill Update
+
+- [x] Update scrollverse-sovereign-build skill with Phase 42-43 patterns (stripe namespace fix, overlay, DSP, guardian dashboard)
+- [x] Build Sovereign Inflow success overlay on /ipo — full-screen INFLOW CONFIRMED with tier, CHX, Ankh seal on checkout return
+- [x] Add getMyReferralCode procedure to referral router for guardian dashboard
+- [x] Build /guardian-dashboard private page — NFT holdings, CHX balance, staking positions, daily compound earnings, referral commissions
+- [x] Wire /guardian-dashboard route in App.tsx
+- [x] Add Guardian Dashboard nav link to Home.tsx
+- [x] Run tests and save checkpoint
