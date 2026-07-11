@@ -1480,3 +1480,10 @@
 - [x] Wire /guardian-dashboard route in App.tsx
 - [x] Add Guardian Dashboard nav link to Home.tsx
 - [x] Run tests and save checkpoint
+
+## Phase 44 — Checkout Notifications + Compound Now + Referral Leaderboard
+
+- [x] Add notifyOwner to Stripe webhook payment_succeeded handler — fire on every IPO/NFT mint with tier, amount, email
+- [x] Add Compound Now button to Guardian Dashboard staking cards — calls compoundRewards mutation
+- [x] Add referral leaderboard to Guardian Dashboard — top 10 Guardians by conversions via trpc.referral.getLeaderboard
+- [x] Run tests and save checkpoint

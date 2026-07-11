@@ -213,4 +213,54 @@ export const stakingRouter = router({
         .where(eq(stakingPositions.id, input.positionId));
       return { success: true, message: "Position withdrawn successfully" };
     }),
+
+  /**
+   * Manually compound rewards for a staking position.
+   * Calculates accrued rewards since lastCompoundAt and adds them to rewardsEarned.
+   */
+  compoundRewards: protectedProcedure
+    .input(z.object({ positionId: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      const db = await getDb();
+      const [pos] = await db
+        .select()
+        .from(stakingPositions)
+        .where(and(
+          eq(stakingPositions.id, input.positionId),
+          eq(stakingPositions.userId, ctx.user.id),
+          eq(stakingPositions.status, "active")
+        ));
+      if (!pos) throw new Error("Active position not found");
+
+      const now = new Date();
+      const lastCompound = new Date(pos.lastCompoundAt);
+      const daysSince = (now.getTime() - lastCompound.getTime()) / (1000 * 60 * 60 * 24);
+
+      if (daysSince < 0.01) {
+        return { success: false, message: "Already compounded recently. Try again later.", newRewards: 0, totalRewards: parseFloat(pos.rewardsEarned ?? "0") };
+      }
+
+      const chxStaked = parseFloat(pos.chxStaked) || 0;
+      const apy = parseFloat(pos.apyRate) || 0;
+      const dailyRate = apy / 365 / 100;
+      const newRewards = chxStaked * dailyRate * daysSince;
+      const currentRewards = parseFloat(pos.rewardsEarned ?? "0") || 0;
+      const totalRewards = currentRewards + newRewards;
+
+      await db
+        .update(stakingPositions)
+        .set({
+          rewardsEarned: totalRewards.toFixed(6),
+          lastCompoundAt: now,
+        })
+        .where(eq(stakingPositions.id, input.positionId));
+
+      const cfg = SOVEREIGN_POOLS[pos.pool as keyof typeof SOVEREIGN_POOLS] ?? SOVEREIGN_POOLS.genesis;
+      return {
+        success: true,
+        message: `Compounded +${newRewards.toFixed(2)} CHX from ${cfg.name}. Total rewards: ${totalRewards.toFixed(2)} CHX. KUN FAYAK\u016aN \u00d7 \u221e`,
+        newRewards: parseFloat(newRewards.toFixed(6)),
+        totalRewards: parseFloat(totalRewards.toFixed(6)),
+      };
+    }),
 });

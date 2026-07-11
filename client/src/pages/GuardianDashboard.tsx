@@ -90,7 +90,7 @@ function NFTCard({ order }: { order: { id: number; productName?: string | null; 
 }
 
 // ── Staking position card ────────────────────────────────────────────────────
-function StakingCard({ position }: {
+function StakingCard({ position, onCompound }: {
   position: {
     id: number;
     pool: string;
@@ -99,7 +99,8 @@ function StakingCard({ position }: {
     rewardsEarned: string | null;
     stakedAt: Date;
     lastCompoundAt: Date;
-  }
+  };
+  onCompound?: (positionId: number) => void;
 }) {
   const cfg = POOL_CONFIG[position.pool] ?? POOL_CONFIG.genesis;
   const chxStaked = parseFloat(position.chxStaked) || 0;
@@ -155,7 +156,7 @@ function StakingCard({ position }: {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 pt-3" style={{ borderTop: `1px solid ${cfg.color}15` }}>
+      <div className="grid grid-cols-3 gap-2 pt-3 mb-4" style={{ borderTop: `1px solid ${cfg.color}15` }}>
         {[
           { label: "Daily", value: `+${dailyCHX.toFixed(0)} CHX` },
           { label: "Monthly", value: `+${monthlyCHX.toFixed(0)} CHX` },
@@ -167,6 +168,20 @@ function StakingCard({ position }: {
           </div>
         ))}
       </div>
+
+      {onCompound && (
+        <button
+          onClick={() => onCompound(position.id)}
+          className="w-full py-2.5 rounded-xl text-xs font-bold transition-all hover:scale-[1.02] active:scale-95"
+          style={{
+            background: `linear-gradient(135deg, ${cfg.color}20, ${cfg.color}10)`,
+            border: `1px solid ${cfg.color}40`,
+            color: cfg.color,
+          }}
+        >
+          ⚡ Compound Now
+        </button>
+      )}
     </div>
   );
 }
@@ -187,10 +202,29 @@ export default function GuardianDashboard() {
   const { data: orders, isLoading: ordersLoading } = trpc.store.getMyOrders.useQuery(undefined, {
     enabled: isAuthenticated,
   });
-  const { data: stakingData, isLoading: stakingLoading } = trpc.staking.getMyPositions.useQuery(undefined, {
+  const { data: stakingData, isLoading: stakingLoading, refetch: refetchStaking } = trpc.staking.getMyPositions.useQuery(undefined, {
+    enabled: isAuthenticated,
+  });
+  const { data: leaderboardData } = trpc.referral.getLeaderboard.useQuery(undefined, {
     enabled: isAuthenticated,
   });
   const getReferralCode = trpc.referral.getMyReferralCode.useMutation();
+  const [compoundMsg, setCompoundMsg] = useState<string | null>(null);
+  const compoundMutation = trpc.staking.compoundRewards.useMutation({
+    onSuccess: (result) => {
+      setCompoundMsg(result.message);
+      refetchStaking();
+      setTimeout(() => setCompoundMsg(null), 4000);
+    },
+    onError: (err) => {
+      setCompoundMsg(err.message);
+      setTimeout(() => setCompoundMsg(null), 3000);
+    },
+  });
+
+  const handleCompound = (positionId: number) => {
+    compoundMutation.mutate({ positionId });
+  };
 
   // Auto-fetch referral code on mount
   useEffect(() => {
@@ -340,7 +374,25 @@ export default function GuardianDashboard() {
               </div>
             ) : (
               <div className="space-y-4">
-                {positions.map(p => <StakingCard key={p.id} position={p} />)}
+                {compoundMsg && (
+                  <div
+                    className="rounded-xl px-4 py-3 text-xs font-mono"
+                    style={{
+                      background: compoundMsg.includes("Compounded") ? "rgba(0,255,136,0.1)" : "rgba(255,68,68,0.1)",
+                      border: compoundMsg.includes("Compounded") ? "1px solid rgba(0,255,136,0.3)" : "1px solid rgba(255,68,68,0.3)",
+                      color: compoundMsg.includes("Compounded") ? "#00FF88" : "#FF4444",
+                    }}
+                  >
+                    {compoundMsg}
+                  </div>
+                )}
+                {positions.map(p => (
+                  <StakingCard
+                    key={p.id}
+                    position={p}
+                    onCompound={handleCompound}
+                  />
+                ))}
               </div>
             )}
           </div>
@@ -468,6 +520,59 @@ export default function GuardianDashboard() {
             )}
           </div>
         </div>
+
+        {/* ── REFERRAL LEADERBOARD ── */}
+        {leaderboardData && leaderboardData.length > 0 && (
+          <div
+            className="rounded-2xl p-6 mb-8"
+            style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.2)" }}
+          >
+            <div className="flex items-center justify-between mb-5">
+              <div>
+                <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#FFB800" }}>SOVEREIGN REFERRAL NETWORK</div>
+                <h2 className="text-xl font-black text-white">Guardian Leaderboard</h2>
+              </div>
+              <div className="text-xs font-mono px-3 py-1.5 rounded-lg" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
+                TOP {Math.min(leaderboardData.length, 10)}
+              </div>
+            </div>
+            <div className="space-y-2">
+              {leaderboardData.slice(0, 10).map((entry, idx) => {
+                const medals = ["🥇", "🥈", "🥉"];
+                const medal = medals[idx] ?? `#${idx + 1}`;
+                const isCurrentUser = referralCode?.code === entry.code;
+                const rowColor = isCurrentUser ? "#FFB800" : idx < 3 ? ["#FFD700", "#C0C0C0", "#CD7F32"][idx] : "#8899AA";
+                return (
+                  <div
+                    key={entry.id}
+                    className="flex items-center gap-3 rounded-xl px-4 py-3"
+                    style={{
+                      background: isCurrentUser ? "rgba(255,184,0,0.08)" : "rgba(255,255,255,0.02)",
+                      border: isCurrentUser ? "1px solid rgba(255,184,0,0.3)" : "1px solid rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    <div className="text-lg w-8 text-center flex-shrink-0">{medal}</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-sm truncate" style={{ color: isCurrentUser ? "#FFB800" : "white" }}>
+                        {entry.creatorName ?? "Guardian"}
+                        {isCurrentUser && <span className="ml-2 text-xs font-mono" style={{ color: "#FFB800" }}>YOU</span>}
+                      </div>
+                      <div className="text-xs font-mono" style={{ color: "#8899AA" }}>
+                        {entry.conversions ?? 0} conversions · {entry.clicks ?? 0} clicks
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <div className="font-black text-sm" style={{ color: rowColor, fontFamily: "'Space Mono', monospace" }}>
+                        {entry.rewardTokens ?? 0}
+                      </div>
+                      <div className="text-xs" style={{ color: "#8899AA" }}>$LONDC</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* ── QUICK LINKS ── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">

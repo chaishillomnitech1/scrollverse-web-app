@@ -158,6 +158,37 @@ async function handleEvent(event: Stripe.Event) {
           }
         }
         // ─────────────────────────────────────────────────────────────────
+
+        // ─── SOVEREIGN INFLOW NOTIFICATION ───────────────────────────────
+        // Fire a real-time owner ping for every IPO/NFT payment
+        try {
+          const productType = session.metadata?.product_type ?? "token";
+          const customerEmail = session.metadata?.customer_email ?? "(no email)";
+          const customerName = session.metadata?.customer_name ?? "Guardian";
+          const amountUSD = ((session.amount_total ?? 0) / 100).toFixed(2);
+
+          if (productType === "nft") {
+            const nftName = session.metadata?.nft_name ?? "Sovereign NFT";
+            await notifyOwner({
+              title: `🏆 NFT MINTED — ${nftName}`,
+              content: `${customerName} (${customerEmail}) minted "${nftName}" for $${amountUSD} USD. INFLOW CONFIRMED. KUN FAYAKŪN × ∞`,
+            });
+          } else if (productTier) {
+            const tierLabels: Record<string, string> = {
+              guardian: "Guardian — $144",
+              sovereign: "Sovereign — $444",
+              ascendant: "Ascendant — $1,444",
+            };
+            const tierLabel = tierLabels[productTier] ?? productTier.toUpperCase();
+            await notifyOwner({
+              title: `🏛️ SOVEREIGN INFLOW — ${tierLabel}`,
+              content: `${customerName} (${customerEmail}) invested $${amountUSD} USD at the ${tierLabel} tier. Guardian #${userId ?? "anon"} activated. KUN FAYAKŪN × ∞`,
+            });
+          }
+        } catch (notifyErr) {
+          console.error("[Webhook] notifyOwner error:", notifyErr);
+        }
+        // ─────────────────────────────────────────────────────────────────
       }
 
       // ─── CHX RESERVATION CONFIRMATION ────────────────────────────────
