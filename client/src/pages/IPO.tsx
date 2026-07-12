@@ -8,6 +8,7 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
 // ── IPO DATA ──
 const VALUATION_METRICS = [
@@ -492,6 +493,9 @@ const TIER_SUCCESS_DATA: Record<string, { name: string; amount: string; chx: str
 
 export default function IPO() {
   const { user, isAuthenticated } = useAuth();
+  // Phase 45 — Sovereign Engagement Analytics
+  // Fires beacon at 2.2s (initial) and 3m (deep) to convert false bounces
+  useSovereignHeartbeat({ page: "ipo" });
   const [activeTab, setActiveTab] = useState<"overview" | "tiers" | "tokenomics" | "timeline" | "register">("overview");
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
   const [email, setEmail] = useState("");

@@ -1487,3 +1487,11 @@
 - [x] Add Compound Now button to Guardian Dashboard staking cards — calls compoundRewards mutation
 - [x] Add referral leaderboard to Guardian Dashboard — top 10 Guardians by conversions via trpc.referral.getLeaderboard
 - [x] Run tests and save checkpoint
+
+## Phase 45 — Sovereign Heartbeat Analytics Hook
+
+- [x] Create client/src/hooks/useSovereignHeartbeat.ts — fires beacon at 2.2s + 3m, Plausible + gtag + sendBeacon
+- [x] Add public POST /api/sovereign-heartbeat endpoint to server — fire-and-forget, always 204
+- [x] Wire useSovereignHeartbeat into /ipo page — converts false bounces, preserves 3m49s signal
+- [x] Wire useSovereignHeartbeat into /dsp-intelligence page
+- [x] Run tests and save checkpoint

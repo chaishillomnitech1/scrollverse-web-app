@@ -10,6 +10,7 @@ import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { toast } from "sonner";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
 // ── Color Palette ─────────────────────────────────────────────────────────────
 const GOLD = "#FFB800";
@@ -299,6 +300,8 @@ function DSPCard({ dsp, onDistribute }: { dsp: typeof DSPS[0]; onDistribute: (ds
 
 export default function DSPIntelligence() {
   const { user, isAuthenticated } = useAuth();
+  // Phase 45 — Sovereign Engagement Analytics
+  useSovereignHeartbeat({ page: "dsp-intelligence" });
   const [activeTab, setActiveTab] = useState<"dsps" | "cover-art" | "publishing" | "royalties">("dsps");
   const [tierFilter, setTierFilter] = useState("ALL");
 

@@ -176,6 +176,18 @@ async function startServer() {
     });
   });
 
+  // ── SOVEREIGN HEARTBEAT — public analytics beacon endpoint ─────────────────
+  // Called by useSovereignHeartbeat hook from the browser (no auth required).
+  // Logs engagement events to help analytics tools distinguish real sessions
+  // from false bounces. Fire-and-forget — always returns 204.
+  app.post("/api/sovereign-heartbeat", (req, res) => {
+    const { page, event, durationSec } = req.body ?? {};
+    if (page && event) {
+      console.log(`[SovereignHeartbeat] ${event} | page=${page} | duration=${durationSec}s`);
+    }
+    res.status(204).end();
+  });
+
   // tRPC API
   app.use(
     "/api/trpc",
