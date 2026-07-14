@@ -9,6 +9,7 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
 // ── Pool config ─────────────────────────────────────────────────────────────
 const POOL_CONFIG: Record<string, { name: string; color: string; icon: string; hz: string }> = {
@@ -189,6 +190,8 @@ function StakingCard({ position, onCompound }: {
 // ── Main component ───────────────────────────────────────────────────────────
 export default function GuardianDashboard() {
   const { user, isAuthenticated, loading: authLoading } = useAuth();
+  // Phase 46 — Sovereign Engagement Analytics
+  useSovereignHeartbeat({ page: "guardian-dashboard" });
   const [referralCopied, setReferralCopied] = useState(false);
 
   // Redirect if not authenticated
@@ -207,6 +210,10 @@ export default function GuardianDashboard() {
   });
   const { data: leaderboardData } = trpc.referral.getLeaderboard.useQuery(undefined, {
     enabled: isAuthenticated,
+  });
+  // Phase 46 — Live session analytics from sovereign heartbeat
+  const { data: heartbeatStats } = trpc.analytics.getHeartbeatStats.useQuery(undefined, {
+    refetchInterval: 30_000, // refresh every 30s
   });
   const getReferralCode = trpc.referral.getMyReferralCode.useMutation();
   const [compoundMsg, setCompoundMsg] = useState<string | null>(null);
@@ -337,6 +344,50 @@ export default function GuardianDashboard() {
             color="#A78BFA"
             icon="🎨"
           />
+        </div>
+
+        {/* ── SOVEREIGN SESSIONS TODAY ── */}
+        <div className="rounded-2xl p-6 mb-8 relative overflow-hidden" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.15)" }}>
+          {/* Subtle Ankh watermark */}
+          <div className="absolute right-6 top-1/2 -translate-y-1/2 text-6xl pointer-events-none select-none" style={{ opacity: 0.04, color: "#00D4FF" }}>☥</div>
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#00D4FF" }}>SOVEREIGN SESSIONS TODAY</div>
+              <div className="flex items-baseline gap-3">
+                <span className="text-4xl font-black" style={{ color: "#00D4FF", fontFamily: "'Space Mono', monospace" }}>
+                  {heartbeatStats?.today.engaged ?? 0}
+                </span>
+                <span className="text-sm" style={{ color: "#8899AA" }}>engaged sessions</span>
+              </div>
+              <div className="text-xs mt-1" style={{ color: "#8899AA" }}>
+                {heartbeatStats?.today.deepEngaged ?? 0} deep (3min+) · {heartbeatStats?.today.engagementRate ?? 0}% engagement rate
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold" style={{ color: "#FFB800", fontFamily: "'Space Mono', monospace" }}>
+                  {heartbeatStats?.today.total ?? 0}
+                </div>
+                <div className="text-xs font-mono" style={{ color: "#8899AA" }}>TOTAL PINGS</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold" style={{ color: "#00FF88", fontFamily: "'Space Mono', monospace" }}>
+                  {heartbeatStats?.today.deepEngaged ?? 0}
+                </div>
+                <div className="text-xs font-mono" style={{ color: "#8899AA" }}>DEEP ENGAGED</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold" style={{ color: "#A78BFA", fontFamily: "'Space Mono', monospace" }}>
+                  {heartbeatStats?.yesterday.engaged ?? 0}
+                </div>
+                <div className="text-xs font-mono" style={{ color: "#8899AA" }}>YESTERDAY</div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+            <span className="text-xs font-mono" style={{ color: "#8899AA" }}>LIVE · refreshes every 30s · {heartbeatStats?.date ?? "--"}</span>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">

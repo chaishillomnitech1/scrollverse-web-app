@@ -1495,3 +1495,14 @@
 - [x] Wire useSovereignHeartbeat into /ipo page — converts false bounces, preserves 3m49s signal
 - [x] Wire useSovereignHeartbeat into /dsp-intelligence page
 - [x] Run tests and save checkpoint
+
+## Phase 46 — Heartbeat Expansion + Live Sessions Dashboard
+
+- [x] Wire useSovereignHeartbeat into /sovereign-bank page
+- [x] Wire useSovereignHeartbeat into /staking page
+- [x] Wire useSovereignHeartbeat into /guardian-dashboard page
+- [x] Add server-side in-memory session counter for sovereign heartbeat events
+- [x] Add getHeartbeatStats tRPC procedure returning today's session counts
+- [x] Add Sovereign Sessions Today stat card to Guardian Dashboard
+- [x] Prompt Stripe live key activation
+- [x] Run tests and save checkpoint

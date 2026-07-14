@@ -14,6 +14,7 @@ import { initChessSocket } from "../chess/chessSocket";
 import cron from "node-cron";
 import { compoundStakingRewards } from "../jobs/compoundRewards";
 import { notifyOwner } from "./notification";
+import { recordHeartbeatEvent } from "../routers/analytics";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -184,6 +185,8 @@ async function startServer() {
     const { page, event, durationSec } = req.body ?? {};
     if (page && event) {
       console.log(`[SovereignHeartbeat] ${event} | page=${page} | duration=${durationSec}s`);
+      // Record to in-memory counter for Guardian Dashboard stat card
+      recordHeartbeatEvent(event);
     }
     res.status(204).end();
   });

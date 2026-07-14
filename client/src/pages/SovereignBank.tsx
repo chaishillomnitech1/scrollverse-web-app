@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
 // ── ACCOUNT TIERS ──────────────────────────────────────────────────────────────
 const TIERS = [
@@ -189,9 +190,11 @@ function ApprovalStamp() {
   );
 }
 
-// ── MAIN PAGE ────────────────────────────────────────────────────────────────────
+// ── MAIN PAGE ──────────────────────────────────────────────────────────────────────────────────
 export default function SovereignBank() {
   const { user, isAuthenticated } = useAuth();
+  // Phase 46 — Sovereign Engagement Analytics
+  useSovereignHeartbeat({ page: "sovereign-bank" });
   const [activeTab, setActiveTab] = useState<"tiers" | "franchise" | "yield" | "zakat">("tiers");
   const heroRef = useRef<HTMLDivElement>(null);
 

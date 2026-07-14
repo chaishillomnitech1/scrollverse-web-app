@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { getLoginUrl } from "@/const";
 import { toast } from "sonner";
 import type { StakingRecord, StakingPosition } from "../../../drizzle/schema";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
 const POOL_CONFIG = {
   genesis: { name: "Genesis Pool", apy: 432, hz: "432 Hz", minChx: 100, color: "#00D4FF", icon: "🌱", description: "The Foundation Pool. Aligned with 432 Hz Earth resonance. Entry-level sovereign yield.", lockLabel: "30-day soft lock" },
@@ -29,6 +30,8 @@ type LegacyTier = keyof typeof LEGACY_TIERS;
 
 export default function Staking() {
   const { isAuthenticated } = useAuth();
+  // Phase 46 — Sovereign Engagement Analytics
+  useSovereignHeartbeat({ page: "staking" });
   const [selectedPool, setSelectedPool] = useState<Pool>("genesis");
   const [chxAmount, setChxAmount] = useState("");
   const [activeTab, setActiveTab] = useState<"pools" | "legacy" | "positions">("pools");
