@@ -1506,3 +1506,11 @@
 - [x] Add Sovereign Sessions Today stat card to Guardian Dashboard
 - [x] Prompt Stripe live key activation
 - [x] Run tests and save checkpoint
+
+## Phase 47 — Auto-Compound Job + Notification Bell + Tatanka Protocol
+
+- [x] Read Heartbeat skill and add daily auto-compound scheduled job for all active staking positions (node-cron already wired in index.ts at 00:05 UTC)
+- [x] Add notification bell to Guardian Dashboard nav with live feed from trpc.notifications.getMyNotifications
+- [x] Implement Tatanka Protocol — upgrade staking display to show Acres Restored (1 CHX compounded = 1 sq ft) alongside APY
+- [x] Update staking page tab copy from "APY" to "Acres Restored" where relevant
+- [x] Run tests and save checkpoint

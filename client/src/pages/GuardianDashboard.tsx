@@ -10,6 +10,7 @@ import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+import NotificationBell from "@/components/NotificationBell";
 
 // ── Pool config ─────────────────────────────────────────────────────────────
 const POOL_CONFIG: Record<string, { name: string; color: string; icon: string; hz: string }> = {
@@ -292,6 +293,8 @@ export default function GuardianDashboard() {
             <span className="font-black text-white text-lg">🛡️ Guardian Dashboard</span>
           </div>
           <div className="flex items-center gap-3">
+            {/* Phase 47 — Live notification bell */}
+            {isAuthenticated && <NotificationBell />}
             <div
               className="text-sm font-mono px-3 py-1.5 rounded-lg"
               style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}

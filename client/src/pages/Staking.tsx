@@ -13,11 +13,20 @@ import { toast } from "sonner";
 import type { StakingRecord, StakingPosition } from "../../../drizzle/schema";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
+// Tatanka Protocol: 1 CHX compounded daily = 1 sq ft of land restored
+// acresPerYear = (chxStaked * apy / 100) / 43560 (sq ft per acre)
 const POOL_CONFIG = {
   genesis: { name: "Genesis Pool", apy: 432, hz: "432 Hz", minChx: 100, color: "#00D4FF", icon: "🌱", description: "The Foundation Pool. Aligned with 432 Hz Earth resonance. Entry-level sovereign yield.", lockLabel: "30-day soft lock" },
   celestial: { name: "Celestial Pool", apy: 528, hz: "528 Hz", minChx: 500, color: "#FFB800", icon: "✨", description: "The Healing Pool. Aligned with 528 Hz Love frequency. Mid-tier sovereign yield.", lockLabel: "90-day lock" },
   infinity: { name: "Infinity Pool", apy: 999, hz: "∞", minChx: 1000, color: "#00FF88", icon: "♾️", description: "The Ascension Pool. Beyond linear time. Maximum sovereign yield for the committed.", lockLabel: "365-day lock" },
 };
+
+/** Tatanka Protocol — convert annual CHX rewards to sq ft restored */
+function chxToAcres(annualCHX: number): string {
+  const sqft = annualCHX;
+  if (sqft >= 43560) return `${(sqft / 43560).toFixed(2)} acres`;
+  return `${Math.floor(sqft).toLocaleString()} sq ft`;
+}
 
 const LEGACY_TIERS = {
   guardian: { label: "Guardian", apy: 5, lockDays: 30, minAmount: 144, color: "#00D4FF", icon: "🛡️" },
@@ -130,7 +139,11 @@ export default function Staking() {
                     <div className="text-3xl mb-3">{cfg.icon}</div>
                     <div className="text-xs font-mono tracking-widest mb-1" style={{ color: cfg.color }}>{cfg.hz}</div>
                     <h3 className="text-xl font-black text-white mb-2">{cfg.name}</h3>
-                    <div className="text-4xl font-black mb-3" style={{ color: cfg.color, fontFamily: "'Space Mono', monospace" }}>{cfg.apy}%<span className="text-sm font-normal ml-1" style={{ color: "#8899AA" }}>APY</span></div>
+                    <div className="text-4xl font-black mb-1" style={{ color: cfg.color, fontFamily: "'Space Mono', monospace" }}>{cfg.apy}%<span className="text-sm font-normal ml-1" style={{ color: "#8899AA" }}>APY</span></div>
+                    {/* Tatanka Protocol — Acres Restored */}
+                    <div className="text-xs font-mono mb-3 px-2 py-1 rounded-lg inline-block" style={{ background: "rgba(0,255,136,0.08)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.2)" }}>
+                      🌿 {chxToAcres(cfg.minChx * cfg.apy / 100)} restored/yr at min stake
+                    </div>
                     <p className="text-sm mb-4" style={{ color: "#8899AA" }}>{cfg.description}</p>
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div className="rounded-lg p-2 text-center" style={{ background: "rgba(255,255,255,0.03)" }}>
@@ -196,6 +209,11 @@ export default function Staking() {
                 {/* Annual headline */}
                 <div className="text-center py-4 rounded-xl mb-4" style={{ background: `${pool.color}08`, border: `1px solid ${pool.color}20` }}>
                   <div className="text-xs font-mono mb-1" style={{ color: pool.color }}>{pool.name} · {pool.apy}% APY</div>
+                  {amountNum > 0 && (
+                    <div className="text-xs font-mono mt-1" style={{ color: "#00FF88" }}>
+                      🌿 {chxToAcres(estimatedAnnual)} restored/yr — Tatanka Protocol
+                    </div>
+                  )}
                   <div className="text-5xl font-black" style={{ color: pool.color, fontFamily: "'Space Mono', monospace" }}>
                     {amountNum > 0 ? estimatedAnnual.toLocaleString() : "—"}
                   </div>
@@ -249,7 +267,11 @@ export default function Staking() {
                   </div>
                 )}
 
-                <p className="text-xs mt-3 text-center" style={{ color: "#4A5568" }}>CHX price: $0.0144 · Projections are estimates. Actual rewards may vary.</p>
+                <div className="mt-3 rounded-xl p-3 text-center" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.12)" }}>
+                  <div className="text-xs font-mono mb-0.5" style={{ color: "#00FF88" }}>TATANKA PROTOCOL 🌿</div>
+                  <div className="text-xs" style={{ color: "#8899AA" }}>Every CHX reward = 1 sq ft of sovereign land restored. Your staking heals the Earth.</div>
+                </div>
+                <p className="text-xs mt-2 text-center" style={{ color: "#4A5568" }}>CHX price: $0.0144 · Projections are estimates. Actual rewards may vary.</p>
               </div>
             </div>
           </div>
@@ -348,6 +370,7 @@ export default function Staking() {
                             <span className="text-xl">{cfg.icon}</span>
                             <span className="font-bold text-white">{cfg.name}</span>
                             <span className="text-xs px-2 py-0.5 rounded-full font-mono" style={{ background: `${cfg.color}20`, color: cfg.color }}>{apy}% APY</span>
+                            <span className="text-xs px-2 py-0.5 rounded-full font-mono" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.2)" }}>🌿 {chxToAcres(annualReward)}/yr</span>
                           </div>
                           <div className="text-xs" style={{ color: "#8899AA" }}>Staked {new Date(pos.stakedAt).toLocaleDateString()}</div>
                         </div>
