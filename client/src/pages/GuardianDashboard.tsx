@@ -127,6 +127,7 @@ function StakingCard({ position, onCompound }: {
           <div>
             <div className="font-black text-white text-sm">{cfg.name}</div>
             <div className="text-xs font-mono" style={{ color: cfg.color }}>{cfg.hz} · {apy}% APY</div>
+            <div className="text-xs font-mono mt-0.5" style={{ color: "#00FF88" }}>🌿 {(yearlyCHX / 144).toFixed(1)} acres/yr restored</div>
           </div>
         </div>
         <div

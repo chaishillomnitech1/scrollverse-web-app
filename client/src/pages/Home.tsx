@@ -929,6 +929,8 @@ export default function Home() {
     { label: "📈 IPO / Public Offering", href: "/ipo" },
     { label: "🎵 DSP Intelligence", href: "/dsp-intelligence" },
     { label: "🛡️ My Dashboard", href: "/guardian-dashboard" },
+    { label: "☥ Infinite NFT", href: "/infinite-nft" },
+    { label: "📘 Archive", href: "/archive" },
   ];
 
   return (

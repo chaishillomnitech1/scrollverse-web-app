@@ -1514,3 +1514,12 @@
 - [x] Implement Tatanka Protocol — upgrade staking display to show Acres Restored (1 CHX compounded = 1 sq ft) alongside APY
 - [x] Update staking page tab copy from "APY" to "Acres Restored" where relevant
 - [x] Run tests and save checkpoint
+
+## Phase 48 — Infinite NFT Showcase + Archive Hall + Tatanka Dashboard
+
+- [x] Build /infinite-nft page — Miami NFT hero, Spotify embed, social links, Eternal Mint button, Sumsub KYC verify flow, 528Hz pulse, Pantheon Gallery, Legion heatmap
+- [x] Build /archive page — sovereign archive with universe bible eras, podcast canon (Ep 1-16), manuscript chapters, merch drop timeline
+- [x] Add Tatanka Protocol acres badge to Guardian Dashboard StakingCard component
+- [x] Wire /infinite-nft and /archive routes in App.tsx
+- [x] Add Infinite NFT and Archive nav links to Home.tsx
+- [x] Run tests and save checkpoint

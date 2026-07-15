@@ -168,6 +168,8 @@ import ScrollAcademy from "./pages/ScrollAcademy";
 import EcosystemOverview from "./pages/EcosystemOverview";
 import GatesOne from "./pages/GatesOne";
 import SovereignStoryArchive from "./pages/SovereignStoryArchive";
+import InfiniteNFT from "./pages/InfiniteNFT";
+import Archive from "./pages/Archive";
 import SovereignCards from "./pages/SovereignCards";
 import Subscribe from "./pages/Subscribe";
 import ChaisCatalog from "./pages/ChaisCatalog";
@@ -352,6 +354,8 @@ function Router() {
       <Route path={"/rizz-burna"} component={RizzBurna} />
       <Route path={"/dsp-intelligence"} component={DSPIntelligence} />
       <Route path={"/guardian-dashboard"} component={GuardianDashboard} />
+      <Route path={"/infinite-nft"} component={InfiniteNFT} />
+      <Route path={"/archive"} component={Archive} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
