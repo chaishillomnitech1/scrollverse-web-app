@@ -11,7 +11,7 @@ import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 // ── CONSTANTS ──────────────────────────────────────────────────────────────
 const MIAMI_HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
@@ -161,23 +161,19 @@ function SumsubVerifyButton({ onVerified }: { onVerified: () => void }) {
 
 // ── MINT CARD ──────────────────────────────────────────────────────────────
 function MintCard({ tier, verified }: { tier: typeof MINT_TIERS[0]; verified: boolean }) {
-  const { toast } = useToast();
+
   const createCheckout = trpc.store.createNFTCheckoutSession.useMutation({
     onSuccess: (data) => {
       if (data?.url) window.location.href = data.url;
     },
     onError: (err) => {
-      toast({ title: "Checkout Error", description: err.message, variant: "destructive" });
+      toast.error(`Checkout Error: ${err.message}`);
     },
   });
 
   const handleMint = () => {
     if (!verified) {
-      toast({
-        title: "Identity Verification Required",
-        description: "Verify your Sovereign Identity before minting.",
-        variant: "destructive",
-      });
+      toast.error("Identity Verification Required — Verify your Sovereign Identity before minting.");
       return;
     }
     createCheckout.mutate({
@@ -244,7 +240,7 @@ function MintCard({ tier, verified }: { tier: typeof MINT_TIERS[0]; verified: bo
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────────
 export default function InfiniteNFT() {
   const { user } = useAuth();
-  const { toast } = useToast();
+
   const [audioActive, setAudioActive] = useState(false);
   const [verified, setVerified] = useState(false);
   const [scrollY, setScrollY] = useState(0);
