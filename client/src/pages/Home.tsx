@@ -931,6 +931,7 @@ export default function Home() {
     { label: "🛡️ My Dashboard", href: "/guardian-dashboard" },
     { label: "☥ Infinite NFT", href: "/infinite-nft" },
     { label: "📘 Archive", href: "/archive" },
+    { label: "🌿 Tatanka", href: "/tatanka" },
   ];
 
   return (

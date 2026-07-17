@@ -117,8 +117,20 @@ function SectionHeader({ label, title, color = "#00D4FF" }: { label: string; tit
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────────
 export default function Archive() {
   const [activeTab, setActiveTab] = useState<"universe" | "podcast" | "manuscripts" | "merch">("universe");
-
+  const [expandedEra, setExpandedEra] = useState<string | null>(null);
+  const [selectedEp, setSelectedEp] = useState<typeof EPISODES[0] | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   useSovereignHeartbeat("archive");
+
+  const handlePlayEp = (ep: typeof EPISODES[0]) => {
+    if (selectedEp?.ep === ep.ep) {
+      // Toggle play/pause on same episode
+      setIsPlaying((p) => !p);
+    } else {
+      setSelectedEp(ep);
+      setIsPlaying(true);
+    }
+  };
 
   const tabs = [
     { id: "universe" as const, label: "Universe Bible", icon: "📘" },
@@ -241,35 +253,72 @@ export default function Archive() {
           <div>
             <SectionHeader label="UNIVERSE BIBLE" title="The 8 Eras of the ScrollVerse" color="#00D4FF" />
 
-            {/* Era timeline */}
+            {/* Era timeline — interactive expand/collapse */}
             <div className="relative mb-16">
               <div
                 className="absolute left-5 top-0 bottom-0 w-px"
                 style={{ background: "linear-gradient(to bottom, #00D4FF, #FFB800, #00FF88, transparent)" }}
               />
-              <div className="space-y-8">
-                {ERAS.map((era, i) => (
-                  <div key={era.era} className="flex gap-6 pl-12 relative">
-                    <div
-                      className="absolute left-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                      style={{
-                        background: `${era.color}15`,
-                        border: `2px solid ${era.color}`,
-                        color: era.color,
-                      }}
-                    >
-                      {i + 1}
+              <div className="space-y-4">
+                {ERAS.map((era, i) => {
+                  const isOpen = expandedEra === era.era;
+                  return (
+                    <div key={era.era} className="flex gap-6 pl-12 relative">
+                      <div
+                        className="absolute left-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 transition-all duration-300"
+                        style={{
+                          background: isOpen ? `${era.color}30` : `${era.color}15`,
+                          border: `2px solid ${era.color}`,
+                          color: era.color,
+                          boxShadow: isOpen ? `0 0 16px ${era.color}40` : "none",
+                        }}
+                      >
+                        {i + 1}
+                      </div>
+                      <div
+                        className="rounded-xl flex-1 overflow-hidden transition-all duration-300 cursor-pointer"
+                        style={{
+                          background: isOpen ? `${era.color}10` : `${era.color}06`,
+                          border: `1px solid ${isOpen ? era.color + "50" : era.color + "20"}`,
+                        }}
+                        onClick={() => setExpandedEra(isOpen ? null : era.era)}
+                      >
+                        <div className="p-5 flex items-center justify-between">
+                          <div>
+                            <div className="text-xs font-mono mb-1" style={{ color: era.color }}>{era.era}</div>
+                            <h3 className="text-xl font-black text-white">{era.title}</h3>
+                          </div>
+                          <div
+                            className="w-8 h-8 rounded-full flex items-center justify-center text-sm transition-transform duration-300 flex-shrink-0"
+                            style={{
+                              background: `${era.color}15`,
+                              color: era.color,
+                              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                            }}
+                          >
+                            ▼
+                          </div>
+                        </div>
+                        {isOpen && (
+                          <div
+                            className="px-5 pb-5 border-t"
+                            style={{ borderColor: `${era.color}20` }}
+                          >
+                            <p className="text-sm leading-relaxed mt-4" style={{ color: "#AAB8CC" }}>
+                              {era.description}
+                            </p>
+                            <div
+                              className="mt-4 px-4 py-3 rounded-lg text-xs font-mono"
+                              style={{ background: `${era.color}08`, border: `1px solid ${era.color}20`, color: era.color }}
+                            >
+                              ◉ ERA {i + 1} OF 8 — SCROLLVERSE UNIVERSE BIBLE
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div
-                      className="rounded-xl p-5 flex-1"
-                      style={{ background: `${era.color}06`, border: `1px solid ${era.color}20` }}
-                    >
-                      <div className="text-xs font-mono mb-1" style={{ color: era.color }}>{era.era}</div>
-                      <h3 className="text-xl font-black text-white mb-2">{era.title}</h3>
-                      <p className="text-sm" style={{ color: "#8899AA" }}>{era.description}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -294,25 +343,103 @@ export default function Archive() {
         {activeTab === "podcast" && (
           <div>
             <SectionHeader label="PODCAST CANON" title="The ScrollVerse Episodes" color="#FFB800" />
-            <div className="grid md:grid-cols-2 gap-4">
-              {EPISODES.map((ep) => (
+
+            {/* Now Playing Bar */}
+            {selectedEp && (
+              <div
+                className="rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-start md:items-center gap-4"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255,184,0,0.08), rgba(5,11,26,0.95))",
+                  border: "1px solid rgba(255,184,0,0.3)",
+                  boxShadow: "0 0 30px rgba(255,184,0,0.08)",
+                }}
+              >
                 <div
-                  key={ep.ep}
-                  className="rounded-xl p-5 flex gap-4 transition-all duration-200 hover:scale-[1.01]"
-                  style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.12)" }}
+                  className="w-16 h-16 rounded-xl flex items-center justify-center text-xl font-black flex-shrink-0"
+                  style={{ background: "rgba(255,184,0,0.15)", color: "#FFB800", fontFamily: "'Space Mono', monospace" }}
                 >
-                  <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0"
-                    style={{ background: "rgba(255,184,0,0.12)", color: "#FFB800", fontFamily: "'Space Mono', monospace" }}
-                  >
-                    {ep.ep}
-                  </div>
-                  <div>
-                    <h3 className="font-black text-white mb-1">Episode {ep.ep} — {ep.title}</h3>
-                    <p className="text-sm" style={{ color: "#8899AA" }}>{ep.tagline}</p>
+                  {selectedEp.ep}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-mono mb-1" style={{ color: "#FFB800" }}>NOW PLAYING</div>
+                  <h3 className="font-black text-white text-lg">Episode {selectedEp.ep} — {selectedEp.title}</h3>
+                  <p className="text-sm" style={{ color: "#8899AA" }}>{selectedEp.tagline}</p>
+                  {/* HTML5 audio player — replace src with real audio URL when available */}
+                  <div className="mt-3">
+                    <audio
+                      key={selectedEp.ep}
+                      controls
+                      autoPlay={isPlaying}
+                      className="w-full"
+                      style={{ height: "36px", borderRadius: "8px", accentColor: "#FFB800" }}
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                    >
+                      {/* Placeholder: replace with real episode audio URL */}
+                      <source src={`/audio/episode-${selectedEp.ep}.mp3`} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
                   </div>
                 </div>
-              ))}
+                <button
+                  onClick={() => { setSelectedEp(null); setIsPlaying(false); }}
+                  className="text-xs font-mono px-3 py-1.5 rounded-lg flex-shrink-0"
+                  style={{ background: "rgba(136,153,170,0.1)", border: "1px solid rgba(136,153,170,0.2)", color: "#8899AA" }}
+                >
+                  ✕ CLOSE
+                </button>
+              </div>
+            )}
+
+            {/* Episode List */}
+            <div className="grid md:grid-cols-2 gap-4">
+              {EPISODES.map((ep) => {
+                const isActive = selectedEp?.ep === ep.ep;
+                return (
+                  <div
+                    key={ep.ep}
+                    className="rounded-xl p-5 flex gap-4 transition-all duration-200 hover:scale-[1.01] cursor-pointer"
+                    style={{
+                      background: isActive ? "rgba(255,184,0,0.10)" : "rgba(255,184,0,0.04)",
+                      border: isActive ? "1px solid rgba(255,184,0,0.40)" : "1px solid rgba(255,184,0,0.12)",
+                      boxShadow: isActive ? "0 0 20px rgba(255,184,0,0.08)" : "none",
+                    }}
+                    onClick={() => handlePlayEp(ep)}
+                  >
+                    <div
+                      className="w-12 h-12 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0 transition-all duration-200"
+                      style={{
+                        background: isActive ? "rgba(255,184,0,0.25)" : "rgba(255,184,0,0.12)",
+                        color: "#FFB800",
+                        fontFamily: "'Space Mono', monospace",
+                        boxShadow: isActive ? "0 0 12px rgba(255,184,0,0.3)" : "none",
+                      }}
+                    >
+                      {isActive && isPlaying ? "▶" : ep.ep}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-black text-white mb-1">Episode {ep.ep} — {ep.title}</h3>
+                      <p className="text-sm" style={{ color: "#8899AA" }}>{ep.tagline}</p>
+                      {isActive && (
+                        <div className="mt-1 text-xs font-mono" style={{ color: "#FFB800" }}>
+                          {isPlaying ? "◉ PLAYING" : "◎ PAUSED"}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Podcast Note */}
+            <div
+              className="mt-8 rounded-xl p-5 text-center"
+              style={{ background: "rgba(255,184,0,0.03)", border: "1px solid rgba(255,184,0,0.10)" }}
+            >
+              <p className="text-xs font-mono" style={{ color: "rgba(136,153,170,0.6)" }}>
+                Audio episodes will be available when uploaded to the sovereign archive. Click any episode to load the player.
+                KUN FAYAKŪN × ∞
+              </p>
             </div>
           </div>
         )}

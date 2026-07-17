@@ -178,6 +178,7 @@ import RizzBurna from "./pages/RizzBurna";
 import IPO from "./pages/IPO";
 import DSPIntelligence from "./pages/DSPIntelligence";
 import GuardianDashboard from "./pages/GuardianDashboard";
+import Tatanka from "./pages/Tatanka";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -356,6 +357,7 @@ function Router() {
       <Route path={"/guardian-dashboard"} component={GuardianDashboard} />
       <Route path={"/infinite-nft"} component={InfiniteNFT} />
       <Route path={"/archive"} component={Archive} />
+      <Route path={"/tatanka"} component={Tatanka} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

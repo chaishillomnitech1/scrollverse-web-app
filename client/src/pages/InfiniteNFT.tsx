@@ -244,9 +244,28 @@ export default function InfiniteNFT() {
   const [audioActive, setAudioActive] = useState(false);
   const [verified, setVerified] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showKycModal, setShowKycModal] = useState(false);
+  const [showMintSuccess, setShowMintSuccess] = useState(false);
+  const [mintSuccessTier, setMintSuccessTier] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useSovereignHeartbeat("infinite-nft");
+
+  // Detect ?kyc=success or ?checkout=success URL params on return
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("kyc") === "success") {
+      setVerified(true);
+      setShowKycModal(true);
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+    if (params.get("checkout") === "success") {
+      const tier = params.get("tier") || "Sovereign";
+      setMintSuccessTier(tier);
+      setShowMintSuccess(true);
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -280,6 +299,87 @@ export default function InfiniteNFT() {
       className="min-h-screen"
       style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif", color: "white" }}
     >
+      {/* ── KYC SUCCESS MODAL ── */}
+      {showKycModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center"
+          style={{ background: "rgba(3,10,6,0.92)", backdropFilter: "blur(20px)" }}
+          onClick={() => setShowKycModal(false)}
+        >
+          <div
+            className="relative max-w-md w-full mx-4 rounded-2xl p-8 text-center"
+            style={{
+              background: "linear-gradient(135deg, rgba(0,255,136,0.08), rgba(5,11,26,0.98))",
+              border: "1px solid rgba(0,255,136,0.4)",
+              boxShadow: "0 0 60px rgba(0,255,136,0.15)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-6xl mb-4">☥</div>
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00FF88" }}>IDENTITY CONFIRMED</div>
+            <h2 className="text-2xl font-black text-white mb-3">Sovereign Identity Verified</h2>
+            <p className="text-sm mb-6" style={{ color: "#8899AA" }}>
+              Your identity has been confirmed on the sovereign ledger. You are now authorized to mint. The empire recognizes you.
+            </p>
+            <div
+              className="px-4 py-3 rounded-xl text-sm font-mono mb-6"
+              style={{ background: "rgba(0,255,136,0.06)", border: "1px solid rgba(0,255,136,0.2)", color: "#00FF88" }}
+            >
+              ◉ GUARDIAN STATUS: ACTIVE · KUN FAYAKŪN × ∞
+            </div>
+            <button
+              onClick={() => setShowKycModal(false)}
+              className="w-full py-3 rounded-xl font-bold text-sm"
+              style={{ background: "linear-gradient(135deg, #00FF88, #00CC66)", color: "#030A06" }}
+            >
+              PROCEED TO MINT ☥
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── MINT SUCCESS OVERLAY ── */}
+      {showMintSuccess && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center"
+          style={{ background: "rgba(5,11,26,0.95)", backdropFilter: "blur(24px)" }}
+          onClick={() => setShowMintSuccess(false)}
+        >
+          <div
+            className="relative max-w-lg w-full mx-4 rounded-2xl p-10 text-center"
+            style={{
+              background: "linear-gradient(135deg, rgba(255,184,0,0.08), rgba(5,11,26,0.98))",
+              border: "1px solid rgba(255,184,0,0.5)",
+              boxShadow: "0 0 80px rgba(255,184,0,0.12)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-7xl mb-4" style={{ animation: "pulse 2s ease-in-out infinite" }}>🏆</div>
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>NFT MINTED</div>
+            <h2 className="text-3xl font-black text-white mb-2">MINT CONFIRMED</h2>
+            <p className="text-lg font-bold mb-4" style={{ color: "#FFB800" }}>{mintSuccessTier}</p>
+            <p className="text-sm mb-6" style={{ color: "#8899AA" }}>
+              Your Sovereign NFT is now permanently embedded in the blockchain. The empire grows. The ledger remembers.
+            </p>
+            <div
+              className="px-4 py-3 rounded-xl text-sm font-mono mb-6"
+              style={{ background: "rgba(255,184,0,0.06)", border: "1px solid rgba(255,184,0,0.2)", color: "#FFB800" }}
+            >
+              ✦ SOVEREIGN WALL STREET · GOING PUBLIC ON OUR OWN TERMS
+            </div>
+            <div className="text-xs font-mono mb-6" style={{ color: "rgba(136,153,170,0.6)" }}>
+              KUN FAYAKŪN × ∞ — THE EMPIRE IS YOURS
+            </div>
+            <button
+              onClick={() => setShowMintSuccess(false)}
+              className="w-full py-3 rounded-xl font-bold text-sm"
+              style={{ background: "linear-gradient(135deg, #FFB800, #CC9200)", color: "#050B1A" }}
+            >
+              RETURN TO THE EMPIRE
+            </button>
+          </div>
+        </div>
+      )}
       {/* ── FIXED NAV ── */}
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"

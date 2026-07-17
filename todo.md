@@ -1523,3 +1523,12 @@
 - [x] Wire /infinite-nft and /archive routes in App.tsx
 - [x] Add Infinite NFT and Archive nav links to Home.tsx
 - [x] Run tests and save checkpoint
+
+## Phase 49 — Tatanka Tracker + InfiniteNFT Refinement + Archive Upgrade + Skill Update
+
+- [x] Build /tatanka page — land restoration tracker with CHX staked empire-wide, sq ft restored, interactive restoration zone map, Guardian leaderboard ranked by land restored
+- [x] Refine /infinite-nft Eternal Mint button — loading animation, KYC success modal after Sumsub verification
+- [x] Upgrade /archive — interactive 8-era universe bible timeline, dedicated podcast audio player
+- [x] Update scrollverse-sovereign-build skill with Phase 48-49 patterns
+- [x] Wire /tatanka route in App.tsx, add nav link to Home.tsx
+- [x] Run tests and save checkpoint
