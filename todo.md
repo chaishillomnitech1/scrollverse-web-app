@@ -1543,3 +1543,9 @@
 - [x] Wire /gates and /curriculum routes in App.tsx
 - [x] Push live checkpoint to scrollverse.co with all new pages
 - [x] Sync all commits to GitHub chaishillomnitech1/scrollverse-web-app
+
+## Phase 51 — 3 Sovereign Moves
+- [x] Wire Mailchimp API key (MAILCHIMP_API_KEY + MAILCHIMP_LIST_ID secrets)
+- [x] Build /gate-keys page — MetaMask connect, Polygon mint flow, IPFS metadata
+- [x] Build /frequency-player page — 963Hz/999Hz audio player, waveform visualizer
+- [x] Wire /gate-keys + /frequency-player in App.tsx

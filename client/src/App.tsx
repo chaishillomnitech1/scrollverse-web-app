@@ -182,6 +182,8 @@ import Tatanka from "./pages/Tatanka";
 import Gates from "./pages/Gates";
 import Curriculum from "./pages/Curriculum";
 import Manifesto from "./pages/Manifesto";
+import GateKeys from "@/pages/GateKeys";
+import FrequencyPlayer from "@/pages/FrequencyPlayer";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -365,6 +367,8 @@ function Router() {
       <Route path={"/curriculum"} component={Curriculum} />
       <Route path={"/manifesto"} component={Manifesto} />
       <Route path={"/404"} component={NotFound} />
+        <Route path="/gate-keys" component={GateKeys} />
+        <Route path="/frequency-player" component={FrequencyPlayer} />
       <Route component={NotFound} />
     </Switch>
   );
