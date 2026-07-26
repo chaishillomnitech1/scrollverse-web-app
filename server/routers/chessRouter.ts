@@ -11,7 +11,7 @@ import { eq, desc, or, and } from "drizzle-orm";
 export const chessRouter = router({
   // Get active matches for the current user
   getMyMatches: protectedProcedure.query(async ({ ctx }) => {
-    const db = getDb();
+    const db = await getDb();
     const matches = await db
       .select()
       .from(chess_matches)
@@ -28,7 +28,7 @@ export const chessRouter = router({
 
   // Get global leaderboard
   getLeaderboard: publicProcedure.query(async () => {
-    const db = getDb();
+    const db = await getDb();
     // Get all completed matches and compute win counts
     const matches = await db
       .select()
@@ -56,7 +56,7 @@ export const chessRouter = router({
     }
 
     // Get user names for top players
-    const topUserIds = [...winMap.entries()]
+    const topUserIds = Array.from(winMap.entries())
       .sort((a, b) => b[1].wins - a[1].wins)
       .slice(0, 10)
       .map(([id]) => id);
@@ -86,7 +86,7 @@ export const chessRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const db = getDb();
+      const db = await getDb();
       const [result] = await db.insert(chess_matches).values({
         challenger_id: ctx.user.id,
         opponent_id: 0, // 0 = open challenge
@@ -105,7 +105,7 @@ export const chessRouter = router({
   acceptChallenge: protectedProcedure
     .input(z.object({ matchId: z.number() }))
     .mutation(async ({ ctx, input }) => {
-      const db = getDb();
+      const db = await getDb();
       const [match] = await db
         .select()
         .from(chess_matches)
@@ -128,7 +128,7 @@ export const chessRouter = router({
 
   // Get open challenges (pending matches with black_player_id = 0)
   getOpenChallenges: publicProcedure.query(async () => {
-    const db = getDb();
+    const db = await getDb();
     const challenges = await db
       .select()
       .from(chess_matches)
@@ -142,7 +142,7 @@ export const chessRouter = router({
   getMatch: publicProcedure
     .input(z.object({ matchId: z.number() }))
     .query(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const [match] = await db
         .select()
         .from(chess_matches)
@@ -154,7 +154,7 @@ export const chessRouter = router({
   resign: protectedProcedure
     .input(z.object({ matchId: z.number() }))
     .mutation(async ({ ctx, input }) => {
-      const db = getDb();
+      const db = await getDb();
       const [match] = await db
         .select()
         .from(chess_matches)
@@ -182,7 +182,7 @@ export const chessRouter = router({
   getWager: publicProcedure
     .input(z.object({ matchId: z.number() }))
     .query(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const [wager] = await db
         .select()
         .from(chess_wager_escrow)

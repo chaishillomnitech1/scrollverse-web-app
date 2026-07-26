@@ -199,7 +199,7 @@ export default function GuardianDashboard() {
   // Redirect if not authenticated
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
-      window.location.href = getLoginUrl("/guardian-dashboard");
+      window.location.href = getLoginUrl();
     }
   }, [authLoading, isAuthenticated]);
 
@@ -254,17 +254,17 @@ export default function GuardianDashboard() {
   }
 
   const positions = stakingData?.positions ?? [];
-  const nftOrders = (orders ?? []).filter(o => o.productTier !== "subscription");
+  const nftOrders = (orders ?? []).filter((o: any) => o.productTier !== "subscription");
 
   // Aggregate stats
-  const totalCHXStaked = positions.reduce((sum, p) => sum + (parseFloat(p.chxStaked) || 0), 0);
-  const totalRewardsEarned = positions.reduce((sum, p) => sum + (parseFloat(p.rewardsEarned ?? "0") || 0), 0);
-  const totalDailyEarnings = positions.reduce((sum, p) => {
+  const totalCHXStaked = positions.reduce((sum: number, p: any) => sum + (parseFloat(p.chxStaked) || 0), 0);
+  const totalRewardsEarned = positions.reduce((sum: number, p: any) => sum + (parseFloat(p.rewardsEarned ?? "0") || 0), 0);
+  const totalDailyEarnings = positions.reduce((sum: number, p: any) => {
     const chx = parseFloat(p.chxStaked) || 0;
     const apy = parseFloat(p.apyRate) || 0;
     return sum + chx * (apy / 365 / 100);
   }, 0);
-  const totalNFTValue = nftOrders.reduce((sum, o) => sum + o.amountCents, 0) / 100;
+  const totalNFTValue = nftOrders.reduce((sum: number, o: any) => sum + o.amountCents, 0) / 100;
   const referralCode = getReferralCode.data;
   const referralLink = referralCode ? `${window.location.origin}/?ref=${referralCode.code}` : "";
 
@@ -441,7 +441,7 @@ export default function GuardianDashboard() {
                     {compoundMsg}
                   </div>
                 )}
-                {positions.map(p => (
+                {positions.map((p: any) => (
                   <StakingCard
                     key={p.id}
                     position={p}
@@ -486,7 +486,7 @@ export default function GuardianDashboard() {
               </div>
             ) : (
               <div className="space-y-3 max-h-[400px] overflow-y-auto pr-1">
-                {nftOrders.map(o => <NFTCard key={o.id} order={o} />)}
+                {nftOrders.map((o: any) => <NFTCard key={o.id} order={o} />)}
               </div>
             )}
           </div>
@@ -592,7 +592,7 @@ export default function GuardianDashboard() {
               </div>
             </div>
             <div className="space-y-2">
-              {leaderboardData.slice(0, 10).map((entry, idx) => {
+              {leaderboardData.slice(0, 10).map((entry: any, idx: number) => {
                 const medals = ["🥇", "🥈", "🥉"];
                 const medal = medals[idx] ?? `#${idx + 1}`;
                 const isCurrentUser = referralCode?.code === entry.code;

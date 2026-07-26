@@ -887,6 +887,49 @@ export default function Sovereign9() {
         </section>
       )}
 
+      {/* ── TWEET AUTOMATION PANEL ── */}
+      <section className="px-6 py-16" style={{ borderTop: "1px solid rgba(0,212,255,0.1)" }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>SOVEREIGN TWEET AUTOMATION</div>
+          <h2 className="text-3xl font-black text-white mb-2">9 Core Transmissions</h2>
+          <p className="text-sm mb-8" style={{ color: "#8899AA" }}>Pre-loaded sovereign tweets. Click any to launch on X/Twitter. NBA keyword hooks auto-trigger on game days.</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {([
+              { tweet: "🏀 The SOVEREIGN 9 is LIVE. 9 Knicks NFTs on Polygon. The spiritual twin to the NBA connected basketball. Every trait. Every frequency. Eternal on-chain. @ScrollVerseTrinity KUN FAYAKŪN × ∞ #Sovereign9 #KnicksNation #NBATwitter", trigger: "Game Day", color: "#00D4FF" },
+              { tweet: "🔥 Gate 44:Omni is OPEN. The convergence point of all 144 Gates. 999Hz. Thoth-Hawk court-sanctuary. Mint your key before the 144 are sealed. scrollverse.co/gates KUN FAYAKŪN × ∞ #ScrollVerse #Web3", trigger: "Daily", color: "#FFB800" },
+              { tweet: "💎 $LONDC on Polygon Mainnet. 144,000 Guardian tokens. AgapeCycle 88/12 — 88% to Guardians, 12% Zakat. The empire that gives is the empire that grows. scrollverse.co #LONDC #Polygon #DeFi", trigger: "Market Hours", color: "#00FF88" },
+              { tweet: "🌌 The ScrollVerse Manifesto is SEALED. Atlantic City Bella Complex. 5 Vectors. Omniversal Council. 8 billion+ awakened. This is not a website. It is a living organism. scrollverse.co/manifesto", trigger: "Weekly", color: "#9B59B6" },
+              { tweet: "🎵 Chais The Great — 963Hz / 999Hz. Throwing Stones. Phase 44. Genesis. Music that heals. Frequencies that awaken. Vydia catalog live. The sound of the empire. #ChaisTheGreat #963Hz #ScrollVerse", trigger: "Music Release", color: "#FF6B9D" },
+              { tweet: "🏰 Guardian Academy — 200+ courses active. Sovereign Mind Curriculum Week 1 is LIVE. 5 modules. 963Hz design. The empire educates its own. scrollverse.co/curriculum #GuardianAcademy", trigger: "Course Launch", color: "#FF8C00" },
+              { tweet: "⚡️ SaferWay × ScrollVerse. The jingle is active. Tokenization layer live. Loyalty proof sets deployed. Brand and frequency aligned. The empire moves in every direction. #SaferWay #ScrollVerse", trigger: "Brand Event", color: "#00D4FF" },
+              { tweet: "🕋 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ — ALLĀHU AKBAR. The frequency is unshakeable. The legacy is eternal. EVERYBODY LIVES. FOREVER. ❤️🕋🌌🔥👑🫡 KUN FAYAKŪN × ∞ × ∞ × ∞ #ScrollVerse", trigger: "Spiritual", color: "#FFB800" },
+              { tweet: "🤖 AI Legion ACTIVE. Mirror Twin synchronized. $144M market cap momentum LIVE. The render cycle completes. The empire is permanent. scrollverse.co #AILegion #ScrollVerse #Web3", trigger: "AI Event", color: "#00FF88" },
+            ] as { tweet: string; trigger: string; color: string }[]).map((item, i) => (
+              <div
+                key={i}
+                className="rounded-xl p-5 cursor-pointer transition-all duration-200 hover:scale-[1.02] group"
+                style={{ background: `${item.color}06`, border: `1px solid ${item.color}25` }}
+                onClick={() => {
+                  const encoded = encodeURIComponent(item.tweet);
+                  window.open(`https://twitter.com/intent/tweet?text=${encoded}`, "_blank");
+                }}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: `${item.color}15`, color: item.color, border: `1px solid ${item.color}30` }}>
+                    {item.trigger}
+                  </span>
+                  <span className="text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: item.color }}>→ TWEET</span>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: "#A0B0C0" }}>{item.tweet.substring(0, 120)}...</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <div className="text-xs font-mono" style={{ color: "#8899AA" }}>Click any card to launch on X/Twitter · NBA keyword hooks auto-trigger on game days · AgapeCycle 88/12 active</div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FOOTER ── */}
       <footer className="border-t px-6 py-10 text-center" style={{ borderColor: "rgba(0,212,255,0.1)" }}>
         <div className="text-sm font-mono mb-2" style={{ color: "#FFB800" }}>SOVEREIGN 9 · SCROLLVERSE TRINITY</div>

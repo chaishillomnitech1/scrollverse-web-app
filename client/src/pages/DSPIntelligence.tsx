@@ -316,7 +316,7 @@ export default function DSPIntelligence() {
       nftId: `dsp-distribution-${dsp.id}-${Date.now()}`,
       nftName: `ScrollVerse × ${dsp.name} Distribution License`,
       nftDescription: `Annual distribution license to ${dsp.name}. ${dsp.reach}. ${dsp.royalty} royalty rate.`,
-      priceUsd: 44,
+      priceCents: 4400,
       origin: window.location.origin,
     });
   };
@@ -327,7 +327,7 @@ export default function DSPIntelligence() {
       nftId: `cover-art-${pkg.name.toLowerCase().replace(/\s+/g, "-")}-${Date.now()}`,
       nftName: `ScrollVerse Cover Art: ${pkg.name}`,
       nftDescription: pkg.description,
-      priceUsd: pkg.price,
+      priceCents: (typeof pkg.price === "number" ? pkg.price * 100 : 4400),
       origin: window.location.origin,
     });
   };
@@ -466,7 +466,7 @@ export default function DSPIntelligence() {
                     nftId: `dsp-all-bundle-${Date.now()}`,
                     nftName: "ScrollVerse All-DSP Distribution Bundle",
                     nftDescription: "Annual distribution license to all 12 major DSPs. 600M+ combined listeners. 184 countries.",
-                    priceUsd: 144,
+                    priceCents: 14400,
                     origin: window.location.origin,
                   });
                 }}

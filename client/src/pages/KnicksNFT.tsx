@@ -252,7 +252,7 @@ export default function KnicksNFT() {
       nftId: `knicks-prophecy-${id}-${Date.now()}`,
       nftName: `Knicks Prophecy NFT: ${prophecy.title}`,
       nftDescription: prophecy.description,
-      priceUsd: parseInt(prophecy.priceUSD.replace(/[^0-9]/g, "")),
+      priceCents: parseInt(prophecy.priceUSD.replace(/[^0-9]/g, "")) * 100,
       origin: window.location.origin,
     });
   };
@@ -523,7 +523,7 @@ export default function KnicksNFT() {
                           nftId: `fathers-day-genesis-${Date.now()}`,
                           nftName: "Father's Day Genesis NFT",
                           nftDescription: "Father's Day 2025 — Jalen Brunson and his father Rick Brunson. Sacred sovereign lineage sealed on Scroll zkEVM.",
-                          priceUsd: 144,
+                          priceCents: 14400,
                           origin: window.location.origin,
                         });
                       }}

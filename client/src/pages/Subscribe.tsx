@@ -384,7 +384,7 @@ export default function Subscribe() {
 
   const subscribeMutation = trpc.guardian.subscribe.useMutation({
     onSuccess: (data) => {
-      if (data.alreadySubscribed) {
+      if (data.alreadyRegistered) {
         toast("Already in the Guardian network!", { description: "Your frequency is already registered. KUN FAYAKŪN × ∞" });
       } else {
         setWaitlistStatus("success");

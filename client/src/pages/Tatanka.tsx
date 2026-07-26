@@ -269,7 +269,7 @@ function LeaderboardRow({ rank, entry }: {
 
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────────
 export default function Tatanka() {
-  useSovereignHeartbeat("tatanka");
+  useSovereignHeartbeat({ page: "tatanka" });
   const [selectedZone, setSelectedZone] = useState<string | null>("miami-brickell");
 
   const { data: poolStats } = trpc.staking.getPoolStats.useQuery();
@@ -449,7 +449,7 @@ export default function Tatanka() {
 
         {leaderboard && leaderboard.length > 0 ? (
           <div className="space-y-3">
-            {leaderboard.slice(0, 10).map((entry, i) => (
+            {leaderboard.slice(0, 10).map((entry: any, i: number) => (
               <LeaderboardRow key={entry.id} rank={i + 1} entry={entry} />
             ))}
           </div>

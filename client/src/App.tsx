@@ -179,6 +179,9 @@ import IPO from "./pages/IPO";
 import DSPIntelligence from "./pages/DSPIntelligence";
 import GuardianDashboard from "./pages/GuardianDashboard";
 import Tatanka from "./pages/Tatanka";
+import Gates from "./pages/Gates";
+import Curriculum from "./pages/Curriculum";
+import Manifesto from "./pages/Manifesto";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -358,6 +361,9 @@ function Router() {
       <Route path={"/infinite-nft"} component={InfiniteNFT} />
       <Route path={"/archive"} component={Archive} />
       <Route path={"/tatanka"} component={Tatanka} />
+      <Route path={"/gates"} component={Gates} />
+      <Route path={"/curriculum"} component={Curriculum} />
+      <Route path={"/manifesto"} component={Manifesto} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

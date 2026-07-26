@@ -45,7 +45,7 @@ export default function NftMarketplace() {
       nftId: `scrollsoul-${tier}-${Date.now()}`,
       nftName: `ScrollSoul ${tc.label}`,
       nftDescription: tc.description,
-      priceUsd: tc.priceUsd,
+      priceCents: tc.priceUsd * 100,
       origin: window.location.origin,
     });
   };

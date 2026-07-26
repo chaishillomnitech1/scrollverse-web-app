@@ -177,10 +177,11 @@ function MintCard({ tier, verified }: { tier: typeof MINT_TIERS[0]; verified: bo
       return;
     }
     createCheckout.mutate({
+      nftId: `infinite-nft-${tier.id}-${Date.now()}`,
       nftName: `${tier.name} — Infinite Sovereign NFT`,
       nftDescription: tier.description,
-      price: tier.price * 100,
-      chxAllocation: tier.chx,
+      priceCents: tier.price * 100,
+      origin: window.location.origin,
     });
   };
 
@@ -249,7 +250,7 @@ export default function InfiniteNFT() {
   const [mintSuccessTier, setMintSuccessTier] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useSovereignHeartbeat("infinite-nft");
+  useSovereignHeartbeat({ page: "infinite-nft" });
 
   // Detect ?kyc=success or ?checkout=success URL params on return
   useEffect(() => {

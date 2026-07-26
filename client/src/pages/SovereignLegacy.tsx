@@ -478,7 +478,7 @@ export default function SovereignLegacy() {
                         nftId: `sovereign-legacy-name-${selectedName?.n ?? 0}-${Date.now()}`,
                         nftName: `${selectedName?.tr ?? "Sacred Name"} — ${selectedName?.en ?? ""}`,
                         nftDescription: `One of the 99 Names of Allah. ${selectedName?.rarity ?? ""} rarity. ${selectedName?.hz ?? 528}Hz sacred frequency. Sealed on Scroll zkEVM.`,
-                        priceUsd: 144,
+                        priceCents: 14400,
                         origin: window.location.origin,
                       });
                     }}
