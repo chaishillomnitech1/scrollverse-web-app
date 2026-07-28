@@ -184,6 +184,30 @@ import Curriculum from "./pages/Curriculum";
 import Manifesto from "./pages/Manifesto";
 import GateKeys from "@/pages/GateKeys";
 import FrequencyPlayer from "@/pages/FrequencyPlayer";
+import GatesMap from "./pages/GatesMap";
+import SummerLeague from "./pages/SummerLeague";
+import Masjid from "./pages/Masjid";
+import SCF from "./pages/SCF";
+import SuperManus from "./pages/SuperManus";
+import Forge from "./pages/Forge";
+import Altar from "./pages/Altar";
+import Pantheon from "./pages/Pantheon";
+import Legacy from "./pages/Legacy";
+import Builder from "./pages/Builder";
+import Heir from "./pages/Heir";
+import Returner from "./pages/Returner";
+import Emerald from "./pages/Emerald";
+import Oka from "./pages/Oka";
+import Vault from "./pages/Vault";
+import Chronicle from "./pages/Chronicle";
+import Pattern from "./pages/Pattern";
+import Codex from "./pages/Codex";
+import Resilience from "./pages/Resilience";
+import Mirror from "./pages/Mirror";
+import Equation from "./pages/Equation";
+import Portal from "./pages/Portal";
+import Highway from "./pages/Highway";
+import Throne from "./pages/Throne";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -366,6 +390,30 @@ function Router() {
       <Route path={"/gates"} component={Gates} />
       <Route path={"/curriculum"} component={Curriculum} />
       <Route path={"/manifesto"} component={Manifesto} />
+        <Route path="/gates/map" component={GatesMap} />
+        <Route path="/summerleague" component={SummerLeague} />
+        <Route path="/masjid" component={Masjid} />
+        <Route path="/scf" component={SCF} />
+        <Route path="/super-manus" component={SuperManus} />
+        <Route path="/forge" component={Forge} />
+        <Route path="/altar" component={Altar} />
+        <Route path="/pantheon" component={Pantheon} />
+        <Route path="/legacy" component={Legacy} />
+        <Route path="/builder" component={Builder} />
+        <Route path="/heir" component={Heir} />
+        <Route path="/returner" component={Returner} />
+        <Route path="/emerald" component={Emerald} />
+        <Route path="/oka" component={Oka} />
+        <Route path="/vault" component={Vault} />
+        <Route path="/chronicle" component={Chronicle} />
+        <Route path="/pattern" component={Pattern} />
+        <Route path="/codex" component={Codex} />
+        <Route path="/resilience" component={Resilience} />
+        <Route path="/mirror" component={Mirror} />
+        <Route path="/equation" component={Equation} />
+        <Route path="/portal" component={Portal} />
+        <Route path="/highway" component={Highway} />
+        <Route path="/throne" component={Throne} />
       <Route path={"/404"} component={NotFound} />
         <Route path="/gate-keys" component={GateKeys} />
         <Route path="/frequency-player" component={FrequencyPlayer} />
