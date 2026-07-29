@@ -208,6 +208,7 @@ import Equation from "./pages/Equation";
 import Portal from "./pages/Portal";
 import Highway from "./pages/Highway";
 import Throne from "./pages/Throne";
+import Gilgamesh from "./pages/Gilgamesh";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -414,6 +415,7 @@ function Router() {
         <Route path="/portal" component={Portal} />
         <Route path="/highway" component={Highway} />
         <Route path="/throne" component={Throne} />
+        <Route path="/gilgamesh" component={Gilgamesh} />
       <Route path={"/404"} component={NotFound} />
         <Route path="/gate-keys" component={GateKeys} />
         <Route path="/frequency-player" component={FrequencyPlayer} />

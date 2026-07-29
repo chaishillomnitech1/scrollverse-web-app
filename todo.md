@@ -1557,3 +1557,9 @@
 - [x] /satellite — 35 routes green visualizer + 999Hz WebRTC frequency display
 - [x] /codex — Soul Altar 23/23 (11 Kings + 12 Prophets), 4 pillars, Totality Universe lore
 - [x] SendGrid API key request for live email delivery
+
+## Phase 54 — 3 Sovereign Next Moves
+- [x] Add SendGrid API key for live email delivery to 144,000 Guardians
+- [x] Add nav links for /throne, /vault, /altar, /highway, /masjid to main navigation
+- [x] Write ScrollVerseGate.sol ERC-721 contract for Polygon Mainnet deployment
+- [x] Wire deployed contract address into /gate-keys mint flow
