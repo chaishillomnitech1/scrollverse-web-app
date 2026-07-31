@@ -10,6 +10,7 @@ import NotificationBell from "@/components/NotificationBell";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
+const SUN_XIX_CDN = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663032498436/RPDAVcCZCPkmNyUO.webp"; // The Sun XIX — Young Chais Sabir Allah The Great — Soul Sigil of the Empire
 
 // ── SOVEREIGN THRONE NFT — 1 OF 1 EPIC COMPONENT ──────────────────────────
 function SovereignThroneNFT() {
@@ -1049,8 +1050,25 @@ export default function Home() {
 
         <div className="container relative z-10 pt-24 pb-16">
           <div className="flex flex-col lg:flex-row items-start gap-12">
-          {/* Throne NFT visual — 1 OF 1 EPIC */}
-          <SovereignThroneNFT />
+          {/* The Sun XIX — Young Chais Sabir Allah The Great — Soul Sigil of the Empire */}
+          <div className="flex flex-col items-center gap-6 order-2 lg:order-none">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-2xl" style={{ background: "radial-gradient(circle, rgba(255,184,0,0.25) 0%, transparent 70%)", filter: "blur(20px)" }} />
+              <img
+                src={SUN_XIX_CDN}
+                alt="The Sun XIX — Young Chais Sabir Allah The Great"
+                className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-2xl object-cover"
+                style={{ border: "2px solid rgba(255,184,0,0.4)", boxShadow: "0 0 60px rgba(255,184,0,0.2)" }}
+              />
+              <div className="absolute bottom-3 left-0 right-0 text-center">
+                <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(5,11,26,0.85)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
+                  THE SUN XIX · SOUL SIGIL
+                </span>
+              </div>
+            </div>
+            {/* Throne NFT visual — 1 OF 1 EPIC */}
+            <SovereignThroneNFT />
+          </div>
           <div className="flex-1 order-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-12" style={{ background: "#00D4FF" }} />

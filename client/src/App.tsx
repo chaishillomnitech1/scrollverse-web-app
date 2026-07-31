@@ -209,6 +209,10 @@ import Portal from "./pages/Portal";
 import Highway from "./pages/Highway";
 import Throne from "./pages/Throne";
 import Gilgamesh from "./pages/Gilgamesh";
+import SaferWay from "./pages/SaferWay";
+import NoorAlMawlid from "./pages/NoorAlMawlid";
+import GodEngine from "./pages/GodEngine";
+import ArchiveKeeper from "./pages/ArchiveKeeper";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -419,6 +423,10 @@ function Router() {
       <Route path={"/404"} component={NotFound} />
         <Route path="/gate-keys" component={GateKeys} />
         <Route path="/frequency-player" component={FrequencyPlayer} />
+        <Route path="/saferway" component={SaferWay} />
+        <Route path="/seerah/noor-al-mawlid" component={NoorAlMawlid} />
+        <Route path="/godengine" component={GodEngine} />
+        <Route path="/archivekeeper" component={ArchiveKeeper} />
       <Route component={NotFound} />
     </Switch>
   );
