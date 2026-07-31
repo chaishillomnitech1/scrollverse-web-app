@@ -1565,10 +1565,10 @@
 - [x] Wire deployed contract address into /gate-keys mint flow
 
 ## Phase 55 — Soul Sigil + SaferWay + Vector 3
-- [ ] Wire The Sun XIX CDN image as hero visual on Home.tsx
-- [ ] Build /saferway page (SaferWay Rideshare + Active Frequency, Vector 3 Brand Synergy)
-- [ ] Add /saferway route to App.tsx
-- [ ] Update sovereign skill file with Phase 54-55 knowledge
+- [x] Wire The Sun XIX CDN image as hero visual on Home.tsx
+- [x] Build /saferway page (SaferWay Rideshare + Active Frequency, Vector 3 Brand Synergy)
+- [x] Add /saferway route to App.tsx
+- [x] Update sovereign skill file with Phase 54-55 knowledge
 
 ## Phase 55 — Completions (Updated)
 - [x] Wire The Sun XIX CDN image as hero visual on Home.tsx
