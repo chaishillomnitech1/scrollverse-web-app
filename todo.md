@@ -1586,14 +1586,14 @@
 - [x] All 16 tests passing (4 test files)
 
 ## Phase 57 — Seerah Nav + SaferWay Backend + /seerah Archive
-- [ ] Add Seerah ﷺ dropdown to Home.tsx nav (gold filigree, /seerah index + /seerah/noor-al-mawlid LIVE badge + Hijra placeholder)
-- [ ] Add saferway_bookings table to drizzle schema and push migration
-- [ ] Create tRPC saferway.createBooking mutation (Zod validation, DB persist, SendGrid dual dispatch — client + owner)
-- [ ] Create tRPC saferway.listBookings query for admin dashboard
-- [ ] Wire SaferWay booking form to real tRPC mutation (replace guardian.subscribe)
-- [ ] Build /seerah sacred library index page (vertical timeline, Noor al-Mawlid LIVE, Hijra/Badr/Fath placeholders)
-- [ ] Wire /seerah route in App.tsx
-- [ ] Write vitest tests for saferway router
+- [x] Add Seerah ﷺ dropdown to Home.tsx nav (gold filigree, /seerah index + /seerah/noor-al-mawlid LIVE badge + Hijra placeholder)
+- [x] Add saferway_bookings table to drizzle schema and push migration
+- [x] Create tRPC saferway.createBooking mutation (Zod validation, DB persist, SendGrid dual dispatch — client + owner)
+- [x] Create tRPC saferway.listBookings query for admin dashboard
+- [x] Wire SaferWay booking form to real tRPC mutation (replace guardian.subscribe)
+- [x] Build /seerah sacred library index page (vertical timeline, Noor al-Mawlid LIVE, Hijra/Badr/Fath placeholders)
+- [x] Wire /seerah route in App.tsx
+- [x] Write vitest tests for saferway router
 
 ## Phase 57 — Seerah Nav + SaferWay Real Backend + /seerah Index (Aug 2026)
 
