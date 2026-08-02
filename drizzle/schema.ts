@@ -1291,3 +1291,18 @@ export const chess_wager_escrow = mysqlTable("chess_wager_escrow", {
   created_at: bigint("created_at", { mode: "number" }).notNull().default(0),
 });
 export type ChessWagerEscrow = typeof chess_wager_escrow.$inferSelect;
+
+// ── SaferWay Bookings ─────────────────────────────────────────────────────────
+export const saferwayBookings = mysqlTable("saferway_bookings", {
+  id: int("id").autoincrement().primaryKey(),
+  guardianName: varchar("guardianName", { length: 200 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 64 }),
+  serviceTier: varchar("serviceTier", { length: 64 }).notNull(), // detail | express | signature | fleet
+  vehicleInfo: varchar("vehicleInfo", { length: 200 }),
+  notes: text("notes"),
+  status: varchar("status", { length: 32 }).default("PENDING").notNull(), // PENDING | CONFIRMED | COMPLETED | CANCELLED
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type SaferwayBooking = typeof saferwayBookings.$inferSelect;
+export type InsertSaferwayBooking = typeof saferwayBookings.$inferInsert;

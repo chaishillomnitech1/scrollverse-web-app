@@ -826,6 +826,7 @@ function LONDCTicker() {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [seerahOpen, setSeerahOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -967,7 +968,7 @@ export default function Home() {
           </div>
           <LONDCTicker />
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(l => (
+            {navLinks.slice(0, 8).map(l => (
               <a
                 key={l.label}
                 href={l.href}
@@ -977,6 +978,83 @@ export default function Home() {
                 {l.label}
               </a>
             ))}
+            {/* ── SEERAH ﷺ DROPDOWN ── */}
+            <div className="relative">
+              <button
+                onClick={() => setSeerahOpen(!seerahOpen)}
+                onBlur={() => setTimeout(() => setSeerahOpen(false), 200)}
+                className="flex items-center gap-1.5 text-sm font-bold transition-colors duration-200 focus:outline-none"
+                style={{ color: seerahOpen ? "#FFB800" : "#d4af37" }}
+              >
+                <span>Seerah ﷺ</span>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style={{ transform: seerahOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
+                  <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                </svg>
+              </button>
+              {seerahOpen && (
+                <div
+                  className="absolute top-full right-0 mt-3 w-60 rounded-2xl overflow-hidden"
+                  style={{
+                    background: "rgba(5,11,26,0.98)",
+                    border: "1px solid rgba(212,175,55,0.25)",
+                    backdropFilter: "blur(20px)",
+                    boxShadow: "0 16px 48px rgba(212,175,55,0.12)",
+                    zIndex: 100,
+                  }}
+                >
+                  {/* Header */}
+                  <div className="px-4 pt-4 pb-3" style={{ borderBottom: "1px solid rgba(212,175,55,0.1)" }}>
+                    <div className="text-xs font-mono tracking-widest" style={{ color: "#d4af37" }}>SEERAH SACRED ARCHIVE</div>
+                    <div className="text-xs mt-0.5" style={{ color: "#5a6a7a" }}>Light · Calligraphy · Geometry</div>
+                  </div>
+                  {/* Library Index */}
+                  <a
+                    href="/seerah"
+                    className="flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-[rgba(212,175,55,0.06)]"
+                  >
+                    <span className="text-base">📚</span>
+                    <div>
+                      <div className="text-xs font-bold" style={{ color: "#E8EDF2" }}>Sacred Library Index</div>
+                      <div className="text-xs" style={{ color: "#5a6a7a" }}>All scrolls & timelines</div>
+                    </div>
+                  </a>
+                  {/* Noor al-Mawlid — LIVE */}
+                  <a
+                    href="/seerah/noor-al-mawlid"
+                    className="flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-[rgba(212,175,55,0.06)]"
+                  >
+                    <span className="text-base">🌙</span>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold" style={{ color: "#d4af37" }}>Noor al-Mawlid ﷺ</span>
+                        <span className="text-xs px-1.5 py-0.5 rounded font-mono" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.2)" }}>LIVE</span>
+                      </div>
+                      <div className="text-xs" style={{ color: "#5a6a7a" }}>Birth & early years of the Prophet ﷺ</div>
+                    </div>
+                  </a>
+                  {/* Hijra — Phase 58 */}
+                  <div className="flex items-center gap-3 px-4 py-3" style={{ opacity: 0.5 }}>
+                    <span className="text-base">🌟</span>
+                    <div>
+                      <div className="text-xs font-bold" style={{ color: "#8899AA" }}>Al-Hijra — The Migration</div>
+                      <div className="text-xs" style={{ color: "#5a6a7a" }}>Coming Phase 58</div>
+                    </div>
+                  </div>
+                  {/* Badr — Phase 58 */}
+                  <div className="flex items-center gap-3 px-4 py-3" style={{ opacity: 0.5 }}>
+                    <span className="text-base">⚔️</span>
+                    <div>
+                      <div className="text-xs font-bold" style={{ color: "#8899AA" }}>Badr — The First Victory</div>
+                      <div className="text-xs" style={{ color: "#5a6a7a" }}>Coming Phase 58</div>
+                    </div>
+                  </div>
+                  {/* Footer */}
+                  <div className="px-4 py-3" style={{ borderTop: "1px solid rgba(212,175,55,0.1)" }}>
+                    <div className="text-xs text-center font-mono" style={{ color: "#5a6a7a" }}>اللَّهُمَّ صَلِّ عَلَى مُحَمَّد ﷺ</div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           <div className="hidden md:flex items-center gap-3">
             <a

@@ -1584,3 +1584,25 @@
 - [x] Wire /seerah/noor-al-mawlid, /godengine, /archivekeeper routes in App.tsx
 - [x] Create Edge Guard CI/CD pipeline (.github/workflows/edge-guard.yml) — TypeScript invariants, test suite, build verification, live uptime checks
 - [x] All 16 tests passing (4 test files)
+
+## Phase 57 — Seerah Nav + SaferWay Backend + /seerah Archive
+- [ ] Add Seerah ﷺ dropdown to Home.tsx nav (gold filigree, /seerah index + /seerah/noor-al-mawlid LIVE badge + Hijra placeholder)
+- [ ] Add saferway_bookings table to drizzle schema and push migration
+- [ ] Create tRPC saferway.createBooking mutation (Zod validation, DB persist, SendGrid dual dispatch — client + owner)
+- [ ] Create tRPC saferway.listBookings query for admin dashboard
+- [ ] Wire SaferWay booking form to real tRPC mutation (replace guardian.subscribe)
+- [ ] Build /seerah sacred library index page (vertical timeline, Noor al-Mawlid LIVE, Hijra/Badr/Fath placeholders)
+- [ ] Wire /seerah route in App.tsx
+- [ ] Write vitest tests for saferway router
+
+## Phase 57 — Seerah Nav + SaferWay Real Backend + /seerah Index (Aug 2026)
+
+- [x] Add Seerah dropdown to Home.tsx nav linking to /seerah and /seerah/noor-al-mawlid
+- [x] Wire SaferWay booking form to real saferway.createBooking tRPC mutation (DB persist + SendGrid dual dispatch)
+- [x] Create saferway_bookings DB table (9 columns: id, guardianName, email, phone, serviceTier, vehicleInfo, notes, status, createdAt)
+- [x] Build server/routers/saferway.ts with createBooking (public) + listBookings (admin-only)
+- [x] Wire saferwayRouter into appRouter in routers.ts
+- [x] Build /seerah sacred library index page (SeerahIndex.tsx) with vertical timeline, 5 entries, starfield canvas
+- [x] Add /seerah route to App.tsx
+- [x] Write server/saferway.test.ts (8 tests — all passing)
+- [x] 24/24 tests passing · TypeScript: zero errors

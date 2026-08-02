@@ -211,6 +211,7 @@ import Throne from "./pages/Throne";
 import Gilgamesh from "./pages/Gilgamesh";
 import SaferWay from "./pages/SaferWay";
 import NoorAlMawlid from "./pages/NoorAlMawlid";
+import SeerahIndex from "./pages/SeerahIndex";
 import GodEngine from "./pages/GodEngine";
 import ArchiveKeeper from "./pages/ArchiveKeeper";
 
@@ -424,6 +425,7 @@ function Router() {
         <Route path="/gate-keys" component={GateKeys} />
         <Route path="/frequency-player" component={FrequencyPlayer} />
         <Route path="/saferway" component={SaferWay} />
+        <Route path="/seerah" component={SeerahIndex} />
         <Route path="/seerah/noor-al-mawlid" component={NoorAlMawlid} />
         <Route path="/godengine" component={GodEngine} />
         <Route path="/archivekeeper" component={ArchiveKeeper} />

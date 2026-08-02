@@ -50,6 +50,7 @@ import { aiTwinSessionsRouter } from "./routers/aiTwinSessions";
 import { zernioRouter } from "./routers/zernio";
 import { chessRouter } from "./routers/chessRouter";
 import { analyticsRouter } from "./routers/analytics";
+import { saferwayRouter } from "./routers/saferway";
 
 export const appRouter = router({
   system: systemRouter,
@@ -112,6 +113,7 @@ export const appRouter = router({
   zernio: zernioRouter,
   chess: chessRouter,
   analytics: analyticsRouter,
+  saferway: saferwayRouter,
 });
 
 export type AppRouter = typeof appRouter;

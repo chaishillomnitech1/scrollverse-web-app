@@ -269,21 +269,43 @@ export default function SaferWay() {
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"services" | "loyalty" | "tokenization" | "book">("services");
 
-  const subscribe = trpc.guardian.subscribe.useMutation({
-    onSuccess: () => {
+  const [ticketRef, setTicketRef] = useState<string | null>(null);
+
+  // Map SERVICES ids to the saferway router enum values
+  const SERVICE_TIER_MAP: Record<string, "detail" | "express" | "signature" | "fleet"> = {
+    ceramic: "signature",
+    paint: "detail",
+    interior: "detail",
+    fleet: "fleet",
+    express: "express",
+    rideshare: "express",
+  };
+
+  const createBooking = trpc.saferway.createBooking.useMutation({
+    onSuccess: (data) => {
       setSubmitted(true);
-      toast("✅ Booking Request Received", { description: "The Vineland operations desk will confirm shortly." });
+      setTicketRef(data.ticketRef);
+      toast("✅ Booking Confirmed", {
+        description: `Ticket ${data.ticketRef} — Confirmation email sent. KUN FAYAKŪN × ∞`,
+      });
     },
     onError: (err) => {
-      toast.error("Error", { description: err.message });
+      toast.error("Booking Error", { description: err.message });
     },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.email) {
-      subscribe.mutate({ email: form.email, name: form.name });
-    }
+    const serviceId = selectedService || form.service;
+    const serviceTier = SERVICE_TIER_MAP[serviceId] ?? "express";
+    createBooking.mutate({
+      guardianName: form.name,
+      email: form.email,
+      phone: form.phone || undefined,
+      serviceTier,
+      vehicleInfo: form.vehicle || undefined,
+      notes: form.notes || undefined,
+    });
   };
 
   return (
@@ -572,13 +594,18 @@ export default function SaferWay() {
               >
                 <div className="text-5xl mb-4">✅</div>
                 <h3 className="text-xl font-black text-white mb-2">Parameters Logged Successfully</h3>
+                {ticketRef && (
+                  <div className="my-3 px-4 py-2 rounded-xl inline-block text-sm font-mono" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.2)" }}>
+                    Ticket: {ticketRef}
+                  </div>
+                )}
                 <p style={{ color: "#8899AA" }}>
                   Your appointment request has been received by the Vineland operations desk.
-                  Expect a confirmation dispatch shortly. KUN FAYAKŪN × ∞
+                  A confirmation email has been dispatched. KUN FAYAKŪN × ∞
                 </p>
                 <Button
                   className="mt-6"
-                  onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", vehicle: "", service: "", notes: "" }); }}
+                  onClick={() => { setSubmitted(false); setTicketRef(null); setForm({ name: "", email: "", phone: "", vehicle: "", service: "", notes: "" }); }}
                   style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
                 >
                   Book Another Service
@@ -668,11 +695,11 @@ export default function SaferWay() {
                 </div>
                 <Button
                   type="submit"
-                  disabled={subscribe.isPending}
+                  disabled={createBooking.isPending}
                   className="w-full py-4 text-base font-black"
                   style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", color: "#050B1A" }}
                 >
-                  {subscribe.isPending ? "Initializing..." : "Initialize Booking Sequence →"}
+                  {createBooking.isPending ? "Initializing..." : "Initialize Booking Sequence →"}
                 </Button>
                 <p className="text-center text-xs" style={{ color: "#8899AA" }}>
                   📍 Vineland, New Jersey · 🕐 Mon–Sat 8AM–7PM · 📞 By appointment
