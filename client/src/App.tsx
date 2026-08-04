@@ -214,6 +214,8 @@ import NoorAlMawlid from "./pages/NoorAlMawlid";
 import SeerahIndex from "./pages/SeerahIndex";
 import GodEngine from "./pages/GodEngine";
 import ArchiveKeeper from "./pages/ArchiveKeeper";
+import AlHijra from "./pages/AlHijra";
+import AdminSaferWay from "./pages/AdminSaferWay";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -429,6 +431,8 @@ function Router() {
         <Route path="/seerah/noor-al-mawlid" component={NoorAlMawlid} />
         <Route path="/godengine" component={GodEngine} />
         <Route path="/archivekeeper" component={ArchiveKeeper} />
+        <Route path="/seerah/al-hijra" component={AlHijra} />
+        <Route path="/admin/saferway" component={AdminSaferWay} />
       <Route component={NotFound} />
     </Switch>
   );

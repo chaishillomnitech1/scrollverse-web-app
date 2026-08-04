@@ -1606,3 +1606,13 @@
 - [x] Add /seerah route to App.tsx
 - [x] Write server/saferway.test.ts (8 tests — all passing)
 - [x] 24/24 tests passing · TypeScript: zero errors
+
+## Phase 58 — Al-Hijra Scroll + SaferWay Admin + ArchiveKeeper Seerah
+
+- [x] Build /seerah/al-hijra sacred scroll page (10+ sections, Web Audio 216Hz drone, parallax starfield, zero human figures)
+- [x] Add updateBookingStatus tRPC mutation to saferway router (PENDING → CONFIRMED → COMPLETED)
+- [x] Build /admin/saferway dashboard (protected, real DB bookings, status mutation controls, revenue summary)
+- [x] Wire /seerah entry into ArchiveKeeper page as CORE_CHRONICLE lore sector
+- [x] Wire /seerah/al-hijra and /admin/saferway routes in App.tsx
+- [x] Update /seerah index to show Al-Hijra as LIVE
+- [x] Run tests and save Phase 58 checkpoint

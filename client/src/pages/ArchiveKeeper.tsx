@@ -98,9 +98,11 @@ const ARCHIVE_VOLUMES = [
     icon: "🕋",
     sealed: false,
     entries: [
-      "Noor Al-Mawlid — The Sacred Scroll of the Prophet's Birth ﷺ",
-      "12 sections, Part 1+2, museum-grade design, zero human figures",
-      "Gentle ṣalawāt audio — Web Audio API ambient resonance",
+      "Noor Al-Mawlid — The Sacred Scroll of the Prophet's Birth ﷺ (LIVE)",
+      "Al-Hijra — The Sacred Migration from Makkah to Al-Madīnah (LIVE)",
+      "12 sections per scroll, museum-grade design, zero human figures",
+      "Web Audio API ambient resonance — 216Hz / 528Hz / 963Hz",
+      "Seerah Archive Index — vertical timeline with sealed future scrolls",
       "Allāhumma ṣalli wa sallim ʿalā Nabiyyinā Muḥammad ﷺ",
     ],
   },
@@ -260,7 +262,8 @@ export default function ArchiveKeeper() {
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
             { label: "Full Archive", href: "/archive", color: "#00D4FF" },
-            { label: "Noor Al-Mawlid", href: "/seerah/noor-al-mawlid", color: "#d4af37" },
+            { label: "Seerah Archive", href: "/seerah", color: "#d4af37" },
+            { label: "Al-Hijra Scroll", href: "/seerah/al-hijra", color: "#D4AF37" },
             { label: "Gilgamesh", href: "/gilgamesh", color: "#8B5CF6" },
             { label: "Pattern Engine", href: "/pattern", color: "#EC4899" },
             { label: "GodEngine", href: "/godengine", color: "#00FF88" },

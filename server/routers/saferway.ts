@@ -3,7 +3,7 @@
  * Stores bookings in DB, sends SendGrid dual dispatch (client + owner).
  */
 import { TRPCError } from "@trpc/server";
-import { desc } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb } from "../db";
 import { saferwayBookings } from "../../drizzle/schema";
@@ -127,6 +127,29 @@ export const saferwayRouter = router({
         emailSent: emailResult.success,
         message: "Booking received. The empire will contact you within 24 hours. KUN FAYAKŪN × ∞",
       };
+    }),
+
+  /**
+   * Update booking status — admin only.
+   */
+  updateBookingStatus: protectedProcedure
+    .input(
+      z.object({
+        bookingId: z.number().int().positive(),
+        status: z.enum(["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED"]),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      if (ctx.user.role !== "admin") {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Admin only" });
+      }
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Database unavailable" });
+      await db
+        .update(saferwayBookings)
+        .set({ status: input.status })
+        .where(eq(saferwayBookings.id, input.bookingId));
+      return { success: true, bookingId: input.bookingId, status: input.status };
     }),
 
   /**

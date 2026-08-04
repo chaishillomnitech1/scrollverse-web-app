@@ -96,11 +96,11 @@ const SCROLL_ENTRIES: ScrollEntry[] = [
     period: "622 CE",
     description:
       "The migration from Makkah to Madinah — the turning point of history. The Prophet ﷺ and his companions leave their homeland for the sake of Allāh, establishing the first Islamic community.",
-    status: "coming",
-    comingPhase: "Phase 58",
+    status: "live",
+    href: "/seerah/al-hijra",
     icon: "🌟",
     color: "#00D4FF",
-    sections: 0,
+    sections: 12,
   },
   {
     id: "badr",
@@ -410,7 +410,7 @@ export default function SeerahIndex() {
           style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#d4af37" }}
         >
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-          1 Scroll Live · 4 Sealed for Future Phases
+          2 Scrolls Live · 3 Sealed for Future Phases
         </div>
       </section>
 
