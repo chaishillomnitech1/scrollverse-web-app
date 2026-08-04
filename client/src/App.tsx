@@ -216,6 +216,8 @@ import GodEngine from "./pages/GodEngine";
 import ArchiveKeeper from "./pages/ArchiveKeeper";
 import AlHijra from "./pages/AlHijra";
 import AdminSaferWay from "./pages/AdminSaferWay";
+import Badr from "./pages/Badr";
+import OmniMetrics from "./pages/OmniMetrics";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -432,7 +434,9 @@ function Router() {
         <Route path="/godengine" component={GodEngine} />
         <Route path="/archivekeeper" component={ArchiveKeeper} />
         <Route path="/seerah/al-hijra" component={AlHijra} />
+        <Route path="/seerah/badr" component={Badr} />
         <Route path="/admin/saferway" component={AdminSaferWay} />
+        <Route path="/metrics" component={OmniMetrics} />
       <Route component={NotFound} />
     </Switch>
   );

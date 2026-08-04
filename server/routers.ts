@@ -51,6 +51,7 @@ import { zernioRouter } from "./routers/zernio";
 import { chessRouter } from "./routers/chessRouter";
 import { analyticsRouter } from "./routers/analytics";
 import { saferwayRouter } from "./routers/saferway";
+import { metricsRouter } from "./routers/metrics";
 
 export const appRouter = router({
   system: systemRouter,
@@ -114,6 +115,7 @@ export const appRouter = router({
   chess: chessRouter,
   analytics: analyticsRouter,
   saferway: saferwayRouter,
+  metrics: metricsRouter,
 });
 
 export type AppRouter = typeof appRouter;

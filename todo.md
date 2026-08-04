@@ -1616,3 +1616,16 @@
 - [x] Wire /seerah/al-hijra and /admin/saferway routes in App.tsx
 - [x] Update /seerah index to show Al-Hijra as LIVE
 - [x] Run tests and save Phase 58 checkpoint
+
+## Phase 59 — Badr Scroll + Booking Confirmation Email + Metrics Endpoint
+
+- [x] Build /seerah/badr sacred scroll page (12 sections, Web Audio 432Hz resonance, parallax starfield, zero human figures)
+- [x] Wire /seerah/badr route in App.tsx
+- [x] Update SeerahIndex to show Badr as LIVE (3 scrolls live)
+- [x] Add iCal calendar invite helper (server/ical.ts) generating .ics attachment
+- [x] Trigger SendGrid confirmation email with iCal .ics attachment when admin sets booking status to CONFIRMED
+- [x] Add saferway.getMetrics tRPC query (total bookings, revenue by tier, pending count)
+- [x] Add system.getOmniMetrics tRPC query (guardian waitlist size, active users, total routes, frequency broadcast status)
+- [x] Build /metrics page showing live Omniversal Architecture v3 telemetry dashboard
+- [x] Wire /metrics route in App.tsx
+- [x] Run tests and save Phase 59 checkpoint

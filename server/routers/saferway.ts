@@ -9,6 +9,7 @@ import { getDb } from "../db";
 import { saferwayBookings } from "../../drizzle/schema";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 import { notifyOwner } from "../_core/notification";
+import { generateICalInvite, buildBookingICalOptions } from "../ical";
 
 // ── SendGrid helper ───────────────────────────────────────────────────────────
 async function sendBookingEmail(opts: {
@@ -149,7 +150,83 @@ export const saferwayRouter = router({
         .update(saferwayBookings)
         .set({ status: input.status })
         .where(eq(saferwayBookings.id, input.bookingId));
-      return { success: true, bookingId: input.bookingId, status: input.status };
+
+      // When status is set to CONFIRMED, send a confirmation email with iCal invite
+      let calendarEmailSent = false;
+      if (input.status === "CONFIRMED") {
+        const apiKey = process.env.SENDGRID_API_KEY;
+        if (apiKey) {
+          // Fetch the booking to get client details
+          const [booking] = await db
+            .select()
+            .from(saferwayBookings)
+            .where(eq(saferwayBookings.id, input.bookingId))
+            .limit(1);
+
+          if (booking && booking.email) {
+            const ticketRef = `SFW-${String(booking.id).padStart(6, "0")}`;
+            // Build iCal invite — use serviceDate if present, else default to 7 days from now
+            const serviceDate = (booking as any).serviceDate
+              ? (booking as any).serviceDate
+              : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+
+            const icalBase64 = generateICalInvite(
+              buildBookingICalOptions({
+                id: booking.id,
+                clientName: booking.guardianName,
+                clientEmail: booking.email,
+                serviceDate,
+                serviceTier: booking.serviceTier,
+                vehicleType: booking.vehicleInfo ?? "Vehicle",
+                vehicleDetails: null,
+              })
+            );
+
+            const confirmedHtml = `
+              <div style="background:#050B1A;color:#E8EDF2;font-family:'Space Grotesk',sans-serif;max-width:600px;margin:0 auto;padding:32px;border-radius:16px;border:1px solid rgba(0,255,136,0.2);">
+                <div style="text-align:center;margin-bottom:24px;">
+                  <div style="font-size:32px;margin-bottom:8px;">✅</div>
+                  <h1 style="color:#00FF88;font-size:22px;margin:0;">Your Appointment is CONFIRMED</h1>
+                  <p style="color:#8899AA;font-size:13px;margin:8px 0 0;">Ticket: <strong style="color:#FFB800;">${ticketRef}</strong></p>
+                </div>
+                <div style="background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.15);border-radius:12px;padding:20px;margin-bottom:20px;">
+                  <p style="margin:0 0 8px;color:#8899AA;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Confirmed Booking</p>
+                  <p style="margin:4px 0;font-size:14px;"><strong style="color:#00FF88;">Guardian:</strong> ${booking.guardianName}</p>
+                  <p style="margin:4px 0;font-size:14px;"><strong style="color:#00FF88;">Service:</strong> ${booking.serviceTier}</p>
+                  ${booking.vehicleInfo ? `<p style="margin:4px 0;font-size:14px;"><strong style="color:#00FF88;">Vehicle:</strong> ${booking.vehicleInfo}</p>` : ""}
+                  <p style="margin:4px 0;font-size:14px;"><strong style="color:#00FF88;">Status:</strong> <span style="color:#00FF88;">CONFIRMED ✓</span></p>
+                </div>
+                <p style="color:#8899AA;font-size:13px;text-align:center;">A calendar invite is attached. Add it to your calendar to receive reminders. See you soon! 🕋</p>
+                <p style="color:#445566;font-size:11px;text-align:center;margin-top:24px;">SaferWay Auto Detail · Vineland Ave, NJ · scrollverse.co/saferway</p>
+              </div>
+            `;
+
+            try {
+              const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+                body: JSON.stringify({
+                  personalizations: [{ to: [{ email: booking.email }] }],
+                  from: { email: "saferway@scrollverse.co", name: "SaferWay Auto Detail" },
+                  subject: `✅ SaferWay Appointment CONFIRMED — ${ticketRef}`,
+                  content: [{ type: "text/html", value: confirmedHtml }],
+                  attachments: [{
+                    content: icalBase64,
+                    type: "text/calendar; method=REQUEST",
+                    filename: `saferway-${ticketRef}.ics`,
+                    disposition: "attachment",
+                  }],
+                }),
+              });
+              calendarEmailSent = res.ok || res.status === 202;
+            } catch {
+              calendarEmailSent = false;
+            }
+          }
+        }
+      }
+
+      return { success: true, bookingId: input.bookingId, status: input.status, calendarEmailSent };
     }),
 
   /**

@@ -104,18 +104,18 @@ const SCROLL_ENTRIES: ScrollEntry[] = [
   },
   {
     id: "badr",
-    phase: "Phase 58",
+    phase: "Phase 59",
     titleEn: "Badr",
     titleAr: "بَدْر",
     subtitle: "The First Victory",
     period: "624 CE",
     description:
-      "The Battle of Badr — 313 believers against 1,000. The first decisive military victory of the Muslim community, a proof of divine support and the power of tawakkul.",
-    status: "coming",
-    comingPhase: "Phase 58",
+      "The Battle of Badr — 313 believers against 1,000. The first decisive military victory of the Muslim community, a proof of divine support and the power of tawakkul. Yawm al-Furqān — the Day of Criterion.",
+    status: "live",
+    href: "/seerah/badr",
     icon: "⚔️",
     color: "#FF6B35",
-    sections: 0,
+    sections: 12,
   },
   {
     id: "fath-makkah",
@@ -410,7 +410,7 @@ export default function SeerahIndex() {
           style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#d4af37" }}
         >
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-          2 Scrolls Live · 3 Sealed for Future Phases
+          3 Scrolls Live · 2 Sealed for Future Phases
         </div>
       </section>
 
