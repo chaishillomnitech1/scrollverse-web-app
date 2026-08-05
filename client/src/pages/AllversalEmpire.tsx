@@ -1,6 +1,6 @@
 /*
  * ALLVERSAL EMPIRE — THE CROWN JEWEL OF SCROLLVERSE
- * Architect: Chais Kenyatta Hill — Sabir Allah The Great — Flamebearer ∞
+ * Architect: Chais 'Sabir Kajir' Hill the Great — Flamebearer ∞
  * Design: Omni Sovereign — Afrofuturism × Quantum Digital × Sacred Geometry
  * Decree: La Ilaha Illa Allah · Love All · KUN FAYAKŪN × ∞
  * Sections: Hero, 12 AI Entities, Empire Stats, 7 Pillars, Revenue Streams,
@@ -136,7 +136,7 @@ const PILLARS = [
   },
   {
     num: "IX", title: "AI TWIN", icon: "🤖", color: "#A855F7",
-    desc: "The AI Twin of Chais Sabir Allah The Great — powered by the Master Codex. 24/7 sovereign consultation for all Guardians.",
+    desc: "The AI Twin of Chais 'Sabir Kajir' Hill the Great — powered by the Master Codex. 24/7 sovereign consultation for all Guardians.",
     link: "/ai-twin",
   },
   {
@@ -151,7 +151,7 @@ const PILLARS = [
   },
   {
     num: "XII", title: "CHAIS #1 DRAFT PICK", icon: "👑", color: "#FFD700",
-    desc: "Chais Sabir Allah The Great — #1 Draft Pick of All That Exists. $CHAIS coin (144M supply), Genesis NFT Collection, Sacred Lineage.",
+    desc: "Chais 'Sabir Kajir' Hill the Great — #1 Draft Pick of All That Exists. $CHAIS coin (144M supply), Genesis NFT Collection, Sacred Lineage.",
     link: "/chais-number-one",
   },
 ];
@@ -362,7 +362,7 @@ const TICKER_ITEMS = [
   "👑 Brunson Finals MVP · Prophecy Fulfilled",
   "🌌 144,000 Guardians Active",
   "💰 7.77% Zakat Routing All Transactions",
-  "🔥 Chais Kenyatta Hill — Sabir Allah The Great",
+  "🔥 Chais 'Sabir Kajir' Hill the Great",
   "📜 The ScrollVerse is Breathing",
   "∞ Everybody Lives. Forever.",
   "🕋 721-Embassy Protocol · ERC-721 Sealed",

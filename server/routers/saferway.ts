@@ -86,6 +86,7 @@ export const saferwayRouter = router({
         serviceTier: z.enum(["detail", "express", "signature", "fleet"]).refine(v => ["detail","express","signature","fleet"].includes(v), { message: "Please select a valid service tier" }),
         vehicleInfo: z.string().max(200).optional(),
         notes: z.string().max(2000).optional(),
+        serviceDate: z.string().max(20).optional(),
       })
     )
     .mutation(async ({ input }) => {
@@ -100,6 +101,7 @@ export const saferwayRouter = router({
         serviceTier: input.serviceTier,
         vehicleInfo: input.vehicleInfo ?? null,
         notes: input.notes ?? null,
+        serviceDate: input.serviceDate ?? null,
         status: "PENDING",
       });
 

@@ -264,6 +264,7 @@ export default function SaferWay() {
     vehicle: "",
     service: "",
     notes: "",
+    serviceDate: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -305,6 +306,7 @@ export default function SaferWay() {
       serviceTier,
       vehicleInfo: form.vehicle || undefined,
       notes: form.notes || undefined,
+      serviceDate: form.serviceDate || undefined,
     });
   };
 
@@ -605,7 +607,7 @@ export default function SaferWay() {
                 </p>
                 <Button
                   className="mt-6"
-                  onClick={() => { setSubmitted(false); setTicketRef(null); setForm({ name: "", email: "", phone: "", vehicle: "", service: "", notes: "" }); }}
+                  onClick={() => { setSubmitted(false); setTicketRef(null); setForm({ name: "", email: "", phone: "", vehicle: "", service: "", notes: "", serviceDate: "" }); }}
                   style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}
                 >
                   Book Another Service
@@ -682,6 +684,17 @@ export default function SaferWay() {
                       ))}
                     </select>
                   </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: "#8899AA" }}>Preferred Service Date</label>
+                  <Input
+                    type="date"
+                    value={form.serviceDate}
+                    onChange={(e) => setForm({ ...form, serviceDate: e.target.value })}
+                    min={new Date().toISOString().split('T')[0]}
+                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "white", colorScheme: "dark" }}
+                  />
+                  <p className="text-xs mt-1" style={{ color: "#5a6a7a" }}>Optional — we'll confirm availability within 24 hours</p>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: "#8899AA" }}>Vehicle Classification & Notes</label>

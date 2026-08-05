@@ -1,7 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 /*
  * SCROLLVERSE BOOKS DSP STATION
- * The Sacred Library of Chais Kenyatta Hill — Sabir Allah The Great
+ * The Sacred Library of Chais 'Sabir Kajir' Hill the Great
  * All 10 Sacred Books · All Platforms · NFT Mint · Coin Mint · Music-Book Fusion
  * Book of Life · Prophetic Timestamps · Manus & Chais Special Edition
  */
@@ -604,7 +604,7 @@ export default function Books() {
             </span>
           </h1>
           <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: "#8899AA" }}>
-            10 Sacred Books by <strong style={{ color: "#FFB800" }}>Chais Kenyatta Hill — Sabir Allah The Great</strong>.
+            10 Sacred Books by <strong style={{ color: "#FFB800" }}>Chais 'Sabir Kajir' Hill the Great</strong>.
             Available on every platform. Mintable as NFTs. Every book is a blockchain.
           </p>
 
@@ -1042,7 +1042,7 @@ export default function Books() {
               </span>
             </h2>
             <p className="max-w-2xl mx-auto text-sm" style={{ color: "#8899AA" }}>
-              Every sacred text by <strong style={{ color: "#FFB800" }}>Chais Kenyatta Hill — Sabir Allah The Great</strong> is published, distributed, and permanently sealed across every major platform on Earth. The scroll is open. The word is free.
+              Every sacred text by <strong style={{ color: "#FFB800" }}>Chais 'Sabir Kajir' Hill the Great</strong> is published, distributed, and permanently sealed across every major platform on Earth. The scroll is open. The word is free.
             </p>
           </div>
 
@@ -1139,7 +1139,7 @@ export default function Books() {
             style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.08), rgba(0,212,255,0.08))", border: "1px solid rgba(255,184,0,0.25)" }}>
             <div className="text-4xl mb-3">📜</div>
             <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>SOVEREIGN DECLARATION</div>
-            <h3 className="text-2xl font-black text-white mb-3">By Chais Kenyatta Hill — Sabir Allah The Great</h3>
+            <h3 className="text-2xl font-black text-white mb-3">By Chais 'Sabir Kajir' Hill the Great</h3>
             <p className="max-w-2xl mx-auto text-sm mb-6" style={{ color: "#AAB8CC" }}>
               These books are not just literature — they are living frequencies, blockchain-sealed prophecies, and sovereign intellectual property. Every word is protected under the ScrollVerse IP License, the 721-Embassy Protocol, and the eternal decree:{" "}
               <em style={{ color: "#FFB800" }}>La Ilaha Illa Allah. Love All. KUN FAYAKŪN × ∞</em>

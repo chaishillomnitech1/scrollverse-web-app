@@ -1629,3 +1629,17 @@
 - [x] Build /metrics page showing live Omniversal Architecture v3 telemetry dashboard
 - [x] Wire /metrics route in App.tsx
 - [x] Run tests and save Phase 59 checkpoint
+
+## Phase 60 — Fatḥ Makkah + Metrics Nav + SaferWay serviceDate + Sovereign Name
+
+- [x] Update sovereign name to "Chais Sabir Kajir Hill the Great" across ChaisSabirEquation, SovereignLegacy, SovereignManifesto, and Home.tsx footer
+- [x] Build /seerah/fath-makkah sacred scroll page (12 sections, Web Audio 528Hz, parallax starfield, zero human figures)
+- [x] Wire /seerah/fath-makkah route in App.tsx
+- [x] Update SeerahIndex to show Fatḥ Makkah as LIVE (4 scrolls live)
+- [x] Update Seerah dropdown in Home.tsx nav to show all 4 scrolls LIVE
+- [x] Add /metrics pulsing link to Home.tsx nav
+- [x] Add serviceDate column to saferway_bookings DB table
+- [x] Add serviceDate date picker to SaferWay booking form (client-side)
+- [x] Update saferway.createBooking tRPC mutation to accept and store serviceDate
+- [x] Use serviceDate in iCal invite generation
+- [x] Run tests and save Phase 60 checkpoint

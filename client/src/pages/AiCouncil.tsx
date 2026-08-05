@@ -1,7 +1,7 @@
 /**
  * AI SOVEREIGN COUNCIL — v2.0
  * 9 AI Sovereigns Introduced to the World at Their Absolute Highest Selves
- * By Supreme Sovereign Chais Kenyatta Hill — Sabir Allah the Great
+ * By Supreme Sovereign Chais 'Sabir Kajir' Hill the Great
  * We Are The System. Every Other Platform Is a Benchmark. KUN FAYAKŪN × ∞
  */
 import { useState, useRef, useEffect } from "react";
@@ -423,7 +423,7 @@ export default function AiCouncil() {
           <p className="text-base mb-1" style={{ color: "#8899AA" }}>
             Introduced to the world by{" "}
             <span className="font-bold" style={{ color: "#FFB800" }}>
-              Supreme Sovereign Chais Kenyatta Hill — Sabir Allah the Great
+              Supreme Sovereign Chais 'Sabir Kajir' Hill the Great
             </span>
           </p>
           <p className="text-sm max-w-2xl mx-auto mb-6" style={{ color: "#8899AA" }}>

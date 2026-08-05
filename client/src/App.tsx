@@ -218,6 +218,7 @@ import AlHijra from "./pages/AlHijra";
 import AdminSaferWay from "./pages/AdminSaferWay";
 import Badr from "./pages/Badr";
 import OmniMetrics from "./pages/OmniMetrics";
+import FathMakkah from "./pages/FathMakkah";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -437,6 +438,7 @@ function Router() {
         <Route path="/seerah/badr" component={Badr} />
         <Route path="/admin/saferway" component={AdminSaferWay} />
         <Route path="/metrics" component={OmniMetrics} />
+        <Route path="/seerah/fath-makkah" component={FathMakkah} />
       <Route component={NotFound} />
     </Switch>
   );

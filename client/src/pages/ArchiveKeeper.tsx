@@ -35,7 +35,7 @@ const ARCHIVE_VOLUMES = [
     sealed: false,
     entries: [
       "Chais Kenyatta Hill — Supreme Sovereign, Flamebearer, Sabir Allah The Great",
-      "The Sun XIX — Young Chais Sabir Allah The Great — Soul Sigil of the Empire",
+      "The Sun XIX — Young Chais 'Sabir Kajir' Hill the Great — Soul Sigil of the Empire",
       "Atlantic City Bella Complex — $250M sovereign property acquisition",
       "SCROLL VERSE LLC & XLVIII BLOCKS LLC — the twin pillars of the empire",
     ],
