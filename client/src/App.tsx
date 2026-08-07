@@ -224,6 +224,7 @@ import SeerahQuiz from "./pages/SeerahQuiz";
 import AlWafat from "./pages/AlWafat";
 import SeerahTimeline from "./pages/SeerahTimeline";
 import Nexus from "./pages/Nexus";
+import JuniorMoviesUniverse from "./pages/JuniorMoviesUniverse";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -449,6 +450,7 @@ function Router() {
         <Route path="/seerah/al-wafat" component={AlWafat} />
         <Route path="/seerah/timeline" component={SeerahTimeline} />
         <Route path="/nexus" component={Nexus} />
+        <Route path="/junior-movies/universe" component={JuniorMoviesUniverse} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1300,6 +1300,54 @@ export default function Home() {
         </div>
       </section>
 
+     {/* ── JUNETEENTH × GUARDIAN CRUSADE BANNER ── */}
+      {/* ── EMPIRE GATEWAY — SOVEREIGN INVITATION PORTAL ── */}
+      <section className="relative z-10 py-14" style={{ background: "rgba(0,0,0,0.5)", borderTop: "1px solid rgba(0,212,255,0.08)" }}>
+        <div className="container">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>ENTER THE SCROLLVERSE TRINITY EMPIRE</div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Every Portal. One Empire.</h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              The ScrollVerse is a living sovereign ecosystem. Choose your entry point — every portal leads deeper into the empire.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {[
+              { href: "/seerah", icon: "📜", label: "Seerah Archive", desc: "6 Sacred Scrolls · Birth to Passing", color: "#FFB800", badge: "6 LIVE" },
+              { href: "/codex", icon: "🔮", label: "Metatron Codex", desc: "10 Archival Points · Impact Covenant", color: "#A855F7", badge: "MUSEUM" },
+              { href: "/nexus", icon: "⚡", label: "Nexus Vault", desc: "Dual Blister Hero · 528Hz · Genesis NFT", color: "#00D4FF", badge: "PHASE 65" },
+              { href: "/junior-movies", icon: "🎬", label: "Junior Movies", desc: "Sovereign Cinema · Ancient Wisdom", color: "#EC4899", badge: "LIVE" },
+              { href: "/red-diamond-fleet", icon: "💎", label: "Red Diamond Fleet", desc: "Sovereign Vehicles · Legion Network", color: "#FF4444", badge: "LEGION" },
+              { href: "/saferway", icon: "🚗", label: "SaferWay Detail", desc: "Premium Auto Detailing · Book Now", color: "#00FF88", badge: "BOOKING" },
+              { href: "/metrics", icon: "📊", label: "Omni Metrics", desc: "Live Telemetry · 44:OMNI Frequency", color: "#FFB800", badge: "LIVE" },
+              { href: "/guardians", icon: "🛡️", label: "Guardians", desc: "144,000 Sovereign Nodes · Rising", color: "#00D4FF", badge: "144K" },
+            ].map(portal => (
+              <a key={portal.href} href={portal.href} className="rounded-2xl p-5 block transition-all duration-300 hover:scale-[1.03] group" style={{ background: `${portal.color}06`, border: `1px solid ${portal.color}20`, textDecoration: "none" }}>
+                <div className="flex items-start justify-between mb-3">
+                  <div className="text-3xl">{portal.icon}</div>
+                  <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: `${portal.color}15`, color: portal.color, border: `1px solid ${portal.color}30` }}>{portal.badge}</span>
+                </div>
+                <div className="font-black text-white text-sm mb-1 group-hover:text-white">{portal.label}</div>
+                <div className="text-xs leading-relaxed" style={{ color: "#8899AA" }}>{portal.desc}</div>
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="/seerah/timeline" className="text-xs font-mono px-4 py-2 rounded-xl border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(0,212,255,0.3)", color: "#00D4FF" }}>
+              View Seerah Timeline →
+            </a>
+            <span className="mx-3 text-xs" style={{ color: "#334" }}>·</span>
+            <a href="/seerah/quiz" className="text-xs font-mono px-4 py-2 rounded-xl border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(255,184,0,0.3)", color: "#FFB800" }}>
+              Take the Seerah Quiz →
+            </a>
+            <span className="mx-3 text-xs" style={{ color: "#334" }}>·</span>
+            <a href="/junior-movies/universe" className="text-xs font-mono px-4 py-2 rounded-xl border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(236,72,153,0.3)", color: "#EC4899" }}>
+              Junior Movies Universe →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── JUNETEENTH × GUARDIAN CRUSADE BANNER ── */}
       <section
         style={{

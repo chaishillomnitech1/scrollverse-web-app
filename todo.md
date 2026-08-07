@@ -1689,3 +1689,21 @@
 - [x] Add /nexus link to Home.tsx main nav
 - [x] Wire /red-diamond-fleet and /junior-movies routes in App.tsx
 - [x] Run tests and save Phase 74 checkpoint
+
+## Phase 75 — Junior Movies Upgrade + Red Diamond NFT Mint + Sovereign Cinema
+
+- [ ] Upgrade /junior-movies with tabbed interface (Home, Characters, Movies, Youth Vault) + Web Speech API Zippy voice-over + Cool Points tracker
+- [ ] Add Phase 65 NFT mint tab to /red-diamond-fleet (Grid Runner Mythic #007, IPFS/Arweave pins, Power Stats 100 MAX, confetti mint button)
+- [ ] Build /sovereign-cinema full library page (searchable vault, frequency tags, Guardian badge unlock, all JME episodes)
+- [ ] Wire /sovereign-cinema route in App.tsx
+- [ ] Run tests and save Phase 75 checkpoint
+
+## Phase 76 — Full Sovereign Launch
+
+- [x] Fix JuniorMovies.tsx TypeScript error (rewrite home tab section cleanly)
+- [x] Upgrade Home.tsx to sovereign invitation portal (gateway design, all empire links, direct CTA)
+- [x] Build /sovereign-cinema full library page (searchable, frequency tags, Guardian badge unlock)
+- [x] Add Phase 65 NFT mint tab to /red-diamond-fleet (Grid Runner #007, IPFS/Arweave, confetti)
+- [x] Prepare mainnet deployment bundle (hardhat deploy scripts, .env.example, step-by-step commands)
+- [x] Wire Stripe production-ready payment flows (SaferWay booking payment, Guardian subscription)
+- [x] Run tests and save Phase 76 checkpoint
