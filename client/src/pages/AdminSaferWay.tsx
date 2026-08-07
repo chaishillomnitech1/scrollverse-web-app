@@ -6,6 +6,7 @@
  * Revenue summary with tier breakdown
  */
 import { useState } from "react";
+import { useMemo } from "react";
 import { Link } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
@@ -174,6 +175,14 @@ export default function AdminSaferWay() {
 
   const countByStatus = (s: string) => bookings.filter((b: SaferwayBooking) => b.status === s).length;
 
+  // ── Today's revenue ─────────────────────────────────────────────────────────
+  const todayStart = useMemo(() => {
+    const d = new Date(); d.setHours(0,0,0,0); return d.getTime();
+  }, []);
+  const todayBookings = bookings.filter((b: SaferwayBooking) => b.createdAt && new Date(b.createdAt).getTime() >= todayStart);
+  const todayRevenue = todayBookings.filter((b: SaferwayBooking) => b.status === "COMPLETED").reduce((s: number, b: SaferwayBooking) => s + (TIER_PRICES[b.serviceTier] ?? 0), 0);
+  const urgentBookings = bookings.filter((b: SaferwayBooking) => b.status === "PENDING").slice(0, 3);
+
   // ── Filter ──────────────────────────────────────────────────────────────────
   const filtered: SaferwayBooking[] =
     filterStatus === "ALL" ? bookings : bookings.filter((b: SaferwayBooking) => b.status === filterStatus);
@@ -232,6 +241,54 @@ export default function AdminSaferWay() {
         </div>
 
         {/* ── Revenue summary ── */}
+
+        {/* ── Stripe / Today's Dashboard Widget ── */}
+        <div className="rounded-2xl p-5" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.12)" }}>
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <div className="text-xs font-mono mb-0.5" style={{ color: "#00D4FF" }}>TODAY'S DASHBOARD · LIVE</div>
+              <div className="text-xl font-black text-white">${todayRevenue.toLocaleString()} <span className="text-sm font-normal" style={{ color: "#8899AA" }}>today</span></div>
+            </div>
+            <div className="flex gap-2">
+              <a href="https://dashboard.stripe.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 rounded-xl text-xs font-bold" style={{ background: "rgba(99,91,255,0.12)", border: "1px solid rgba(99,91,255,0.3)", color: "#635BFF" }}>
+                💳 Stripe Dashboard →
+              </a>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-3 mb-4">
+            {[
+              { v: String(todayBookings.length), l: "Today's Bookings", c: "#00D4FF" },
+              { v: String(countByStatus("PENDING")), l: "Pending Action", c: "#FFB800" },
+              { v: String(countByStatus("CONFIRMED")), l: "Confirmed Today", c: "#00FF88" },
+            ].map(s => (
+              <div key={s.l} className="rounded-xl p-3 text-center" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <div className="text-2xl font-black" style={{ color: s.c }}>{s.v}</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+          {urgentBookings.length > 0 && (
+            <div>
+              <div className="text-xs font-mono mb-2" style={{ color: "#FFB800" }}>⚡ QUICK ACTION — PENDING BOOKINGS</div>
+              <div className="space-y-2">
+                {urgentBookings.map((b: SaferwayBooking) => (
+                  <div key={b.id} className="flex items-center justify-between rounded-xl px-4 py-2" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.12)" }}>
+                    <div>
+                      <span className="text-sm font-bold text-white">{b.guardianName}</span>
+                      <span className="text-xs ml-2" style={{ color: "#8899AA" }}>{TIER_LABELS[b.serviceTier] ?? b.serviceTier}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <button onClick={() => updateStatus.mutate({ bookingId: b.id, status: "CONFIRMED" })} className="px-3 py-1 rounded-lg text-xs font-bold" style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}>
+                        Confirm →
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <RevenueCard
             label="Settled Revenue"

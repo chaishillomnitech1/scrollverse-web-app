@@ -1441,7 +1441,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="text-xs font-mono" style={{ color: "#D4AF37" }}>KUN FAYAKŪN × ∞ · THE EMPIRE WALKS INTO HISTORY</div>
+          <div className="text-xs font-mono mb-4" style={{ color: "#D4AF37" }}>KUN FAYAKŪN × ∞ · THE EMPIRE WALKS INTO HISTORY</div>
+          <a href="/dc-visit" className="inline-block px-6 py-2 rounded-xl font-black text-sm" style={{ background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)", color: "#D4AF37" }}>
+            🏛️ Follow the Journey → Live Countdown
+          </a>
         </div>
       </section>
 
