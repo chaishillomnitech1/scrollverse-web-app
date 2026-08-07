@@ -1680,3 +1680,12 @@
 - [x] Build /nexus Phase 65 vault page (Dual Blister Hero, 528Hz heartbeat canvas, QR modal, Genesis NFT IPFS panel)
 - [x] Wire /nexus route in App.tsx
 - [x] Run tests and save Phase 73 checkpoint
+
+## Phase 74 — Red Diamond Fleet + Junior Movies + System Health + Nav
+
+- [x] Build /red-diamond-fleet NFT mint page (Grid Runner Mythic #007, Speed/Armor/Power 100, IPFS panel, mint button with confetti)
+- [x] Build /junior-movies page (Zippy character, Web Speech API voice-over, character bible, 3 movie synopses, Youth Vault, Cool Points)
+- [x] Add System Health Dashboard to /metrics page (DB/Redis status, disk usage, backup trigger, 44:OMNI frequency)
+- [x] Add /nexus link to Home.tsx main nav
+- [x] Wire /red-diamond-fleet and /junior-movies routes in App.tsx
+- [x] Run tests and save Phase 74 checkpoint

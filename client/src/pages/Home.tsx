@@ -1093,7 +1093,14 @@ export default function Home() {
               className="text-sm font-bold transition-colors duration-200"
               style={{ color: "#FFB800" }}
             >
-              📜 Codex
+             📜 Codex
+            </a>
+            <a
+              href="/nexus"
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: "#00D4FF" }}
+            >
+              ⚡ Nexus
             </a>
             <NotificationBell />
             <button className="btn-gold px-4 py-2 rounded-lg text-sm">
