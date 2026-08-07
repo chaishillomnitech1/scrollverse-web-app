@@ -1096,13 +1096,20 @@ export default function Home() {
              📜 Codex
             </a>
             <a
-              href="/nexus"
+             href="/nexus"
+             className="text-sm font-bold transition-colors duration-200"
+             style={{ color: "#00D4FF" }}
+           >
+             ⚡ Nexus
+           </a>
+            <a
+              href="/sovereign-books"
               className="text-sm font-bold transition-colors duration-200"
-              style={{ color: "#00D4FF" }}
+              style={{ color: "#EC4899" }}
             >
-              ⚡ Nexus
+              📚 Books
             </a>
-            <NotificationBell />
+           <NotificationBell />
             <button className="btn-gold px-4 py-2 rounded-lg text-sm">
               Enter Portal
             </button>
@@ -1313,7 +1320,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {[
-              { href: "/seerah", icon: "📜", label: "Seerah Archive", desc: "6 Sacred Scrolls · Birth to Passing", color: "#FFB800", badge: "6 LIVE" },
+              { href: "/seerah", icon: "📜", label: "Seerah Archive", desc: "7 Sacred Scrolls · Birth to Passing", color: "#FFB800", badge: "7 LIVE" },
               { href: "/codex", icon: "🔮", label: "Metatron Codex", desc: "10 Archival Points · Impact Covenant", color: "#A855F7", badge: "MUSEUM" },
               { href: "/nexus", icon: "⚡", label: "Nexus Vault", desc: "Dual Blister Hero · 528Hz · Genesis NFT", color: "#00D4FF", badge: "PHASE 65" },
               { href: "/junior-movies", icon: "🎬", label: "Junior Movies", desc: "Sovereign Cinema · Ancient Wisdom", color: "#EC4899", badge: "LIVE" },

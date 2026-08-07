@@ -478,7 +478,7 @@ export default function SeerahIndex() {
           style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#d4af37" }}
         >
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-          6 Scrolls Live · Archive Complete
+          7 Scrolls Live · Archive Complete
         </div>
       </section>
 

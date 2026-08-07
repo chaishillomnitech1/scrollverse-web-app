@@ -10,6 +10,21 @@ import { saferwayBookings } from "../../drizzle/schema";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 import { notifyOwner } from "../_core/notification";
 import { generateICalInvite, buildBookingICalOptions } from "../ical";
+import Stripe from "stripe";
+
+// ── Stripe helper ─────────────────────────────────────────────────────────────
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) return null;
+  return new Stripe(key, { apiVersion: "2026-03-25.dahlia" });
+}
+
+const TIER_PRICES: Record<string, { amount: number; label: string; deposit: number }> = {
+  express:   { amount: 7500,  label: "Express Wash — The Quick Sovereign",          deposit: 2500 },
+  detail:    { amount: 15000, label: "Full Detail — The Sovereign Treatment",        deposit: 5000 },
+  signature: { amount: 25000, label: "Signature Package — The Empire Standard",     deposit: 8000 },
+  fleet:     { amount: 50000, label: "Fleet Service — The Legion Protocol",         deposit: 15000 },
+};
 
 // ── SendGrid helper ───────────────────────────────────────────────────────────
 async function sendBookingEmail(opts: {
@@ -246,5 +261,96 @@ export const saferwayRouter = router({
       .orderBy(desc(saferwayBookings.createdAt))
       .limit(100);
     return { bookings, total: bookings.length };
+  }),
+
+  /**
+   * Create a Stripe Checkout session for SaferWay booking payment.
+   * Supports deposit (50%) or full payment.
+   */
+  createCheckoutSession: publicProcedure
+    .input(
+      z.object({
+        bookingId: z.number().int().positive(),
+        serviceTier: z.enum(["detail", "express", "signature", "fleet"]),
+        guardianName: z.string().min(2).max(200),
+        email: z.string().email(),
+        paymentType: z.enum(["deposit", "full"]).default("deposit"),
+        successUrl: z.string().url(),
+        cancelUrl: z.string().url(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const stripe = getStripe();
+      if (!stripe) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Payment processing not configured. Please add STRIPE_SECRET_KEY." });
+
+      const tier = TIER_PRICES[input.serviceTier];
+      if (!tier) throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid service tier" });
+
+      const amount = input.paymentType === "deposit" ? tier.deposit : tier.amount;
+      const label = input.paymentType === "deposit"
+        ? `SaferWay Deposit — ${tier.label}`
+        : `SaferWay Full Payment — ${tier.label}`;
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "payment",
+        customer_email: input.email,
+        line_items: [{
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: label,
+              description: `Booking Ref: SFW-${String(input.bookingId).padStart(6, "0")} · ${input.guardianName}`,
+            },
+            unit_amount: amount,
+          },
+          quantity: 1,
+        }],
+        metadata: {
+          bookingId: String(input.bookingId),
+          serviceTier: input.serviceTier,
+          paymentType: input.paymentType,
+        },
+        success_url: `${input.successUrl}?session_id={CHECKOUT_SESSION_ID}&booking=${input.bookingId}`,
+        cancel_url: input.cancelUrl,
+      });
+
+      return { sessionId: session.id, url: session.url, amount, paymentType: input.paymentType };
+    }),
+
+  /**
+   * Get Stripe checkout session status (for success page).
+   */
+  getCheckoutStatus: publicProcedure
+    .input(z.object({ sessionId: z.string() }))
+    .query(async ({ input }) => {
+      const stripe = getStripe();
+      if (!stripe) return { status: "unknown", paid: false };
+      const session = await stripe.checkout.sessions.retrieve(input.sessionId);
+      return {
+        status: session.payment_status,
+        paid: session.payment_status === "paid",
+        amount: session.amount_total,
+        customerEmail: session.customer_email,
+        metadata: session.metadata,
+      };
+    }),
+
+  /**
+   * Get SaferWay metrics for the Omni Metrics dashboard.
+   */
+  getMetrics: publicProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return { total: 0, pending: 0, confirmed: 0, completed: 0, revenue: 0 };
+    const bookings = await db.select().from(saferwayBookings).limit(500);
+    const total = bookings.length;
+    type Booking = typeof bookings[number];
+    const pending = bookings.filter((b: Booking) => b.status === "PENDING").length;
+    const confirmed = bookings.filter((b: Booking) => b.status === "CONFIRMED").length;
+    const completed = bookings.filter((b: Booking) => b.status === "COMPLETED").length;
+    const revenue = bookings
+      .filter((b: Booking) => b.status === "COMPLETED")
+      .reduce((sum: number, b: Booking) => sum + (TIER_PRICES[b.serviceTier]?.amount ?? 0) / 100, 0);
+    return { total, pending, confirmed, completed, revenue };
   }),
 });

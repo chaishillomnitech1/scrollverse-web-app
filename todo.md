@@ -1707,3 +1707,16 @@
 - [x] Prepare mainnet deployment bundle (hardhat deploy scripts, .env.example, step-by-step commands)
 - [x] Wire Stripe production-ready payment flows (SaferWay booking payment, Guardian subscription)
 - [x] Run tests and save Phase 76 checkpoint
+
+## Phase 77 — Khaybar Scroll + Stripe + Books Hub + ScrollVerse Ignition
+
+- [x] Build /seerah/al-fath-khaybar sacred scroll (12 sections, 396Hz, starfield, Conquest of Khaybar 7 AH)
+- [x] Wire /seerah/al-fath-khaybar route in App.tsx
+- [x] Update SeerahIndex to show Al-Fath Khaybar as LIVE (7 scrolls live)
+- [x] Wire SaferWay Stripe Checkout payment flow (tRPC createCheckoutSession, deposit/full amount)
+- [x] Add SaferWay Stripe payment success/cancel pages and SendGrid receipt email
+- [x] Build /books sovereign books hub (all books published, live, purchase/read CTAs, NFT mint)
+- [x] Wire /books route in App.tsx
+- [x] Add Books link to Home.tsx nav
+- [x] Upgrade Home.tsx hero stats to show live DB counts (guardians, scrolls, routes, books)
+- [x] Run tests and save Phase 77 checkpoint

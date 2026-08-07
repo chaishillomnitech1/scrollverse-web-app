@@ -225,6 +225,8 @@ import AlWafat from "./pages/AlWafat";
 import SeerahTimeline from "./pages/SeerahTimeline";
 import Nexus from "./pages/Nexus";
 import JuniorMoviesUniverse from "./pages/JuniorMoviesUniverse";
+import AlFathKhaybar from "./pages/AlFathKhaybar";
+import SovereignBooks from "./pages/SovereignBooks";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -451,6 +453,8 @@ function Router() {
         <Route path="/seerah/timeline" component={SeerahTimeline} />
         <Route path="/nexus" component={Nexus} />
         <Route path="/junior-movies/universe" component={JuniorMoviesUniverse} />
+        <Route path="/seerah/al-fath-khaybar" component={AlFathKhaybar} />
+        <Route path="/sovereign-books" component={SovereignBooks} />
       <Route component={NotFound} />
     </Switch>
   );
