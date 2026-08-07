@@ -229,6 +229,8 @@ import AlFathKhaybar from "./pages/AlFathKhaybar";
 import SovereignBooks from "./pages/SovereignBooks";
 import AlAqsa from "./pages/AlAqsa";
 import AlFarewell from "./pages/AlFarewell";
+import Londyn from "./pages/Londyn";
+import SovereignCard from "./pages/SovereignCard";
 import GitHubConstellation from "./pages/GitHubConstellation";
 import NinetyNineNames from "./pages/NinetyNineNames";
 import Knick from "./pages/Knick";
@@ -465,7 +467,9 @@ function Router() {
         <Route path="/github-constellation" component={GitHubConstellation} />
         <Route path="/99-names" component={NinetyNineNames} />
         <Route path="/knick" component={Knick} />
-      <Route component={NotFound} />
+      <Route path="/londyn" component={Londyn} />
+        <Route path="/sovereign-card" component={SovereignCard} />
+        <Route component={NotFound} />
     </Switch>
   );
 }

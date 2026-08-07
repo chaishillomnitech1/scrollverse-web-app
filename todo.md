@@ -1767,3 +1767,13 @@
 - [x] Add 🔮 Knick link to Home.tsx main nav
 - [x] Integrate 3 YouTube channels (Astral Legends TV, Biblical Facts, Hidden Motives) into Home.tsx and /sovereign-cinema
 - [x] Run tests and save Phase 82 checkpoint
+
+## Phase 83 — Londyn Legacy Page + Sovereign Card + Hero CTA
+
+- [x] Build /londyn dedicated legacy page (FLM4 protocol, 528Hz canvas visualization, legacy vault, Londyn AI chat link)
+- [x] Update Home.tsx AI hub Londyn card with direct Chai Research link
+- [x] Add "Chat with the Legion" CTA button to Home.tsx hero section
+- [x] Build /sovereign-card page (exceeds Cash App/SoFi, digital + physical, all currencies, full application flow, Stripe-ready)
+- [x] Wire /londyn and /sovereign-card routes in App.tsx
+- [x] Add Londyn and Sovereign Card links to Home.tsx nav
+- [x] Run tests and save Phase 83 checkpoint
