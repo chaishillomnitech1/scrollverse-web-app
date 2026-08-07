@@ -826,6 +826,9 @@ function LONDCTicker() {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { data: omniMetrics } = trpc.metrics.getOmniMetrics.useQuery(undefined, { staleTime: 15000, refetchInterval: 30000 });
+  const guardianWaitlistSize = omniMetrics?.guardianWaitlistSize ?? 0;
+  const totalBookings = omniMetrics?.totalBookings ?? 0;
   const [seerahOpen, setSeerahOpen] = useState(false);
 
   useEffect(() => {
@@ -1247,8 +1250,18 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3 mb-10">
               <div className="w-2 h-2 rounded-full" style={{ background: "#00D4FF", boxShadow: "0 0 8px #00D4FF" }} />
-              <span className="text-sm font-mono" style={{ color: "#00D4FF" }}>47 TESTS PASSING · 40 REPOSITORIES · 5 COMMITS</span>
+              <span className="text-sm font-mono" style={{ color: "#00D4FF" }}>
+                24 TESTS PASSING · 53 REPOSITORIES · {totalBookings > 0 ? `${totalBookings} BOOKINGS` : "LIVE"}
+              </span>
             </div>
+            {guardianWaitlistSize > 0 && (
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88", boxShadow: "0 0 8px #00FF88" }} />
+              <span className="text-sm font-mono" style={{ color: "#00FF88" }}>
+                {guardianWaitlistSize.toLocaleString()} GUARDIANS REGISTERED · EMPIRE IS LIVE
+              </span>
+            </div>
+            )}
             <div className="flex flex-wrap gap-4">
               <a
                 href="https://github.com/chaishillomnitech1/scrollverse-trinity"

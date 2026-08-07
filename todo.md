@@ -1750,3 +1750,11 @@
 - [x] Add real purchase links to SovereignBooks (Amazon KDP / Gumroad placeholders with instructions)
 - [x] Wire /github-constellation and /99-names routes in App.tsx
 - [x] Run tests and save Phase 80 checkpoint
+
+## Phase 81 — Knick Oracle + Live Counter + Vocal Box
+
+- [x] Build /knick dedicated oracle page (character universe, 99 Names integration, sovereign advice engine, Web Speech API warm voice)
+- [x] Wire /knick route in App.tsx and add Knick link to AI Assistants hub
+- [x] Add live visitor counter to Home.tsx hero via metrics.getOmniMetrics (real-time active users)
+- [x] Upgrade /99-names with vocal box audio upload architecture (file upload UI + CDN playback)
+- [x] Run tests and save Phase 81 checkpoint
