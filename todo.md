@@ -1758,3 +1758,12 @@
 - [x] Add live visitor counter to Home.tsx hero via metrics.getOmniMetrics (real-time active users)
 - [x] Upgrade /99-names with vocal box audio upload architecture (file upload UI + CDN playback)
 - [x] Run tests and save Phase 81 checkpoint
+
+## Phase 82 — AI Legion Apex + Knick 99 Wisdom + YouTube Channels
+
+- [x] Build /ai-legion-apex page with all 12 AI Legion members highlighted (Londyn AI, King Solomon AI, Knick featured)
+- [x] Wire /ai-legion-apex route in App.tsx and add AI Legion link to Home.tsx nav
+- [x] Expand Knick wisdom pool to 99 entries (one per Name of Allah)
+- [x] Add 🔮 Knick link to Home.tsx main nav
+- [x] Integrate 3 YouTube channels (Astral Legends TV, Biblical Facts, Hidden Motives) into Home.tsx and /sovereign-cinema
+- [x] Run tests and save Phase 82 checkpoint

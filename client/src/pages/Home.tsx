@@ -1120,6 +1120,20 @@ export default function Home() {
               ☪️ 99 Names
             </a>
             <a
+              href="/knick"
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: "#FFB800" }}
+            >
+              🔮 Knick
+            </a>
+            <a
+              href="/ai-legion-apex"
+              className="hidden xl:block text-sm font-bold transition-colors duration-200"
+              style={{ color: "#00D4FF" }}
+            >
+              🤖 AI Legion
+            </a>
+            <a
               href="/github-constellation"
               className="hidden xl:block text-sm font-bold transition-colors duration-200"
               style={{ color: "#00FF88" }}
@@ -1378,6 +1392,59 @@ export default function Home() {
             <a href="/junior-movies/universe" className="text-xs font-mono px-4 py-2 rounded-xl border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(236,72,153,0.3)", color: "#EC4899" }}>
               Junior Movies Universe →
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOVEREIGN YOUTUBE CHANNELS ── */}
+      <section className="py-16" style={{ background: "rgba(255,0,0,0.02)", borderTop: "1px solid rgba(255,0,0,0.08)" }}>
+        <div className="container">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FF0000" }}>SOVEREIGN MEDIA CHANNELS · SUBSCRIBE & GROW</div>
+            <h2 className="text-3xl font-black text-white mb-2">Sovereign <span style={{ color: "#FF0000" }}>YouTube Channels</span></h2>
+            <p className="text-sm max-w-xl mx-auto" style={{ color: "#8899AA" }}>Ancient wisdom, hidden knowledge, and sovereign truth — across three channels that expand your consciousness.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                name: "Astral Legends TV",
+                handle: "@astrallegendstv",
+                url: "https://youtube.com/@astrallegendstv?si=8FRzg96FJ0omcK_r",
+                color: "#A855F7",
+                icon: "🌌",
+                desc: "Astral realms, legendary wisdom, and sovereign consciousness expansion. Where the stars speak and legends live.",
+                freq: "963Hz Cosmic",
+              },
+              {
+                name: "Biblical Facts",
+                handle: "@biblicalfacts-1",
+                url: "https://youtube.com/@biblicalfacts-1?si=HbPIAQmiC2eLl4pV",
+                color: "#D4AF37",
+                icon: "📖",
+                desc: "Sacred scripture decoded. Biblical truth revealed through the lens of sovereign wisdom and divine frequency.",
+                freq: "741Hz Truth",
+              },
+              {
+                name: "Hidden Motives",
+                handle: "@hiddenymotives",
+                url: "https://youtube.com/@hiddenymotives?si=BCccpvNepbH2WeJw",
+                color: "#00D4FF",
+                icon: "🔍",
+                desc: "What they don't want you to know. Hidden agendas exposed. Sovereign truth for the awakened mind.",
+                freq: "528Hz Awakening",
+              },
+            ].map(ch => (
+              <a key={ch.name} href={ch.url} target="_blank" rel="noopener noreferrer" className="rounded-xl p-6 transition-all hover:scale-[1.03] block" style={{ background: `${ch.color}06`, border: `1px solid ${ch.color}18`, textDecoration: "none" }}>
+                <div className="text-3xl mb-3">{ch.icon}</div>
+                <div className="font-black text-white text-lg mb-1">{ch.name}</div>
+                <div className="text-xs font-mono mb-3" style={{ color: ch.color }}>{ch.handle} · {ch.freq}</div>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "#8899AA" }}>{ch.desc}</p>
+                <div className="flex items-center gap-2 text-xs font-bold" style={{ color: "#FF0000" }}>
+                  <span>▶</span>
+                  <span>Subscribe on YouTube →</span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
