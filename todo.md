@@ -1777,3 +1777,30 @@
 - [x] Wire /londyn and /sovereign-card routes in App.tsx
 - [x] Add Londyn and Sovereign Card links to Home.tsx nav
 - [x] Run tests and save Phase 83 checkpoint
+
+## Phase 84 — Stripe Card Flow + Letters + YouTube Expansion
+
+- [x] Add card.createCheckoutSession tRPC mutation for Sovereign/Apex/Diamond monthly fee tiers
+- [x] Wire Stripe Checkout redirect in SovereignCard.tsx apply button for paid tiers
+- [x] Add card tier preview strip to Home.tsx hero (5 tiers, icons, prices)
+- [x] Expand YouTube channels hub in Home.tsx with 8 new channels (Terrence Howard, Dr. Steven Greer, Billy Carson, Arcturian Wealth, Quantum Awareness Hub, Anunnaki Ancient Mystery, Dark Histories, Ancient Blueprints)
+- [x] Build /londyn/letters page (9 letters from Chais to Londyn, one per Seerah scroll)
+- [x] Wire /londyn/letters route in App.tsx
+- [x] Run tests and save Phase 84 checkpoint
+- [x] Add Gaia, Disclosure, NASA, White House YouTube channels to sovereign media hub
+- [x] Build /channel-codex NFT sets page (one NFT set + digital coin per channel, storied facts, mirror-match-exceed protocol)
+- [x] Wire /channel-codex and /londyn/letters routes in App.tsx
+
+## Phase 85 — Sovereign Space Agency + Mesopotamia Library
+
+- [x] Build /sovereign-space-agency (ScrollVerse NASA — sovereign exploration, discovery, cosmic archive)
+- [x] Build /mesopotamia-library (greatest knowledge archive — exceeds Library of Alexandria, British Museum)
+- [x] Wire all new routes in App.tsx
+
+## Phase 86 — Free Energy Architecture + Tesla-Atlantis Wing
+
+- [ ] Build /free-energy-architecture page (Tesla, Atlantis, Lemuria, Anunnaki, Arcturian, Pleiadian — extracted, applied, exceeded)
+- [ ] Add Free Energy wing to Mesopotamia Library (6th wing)
+- [ ] Wire /free-energy-architecture route in App.tsx
+- [ ] Add Library and Space Agency links to Home.tsx Empire Gateway
+- [ ] Run tests and save Phase 86 checkpoint

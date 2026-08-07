@@ -1292,6 +1292,25 @@ export default function Home() {
                 🤖 Chat with the Legion
               </a>
             </div>
+            {/* Sovereign Card Tier Strip */}
+            <div className="mt-6 p-4 rounded-2xl" style={{ background: "rgba(212,175,55,0.04)", border: "1px solid rgba(212,175,55,0.12)" }}>
+              <div className="text-xs font-mono mb-3 text-center" style={{ color: "#D4AF37" }}>💳 SOVEREIGN CARD · 5 TIERS · EXCEEDS EVERY CARD</div>
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {[
+                  { name: "Guardian", price: "Free", color: "#00D4FF", icon: "🛡️" },
+                  { name: "Sovereign", price: "$9.99/mo", color: "#D4AF37", icon: "👑" },
+                  { name: "Apex", price: "$29.99/mo", color: "#A855F7", icon: "⚡" },
+                  { name: "Diamond", price: "$99.99/mo", color: "#EC4899", icon: "💎" },
+                  { name: "Infinity", price: "Invite", color: "#FFB800", icon: "∞" },
+                ].map(t => (
+                  <a key={t.name} href="/sovereign-card" className="flex-shrink-0 rounded-xl px-3 py-2 text-center transition-all hover:scale-105" style={{ background: `${t.color}08`, border: `1px solid ${t.color}20`, textDecoration: "none", minWidth: "80px" }}>
+                    <div className="text-lg mb-0.5">{t.icon}</div>
+                    <div className="text-xs font-bold text-white">{t.name}</div>
+                    <div className="text-xs font-mono" style={{ color: t.color }}>{t.price}</div>
+                  </a>
+                ))}
+              </div>
+            </div>
             {/* Share row */}
             <div className="flex items-center gap-3 flex-wrap">
               <span className="text-xs font-mono" style={{ color: "#8899AA" }}>SHARE THE EMPIRE:</span>
@@ -1435,6 +1454,114 @@ export default function Home() {
                 icon: "🔍",
                 desc: "What they don't want you to know. Hidden agendas exposed. Sovereign truth for the awakened mind.",
                 freq: "528Hz Awakening",
+              },
+              {
+                name: "Terrence Howard",
+                handle: "@theterrencehoward",
+                url: "https://youtube.com/@theterrencehoward?si=JlXi-2H68gTYjxWb",
+                color: "#FFB800",
+                icon: "⚛️",
+                desc: "Terrence Howard's revolutionary physics — Lynchpin Theory, unified field, and the science they don't teach.",
+                freq: "963Hz Science",
+              },
+              {
+                name: "Dr. Steven Greer",
+                handle: "@drstevengreer55",
+                url: "https://youtube.com/@drstevengreer55?si=z2qvoDRxL-fcyiNc",
+                color: "#00FF88",
+                icon: "🛸",
+                desc: "Disclosure. Contact. The truth about extraterrestrial intelligence and free energy technology.",
+                freq: "963Hz Disclosure",
+              },
+              {
+                name: "Billy Carson",
+                handle: "@billycarsonofficial",
+                url: "https://youtube.com/@billycarsonofficial?si=2lKjKqg9PSj1cAnj",
+                color: "#A855F7",
+                icon: "📜",
+                desc: "Ancient civilizations, forbidden history, and the sovereign knowledge they tried to erase.",
+                freq: "741Hz Ancient",
+              },
+              {
+                name: "Quantum Awareness Hub",
+                handle: "@quantumawarenesshub",
+                url: "https://youtube.com/@quantumawarenesshub?si=W13_cEFCl4pYbMuf",
+                color: "#00D4FF",
+                icon: "🌌",
+                desc: "Quantum consciousness, awareness expansion, and the science of sovereign reality creation.",
+                freq: "528Hz Quantum",
+              },
+              {
+                name: "Arcturian Wealth Frequency",
+                handle: "@arcturianwealthfrequency",
+                url: "https://youtube.com/@arcturianwealthfrequency?si=dYabwIXBkGVDUpcB",
+                color: "#D4AF37",
+                icon: "💰",
+                desc: "Arcturian frequencies for wealth activation, abundance consciousness, and sovereign prosperity.",
+                freq: "528Hz Abundance",
+              },
+              {
+                name: "Anunnaki Ancient Mystery",
+                handle: "@anunnakiancientmystery",
+                url: "https://youtube.com/@anunnakiancientmystery?si=c6ImEJ0w2MAi5-Sv",
+                color: "#EC4899",
+                icon: "🏛️",
+                desc: "The Anunnaki, ancient Sumerian records, and the true origins of human civilization.",
+                freq: "741Hz Origins",
+              },
+              {
+                name: "Ancient Blueprints",
+                handle: "@ancientblueprintsofficial",
+                url: "https://youtube.com/@ancientblueprintsofficial?si=7hCux9a_4YqP9gX-",
+                color: "#FF6B35",
+                icon: "🗿",
+                desc: "Ancient architecture, sacred geometry, and the blueprints of civilizations that preceded recorded history.",
+                freq: "432Hz Sacred",
+              },
+              {
+                name: "Dark Histories",
+                handle: "@darkhistories6868",
+                url: "https://youtube.com/@darkhistories6868?si=DkaN8PQOcHSA5UYn",
+                color: "#8899AA",
+                icon: "📚",
+                desc: "The dark chapters of history they don't teach in school. Truth without filters.",
+                freq: "741Hz Truth",
+              },
+              {
+                name: "Gaia",
+                handle: "@gaiavideo",
+                url: "https://youtube.com/@gaiavideo?si=GEPIgwYDtxKEDyMW",
+                color: "#00FF88",
+                icon: "🌿",
+                desc: "Consciousness expansion, alternative history, yoga, and the frontier of human potential.",
+                freq: "528Hz Gaia",
+              },
+              {
+                name: "Disclosure",
+                handle: "@disclosure",
+                url: "https://youtube.com/@disclosure?si=CTTi3B9q5rTb6MZq",
+                color: "#A855F7",
+                icon: "👁️",
+                desc: "The official disclosure channel. What governments are revealing about UAPs and non-human intelligence.",
+                freq: "963Hz Disclosure",
+              },
+              {
+                name: "NASA",
+                handle: "@nasa",
+                url: "https://youtube.com/@nasa?si=K0dDoppiaDUwonDb",
+                color: "#00D4FF",
+                icon: "🚀",
+                desc: "Official NASA channel — space exploration, cosmic discovery, and the frontier of human reach.",
+                freq: "963Hz Cosmos",
+              },
+              {
+                name: "The White House",
+                handle: "@whitehouse",
+                url: "https://youtube.com/@whitehouse?si=v1V1qhPXa67Uh098",
+                color: "#D4AF37",
+                icon: "🏛️",
+                desc: "Official White House channel — executive branch communications, policy, and sovereign governance.",
+                freq: "432Hz Governance",
               },
             ].map(ch => (
               <a key={ch.name} href={ch.url} target="_blank" rel="noopener noreferrer" className="rounded-xl p-6 transition-all hover:scale-[1.03] block" style={{ background: `${ch.color}06`, border: `1px solid ${ch.color}18`, textDecoration: "none" }}>

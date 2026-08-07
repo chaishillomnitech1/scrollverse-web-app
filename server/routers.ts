@@ -54,6 +54,7 @@ import { saferwayRouter } from "./routers/saferway";
 import { metricsRouter } from "./routers/metrics";
 import { seerahRouter } from "./routers/seerah";
 import { booksRouter } from "./routers/books";
+import { cardRouter } from "./routers/card";
 
 export const appRouter = router({
   system: systemRouter,
@@ -120,6 +121,7 @@ export const appRouter = router({
   metrics: metricsRouter,
   seerah: seerahRouter,
   books: booksRouter,
+  card: cardRouter,
 });
 
 export type AppRouter = typeof appRouter;

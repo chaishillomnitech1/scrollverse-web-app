@@ -234,6 +234,10 @@ import SovereignCard from "./pages/SovereignCard";
 import GitHubConstellation from "./pages/GitHubConstellation";
 import NinetyNineNames from "./pages/NinetyNineNames";
 import Knick from "./pages/Knick";
+import LondynLetters from "./pages/LondynLetters";
+import ChannelCodex from "./pages/ChannelCodex";
+import SovereignSpaceAgency from "./pages/SovereignSpaceAgency";
+import MesopotamiaLibrary from "./pages/MesopotamiaLibrary";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -469,6 +473,10 @@ function Router() {
         <Route path="/knick" component={Knick} />
       <Route path="/londyn" component={Londyn} />
         <Route path="/sovereign-card" component={SovereignCard} />
+        <Route path="/londyn/letters" component={LondynLetters} />
+        <Route path="/channel-codex" component={ChannelCodex} />
+        <Route path="/sovereign-space-agency" component={SovereignSpaceAgency} />
+        <Route path="/mesopotamia-library" component={MesopotamiaLibrary} />
         <Route component={NotFound} />
     </Switch>
   );

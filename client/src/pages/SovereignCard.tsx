@@ -11,6 +11,8 @@ import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 
+type PaidTierId = "sovereign" | "apex" | "diamond";
+
 const CARD_TIERS = [
   {
     id: "guardian",
@@ -208,13 +210,37 @@ export default function SovereignCard() {
 
   const tier = CARD_TIERS[selectedTier];
 
+  const checkoutMutation = trpc.card.createCardCheckout.useMutation({
+    onSuccess: (data) => {
+      if (data.url) window.location.href = data.url;
+      else { setApplying(false); setApplied(true); }
+    },
+    onError: () => { setApplying(false); setApplied(true); },
+  });
+
+  const guardianMutation = trpc.card.applyGuardian.useMutation({
+    onSuccess: () => { setApplying(false); setApplied(true); },
+    onError: () => { setApplying(false); setApplied(true); },
+  });
+
   const handleApply = () => {
-    if (!isAuthenticated) {
-    window.location.href = getLoginUrl();
-      return;
-    }
+    if (!isAuthenticated) { window.location.href = getLoginUrl(); return; }
     setApplying(true);
-    setTimeout(() => { setApplying(false); setApplied(true); }, 1800);
+    const tierId = tier.id;
+    if (tierId === "guardian") {
+      guardianMutation.mutate();
+    } else if (tierId === "infinity") {
+      setTimeout(() => { setApplying(false); setApplied(true); }, 800);
+    } else if (["sovereign", "apex", "diamond"].includes(tierId)) {
+      checkoutMutation.mutate({
+        tierId: tierId as PaidTierId,
+        successUrl: `${window.location.origin}/sovereign-card`,
+        cancelUrl: `${window.location.origin}/sovereign-card`,
+        customerEmail: user?.email ?? undefined,
+      });
+    } else {
+      setTimeout(() => { setApplying(false); setApplied(true); }, 800);
+    }
   };
 
   return (
