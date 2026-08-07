@@ -1052,6 +1052,29 @@ export default function Home() {
                   <div className="px-4 py-3" style={{ borderTop: "1px solid rgba(212,175,55,0.1)" }}>
                     <div className="text-xs text-center font-mono" style={{ color: "#5a6a7a" }}>اللَّهُمَّ صَلِّ عَلَى مُحَمَّد ﷺ</div>
                   </div>
+                  {[
+                    { href: "/seerah/noor-al-mawlid", icon: "🌙", label: "Noor al-Mawlid ﷺ", sub: "Birth & early years" },
+                    { href: "/seerah/al-hijra", icon: "🌟", label: "Al-Hijra", sub: "The Sacred Migration" },
+                    { href: "/seerah/badr", icon: "⚔️", label: "Badr", sub: "The First Victory" },
+                    { href: "/seerah/fath-makkah", icon: "🕋", label: "Fatḥ Makkah", sub: "The Conquest" },
+                    { href: "/seerah/al-ghazwat", icon: "⚔️", label: "Al-Ghazwāt", sub: "Uḥud · Khandaq · Ḥunayn" },
+                    { href: "/seerah/al-wafat", icon: "🕊️", label: "Al-Wafāt", sub: "The Final Chapter" },
+                  ].map((s) => (
+                    <a key={s.href} href={s.href} className="flex items-center gap-3 px-4 py-2.5 transition-all duration-200 hover:bg-[rgba(212,175,55,0.06)]">
+                      <span className="text-sm">{s.icon}</span>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold" style={{ color: "#d4af37" }}>{s.label}</span>
+                          <span className="text-xs px-1.5 py-0.5 rounded font-mono" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.2)", fontSize: "9px" }}>LIVE</span>
+                        </div>
+                        <div className="text-xs" style={{ color: "#5a6a7a" }}>{s.sub}</div>
+                      </div>
+                    </a>
+                  ))}
+                  <a href="/seerah/quiz" className="flex items-center gap-3 px-4 py-2.5 transition-all duration-200 hover:bg-[rgba(212,175,55,0.06)]" style={{ borderTop: "1px solid rgba(212,175,55,0.1)" }}>
+                    <span className="text-sm">🏆</span>
+                    <div><div className="text-xs font-bold" style={{ color: "#FFB800" }}>Guardian Quiz</div><div className="text-xs" style={{ color: "#5a6a7a" }}>Test your Seerah knowledge</div></div>
+                  </a>
                 </div>
               )}
             </div>
@@ -1064,6 +1087,13 @@ export default function Home() {
               className="btn-sovereign px-4 py-2 rounded-lg text-sm"
             >
               GitHub
+            </a>
+            <a
+              href="/codex"
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: "#FFB800" }}
+            >
+              📜 Codex
             </a>
             <NotificationBell />
             <button className="btn-gold px-4 py-2 rounded-lg text-sm">

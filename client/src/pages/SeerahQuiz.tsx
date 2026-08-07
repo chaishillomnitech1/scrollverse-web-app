@@ -8,6 +8,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 // ── QUIZ DATA ─────────────────────────────────────────────────────────────────
 const QUESTIONS = [
@@ -147,6 +149,8 @@ export default function SeerahQuiz() {
   const [revealed, setRevealed] = useState(false);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(10).fill(null));
   const [score, setScore] = useState(0);
+  const { isAuthenticated } = useAuth();
+  const saveScore = trpc.seerah.saveScore.useMutation();
 
   const q = QUESTIONS[current];
   const isCorrect = selected === q.correct;
@@ -168,6 +172,12 @@ export default function SeerahQuiz() {
       setSelected(null);
       setRevealed(false);
     } else {
+      // Save score to leaderboard if authenticated
+      if (isAuthenticated) {
+        const finalScore = score + (selected === QUESTIONS[current].correct ? 1 : 0);
+        const badge = finalScore === 10 ? "Guardian of the Seerah" : finalScore >= 8 ? "Keeper of the Seerah" : finalScore >= 6 ? "Student of the Seerah" : "Seeker of Knowledge";
+        saveScore.mutate({ score: finalScore, totalQuestions: 10, badge });
+      }
       setPhase("result");
     }
   };

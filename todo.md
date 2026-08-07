@@ -1657,3 +1657,16 @@
 - [x] Build /codex Metatron portal page (video embed, archival points, museum design)
 - [x] Wire /codex route in App.tsx
 - [x] Run tests and save Phase 61 checkpoint
+
+## Phase 62 — Al-Wafāt Scroll + Quiz Leaderboard + Nav Links + Full Audit
+
+- [x] Build /seerah/al-wafat sacred scroll (12 sections, 963Hz Web Audio, starfield, zero human figures)
+- [x] Wire /seerah/al-wafat route in App.tsx
+- [x] Update SeerahIndex to show Al-Wafāt as LIVE (6 scrolls live)
+- [x] Add seerah_quiz_scores DB table (userId, score, totalQuestions, badge, createdAt)
+- [x] Add tRPC seerah.saveScore mutation (protected) and seerah.getLeaderboard query (public)
+- [x] Wire SeerahQuiz to call saveScore on completion (authenticated users)
+- [x] Add top-10 Guardian leaderboard to SeerahIndex page
+- [x] Add Codex and Seerah links to Home.tsx main nav
+- [x] Full audit of all remaining uncompleted todo items across all phases
+- [x] Run tests and save Phase 62 checkpoint

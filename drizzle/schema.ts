@@ -1307,3 +1307,18 @@ export const saferwayBookings = mysqlTable("saferway_bookings", {
 });
 export type SaferwayBooking = typeof saferwayBookings.$inferSelect;
 export type InsertSaferwayBooking = typeof saferwayBookings.$inferInsert;
+
+/**
+ * Seerah Quiz Scores — leaderboard for the Guardian of the Seerah challenge
+ */
+export const seerahQuizScores = mysqlTable("seerah_quiz_scores", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  userName: varchar("userName", { length: 200 }).notNull(),
+  score: int("score").notNull(),
+  totalQuestions: int("totalQuestions").notNull().default(10),
+  badge: varchar("badge", { length: 64 }).notNull().default("Seeker of Knowledge"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+export type SeerahQuizScore = typeof seerahQuizScores.$inferSelect;
+export type InsertSeerahQuizScore = typeof seerahQuizScores.$inferInsert;

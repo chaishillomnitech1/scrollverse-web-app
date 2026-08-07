@@ -52,6 +52,7 @@ import { chessRouter } from "./routers/chessRouter";
 import { analyticsRouter } from "./routers/analytics";
 import { saferwayRouter } from "./routers/saferway";
 import { metricsRouter } from "./routers/metrics";
+import { seerahRouter } from "./routers/seerah";
 
 export const appRouter = router({
   system: systemRouter,
@@ -116,6 +117,7 @@ export const appRouter = router({
   analytics: analyticsRouter,
   saferway: saferwayRouter,
   metrics: metricsRouter,
+  seerah: seerahRouter,
 });
 
 export type AppRouter = typeof appRouter;

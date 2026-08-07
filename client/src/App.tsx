@@ -221,6 +221,7 @@ import OmniMetrics from "./pages/OmniMetrics";
 import FathMakkah from "./pages/FathMakkah";
 import AlGhazwat from "./pages/AlGhazwat";
 import SeerahQuiz from "./pages/SeerahQuiz";
+import AlWafat from "./pages/AlWafat";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -443,6 +444,7 @@ function Router() {
         <Route path="/seerah/fath-makkah" component={FathMakkah} />
         <Route path="/seerah/al-ghazwat" component={AlGhazwat} />
         <Route path="/seerah/quiz" component={SeerahQuiz} />
+        <Route path="/seerah/al-wafat" component={AlWafat} />
       <Route component={NotFound} />
     </Switch>
   );

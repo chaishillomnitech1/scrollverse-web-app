@@ -7,6 +7,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
 
 // ── Starfield Canvas ──────────────────────────────────────────────────────────
 function StarfieldCanvas() {
@@ -146,6 +147,21 @@ const SCROLL_ENTRIES: ScrollEntry[] = [
     icon: "✨",
     color: "#9B59B6",
     sections: 0,
+  },
+  {
+    id: "al-wafat",
+    phase: "Phase 62",
+    titleEn: "Al-Wafāt",
+    titleAr: "الْوَفَاة",
+    subtitle: "The Passing of the Prophet ﷺ",
+    period: "11 AH · 632 CE",
+    description:
+      "The final chapter of the Seerah — the Farewell Pilgrimage, the last illness, the final smile, and the transition to the Highest Companion. The most emotionally profound scroll in the archive. 963Hz. Sealed in light.",
+    status: "live",
+    href: "/seerah/al-wafat",
+    icon: "🕊️",
+    color: "#D4AF37",
+    sections: 12,
   },
   {
     id: "al-ghazwat",
@@ -324,6 +340,43 @@ function TimelineNode({ entry, index }: { entry: ScrollEntry; index: number }) {
   );
 }
 
+// ── Leaderboard Widget ────────────────────────────────────────────────────────
+function LeaderboardWidget() {
+  const { data: leaderboard, isLoading } = trpc.seerah.getLeaderboard.useQuery();
+  const BADGE_COLORS: Record<string, string> = {
+    "Guardian of the Seerah": "#FFB800",
+    "Keeper of the Seerah": "#00D4FF",
+    "Student of the Seerah": "#00FF88",
+    "Seeker of Knowledge": "#8899AA",
+  };
+  return (
+    <div className="rounded-2xl p-6" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.15)" }}>
+      <div className="flex items-center gap-2 mb-4">
+        <div className="text-xl">📜</div>
+        <h3 className="font-bold text-white">Guardian Leaderboard</h3>
+        <div className="w-1.5 h-1.5 rounded-full animate-pulse ml-auto" style={{ background: "#00FF88" }} />
+      </div>
+      {isLoading ? (
+        <div className="text-xs font-mono text-center py-4" style={{ color: "#5a6a7a" }}>Loading...</div>
+      ) : !leaderboard || leaderboard.length === 0 ? (
+        <div className="text-xs font-mono text-center py-4" style={{ color: "#5a6a7a" }}>No scores yet — be the first Guardian!</div>
+      ) : (
+        <div className="space-y-2">
+          {leaderboard.map((entry: { rank: number; userName: string; score: number; totalQuestions: number; badge: string; createdAt: Date }) => (
+            <div key={entry.rank} className="flex items-center gap-3 py-1.5">
+              <div className="text-xs font-mono w-5 text-center" style={{ color: entry.rank <= 3 ? "#FFB800" : "#5a6a7a" }}>
+                {entry.rank <= 3 ? ["🥇","🥈","🥉"][entry.rank - 1] : `#${entry.rank}`}
+              </div>
+              <div className="flex-1 text-sm text-white truncate">{entry.userName}</div>
+              <div className="text-xs font-mono" style={{ color: BADGE_COLORS[entry.badge] ?? "#8899AA" }}>{entry.score}/10</div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function SeerahIndex() {
   return (
@@ -425,7 +478,7 @@ export default function SeerahIndex() {
           style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#d4af37" }}
         >
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-          3 Scrolls Live · 2 Sealed for Future Phases
+          6 Scrolls Live · Archive Complete
         </div>
       </section>
 
@@ -450,6 +503,25 @@ export default function SeerahIndex() {
           {SCROLL_ENTRIES.map((entry, i) => (
             <TimelineNode key={entry.id} entry={entry} index={i} />
           ))}
+        </div>
+      </section>
+
+      {/* ── QUIZ + LEADERBOARD ── */}
+      <section className="relative z-10 container pb-16">
+        <div className="max-w-3xl">
+          <div className="mb-8 pb-4" style={{ borderBottom: "1px solid rgba(212,175,55,0.1)" }}>
+            <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#d4af37" }}>GUARDIAN CHALLENGE</div>
+            <h2 className="text-2xl font-black text-white">Test Your Knowledge</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div className="rounded-2xl p-6" style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.2)" }}>
+              <div className="text-3xl mb-3">🏆</div>
+              <h3 className="font-bold text-white mb-2">Guardian of the Seerah Quiz</h3>
+              <p className="text-sm mb-4" style={{ color: "#8899AA" }}>10 questions from all 6 scrolls. Earn your badge and claim your rank on the leaderboard.</p>
+              <Link href="/seerah/quiz"><div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer transition-all" style={{ background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.35)", color: "#d4af37" }}>Take the Quiz →</div></Link>
+            </div>
+            <LeaderboardWidget />
+          </div>
         </div>
       </section>
 
