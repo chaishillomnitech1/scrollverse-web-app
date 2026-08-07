@@ -254,6 +254,7 @@ export default function AlAqsa() {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link href="/seerah"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: `${INDIGO}30`, color: INDIGO }}>← Seerah Archive</span></Link>
             <Link href="/seerah/al-fath-khaybar"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.15)", color: "#8899AA" }}>Scroll VII: Khaybar →</span></Link>
+            <Link href="/sovereign-books"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(255,184,0,0.3)", color: "#FFB800" }}>📚 Sovereign Books →</span></Link>
             <Link href="/seerah/quiz"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: `${GOLD}30`, color: GOLD }}>Take the Quiz →</span></Link>
           </div>
         </div>

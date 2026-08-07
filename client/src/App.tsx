@@ -228,6 +228,7 @@ import JuniorMoviesUniverse from "./pages/JuniorMoviesUniverse";
 import AlFathKhaybar from "./pages/AlFathKhaybar";
 import SovereignBooks from "./pages/SovereignBooks";
 import AlAqsa from "./pages/AlAqsa";
+import AlFarewell from "./pages/AlFarewell";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -457,6 +458,7 @@ function Router() {
         <Route path="/seerah/al-fath-khaybar" component={AlFathKhaybar} />
         <Route path="/sovereign-books" component={SovereignBooks} />
         <Route path="/seerah/al-aqsa" component={AlAqsa} />
+        <Route path="/seerah/al-farewell" component={AlFarewell} />
       <Route component={NotFound} />
     </Switch>
   );

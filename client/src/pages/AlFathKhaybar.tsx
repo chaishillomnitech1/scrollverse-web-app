@@ -263,6 +263,7 @@ export default function AlFathKhaybar() {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link href="/seerah"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: `${GOLD}30`, color: GOLD }}>← Seerah Archive</span></Link>
             <Link href="/seerah/al-wafat"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.15)", color: "#8899AA" }}>Scroll VI: Al-Wafāt →</span></Link>
+            <Link href="/sovereign-books"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(255,184,0,0.3)", color: "#FFB800" }}>📚 Sovereign Books →</span></Link>
             <Link href="/seerah/quiz"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: `${EMERALD}30`, color: EMERALD }}>Take the Quiz →</span></Link>
           </div>
         </div>

@@ -1729,3 +1729,13 @@
 - [x] Add tRPC books.createBookCheckout mutation (Stripe Checkout per book)
 - [x] Update SovereignBooks.tsx to call real Stripe Checkout for each book purchase
 - [x] Run tests and save Phase 78 checkpoint
+
+## Phase 79 — Al-Farewell Scroll + Books Cross-Links + GitHub Deep Dive
+
+- [x] Deep dive chaishillomnitech1 GitHub to discover all books, repos, and assets
+- [x] Build /seerah/al-farewell sacred scroll (12 sections, 852Hz, Farewell Pilgrimage 10 AH)
+- [x] Wire /seerah/al-farewell route in App.tsx
+- [x] Update SeerahIndex to show Al-Farewell as LIVE (9 scrolls live)
+- [x] Add sovereign books cross-link to all 8 existing Seerah scroll footers
+- [x] Expand SovereignBooks hub with all discovered books from GitHub
+- [x] Run tests and save Phase 79 checkpoint

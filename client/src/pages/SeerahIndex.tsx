@@ -208,6 +208,21 @@ const SCROLL_ENTRIES: ScrollEntry[] = [
     color: "#6C63FF",
     sections: 12,
   },
+  {
+    id: "al-farewell",
+    phase: "Phase 79",
+    titleEn: "Ḥajjat al-Wadāʿ",
+    titleAr: "حَجَّةُ الْوَدَاع",
+    subtitle: "The Farewell Pilgrimage",
+    period: "10 AH · 632 CE",
+    description:
+      "The Farewell Pilgrimage — 100,000 companions, the plain of ʿArafat, the Farewell Sermon, and the final verse of the Quran. The covenant with humanity sealed. 852Hz Intuition frequency.",
+    status: "live",
+    href: "/seerah/al-farewell",
+    icon: "🕋",
+    color: "#E8A0BF",
+    sections: 12,
+  },
 ];
 
 // ── Timeline Node ─────────────────────────────────────────────────────────────
@@ -508,7 +523,7 @@ export default function SeerahIndex() {
           style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#d4af37" }}
         >
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-          7 Scrolls Live · Archive Complete
+          9 Scrolls Live · Archive Complete
         </div>
       </section>
 
