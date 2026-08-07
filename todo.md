@@ -1846,9 +1846,9 @@
 
 ## Phase 91 — GitHub Seal + Featured + Socrati Widget + DC Badge
 
-- [ ] Push to GitHub and create scrollverse-phase91-seal repo
-- [ ] Build /think-space/featured page (AI Legion curated highlights)
-- [ ] Add Socrati floating tour guide widget to Mesopotamia Library
-- [ ] Add shareable Guardian badge + crypto prizes section to DC Visit page
-- [ ] Wire /think-space/featured route in App.tsx
-- [ ] Run tests and save Phase 91 checkpoint
+- [x] Push to GitHub and create scrollverse-phase91-seal repo
+- [x] Build /think-space/featured page (AI Legion curated highlights)
+- [x] Add Socrati floating tour guide widget to Mesopotamia Library
+- [x] Add shareable Guardian badge + crypto prizes section to DC Visit page
+- [x] Wire /think-space/featured route in App.tsx
+- [x] Run tests and save Phase 91 checkpoint

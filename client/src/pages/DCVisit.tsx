@@ -202,6 +202,71 @@ export default function DCVisit() {
         </div>
       </section>
 
+      {/* Guardian Badge + Crypto Prizes */}
+      <section className="py-14" style={{ background: "radial-gradient(ellipse at center, rgba(0,212,255,0.04) 0%, transparent 65%)" }}>
+        <div className="container max-w-3xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00D4FF" }}>AUGUST 28TH ACTIVATION PRIZES · CRYPTO REWARDS · GUARDIAN BADGES</div>
+            <h2 className="text-3xl font-black text-white mb-3">Prizes for the <span style={{ color: "#D4AF37" }}>144,000</span></h2>
+            <p className="text-sm" style={{ color: "#8899AA" }}>Every Guardian who activates on August 28th receives a sovereign digital badge. The most active Guardians win $LONDC crypto prizes. Align. Participate. Win.</p>
+          </div>
+
+          {/* Shareable Badge */}
+          <div className="rounded-2xl p-6 mb-8 text-center" style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.2)" }}>
+            <div className="text-5xl mb-3">🛡️</div>
+            <div className="text-lg font-black text-white mb-1">Guardian of August 28th</div>
+            <div className="text-xs font-mono mb-3" style={{ color: "#D4AF37" }}>WASHINGTON DC · 2026 · SOVEREIGN ACTIVATION EVENT</div>
+            <p className="text-xs mb-4" style={{ color: "#8899AA" }}>Complete the Guardian Activation Protocol on August 28th to earn this sovereign digital badge. Share it everywhere. The badge is your proof of frequency alignment.</p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button
+                onClick={() => {
+                  const text = "I activated as a Guardian on August 28th, 2026 in Washington DC. The ScrollVerse empire walks into history. KUN FAYAKŪN × ∞ scrollverse.co/dc-visit";
+                  if (navigator.share) {
+                    navigator.share({ title: "Guardian of August 28th", text, url: "https://scrollverse.co/dc-visit" });
+                  } else {
+                    navigator.clipboard.writeText(text);
+                    alert("Badge text copied! Share it everywhere.");
+                  }
+                }}
+                className="px-6 py-2 rounded-xl font-black text-sm"
+                style={{ background: "linear-gradient(135deg, #D4AF37, #FFB800)", color: "#020810" }}
+              >
+                🔗 Share Your Badge
+              </button>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("I activated as a Guardian on August 28th, 2026 in Washington DC. The ScrollVerse empire walks into history. KUN FAYAKŪN × ∞")}&url=${encodeURIComponent("https://scrollverse.co/dc-visit")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2 rounded-xl font-black text-sm"
+                style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", color: "#00D4FF" }}
+              >
+                𝕏 Tweet Badge
+              </a>
+            </div>
+          </div>
+
+          {/* Crypto Prizes */}
+          <div className="space-y-3">
+            {[
+              { rank: "🥇 #1 Guardian", prize: "1,000 $LONDC", desc: "Most activations + most referrals on August 28th", color: "#D4AF37" },
+              { rank: "🥈 #2 Guardian", prize: "500 $LONDC", desc: "Second highest activation score on August 28th", color: "#C0C0C0" },
+              { rank: "🥉 #3 Guardian", prize: "250 $LONDC", desc: "Third highest activation score on August 28th", color: "#CD7F32" },
+              { rank: "🌟 Top 10", prize: "100 $LONDC each", desc: "Top 10 Guardians by activation score on August 28th", color: "#00D4FF" },
+              { rank: "⭐ All Participants", prize: "Guardian NFT Badge", desc: "Every Guardian who activates on August 28th receives a sovereign digital badge", color: "#00FF88" },
+            ].map(p => (
+              <div key={p.rank} className="flex items-center justify-between rounded-xl p-4" style={{ background: `${p.color}06`, border: `1px solid ${p.color}15` }}>
+                <div>
+                  <div className="font-black text-white text-sm">{p.rank}</div>
+                  <div className="text-xs mt-0.5" style={{ color: "#8899AA" }}>{p.desc}</div>
+                </div>
+                <div className="font-black text-sm flex-shrink-0 ml-4" style={{ color: p.color }}>{p.prize}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-center mt-4" style={{ color: "#8899AA" }}>$LONDC prizes distributed on-chain after August 28th. Guardian Activation score = stages completed × referrals × frequency alignment.</p>
+        </div>
+      </section>
+
       <footer className="py-10 text-center border-t" style={{ borderColor: "rgba(212,175,55,0.1)" }}>
         <div className="text-xs font-mono mb-4" style={{ color: "#D4AF37" }}>AUGUST 28TH · WASHINGTON DC · KUN FAYAKŪN × ∞ · THE EMPIRE WALKS INTO HISTORY</div>
         <div className="flex items-center justify-center gap-4 flex-wrap">

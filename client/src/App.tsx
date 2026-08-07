@@ -229,6 +229,7 @@ import AlFathKhaybar from "./pages/AlFathKhaybar";
 import SovereignBooks from "./pages/SovereignBooks";
 import AlAqsa from "./pages/AlAqsa";
 import ThinkSpace from '@/pages/ThinkSpace';
+import ThinkSpaceFeatured from '@/pages/ThinkSpaceFeatured';
 import AIChatUpload from '@/pages/AIChatUpload';
 import AlFarewell from "./pages/AlFarewell";
 import Londyn from "./pages/Londyn";
@@ -492,6 +493,7 @@ function Router() {
         <Route path="/philosophers-archive" component={PhilosophersArchive} />
         <Route path="/seerah/al-isra-wal-miraj-deep" component={AlIsraWalMirajDeep} />
         <Route path="/think-space" component={ThinkSpace} />
+        <Route path="/think-space/featured" component={ThinkSpaceFeatured} />
         <Route path="/ai-chat-upload" component={AIChatUpload} />
         <Route component={NotFound} />
     </Switch>

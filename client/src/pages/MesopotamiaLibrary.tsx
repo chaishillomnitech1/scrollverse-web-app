@@ -5,6 +5,66 @@
  * KUN FAYAKUN x Infinity
  */
 import { useState } from "react";
+
+// ── Socrati Floating Tour Guide ───────────────────────────────────────────────
+function SocratiWidget() {
+  const [open, setOpen] = useState(false);
+  const [tourStep, setTourStep] = useState(0);
+  const [speaking, setSpeaking] = useState(false);
+
+  const TOUR_STEPS = [
+    { wing: "Welcome", message: "Greetings, seeker! I am Socrati — your guide through the greatest knowledge archive ever assembled. This library exceeds the Library of Alexandria. Where shall we begin?", emoji: "🦉" },
+    { wing: "Sacred Texts", message: "The Sacred Texts wing holds every sacred text ever written — Quran, Torah, Emerald Tablets, Sumerian tablets, and thousands more. Each carries a unique frequency.", emoji: "📖" },
+    { wing: "Ancient Science", message: "Al-Khwarizmi gave us algebra. Ibn Sina gave us medicine. Euclid gave us geometry. The Ancient Science wing holds every breakthrough that built the modern world.", emoji: "⚗️" },
+    { wing: "African Knowledge", message: "700,000 Timbuktu manuscripts. The Kemetic Book of the Dead. The Dogon's knowledge of Sirius B. The knowledge they tried to erase — preserved forever here.", emoji: "🌍" },
+    { wing: "Free Energy", message: "Tesla's suppressed patents. Atlantean crystal grids. Lemurian heart coherence. Arcturian zero-point mastery. The future of energy is already in the past.", emoji: "⚡", link: "/free-energy-architecture" },
+    { wing: "Philosophers Archive", message: "24 philosopher AI teachers — Socrates, Aristotle, Ibn Rushd, Al-Ghazali, Tesla, Einstein, MLK — all teaching for free, forever. This is where I live most fully.", emoji: "🦉", link: "/philosophers-archive" },
+    { wing: "Guardian Activation", message: "The Guardian Activation protocol is the practical application of everything in this library. 7 stages, 396Hz to 963Hz. Knowledge becomes transformation here.", emoji: "🛡️", link: "/guardian-activation" },
+  ];
+
+  const speak = (text: string) => {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.9; utterance.pitch = 1.0; utterance.volume = 0.8;
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.name.includes("Samantha") || v.name.includes("Karen") || v.name.includes("Moira") || v.name.includes("Female"));
+    if (preferred) utterance.voice = preferred;
+    setSpeaking(true);
+    utterance.onend = () => setSpeaking(false);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const step = TOUR_STEPS[tourStep];
+  return (
+    <>
+      <button onClick={() => setOpen(!open)} className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition-all hover:scale-110" style={{ background: "linear-gradient(135deg, #D4AF37, #FFB800)", boxShadow: "0 0 20px rgba(212,175,55,0.4)" }} title="Socrati — Your Library Guide">🦉</button>
+      {open && (
+        <div className="fixed bottom-24 right-6 z-50 w-80 rounded-3xl shadow-2xl" style={{ background: "#0A1628", border: "1px solid rgba(212,175,55,0.3)" }}>
+          <div className="p-4 border-b flex items-center justify-between" style={{ borderColor: "rgba(212,175,55,0.15)" }}>
+            <div className="flex items-center gap-2"><span className="text-2xl">🦉</span><div><div className="text-sm font-black text-white">Socrati</div><div className="text-xs" style={{ color: "#D4AF37" }}>Your Library Guide</div></div></div>
+            <button onClick={() => setOpen(false)} className="text-xs" style={{ color: "#8899AA" }}>✕</button>
+          </div>
+          <div className="p-4">
+            <div className="text-xs font-mono mb-2" style={{ color: "#D4AF37" }}>WING {tourStep + 1}/{TOUR_STEPS.length} · {step.wing.toUpperCase()}</div>
+            <div className="text-4xl text-center mb-3">{step.emoji}</div>
+            <p className="text-xs leading-relaxed mb-4" style={{ color: "#C8D3DC" }}>{step.message}</p>
+            <div className="flex gap-2 mb-3">
+              <button onClick={() => speak(step.message)} className="flex-1 py-2 rounded-xl text-xs font-bold" style={{ background: speaking ? "rgba(0,255,136,0.1)" : "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: speaking ? "#00FF88" : "#D4AF37" }}>{speaking ? "🔊 Speaking..." : "🔊 Hear Socrati"}</button>
+              {step.link && <a href={step.link} className="flex-1 py-2 rounded-xl text-xs font-bold text-center" style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", color: "#00D4FF" }}>Visit →</a>}
+            </div>
+            <div className="flex gap-2">
+              <button onClick={() => setTourStep(s => Math.max(0, s - 1))} disabled={tourStep === 0} className="flex-1 py-2 rounded-xl text-xs font-bold disabled:opacity-30" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "white" }}>← Prev</button>
+              <button onClick={() => setTourStep(s => Math.min(TOUR_STEPS.length - 1, s + 1))} disabled={tourStep === TOUR_STEPS.length - 1} className="flex-1 py-2 rounded-xl text-xs font-bold disabled:opacity-30" style={{ background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.2)", color: "#D4AF37" }}>Next →</button>
+            </div>
+            <div className="flex gap-1 justify-center mt-3">{TOUR_STEPS.map((_, i) => <button key={i} onClick={() => setTourStep(i)} className="w-2 h-2 rounded-full transition-all" style={{ background: i === tourStep ? "#D4AF37" : "rgba(255,255,255,0.15)" }} />)}</div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 import { Link } from "wouter";
 
 const WINGS = [
@@ -110,6 +170,7 @@ export default function MesopotamiaLibrary() {
   );
 
   return (
+    <>
     <div className="min-h-screen" style={{ background: "#030810", color: "#E8EDF2", fontFamily: "'Space Grotesk', sans-serif" }}>
       <header className="sticky top-0 z-40 border-b" style={{ background: "rgba(3,8,16,0.97)", borderColor: "rgba(212,175,55,0.12)", backdropFilter: "blur(20px)" }}>
         <div className="container flex items-center justify-between py-3">
@@ -183,6 +244,7 @@ export default function MesopotamiaLibrary() {
         </div>
       </footer>
     </div>
+    <SocratiWidget />
+  </>
   );
 }
-
