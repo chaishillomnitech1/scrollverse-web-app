@@ -1266,6 +1266,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── SAFERWAY BOOKING WIDGET ── */}
+      <section className="relative z-10" style={{ background: "rgba(0,0,0,0.35)", borderTop: "1px solid rgba(0,212,255,0.1)", borderBottom: "1px solid rgba(0,212,255,0.08)" }}>
+        <div className="container py-5">
+          <div className="flex flex-col md:flex-row items-center gap-5 justify-between max-w-4xl mx-auto">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0" style={{ background: "rgba(0,212,255,0.12)", border: "1px solid rgba(0,212,255,0.3)" }}>🚗</div>
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
+                  <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>SAFERWAY AUTO DETAIL · VINELAND, NJ · ACCEPTING BOOKINGS</span>
+                </div>
+                <h3 className="text-base font-black text-white">Book a Sovereign Detail</h3>
+                <p className="text-xs" style={{ color: "#8899AA" }}>Premium mobile auto detailing — interior, exterior, ceramic coating & more.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <a href="/saferway#book" className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 inline-block" style={{ background: "linear-gradient(135deg, #00D4FF, #0099CC)", color: "#050B1A" }}>
+                Book Now →
+              </a>
+              <a href="/saferway" className="px-5 py-2.5 rounded-xl text-sm font-bold border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(0,212,255,0.4)", color: "#00D4FF" }}>
+                View Services
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── JUNETEENTH × GUARDIAN CRUSADE BANNER ── */}
       <section
         style={{

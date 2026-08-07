@@ -222,6 +222,8 @@ import FathMakkah from "./pages/FathMakkah";
 import AlGhazwat from "./pages/AlGhazwat";
 import SeerahQuiz from "./pages/SeerahQuiz";
 import AlWafat from "./pages/AlWafat";
+import SeerahTimeline from "./pages/SeerahTimeline";
+import Nexus from "./pages/Nexus";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -445,6 +447,8 @@ function Router() {
         <Route path="/seerah/al-ghazwat" component={AlGhazwat} />
         <Route path="/seerah/quiz" component={SeerahQuiz} />
         <Route path="/seerah/al-wafat" component={AlWafat} />
+        <Route path="/seerah/timeline" component={SeerahTimeline} />
+        <Route path="/nexus" component={Nexus} />
       <Route component={NotFound} />
     </Switch>
   );

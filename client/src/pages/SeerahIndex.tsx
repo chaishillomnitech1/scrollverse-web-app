@@ -411,7 +411,7 @@ export default function SeerahIndex() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/seerah/noor-al-mawlid">
+            <Link href="/seerah/timeline"><div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer" style={{ background: "rgba(0,212,255,0.08)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.2)" }}>🗓️ Timeline</div></Link><Link href="/seerah/noor-al-mawlid">
               <div
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-200 hover:scale-[1.02]"
                 style={{ background: "rgba(212,175,55,0.12)", color: "#d4af37", border: "1px solid rgba(212,175,55,0.2)" }}

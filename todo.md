@@ -1670,3 +1670,13 @@
 - [x] Add Codex and Seerah links to Home.tsx main nav
 - [x] Full audit of all remaining uncompleted todo items across all phases
 - [x] Run tests and save Phase 62 checkpoint
+
+## Phase 73 — Seerah Timeline + SaferWay Hero Widget + Nexus Vault
+
+- [x] Build /seerah/timeline interactive horizontal timeline (6 events 570–632 CE, click-to-expand, frequency visualization)
+- [x] Wire /seerah/timeline route in App.tsx
+- [x] Add Seerah Timeline link to SeerahIndex nav
+- [x] Add SaferWay booking widget to Home.tsx hero section (compact CTA card linking to /saferway#book)
+- [x] Build /nexus Phase 65 vault page (Dual Blister Hero, 528Hz heartbeat canvas, QR modal, Genesis NFT IPFS panel)
+- [x] Wire /nexus route in App.tsx
+- [x] Run tests and save Phase 73 checkpoint
