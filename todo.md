@@ -1692,11 +1692,11 @@
 
 ## Phase 75 — Junior Movies Upgrade + Red Diamond NFT Mint + Sovereign Cinema
 
-- [ ] Upgrade /junior-movies with tabbed interface (Home, Characters, Movies, Youth Vault) + Web Speech API Zippy voice-over + Cool Points tracker
-- [ ] Add Phase 65 NFT mint tab to /red-diamond-fleet (Grid Runner Mythic #007, IPFS/Arweave pins, Power Stats 100 MAX, confetti mint button)
-- [ ] Build /sovereign-cinema full library page (searchable vault, frequency tags, Guardian badge unlock, all JME episodes)
-- [ ] Wire /sovereign-cinema route in App.tsx
-- [ ] Run tests and save Phase 75 checkpoint
+- [x] Upgrade /junior-movies with tabbed interface (Home, Characters, Movies, Youth Vault) + Web Speech API Zippy voice-over + Cool Points tracker
+- [x] Add Phase 65 NFT mint tab to /red-diamond-fleet (Grid Runner Mythic #007, IPFS/Arweave pins, Power Stats 100 MAX, confetti mint button)
+- [x] Build /sovereign-cinema full library page (searchable vault, frequency tags, Guardian badge unlock, all JME episodes)
+- [x] Wire /sovereign-cinema route in App.tsx
+- [x] Run tests and save Phase 75 checkpoint
 
 ## Phase 76 — Full Sovereign Launch
 
