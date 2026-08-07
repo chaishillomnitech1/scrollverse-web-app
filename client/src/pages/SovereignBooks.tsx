@@ -5,7 +5,9 @@
  * KUN FAYAKUN x Infinity
  */
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 const BOOKS = [
   {
@@ -169,6 +171,30 @@ export default function SovereignBooks() {
   const [search, setSearch] = useState("");
   const [mintingId, setMintingId] = useState<string | null>(null);
   const [mintedIds, setMintedIds] = useState<Set<string>>(new Set());
+  const [buyingId, setBuyingId] = useState<string | null>(null);
+  const [, navigate] = useLocation();
+
+  const createBookCheckout = trpc.books.createBookCheckout.useMutation({
+    onSuccess: (data) => {
+      if (data.url) {
+        window.location.href = data.url;
+      }
+      setBuyingId(null);
+    },
+    onError: (err) => {
+      toast.error(err.message || "Payment processing unavailable. Please try again.");
+      setBuyingId(null);
+    },
+  });
+
+  const handleBuy = (book: typeof BOOKS[number]) => {
+    setBuyingId(book.id);
+    createBookCheckout.mutate({
+      bookId: book.id,
+      successUrl: `${window.location.origin}/sovereign-books`,
+      cancelUrl: `${window.location.origin}/sovereign-books`,
+    });
+  };
 
   const filtered = BOOKS.filter(b => {
     const matchTag = activeTag === "All"
@@ -259,8 +285,16 @@ export default function SovereignBooks() {
                 <div className="space-y-2">
                   <div className="flex gap-2">
                     <a href={book.purchaseUrl} target="_blank" rel="noopener noreferrer" className="flex-1 py-2.5 rounded-xl text-xs font-bold text-center transition-all hover:scale-[1.02]" style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#030812" }}>
-                      📖 Buy — ${(book.price / 100).toFixed(0)}
-                    </a>
+                     📖 Buy — ${(book.price / 100).toFixed(0)}
+                   </a>
+                  <button
+                    onClick={() => handleBuy(book)}
+                    disabled={buyingId === book.id}
+                    className="flex-1 py-2.5 rounded-xl text-xs font-bold text-center transition-all hover:scale-[1.02]"
+                    style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#030812", opacity: buyingId === book.id ? 0.7 : 1 }}
+                  >
+                    {buyingId === book.id ? "⚡ Loading..." : `📖 Buy — $${(book.price / 100).toFixed(0)}`}
+                  </button>
                     <Link href={book.readUrl}>
                       <span className="px-4 py-2.5 rounded-xl text-xs font-bold border cursor-pointer transition-all hover:scale-[1.02] block" style={{ borderColor: `${book.color}30`, color: book.color }}>
                         Read →

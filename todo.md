@@ -1720,3 +1720,12 @@
 - [x] Add Books link to Home.tsx nav
 - [x] Upgrade Home.tsx hero stats to show live DB counts (guardians, scrolls, routes, books)
 - [x] Run tests and save Phase 77 checkpoint
+
+## Phase 78 — Al-Aqsa Scroll + Book Stripe Checkout
+
+- [x] Build /seerah/al-aqsa sacred scroll (12 sections, 741Hz, Al-Isra wal-Miʿraj, Night Journey & Ascension)
+- [x] Wire /seerah/al-aqsa route in App.tsx
+- [x] Update SeerahIndex to show Al-Aqsa as LIVE (8 scrolls live)
+- [x] Add tRPC books.createBookCheckout mutation (Stripe Checkout per book)
+- [x] Update SovereignBooks.tsx to call real Stripe Checkout for each book purchase
+- [x] Run tests and save Phase 78 checkpoint
