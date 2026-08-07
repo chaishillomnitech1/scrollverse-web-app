@@ -83,6 +83,21 @@ const WINGS = [
       { title: "The FLM4 Protocol", origin: "ScrollVerse, 2024", freq: "528Hz", desc: "Foundation · Legacy · Mission · Forever — the four pillars of the ScrollVerse empire, authored by Chais 'Sabir Kajir' Hill the Great." },
     ],
   },
+  {
+    id: "free-energy",
+    name: "Free Energy Wing",
+    icon: "⚡",
+    color: "#00D4FF",
+    count: "∞",
+    desc: "The complete archive of free energy knowledge — Tesla's suppressed patents, Atlantean crystal grids, Lemurian heart coherence technology, Anunnaki energy systems, Arcturian zero-point mastery, and Pleiadian frequency protocols. Everything they tried to bury, preserved forever.",
+    items: [
+      { title: "Tesla's Wardenclyffe Tower", origin: "USA, 1901", freq: "369Hz", desc: "Tesla's project to transmit free wireless electricity to the entire planet using the Earth's ionosphere as a conductor. JP Morgan pulled funding when he realized it could not be metered. The tower was demolished in 1917." },
+      { title: "Atlantean Crystal Energy Grid", origin: "Atlantis, ~10,000 BCE", freq: "432Hz", desc: "Plato described Atlantean temples containing massive crystals that amplified solar energy and distributed it wirelessly. Modern piezoelectric research confirms quartz can convert pressure into electrical energy." },
+      { title: "Lemurian Heart Coherence Technology", origin: "Lemuria, ~50,000 BCE", freq: "528Hz", desc: "Lemurian civilization operated through heart coherence — synchronizing the heart's electromagnetic field (100x stronger than the brain's) with the Earth's Schumann Resonance at 7.83Hz." },
+      { title: "Anunnaki ME Tablets — Energy Protocols", origin: "Mesopotamia, ~450,000 BCE", freq: "741Hz", desc: "Sumerian texts describe 'ME' — divine laws and technologies including energy generation systems. The ziggurat stepped pyramids are theorized to have functioned as frequency antennas resonating with Earth's electromagnetic field." },
+      { title: "Arcturian Zero-Point Energy Mastery", origin: "Arcturus System, 36.7 LY", freq: "963Hz", desc: "The Arcturians are described as having mastered zero-point energy — drawing unlimited clean energy from the quantum vacuum of space. Their technology is said to be 1,000 years ahead of current human science." },
+    ],
+  },
 ];
 
 export default function MesopotamiaLibrary() {

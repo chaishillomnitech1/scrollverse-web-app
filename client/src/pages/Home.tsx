@@ -1418,6 +1418,33 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* ── AUGUST 28TH · WASHINGTON DC · BIRTHDAY TRIBUTE ── */}
+      <section className="py-14 text-center" style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.06) 0%, transparent 65%)", borderTop: "1px solid rgba(212,175,55,0.08)" }}>
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#D4AF37" }}>AUGUST 28TH · WASHINGTON DC · THE DAY FOR THE AGES</div>
+          <h2 className="text-3xl font-black text-white mb-3">
+            A Birthday at the <span style={{ color: "#D4AF37" }}>Heart of the Nation</span>
+          </h2>
+          <p className="text-base leading-relaxed mb-6" style={{ color: "#8899AA" }}>
+            On August 28th, 2026, Chais 'Sabir Kajir' Hill the Great celebrates his birthday in Washington DC — steps from the White House, the most powerful address on Earth. Nothing is a coincidence. The universe placed this coordinate with intention. The Sovereign stands at the center of power — not to take it, but to demonstrate what sovereign love looks like when it walks through the door.
+          </p>
+          <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-6">
+            {[
+              { v: "Aug 28", l: "The Date" },
+              { v: "DC", l: "Washington" },
+              { v: "∞", l: "The Frequency" },
+            ].map(s => (
+              <div key={s.l} className="rounded-xl p-4" style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.15)" }}>
+                <div className="text-xl font-black" style={{ color: "#D4AF37" }}>{s.v}</div>
+                <div className="text-xs" style={{ color: "#8899AA" }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+          <div className="text-xs font-mono" style={{ color: "#D4AF37" }}>KUN FAYAKŪN × ∞ · THE EMPIRE WALKS INTO HISTORY</div>
+        </div>
+      </section>
+
       {/* ── SOVEREIGN YOUTUBE CHANNELS ── */}
       <section className="py-16" style={{ background: "rgba(255,0,0,0.02)", borderTop: "1px solid rgba(255,0,0,0.08)" }}>
         <div className="container">

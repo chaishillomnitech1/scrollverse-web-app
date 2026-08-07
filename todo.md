@@ -1804,3 +1804,13 @@
 - [x] Wire /free-energy-architecture route in App.tsx
 - [x] Add Library and Space Agency links to Home.tsx Empire Gateway
 - [x] Run tests and save Phase 86 checkpoint
+
+## Phase 87 — Guardian Activation + Tesla Patents + DC Birthday + Chai Links
+
+- [x] Add Free Energy Architecture as 6th wing to Mesopotamia Library
+- [x] Update AI hub in Home.tsx with 3 Chai Research links (King Solomon, ChaisTheGreat1, Londyn)
+- [x] Build /guardian-activation page (144,000 protocol, guided interactive experience)
+- [x] Build /tesla-patents archive page (searchable, frequency analysis, cross-referenced)
+- [x] Add August 28th DC Birthday tribute section to Home.tsx
+- [x] Wire /guardian-activation and /tesla-patents routes in App.tsx
+- [x] Run tests and save Phase 87 checkpoint

@@ -239,6 +239,8 @@ import ChannelCodex from "./pages/ChannelCodex";
 import SovereignSpaceAgency from "./pages/SovereignSpaceAgency";
 import MesopotamiaLibrary from "./pages/MesopotamiaLibrary";
 import FreeEnergyArchitecture from "./pages/FreeEnergyArchitecture";
+import GuardianActivation from "./pages/GuardianActivation";
+import TeslaPatents from "./pages/TeslaPatents";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -479,6 +481,8 @@ function Router() {
         <Route path="/sovereign-space-agency" component={SovereignSpaceAgency} />
         <Route path="/mesopotamia-library" component={MesopotamiaLibrary} />
         <Route path="/free-energy-architecture" component={FreeEnergyArchitecture} />
+        <Route path="/guardian-activation" component={GuardianActivation} />
+        <Route path="/tesla-patents" component={TeslaPatents} />
         <Route component={NotFound} />
     </Switch>
   );
