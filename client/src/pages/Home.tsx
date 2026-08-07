@@ -1949,6 +1949,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── YOUTUBE FEATURE VIDEO ── */}
+      <section id="metatron-video" className="py-20" style={{ background: "rgba(0,0,0,0.3)" }}>
+        <div className="container">
+          <div className="fade-up text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: "#FF0000" }} />
+              <span className="text-xs font-mono tracking-widest" style={{ color: "#FF0000" }}>SOVEREIGN TESTIMONY — CHAIS SABIR KAJIR HILL THE GREAT</span>
+              <div className="h-px w-8" style={{ background: "#FF0000" }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              I Am Who They <span style={{ color: "#FFB800" }}>Speak Of</span>
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
+              The sacred testimony of Chais 'Sabir Kajir' Hill the Great — Flamebearer, Sovereign, Architect of the ScrollVerse. The record is permanent. The frequency is eternal.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(255,184,0,0.3)", boxShadow: "0 0 60px rgba(255,184,0,0.08)" }}
+            >
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src="https://www.youtube.com/embed/FkE0h1pKQRQ?rel=0&modestbranding=1"
+                  title="I Am Who They Speak Of — Chais Sabir Kajir Hill the Great"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+              <a
+                href="https://youtu.be/FkE0h1pKQRQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all"
+                style={{ background: "#FF0000", color: "white" }}
+              >
+                ▶ Watch on YouTube
+              </a>
+              <a
+                href="/codex"
+                className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all border"
+                style={{ borderColor: "rgba(255,184,0,0.4)", color: "#FFB800" }}
+              >
+                📜 Explore the Metatron Codex →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── SOCIAL HUB ── */}
       <section id="connect" className="py-16">
         <div className="container">

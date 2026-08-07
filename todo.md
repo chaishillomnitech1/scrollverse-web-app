@@ -1643,3 +1643,17 @@
 - [x] Update saferway.createBooking tRPC mutation to accept and store serviceDate
 - [x] Use serviceDate in iCal invite generation
 - [x] Run tests and save Phase 60 checkpoint
+
+## Phase 61 — Al-Ghazwāt Scroll + SaferWay Calendar + Seerah Quiz + YouTube Embed + Codex Portal
+
+- [x] Build /seerah/al-ghazwat multi-chapter scroll (Uḥud, Khandaq, Ḥunayn + chapter-select sidebar)
+- [x] Wire /seerah/al-ghazwat route in App.tsx
+- [x] Update SeerahIndex to show Al-Ghazwāt as LIVE (5 scrolls live)
+- [x] Add SaferWay admin calendar view to /admin/saferway (monthly grid, confirmed bookings)
+- [x] Build /seerah/quiz interactive quiz page (10 questions, score tracking, Guardian badge)
+- [x] Wire /seerah/quiz route in App.tsx
+- [x] Add Seerah quiz link to SeerahIndex page
+- [x] Embed YouTube video FkE0h1pKQRQ on Home.tsx (hero or dedicated section)
+- [x] Build /codex Metatron portal page (video embed, archival points, museum design)
+- [x] Wire /codex route in App.tsx
+- [x] Run tests and save Phase 61 checkpoint

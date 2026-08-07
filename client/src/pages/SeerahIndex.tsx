@@ -126,11 +126,11 @@ const SCROLL_ENTRIES: ScrollEntry[] = [
     period: "630 CE",
     description:
       "The bloodless conquest of Makkah — the Prophet ﷺ returns to the city that expelled him, offering amnesty to all. The Kaʿbah is purified. A new era begins.",
-    status: "coming",
-    comingPhase: "Phase 59",
+    status: "live",
+    href: "/seerah/fath-makkah",
     icon: "🕋",
     color: "#00FF88",
-    sections: 0,
+    sections: 12,
   },
   {
     id: "farewell",
@@ -146,6 +146,21 @@ const SCROLL_ENTRIES: ScrollEntry[] = [
     icon: "✨",
     color: "#9B59B6",
     sections: 0,
+  },
+  {
+    id: "al-ghazwat",
+    phase: "Phase 61",
+    titleEn: "Al-Ghazwāt",
+    titleAr: "الْغَزَوَاتُ",
+    subtitle: "The Sacred Expeditions",
+    period: "3–8 AH · 625–630 CE",
+    description:
+      "A unified chronicle of the three great expeditions — Uḥud, Khandaq, and Ḥunayn. Three chapters, fifteen sections, one scroll. The full arc of trial, steadfastness, and victory.",
+    status: "live",
+    href: "/seerah/al-ghazwat",
+    icon: "⚔️",
+    color: "#8E44AD",
+    sections: 15,
   },
 ];
 

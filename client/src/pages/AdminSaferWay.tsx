@@ -71,6 +71,11 @@ export default function AdminSaferWay() {
   const { user, loading, isAuthenticated } = useAuth();
   const [updatingId, setUpdatingId] = useState<number | null>(null);
   const [filterStatus, setFilterStatus] = useState<string>("ALL");
+  const [activeView, setActiveView] = useState<"list" | "calendar">("list");
+  const [calendarMonth, setCalendarMonth] = useState(() => {
+    const now = new Date();
+    return { year: now.getFullYear(), month: now.getMonth() };
+  });
 
   const { data, isLoading, refetch } = trpc.saferway.listBookings.useQuery(undefined, {
     enabled: isAuthenticated && user?.role === "admin",
@@ -250,29 +255,100 @@ export default function AdminSaferWay() {
           />
         </div>
 
-        {/* ── Status filter ── */}
-        <div className="flex flex-wrap gap-2">
-          {["ALL", "PENDING", "CONFIRMED", "COMPLETED", "CANCELLED"].map((s) => (
+        {/* ── View Toggle ── */}
+        <div className="flex gap-2 mb-2">
+          {(["list", "calendar"] as const).map((v) => (
             <button
-              key={s}
-              onClick={() => setFilterStatus(s)}
-              className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all"
+              key={v}
+              onClick={() => setActiveView(v)}
+              className="px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all"
               style={{
-                background:
-                  filterStatus === s
-                    ? "rgba(0,212,255,0.12)"
-                    : "rgba(255,255,255,0.03)",
-                border: `1px solid ${filterStatus === s ? "rgba(0,212,255,0.4)" : "rgba(255,255,255,0.07)"}`,
-                color: filterStatus === s ? "#00D4FF" : "#8899AA",
+                background: activeView === v ? "rgba(0,212,255,0.12)" : "rgba(255,255,255,0.03)",
+                border: `1px solid ${activeView === v ? "rgba(0,212,255,0.4)" : "rgba(255,255,255,0.07)"}`,
+                color: activeView === v ? "#00D4FF" : "#8899AA",
               }}
             >
-              {s}
-              {s !== "ALL" && (
-                <span className="ml-1.5 opacity-60">({countByStatus(s)})</span>
-              )}
+              {v === "list" ? "☰ List View" : "📅 Calendar View"}
             </button>
           ))}
         </div>
+
+        {/* ── Calendar View ── */}
+        {activeView === "calendar" && (() => {
+          const { year, month } = calendarMonth;
+          const monthName = new Date(year, month, 1).toLocaleString("default", { month: "long", year: "numeric" });
+          const firstDay = new Date(year, month, 1).getDay();
+          const daysInMonth = new Date(year, month + 1, 0).getDate();
+          const confirmedBookings = bookings.filter((b: SaferwayBooking) =>
+            b.status === "CONFIRMED" && b.serviceDate?.startsWith(`${year}-${String(month + 1).padStart(2, "0")}`)
+          );
+          const bookingsByDay: Record<number, SaferwayBooking[]> = {};
+          confirmedBookings.forEach((b: SaferwayBooking) => {
+            if (!b.serviceDate) return;
+            const day = parseInt(b.serviceDate.split("-")[2] ?? "0", 10);
+            if (!bookingsByDay[day]) bookingsByDay[day] = [];
+            bookingsByDay[day].push(b);
+          });
+          return (
+            <div className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(0,212,255,0.1)" }}>
+              <div className="flex items-center justify-between px-5 py-4" style={{ background: "rgba(0,212,255,0.05)", borderBottom: "1px solid rgba(0,212,255,0.1)" }}>
+                <button onClick={() => setCalendarMonth(({ year: y, month: m }) => m === 0 ? { year: y - 1, month: 11 } : { year: y, month: m - 1 })} className="text-sm font-mono" style={{ color: "#00D4FF" }}>← Prev</button>
+                <span className="font-bold text-white">{monthName}</span>
+                <button onClick={() => setCalendarMonth(({ year: y, month: m }) => m === 11 ? { year: y + 1, month: 0 } : { year: y, month: m + 1 })} className="text-sm font-mono" style={{ color: "#00D4FF" }}>Next →</button>
+              </div>
+              <div className="grid grid-cols-7 text-center text-xs font-mono py-2" style={{ background: "rgba(255,255,255,0.02)", color: "#8899AA" }}>
+                {["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(d => <div key={d}>{d}</div>)}
+              </div>
+              <div className="grid grid-cols-7 gap-px p-2" style={{ background: "rgba(0,212,255,0.03)" }}>
+                {Array.from({ length: firstDay }).map((_, i) => <div key={`empty-${i}`} className="h-16 rounded" style={{ background: "rgba(255,255,255,0.01)" }} />)}
+                {Array.from({ length: daysInMonth }, (_, i) => i + 1).map(day => {
+                  const dayBookings = bookingsByDay[day] ?? [];
+                  const isToday = new Date().getDate() === day && new Date().getMonth() === month && new Date().getFullYear() === year;
+                  return (
+                    <div key={day} className="h-16 rounded p-1 relative" style={{ background: isToday ? "rgba(0,212,255,0.08)" : "rgba(255,255,255,0.02)", border: `1px solid ${isToday ? "rgba(0,212,255,0.3)" : "rgba(255,255,255,0.04)"}` }}>
+                      <div className="text-xs font-mono mb-1" style={{ color: isToday ? "#00D4FF" : "#8899AA" }}>{day}</div>
+                      {dayBookings.slice(0, 2).map((b: SaferwayBooking, bi: number) => (
+                        <div key={bi} className="text-xs truncate rounded px-1" style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", fontSize: "10px" }}>
+                          {b.guardianName.split(" ")[0]}
+                        </div>
+                      ))}
+                      {dayBookings.length > 2 && <div className="text-xs" style={{ color: "#FFB800", fontSize: "10px" }}>+{dayBookings.length - 2}</div>}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="px-5 py-3 text-xs font-mono" style={{ color: "#8899AA", borderTop: "1px solid rgba(0,212,255,0.1)" }}>
+                {confirmedBookings.length} confirmed booking{confirmedBookings.length !== 1 ? "s" : ""} this month · Only CONFIRMED bookings with a service date are shown
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ── Status filter ── */}
+        {activeView === "list" && (
+          <div className="flex flex-wrap gap-2">
+            {["ALL", "PENDING", "CONFIRMED", "COMPLETED", "CANCELLED"].map((s) => (
+              <button
+                key={s}
+                onClick={() => setFilterStatus(s)}
+                className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all"
+                style={{
+                  background:
+                    filterStatus === s
+                      ? "rgba(0,212,255,0.12)"
+                      : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${filterStatus === s ? "rgba(0,212,255,0.4)" : "rgba(255,255,255,0.07)"}`,
+                  color: filterStatus === s ? "#00D4FF" : "#8899AA",
+                }}
+              >
+                {s}
+                {s !== "ALL" && (
+                  <span className="ml-1.5 opacity-60">({countByStatus(s)})</span>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* ── Bookings table ── */}
         <div

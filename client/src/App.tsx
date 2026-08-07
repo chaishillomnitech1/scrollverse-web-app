@@ -219,6 +219,8 @@ import AdminSaferWay from "./pages/AdminSaferWay";
 import Badr from "./pages/Badr";
 import OmniMetrics from "./pages/OmniMetrics";
 import FathMakkah from "./pages/FathMakkah";
+import AlGhazwat from "./pages/AlGhazwat";
+import SeerahQuiz from "./pages/SeerahQuiz";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -439,6 +441,8 @@ function Router() {
         <Route path="/admin/saferway" component={AdminSaferWay} />
         <Route path="/metrics" component={OmniMetrics} />
         <Route path="/seerah/fath-makkah" component={FathMakkah} />
+        <Route path="/seerah/al-ghazwat" component={AlGhazwat} />
+        <Route path="/seerah/quiz" component={SeerahQuiz} />
       <Route component={NotFound} />
     </Switch>
   );

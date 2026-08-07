@@ -1302,6 +1302,7 @@ export const saferwayBookings = mysqlTable("saferway_bookings", {
   vehicleInfo: varchar("vehicleInfo", { length: 200 }),
   notes: text("notes"),
   status: varchar("status", { length: 32 }).default("PENDING").notNull(), // PENDING | CONFIRMED | COMPLETED | CANCELLED
+  serviceDate: varchar("serviceDate", { length: 20 }), // YYYY-MM-DD preferred date
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 export type SaferwayBooking = typeof saferwayBookings.$inferSelect;
