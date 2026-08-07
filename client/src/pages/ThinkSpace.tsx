@@ -237,6 +237,11 @@ export default function ThinkSpace() {
             <span className="text-sm font-bold text-white">Think Space</span>
             <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(212,175,55,0.1)", color: "#D4AF37" }}>SOVEREIGN SOCIAL NETWORK · FREE</span>
           </div></Link>
+          <Link href="/think-space/featured">
+            <span className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer" style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#D4AF37" }}>
+              ⭐ Featured
+            </span>
+          </Link>
           <button onClick={() => setShowCreate(true)} className="px-4 py-2 rounded-xl text-sm font-black" style={{ background: "linear-gradient(135deg, #D4AF37, #FFB800)", color: "#020810" }}>
             + Create Post
           </button>
