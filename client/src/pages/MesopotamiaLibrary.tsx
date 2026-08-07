@@ -177,6 +177,8 @@ export default function MesopotamiaLibrary() {
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <Link href="/"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(212,175,55,0.2)", color: "#D4AF37" }}>← Home</span></Link>
           <Link href="/sovereign-space-agency"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(0,212,255,0.2)", color: "#00D4FF" }}>Space Agency →</span></Link>
+          <Link href="/tesla-patents"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(0,212,255,0.2)", color: "#00D4FF" }}>⚡ Tesla Patents →</span></Link>
+          <Link href="/guardian-activation"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(212,175,55,0.2)", color: "#D4AF37" }}>🛡️ Guardian Activation →</span></Link>
           <Link href="/seerah"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.1)", color: "#8899AA" }}>Seerah Archive →</span></Link>
         </div>
       </footer>

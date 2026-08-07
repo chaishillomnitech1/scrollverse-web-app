@@ -1814,3 +1814,12 @@
 - [x] Add August 28th DC Birthday tribute section to Home.tsx
 - [x] Wire /guardian-activation and /tesla-patents routes in App.tsx
 - [x] Run tests and save Phase 87 checkpoint
+
+## Phase 88 — DC Visit + Guardian Nav + Contract Buttons Live
+
+- [x] Add Guardian Activation link to Home.tsx main nav
+- [x] Build /dc-visit countdown page (Aug 28 timer, White House, sovereign mission, Guardian CTA)
+- [x] Add Tesla Patents + Guardian Activation links to Mesopotamia Library Free Energy wing
+- [x] Make all blockchain contract/deploy buttons live (Polygonscan links, copy address, gas estimates)
+- [x] Wire /dc-visit route in App.tsx
+- [x] Run tests and save Phase 88 checkpoint

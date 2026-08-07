@@ -241,6 +241,7 @@ import MesopotamiaLibrary from "./pages/MesopotamiaLibrary";
 import FreeEnergyArchitecture from "./pages/FreeEnergyArchitecture";
 import GuardianActivation from "./pages/GuardianActivation";
 import TeslaPatents from "./pages/TeslaPatents";
+import DCVisit from "./pages/DCVisit";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -483,6 +484,7 @@ function Router() {
         <Route path="/free-energy-architecture" component={FreeEnergyArchitecture} />
         <Route path="/guardian-activation" component={GuardianActivation} />
         <Route path="/tesla-patents" component={TeslaPatents} />
+        <Route path="/dc-visit" component={DCVisit} />
         <Route component={NotFound} />
     </Switch>
   );
