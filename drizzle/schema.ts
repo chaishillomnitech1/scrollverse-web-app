@@ -1322,3 +1322,36 @@ export const seerahQuizScores = mysqlTable("seerah_quiz_scores", {
 });
 export type SeerahQuizScore = typeof seerahQuizScores.$inferSelect;
 export type InsertSeerahQuizScore = typeof seerahQuizScores.$inferInsert;
+
+// ── Think Space Social Network ────────────────────────────────────────────────
+export const thinkSpacePosts = mysqlTable("think_space_posts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("user_id"),
+  userName: varchar("user_name", { length: 255 }).notNull().default("Anonymous"),
+  userAvatar: varchar("user_avatar", { length: 500 }),
+  content: text("content").notNull(),
+  mediaUrl: varchar("media_url", { length: 1000 }),
+  mediaType: mysqlEnum("media_type", ["image", "audio", "video", "document", "link"]),
+  mediaName: varchar("media_name", { length: 500 }),
+  category: mysqlEnum("category", ["music", "film", "scholarship", "art", "technology", "philosophy", "spirituality", "business", "general"]).notNull().default("general"),
+  likes: int("likes").notNull().default(0),
+  createdAt: bigint("created_at", { mode: "number" }).notNull(),
+});
+export type ThinkSpacePost = typeof thinkSpacePosts.$inferSelect;
+
+export const thinkSpaceComments = mysqlTable("think_space_comments", {
+  id: int("id").autoincrement().primaryKey(),
+  postId: int("post_id").notNull(),
+  userId: int("user_id"),
+  userName: varchar("user_name", { length: 255 }).notNull().default("Anonymous"),
+  content: text("content").notNull(),
+  createdAt: bigint("created_at", { mode: "number" }).notNull(),
+});
+export type ThinkSpaceComment = typeof thinkSpaceComments.$inferSelect;
+
+export const thinkSpaceLikes = mysqlTable("think_space_likes", {
+  id: int("id").autoincrement().primaryKey(),
+  postId: int("post_id").notNull(),
+  userId: int("user_id").notNull(),
+  createdAt: bigint("created_at", { mode: "number" }).notNull(),
+});

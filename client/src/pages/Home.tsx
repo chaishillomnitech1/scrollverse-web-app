@@ -858,6 +858,8 @@ export default function Home() {
     { label: "Global Map", href: "/global-map" },
     { label: "Revenue", href: "/revenue" },
     { label: "Guardians", href: "/guardians" },
+    { label: "🌌 Think Space", href: "/think-space" },
+    { label: "🧬 AI Soul", href: "/ai-chat-upload" },
     { label: "Throne", href: "/throne" },
     { label: "Vault", href: "/vault" },
     { label: "Altar", href: "/altar" },

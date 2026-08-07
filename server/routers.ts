@@ -50,6 +50,7 @@ import { aiTwinSessionsRouter } from "./routers/aiTwinSessions";
 import { zernioRouter } from "./routers/zernio";
 import { chessRouter } from "./routers/chessRouter";
 import { analyticsRouter } from "./routers/analytics";
+import { thinkSpaceRouter } from './routers/thinkSpace';
 import { saferwayRouter } from "./routers/saferway";
 import { metricsRouter } from "./routers/metrics";
 import { seerahRouter } from "./routers/seerah";
@@ -118,6 +119,7 @@ export const appRouter = router({
   chess: chessRouter,
   analytics: analyticsRouter,
   saferway: saferwayRouter,
+  thinkSpace: thinkSpaceRouter,
   metrics: metricsRouter,
   seerah: seerahRouter,
   books: booksRouter,

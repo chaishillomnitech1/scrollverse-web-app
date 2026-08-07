@@ -228,6 +228,8 @@ import JuniorMoviesUniverse from "./pages/JuniorMoviesUniverse";
 import AlFathKhaybar from "./pages/AlFathKhaybar";
 import SovereignBooks from "./pages/SovereignBooks";
 import AlAqsa from "./pages/AlAqsa";
+import ThinkSpace from '@/pages/ThinkSpace';
+import AIChatUpload from '@/pages/AIChatUpload';
 import AlFarewell from "./pages/AlFarewell";
 import Londyn from "./pages/Londyn";
 import SovereignCard from "./pages/SovereignCard";
@@ -489,6 +491,8 @@ function Router() {
         <Route path="/dc-visit" component={DCVisit} />
         <Route path="/philosophers-archive" component={PhilosophersArchive} />
         <Route path="/seerah/al-isra-wal-miraj-deep" component={AlIsraWalMirajDeep} />
+        <Route path="/think-space" component={ThinkSpace} />
+        <Route path="/ai-chat-upload" component={AIChatUpload} />
         <Route component={NotFound} />
     </Switch>
   );
