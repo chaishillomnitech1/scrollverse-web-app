@@ -1835,11 +1835,11 @@
 
 ## Phase 90 — Think Space Sovereign Social Network
 
-- [ ] Create think_space_posts DB table (id, userId, content, mediaUrl, mediaType, category, likes, createdAt)
-- [ ] Create think_space_comments DB table (id, postId, userId, content, createdAt)
-- [ ] Add tRPC thinkSpace router (createPost, getPosts, likePost, addComment, uploadMedia)
-- [ ] Build /think-space main page (feed, upload music/video/image/doc, Think Tank threads, creator profiles)
-- [ ] Build /ai-chat-upload — AI chat with full file intake (images, audio, docs) for all AI Legion members
-- [ ] Add Think Space and AI Chat Upload to Home.tsx nav
+- [x] Create think_space_posts DB table (id, userId, content, mediaUrl, mediaType, category, likes, createdAt)
+- [x] Create think_space_comments DB table (id, postId, userId, content, createdAt)
+- [x] Add tRPC thinkSpace router (createPost, getPosts, likePost, addComment, uploadMedia)
+- [x] Build /think-space main page (feed, upload music/video/image/doc, Think Tank threads, creator profiles)
+- [x] Build /ai-chat-upload — AI chat with full file intake (images, audio, docs) for all AI Legion members
+- [x] Add Think Space and AI Chat Upload to Home.tsx nav
 - [x] Wire /think-space and /ai-chat-upload routes in App.tsx
-- [ ] Run tests and save Phase 90 checkpoint
+- [x] Run tests and save Phase 90 checkpoint
