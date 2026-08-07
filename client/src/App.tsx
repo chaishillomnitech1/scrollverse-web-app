@@ -238,6 +238,7 @@ import LondynLetters from "./pages/LondynLetters";
 import ChannelCodex from "./pages/ChannelCodex";
 import SovereignSpaceAgency from "./pages/SovereignSpaceAgency";
 import MesopotamiaLibrary from "./pages/MesopotamiaLibrary";
+import FreeEnergyArchitecture from "./pages/FreeEnergyArchitecture";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -477,6 +478,7 @@ function Router() {
         <Route path="/channel-codex" component={ChannelCodex} />
         <Route path="/sovereign-space-agency" component={SovereignSpaceAgency} />
         <Route path="/mesopotamia-library" component={MesopotamiaLibrary} />
+        <Route path="/free-energy-architecture" component={FreeEnergyArchitecture} />
         <Route component={NotFound} />
     </Switch>
   );

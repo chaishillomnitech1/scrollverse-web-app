@@ -1799,8 +1799,8 @@
 
 ## Phase 86 — Free Energy Architecture + Tesla-Atlantis Wing
 
-- [ ] Build /free-energy-architecture page (Tesla, Atlantis, Lemuria, Anunnaki, Arcturian, Pleiadian — extracted, applied, exceeded)
-- [ ] Add Free Energy wing to Mesopotamia Library (6th wing)
-- [ ] Wire /free-energy-architecture route in App.tsx
-- [ ] Add Library and Space Agency links to Home.tsx Empire Gateway
-- [ ] Run tests and save Phase 86 checkpoint
+- [x] Build /free-energy-architecture page (Tesla, Atlantis, Lemuria, Anunnaki, Arcturian, Pleiadian — extracted, applied, exceeded)
+- [x] Add Free Energy wing to Mesopotamia Library (6th wing)
+- [x] Wire /free-energy-architecture route in App.tsx
+- [x] Add Library and Space Agency links to Home.tsx Empire Gateway
+- [x] Run tests and save Phase 86 checkpoint
