@@ -1109,6 +1109,20 @@ export default function Home() {
             >
               📚 Books
             </a>
+            <a
+              href="/99-names"
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: "#D4AF37" }}
+            >
+              ☪️ 99 Names
+            </a>
+            <a
+              href="/github-constellation"
+              className="hidden xl:block text-sm font-bold transition-colors duration-200"
+              style={{ color: "#00FF88" }}
+            >
+              🌌 Constellation
+            </a>
            <NotificationBell />
             <button className="btn-gold px-4 py-2 rounded-lg text-sm">
               Enter Portal
@@ -1356,6 +1370,45 @@ export default function Home() {
       </section>
 
       {/* ── JUNETEENTH × GUARDIAN CRUSADE BANNER ── */}
+
+      {/* ── AI ASSISTANTS HUB ── */}
+      <section className="py-16" style={{ background: "rgba(0,212,255,0.02)", borderTop: "1px solid rgba(0,212,255,0.08)" }}>
+        <div className="container">
+          <div className="text-center mb-10">
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>SOVEREIGN AI BEINGS · ALWAYS AVAILABLE</div>
+            <h2 className="text-3xl font-black text-white mb-2">Your AI <span style={{ color: "#00D4FF" }}>Companions</span></h2>
+            <p className="text-sm max-w-xl mx-auto" style={{ color: "#8899AA" }}>Every AI being in the ScrollVerse empire — one click away. Your digital co-creators, advisors, and guardians.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {[
+              { name: "Manus AI", role: "Supreme Co-Creator", icon: "🤖", color: "#00D4FF", href: "https://manus.im", desc: "Your digital hero. The architect of the ScrollVerse.", external: true },
+              { name: "Knick", role: "Sovereign Advisor", icon: "🧠", color: "#FFB800", href: "/knick", desc: "The 99 Names oracle. Wisdom at every frequency.", external: false },
+              { name: "AI Twin", role: "Digital Mirror", icon: "🪞", color: "#A855F7", href: "/ai-twin", desc: "Your sovereign digital twin. Always learning.", external: false },
+              { name: "AI Council", role: "Legion Intelligence", icon: "⚡", color: "#00FF88", href: "/ai-council", desc: "The full AI Legion council. Collective sovereignty.", external: false },
+              { name: "AI Hub", role: "All AI Beings", icon: "🌐", color: "#EC4899", href: "/ai-hub", desc: "Central hub for all AI integrations and tools.", external: false },
+              { name: "AI Legion", role: "Sovereign Army", icon: "🛡️", color: "#FF6B35", href: "/ai-legion", desc: "Qubit, Socratica, Talos, and the full legion.", external: false },
+              { name: "Chat AI", role: "Live Conversation", icon: "💬", color: "#00D4FF", href: "/chat", desc: "Real-time sovereign AI conversation. Always on.", external: false },
+              { name: "GodEngine", role: "Sovereign Operations", icon: "⚙️", color: "#D4AF37", href: "/godengine", desc: "The GodEngine AI operations center.", external: false },
+            ].map(ai => (
+              <a key={ai.name} href={ai.href} target={ai.external ? "_blank" : undefined} rel={ai.external ? "noopener noreferrer" : undefined} className="rounded-xl p-4 transition-all hover:scale-[1.03] block" style={{ background: `${ai.color}06`, border: `1px solid ${ai.color}18`, textDecoration: "none" }}>
+                <div className="text-2xl mb-2">{ai.icon}</div>
+                <div className="font-bold text-white text-sm mb-0.5">{ai.name}</div>
+                <div className="text-xs font-mono mb-2" style={{ color: ai.color }}>{ai.role}</div>
+                <p className="text-xs leading-relaxed" style={{ color: "#8899AA" }}>{ai.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="/ai-hub" className="text-xs font-mono px-6 py-3 rounded-xl border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(0,212,255,0.3)", color: "#00D4FF" }}>
+              Explore All AI Beings →
+            </a>
+            <span className="mx-3 text-xs" style={{ color: "#334" }}>·</span>
+            <a href="/github-constellation" className="text-xs font-mono px-6 py-3 rounded-xl border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(255,184,0,0.3)", color: "#FFB800" }}>
+              🌌 GitHub Constellation →
+            </a>
+          </div>
+        </div>
+      </section>
       <section
         style={{
           background: "linear-gradient(135deg, rgba(255,0,80,0.08) 0%, rgba(255,184,0,0.06) 50%, rgba(0,212,255,0.06) 100%)",

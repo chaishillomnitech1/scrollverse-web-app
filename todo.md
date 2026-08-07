@@ -1739,3 +1739,14 @@
 - [x] Add sovereign books cross-link to all 8 existing Seerah scroll footers
 - [x] Expand SovereignBooks hub with all discovered books from GitHub
 - [x] Run tests and save Phase 79 checkpoint
+
+## Phase 80 — GitHub Constellation + AI Hub + 99 Names + Voice Upgrade + Home Impact
+
+- [x] Build /github-constellation visual map (53 repos, 6 categories, live links)
+- [x] Add AI Assistants hub section to Home.tsx (Manus, Knick, AI Twin, AI Council, all AI beings)
+- [x] Upgrade Web Speech API voices to warm/human quality (pitch, rate, volume tuning + female voice option)
+- [x] Build /99-names sacred page (Asma al-Husna, 99 names, calligraphy, audio, frequency visualization)
+- [x] Upgrade Home.tsx hero first-impression to shock-level impact (animated entrance, particle burst, sovereign welcome)
+- [x] Add real purchase links to SovereignBooks (Amazon KDP / Gumroad placeholders with instructions)
+- [x] Wire /github-constellation and /99-names routes in App.tsx
+- [x] Run tests and save Phase 80 checkpoint

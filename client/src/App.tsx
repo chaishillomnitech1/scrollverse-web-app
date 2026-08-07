@@ -229,6 +229,8 @@ import AlFathKhaybar from "./pages/AlFathKhaybar";
 import SovereignBooks from "./pages/SovereignBooks";
 import AlAqsa from "./pages/AlAqsa";
 import AlFarewell from "./pages/AlFarewell";
+import GitHubConstellation from "./pages/GitHubConstellation";
+import NinetyNineNames from "./pages/NinetyNineNames";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -459,6 +461,8 @@ function Router() {
         <Route path="/sovereign-books" component={SovereignBooks} />
         <Route path="/seerah/al-aqsa" component={AlAqsa} />
         <Route path="/seerah/al-farewell" component={AlFarewell} />
+        <Route path="/github-constellation" component={GitHubConstellation} />
+        <Route path="/99-names" component={NinetyNineNames} />
       <Route component={NotFound} />
     </Switch>
   );
