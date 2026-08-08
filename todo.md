@@ -1852,3 +1852,11 @@
 - [x] Add shareable Guardian badge + crypto prizes section to DC Visit page
 - [x] Wire /think-space/featured route in App.tsx
 - [x] Run tests and save Phase 91 checkpoint
+
+## Phase 92 — Guardian Leaderboard + Mobile Nav + Featured Banner
+
+- [x] Build /guardian-leaderboard page (live DB scores, referral counts, $LONDC prize positions)
+- [x] Add mobile bottom nav bar to App.tsx (Home, Think Space, Seerah, AI Legion, Activate)
+- [x] Add /think-space/featured banner to Home.tsx Empire Gateway section
+- [x] Wire /guardian-leaderboard route in App.tsx
+- [x] Run tests and save Phase 92 checkpoint

@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -243,14 +243,43 @@ import SovereignSpaceAgency from "./pages/SovereignSpaceAgency";
 import MesopotamiaLibrary from "./pages/MesopotamiaLibrary";
 import FreeEnergyArchitecture from "./pages/FreeEnergyArchitecture";
 import GuardianActivation from "./pages/GuardianActivation";
+import GuardianLeaderboard from "./pages/GuardianLeaderboard";
 import TeslaPatents from "./pages/TeslaPatents";
 import DCVisit from "./pages/DCVisit";
 import PhilosophersArchive from "./pages/PhilosophersArchive";
 import AlIsraWalMirajDeep from "./pages/AlIsraWalMirajDeep";
 
+// ── Mobile Bottom Navigation ──────────────────────────────────────────────────
+function MobileBottomNav() {
+  const [loc] = useLocation();
+  const items = [
+    { href: "/", icon: "🏠", label: "Home" },
+    { href: "/think-space", icon: "🌌", label: "Think" },
+    { href: "/seerah", icon: "📜", label: "Seerah" },
+    { href: "/ai-legion-apex", icon: "🤖", label: "Legion" },
+    { href: "/guardian-activation", icon: "🛡️", label: "Activate" },
+  ];
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-50 sm:hidden border-t" style={{ background: "rgba(2,8,16,0.97)", borderColor: "rgba(212,175,55,0.12)", backdropFilter: "blur(20px)" }}>
+      <div className="flex">
+        {items.map(item => {
+          const active = loc === item.href || (item.href !== "/" && loc.startsWith(item.href));
+          return (
+            <a key={item.href} href={item.href} className="flex-1 flex flex-col items-center py-2 gap-0.5 transition-all" style={{ color: active ? "#D4AF37" : "#8899AA" }}>
+              <span className="text-lg leading-none">{item.icon}</span>
+              <span className="text-[9px] font-bold leading-none">{item.label}</span>
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
+
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
+    <>
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/global-map"} component={GlobalMap} />
@@ -488,6 +517,7 @@ function Router() {
         <Route path="/mesopotamia-library" component={MesopotamiaLibrary} />
         <Route path="/free-energy-architecture" component={FreeEnergyArchitecture} />
         <Route path="/guardian-activation" component={GuardianActivation} />
+        <Route path="/guardian-leaderboard" component={GuardianLeaderboard} />
         <Route path="/tesla-patents" component={TeslaPatents} />
         <Route path="/dc-visit" component={DCVisit} />
         <Route path="/philosophers-archive" component={PhilosophersArchive} />
@@ -497,6 +527,8 @@ function Router() {
         <Route path="/ai-chat-upload" component={AIChatUpload} />
         <Route component={NotFound} />
     </Switch>
+    <MobileBottomNav />
+    </>
   );
 }
 
