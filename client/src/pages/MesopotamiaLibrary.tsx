@@ -1,3 +1,4 @@
+import { sovereignSpeak } from '@/lib/sovereignVoice';
 /*
  * THE MESOPOTAMIA LIBRARY — Greatest Knowledge Archive for All Existence
  * Exceeds: Library of Alexandria, British Museum, Smithsonian, Library of Congress

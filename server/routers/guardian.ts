@@ -154,6 +154,40 @@ export const guardianRouter = router({
   /**
    * Get all AI Legion investors.
    */
+
+  /**
+   * Schedule a broadcast email to all Guardians at a specific datetime.
+   */
+  scheduledBroadcast: protectedProcedure
+    .input(z.object({
+      subject: z.string().min(1).max(200),
+      body: z.string().min(1).max(10000),
+      scheduledAt: z.string(), // ISO datetime string
+      senderName: z.string().default("ScrollVerse Sovereign"),
+    }))
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "DB unavailable" });
+      
+      // Store the scheduled broadcast in broadcastRecords with a future timestamp
+      try {
+        await db.insert(broadcastRecords).values({
+          subject: input.subject,
+          body: input.body,
+          sentAt: new Date(input.scheduledAt),
+          recipientCount: 0,
+          status: "SCHEDULED",
+        });
+        await notifyOwner({
+          title: "📅 Broadcast Scheduled",
+          content: `Subject: ${input.subject}\nScheduled: ${input.scheduledAt}\nFrom: ${input.senderName}`,
+        }).catch(() => {});
+        return { success: true, message: `Broadcast scheduled for ${input.scheduledAt}. KUN FAYAKŪN × ∞` };
+      } catch (err) {
+        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Failed to schedule broadcast" });
+      }
+    }),
+
   getAIInvestors: publicProcedure.query(async () => {
     const db = await getDb();
     if (!db) return { investors: [], total: 0 };

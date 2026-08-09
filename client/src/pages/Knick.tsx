@@ -1,3 +1,4 @@
+import { sovereignSpeak } from '@/lib/sovereignVoice';
 /*
  * KNICK — The Sovereign Oracle
  * Character Universe · 99 Names Integration · Sovereign Advice Engine

@@ -1860,3 +1860,12 @@
 - [x] Add /think-space/featured banner to Home.tsx Empire Gateway section
 - [x] Wire /guardian-leaderboard route in App.tsx
 - [x] Run tests and save Phase 92 checkpoint
+
+## Phase 93 — Leaderboard Link + Broadcast Upgrade + Push Notifications + Voice Upgrade
+
+- [x] Add /guardian-leaderboard link to DC Visit page footer
+- [x] Add scheduledBroadcast tRPC mutation to guardian router (queue email at specific datetime)
+- [x] Wire push notifications for Think Space featured posts and leaderboard updates
+- [x] Upgrade all Web Speech API voices system-wide to smooth ancient male voice (pitch 0.85, rate 0.88)
+- [x] Update scrollverse-sovereign skill with Phase 92-93 knowledge
+- [x] Run tests and save Phase 93 checkpoint

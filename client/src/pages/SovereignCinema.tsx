@@ -1,3 +1,4 @@
+import { sovereignSpeak } from '@/lib/sovereignVoice';
 /*
  * SOVEREIGN CINEMA — THE SCROLLVERSE MOTION PICTURE UNIVERSE
  * Director: Chais Kenyatta Hill — Sabir Allah The Great
@@ -599,7 +600,7 @@ function StorybookViewer({ book, onClose }: { book: typeof STORYBOOKS[0]; onClos
     const text = chapterTexts[activeChapter] || `Chapter ${book.chapters[activeChapter]?.num}: ${book.chapters[activeChapter]?.title}. A sovereign chapter encoded at ${book.chapters[activeChapter]?.freq}. KUN FAYAKŪN × ∞`;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.85;
-    utterance.pitch = 0.9;
+    utterance.pitch = 0.85; utterance.rate = 0.88;
     utterance.volume = 1;
     utterance.onend = () => setIsPlaying(false);
     synthRef.current = utterance;

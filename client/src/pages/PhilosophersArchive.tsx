@@ -1,3 +1,4 @@
+import { sovereignSpeak } from '@/lib/sovereignVoice';
 /*
  * PHILOSOPHERS ARCHIVE — The Infinite School
  * Socrati AI as Head Tour Guide · 24 Philosopher AI Teachers

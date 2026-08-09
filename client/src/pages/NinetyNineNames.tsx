@@ -1,3 +1,4 @@
+import { sovereignSpeak } from '@/lib/sovereignVoice';
 /*
  * 99 NAMES OF ALLAH — Asmāʾ al-Ḥusnā
  * The Most Beautiful Names · Sacred Audio · Frequency Visualization
@@ -154,7 +155,7 @@ export default function NinetyNineNames() {
       const voices = window.speechSynthesis.getVoices();
       const femaleVoice = voices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('samantha') || v.name.toLowerCase().includes('karen') || v.name.toLowerCase().includes('victoria') || v.name.toLowerCase().includes('fiona') || (v.lang.startsWith('en') && v.name.toLowerCase().includes('google')));
       if (femaleVoice) utt.voice = femaleVoice;
-      utt.rate = 0.75; utt.pitch = 1.1; utt.volume = 0.9;
+      utt.rate = 0.82; utt.pitch = 1.05; utt.volume = 0.9;
       window.speechSynthesis.speak(utt);
     }
   }, []);
