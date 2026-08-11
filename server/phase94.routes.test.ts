@@ -31,6 +31,28 @@ describe("Phase 94 route map", () => {
     expect(mein).toContain("A generated concept visual cannot satisfy the three-image approval requirement");
   });
 
+  it("registers the public fashion portfolio as an original concept tool", () => {
+    const portfolio = readProjectFile("client/src/pages/FashionPortfolio.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import FashionPortfolio from "./pages/FashionPortfolio"');
+    expect(app).toContain('<Route path="/fashion-portfolio" component={FashionPortfolio} />');
+    expect(portfolio).toContain("ORIGINAL LOOK BUILDER");
+    expect(portfolio).toContain("CONCEPT-ONLY BOUNDARY");
+    expect(portfolio).toContain("does not create an order");
+    expect(home).toContain('href: "/fashion-portfolio"');
+    expect(home).toContain('name: "Ismael Perez"');
+    expect(home).toContain("not a representation of an official channel affiliation");
+  });
+
+  it("preserves a documentation-only continuity preflight for fashion releases", () => {
+    const continuityLedger = readProjectFile("docs/CONTINUITY_LEDGER.md");
+    const preflight = readProjectFile("scripts/preflight-continuity-check.mjs");
+    expect(continuityLedger).toContain("Evidence-driven activation");
+    expect(continuityLedger).toContain("Versioned, Not Self-Activating");
+    expect(preflight).toContain("COMMERCE_MODE=FAIL_CLOSED_DOCUMENTATION_ONLY");
+    expect(preflight).toContain("does not call providers, write data, process payments, or activate commerce");
+  });
+
   it("preserves the seven-set Atlantis collection and searchable Empire Index", () => {
     const atlantis = readProjectFile("client/src/pages/AtlantisCollection.tsx");
     const index = readProjectFile("client/src/pages/EmpireIndex.tsx");

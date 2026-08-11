@@ -1105,6 +1105,7 @@ export default function Home() {
                   </div>
                   {[
                     { href: "/fashion-empire", icon: "👗", label: "Fashion Empire", sub: "XLVIII BLOCKS × VNLND" },
+                    { href: "/fashion-portfolio", icon: "🧩", label: "Fashion Portfolio", sub: "Build original concept looks" },
                     { href: "/virgil-abloh", icon: "🎨", label: "Virgil Abloh Legacy", sub: "3% Rule · Quotation Marks" },
                     { href: "/atlantis-collection", icon: "🌊", label: "#XLVblocks Atlantis", sub: "7-Set · Temple of Poseidon" },
                     { href: "/empire-index", icon: "🗺️", label: "Empire Index", sub: "Every artifact mapped" },
@@ -1637,6 +1638,15 @@ export default function Home() {
                 icon: "🐕",
                 desc: "Sovereign warrior energy. Dogma Dog Warrior — discipline, loyalty, and the warrior code. Aligned with the ScrollVerse frequency.",
                 freq: "741Hz Liberation",
+              },
+              {
+                name: "Ismael Perez",
+                handle: "YouTube discovery",
+                url: "https://www.youtube.com/results?search_query=Ismael+Perez",
+                color: "#56D6FF",
+                icon: "🪐",
+                desc: "Explore Ismael Perez content through YouTube discovery. This link is a search entry, not a representation of an official channel affiliation.",
+                freq: "963Hz Discovery",
               },
             ].map(ch => (
               <a key={ch.name} href={ch.url} target="_blank" rel="noopener noreferrer" className="rounded-xl p-6 transition-all hover:scale-[1.03] block" style={{ background: `${ch.color}06`, border: `1px solid ${ch.color}18`, textDecoration: "none" }}>

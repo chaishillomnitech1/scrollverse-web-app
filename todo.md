@@ -1912,3 +1912,15 @@
 - [x] Review supplied Instagram references for original styling signals without copying identities, third-party marks, or source media
 - [x] Validate the test path (TypeScript clean; 32/32 Vitest tests passing)
 - [x] Save Phase 97 checkpoint and synchronize GitHub
+
+## Phase 98 — Fashion Portfolio + Original Look Builder
+- [x] Assess current Stripe configuration, potential Shopify test-store constraints, and supplied staging proposals without enabling live commerce
+- [x] Build a public ScrollVerse Fashion Portfolio with routes to all original fashion artifacts and partner-safe status labels
+- [x] Add an interactive original look builder using only ScrollVerse concept pieces and explicit non-sale notices
+- [x] Add secure approved-asset management entry points and admin workflow guidance without treating concept images as product photography
+- [x] Add Ismael Perez to the public media hub with a YouTube discovery link and no affiliation claim
+- [x] Document the mutually exclusive Stripe-versus-Shopify activation choice and validate the full release before checkpoint
+- [x] Update reusable ScrollVerse fashion workflow guidance and the project continuity ledger with Phase 98 controls
+- [x] Add a durable continuity-ledger alias and a non-transactional preflight checker that verifies documentation only
+- [x] Run the continuity preflight, TypeScript validation, and regression suite (TypeScript clean; 34/34 Vitest tests passing)
+- [x] Save Phase 98 checkpoint and synchronize GitHub
