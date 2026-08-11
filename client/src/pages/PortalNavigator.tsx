@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { trpc } from "@/lib/trpc";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
 type JourneyRoute = {
@@ -117,6 +118,20 @@ export default function PortalNavigator() {
   useSovereignHeartbeat({ page: "portal-navigator" });
   const [query, setQuery] = useState("");
   const [activeZone, setActiveZone] = useState("all");
+  const { data: user } = trpc.auth.me.useQuery();
+  const isAuthenticated = Boolean(user);
+  const overview = trpc.journey.overview.useQuery(undefined, { enabled: isAuthenticated });
+  const markProgress = trpc.journey.markProgress.useMutation({ onSuccess: () => overview.refetch() });
+  const setAnalyticsPreference = trpc.journey.setAnalyticsPreference.useMutation({ onSuccess: () => overview.refetch() });
+  const trackInteraction = trpc.journey.trackInteraction.useMutation();
+
+  useEffect(() => {
+    if (isAuthenticated) void overview.refetch();
+  }, [isAuthenticated]);
+
+  const trackRoute = (zoneId: string, href: string, eventType: "ROUTE_SELECTED" | "RECOMMENDATION_SELECTED" = "ROUTE_SELECTED") => {
+    if (isAuthenticated) trackInteraction.mutate({ eventType, zoneId, targetHref: href });
+  };
 
   const zones = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -145,6 +160,13 @@ export default function PortalNavigator() {
               <Link href="/empire-index" className="inline-flex mt-5 rounded-lg px-4 py-2 text-sm font-bold" style={{ background: "rgba(255,184,0,0.12)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.28)" }}>Open the full Empire Index →</Link>
             </div>
           </div>
+          {isAuthenticated && overview.data && <div className="mt-8 rounded-2xl p-5 md:p-6" style={{ background: "rgba(0,212,255,0.055)", border: "1px solid rgba(0,212,255,0.22)" }}>
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+              <div className="max-w-xl"><p className="text-xs font-mono tracking-[0.16em]" style={{ color: "#00D4FF" }}>YOUR GUARDIAN PATH</p><h2 className="mt-2 text-2xl font-black">{overview.data.progress.completeSteps} of {overview.data.progress.totalSteps} orientation steps complete</h2><div className="mt-4 h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}><div className="h-full rounded-full" style={{ width: `${(overview.data.progress.completeSteps / overview.data.progress.totalSteps) * 100}%`, background: "linear-gradient(90deg, #00D4FF, #00FF88)" }} /></div><p className="mt-3 text-sm" style={{ color: "#9FB0C4" }}>This private marker only records your selected orientation steps; it has no score, payment, or eligibility effect.</p></div>
+              <div className="flex flex-wrap gap-2"><button onClick={() => markProgress.mutate({ step: "ACTIVATION_STARTED" })} className="rounded-lg px-4 py-2 text-sm font-bold" style={{ background: "rgba(255,184,0,0.12)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.28)" }}>Mark activation started</button><button onClick={() => setAnalyticsPreference.mutate({ enabled: !overview.data.analyticsEnabled })} className="rounded-lg px-4 py-2 text-sm font-bold" style={{ background: "rgba(255,255,255,0.04)", color: "#B8C6D8", border: "1px solid rgba(255,255,255,0.12)" }}>{overview.data.analyticsEnabled ? "Turn off private analytics" : "Enable 90-day journey analytics"}</button></div>
+            </div>
+            <div className="mt-6 grid md:grid-cols-3 gap-3">{overview.data.recommendations.map(recommendation => <Link key={recommendation.href} href={recommendation.href} onClick={() => { markProgress.mutate({ step: "RECOMMENDATION_VISITED" }); trackRoute("personalized", recommendation.href, "RECOMMENDATION_SELECTED"); }} className="rounded-xl p-4" style={{ background: "rgba(5,11,26,0.55)", border: `1px solid ${recommendation.tone === "gold" ? "rgba(255,184,0,0.28)" : recommendation.tone === "green" ? "rgba(0,255,136,0.26)" : "rgba(0,212,255,0.28)"}` }}><p className="font-bold">{recommendation.title}</p><p className="mt-1 text-xs leading-relaxed" style={{ color: "#9FB0C4" }}>{recommendation.description}</p></Link>)}</div>
+          </div>}
         </div>
       </section>
 
@@ -159,7 +181,7 @@ export default function PortalNavigator() {
 
         <div className="mt-6 flex gap-2 overflow-x-auto pb-2">
           <button onClick={() => setActiveZone("all")} className="shrink-0 rounded-full px-4 py-2 text-xs font-bold" style={{ background: activeZone === "all" ? "#00D4FF" : "rgba(255,255,255,0.04)", color: activeZone === "all" ? "#050B1A" : "#B8C6D8" }}>All paths</button>
-          {JOURNEY_ZONES.map(zone => <button key={zone.id} onClick={() => setActiveZone(zone.id)} className="shrink-0 rounded-full px-4 py-2 text-xs font-bold" style={{ background: activeZone === zone.id ? `${zone.color}22` : "rgba(255,255,255,0.04)", border: `1px solid ${activeZone === zone.id ? `${zone.color}75` : "rgba(255,255,255,0.08)"}`, color: activeZone === zone.id ? zone.color : "#B8C6D8" }}>{zone.icon} {zone.title}</button>)}
+          {JOURNEY_ZONES.map(zone => <button key={zone.id} onClick={() => { setActiveZone(zone.id); if (isAuthenticated) trackInteraction.mutate({ eventType: "ZONE_OPENED", zoneId: zone.id }); }} className="shrink-0 rounded-full px-4 py-2 text-xs font-bold" style={{ background: activeZone === zone.id ? `${zone.color}22` : "rgba(255,255,255,0.04)", border: `1px solid ${activeZone === zone.id ? `${zone.color}75` : "rgba(255,255,255,0.08)"}`, color: activeZone === zone.id ? zone.color : "#B8C6D8" }}>{zone.icon} {zone.title}</button>)}
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -175,7 +197,7 @@ export default function PortalNavigator() {
               </div>
               <div className="mt-6 grid gap-3">
                 {zone.routes.map(route => (
-                  <Link key={route.href} href={route.href} className="group rounded-xl p-4 transition-transform hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <Link key={route.href} href={route.href} onClick={() => trackRoute(zone.id, route.href)} className="group rounded-xl p-4 transition-transform hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     <div className="flex items-start justify-between gap-4">
                       <div><h3 className="font-bold group-hover:text-[#00D4FF] transition-colors">{route.title}</h3><p className="mt-1 text-xs leading-relaxed" style={{ color: "#8EA0B5" }}>{route.description}</p></div>
                       <span className="shrink-0 rounded-full px-2 py-1 text-[9px] font-mono" style={{ color: route.status === "START HERE" ? "#FFB800" : route.status === "COMMUNITY" ? "#00FF88" : "#00D4FF", background: "rgba(255,255,255,0.045)" }}>{route.status}</span>

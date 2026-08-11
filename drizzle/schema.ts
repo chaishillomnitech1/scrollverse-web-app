@@ -1493,3 +1493,34 @@ export const fashionLookboards = mysqlTable("fashion_lookboards", {
 });
 export type FashionLookboard = typeof fashionLookboards.$inferSelect;
 export type InsertFashionLookboard = typeof fashionLookboards.$inferInsert;
+
+// ── Personalized Journey Guidance ─────────────────────────────────────────────
+// These tables intentionally store only an authenticated user ID, route choices,
+// and task-completion timestamps. They do not store IP addresses, device IDs,
+// free-text profiling, financial data, or content of private interactions.
+export const journeyUserProgress = mysqlTable("journey_user_progress", {
+  userId: int("user_id").primaryKey().references(() => users.id, { onDelete: "cascade" }),
+  openedJourneyAt: timestamp("opened_journey_at"),
+  profileReadyAt: timestamp("profile_ready_at"),
+  activationStartedAt: timestamp("activation_started_at"),
+  recommendationVisitedAt: timestamp("recommendation_visited_at"),
+  analyticsOptedInAt: timestamp("analytics_opted_in_at"),
+  analyticsOptedOutAt: timestamp("analytics_opted_out_at"),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type JourneyUserProgress = typeof journeyUserProgress.$inferSelect;
+
+// Retention is enforced by the journey router: events older than 90 days are
+// pruned when a new authenticated journey interaction is recorded.
+export const journeyInteractionEvents = mysqlTable("journey_interaction_events", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  eventType: mysqlEnum("event_type", ["ZONE_OPENED", "ROUTE_SELECTED", "RECOMMENDATION_SELECTED"]).notNull(),
+  zoneId: varchar("zone_id", { length: 64 }),
+  targetHref: varchar("target_href", { length: 255 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [
+  index("journey_interaction_user_created_idx").on(table.userId, table.createdAt),
+  index("journey_interaction_created_idx").on(table.createdAt),
+]);
+export type JourneyInteractionEvent = typeof journeyInteractionEvents.$inferSelect;

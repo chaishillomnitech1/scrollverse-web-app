@@ -101,4 +101,16 @@ describe("Phase 94 route map", () => {
     expect(index).toContain("setAtlantisAssetStatus");
     expect(index).toContain("setAtlantisCommerceStatus");
   });
+
+  it("registers private journey guidance with voluntary analytics controls", () => {
+    const navigator = readProjectFile("client/src/pages/PortalNavigator.tsx");
+    const journeyRouter = readProjectFile("server/routers/journey.ts");
+    const router = readProjectFile("server/routers.ts");
+    expect(router).toContain("journey: journeyRouter");
+    expect(journeyRouter).toContain("analytics_not_enabled");
+    expect(journeyRouter).toContain("RETENTION_DAYS = 90");
+    expect(navigator).toContain("YOUR GUARDIAN PATH");
+    expect(navigator).toContain("Enable 90-day journey analytics");
+    expect(navigator).toContain("private marker only");
+  });
 });

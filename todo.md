@@ -1966,3 +1966,16 @@
 - [x] Add regression coverage and operational documentation for the integrated discovery layer
 - [x] Validate the integrated discovery layer (TypeScript clean; 44/44 Vitest tests passing; browser verification complete)
 - [x] Save Phase 103 checkpoint and synchronize GitHub
+
+## Phase 104 — Personalized Journey + Privacy-Conscious Discovery Analytics
+- [x] Assess supplied telemetry and load-test proposals against the project architecture and privacy boundary
+- [x] Assess supplied Google Drive access boundary before any protected import, publication, or SKU assignment
+- [ ] Create a protected continuity-archive inventory after Drive access is authorized, without auto-publishing or auto-importing contents
+- [x] Assess the supplied Manus Backup reference before adopting any continuity or restore workflow
+- [ ] Deferred: complete the owner-authorized private account and task-data exports without uploading or publishing recovery files
+- [x] Assess the accessible GitHub constellation for continuity mapping without assuming external repository permissions or deployment status
+- [x] Add authenticated personalized journey recommendations and Guardian onboarding progress
+- [x] Add minimal journey zone and route-selection analytics with retention controls
+- [x] Add regression coverage and document unadopted telemetry or external mutation proposals
+- [x] Validate the ready release (database migrations applied; TypeScript clean; 48/48 Vitest tests passing)
+- [x] Save Phase 104 checkpoint and synchronize GitHub
