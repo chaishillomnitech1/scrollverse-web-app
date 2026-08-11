@@ -1892,3 +1892,11 @@
 - [x] Add dynamic search and category, frequency, regional-anchor, and production-status filters for the 7-set #XLVblocks Atlantis collection in /empire-index
 - [x] Add regression tests and run validation (TypeScript clean; 27/27 Vitest tests passing)
 - [x] Save Phase 95 checkpoint and synchronize GitHub
+
+## Phase 96 — Atlantis Approval Gate + Catalog Operations
+- [x] Assess supplied evidence against required vendor, SKU, asset, impact-recipient, and Shopify authorization criteria
+- [x] Add database schema and tRPC procedures for supplier agreements, approved SKUs, asset records, and impact-recipient terms
+- [x] Enforce a server-side commerce activation gate that defaults to locked unless every required record is approved
+- [x] Build a protected catalog operations page for managing evidence URLs, SKU inputs, and approved asset uploads
+- [x] Add tests, validate the gate, and document Shopify authorization prerequisites (TypeScript clean; 30/30 Vitest tests passing)
+- [x] Save Phase 96 checkpoint and synchronize GitHub

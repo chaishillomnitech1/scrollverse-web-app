@@ -1355,3 +1355,89 @@ export const thinkSpaceLikes = mysqlTable("think_space_likes", {
   userId: int("user_id").notNull(),
   createdAt: bigint("created_at", { mode: "number" }).notNull(),
 });
+
+// ── Atlantis Catalog Approval & Commerce Gate ─────────────────────────────────
+// Document and image bytes remain in S3. The database stores only secure URLs/keys
+// and review metadata so no checkout path can activate without explicit approval.
+export const catalogManufacturers = mysqlTable("catalog_manufacturers", {
+  id: int("id").autoincrement().primaryKey(),
+  supplierName: varchar("supplier_name", { length: 255 }).notNull(),
+  legalEntityName: varchar("legal_entity_name", { length: 255 }),
+  countryCode: varchar("country_code", { length: 8 }),
+  facilityAddress: varchar("facility_address", { length: 1000 }),
+  agreementUrl: varchar("agreement_url", { length: 2048 }),
+  sampleEvidenceUrl: varchar("sample_evidence_url", { length: 2048 }),
+  complianceStatus: mysqlEnum("compliance_status", ["PENDING", "APPROVED", "REJECTED"]).notNull().default("PENDING"),
+  reviewNotes: text("review_notes"),
+  reviewedByUserId: int("reviewed_by_user_id"),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type CatalogManufacturer = typeof catalogManufacturers.$inferSelect;
+
+export const impactRecipients = mysqlTable("impact_recipients", {
+  id: int("id").autoincrement().primaryKey(),
+  displayName: varchar("display_name", { length: 255 }).notNull(),
+  agreementUrl: varchar("agreement_url", { length: 2048 }),
+  paymentDestination: varchar("payment_destination", { length: 512 }),
+  allocationBasisPoints: int("allocation_basis_points").notNull().default(0),
+  status: mysqlEnum("status", ["PENDING", "APPROVED", "REJECTED"]).notNull().default("PENDING"),
+  reviewNotes: text("review_notes"),
+  reviewedByUserId: int("reviewed_by_user_id"),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type ImpactRecipient = typeof impactRecipients.$inferSelect;
+
+export const atlantisCatalogSkus = mysqlTable("atlantis_catalog_skus", {
+  sku: varchar("sku", { length: 96 }).primaryKey(),
+  setNumber: tinyint("set_number").notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  manufacturerId: int("manufacturer_id"),
+  impactRecipientId: int("impact_recipient_id"),
+  baseCostCents: int("base_cost_cents"),
+  retailPriceCents: int("retail_price_cents"),
+  taxClassification: varchar("tax_classification", { length: 128 }),
+  fulfillmentCenter: varchar("fulfillment_center", { length: 255 }),
+  refundPolicyUrl: varchar("refund_policy_url", { length: 2048 }),
+  productionStatus: mysqlEnum("production_status", ["DRAFT", "APPROVED", "BLOCKED"]).notNull().default("DRAFT"),
+  reviewNotes: text("review_notes"),
+  reviewedByUserId: int("reviewed_by_user_id"),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type AtlantisCatalogSku = typeof atlantisCatalogSkus.$inferSelect;
+
+export const catalogAssetRecords = mysqlTable("catalog_asset_records", {
+  id: int("id").autoincrement().primaryKey(),
+  sku: varchar("sku", { length: 96 }).notNull(),
+  assetKind: mysqlEnum("asset_kind", ["HERO", "DETAIL", "ON_BODY"]).notNull(),
+  storageKey: varchar("storage_key", { length: 1024 }).notNull(),
+  assetUrl: varchar("asset_url", { length: 2048 }).notNull(),
+  reviewStatus: mysqlEnum("review_status", ["PENDING", "APPROVED", "REJECTED"]).notNull().default("PENDING"),
+  reviewNotes: text("review_notes"),
+  uploadedByUserId: int("uploaded_by_user_id").notNull(),
+  reviewedByUserId: int("reviewed_by_user_id"),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+export type CatalogAssetRecord = typeof catalogAssetRecords.$inferSelect;
+
+export const commerceActivationConfigs = mysqlTable("commerce_activation_configs", {
+  id: int("id").autoincrement().primaryKey(),
+  catalogKey: varchar("catalog_key", { length: 96 }).notNull().unique(),
+  shopifyAuthorized: boolean("shopify_authorized").notNull().default(false),
+  shopifyShopDomain: varchar("shopify_shop_domain", { length: 255 }),
+  taxPolicyUrl: varchar("tax_policy_url", { length: 2048 }),
+  shippingPolicyUrl: varchar("shipping_policy_url", { length: 2048 }),
+  refundPolicyUrl: varchar("refund_policy_url", { length: 2048 }),
+  customerSupportEmail: varchar("customer_support_email", { length: 320 }),
+  impactDisclosureUrl: varchar("impact_disclosure_url", { length: 2048 }),
+  activationStatus: mysqlEnum("activation_status", ["LOCKED", "READY", "ACTIVE"]).notNull().default("LOCKED"),
+  updatedByUserId: int("updated_by_user_id"),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type CommerceActivationConfig = typeof commerceActivationConfigs.$inferSelect;
