@@ -28,6 +28,16 @@ const LOOKS: Look[] = [
 
 const FILTERS = ["All", "Outerwear", "Layering", "Footwear concept", "Apparel", "Digital credential"];
 
+const ATLANTIS_CONCEPT_GALLERY = [
+  { setNumber: 1, title: "Orichalcum", color: "#D65A31", imageUrl: "/manus-storage/atlantis-set-01-orichalcum-concept_deb2620f.png", alt: "Concept-only red and gold Orichalcum technical jacket mockup" },
+  { setNumber: 2, title: "Hot / Cold", color: "#FFB800", imageUrl: "/manus-storage/atlantis-set-02-hot-cold-concept_62c110b5.png", alt: "Concept-only white and ember-orange Hot Cold layered set mockup" },
+  { setNumber: 3, title: "Atlas Crown", color: "#A76AFF", imageUrl: "/manus-storage/atlantis-concept-reference-atlas-crown_efe02f92.png", alt: "Concept-only Tyrian-purple and gold Atlas Crown outerwear mockup" },
+  { setNumber: 4, title: "Copper Fire", color: "#D58155", imageUrl: "/manus-storage/atlantis-set-04-copper-fire-concept_3826380d.png", alt: "Concept-only Copper Fire utility overshirt mockup" },
+  { setNumber: 5, title: "Poseidon Deep Navy", color: "#00D4FF", imageUrl: "/manus-storage/atlantis-set-05-poseidon-deep-navy-concept_38eba432.png", alt: "Concept-only Poseidon Deep Navy waterproof shell mockup" },
+  { setNumber: 6, title: "Ten Kings", color: "#5EA7FF", imageUrl: "/manus-storage/atlantis-set-06-ten-kings-concept_273b11df.png", alt: "Concept-only Ten Kings varsity jacket mockup" },
+  { setNumber: 7, title: "Sinking Abyss", color: "#5EF3E7", imageUrl: "/manus-storage/atlantis-set-07-sinking-abyss-concept_bdd658e4.png", alt: "Concept-only Sinking Abyss technical shell mockup" },
+];
+
 export default function MeinLookbook() {
   useSovereignHeartbeat({ page: "mein-lookbook" });
   const [filter, setFilter] = useState("All");
@@ -96,6 +106,23 @@ export default function MeinLookbook() {
               </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 py-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-7">
+          <div>
+            <div className="text-xs font-mono tracking-widest" style={{ color: "#A76AFF" }}>#XLVblocks / CONCEPT REVIEW GALLERY</div>
+            <h2 className="mt-2 text-3xl font-black">Seven visual directions—review only.</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed" style={{ color: "#9AABBC" }}>These images communicate silhouette, material direction, and the Atlantis color system. They are not approved product photography, supplier samples, technical proofs, or sale listings. A generated concept visual cannot satisfy the three-image approval requirement for any SKU.</p>
+          </div>
+          <div className="rounded-xl px-4 py-3 text-xs font-bold border" style={{ color: "#FFB800", borderColor: "rgba(255,184,0,0.35)", background: "rgba(255,184,0,0.06)" }}>CONCEPT — NOT APPROVED FOR SALE</div>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {ATLANTIS_CONCEPT_GALLERY.map(item => <article key={item.setNumber} className="overflow-hidden rounded-2xl border" style={{ borderColor: `${item.color}55`, background: "#071120" }}>
+            <img src={item.imageUrl} alt={item.alt} className="w-full aspect-[4/5] object-cover" loading="lazy" />
+            <div className="p-4"><div className="text-[10px] font-mono" style={{ color: item.color }}>SET 0{item.setNumber} / CONCEPT ONLY</div><h3 className="mt-1 font-black">{item.title}</h3><p className="mt-2 text-[11px] leading-relaxed" style={{ color: "#8FA0B1" }}>Keep outside the approval record until a real hero, detail, and on-body set has been reviewed.</p></div>
+          </article>)}
         </div>
       </section>
 

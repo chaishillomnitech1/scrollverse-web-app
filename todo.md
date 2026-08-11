@@ -1900,3 +1900,15 @@
 - [x] Build a protected catalog operations page for managing evidence URLs, SKU inputs, and approved asset uploads
 - [x] Add tests, validate the gate, and document Shopify authorization prerequisites (TypeScript clean; 30/30 Vitest tests passing)
 - [x] Save Phase 96 checkpoint and synchronize GitHub
+
+## Phase 97 — Safe Atlantis Fixture + Concept Mockups
+- [x] Document why no production seed, unsupported Prisma script, or activation request is permitted with placeholder evidence
+- [x] Add an isolated test fixture that represents incomplete seven-SKU data without database writes or approval flags
+- [x] Extend regression coverage for incomplete pricing, agreements, images, and authorization states
+- [x] Generate seven clearly labeled concept-only Atlantis lookbook mockups for review
+- [x] Create a release and dependency ledger separating live portal work, protected gates, generated concepts, and external activation requirements
+- [x] Record the owner’s explicit attestation separately from supplier, fulfillment, policy, and merchant authorization records
+- [x] Add the supplied seven-SKU blueprint as a source-labeled structural preflight manifest that cannot seed records or activate commerce
+- [x] Review supplied Instagram references for original styling signals without copying identities, third-party marks, or source media
+- [x] Validate the test path (TypeScript clean; 32/32 Vitest tests passing)
+- [x] Save Phase 97 checkpoint and synchronize GitHub

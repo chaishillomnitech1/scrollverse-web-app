@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { ATLANTIS_FIXTURE_DISCLAIMER, incompleteAtlantisFixture } from "./fixtures/atlantisIncomplete.fixture";
 import { EXPECTED_ATLANTIS_SKUS, evaluateAtlantisCommerceGate } from "./routers/atlantisCatalog";
 
 function readyGateInput() {
@@ -27,6 +28,20 @@ describe("Atlantis commerce activation gate", () => {
     expect(result.activationStatus).toBe("LOCKED");
     expect(result.blockers).toContain("Shopify authorization is not connected to the server.");
     expect(result.blockers.filter(blocker => blocker.includes("SKU record is missing."))).toHaveLength(7);
+  });
+
+  it("rejects the complete 21-URL non-production fixture when approvals, pricing, evidence, and authorization are absent", () => {
+    expect(incompleteAtlantisFixture.assets).toHaveLength(21);
+    expect(incompleteAtlantisFixture.assets.every(asset => asset.assetUrl.includes("fixtures.invalid") && asset.reviewStatus === "PENDING")).toBe(true);
+    expect(ATLANTIS_FIXTURE_DISCLAIMER).toContain("Non-production fixture only");
+
+    const result = evaluateAtlantisCommerceGate(incompleteAtlantisFixture);
+    expect(result.ready).toBe(false);
+    expect(result.activationStatus).toBe("LOCKED");
+    expect(result.blockers).toContain("Shopify authorization is not connected to the server.");
+    expect(result.blockers).toContain(`${EXPECTED_ATLANTIS_SKUS[0]}: a valid cost and retail price are required.`);
+    expect(result.blockers).toContain(`${EXPECTED_ATLANTIS_SKUS[0]}: approved manufacturer agreement and sample evidence are required.`);
+    expect(result.blockers).toContain(`${EXPECTED_ATLANTIS_SKUS[0]}: approved hero image is required.`);
   });
 
   it("requires the full approved hero, detail, and on-body image set for every SKU", () => {

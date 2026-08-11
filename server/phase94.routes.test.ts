@@ -26,6 +26,9 @@ describe("Phase 94 route map", () => {
     expect(mein).toContain("PROPRIETARY COLLECTION CONCEPT");
     expect(mein).toContain("Partner-approval required");
     expect(mein).toContain("does not claim an affiliation");
+    expect(mein).toContain("ATLANTIS_CONCEPT_GALLERY");
+    expect(mein).toContain("CONCEPT — NOT APPROVED FOR SALE");
+    expect(mein).toContain("A generated concept visual cannot satisfy the three-image approval requirement");
   });
 
   it("preserves the seven-set Atlantis collection and searchable Empire Index", () => {
