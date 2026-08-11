@@ -1953,8 +1953,9 @@
 
 ## Phase 102 — Fashion Review Assignments + Evidence Expiry
 - [x] Confirm both an in-console due-soon queue and a daily owner-facing digest as the reviewer-expiry delivery model
-- [ ] Add reviewer assignment and evidence-expiry records for protected asset review
-- [ ] Add an in-console due-soon queue and controlled daily evidence-expiry digest without using in-process timers
-- [ ] Add prominent main-page icon access to public fashion destinations without exposing admin data
-- [ ] Draft a compliance-aware incentive-governance framework for future partner, employee, and creator compensation without activating payouts or token rewards
-- [ ] Add tests, validate, save checkpoint, and synchronize GitHub
+- [x] Add reviewer assignment and evidence-expiry records for protected asset review
+- [x] Add an in-console due-soon queue and controlled daily evidence-expiry digest without using in-process timers
+- [x] Add prominent main-page icon access to public fashion destinations without exposing admin data
+- [x] Draft a compliance-aware incentive-governance framework for future partner, employee, and creator compensation without activating payouts or token rewards
+- [x] Add tests and validate (database migration applied; TypeScript clean; 43/43 Vitest tests passing; daily schedule enabled at 09:00 UTC)
+- [x] Save Phase 102 final checkpoint and synchronize GitHub
