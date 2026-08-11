@@ -39,6 +39,9 @@ describe("Phase 94 route map", () => {
     expect(portfolio).toContain("ORIGINAL LOOK BUILDER");
     expect(portfolio).toContain("CONCEPT-ONLY BOUNDARY");
     expect(portfolio).toContain("does not create an order");
+    expect(portfolio).toContain("SUBMITTED MEDIA REVIEW");
+    expect(portfolio).toContain("0 released product assets");
+    expect(portfolio).toContain("ADMIN-ONLY");
     expect(home).toContain('href: "/fashion-portfolio"');
     expect(home).toContain('name: "Ismael Perez"');
     expect(home).toContain("not a representation of an official channel affiliation");

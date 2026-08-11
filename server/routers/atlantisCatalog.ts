@@ -11,6 +11,8 @@ import {
 import { getDb } from "../db";
 import { storagePut } from "../storage";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
+import { submittedFashionImageReview } from "../../shared/submittedFashionImageReview";
+import { supplementalFashionMediaIntake } from "../../shared/submittedFashionMediaIntake";
 
 export const ATLANTIS_CATALOG_KEY = "atlantis-collection";
 export const EXPECTED_ATLANTIS_SKUS = [
@@ -134,6 +136,17 @@ export const atlantisCatalogRouter = router({
     });
     return { ...records, gate };
   }),
+
+  getSubmittedImageReview: adminProcedure.query(() => ({
+    candidates: submittedFashionImageReview,
+    summary: {
+      candidateCount: submittedFashionImageReview.length,
+      supplementalIntakeCount: supplementalFashionMediaIntake.length,
+      trademarkReviewCount: submittedFashionImageReview.filter(item => item.requiresTrademarkReview).length,
+      approvalCount: 0,
+      commerceEffect: "NONE" as const,
+    },
+  })),
 
   saveManufacturer: adminProcedure.input(z.object({
     id: z.number().int().positive().optional(),

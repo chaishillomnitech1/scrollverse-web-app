@@ -1934,3 +1934,10 @@
 - [x] Record source-proposed Shopify, licensing, and impact-allocation dependencies as unverified planning data
 - [x] Add tests and validate (database migration applied; TypeScript clean; 38/38 Vitest tests passing; asset preflight PASS)
 - [x] Save Phase 99 checkpoint and synchronize GitHub
+
+## Phase 100 — Submitted Fashion Image Review
+- [x] Inventory and classify all submitted image and motion-reference batches by visual type, collection fit, and review readiness
+- [x] Create a rights-aware review manifest and protected asset-upload preparation workflow without auto-approval
+- [x] Add a clearly labeled imagery review status to the fashion portfolio without product, price, inventory, or checkout claims
+- [x] Add tests and validate (TypeScript clean; 40/40 Vitest tests passing; public review boundary verified)
+- [x] Save Phase 100 checkpoint and synchronize GitHub

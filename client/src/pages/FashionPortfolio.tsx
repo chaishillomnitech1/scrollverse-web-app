@@ -111,6 +111,7 @@ export default function FashionPortfolio() {
               <div className="grid grid-cols-3 gap-3 mt-6">
                 {[{ value: "7", label: "Atlantis concepts" }, { value: "4", label: "Regional anchors" }, { value: "0", label: "Live product claims" }].map(stat => <div key={stat.label} className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.04)" }}><div className="text-2xl font-black" style={{ color: "#FF6B35" }}>{stat.value}</div><div className="text-[10px] leading-tight mt-1" style={{ color: "#8A9AAC" }}>{stat.label}</div></div>)}
               </div>
+              <div className="mt-4 rounded-xl p-3 border" style={{ background: "rgba(158,140,255,0.07)", borderColor: "rgba(158,140,255,0.22)" }}><div className="flex items-center justify-between gap-3"><span className="text-[10px] font-mono tracking-widest" style={{ color: "#BBAFFF" }}>SUBMITTED MEDIA REVIEW</span><span className="text-[10px] font-bold" style={{ color: "#FFB800" }}>ADMIN-ONLY</span></div><p className="mt-2 text-[11px] leading-relaxed" style={{ color: "#A6B5C6" }}>Submitted visual and motion references are being reviewed for source, rights, and SKU fit. <strong>0 released product assets</strong> are shown here; candidates remain outside public pages, pricing, inventory, and checkout.</p></div>
             </div>
           </div>
         </div>
