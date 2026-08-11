@@ -47,6 +47,17 @@ describe("Phase 94 route map", () => {
     expect(home).toContain("not a representation of an official channel affiliation");
   });
 
+  it("registers the public journey navigator for cross-portal discovery", () => {
+    const navigator = readProjectFile("client/src/pages/PortalNavigator.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import PortalNavigator from "./pages/PortalNavigator"');
+    expect(app).toContain('<Route path="/journey" component={PortalNavigator} />');
+    expect(navigator).toContain("Choose your");
+    expect(navigator).toContain("INTEGRATED JOURNEY MAP");
+    expect(navigator).toContain("Protected administration, review records, payments, and approval controls remain separate");
+    expect(home).toContain('href: "/journey"');
+  });
+
   it("registers the protected fashion asset review console with an audit-only workflow", () => {
     const review = readProjectFile("client/src/pages/AdminFashionReview.tsx");
     const home = readProjectFile("client/src/pages/Home.tsx");

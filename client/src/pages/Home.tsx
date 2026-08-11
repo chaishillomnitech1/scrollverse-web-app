@@ -382,6 +382,7 @@ const QUICK_ACCESS = [
   { icon: "🌊", label: "Atlantis", hint: "XLVblocks seven-set collection", href: "/atlantis-collection" },
   { icon: "🧵", label: "Fashion Empire", hint: "XLVIII BLOCKS × VNLND", href: "/fashion-empire" },
   { icon: "🗺️", label: "Empire Index", hint: "Search every ScrollVerse artifact", href: "/empire-index" },
+  { icon: "🧭", label: "Start Here", hint: "Curated ScrollVerse journey map", href: "/journey" },
 ];
 
 function QuickAccessBar() {
