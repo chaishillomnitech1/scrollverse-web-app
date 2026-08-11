@@ -31,10 +31,23 @@ describe("Phase 94 route map", () => {
   it("preserves the seven-set Atlantis collection and searchable Empire Index", () => {
     const atlantis = readProjectFile("client/src/pages/AtlantisCollection.tsx");
     const index = readProjectFile("client/src/pages/EmpireIndex.tsx");
+    const catalog = readProjectFile("client/src/data/atlantisCatalog.ts");
     expect(atlantis).toContain("const ATLANTIS_SETS = [");
     expect(atlantis).toContain("Sinking Abyss Aqua Pearl");
     expect(atlantis).toContain("Temple of Poseidon");
     expect(index).toContain("Every artifact.");
     expect(index).toContain("Search routes, archives, collections, protocols");
+    expect(catalog).toContain("export const ATLANTIS_CATALOG");
+    expect(catalog).toContain("id: \"atl-07\"");
+    expect(catalog).toContain("SUPPLIER_VERIFICATION_PENDING");
+    expect(catalog).toContain("AWAITING_APPROVED_IMAGE");
+    expect(catalog).toContain("CHECKOUT_DISABLED");
+    expect(index).toContain("ATLANTIS_CATALOG, ATLANTIS_FILTERS");
+    expect(index).toContain("Filter all seven technical packs.");
+    expect(index).toContain("setAtlantisCategory");
+    expect(index).toContain("setAtlantisFrequency");
+    expect(index).toContain("setAtlantisRegion");
+    expect(index).toContain("setAtlantisAssetStatus");
+    expect(index).toContain("setAtlantisCommerceStatus");
   });
 });

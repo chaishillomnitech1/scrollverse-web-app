@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "wouter";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+import { ATLANTIS_CATALOG, ATLANTIS_FILTERS } from "@/data/atlantisCatalog";
 
 type ArchiveItem = {
   title: string;
@@ -88,6 +89,7 @@ const DOMAINS: ArchiveDomain[] = [
       { title: "Fashion Empire", route: "/fashion-empire", description: "XLVIII BLOCKS × VNLND: seven colorways, $BLOCKS, NFT art sets, and manufacturer planning." },
       { title: "Virgil Abloh Legacy", route: "/virgil-abloh", description: "A respectful legacy page interpreting the 3% rule, quotation marks, and design iteration." },
       { title: "#XLVblocks Atlantis", route: "/atlantis-collection", description: "Seven Atlantis lore sets: Orichalcum, Atlas, Poseidon, Ten Kings, and Sinking Abyss." },
+      { title: "MEIN Lookbook", route: "/mein", description: "Source-labeled technical packs, approved-asset readiness, and commerce prerequisites for future proprietary releases." },
       { title: "Red Diamond Fleet", route: "/red-diamond-fleet", description: "Fleet collection, art, and vehicle-inspired archival artifacts." },
       { title: "Nexus Vault", route: "/nexus", description: "Dual Blister Hero, QR portal, and Genesis NFT IPFS panel." },
     ],
@@ -216,6 +218,12 @@ export default function EmpireIndex() {
   useSovereignHeartbeat({ page: "empire-index" });
   const [query, setQuery] = useState("");
   const [activeDomain, setActiveDomain] = useState("all");
+  const [atlantisQuery, setAtlantisQuery] = useState("");
+  const [atlantisCategory, setAtlantisCategory] = useState("All");
+  const [atlantisFrequency, setAtlantisFrequency] = useState("All");
+  const [atlantisRegion, setAtlantisRegion] = useState("All");
+  const [atlantisAssetStatus, setAtlantisAssetStatus] = useState("All");
+  const [atlantisCommerceStatus, setAtlantisCommerceStatus] = useState("All");
 
   const filteredDomains = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -229,6 +237,18 @@ export default function EmpireIndex() {
   }, [activeDomain, query]);
 
   const routeCount = DOMAINS.reduce((total, domain) => total + domain.items.length, 0);
+  const filteredAtlantis = useMemo(() => {
+    const search = atlantisQuery.trim().toLowerCase();
+    return ATLANTIS_CATALOG.filter(item => {
+      const matchesSearch = !search || [item.title, item.category, item.frequency, item.regionalAnchor, item.manufacturerReference, item.productDescription, item.fabricSpecification, item.hardwareSpecification, item.decorationSpecification, ...item.technicalHighlights].join(" ").toLowerCase().includes(search);
+      const matchesCategory = atlantisCategory === "All" || item.category === atlantisCategory;
+      const matchesFrequency = atlantisFrequency === "All" || item.frequency === atlantisFrequency;
+      const matchesRegion = atlantisRegion === "All" || item.regionalAnchor === atlantisRegion;
+      const matchesAsset = atlantisAssetStatus === "All" || item.assetStatus === atlantisAssetStatus;
+      const matchesCommerce = atlantisCommerceStatus === "All" || item.commerceStatus === atlantisCommerceStatus;
+      return matchesSearch && matchesCategory && matchesFrequency && matchesRegion && matchesAsset && matchesCommerce;
+    });
+  }, [atlantisAssetStatus, atlantisCategory, atlantisCommerceStatus, atlantisFrequency, atlantisQuery, atlantisRegion]);
 
   return (
     <main className="min-h-screen pb-24" style={{ background: "#050B1A", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -270,6 +290,30 @@ export default function EmpireIndex() {
           <button onClick={() => setActiveDomain("all")} className="whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold transition-transform active:scale-95" style={{ background: activeDomain === "all" ? "#00D4FF" : "rgba(255,255,255,0.06)", color: activeDomain === "all" ? "#050B1A" : "#C7D3DF" }}>All domains</button>
           {DOMAINS.map(domain => <button key={domain.id} onClick={() => setActiveDomain(domain.id)} className="whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold transition-transform active:scale-95" style={{ background: activeDomain === domain.id ? domain.color : "rgba(255,255,255,0.06)", color: activeDomain === domain.id ? "#050B1A" : "#C7D3DF" }}>{domain.icon} {domain.title}</button>)}
         </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 py-8">
+        <article className="rounded-3xl overflow-hidden border" style={{ borderColor: "rgba(0,255,212,0.28)", background: "linear-gradient(135deg, rgba(0,255,212,0.08), rgba(5,11,26,0.88) 45%)" }}>
+          <header className="p-6 md:p-8 border-b" style={{ borderColor: "rgba(0,255,212,0.16)" }}>
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+              <div><div className="text-xs font-mono tracking-widest" style={{ color: "#00FFD4" }}>#XLVblocks / ATLANTIS COLLECTION MATRIX</div><h2 className="mt-2 text-3xl md:text-4xl font-black">Filter all seven technical packs.</h2><p className="mt-3 max-w-3xl text-sm leading-relaxed" style={{ color: "#A8B8C8" }}>Search across material language, regional anchors, supply references, category, frequency, approved-image status, and checkout readiness. Supplier references are source-labeled and not verified commerce connections.</p></div>
+              <div className="rounded-full px-4 py-2 text-xs font-mono" style={{ background: "rgba(0,255,212,0.1)", color: "#00FFD4", border: "1px solid rgba(0,255,212,0.28)" }}>{filteredAtlantis.length} / {ATLANTIS_CATALOG.length} sets matched</div>
+            </div>
+            <div className="mt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-3">
+              <input value={atlantisQuery} onChange={event => setAtlantisQuery(event.target.value)} placeholder="Search fabric, feature, manufacturer reference, or zip…" className="md:col-span-2 xl:col-span-3 rounded-xl px-4 py-3 outline-none text-sm border" style={{ background: "#071120", borderColor: "rgba(0,255,212,0.25)", color: "white" }} />
+              <label className="text-xs font-mono" style={{ color: "#9DB0C0" }}>CATEGORY<select value={atlantisCategory} onChange={event => setAtlantisCategory(event.target.value)} className="mt-1 block w-full rounded-lg px-3 py-2.5 text-sm border" style={{ color: "white", background: "#071120", borderColor: "rgba(255,255,255,0.14)" }}>{ATLANTIS_FILTERS.categories.map(value => <option key={value} value={value}>{value}</option>)}</select></label>
+              <label className="text-xs font-mono" style={{ color: "#9DB0C0" }}>FREQUENCY<select value={atlantisFrequency} onChange={event => setAtlantisFrequency(event.target.value)} className="mt-1 block w-full rounded-lg px-3 py-2.5 text-sm border" style={{ color: "white", background: "#071120", borderColor: "rgba(255,255,255,0.14)" }}>{ATLANTIS_FILTERS.frequencies.map(value => <option key={value} value={value}>{value}</option>)}</select></label>
+              <label className="text-xs font-mono" style={{ color: "#9DB0C0" }}>REGIONAL ANCHOR<select value={atlantisRegion} onChange={event => setAtlantisRegion(event.target.value)} className="mt-1 block w-full rounded-lg px-3 py-2.5 text-sm border" style={{ color: "white", background: "#071120", borderColor: "rgba(255,255,255,0.14)" }}>{ATLANTIS_FILTERS.regions.map(value => <option key={value} value={value}>{value}</option>)}</select></label>
+              <label className="text-xs font-mono" style={{ color: "#9DB0C0" }}>IMAGE ASSET<select value={atlantisAssetStatus} onChange={event => setAtlantisAssetStatus(event.target.value)} className="mt-1 block w-full rounded-lg px-3 py-2.5 text-sm border" style={{ color: "white", background: "#071120", borderColor: "rgba(255,255,255,0.14)" }}>{ATLANTIS_FILTERS.assetStatuses.map(value => <option key={value} value={value}>{value.replaceAll("_", " ")}</option>)}</select></label>
+              <label className="text-xs font-mono" style={{ color: "#9DB0C0" }}>COMMERCE STATUS<select value={atlantisCommerceStatus} onChange={event => setAtlantisCommerceStatus(event.target.value)} className="mt-1 block w-full rounded-lg px-3 py-2.5 text-sm border" style={{ color: "white", background: "#071120", borderColor: "rgba(255,255,255,0.14)" }}>{ATLANTIS_FILTERS.commerceStatuses.map(value => <option key={value} value={value}>{value.replaceAll("_", " ")}</option>)}</select></label>
+            </div>
+          </header>
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-px" style={{ background: "rgba(0,255,212,0.14)" }}>
+            {filteredAtlantis.map(item => <article key={item.id} className="p-5" style={{ background: "#071120" }}><div className="flex items-start justify-between gap-3"><span className="text-xs font-mono" style={{ color: item.color }}>SET 0{item.setNumber} / {item.frequency}</span><span className="rounded px-2 py-1 text-[9px] font-mono" style={{ background: "rgba(255,255,255,0.06)", color: "#AAB8C6" }}>{item.category}</span></div><h3 className="mt-4 text-lg font-black">{item.title}</h3><p className="mt-2 text-xs" style={{ color: "#A4B5C4" }}>{item.regionalAnchor} · {item.manufacturerReference}</p><div className="mt-4 flex flex-wrap gap-1.5">{item.technicalHighlights.map(highlight => <span key={highlight} className="rounded px-2 py-1 text-[10px]" style={{ color: "#C6D6E4", background: `${item.color}18` }}>{highlight}</span>)}</div><div className="mt-5 pt-4 border-t text-[10px] font-mono" style={{ borderColor: "rgba(255,255,255,0.09)", color: item.assetStatus === "APPROVED_IMAGE_ATTACHED" ? "#00FF88" : "#F0B35F" }}>{item.assetStatus.replaceAll("_", " ")} · {item.commerceStatus.replaceAll("_", " ")}</div></article>)}
+            {!filteredAtlantis.length && <div className="md:col-span-2 xl:col-span-3 p-12 text-center"><div className="text-3xl">⌕</div><h3 className="mt-3 text-xl font-black">No Atlantis sets match this filter mix.</h3><p className="mt-2 text-sm" style={{ color: "#9BAFC0" }}>Reset one or more filters, or search another production keyword.</p></div>}
+          </div>
+          <footer className="p-5 flex flex-wrap items-center justify-between gap-3" style={{ background: "rgba(0,0,0,0.2)" }}><p className="text-[11px] max-w-3xl" style={{ color: "#8398AA" }}>No checkout is exposed in this matrix. Approved product imagery, vendor verification, contracts, fulfillment terms, pricing, customer policies, and payment configuration must be present before any launch state is enabled.</p><Link href="/mein" className="rounded-lg px-4 py-2 text-xs font-bold" style={{ background: "#00FFD4", color: "#050B1A" }}>Open MEIN readiness hub</Link></footer>
+        </article>
       </section>
 
       <section className="max-w-7xl mx-auto px-5 py-8">

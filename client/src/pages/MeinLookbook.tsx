@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+import { ATLANTIS_CATALOG } from "@/data/atlantisCatalog";
 
 type Look = {
   id: string;
@@ -31,9 +32,11 @@ export default function MeinLookbook() {
   useSovereignHeartbeat({ page: "mein-lookbook" });
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState<Look | null>(LOOKS[0]);
+  const [selectedPackId, setSelectedPackId] = useState(ATLANTIS_CATALOG[0].id);
   const [email, setEmail] = useState("");
 
   const visibleLooks = useMemo(() => LOOKS.filter(look => filter === "All" || look.type === filter), [filter]);
+  const selectedPack = useMemo(() => ATLANTIS_CATALOG.find(item => item.id === selectedPackId) ?? ATLANTIS_CATALOG[0], [selectedPackId]);
 
   const registerInterest = () => {
     if (!email.includes("@")) {
@@ -63,6 +66,36 @@ export default function MeinLookbook() {
           <div className="mt-10 flex flex-wrap gap-3">
             {[["6", "Original looks"], ["4", "Frequency colorways"], ["7–10%", "Proposed impact allocation"], ["0", "Live products until configured"]].map(([value, label]) => <div key={label} className="rounded-xl px-4 py-3 border" style={{ borderColor: "rgba(255,255,255,0.13)", background: "rgba(255,255,255,0.035)" }}><div className="font-black" style={{ color: "#D4AF37" }}>{value}</div><div className="text-xs" style={{ color: "#91A2B4" }}>{label}</div></div>)}
           </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 py-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-7">
+          <div>
+            <div className="text-xs font-mono tracking-widest" style={{ color: "#00FFD4" }}>#XLVblocks / PRODUCTION READINESS</div>
+            <h2 className="mt-2 text-3xl font-black">Seven Atlantis technical packs, source recorded.</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed" style={{ color: "#9AABBC" }}>Technical specifications from the supplied production brief are preserved below. Supplier names remain references until a vendor agreement, product sample, compliance documents, manufacturing capacity confirmation, and fulfillment terms are independently verified.</p>
+          </div>
+          <Link href="/empire-index" className="rounded-xl px-4 py-2 text-xs font-bold border whitespace-nowrap" style={{ borderColor: "rgba(0,255,212,0.36)", color: "#00FFD4" }}>Filter the 7-set matrix →</Link>
+        </div>
+        <div className="grid lg:grid-cols-[.8fr_1.2fr] gap-5">
+          <div className="rounded-3xl p-4 border" style={{ background: "rgba(255,255,255,0.025)", borderColor: "rgba(0,255,212,0.18)" }}>
+            <div className="text-[11px] font-mono px-2 pt-2 pb-3" style={{ color: "#7D94A8" }}>TECHNICAL PACK SELECTOR</div>
+            <div className="space-y-2">{ATLANTIS_CATALOG.map(item => <button key={item.id} onClick={() => setSelectedPackId(item.id)} className="w-full text-left rounded-xl px-4 py-3 border transition-colors" style={{ background: selectedPackId === item.id ? `${item.color}22` : "transparent", borderColor: selectedPackId === item.id ? item.color : "rgba(255,255,255,0.08)" }}><div className="flex items-center justify-between gap-3"><span className="text-xs font-mono" style={{ color: item.color }}>SET 0{item.setNumber}</span><span className="text-[10px]" style={{ color: "#8FA0B1" }}>{item.frequency}</span></div><div className="mt-1 text-sm font-bold">{item.title}</div><div className="mt-1 text-[11px]" style={{ color: "#8FA0B1" }}>{item.category} · {item.regionalAnchor}</div></button>)}</div>
+          </div>
+          <article className="rounded-3xl overflow-hidden border" style={{ background: "#081525", borderColor: `${selectedPack.color}66` }}>
+            <div className="grid md:grid-cols-[.78fr_1.22fr]">
+              <div className="min-h-64 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r" style={{ borderColor: "rgba(255,255,255,0.1)", background: `radial-gradient(circle at 50% 30%, ${selectedPack.color}4D, transparent 60%), #071120` }}>
+                {selectedPack.approvedImageUrl ? <img src={selectedPack.approvedImageUrl} alt={selectedPack.imageAlt ?? selectedPack.title} className="w-full h-48 object-cover rounded-xl" /> : <div className="h-48 rounded-xl flex flex-col items-center justify-center text-center border border-dashed" style={{ borderColor: `${selectedPack.color}70`, color: selectedPack.color }}><div className="text-3xl">◫</div><div className="mt-3 text-xs font-mono">APPROVED PRODUCT IMAGE REQUIRED</div><div className="mt-1 max-w-48 text-[10px] leading-relaxed" style={{ color: "#94A4B5" }}>No asset URL is stored. Upload an approved hero, detail, and on-body image set before customer release.</div></div>}
+                <div className="mt-5"><div className="text-xs font-mono" style={{ color: selectedPack.color }}>{selectedPack.assetStatus.replaceAll("_", " ")}</div><div className="mt-1 text-[11px]" style={{ color: "#8FA0B1" }}>{selectedPack.sourceLabel}</div></div>
+              </div>
+              <div className="p-6 md:p-8"><div className="flex flex-wrap items-center justify-between gap-3"><span className="text-xs font-mono" style={{ color: selectedPack.color }}>SET 0{selectedPack.setNumber} / {selectedPack.frequency}</span><span className="rounded-full px-3 py-1 text-[10px] font-bold" style={{ background: "rgba(255,255,255,0.07)", color: "#AAB8C6" }}>{selectedPack.commerceStatus.replaceAll("_", " ")}</span></div><h3 className="mt-4 text-3xl font-black">{selectedPack.title}</h3><p className="mt-3 text-sm leading-relaxed" style={{ color: "#AAB9C9" }}>{selectedPack.productDescription}</p>
+                <div className="mt-6 grid sm:grid-cols-2 gap-3 text-xs"><div className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.035)" }}><div className="font-mono" style={{ color: selectedPack.color }}>SUPPLIER REFERENCE</div><p className="mt-2 leading-relaxed" style={{ color: "#D6E0E9" }}>{selectedPack.manufacturerReference}</p><p className="mt-1 text-[10px]" style={{ color: "#F0B35F" }}>Verification pending — not connected to checkout.</p></div><div className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.035)" }}><div className="font-mono" style={{ color: selectedPack.color }}>TECHNICAL HIGHLIGHTS</div><div className="mt-2 flex flex-wrap gap-1.5">{selectedPack.technicalHighlights.map(highlight => <span key={highlight} className="rounded px-2 py-1 text-[10px]" style={{ background: `${selectedPack.color}18`, color: "#D6E0E9" }}>{highlight}</span>)}</div></div></div>
+                <div className="mt-5 space-y-3 text-xs leading-relaxed"><div><span className="font-mono" style={{ color: selectedPack.color }}>FABRIC / </span><span style={{ color: "#B8C6D3" }}>{selectedPack.fabricSpecification}</span></div><div><span className="font-mono" style={{ color: selectedPack.color }}>HARDWARE / </span><span style={{ color: "#B8C6D3" }}>{selectedPack.hardwareSpecification}</span></div><div><span className="font-mono" style={{ color: selectedPack.color }}>DECORATION / </span><span style={{ color: "#B8C6D3" }}>{selectedPack.decorationSpecification}</span></div></div>
+                <button onClick={() => toast.message("Verification package required", { description: "Provide a signed vendor agreement, factory address and contact, sample or inspection evidence, compliance documents, capacity and lead-time confirmation, fulfillment SLA, approved product images, pricing, and customer policy links." })} className="mt-6 rounded-xl px-4 py-3 text-xs font-black" style={{ color: "#050B1A", background: selectedPack.color }}>View approval requirements</button>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 

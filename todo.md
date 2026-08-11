@@ -1884,3 +1884,11 @@
 
 ## Next — MEIN Fusion Lookbook Concept
 - [x] Build /mein lookbook concept with proprietary MEIN designs, impact commitments, and explicit partner-approval placeholder for any third-party collaboration
+
+## Phase 95 — Verified Atlantis Catalog Readiness + Empire Index Filters
+- [x] Inspect and document available commerce/manufacturer integrations without enabling unapproved checkout
+- [x] Add source-labeled Atlantis technical-pack data and verified-manufacturer status controls to /mein
+- [x] Add approved product image readiness states and asset placeholders to /mein
+- [x] Add dynamic search and category, frequency, regional-anchor, and production-status filters for the 7-set #XLVblocks Atlantis collection in /empire-index
+- [x] Add regression tests and run validation (TypeScript clean; 27/27 Vitest tests passing)
+- [x] Save Phase 95 checkpoint and synchronize GitHub
