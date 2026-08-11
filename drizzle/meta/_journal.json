@@ -204,6 +204,13 @@
       "when": 1786458435110,
       "tag": "0028_tough_stranger",
       "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "5",
+      "when": 1786469421980,
+      "tag": "0029_lean_white_tiger",
+      "breakpoints": true
     }
   ]
 }

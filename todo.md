@@ -1924,3 +1924,13 @@
 - [x] Add a durable continuity-ledger alias and a non-transactional preflight checker that verifies documentation only
 - [x] Run the continuity preflight, TypeScript validation, and regression suite (TypeScript clean; 34/34 Vitest tests passing)
 - [x] Save Phase 98 checkpoint and synchronize GitHub
+
+## Phase 99 — Saved Lookboards + Provider-Safe Handoff
+- [x] Assess submitted materials and record the absence or presence of real approved product assets and production evidence
+- [x] Add database-backed, authenticated saved lookboards for original Atlantis concept selections
+- [x] Connect the public fashion portfolio to create, list, and remove saved lookboards without enabling commerce
+- [x] Reinforce protected approved-asset workflow boundaries and document a separate Shopify test-store handoff
+- [x] Add a documentation-only asset-review preflight that rejects placeholder or unsupported storage paths
+- [x] Record source-proposed Shopify, licensing, and impact-allocation dependencies as unverified planning data
+- [x] Add tests and validate (database migration applied; TypeScript clean; 38/38 Vitest tests passing; asset preflight PASS)
+- [x] Save Phase 99 checkpoint and synchronize GitHub

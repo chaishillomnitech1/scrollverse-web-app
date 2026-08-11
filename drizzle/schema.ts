@@ -1441,3 +1441,19 @@ export const commerceActivationConfigs = mysqlTable("commerce_activation_configs
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
 });
 export type CommerceActivationConfig = typeof commerceActivationConfigs.$inferSelect;
+
+// ── Saved Fashion Lookboards ─────────────────────────────────────────────────
+// User-authored concept selections only. These records cannot create orders,
+// reserve inventory, or change the Atlantis commerce-gate state.
+export const fashionLookboards = mysqlTable("fashion_lookboards", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("user_id").notNull(),
+  creatorName: varchar("creator_name", { length: 160 }).notNull().default("Guardian"),
+  title: varchar("title", { length: 96 }).notNull(),
+  itemIds: json("item_ids").$type<string[]>().notNull(),
+  isPublic: boolean("is_public").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type FashionLookboard = typeof fashionLookboards.$inferSelect;
+export type InsertFashionLookboard = typeof fashionLookboards.$inferInsert;
