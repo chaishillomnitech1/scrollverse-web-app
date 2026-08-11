@@ -217,6 +217,7 @@ import ArchiveKeeper from "./pages/ArchiveKeeper";
 import AlHijra from "./pages/AlHijra";
 import AdminSaferWay from "./pages/AdminSaferWay";
 import AdminAtlantisCatalog from "./pages/AdminAtlantisCatalog";
+import AdminFashionReview from "./pages/AdminFashionReview";
 import Badr from "./pages/Badr";
 import OmniMetrics from "./pages/OmniMetrics";
 import FathMakkah from "./pages/FathMakkah";
@@ -502,6 +503,7 @@ function Router() {
         <Route path="/seerah/badr" component={Badr} />
         <Route path="/admin/saferway" component={AdminSaferWay} />
         <Route path="/admin/atlantis-catalog" component={AdminAtlantisCatalog} />
+        <Route path="/admin/fashion-review" component={AdminFashionReview} />
         <Route path="/metrics" component={OmniMetrics} />
         <Route path="/seerah/fath-makkah" component={FathMakkah} />
         <Route path="/seerah/al-ghazwat" component={AlGhazwat} />

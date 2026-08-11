@@ -47,6 +47,18 @@ describe("Phase 94 route map", () => {
     expect(home).toContain("not a representation of an official channel affiliation");
   });
 
+  it("registers the protected fashion asset review console with an audit-only workflow", () => {
+    const review = readProjectFile("client/src/pages/AdminFashionReview.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import AdminFashionReview from "./pages/AdminFashionReview"');
+    expect(app).toContain('<Route path="/admin/fashion-review" component={AdminFashionReview} />');
+    expect(review).toContain("FASHION ASSET REVIEW");
+    expect(review).toContain("Only licensed assets can be approved");
+    expect(review).toContain("Upload as pending review");
+    expect(review).toContain("Append note");
+    expect(home).toContain('href: "/admin/fashion-review"');
+  });
+
   it("preserves a documentation-only continuity preflight for fashion releases", () => {
     const continuityLedger = readProjectFile("docs/CONTINUITY_LEDGER.md");
     const preflight = readProjectFile("scripts/preflight-continuity-check.mjs");

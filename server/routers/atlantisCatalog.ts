@@ -3,6 +3,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import { z } from "zod";
 import {
   atlantisCatalogSkus,
+  catalogAssetAuditEvents,
   catalogAssetRecords,
   catalogManufacturers,
   commerceActivationConfigs,
@@ -48,7 +49,7 @@ type CommerceGateInput = {
   }>;
   manufacturers: Array<{ id: number; agreementUrl: string | null; sampleEvidenceUrl: string | null; complianceStatus: "PENDING" | "APPROVED" | "REJECTED" }>;
   recipients: Array<{ id: number; agreementUrl: string | null; paymentDestination: string | null; allocationBasisPoints: number; status: "PENDING" | "APPROVED" | "REJECTED" }>;
-  assets: Array<{ sku: string; assetKind: "HERO" | "DETAIL" | "ON_BODY"; assetUrl: string; reviewStatus: "PENDING" | "APPROVED" | "REJECTED" }>;
+  assets: Array<{ sku: string; assetKind: "HERO" | "DETAIL" | "ON_BODY"; assetUrl: string; rightsStatus: "UNVERIFIED" | "OWNER_ATTESTED" | "LICENSED" | "REJECTED"; reviewStatus: "PENDING" | "APPROVED" | "REJECTED" }>;
   hasShopifyAuthorization: boolean;
 };
 
@@ -83,7 +84,7 @@ export function evaluateAtlantisCommerceGate(input: CommerceGateInput) {
       blockers.push(`${skuCode}: approved 7–10% impact-recipient terms are required.`);
     }
     for (const kind of ["HERO", "DETAIL", "ON_BODY"] as const) {
-      const asset = input.assets.find(item => item.sku === skuCode && item.assetKind === kind && item.reviewStatus === "APPROVED" && Boolean(item.assetUrl));
+      const asset = input.assets.find(item => item.sku === skuCode && item.assetKind === kind && item.reviewStatus === "APPROVED" && item.rightsStatus === "LICENSED" && Boolean(item.assetUrl));
       if (!asset) blockers.push(`${skuCode}: approved ${kind.toLowerCase().replace("_", "-")} image is required.`);
     }
   }
@@ -113,7 +114,9 @@ async function getCatalogRecords() {
     db.select().from(impactRecipients),
     db.select().from(catalogAssetRecords).where(inArray(catalogAssetRecords.sku, [...EXPECTED_ATLANTIS_SKUS])),
   ]);
-  return { db, config, skus, manufacturers, recipients, assets };
+  const assetIds = assets.map((asset: { id: number }) => asset.id);
+  const auditEvents = assetIds.length ? await db.select().from(catalogAssetAuditEvents).where(inArray(catalogAssetAuditEvents.assetId, assetIds)) : [];
+  return { db, config, skus, manufacturers, recipients, assets, auditEvents };
 }
 
 const optionalUrl = z.string().url().max(2048).optional().nullable();
@@ -218,7 +221,7 @@ export const atlantisCatalogRouter = router({
     return { success: true };
   }),
 
-  uploadAsset: adminProcedure.input(z.object({ sku: z.enum(EXPECTED_ATLANTIS_SKUS), assetKind: z.enum(["HERO", "DETAIL", "ON_BODY"]), originalFileName: z.string().trim().min(1).max(255), mimeType: z.enum(["image/jpeg", "image/png", "image/webp"]), base64Data: z.string().min(1).max(11_000_000) })).mutation(async ({ ctx, input }) => {
+  uploadAsset: adminProcedure.input(z.object({ sku: z.enum(EXPECTED_ATLANTIS_SKUS), assetKind: z.enum(["HERO", "DETAIL", "ON_BODY"]), originalFileName: z.string().trim().min(1).max(255), mimeType: z.enum(["image/jpeg", "image/png", "image/webp"]), base64Data: z.string().min(1).max(11_000_000), sourceReference: z.string().trim().max(5000).optional().nullable() })).mutation(async ({ ctx, input }) => {
     const db = await getDb();
     if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
     const rawBase64 = input.base64Data.replace(/^data:[^;]+;base64,/, "");
@@ -227,14 +230,31 @@ export const atlantisCatalogRouter = router({
     const safeName = input.originalFileName.replace(/[^a-zA-Z0-9._-]/g, "-");
     const key = `atlantis-catalog/${input.sku}/${input.assetKind.toLowerCase()}-${Date.now()}-${safeName}`;
     const stored = await storagePut(key, bytes, input.mimeType);
-    await db.insert(catalogAssetRecords).values({ sku: input.sku, assetKind: input.assetKind, storageKey: stored.key, assetUrl: stored.url, uploadedByUserId: ctx.user.id, reviewStatus: "PENDING" });
+    await db.insert(catalogAssetRecords).values({ sku: input.sku, assetKind: input.assetKind, storageKey: stored.key, assetUrl: stored.url, sourceReference: input.sourceReference ?? null, rightsStatus: "UNVERIFIED", uploadedByUserId: ctx.user.id, reviewStatus: "PENDING" });
+    const [createdAsset] = await db.select().from(catalogAssetRecords).where(eq(catalogAssetRecords.storageKey, stored.key)).limit(1);
+    if (!createdAsset) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Asset record could not be confirmed after upload." });
+    await db.insert(catalogAssetAuditEvents).values({ assetId: createdAsset.id, action: "UPLOADED", previousStatus: null, nextStatus: "PENDING", note: input.sourceReference?.trim() ? `Uploaded with source reference: ${input.sourceReference.trim()}` : "Uploaded as a pending protected asset; source and rights review required.", actorUserId: ctx.user.id });
     return { success: true, assetUrl: stored.url, status: "PENDING" as const };
   }),
 
-  reviewAsset: adminProcedure.input(z.object({ id: z.number().int().positive(), decision: z.enum(["APPROVED", "REJECTED"]), reviewNotes: z.string().trim().min(3).max(5000) })).mutation(async ({ ctx, input }) => {
+  reviewAsset: adminProcedure.input(z.object({ id: z.number().int().positive(), decision: z.enum(["APPROVED", "REJECTED"]), rightsStatus: z.enum(["UNVERIFIED", "OWNER_ATTESTED", "LICENSED", "REJECTED"]).optional(), reviewNotes: z.string().trim().min(3).max(5000) })).mutation(async ({ ctx, input }) => {
     const db = await getDb();
     if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
-    await db.update(catalogAssetRecords).set({ reviewStatus: input.decision, reviewNotes: input.reviewNotes, reviewedByUserId: ctx.user.id, reviewedAt: new Date() }).where(eq(catalogAssetRecords.id, input.id));
+    const [asset] = await db.select().from(catalogAssetRecords).where(eq(catalogAssetRecords.id, input.id)).limit(1);
+    if (!asset) throw new TRPCError({ code: "NOT_FOUND", message: "Asset record not found." });
+    const rightsStatus = input.rightsStatus ?? asset.rightsStatus;
+    if (input.decision === "APPROVED" && rightsStatus !== "LICENSED") throw new TRPCError({ code: "BAD_REQUEST", message: "A licensed rights status is required before approving a catalog asset." });
+    await db.update(catalogAssetRecords).set({ reviewStatus: input.decision, rightsStatus, reviewNotes: input.reviewNotes, reviewedByUserId: ctx.user.id, reviewedAt: new Date() }).where(eq(catalogAssetRecords.id, input.id));
+    await db.insert(catalogAssetAuditEvents).values({ assetId: asset.id, action: input.decision, previousStatus: asset.reviewStatus, nextStatus: input.decision, note: input.reviewNotes, actorUserId: ctx.user.id });
+    return { success: true };
+  }),
+
+  addAssetAuditNote: adminProcedure.input(z.object({ id: z.number().int().positive(), note: z.string().trim().min(3).max(5000) })).mutation(async ({ ctx, input }) => {
+    const db = await getDb();
+    if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
+    const [asset] = await db.select().from(catalogAssetRecords).where(eq(catalogAssetRecords.id, input.id)).limit(1);
+    if (!asset) throw new TRPCError({ code: "NOT_FOUND", message: "Asset record not found." });
+    await db.insert(catalogAssetAuditEvents).values({ assetId: asset.id, action: "NOTE", previousStatus: asset.reviewStatus, nextStatus: asset.reviewStatus, note: input.note, actorUserId: ctx.user.id });
     return { success: true };
   }),
 

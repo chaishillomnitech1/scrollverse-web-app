@@ -1,0 +1,2 @@
+ALTER TABLE `catalog_asset_records` ADD `source_reference` text;--> statement-breakpoint
+ALTER TABLE `catalog_asset_records` ADD `rights_status` enum('UNVERIFIED','OWNER_ATTESTED','LICENSED','REJECTED') DEFAULT 'UNVERIFIED' NOT NULL;

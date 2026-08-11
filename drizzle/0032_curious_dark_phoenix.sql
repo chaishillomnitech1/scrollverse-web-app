@@ -1,0 +1,1 @@
+ALTER TABLE `catalog_asset_audit_events` MODIFY COLUMN `action` enum('UPLOADED','APPROVED','REJECTED','NOTE') NOT NULL;

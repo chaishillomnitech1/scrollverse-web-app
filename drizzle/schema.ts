@@ -1417,6 +1417,8 @@ export const catalogAssetRecords = mysqlTable("catalog_asset_records", {
   assetKind: mysqlEnum("asset_kind", ["HERO", "DETAIL", "ON_BODY"]).notNull(),
   storageKey: varchar("storage_key", { length: 1024 }).notNull(),
   assetUrl: varchar("asset_url", { length: 2048 }).notNull(),
+  sourceReference: text("source_reference"),
+  rightsStatus: mysqlEnum("rights_status", ["UNVERIFIED", "OWNER_ATTESTED", "LICENSED", "REJECTED"]).notNull().default("UNVERIFIED"),
   reviewStatus: mysqlEnum("review_status", ["PENDING", "APPROVED", "REJECTED"]).notNull().default("PENDING"),
   reviewNotes: text("review_notes"),
   uploadedByUserId: int("uploaded_by_user_id").notNull(),
@@ -1425,6 +1427,20 @@ export const catalogAssetRecords = mysqlTable("catalog_asset_records", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 export type CatalogAssetRecord = typeof catalogAssetRecords.$inferSelect;
+
+// Append-only review history: upload, approval, and rejection events are kept
+// as separate records so catalog evidence remains traceable during review.
+export const catalogAssetAuditEvents = mysqlTable("catalog_asset_audit_events", {
+  id: int("id").autoincrement().primaryKey(),
+  assetId: int("asset_id").notNull(),
+  action: mysqlEnum("action", ["UPLOADED", "APPROVED", "REJECTED", "NOTE"]).notNull(),
+  previousStatus: mysqlEnum("previous_status", ["PENDING", "APPROVED", "REJECTED"]),
+  nextStatus: mysqlEnum("next_status", ["PENDING", "APPROVED", "REJECTED"]).notNull(),
+  note: text("note").notNull(),
+  actorUserId: int("actor_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+export type CatalogAssetAuditEvent = typeof catalogAssetAuditEvents.$inferSelect;
 
 export const commerceActivationConfigs = mysqlTable("commerce_activation_configs", {
   id: int("id").autoincrement().primaryKey(),

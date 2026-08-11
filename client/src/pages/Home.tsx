@@ -1106,6 +1106,7 @@ export default function Home() {
                   {[
                     { href: "/fashion-empire", icon: "👗", label: "Fashion Empire", sub: "XLVIII BLOCKS × VNLND" },
                     { href: "/fashion-portfolio", icon: "🧩", label: "Fashion Portfolio", sub: "Build original concept looks" },
+                    { href: "/admin/fashion-review", icon: "🛡️", label: "Asset Review", sub: "Protected review console" },
                     { href: "/virgil-abloh", icon: "🎨", label: "Virgil Abloh Legacy", sub: "3% Rule · Quotation Marks" },
                     { href: "/atlantis-collection", icon: "🌊", label: "#XLVblocks Atlantis", sub: "7-Set · Temple of Poseidon" },
                     { href: "/empire-index", icon: "🗺️", label: "Empire Index", sub: "Every artifact mapped" },

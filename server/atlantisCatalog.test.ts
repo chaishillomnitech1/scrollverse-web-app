@@ -17,7 +17,7 @@ function readyGateInput() {
     manufacturers: [{ id: 1, agreementUrl: "https://example.com/agreement", sampleEvidenceUrl: "https://example.com/sample", complianceStatus: "APPROVED" as const }],
     recipients: [{ id: 1, agreementUrl: "https://example.com/recipient-agreement", paymentDestination: "recipient-ledger-reference", allocationBasisPoints: 800, status: "APPROVED" as const }],
     skus: EXPECTED_ATLANTIS_SKUS.map(sku => ({ sku, manufacturerId: 1, impactRecipientId: 1, baseCostCents: 10000, retailPriceCents: 18000, taxClassification: "apparel", fulfillmentCenter: "regional-node", refundPolicyUrl: "https://example.com/policies/refunds", productionStatus: "APPROVED" as const })),
-    assets: EXPECTED_ATLANTIS_SKUS.flatMap(sku => (["HERO", "DETAIL", "ON_BODY"] as const).map(assetKind => ({ sku, assetKind, assetUrl: `https://example.com/assets/${sku}/${assetKind}.webp`, reviewStatus: "APPROVED" as const }))),
+    assets: EXPECTED_ATLANTIS_SKUS.flatMap(sku => (["HERO", "DETAIL", "ON_BODY"] as const).map(assetKind => ({ sku, assetKind, assetUrl: `https://example.com/assets/${sku}/${assetKind}.webp`, rightsStatus: "LICENSED" as const, reviewStatus: "APPROVED" as const }))),
   };
 }
 
@@ -50,6 +50,14 @@ describe("Atlantis commerce activation gate", () => {
     const result = evaluateAtlantisCommerceGate(input);
     expect(result.ready).toBe(false);
     expect(result.blockers).toContain(`${EXPECTED_ATLANTIS_SKUS[0]}: approved on-body image is required.`);
+  });
+
+  it("keeps the gate locked when a reviewed asset has owner attestation but no licensed rights record", () => {
+    const input = readyGateInput();
+    input.assets[0].rightsStatus = "OWNER_ATTESTED";
+    const result = evaluateAtlantisCommerceGate(input);
+    expect(result.ready).toBe(false);
+    expect(result.blockers).toContain(`${EXPECTED_ATLANTIS_SKUS[0]}: approved hero image is required.`);
   });
 
   it("permits a ready state only when the whole server-side evidence set is complete", () => {
