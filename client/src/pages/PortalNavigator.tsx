@@ -56,6 +56,7 @@ const JOURNEY_ZONES: JourneyZone[] = [
     description: "Publish original work, discover community voices, and explore the media universe.",
     routes: [
       { title: "Think Space", href: "/think-space", description: "Community publishing for music, film, art, and scholarship.", status: "COMMUNITY" },
+      { title: "Convergence Commons", href: "/commons", description: "Creator discovery, personal signatures, and accountable collaboration pathways.", status: "START HERE" },
       { title: "Featured Think Space", href: "/think-space/featured", description: "Curated discoveries across the community feed.", status: "COMMUNITY" },
       { title: "Music Catalog", href: "/music", description: "Music, listening, and artist distribution pathways.", status: "LIVE" },
     ],

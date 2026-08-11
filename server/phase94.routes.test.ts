@@ -47,6 +47,36 @@ describe("Phase 94 route map", () => {
     expect(home).toContain("not a representation of an official channel affiliation");
   });
 
+  it("registers an independent Brand Studio without making third-party or commerce claims", () => {
+    const studio = readProjectFile("client/src/pages/BrandStudio.tsx");
+    const catalog = readProjectFile("client/src/data/independentFashion.ts");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import BrandStudio from "./pages/BrandStudio"');
+    expect(app).toContain('<Route path="/fashion-studio" component={BrandStudio} />');
+    expect(studio).toContain("INDEPENDENT FASHION STUDIO");
+    expect(studio).toContain("does not mint, manufacture, reserve, or list a product");
+    expect(studio).toContain("FUSION BOUNDARY");
+    expect(catalog).toContain('name: "XLVIII BLOCKS"');
+    expect(catalog).toContain('name: "MEIN CORE"');
+    expect(catalog).toContain('name: "#XLVblocks ATLANTIS"');
+    expect(home).toContain('href: "/fashion-studio"');
+  });
+
+  it("registers Convergence Commons as a discovery-first personal-signature layer", () => {
+    const commons = readProjectFile("client/src/pages/ConvergenceCommons.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const navigator = readProjectFile("client/src/pages/PortalNavigator.tsx");
+    expect(app).toContain('import ConvergenceCommons from "./pages/ConvergenceCommons"');
+    expect(app).toContain('<Route path="/commons" component={ConvergenceCommons} />');
+    expect(commons).toContain("PERSONAL SIGNATURE SYSTEM");
+    expect(commons).toContain("ASSISTIVE GOVERNANCE");
+    expect(commons).toContain("FUTURE EXCHANGE BOUNDARY");
+    expect(commons).toContain("without activating those regulated functions");
+    expect(commons).not.toContain("createCheckoutSession");
+    expect(home).toContain('href: "/commons"');
+    expect(navigator).toContain('href: "/commons"');
+  });
+
   it("registers the public journey navigator for cross-portal discovery", () => {
     const navigator = readProjectFile("client/src/pages/PortalNavigator.tsx");
     const home = readProjectFile("client/src/pages/Home.tsx");

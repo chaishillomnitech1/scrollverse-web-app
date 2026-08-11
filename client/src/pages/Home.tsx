@@ -1110,6 +1110,8 @@ export default function Home() {
                   </div>
                   {[
                     { href: "/fashion-empire", icon: "👗", label: "Fashion Empire", sub: "XLVIII BLOCKS × VNLND" },
+                    { href: "/fashion-studio", icon: "🎛️", label: "Brand Studio", sub: "Independent houses · colorway lab" },
+                    { href: "/commons", icon: "🧭", label: "Convergence Commons", sub: "Creators · ideas · IP discovery" },
                     { href: "/fashion-portfolio", icon: "🧩", label: "Fashion Portfolio", sub: "Build original concept looks" },
                     { href: "/admin/fashion-review", icon: "🛡️", label: "Asset Review", sub: "Protected review console" },
                     { href: "/virgil-abloh", icon: "🎨", label: "Virgil Abloh Legacy", sub: "3% Rule · Quotation Marks" },

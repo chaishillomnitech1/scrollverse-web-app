@@ -256,7 +256,9 @@ import AtlantisCollection from "./pages/AtlantisCollection";
 import EmpireIndex from "./pages/EmpireIndex";
 import MeinLookbook from "./pages/MeinLookbook";
 import FashionPortfolio from "./pages/FashionPortfolio";
+import BrandStudio from "./pages/BrandStudio";
 import PortalNavigator from "./pages/PortalNavigator";
+import ConvergenceCommons from "./pages/ConvergenceCommons";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -543,6 +545,8 @@ function Router() {
         <Route path="/journey" component={PortalNavigator} />
         <Route path="/mein" component={MeinLookbook} />
         <Route path="/fashion-portfolio" component={FashionPortfolio} />
+        <Route path="/fashion-studio" component={BrandStudio} />
+        <Route path="/commons" component={ConvergenceCommons} />
         <Route component={NotFound} />
     </Switch>
     <MobileBottomNav />
