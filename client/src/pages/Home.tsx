@@ -830,6 +830,7 @@ export default function Home() {
   const guardianWaitlistSize = omniMetrics?.guardianWaitlistSize ?? 0;
   const totalBookings = omniMetrics?.totalBookings ?? 0;
   const [seerahOpen, setSeerahOpen] = useState(false);
+  const [fashionOpen, setFashionOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -1080,6 +1081,39 @@ export default function Home() {
                     <span className="text-sm">🏆</span>
                     <div><div className="text-xs font-bold" style={{ color: "#FFB800" }}>Guardian Quiz</div><div className="text-xs" style={{ color: "#5a6a7a" }}>Test your Seerah knowledge</div></div>
                   </a>
+                </div>
+              )}
+            </div>
+            {/* ── FASHION EMPIRE DROPDOWN ── */}
+            <div className="relative">
+              <button
+                onClick={() => setFashionOpen(!fashionOpen)}
+                onBlur={() => setTimeout(() => setFashionOpen(false), 200)}
+                className="flex items-center gap-1.5 text-sm font-bold transition-colors duration-200 focus:outline-none"
+                style={{ color: fashionOpen ? "#FF6B35" : "#FF6B35" }}
+              >
+                <span>👟 Fashion</span>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style={{ transform: fashionOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
+                  <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                </svg>
+              </button>
+              {fashionOpen && (
+                <div className="absolute top-full right-0 mt-3 w-56 rounded-2xl overflow-hidden" style={{ background: "rgba(5,11,26,0.98)", border: "1px solid rgba(255,107,53,0.25)", backdropFilter: "blur(20px)", boxShadow: "0 16px 48px rgba(255,107,53,0.12)", zIndex: 100 }}>
+                  <div className="px-4 pt-4 pb-3" style={{ borderBottom: "1px solid rgba(255,107,53,0.1)" }}>
+                    <div className="text-xs font-mono tracking-widest" style={{ color: "#FF6B35" }}>XLVIII BLOCKS LLC</div>
+                    <div className="text-xs mt-0.5" style={{ color: "#5a6a7a" }}>3% Rule · South Jersey</div>
+                  </div>
+                  {[
+                    { href: "/fashion-empire", icon: "👗", label: "Fashion Empire", sub: "XLVIII BLOCKS × VNLND" },
+                    { href: "/virgil-abloh", icon: "🎨", label: "Virgil Abloh Legacy", sub: "3% Rule · Quotation Marks" },
+                    { href: "/atlantis-collection", icon: "🌊", label: "#XLVblocks Atlantis", sub: "7-Set · Temple of Poseidon" },
+                    { href: "/empire-index", icon: "🗺️", label: "Empire Index", sub: "Every artifact mapped" },
+                  ].map(s => (
+                    <a key={s.href} href={s.href} className="flex items-center gap-3 px-4 py-2.5 transition-all duration-200 hover:bg-[rgba(255,107,53,0.06)]">
+                      <span className="text-sm">{s.icon}</span>
+                      <div><div className="text-xs font-bold" style={{ color: "#FF6B35" }}>{s.label}</div><div className="text-xs" style={{ color: "#5a6a7a" }}>{s.sub}</div></div>
+                    </a>
+                  ))}
                 </div>
               )}
             </div>
@@ -1594,6 +1628,15 @@ export default function Home() {
                 icon: "🏛️",
                 desc: "Official White House channel — executive branch communications, policy, and sovereign governance.",
                 freq: "432Hz Governance",
+              },
+              {
+                name: "Dogma Dog Warrior",
+                handle: "@dogmadogwarrior",
+                url: "https://youtube.com/@dogmadogwarrior?si=CmJvWpFwU1iBWjRV",
+                color: "#FF6B35",
+                icon: "🐕",
+                desc: "Sovereign warrior energy. Dogma Dog Warrior — discipline, loyalty, and the warrior code. Aligned with the ScrollVerse frequency.",
+                freq: "741Hz Liberation",
               },
             ].map(ch => (
               <a key={ch.name} href={ch.url} target="_blank" rel="noopener noreferrer" className="rounded-xl p-6 transition-all hover:scale-[1.03] block" style={{ background: `${ch.color}06`, border: `1px solid ${ch.color}18`, textDecoration: "none" }}>

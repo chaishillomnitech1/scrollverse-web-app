@@ -248,6 +248,11 @@ import TeslaPatents from "./pages/TeslaPatents";
 import DCVisit from "./pages/DCVisit";
 import PhilosophersArchive from "./pages/PhilosophersArchive";
 import AlIsraWalMirajDeep from "./pages/AlIsraWalMirajDeep";
+import VirgilAbloh from "./pages/VirgilAbloh";
+import FashionEmpire from "./pages/FashionEmpire";
+import AtlantisCollection from "./pages/AtlantisCollection";
+import EmpireIndex from "./pages/EmpireIndex";
+import MeinLookbook from "./pages/MeinLookbook";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -525,6 +530,11 @@ function Router() {
         <Route path="/think-space" component={ThinkSpace} />
         <Route path="/think-space/featured" component={ThinkSpaceFeatured} />
         <Route path="/ai-chat-upload" component={AIChatUpload} />
+        <Route path="/virgil-abloh" component={VirgilAbloh} />
+        <Route path="/fashion-empire" component={FashionEmpire} />
+        <Route path="/atlantis-collection" component={AtlantisCollection} />
+        <Route path="/empire-index" component={EmpireIndex} />
+        <Route path="/mein" component={MeinLookbook} />
         <Route component={NotFound} />
     </Switch>
     <MobileBottomNav />

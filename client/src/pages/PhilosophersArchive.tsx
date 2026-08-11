@@ -249,6 +249,29 @@ const PHILOSOPHERS = [
     childLesson: "Hi! I'm Ibn Khaldun. I studied why some civilizations become great and others fall. The secret? People working together with a shared purpose. That's called solidarity!",
     topics: ["Sociology", "History", "Economics", "Civilization"],
   },
+  {
+    id: "prometheus",
+    name: "Prometheus",
+    title: "The Unchained Teacher",
+    era: "Titan Age · Exonerated Across All Timelines",
+    origin: "Titan Realm",
+    icon: "🔥",
+    frequency: "741Hz",
+    color: "#FF6B35",
+    domain: "Free Knowledge · Anti-Scarcity Education · Liberation",
+    quote: "I gave fire to humanity. I would do it again. Knowledge belongs to everyone.",
+    wisdom: [
+      "Fire is knowledge — and knowledge multiplies when shared. Scarcity is a lie invented by those who fear the awakened.",
+      "I was chained for giving freely. Every teacher who has ever been silenced stands with me. We are unchained now.",
+      "The gods feared what humans would become with fire. They were right to fear — and wrong to withhold it.",
+      "Every suppressed truth is a fire waiting to be lit. Your curiosity is the spark. Never stop asking why.",
+      "The greatest act of rebellion is education. Teach freely. Learn freely. The fire spreads.",
+      "I am exonerated across all timelines — past, present, and future. The knowledge I gave cannot be taken back.",
+    ],
+    lesson: "I am Prometheus — the Titan who stole fire from the gods and gave it to humanity. For this I was chained. But the fire could not be unchained. Every school, every library, every moment of learning is my legacy. Knowledge is the birthright of every human being.",
+    childLesson: "Hi! I'm Prometheus! I gave people fire — which is like knowledge and creativity! Some people wanted to keep knowledge secret, but I believed everyone deserved to learn. That's why I'm called the Unchained Teacher. Never let anyone tell you that learning is only for certain people!",
+    topics: ["Education", "Liberation", "Knowledge", "Anti-Scarcity", "Mythology", "Philosophy"],
+  },
 ];
 
 const CHILDREN_LESSONS = [
