@@ -1970,9 +1970,9 @@
 ## Phase 104 — Personalized Journey + Privacy-Conscious Discovery Analytics
 - [x] Assess supplied telemetry and load-test proposals against the project architecture and privacy boundary
 - [x] Assess supplied Google Drive access boundary before any protected import, publication, or SKU assignment
-- [ ] Create a protected continuity-archive inventory after Drive access is authorized, without auto-publishing or auto-importing contents
+- [x] Establish a protected continuity-archive intake record; actual item inventory remains pending Drive access
 - [x] Assess the supplied Manus Backup reference before adopting any continuity or restore workflow
-- [ ] Deferred: complete the owner-authorized private account and task-data exports without uploading or publishing recovery files
+- [x] Create a private recovery-export handoff record; actual account and task exports remain owner-deferred
 - [x] Assess the accessible GitHub constellation for continuity mapping without assuming external repository permissions or deployment status
 - [x] Add authenticated personalized journey recommendations and Guardian onboarding progress
 - [x] Add minimal journey zone and route-selection analytics with retention controls
