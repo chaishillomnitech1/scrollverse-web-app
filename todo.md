@@ -1950,3 +1950,11 @@
 - [x] Add an easy-access admin review entry in the portal navigation without exposing admin data publicly
 - [x] Add tests, validate, and package the skill (database migrations applied; TypeScript clean; 42/42 Vitest tests passing; skill validator PASS)
 - [x] Save Phase 101 checkpoint and synchronize GitHub
+
+## Phase 102 — Fashion Review Assignments + Evidence Expiry
+- [x] Confirm both an in-console due-soon queue and a daily owner-facing digest as the reviewer-expiry delivery model
+- [ ] Add reviewer assignment and evidence-expiry records for protected asset review
+- [ ] Add an in-console due-soon queue and controlled daily evidence-expiry digest without using in-process timers
+- [ ] Add prominent main-page icon access to public fashion destinations without exposing admin data
+- [ ] Draft a compliance-aware incentive-governance framework for future partner, employee, and creator compensation without activating payouts or token rewards
+- [ ] Add tests, validate, save checkpoint, and synchronize GitHub

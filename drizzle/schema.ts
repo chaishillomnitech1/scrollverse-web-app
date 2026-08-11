@@ -1,4 +1,4 @@
-import { bigint, boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
+import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -1423,6 +1423,10 @@ export const catalogAssetRecords = mysqlTable("catalog_asset_records", {
   reviewNotes: text("review_notes"),
   uploadedByUserId: int("uploaded_by_user_id").notNull(),
   reviewedByUserId: int("reviewed_by_user_id"),
+  assignedReviewerUserId: int("assigned_reviewer_user_id").references(() => users.id, { onDelete: "set null" }),
+  evidenceDocumentUrl: varchar("evidence_document_url", { length: 2048 }),
+  evidenceExpiresAt: timestamp("evidence_expires_at"),
+  lastExpiryReminderAt: timestamp("last_expiry_reminder_at"),
   reviewedAt: timestamp("reviewed_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
@@ -1441,6 +1445,22 @@ export const catalogAssetAuditEvents = mysqlTable("catalog_asset_audit_events", 
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 export type CatalogAssetAuditEvent = typeof catalogAssetAuditEvents.$inferSelect;
+
+// Owns the project-level Heartbeat job. The persisted task UID is the only
+// identifier a scheduled callback may use to locate this governed digest.
+export const catalogEvidenceDigestSettings = mysqlTable("catalog_evidence_digest_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  catalogKey: varchar("catalog_key", { length: 96 }).notNull().unique(),
+  enabled: boolean("enabled").notNull().default(false),
+  daysBeforeExpiry: int("days_before_expiry").notNull().default(30),
+  scheduleCronTaskUid: varchar("schedule_cron_task_uid", { length: 65 }),
+  lastDigestDay: varchar("last_digest_day", { length: 10 }),
+  lastDigestAt: timestamp("last_digest_at"),
+  updatedByUserId: int("updated_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [index("catalog_evidence_digest_task_uid_idx").on(table.scheduleCronTaskUid)]);
+export type CatalogEvidenceDigestSettings = typeof catalogEvidenceDigestSettings.$inferSelect;
 
 export const commerceActivationConfigs = mysqlTable("commerce_activation_configs", {
   id: int("id").autoincrement().primaryKey(),

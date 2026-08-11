@@ -378,6 +378,10 @@ const QUICK_ACCESS = [
   { icon: "🔗", label: "Referral", hint: "Guardian Referral System", href: "/referral" },
   { icon: "🏪", label: "ScrollPort", hint: "Merchant Network", href: "/scrollport" },
   { icon: "🌐", label: "Omni Platforms", hint: "All Platforms Expansion", href: "/omni" },
+  { icon: "👗", label: "Fashion", hint: "Original concept portfolio", href: "/fashion-portfolio" },
+  { icon: "🌊", label: "Atlantis", hint: "XLVblocks seven-set collection", href: "/atlantis-collection" },
+  { icon: "🧵", label: "Fashion Empire", hint: "XLVIII BLOCKS × VNLND", href: "/fashion-empire" },
+  { icon: "🗺️", label: "Empire Index", hint: "Search every ScrollVerse artifact", href: "/empire-index" },
 ];
 
 function QuickAccessBar() {

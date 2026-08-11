@@ -8,6 +8,7 @@ import {
   catalogManufacturers,
   commerceActivationConfigs,
   impactRecipients,
+  users,
 } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { storagePut } from "../storage";
@@ -49,7 +50,7 @@ type CommerceGateInput = {
   }>;
   manufacturers: Array<{ id: number; agreementUrl: string | null; sampleEvidenceUrl: string | null; complianceStatus: "PENDING" | "APPROVED" | "REJECTED" }>;
   recipients: Array<{ id: number; agreementUrl: string | null; paymentDestination: string | null; allocationBasisPoints: number; status: "PENDING" | "APPROVED" | "REJECTED" }>;
-  assets: Array<{ sku: string; assetKind: "HERO" | "DETAIL" | "ON_BODY"; assetUrl: string; rightsStatus: "UNVERIFIED" | "OWNER_ATTESTED" | "LICENSED" | "REJECTED"; reviewStatus: "PENDING" | "APPROVED" | "REJECTED" }>;
+  assets: Array<{ sku: string; assetKind: "HERO" | "DETAIL" | "ON_BODY"; assetUrl: string; rightsStatus: "UNVERIFIED" | "OWNER_ATTESTED" | "LICENSED" | "REJECTED"; reviewStatus: "PENDING" | "APPROVED" | "REJECTED"; evidenceDocumentUrl?: string | null; evidenceExpiresAt?: Date | null }>;
   hasShopifyAuthorization: boolean;
 };
 
@@ -84,7 +85,7 @@ export function evaluateAtlantisCommerceGate(input: CommerceGateInput) {
       blockers.push(`${skuCode}: approved 7–10% impact-recipient terms are required.`);
     }
     for (const kind of ["HERO", "DETAIL", "ON_BODY"] as const) {
-      const asset = input.assets.find(item => item.sku === skuCode && item.assetKind === kind && item.reviewStatus === "APPROVED" && item.rightsStatus === "LICENSED" && Boolean(item.assetUrl));
+      const asset = input.assets.find(item => item.sku === skuCode && item.assetKind === kind && item.reviewStatus === "APPROVED" && item.rightsStatus === "LICENSED" && Boolean(item.assetUrl) && Boolean(item.evidenceDocumentUrl) && Boolean(item.evidenceExpiresAt) && new Date(item.evidenceExpiresAt ?? 0) > new Date());
       if (!asset) blockers.push(`${skuCode}: approved ${kind.toLowerCase().replace("_", "-")} image is required.`);
     }
   }
@@ -108,18 +109,20 @@ async function getCatalogRecords() {
   const db = await getDb();
   if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Catalog database is unavailable." });
   const [config] = await db.select().from(commerceActivationConfigs).where(eq(commerceActivationConfigs.catalogKey, ATLANTIS_CATALOG_KEY)).limit(1);
-  const [skus, manufacturers, recipients, assets] = await Promise.all([
+  const [skus, manufacturers, recipients, assets, reviewers] = await Promise.all([
     db.select().from(atlantisCatalogSkus).where(inArray(atlantisCatalogSkus.sku, [...EXPECTED_ATLANTIS_SKUS])),
     db.select().from(catalogManufacturers),
     db.select().from(impactRecipients),
     db.select().from(catalogAssetRecords).where(inArray(catalogAssetRecords.sku, [...EXPECTED_ATLANTIS_SKUS])),
+    db.select({ id: users.id, name: users.name, email: users.email }).from(users).where(eq(users.role, "admin")),
   ]);
   const assetIds = assets.map((asset: { id: number }) => asset.id);
   const auditEvents = assetIds.length ? await db.select().from(catalogAssetAuditEvents).where(inArray(catalogAssetAuditEvents.assetId, assetIds)) : [];
-  return { db, config, skus, manufacturers, recipients, assets, auditEvents };
+  return { db, config, skus, manufacturers, recipients, assets, auditEvents, reviewers };
 }
 
 const optionalUrl = z.string().url().max(2048).optional().nullable();
+const evidenceMimeType = z.enum(["application/pdf", "image/jpeg", "image/png", "image/webp"]);
 
 export const atlantisCatalogRouter = router({
   getCommerceGate: publicProcedure.query(async () => {
@@ -138,6 +141,22 @@ export const atlantisCatalogRouter = router({
       hasShopifyAuthorization: Boolean(process.env.SHOPIFY_ADMIN_ACCESS_TOKEN && process.env.SHOPIFY_SHOP_DOMAIN),
     });
     return { ...records, gate };
+  }),
+
+  getEvidenceQueue: adminProcedure.query(async () => {
+    const { assets, reviewers } = await getCatalogRecords();
+    const now = new Date();
+    const dueSoonCutoff = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+    const reviewerById = new Map(reviewers.map((reviewer: { id: number; name: string | null; email: string | null }) => [reviewer.id, reviewer]));
+    const items = assets
+      .filter((asset: { reviewStatus: string }) => asset.reviewStatus !== "REJECTED")
+      .map((asset: { assignedReviewerUserId: number | null; evidenceExpiresAt: Date | null; evidenceDocumentUrl: string | null; [key: string]: unknown }) => {
+        const expiry = asset.evidenceExpiresAt ? new Date(asset.evidenceExpiresAt) : null;
+        const evidenceState = !asset.evidenceDocumentUrl ? "MISSING_EVIDENCE" : !expiry ? "MISSING_EXPIRY" : expiry <= now ? "EXPIRED" : expiry <= dueSoonCutoff ? "DUE_SOON" : "CURRENT";
+        return { ...asset, evidenceState, reviewer: asset.assignedReviewerUserId ? reviewerById.get(asset.assignedReviewerUserId) ?? null : null };
+      })
+      .filter((asset: { evidenceState: string }) => asset.evidenceState !== "CURRENT");
+    return { generatedAt: now, dueSoonCutoff, items };
   }),
 
   getSubmittedImageReview: adminProcedure.query(() => ({
@@ -235,6 +254,39 @@ export const atlantisCatalogRouter = router({
     if (!createdAsset) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Asset record could not be confirmed after upload." });
     await db.insert(catalogAssetAuditEvents).values({ assetId: createdAsset.id, action: "UPLOADED", previousStatus: null, nextStatus: "PENDING", note: input.sourceReference?.trim() ? `Uploaded with source reference: ${input.sourceReference.trim()}` : "Uploaded as a pending protected asset; source and rights review required.", actorUserId: ctx.user.id });
     return { success: true, assetUrl: stored.url, status: "PENDING" as const };
+  }),
+
+  uploadAssetEvidence: adminProcedure.input(z.object({ id: z.number().int().positive(), originalFileName: z.string().trim().min(1).max(255), mimeType: evidenceMimeType, base64Data: z.string().min(1).max(11_000_000) })).mutation(async ({ ctx, input }) => {
+    const db = await getDb();
+    if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Catalog database is unavailable." });
+    const [asset] = await db.select().from(catalogAssetRecords).where(eq(catalogAssetRecords.id, input.id)).limit(1);
+    if (!asset) throw new TRPCError({ code: "NOT_FOUND", message: "Asset record not found." });
+    const rawBase64 = input.base64Data.replace(/^data:[^;]+;base64,/, "");
+    const bytes = Buffer.from(rawBase64, "base64");
+    if (!bytes.length || bytes.length > 8 * 1024 * 1024) throw new TRPCError({ code: "BAD_REQUEST", message: "Use an evidence file between 1 byte and 8 MB." });
+    const safeName = input.originalFileName.replace(/[^a-zA-Z0-9._-]/g, "-");
+    const key = `atlantis-catalog/${asset.sku}/evidence/${asset.id}-${Date.now()}-${safeName}`;
+    const stored = await storagePut(key, bytes, input.mimeType);
+    await db.update(catalogAssetRecords).set({ evidenceDocumentUrl: stored.url }).where(eq(catalogAssetRecords.id, asset.id));
+    await db.insert(catalogAssetAuditEvents).values({ assetId: asset.id, action: "NOTE", previousStatus: asset.reviewStatus, nextStatus: asset.reviewStatus, note: `Evidence document attached: ${safeName}`, actorUserId: ctx.user.id });
+    return { success: true, evidenceDocumentUrl: stored.url };
+  }),
+
+  updateAssetGovernance: adminProcedure.input(z.object({ id: z.number().int().positive(), assignedReviewerUserId: z.number().int().positive().nullable(), evidenceExpiresAt: z.date().nullable() })).mutation(async ({ ctx, input }) => {
+    const db = await getDb();
+    if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Catalog database is unavailable." });
+    const [asset] = await db.select().from(catalogAssetRecords).where(eq(catalogAssetRecords.id, input.id)).limit(1);
+    if (!asset) throw new TRPCError({ code: "NOT_FOUND", message: "Asset record not found." });
+    if (input.assignedReviewerUserId) {
+      const [reviewer] = await db.select({ id: users.id }).from(users).where(and(eq(users.id, input.assignedReviewerUserId), eq(users.role, "admin"))).limit(1);
+      if (!reviewer) throw new TRPCError({ code: "BAD_REQUEST", message: "Choose an administrator as the asset reviewer." });
+    }
+    if (input.evidenceExpiresAt && input.evidenceExpiresAt <= new Date()) throw new TRPCError({ code: "BAD_REQUEST", message: "Evidence expiry must be in the future." });
+    await db.update(catalogAssetRecords).set({ assignedReviewerUserId: input.assignedReviewerUserId, evidenceExpiresAt: input.evidenceExpiresAt }).where(eq(catalogAssetRecords.id, asset.id));
+    const reviewerText = input.assignedReviewerUserId ? `reviewer #${input.assignedReviewerUserId}` : "no reviewer";
+    const expiryText = input.evidenceExpiresAt ? `evidence expiry ${input.evidenceExpiresAt.toISOString().slice(0, 10)}` : "no evidence expiry";
+    await db.insert(catalogAssetAuditEvents).values({ assetId: asset.id, action: "NOTE", previousStatus: asset.reviewStatus, nextStatus: asset.reviewStatus, note: `Governance updated: ${reviewerText}; ${expiryText}.`, actorUserId: ctx.user.id });
+    return { success: true };
   }),
 
   reviewAsset: adminProcedure.input(z.object({ id: z.number().int().positive(), decision: z.enum(["APPROVED", "REJECTED"]), rightsStatus: z.enum(["UNVERIFIED", "OWNER_ATTESTED", "LICENSED", "REJECTED"]).optional(), reviewNotes: z.string().trim().min(3).max(5000) })).mutation(async ({ ctx, input }) => {
