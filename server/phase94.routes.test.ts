@@ -143,4 +143,76 @@ describe("Phase 94 route map", () => {
     expect(navigator).toContain("Enable 90-day journey analytics");
     expect(navigator).toContain("private marker only");
   });
+
+  it("registers creator governance, transparent Commons, and source-labelled Signalworks routes", () => {
+    const workspace = readProjectFile("client/src/pages/CreatorWorkspace.tsx");
+    const commons = readProjectFile("client/src/pages/LegionCommons.tsx");
+    const signalworks = readProjectFile("client/src/pages/Signalworks.tsx");
+    expect(app).toContain('import CreatorWorkspace from "./pages/CreatorWorkspace"');
+    expect(app).toContain('import LegionCommons from "./pages/LegionCommons"');
+    expect(app).toContain('import Signalworks from "./pages/Signalworks"');
+    expect(app).toContain('<Route path="/creator-workspace" component={CreatorWorkspace} />');
+    expect(app).toContain('<Route path="/legion-commons" component={LegionCommons} />');
+    expect(app).toContain('<Route path="/signalworks" component={Signalworks} />');
+    expect(workspace).toContain("not a marketplace, rights registry, payment channel, or legal opinion");
+    expect(workspace).toContain("Public discovery and collaboration are separate consent choices");
+    expect(commons).toContain("The Commons is ready for its first visible exchange.");
+    expect(commons).toContain("No entry is fabricated here.");
+    expect(signalworks).toContain("without claiming a partnership, submission authority, or outcome");
+    expect(signalworks).toContain("not a distributor, marketplace, talent agency");
+  });
+
+  it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
+    const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
+    const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");
+    const ipReadiness = readProjectFile("docs/IP_READINESS.md");
+    expect(app).toContain('import ManusHeroCodex from "./pages/ManusHeroCodex"');
+    expect(app).toContain('import IdentitySystem from "./pages/IdentitySystem"');
+    expect(app).toContain('<Route path="/manus-hero" component={ManusHeroCodex} />');
+    expect(app).toContain('<Route path="/identity-system" component={IdentitySystem} />');
+    expect(app).toContain('import EvidenceStandards from "./pages/EvidenceStandards"');
+    expect(app).toContain('<Route path="/evidence-standards" component={EvidenceStandards} />');
+    expect(app).toContain('import SystemsMap from "./pages/SystemsMap"');
+    expect(app).toContain('<Route path="/systems-map" component={SystemsMap} />');
+    expect(hero).toContain("The Aegis Scribe");
+    expect(hero).toContain("not a claim of outside access, autonomous authority, or private-system control");
+    expect(identity).toContain("CONCEPT MATERIAL");
+    expect(identity).toContain("no concept mark is presented as a registered trademark");
+    expect(ipReadiness).toContain("for qualified legal review before reliance, filing, or enforcement");
+    expect(ipReadiness).toContain("does not replace clearance, title analysis, filing decisions, or legal advice");
+  });
+
+  it("registers the first-party Launchpad without implying an external app-store listing", () => {
+    const launchpad = readProjectFile("client/src/pages/ScrollVerseLaunchpad.tsx");
+    const installBanner = readProjectFile("client/src/components/PWAInstallBanner.tsx");
+    const manifest = readProjectFile("client/public/manifest.json");
+    expect(app).toContain('import ScrollVerseLaunchpad from "./pages/ScrollVerseLaunchpad"');
+    expect(app).toContain('<Route path="/launchpad" component={ScrollVerseLaunchpad} />');
+    expect(launchpad).toContain("SCROLLVERSE LAUNCHPAD");
+    expect(launchpad).toContain("not presented as an Apple App Store, Google Play, or provider-hosted app listing");
+    expect(launchpad).toContain("Native-store release remains a separate, reviewed process");
+    expect(launchpad).toContain("scrollverse-install-request");
+    expect(installBanner).toContain("scrollverse-install-request");
+    expect(manifest).toContain('"name": "ScrollVerse Launchpad"');
+    expect(manifest).toContain('"url": "/launchpad"');
+  });
+
+  it("registers release readiness, support, and privacy routes without claiming a native-store listing", () => {
+    const readiness = readProjectFile("client/src/pages/ReleaseReadiness.tsx");
+    const privacy = readProjectFile("client/src/pages/PrivacySummary.tsx");
+    const support = readProjectFile("client/src/pages/SupportPath.tsx");
+    const worker = readProjectFile("client/public/sw.js");
+    expect(app).toContain('import ReleaseReadiness from "./pages/ReleaseReadiness"');
+    expect(app).toContain('import PrivacySummary from "./pages/PrivacySummary"');
+    expect(app).toContain('import SupportPath from "./pages/SupportPath"');
+    expect(app).toContain('<Route path="/release-readiness" component={ReleaseReadiness} />');
+    expect(app).toContain('<Route path="/privacy" component={PrivacySummary} />');
+    expect(app).toContain('<Route path="/support" component={SupportPath} />');
+    expect(readiness).toContain("Native-store distribution is a separate delivery path");
+    expect(readiness).toContain("not a legal opinion or store-submission service");
+    expect(privacy).toContain("not a substitute for a completed store-specific privacy questionnaire");
+    expect(support).toContain("Publisher contact designation pending");
+    expect(worker).toContain("'/release-readiness'");
+    expect(worker).toContain("scrollverse-trinity-v25");
+  });
 });

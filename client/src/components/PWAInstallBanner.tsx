@@ -48,6 +48,16 @@ export default function PWAInstallBanner() {
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
+  useEffect(() => {
+    const openInstallOptions = () => {
+      setDismissed(false);
+      localStorage.removeItem("pwa-banner-dismissed");
+      setShowBanner(true);
+    };
+    window.addEventListener("scrollverse-install-request", openInstallOptions);
+    return () => window.removeEventListener("scrollverse-install-request", openInstallOptions);
+  }, []);
+
   const handleInstall = async () => {
     if (deferredPrompt) {
       await deferredPrompt.prompt();
@@ -151,7 +161,7 @@ export default function PWAInstallBanner() {
       >
         <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
         <span className="text-xs font-mono" style={{ color: "#8899AA" }}>
-          528Hz · Sovereign App · Works Offline · All Platforms
+          Install options · Cached web shell · Browser support varies
         </span>
       </div>
     </div>

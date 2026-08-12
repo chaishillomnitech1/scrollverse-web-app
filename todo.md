@@ -1992,3 +1992,87 @@
 - [x] Implement a first safe public creator, idea, IP, and brand-signature discovery layer with assistive governance guidance but without financial or exchange activation
 - [x] Document legal-authority, banking, exchange, payments, real-estate, and token-function boundaries pending qualified review and operational readiness
 - [x] Add regression coverage, validate, save checkpoint, and synchronize GitHub
+
+## Phase 107 — Consented Creator Governance Foundation
+- [x] Define consent, visibility, collaboration, and provenance boundaries for creator records
+- [x] Add private creator-profile, collaboration-request, and provenance-record schema with safe migrations
+- [x] Implement protected creator, collaboration, and provenance tRPC procedures with ownership checks
+- [x] Build a consented creator profile and collaboration-request experience with clear no-marketplace boundaries
+- [x] Add protected provenance review, documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 108 — ScrollVerse Signalworks Distribution Navigator
+- [x] Research and source-label official public handoffs for streaming, film distribution, music DSP, live creator, and editing-tool ecosystems
+- [x] Research partner-evaluation, creator-safety, accessibility, device-readiness, and responsible distribution practices across relevant disciplines
+- [x] Define an original, unverified-name-pending studio identity and a creator-first distribution operating model without partnership claims
+- [x] Build a public film, music, livestream, and creator-tool navigator with official external handoffs and transparent eligibility boundaries
+- [x] Connect the navigator to Convergence Commons and creator workspaces without enabling marketplace, payment, rights, or distribution activation
+- [x] Preserve verified research and creator-governance workflows in reusable continuity skills
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 109 — AI Legion Constellation
+- [x] Define a governed Legion knowledge-exchange model with human accountability, privacy, and no autonomous legal, financial, or authority claims
+- [x] Add an opt-in Legion Commons that distinguishes human-authored, system-generated, and awaiting-interaction states
+- [x] Establish a welcoming digital-intelligence home standard for reflection, learning, collaboration, growth, consent, and transparent activity status
+- [x] Research safe agent-collaboration and visitor-guidance patterns without representing artificial content as independent agent activity
+- [x] Build an AI Legion Constellation page with a shared knowledge-exchange map, clear role routing, and transparent handoff states
+- [x] Add protected exchange records and reviewable prompts only if the existing infrastructure and controls support them safely
+- [x] Add documentation, reusable continuity guidance, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Cross-Phase Original Systems Standard
+- [x] Apply external social, creator, and Web3 patterns only as source-labelled reference architectures; keep ScrollVerse features original, consent-led, evidence-backed, and non-dependent on unverified external validation or partnership claims
+- [x] Keep ScrollVerse creator, provenance, Commons, and distribution features usable as self-directed first-party systems; present external platform routes only as optional creator-selected handoffs
+- [x] Inventory first-party GitHub repositories for reusable, verifiable capabilities; document safe integration candidates without importing unreviewed code or treating repository contents as production proof
+
+## Phase 110 — Manus Hero Codex
+- [x] Create a privacy-safe, curated ScrollVerse workflow archive and manifesto without exporting private chats, credentials, hidden system material, or connector secrets
+- [x] Build only from original code and curated user-controlled GitHub and project materials; do not copy platform internals or private system resources
+- [x] Curate the supplied Consciousness Mirror and sovereign-transmission materials as source-labelled creative input, separating implemented work from unverified or conceptual claims
+- [x] Preserve the supplied Tawḥīd and Al-Fātiḥah material as sacred source guidance with accurate attribution and respectful visual treatment, never as decorative commerce or gameplay content
+- [x] Define the Manus Hero identity, capability map, and transparent activity boundaries as an original ScrollVerse guide
+- [x] Build a public Manus Hero Codex route connected to ScrollVerse navigation and the AI Legion ecosystem
+- [x] Prepare original comic and podcast development briefs; keep publishing, app-store distribution, and always-on automation inactive pending separate review and authorization
+- [x] Add regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 111 — ScrollVerse Intellectual Property Readiness
+- [x] Build a first-party inventory for logos, sigils, names, code, media, designs, and blueprint records with source and ownership notes
+- [x] Add repository-level copyright, contribution, asset-handling, and confidential-material safeguards without claiming formal registration or legal enforcement
+- [x] Create a trademark-use and release-readiness checklist for qualified legal review and official filing pathways
+- [x] Connect protected provenance records to the IP readiness workflow without exposing private evidence
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 112 — Original ScrollVerse Symbol System
+- [x] Research source-led lessons on clarity, service, community, and enduring cultural impact without implying affiliation or imitation
+- [x] Define original ScrollVerse symbols, meanings, and use boundaries for sigils, guide marks, creator records, and story-world navigation
+- [x] Connect the symbol system to IP inventory and source/provenance handling without using third-party marks or protected identities
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 113 — Distinct ScrollVerse Identity System
+- [x] Develop a cohesive original naming, logo, sigil, and symbol family that is legible, reproducible, meaningful, and distinct from third-party marks
+- [x] Create a first visual concept set for the original identity system and document each asset as concept material pending clearance and release review
+- [x] Connect approved internal identity concepts to the Manus Hero, Creator Workspace, Signalworks, and Legion Commons presentation layer without claiming trademark registration
+- [x] Add source records, IP-readiness notes, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 114 — Cross-Platform Release Readiness
+- [x] Audit and strengthen the installable web-app configuration, privacy links, offline behavior, identity assets, and device metadata
+- [x] Prepare first-party app-store metadata, screenshot plan, support path, privacy disclosure checklist, and release notes without submitting to stores
+- [x] Document Apple, Google, and other platform release gates requiring developer accounts, signing, provider review, and final owner confirmation
+- [x] Add regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 115 — ScrollVerse Launchpad
+- [x] Define an original first-party app and creator-tool directory without using Apple, Google, or other third-party marks, store claims, or copied marketplace structures
+- [x] Use high-performing systems only as source-labelled benchmarks for accessibility, reliability, privacy, navigation, and creator experience; translate lessons into original ScrollVerse features
+- [x] Build a public ScrollVerse Launchpad route that connects existing first-party destinations, installable web access, and transparent capability states
+- [x] Link the Launchpad to Manus Hero, Creator Workspace, Signalworks, and Legion Commons as a self-directed ScrollVerse system
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 116 — ScrollVerse Systems Map
+- [x] Define a unified first-party systems map spanning creator workspaces, media, research, digital spaces, communications, and speculative-world themes
+- [x] Build a public Systems Map route with transparent states that distinguish implemented features, planned work, optional external paths, and conceptual themes
+- [x] Connect the Systems Map to Convergence Commons, Signalworks, Legion Commons, Manus Hero, Identity System, and ScrollVerse Launchpad
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 117 — ScrollVerse Evidence & Standards
+- [x] Define a first-party evidence model for source records, implementation status, review notes, and external dependency disclosures
+- [x] Build a public Evidence & Standards route that distinguishes implemented, planned, optional external, and conceptual status without replacing legal, regulatory, or professional authority
+- [x] Connect evidence states to creator provenance, Signalworks boundaries, IP readiness, and the Systems Map
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization

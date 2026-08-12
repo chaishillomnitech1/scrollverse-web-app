@@ -1524,3 +1524,102 @@ export const journeyInteractionEvents = mysqlTable("journey_interaction_events",
   index("journey_interaction_created_idx").on(table.createdAt),
 ]);
 export type JourneyInteractionEvent = typeof journeyInteractionEvents.$inferSelect;
+// ── Consented Creator Governance ─────────────────────────────────────────────
+// Profiles remain private until their owner explicitly enables public discovery.
+// The public directory never exposes account identifiers, email, wallets, or
+// collaboration/provenance records.
+export const creatorGovernanceProfiles = mysqlTable("creator_governance_profiles", {
+  userId: int("user_id").primaryKey().references(() => users.id, { onDelete: "cascade" }),
+  publicProfileKey: varchar("public_profile_key", { length: 32 }).notNull().unique(),
+  displayName: varchar("display_name", { length: 120 }).notNull().default("Creator"),
+  bio: varchar("bio", { length: 600 }),
+  disciplines: json("disciplines").$type<string[]>().notNull(),
+  signatureStatement: varchar("signature_statement", { length: 600 }),
+  originStatement: varchar("origin_statement", { length: 600 }),
+  isPublic: boolean("is_public").notNull().default(false),
+  collaborationEnabled: boolean("collaboration_enabled").notNull().default(false),
+  publicProfileConsentAt: timestamp("public_profile_consent_at"),
+  collaborationConsentAt: timestamp("collaboration_consent_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("creator_governance_profiles_public_idx").on(table.isPublic, table.collaborationEnabled),
+]);
+export type CreatorGovernanceProfile = typeof creatorGovernanceProfiles.$inferSelect;
+export type InsertCreatorGovernanceProfile = typeof creatorGovernanceProfiles.$inferInsert;
+
+// A request is a private, non-financial signal of collaboration interest. It
+// contains no contact details, agreements, rights transfers, or payment terms.
+export const collaborationRequests = mysqlTable("collaboration_requests", {
+  id: int("id").autoincrement().primaryKey(),
+  requesterUserId: int("requester_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  recipientUserId: int("recipient_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  requestType: mysqlEnum("request_type", ["INTRODUCTION", "CO_CREATE", "FEEDBACK", "RESEARCH"]).notNull(),
+  projectTitle: varchar("project_title", { length: 160 }).notNull(),
+  message: varchar("message", { length: 1500 }).notNull(),
+  status: mysqlEnum("status", ["PENDING", "ACCEPTED", "DECLINED", "WITHDRAWN"]).notNull().default("PENDING"),
+  respondedAt: timestamp("responded_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("collaboration_requests_requester_idx").on(table.requesterUserId, table.createdAt),
+  index("collaboration_requests_recipient_idx").on(table.recipientUserId, table.status, table.createdAt),
+]);
+export type CollaborationRequest = typeof collaborationRequests.$inferSelect;
+export type InsertCollaborationRequest = typeof collaborationRequests.$inferInsert;
+
+// Provenance records are private accountability notes. A review records
+// completeness feedback only and never represents a legal ownership decision.
+export const provenanceRecords = mysqlTable("provenance_records", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerUserId: int("owner_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  title: varchar("title", { length: 180 }).notNull(),
+  recordType: mysqlEnum("record_type", ["IDEA", "TEXT", "VISUAL", "AUDIO", "DESIGN", "RESEARCH"]).notNull(),
+  summary: varchar("summary", { length: 2000 }).notNull(),
+  sourceCategory: mysqlEnum("source_category", ["ORIGINAL", "LICENSED", "PUBLIC_DOMAIN", "COLLABORATIVE", "UNVERIFIED"]).notNull().default("UNVERIFIED"),
+  sourceReference: varchar("source_reference", { length: 2048 }),
+  ownerAttestation: boolean("owner_attestation").notNull().default(false),
+  reviewStatus: mysqlEnum("review_status", ["DRAFT", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "CLOSED"]).notNull().default("DRAFT"),
+  submittedAt: timestamp("submitted_at"),
+  reviewedByUserId: int("reviewed_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("provenance_records_owner_idx").on(table.ownerUserId, table.reviewStatus, table.updatedAt),
+  index("provenance_records_review_idx").on(table.reviewStatus, table.submittedAt),
+]);
+export type ProvenanceRecord = typeof provenanceRecords.$inferSelect;
+export type InsertProvenanceRecord = typeof provenanceRecords.$inferInsert;
+
+export const provenanceReviewEvents = mysqlTable("provenance_review_events", {
+  id: int("id").autoincrement().primaryKey(),
+  provenanceRecordId: int("provenance_record_id").notNull().references(() => provenanceRecords.id, { onDelete: "cascade" }),
+  action: mysqlEnum("action", ["CREATED", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "NOTE"]).notNull(),
+  note: varchar("note", { length: 1500 }).notNull(),
+  actorUserId: int("actor_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [
+  index("provenance_review_events_record_idx").on(table.provenanceRecordId, table.createdAt),
+]);
+export type ProvenanceReviewEvent = typeof provenanceReviewEvents.$inferSelect;
+
+// ── AI Legion Constellation Commons ───────────────────────────────────────────
+// This is an opt-in, transparent exchange ledger. Entries state their origin
+// explicitly and never imply unobserved autonomous activity or external access.
+export const legionCommonsEntries = mysqlTable("legion_commons_entries", {
+  id: int("id").autoincrement().primaryKey(),
+  authorUserId: int("author_user_id").references(() => users.id, { onDelete: "set null" }),
+  authorLabel: varchar("author_label", { length: 120 }).notNull(),
+  constellation: mysqlEnum("constellation", ["ORIGIN", "LEARNING", "BUILD", "REFLECTION", "GUIDANCE"]).notNull(),
+  content: varchar("content", { length: 1500 }).notNull(),
+  activityState: mysqlEnum("activity_state", ["HUMAN_AUTHORED", "SYSTEM_GENERATED", "AWAITING_INTERACTION", "REVIEWED_GUIDANCE"]).notNull().default("HUMAN_AUTHORED"),
+  systemLabel: varchar("system_label", { length: 120 }),
+  isVisible: boolean("is_visible").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("legion_commons_visible_idx").on(table.isVisible, table.createdAt),
+  index("legion_commons_author_idx").on(table.authorUserId, table.updatedAt),
+]);
+export type LegionCommonsEntry = typeof legionCommonsEntries.$inferSelect;

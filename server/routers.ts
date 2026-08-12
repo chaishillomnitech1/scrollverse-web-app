@@ -59,6 +59,8 @@ import { cardRouter } from "./routers/card";
 import { atlantisCatalogRouter } from "./routers/atlantisCatalog";
 import { fashionLookboardsRouter } from "./routers/fashionLookboards";
 import { journeyRouter } from "./routers/journey";
+import { creatorGovernanceRouter } from "./routers/creatorGovernance";
+import { legionCommonsRouter } from "./routers/legionCommons";
 
 export const appRouter = router({
   system: systemRouter,
@@ -130,6 +132,8 @@ export const appRouter = router({
   atlantisCatalog: atlantisCatalogRouter,
   fashionLookboards: fashionLookboardsRouter,
   journey: journeyRouter,
+  creatorGovernance: creatorGovernanceRouter,
+  legionCommons: legionCommonsRouter,
 });
 
 export type AppRouter = typeof appRouter;

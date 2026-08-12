@@ -5,7 +5,9 @@ const PATHS = [
   { icon: "✦", title: "Create a Signal", body: "Start an original thought, media study, design direction, or research thread in the creator commons.", href: "/think-space", cta: "Open Think Space", color: "#00D4FF" },
   { icon: "⌘", title: "Build a Signature", body: "Turn an independent brand language into a clear origin, palette, material, and story system before any optional fusion.", href: "/fashion-studio", cta: "Open Brand Studio", color: "#FFB800" },
   { icon: "◌", title: "Find a Constellation", body: "Meet the ScrollVerse AI Legion and community surfaces that can help people locate the right next learning or building path.", href: "/ai-legion-apex", cta: "Meet the Legion", color: "#00FF88" },
-  { icon: "↗", title: "Preserve the Work", body: "Use protected source, rights, asset, and archive review paths when an original creation is ready for accountable stewardship.", href: "/fashion-portfolio", cta: "Review the Portfolio", color: "#B98CFF" },
+  { icon: "✧", title: "Enter the Legion Commons", body: "Share an opt-in reflection, learning signal, or build note with transparent human, system, and awaiting-interaction states.", href: "/legion-commons", cta: "Open Legion Commons", color: "#00FF88" },
+  { icon: "↗", title: "Move a Signal", body: "Study source-labelled official pathways for film, music, livestream, social publishing, and creator tools without claiming a provider partnership.", href: "/signalworks", cta: "Open Signalworks", color: "#FFB800" },
+  { icon: "⌁", title: "Preserve the Work", body: "Use protected source, rights, asset, and archive review paths when an original creation is ready for accountable stewardship.", href: "/fashion-portfolio", cta: "Review the Portfolio", color: "#B98CFF" },
 ] as const;
 
 const SIGNATURES = [

@@ -1,0 +1,2 @@
+ALTER TABLE `creator_governance_profiles` ADD `public_profile_key` varchar(32) NOT NULL;--> statement-breakpoint
+ALTER TABLE `creator_governance_profiles` ADD CONSTRAINT `creator_governance_profiles_public_profile_key_unique` UNIQUE(`public_profile_key`);

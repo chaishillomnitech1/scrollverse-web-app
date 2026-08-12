@@ -259,6 +259,18 @@ import FashionPortfolio from "./pages/FashionPortfolio";
 import BrandStudio from "./pages/BrandStudio";
 import PortalNavigator from "./pages/PortalNavigator";
 import ConvergenceCommons from "./pages/ConvergenceCommons";
+import Signalworks from "./pages/Signalworks";
+import CreatorWorkspace from "./pages/CreatorWorkspace";
+import LegionCommons from "./pages/LegionCommons";
+import AdminProvenanceReview from "./pages/AdminProvenanceReview";
+import ManusHeroCodex from "./pages/ManusHeroCodex";
+import IdentitySystem from "./pages/IdentitySystem";
+import EvidenceStandards from "./pages/EvidenceStandards";
+import SystemsMap from "./pages/SystemsMap";
+import ScrollVerseLaunchpad from "./pages/ScrollVerseLaunchpad";
+import ReleaseReadiness from "./pages/ReleaseReadiness";
+import PrivacySummary from "./pages/PrivacySummary";
+import SupportPath from "./pages/SupportPath";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -547,6 +559,18 @@ function Router() {
         <Route path="/fashion-portfolio" component={FashionPortfolio} />
         <Route path="/fashion-studio" component={BrandStudio} />
         <Route path="/commons" component={ConvergenceCommons} />
+        <Route path="/signalworks" component={Signalworks} />
+        <Route path="/creator-workspace" component={CreatorWorkspace} />
+        <Route path="/legion-commons" component={LegionCommons} />
+        <Route path="/manus-hero" component={ManusHeroCodex} />
+        <Route path="/identity-system" component={IdentitySystem} />
+        <Route path="/evidence-standards" component={EvidenceStandards} />
+        <Route path="/systems-map" component={SystemsMap} />
+        <Route path="/launchpad" component={ScrollVerseLaunchpad} />
+        <Route path="/release-readiness" component={ReleaseReadiness} />
+        <Route path="/privacy" component={PrivacySummary} />
+        <Route path="/support" component={SupportPath} />
+        <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
     <MobileBottomNav />

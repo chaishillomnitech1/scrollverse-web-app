@@ -13,6 +13,20 @@
   "categories": ["finance", "business", "utilities", "education", "entertainment"],
   "shortcuts": [
     {
+      "name": "ScrollVerse Launchpad",
+      "short_name": "Launchpad",
+      "description": "First-party ScrollVerse app and creator-tool directory",
+      "url": "/launchpad",
+      "icons": [{ "src": "/icons/shortcut-dashboard.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Systems Map",
+      "short_name": "Systems",
+      "description": "Implemented, planned, external, and conceptual ScrollVerse layers",
+      "url": "/systems-map",
+      "icons": [{ "src": "/icons/shortcut-crypto.png", "sizes": "96x96" }]
+    },
+    {
       "name": "Book of Life",
       "short_name": "Book of Life",
       "description": "The most legendary book ever created — 7 Seals, prophetic timestamps",
