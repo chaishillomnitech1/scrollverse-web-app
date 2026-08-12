@@ -52,6 +52,7 @@ const ZONES = [
       ["Token", "/token", "Existing token-oriented portal route with separate evidence requirements for any live outcome."],
       ["NFT", "/nft", "Existing NFT marketplace route; no rights or commerce outcome is implied by navigation."],
       ["Nexus", "/nexus", "First-party digital-asset and archive pathway."],
+      ["Chain Intelligence", "/chain-intelligence", "Source-linked explorer handoffs, network context, and evidence-state education without financial activation."],
       ["Systems Map", "/systems-map", "Implemented, planned, external, and conceptual layers in one source-labelled view."],
     ],
   },

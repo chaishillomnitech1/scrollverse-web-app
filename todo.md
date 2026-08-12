@@ -2112,6 +2112,20 @@
 - [x] Inspect the owner-provided Library-Manus reference as untrusted data, extract relevant first-party material, and record any provenance or privacy limitations; the submitted static capture contained no authenticated private library record
 - [x] Integrate only verified, non-sensitive Library-Manus material into the ScrollVerse source-linked operating map and continuity records; no public operating-map content was added because no authenticated private material was exposed
 
+## Phase 130 — First-Party Artifact Integration
+- [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
+- [ ] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
+- [ ] Validate and publish the expanded first-party operating map while preserving private-session material as unavailable until technically surfaced
+
+## Phase 131 — Hero Business Guide
+- [ ] Build a Hero-led visitor communication and conversation system with clear business, creator, product, media, and collaboration entry paths
+- [ ] Add product and digital-asset discovery that teaches visitors from verified first-party records without implying active custody, exchange, transfer, investment, or unverified inventory
+- [ ] Add direct creator communication and build pathways through existing protected intake, Creator Operations, Media Dock, Think Space, and Specialist Constellation routes
+- [ ] Teach visitors how to prepare original work, choose a path, and build responsibly without promising income, fabricating outcomes, or making choices on their behalf
+
+## Phase 132 — Reusable Continuity Practice
+- [ ] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
@@ -2181,3 +2195,25 @@
 - [x] Require visible source URLs, dates, and evidence-status labels for factual discovery items instead of unsupported claims or invented activity
 - [x] Preserve user interpretation by presenting source-linked facts, methodology context, and stated limitations without assigning conclusions to visitors
 - [x] Preserve relevant information with source, date, context, and safety-aware handling rather than suppressing the record or claiming unverified conclusions
+
+## Phase 133 — Privacy-Aware Continuity
+- [x] Preserve project continuity through versioned records, reusable skills, source registers, route maps, and review handoffs without representing any guide as having limitless memory or exposing private material
+
+## Phase 134 — Chain Intelligence Tracker
+- [x] Inventory current first-party blockchain, token, wallet, NFT, contract, and explorer routes plus any owner-supplied verified chain records
+- [x] Build a source-linked Chain Intelligence Tracker that explains records, network context, evidence state, and external explorer handoffs without custody, exchange, trading, valuation, or transfer claims
+- [x] Integrate the Chain Intelligence Tracker into the Empire Map, Hero co-creator guide, digital-asset education, source register, and route regression coverage
+
+## Phase 130 — First-Party Artifact Integration
+- [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
+- [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
+- [ ] Validate and publish the expanded first-party operating map while preserving private-session material as unavailable until technically surfaced
+
+## Phase 131 — Hero Business Guide
+- [x] Build a Hero-led visitor communication and conversation system with clear business, creator, product, media, and collaboration entry paths
+- [x] Add product and digital-asset discovery that teaches visitors from verified first-party records without implying active custody, exchange, transfer, investment, or unverified inventory
+- [x] Add direct creator communication and build pathways through existing protected intake, Creator Operations, Media Dock, Think Space, and Specialist Constellation routes
+- [x] Teach visitors how to prepare original work, choose a path, and build responsibly without promising income, fabricating outcomes, or making choices on their behalf
+
+## Phase 132 — Reusable Continuity Practice
+- [x] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series

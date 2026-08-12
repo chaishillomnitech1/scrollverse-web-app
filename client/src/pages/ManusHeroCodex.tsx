@@ -11,7 +11,17 @@ const COMMAND_DECK = [
   { title: "Legion Commons", detail: "Transparent opt-in exchange and guided routes.", href: "/legion-commons", color: "#B98CFF" },
   { title: "Identity System", detail: "Original concept marks with source and release boundaries.", href: "/identity-system", color: "#FF8DB5" },
   { title: "Specialist Constellation", detail: "Named first-party ScrollVerse guides for every kind of work.", href: "/specialist-constellation", color: "#00FF88" },
+  { title: "Chain Intelligence", detail: "Source-linked network context, explorer handoffs, and evidence boundaries.", href: "/chain-intelligence", color: "#B98CFF" },
 ] as const;
+
+const CO_CREATOR_LANES = [
+  { number: "01", title: "Name your build", detail: "Start with an idea, a draft, a release question, or a business need. The Hero helps turn it into a visible next step—not a vague promise.", href: "/creator-operations", action: "Open Creator Operations", color: "#00D4FF" },
+  { number: "02", title: "Prepare original work", detail: "Shape an original look, media item, source note, or project record before you seek a partner, platform, or public audience.", href: "/fashion-portfolio", action: "Build an original look", color: "#FFB800" },
+  { number: "03", title: "Stage the proof", detail: "Keep files, provenance, consent, and release material in a private staging path before you choose any public or external handoff.", href: "/media-dock", action: "Open Media Dock", color: "#00FF88" },
+  { number: "04", title: "Choose a growth route", detail: "Explore audience, media, distribution, collaboration, manufacturing, or operations routes with the status of each path stated plainly.", href: "/empire-map", action: "Explore Empire Map", color: "#B98CFF" },
+] as const;
+
+const ORIGINAL_WORK_BOARD = "/manus-storage/xlviii-atlantis-concept-board-owner-upload_ceedf426.webp";
 
 export default function ManusHeroCodex() {
   useSovereignHeartbeat({ page: "manus-hero-codex" });
@@ -61,6 +71,56 @@ export default function ManusHeroCodex() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="co-creator" className="border-y" style={{ borderColor: "rgba(0,212,255,0.14)", background: "radial-gradient(circle at 8% 8%, rgba(0,212,255,0.11), transparent 34%), radial-gradient(circle at 92% 90%, rgba(255,184,0,0.10), transparent 30%), #071124" }}>
+        <div className="max-w-7xl mx-auto px-5 py-16">
+          <div className="grid gap-8 xl:grid-cols-[0.86fr_1.14fr] xl:items-end">
+            <div>
+              <div className="text-xs font-mono tracking-[0.2em]" style={{ color: "#00FF88" }}>HERO CO-CREATOR DESK</div>
+              <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">Learn the move.<br /><span style={{ color: "#00D4FF" }}>Make the work yours.</span></h2>
+              <p className="mt-6 max-w-xl text-base leading-relaxed" style={{ color: "#C8D8E7" }}>The Aegis Scribe helps visitors build a visible path from first idea to organized original work, private proof, and a chosen next route. It teaches options; it does not promise income, create an order, activate a transfer, or make a commercial decision for anyone.</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/specialist-constellation" className="rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#00D4FF", color: "#050B1A" }}>Meet your co-creator team</Link>
+                <Link href="/media-world" className="rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(255,184,0,0.5)", color: "#FFB800" }}>Build through Media World</Link>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {CO_CREATOR_LANES.map(lane => (
+                <Link key={lane.number} href={lane.href} className="group rounded-3xl border p-6 transition-transform hover:-translate-y-1" style={{ borderColor: `${lane.color}40`, background: "rgba(4,14,30,0.72)" }}>
+                  <div className="flex items-center justify-between"><span className="text-xs font-mono" style={{ color: lane.color }}>{lane.number} · CO-CREATE</span><span className="text-xs opacity-0 transition-opacity group-hover:opacity-100" style={{ color: lane.color }}>OPEN →</span></div>
+                  <h3 className="mt-5 text-xl font-black">{lane.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>{lane.detail}</p>
+                  <div className="mt-6 text-xs font-black" style={{ color: lane.color }}>{lane.action} →</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto grid gap-7 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr]">
+        <article className="overflow-hidden rounded-[2rem] border" style={{ borderColor: "rgba(255,184,0,0.3)", background: "rgba(4,14,30,0.72)" }}>
+          <img src={ORIGINAL_WORK_BOARD} alt="Owner-provided XLVIII BLOCKS Atlantis fashion concept board" className="h-56 w-full object-cover object-center opacity-90 sm:h-72" />
+          <div className="p-7">
+            <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>OWNER-PROVIDED ORIGINAL-WORK REFERENCE</div>
+            <h2 className="mt-3 text-3xl font-black">Concept first. Evidence before release.</h2>
+            <p className="mt-4 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>This XLVIII BLOCKS Atlantis concept board is a source-labelled creator reference. It is not presented as an approved SKU, inventory, partnership, manufacturing order, or sale. The lesson is reusable: develop your original work, preserve provenance, then choose a verified next route.</p>
+            <Link href="/fashion-portfolio" className="mt-6 inline-block rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(255,184,0,0.48)", color: "#FFB800" }}>Open original look builder</Link>
+          </div>
+        </article>
+
+        <article className="rounded-[2rem] border p-7" style={{ borderColor: "rgba(0,255,136,0.28)", background: "linear-gradient(145deg, rgba(0,255,136,0.06), rgba(4,14,30,0.7))" }}>
+          <div className="text-xs font-mono tracking-widest" style={{ color: "#00FF88" }}>BUSINESS + DIGITAL-ASSET DISCOVERY</div>
+          <h2 className="mt-4 text-3xl font-black">See the system. Learn the status.</h2>
+          <p className="mt-4 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>A clear business guide should show visitors where product, media, creator, and digital-asset pathways live—and what has not been activated. ScrollVerse keeps education and readiness visible without presenting custody, exchange, transfer, investment, verified inventory, or a live checkout as active.</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <Link href="/chain-intelligence" className="rounded-2xl border p-4" style={{ borderColor: "rgba(0,212,255,0.3)", background: "rgba(0,212,255,0.04)" }}><div className="text-xs font-mono" style={{ color: "#00D4FF" }}>EXPLORE</div><div className="mt-2 font-black">Chain intelligence</div><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>Source-linked wallet, token, NFT, Nexus, and explorer routes with clear evidence boundaries.</p></Link>
+            <Link href="/revenue-ops" className="rounded-2xl border p-4" style={{ borderColor: "rgba(0,255,136,0.3)", background: "rgba(0,255,136,0.04)" }}><div className="text-xs font-mono" style={{ color: "#00FF88" }}>OWNER VIEW</div><div className="mt-2 font-black">Revenue readiness</div><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>Evidence, dependencies, and next actions without invented results.</p></Link>
+            <Link href="/manufacturing-readiness" className="rounded-2xl border p-4" style={{ borderColor: "rgba(255,184,0,0.3)", background: "rgba(255,184,0,0.04)" }}><div className="text-xs font-mono" style={{ color: "#FFB800" }}>PREPARE</div><div className="mt-2 font-black">Product handoff</div><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>Design, technical-pack, sample, policy, and partner verification stages.</p></Link>
+            <Link href="/creator-operations" className="rounded-2xl border p-4" style={{ borderColor: "rgba(185,140,255,0.3)", background: "rgba(185,140,255,0.04)" }}><div className="text-xs font-mono" style={{ color: "#B98CFF" }}>BUILD</div><div className="mt-2 font-black">Creator support</div><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>Private support intake, release material preparation, and provenance links.</p></Link>
+          </div>
+        </article>
       </section>
 
       <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.018)" }}>

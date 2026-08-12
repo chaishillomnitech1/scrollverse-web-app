@@ -286,6 +286,7 @@ import MediaDock from "./pages/MediaDock";
 import MediaWorld from "./pages/MediaWorld";
 import EmpireMap from "./pages/EmpireMap";
 import IpReadinessNavigator from "./pages/IpReadinessNavigator";
+import ChainIntelligence from "./pages/ChainIntelligence";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -600,6 +601,7 @@ function Router() {
         <Route path="/media-world" component={MediaWorld} />
         <Route path="/empire-map" component={EmpireMap} />
         <Route path="/ip-readiness" component={IpReadinessNavigator} />
+        <Route path="/chain-intelligence" component={ChainIntelligence} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

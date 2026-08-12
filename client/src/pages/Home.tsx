@@ -868,7 +868,7 @@ function ManusHeroWelcome() {
                 Choose one route, combine several, or simply look around. The method is designed to make next steps visible and reviewable.
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/manus-hero" className="rounded-xl px-5 py-3 text-sm font-black transition-transform hover:-translate-y-0.5" style={{ background: "#00D4FF", color: "#050B1A" }}>Ask the Hero · Start a tour</Link>
+                <Link href="/manus-hero#co-creator" className="rounded-xl px-5 py-3 text-sm font-black transition-transform hover:-translate-y-0.5" style={{ background: "#00D4FF", color: "#050B1A" }}>Ask the Hero · Co-create a path</Link>
                 <Link href="/systems-map" className="rounded-xl border px-5 py-3 text-sm font-black transition-transform hover:-translate-y-0.5" style={{ borderColor: "rgba(255,184,0,0.45)", color: "#FFB800" }}>See the systems map</Link>
               </div>
             </div>
@@ -919,6 +919,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "▣", title: "Creator Media World", detail: "Navigate Think Space, Scroll TV, Junior Movies, studio, Signalworks, and protected creator readiness from one verified map.", href: "/media-world", color: "#FF8DB5" },
   { icon: "◇", title: "Empire Map", detail: "Open the first-party operating map for creation, operations, health research, identity, and digital-asset readiness routes.", href: "/empire-map", color: "#B98CFF" },
   { icon: "◫", title: "IP Readiness", detail: "Inventory original names, marks, code, media, design, methods, and references with provenance and filing-readiness boundaries.", href: "/ip-readiness", color: "#FFB800" },
+  { icon: "⛓", title: "Chain Intelligence", detail: "Read source-linked network context, first-party wallet/token/NFT paths, explorer handoffs, and evidence status without financial activation claims.", href: "/chain-intelligence", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

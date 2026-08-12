@@ -17,6 +17,7 @@ import { notifyOwner } from "./notification";
 import { recordHeartbeatEvent } from "../routers/analytics";
 import { fashionEvidenceDigestHandler } from "../scheduled/fashionEvidenceDigest";
 import { revenueOperationsDigestHandler } from "../scheduled/revenueOperationsDigest";
+import { registerStorageProxy } from "./storageProxy";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -46,6 +47,7 @@ async function startServer() {
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
+  registerStorageProxy(app);
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
 

@@ -195,6 +195,23 @@ describe("Phase 94 route map", () => {
     expect(home).toContain('href: "/academy"');
   });
 
+  it("evolves the Manus Hero into an education-first co-creator guide with source-labelled original-work and business routes", () => {
+    const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const server = readProjectFile("server/_core/index.ts");
+    expect(hero).toContain("HERO CO-CREATOR DESK");
+    expect(hero).toContain("Make the work yours.");
+    expect(hero).toContain("does not promise income, create an order, activate a transfer");
+    expect(hero).toContain("OWNER-PROVIDED ORIGINAL-WORK REFERENCE");
+    expect(hero).toContain("not presented as an approved SKU, inventory, partnership, manufacturing order, or sale");
+    ["/creator-operations", "/fashion-portfolio", "/media-dock", "/empire-map", "/revenue-ops", "/manufacturing-readiness"].forEach(route => {
+      expect(hero).toContain(route);
+      expect(app).toContain(route);
+    });
+    expect(home).toContain('href="/manus-hero#co-creator"');
+    expect(server).toContain("registerStorageProxy(app)");
+  });
+
   it("registers the first-party Specialist Constellation with every visible route mapped to an existing portal destination", () => {
     const constellation = readProjectFile("client/src/pages/SpecialistConstellation.tsx");
     const roles = readProjectFile("shared/specialistConstellation.ts");
@@ -272,13 +289,29 @@ describe("Phase 94 route map", () => {
     const empireMap = readProjectFile("client/src/pages/EmpireMap.tsx");
     expect(app).toContain('import EmpireMap from "./pages/EmpireMap"');
     expect(app).toContain('<Route path="/empire-map" component={EmpireMap} />');
-    ["/manus-hero", "/specialist-constellation", "/github-ops", "/revenue-ops", "/media-world", "/media-dock", "/health-research", "/spiral-signature", "/wallet", "/token", "/nft", "/nexus", "/systems-map"].forEach(route => {
+    ["/manus-hero", "/specialist-constellation", "/github-ops", "/revenue-ops", "/media-world", "/media-dock", "/health-research", "/spiral-signature", "/wallet", "/token", "/nft", "/nexus", "/chain-intelligence", "/systems-map"].forEach(route => {
       expect(empireMap).toContain(`"${route}"`);
       expect(app).toContain(route);
     });
     expect(empireMap).toContain("ZERO-DEAD-END STANDARD");
     expect(empireMap).toContain("EVIDENCE-COMMONS STANDARD");
     expect(empireMap).toContain("does not by itself activate financial, custody, distribution, legal, partner, provider, or release outcomes");
+  });
+
+  it("registers the source-linked Chain Intelligence Tracker without creating a custody, exchange, or trading claim", () => {
+    const tracker = readProjectFile("client/src/pages/ChainIntelligence.tsx");
+    const records = readProjectFile("shared/chainIntelligence.ts");
+    const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import ChainIntelligence from "./pages/ChainIntelligence"');
+    expect(app).toContain('<Route path="/chain-intelligence" component={ChainIntelligence} />');
+    expect(tracker).toContain("SCROLLVERSE CHAIN INTELLIGENCE");
+    expect(tracker).toContain("without claiming custody, exchange, trading, valuation, transfer, deployment, or asset ownership");
+    expect(records).toContain("Scroll Mainnet");
+    expect(records).toContain("534352");
+    expect(records).toContain("https://scrollscan.com/");
+    expect(hero).toContain('href="/chain-intelligence"');
+    expect(home).toContain('href: "/chain-intelligence"');
   });
 
   it("registers the public IP Readiness Navigator with original-versus-external boundaries and evidence paths", () => {
