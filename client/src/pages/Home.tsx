@@ -912,11 +912,18 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "↗", title: "Partnership proposal", detail: "A respectful, non-affiliated fashion conversation path with no implied partner endorsement.", href: "/fashion-partnership-proposal", color: "#D99B6B" },
   { icon: "▦", title: "Manufacturing readiness", detail: "A first-party design-to-handoff map for future verified production partners.", href: "/manufacturing-readiness", color: "#00FF88" },
   { icon: "♡", title: "Impact incentive readiness", detail: "A safeguarded, partner-led path for creator-owned community-impact programs.", href: "/impact-incentive-readiness", color: "#FF8DB5" },
+  { icon: "✺", title: "Specialist Constellation", detail: "Your named first-party ScrollVerse team for creator, operations, research, media, learning, and review paths.", href: "/specialist-constellation", color: "#B98CFF" },
+  { icon: "✚", title: "Health Navigator", detail: "Educational health-information, record-preparation, and urgent-care escalation guidance—not medical care.", href: "/health-navigator", color: "#00FF88" },
+  { icon: "⌕", title: "Health Research Desk", detail: "Open official sources, public data, clinician directories, and attributed third-party reports with dates and limits visible.", href: "/health-research", color: "#00FF88" },
+  { icon: "◉", title: "Creator Media Dock", detail: "Stage creator-owned images, audio, video, documents, and source notes before choosing a publication or distribution path.", href: "/media-dock", color: "#FFB800" },
+  { icon: "▣", title: "Creator Media World", detail: "Navigate Think Space, Scroll TV, Junior Movies, studio, Signalworks, and protected creator readiness from one verified map.", href: "/media-world", color: "#FF8DB5" },
+  { icon: "◇", title: "Empire Map", detail: "Open the first-party operating map for creation, operations, health research, identity, and digital-asset readiness routes.", href: "/empire-map", color: "#B98CFF" },
+  { icon: "◫", title: "IP Readiness", detail: "Inventory original names, marks, code, media, design, methods, and references with provenance and filing-readiness boundaries.", href: "/ip-readiness", color: "#FFB800" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
   { role: "Aegis Scribe", focus: "Navigator", detail: "Explains routes, boundaries, and next steps in plain language.", href: "/manus-hero", color: "#00D4FF" },
-  { role: "Atlas Scout", focus: "Research lens", detail: "Points visitors to source maps, systems status, and evidence standards.", href: "/github-ops", color: "#B98CFF" },
+  { role: "Specialist Constellation", focus: "First-party team", detail: "Meet named ScrollVerse guides for every route, with clear boundaries and next steps.", href: "/specialist-constellation", color: "#B98CFF" },
   { role: "Loomkeeper", focus: "Creator pathway", detail: "Connects original fashion, release preparation, and creator-owned records.", href: "/creator-operations", color: "#FFB800" },
   { role: "Signal Steward", focus: "Distribution guide", detail: "Shows creator-provided channel handoffs and transparent release pathways.", href: "/signalworks", color: "#00FF88" },
   { role: "Commons Guide", focus: "Collaboration space", detail: "Helps people explore consent-led exchange without acting as an authority.", href: "/legion-commons", color: "#FF8DB5" },

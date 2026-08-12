@@ -4,7 +4,7 @@
  * Upload music, video, images, documents · Think Tank threads · AI-assisted
  * Sovereign AI Soul Protocol embedded · KUN FAYAKUN x Infinity
  */
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -131,29 +131,8 @@ function CreatePostModal({ onClose }: { onClose: () => void }) {
   const [mediaType, setMediaType] = useState<string>("none");
   const [mediaUrl, setMediaUrl] = useState("");
   const [mediaName, setMediaName] = useState("");
-  const [uploading, setUploading] = useState(false);
-  const fileRef = useRef<HTMLInputElement>(null);
   const createPost = trpc.thinkSpace.createPost.useMutation();
   const utils = trpc.useUtils();
-
-  const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploading(true);
-    setMediaName(file.name);
-    const formData = new FormData();
-    formData.append("file", file);
-    try {
-      const res = await fetch("/api/think-space/upload", { method: "POST", body: formData });
-      const data = await res.json();
-      if (data.url) setMediaUrl(data.url);
-    } catch {
-      // Fallback: use object URL for demo
-      setMediaUrl(URL.createObjectURL(file));
-    } finally {
-      setUploading(false);
-    }
-  };
 
   const handleSubmit = async () => {
     if (!content.trim()) return;
@@ -193,11 +172,8 @@ function CreatePostModal({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         {mediaType !== "none" && mediaType !== "link" && (
-          <div className="mb-3">
-            <input ref={fileRef} type="file" accept={MEDIA_ACCEPT[mediaType]} onChange={handleFile} className="hidden" />
-            <button onClick={() => fileRef.current?.click()} className="w-full py-3 rounded-xl text-sm font-bold border-dashed" style={{ border: "2px dashed rgba(0,212,255,0.3)", color: "#00D4FF", background: "rgba(0,212,255,0.04)" }}>
-              {uploading ? "Uploading..." : mediaName ? `✓ ${mediaName}` : `Upload ${mediaType}`}
-            </button>
+          <div className="mb-3 rounded-xl border p-3 text-xs leading-relaxed" style={{ borderColor: "rgba(0,212,255,0.24)", color: "#BFD7E7", background: "rgba(0,212,255,0.035)" }}>
+            Secure file staging is available in <Link href="/media-dock" className="font-black" style={{ color: "#00D4FF" }}>Creator Media Dock</Link>. Return here with a verified link when you are ready to share a public post; files are never converted to public posts automatically.
           </div>
         )}
         {mediaType === "link" && (

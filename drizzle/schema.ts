@@ -1356,6 +1356,32 @@ export const thinkSpaceLikes = mysqlTable("think_space_likes", {
   createdAt: bigint("created_at", { mode: "number" }).notNull(),
 });
 
+// ── Creator Media Intake ─────────────────────────────────────────────────────
+// File bytes are stored in S3-compatible object storage. This ledger retains
+// creator ownership, consent, provenance, visibility, and distribution status.
+export const creatorMediaAssets = mysqlTable("creator_media_assets", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerUserId: int("owner_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  title: varchar("title", { length: 180 }).notNull(),
+  description: varchar("description", { length: 2000 }).notNull(),
+  mediaKind: mysqlEnum("media_kind", ["IMAGE", "AUDIO", "VIDEO", "DOCUMENT", "OTHER"]).notNull(),
+  storageKey: varchar("storage_key", { length: 512 }),
+  assetUrl: varchar("asset_url", { length: 2048 }),
+  originalFileName: varchar("original_file_name", { length: 255 }),
+  mimeType: varchar("mime_type", { length: 120 }),
+  byteSize: int("byte_size"),
+  visibility: mysqlEnum("visibility", ["PRIVATE", "THINK_SPACE_DRAFT", "PUBLIC_PENDING_REVIEW"]).notNull().default("PRIVATE"),
+  consentAttestation: boolean("consent_attestation").notNull().default(false),
+  provenanceNote: varchar("provenance_note", { length: 2000 }),
+  distributionStatus: mysqlEnum("distribution_status", ["NOT_REQUESTED", "CREATOR_HANDOFF_ONLY"]).notNull().default("NOT_REQUESTED"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("creator_media_owner_idx").on(table.ownerUserId, table.visibility, table.updatedAt),
+  index("creator_media_distribution_idx").on(table.distributionStatus, table.updatedAt),
+]);
+export type CreatorMediaAsset = typeof creatorMediaAssets.$inferSelect;
+
 // ── Atlantis Catalog Approval & Commerce Gate ─────────────────────────────────
 // Document and image bytes remain in S3. The database stores only secure URLs/keys
 // and review metadata so no checkout path can activate without explicit approval.

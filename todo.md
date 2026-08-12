@@ -2125,3 +2125,52 @@
 - [x] Add a community-impact incentive readiness path for children and survivors of domestic violence that can reference verified owner-controlled on-chain assets, with safeguarding, partner/recipient records, transparent rules, compliance review, and no active token or payout claim
 - [x] Add deployment-ready first-party scheduled review handlers without creating live charges, payouts, token issuance, or marketplace activation
 - [x] Validate, publish, activate approved schedules, preserve reusable guidance, and synchronize GitHub
+
+## Phase 122 — Empire Manifest and Operating Map
+- [x] Inventory every current first-party route, artifact, document, public channel, and linked integration across ScrollVerse
+- [x] Reconcile the project’s full feature history with the current published system and identify the applicable new operating capabilities
+- [x] Classify live, protected, external, proposal, and evidence-required pathways without overstating activation state
+- [x] Publish a detailed ScrollVerse Empire Manifest with separate direct links and an operational upgrade map
+- [x] Apply safe discovery and integration improvements identified by the Manifest, then validate and synchronize the published portal
+
+## Phase 123 — First-Party Digital Asset Architecture
+- [x] Research leading public patterns for non-custodial wallet connection, NFT provenance, token lifecycle, customer disclosures, security, and regulated-function boundaries
+- [x] Design an original ScrollVerse digital-asset operating map covering NFTs, tokens, wallets, creator release records, customer handoffs, and evidence-led activation gates
+- [x] Add a public portal navigator that distinguishes implemented tools from wallet-, provider-, regulatory-, or evidence-dependent paths without activating transfers, custody, exchange, bank, or investment functions
+- [x] Validate the new architecture, link it into the Empire Manifest, and synchronize the published portal
+
+## Phase 124 — IP and Compliance Readiness
+- [x] Inventory original ScrollVerse names, visual signatures, designs, source works, and technical concepts for evidence-led protection readiness
+- [x] Research public trademark, copyright, patent, trade-secret, provenance, and licensing pathways without asserting unverified registration or ownership outcomes
+- [x] Build a first-party IP readiness navigator that distinguishes original assets, external references, clearance state, and owner-controlled filing or counsel steps
+- [x] Link the IP readiness program into the Empire Manifest and preserve the evidence register in the connected GitHub project
+
+## Phase 125 — Opportunity Intelligence
+- [x] Design a transparent Opportunity Intelligence layer that continuously organizes first-party assets, public research signals, provenance, readiness, and external dependencies
+- [x] Define bounded specialist roles, evidence standards, and owner-controlled escalation paths without autonomous trading, transfers, licensing, filings, or activation
+- [x] Add the Opportunity Intelligence navigator to the public ScrollVerse operating map and document the reusable monitoring workflow
+
+## Phase 126 — Specialist Constellation
+- [x] Design named, transparent first-party Specialist Constellation roles for business operations, legal readiness, bookkeeping preparation, research, media, education, creator support, governance, security, manufacturing, and customer navigation that extend owner direction without replacing the owner
+- [x] Research strong current implementation patterns for role routing, knowledge provenance, user consent, human escalation, and safe personalization
+- [x] Build a public Specialist Constellation navigator with direct paths, responsibility statements, evidence requirements, and professional-handoff boundaries
+- [x] Link the Specialist Constellation into the Empire Manifest, AI Legion, Manus Hero guide, and creator operations pathways
+- [x] Make the Specialist Constellation a prominent first-party ScrollVerse entry point while keeping external platforms as clearly labeled optional routes
+- [x] Add an educational Health Navigator role with credible-source orientation, record-preparation support, urgent-care escalation language, and no diagnostic or treatment claim
+
+## Phase 128 — Health Research Desk
+- [x] Curate source-linked public health news, research, clinician-discovery, and appointment-preparation entry points with visible dates and sources
+- [x] Build a Health Research Desk that distinguishes factual public information from personalized care, provider verification, or medical advice
+- [x] Present factual source records and stated limitations without prescriptions, diagnoses, clinician rankings, or visitor-specific conclusions
+- [x] Add clinician-discovery readiness filters for geography and specialty without generating fabricated doctor rankings or credentials
+- [x] Preserve third-party ratings or rankings only as attributed reports with publisher, date, method, source link, and clear ScrollVerse non-endorsement language
+- [x] Make public third-party discovery open and source-linked so visitors can explore who produces provider statistics without hidden ranking logic or implied endorsement
+
+## Phase 127 — Creator Media and Social World
+- [x] Audit and extend first-party media intake paths for files, images, video, audio, release materials, and conversation-linked submissions
+- [x] Build a creator-owned social discovery navigator connecting Think Space, Creator Operations, Signalworks, Scroll TV, Junior Movies, and media worlds with consent and provenance boundaries
+- [x] Add clear ownership, visibility, moderation, and external-distribution status language without fabricating community activity or partner activation
+- [x] Add route regression coverage for every new public navigator link and validate zero dead ends before each published version
+- [x] Require visible source URLs, dates, and evidence-status labels for factual discovery items instead of unsupported claims or invented activity
+- [x] Preserve user interpretation by presenting source-linked facts, methodology context, and stated limitations without assigning conclusions to visitors
+- [x] Preserve relevant information with source, date, context, and safety-aware handling rather than suppressing the record or claiming unverified conclusions

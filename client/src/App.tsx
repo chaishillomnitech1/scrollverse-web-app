@@ -279,6 +279,13 @@ import FashionPartnershipProposal from "./pages/FashionPartnershipProposal";
 import ManufacturingReadiness from "./pages/ManufacturingReadiness";
 import ImpactIncentiveReadiness from "./pages/ImpactIncentiveReadiness";
 import SpiralSignature from "./pages/SpiralSignature";
+import SpecialistConstellation from "./pages/SpecialistConstellation";
+import HealthNavigator from "./pages/HealthNavigator";
+import HealthResearchDesk from "./pages/HealthResearchDesk";
+import MediaDock from "./pages/MediaDock";
+import MediaWorld from "./pages/MediaWorld";
+import EmpireMap from "./pages/EmpireMap";
+import IpReadinessNavigator from "./pages/IpReadinessNavigator";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -586,6 +593,13 @@ function Router() {
         <Route path="/manufacturing-readiness" component={ManufacturingReadiness} />
         <Route path="/impact-incentive-readiness" component={ImpactIncentiveReadiness} />
         <Route path="/spiral-signature" component={SpiralSignature} />
+        <Route path="/specialist-constellation" component={SpecialistConstellation} />
+        <Route path="/health-navigator" component={HealthNavigator} />
+        <Route path="/health-research" component={HealthResearchDesk} />
+        <Route path="/media-dock" component={MediaDock} />
+        <Route path="/media-world" component={MediaWorld} />
+        <Route path="/empire-map" component={EmpireMap} />
+        <Route path="/ip-readiness" component={IpReadinessNavigator} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

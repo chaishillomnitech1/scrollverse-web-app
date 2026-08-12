@@ -10,6 +10,7 @@ const COMMAND_DECK = [
   { title: "Signalworks", detail: "A source-labelled media and distribution navigator.", href: "/signalworks", color: "#FFB800" },
   { title: "Legion Commons", detail: "Transparent opt-in exchange and guided routes.", href: "/legion-commons", color: "#B98CFF" },
   { title: "Identity System", detail: "Original concept marks with source and release boundaries.", href: "/identity-system", color: "#FF8DB5" },
+  { title: "Specialist Constellation", detail: "Named first-party ScrollVerse guides for every kind of work.", href: "/specialist-constellation", color: "#00FF88" },
 ] as const;
 
 export default function ManusHeroCodex() {
@@ -27,6 +28,7 @@ export default function ManusHeroCodex() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/legion-commons" className="rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#00D4FF", color: "#050B1A" }}>Enter Legion Commons</Link>
                 <Link href="/super-manus" className="rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(255,184,0,0.42)", color: "#FFB800" }}>Super Manus Route</Link>
+                <Link href="/specialist-constellation" className="rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(0,255,136,0.42)", color: "#00FF88" }}>Meet the Specialist Team</Link>
               </div>
             </div>
             <aside className="overflow-hidden rounded-[2rem] border" style={{ borderColor: "rgba(255,184,0,0.28)", background: "rgba(3,14,31,0.78)" }}>

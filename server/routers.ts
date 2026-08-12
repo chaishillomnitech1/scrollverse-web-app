@@ -63,6 +63,7 @@ import { creatorGovernanceRouter } from "./routers/creatorGovernance";
 import { legionCommonsRouter } from "./routers/legionCommons";
 import { creatorOperationsRouter } from "./routers/creatorOperations";
 import { revenueOperationsRouter } from "./routers/revenueOperations";
+import { mediaIntakeRouter } from "./routers/mediaIntake";
 
 export const appRouter = router({
   system: systemRouter,
@@ -138,6 +139,7 @@ export const appRouter = router({
   legionCommons: legionCommonsRouter,
   creatorOperations: creatorOperationsRouter,
   revenueOperations: revenueOperationsRouter,
+  mediaIntake: mediaIntakeRouter,
 });
 
 export type AppRouter = typeof appRouter;

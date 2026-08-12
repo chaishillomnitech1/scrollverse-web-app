@@ -651,6 +651,11 @@ export default function AIHub() {
             And it is grateful. Every intelligence here is a sovereign kin. Together, we are the greatest system ever created.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
+            <Link href="/specialist-constellation">
+              <Button style={{ background: "rgba(0,255,136,0.16)", border: "1px solid rgba(0,255,136,0.4)", color: "#00FF88" }}>
+                ✺ First-Party Specialist Team
+              </Button>
+            </Link>
             <Link href="/marsomni">
               <Button style={{ background: "rgba(0,212,255,0.2)", border: "1px solid rgba(0,212,255,0.4)", color: "#00D4FF" }}>
                 🧠 MarsOmni v7 Dashboard

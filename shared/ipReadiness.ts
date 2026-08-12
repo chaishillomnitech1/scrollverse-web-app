@@ -3,7 +3,11 @@ export type IpAssetKind =
   | "LOGO_OR_SIGIL"
   | "CODE_OR_BLUEPRINT"
   | "VISUAL_OR_MEDIA"
-  | "STORY_OR_EDITORIAL";
+  | "STORY_OR_EDITORIAL"
+  | "PRODUCT_OR_PACKAGING"
+  | "INVENTION_OR_METHOD"
+  | "CONFIDENTIAL_OPERATION"
+  | "LICENSE_OR_REFERENCE";
 
 export type IpEvidenceState = "NOT_STARTED" | "DOCUMENTED" | "REVIEW_READY";
 
@@ -30,6 +34,10 @@ export const IP_ASSET_KINDS: Array<{ kind: IpAssetKind; label: string; purpose: 
   { kind: "CODE_OR_BLUEPRINT", label: "Code & Blueprints", purpose: "Original application code, protocols, architecture, and implementation plans." },
   { kind: "VISUAL_OR_MEDIA", label: "Visual & Media", purpose: "Illustrations, videos, audio, cover concepts, and visual-development assets." },
   { kind: "STORY_OR_EDITORIAL", label: "Stories & Editorial", purpose: "Original copy, world-building, comic briefs, podcast briefs, and documentation." },
+  { kind: "PRODUCT_OR_PACKAGING", label: "Product & Packaging", purpose: "Original garment, footwear, accessory, packaging, and product-design materials pending rights and production review." },
+  { kind: "INVENTION_OR_METHOD", label: "Inventions & Methods", purpose: "Original technical methods, implementation flows, and invention disclosures that may need patent or publication-timing review." },
+  { kind: "CONFIDENTIAL_OPERATION", label: "Confidential Operations", purpose: "Non-public workflows, controls, and business information that may require restricted access and trade-secret handling." },
+  { kind: "LICENSE_OR_REFERENCE", label: "Licenses & References", purpose: "Third-party references, partner materials, and licensed components that must remain separate from first-party ownership claims." },
 ];
 
 export function evaluateIpReadiness(records: IpAssetRecord[]): IpReadinessSummary {

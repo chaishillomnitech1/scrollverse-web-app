@@ -195,6 +195,105 @@ describe("Phase 94 route map", () => {
     expect(home).toContain('href: "/academy"');
   });
 
+  it("registers the first-party Specialist Constellation with every visible route mapped to an existing portal destination", () => {
+    const constellation = readProjectFile("client/src/pages/SpecialistConstellation.tsx");
+    const roles = readProjectFile("shared/specialistConstellation.ts");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import SpecialistConstellation from "./pages/SpecialistConstellation"');
+    expect(app).toContain('<Route path="/specialist-constellation" component={SpecialistConstellation} />');
+    expect(constellation).toContain("FIRST-PARTY TEAM · CLEAR ROLES · OWNER-LED");
+    expect(constellation).toContain("not hidden authority");
+    expect(roles).toContain("SPECIALIST_CONSTELLATION");
+    expect(roles).toContain('href: "/revenue-ops"');
+    expect(roles).toContain('href: "/creator-operations"');
+    expect(roles).toContain('href: "/manufacturing-readiness"');
+    expect(roles).toContain('href: "/impact-incentive-readiness"');
+    expect(home).toContain('href: "/specialist-constellation"');
+  });
+
+  it("registers the educational Health Navigator with explicit clinical and emergency boundaries", () => {
+    const health = readProjectFile("client/src/pages/HealthNavigator.tsx");
+    const roles = readProjectFile("shared/specialistConstellation.ts");
+    expect(app).toContain('import HealthNavigator from "./pages/HealthNavigator"');
+    expect(app).toContain('<Route path="/health-navigator" component={HealthNavigator} />');
+    expect(roles).toContain('href: "/health-navigator"');
+    expect(health).toContain("EDUCATIONAL HEALTH INFORMATION · NOT MEDICAL CARE");
+    expect(health).toContain("does not diagnose, prescribe, assess emergencies");
+    expect(health).toContain("Call 911");
+    expect(health).toContain("Call or text 988");
+  });
+
+  it("registers the facts-first Health Research Desk with dated source cards and no ScrollVerse provider rankings", () => {
+    const healthResearch = readProjectFile("client/src/pages/HealthResearchDesk.tsx");
+    expect(app).toContain('import HealthResearchDesk from "./pages/HealthResearchDesk"');
+    expect(app).toContain('<Route path="/health-research" component={HealthResearchDesk} />');
+    expect(healthResearch).toContain("FACTS · SOURCE · DATE · LIMITS");
+    expect(healthResearch).toContain("MedlinePlus Health Topics");
+    expect(healthResearch).toContain("Health, United States Data Finder");
+    expect(healthResearch).toContain("Medicare Care Compare");
+    expect(healthResearch).toContain("does not diagnose, prescribe, provide a treatment plan, verify a clinician, create a provider ranking");
+    expect(healthResearch).toContain("not a ScrollVerse endorsement");
+    ["/health-navigator", "/specialist-constellation", "/evidence-standards"].forEach(route => {
+      expect(healthResearch).toContain(`href="${route}"`);
+      expect(app).toContain(route);
+    });
+  });
+
+  it("registers the protected Creator Media Dock and removes the non-persistent Think Space upload fallback", () => {
+    const mediaDock = readProjectFile("client/src/pages/MediaDock.tsx");
+    const mediaRouter = readProjectFile("server/routers/mediaIntake.ts");
+    const thinkSpace = readProjectFile("client/src/pages/ThinkSpace.tsx");
+    expect(app).toContain('import MediaDock from "./pages/MediaDock"');
+    expect(app).toContain('<Route path="/media-dock" component={MediaDock} />');
+    expect(mediaDock).toContain("PRIVATE STAGING · CONSENT + PROVENANCE");
+    expect(mediaDock).toContain('href="/think-space"');
+    expect(mediaRouter).toContain("storagePut");
+    expect(mediaRouter).toContain("does not publish to Think Space, grant rights, clear content, or distribute");
+    expect(thinkSpace).toContain('href="/media-dock"');
+    expect(thinkSpace).not.toContain('fetch("/api/think-space/upload"');
+    expect(thinkSpace).not.toContain("URL.createObjectURL(file)");
+  });
+
+  it("registers the source-linked Creator Media World with only existing first-party media destinations", () => {
+    const mediaWorld = readProjectFile("client/src/pages/MediaWorld.tsx");
+    expect(app).toContain('import MediaWorld from "./pages/MediaWorld"');
+    expect(app).toContain('<Route path="/media-world" component={MediaWorld} />');
+    ["/media-dock", "/think-space", "/think-space/featured", "/signalworks", "/scroll-tv", "/junior-movies", "/junior-studio", "/creator-operations"].forEach(route => {
+      expect(mediaWorld).toContain(`href: "${route}"`);
+      expect(app).toContain(route);
+    });
+    expect(mediaWorld).toContain('href="/specialist-constellation"');
+    expect(app).toContain("/specialist-constellation");
+    expect(mediaWorld).toContain("does not fabricate community activity");
+    expect(mediaWorld).toContain("or send work to external platforms automatically");
+  });
+
+  it("registers the zero-dead-end Empire Map with verified first-party operating paths", () => {
+    const empireMap = readProjectFile("client/src/pages/EmpireMap.tsx");
+    expect(app).toContain('import EmpireMap from "./pages/EmpireMap"');
+    expect(app).toContain('<Route path="/empire-map" component={EmpireMap} />');
+    ["/manus-hero", "/specialist-constellation", "/github-ops", "/revenue-ops", "/media-world", "/media-dock", "/health-research", "/spiral-signature", "/wallet", "/token", "/nft", "/nexus", "/systems-map"].forEach(route => {
+      expect(empireMap).toContain(`"${route}"`);
+      expect(app).toContain(route);
+    });
+    expect(empireMap).toContain("ZERO-DEAD-END STANDARD");
+    expect(empireMap).toContain("EVIDENCE-COMMONS STANDARD");
+    expect(empireMap).toContain("does not by itself activate financial, custody, distribution, legal, partner, provider, or release outcomes");
+  });
+
+  it("registers the public IP Readiness Navigator with original-versus-external boundaries and evidence paths", () => {
+    const ipReadiness = readProjectFile("client/src/pages/IpReadinessNavigator.tsx");
+    expect(app).toContain('import IpReadinessNavigator from "./pages/IpReadinessNavigator"');
+    expect(app).toContain('<Route path="/ip-readiness" component={IpReadinessNavigator} />');
+    expect(ipReadiness).toContain("ORIGIN · PROVENANCE · READINESS");
+    expect(ipReadiness).toContain("must not be converted into ownership or affiliation claims");
+    expect(ipReadiness).toContain("does not represent a registration, grant a license, resolve ownership");
+    ["/creator-operations", "/evidence-standards", "/spiral-signature", "/empire-map"].forEach(route => {
+      expect(ipReadiness).toContain(`href="${route}"`);
+      expect(app).toContain(route);
+    });
+  });
+
   it("registers the GitHub-to-Operations engine with source-to-review evidence lanes", () => {
     const operations = readProjectFile("client/src/pages/GitHubOperations.tsx");
     const sourceMap = readProjectFile("shared/githubOperations.ts");
