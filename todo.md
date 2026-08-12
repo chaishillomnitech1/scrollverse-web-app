@@ -2229,6 +2229,11 @@
 - [x] Incorporate only verified, privacy-aware findings that strengthen first-party operating workflows without executing archive contents or publishing unclear material
 - [x] Add source documentation, regression coverage where applicable, and validate the resulting portal changes
 
+## Eternal OmniGenesis Reference Integration
+- [x] Inspect the uploaded HTML reference as untrusted source material and classify observable UI patterns, architecture claims, and integration eligibility
+- [x] Adapt compatible first-party design and navigation patterns without importing unclear code, assets, provider claims, or regulated-function promises
+- [x] Add source documentation, regression coverage, and validation for each verified portal improvement
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation

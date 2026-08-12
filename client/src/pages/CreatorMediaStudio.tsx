@@ -111,6 +111,14 @@ export default function CreatorMediaStudio() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-5 pt-14">
+        <div className="rounded-[1.7rem] border p-6" style={{ borderColor: "rgba(255,184,0,0.28)", background: "rgba(255,184,0,0.035)" }}>
+          <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>WEB-CAPTURE HYGIENE</div>
+          <h2 className="mt-3 text-2xl font-black">A saved page can carry more than its visible design.</h2>
+          <p className="mt-3 max-w-4xl text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>Treat HTML captures as reference records only: they can bundle external scripts, configuration values, and platform-specific UI. Record their source and purpose, but do not run their scripts, reuse configuration values, assume a capture grants account access, or publish any contained material until a specific creator-owned item is reviewed and cleared.</p>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-5 py-16">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div><div className="text-xs font-mono tracking-widest" style={{ color: "#B98CFF" }}>LIVE-STREAM READINESS</div><h2 className="mt-3 text-3xl font-black sm:text-4xl">Choose the transmission lane after the provider is real.</h2></div>

@@ -301,6 +301,9 @@ describe("Phase 94 route map", () => {
     expect(studio).toContain("ANALYSIS ARCHIVE INTAKE");
     expect(studio).toContain("List the manifest before you lift a file.");
     expect(studio).toContain("Do not execute scripts, import configuration, reuse credentials");
+    expect(studio).toContain("WEB-CAPTURE HYGIENE");
+    expect(studio).toContain("A saved page can carry more than its visible design.");
+    expect(studio).toContain("they can bundle external scripts, configuration values");
     ["RTMPS", "SRT", "WHIP", "Spotify for Artists", "VEVO", "YouTube Studio", "Tubi", "Netflix Partner Help"].forEach(label => expect(studio).toContain(label));
     [mediaWorld, hero, operations, home].forEach(source => expect(source).toContain("/creator-media-studio"));
   });
