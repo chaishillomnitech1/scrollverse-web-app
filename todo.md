@@ -2094,6 +2094,7 @@
 
 ## Phase 120 — First Owner Release Bundle
 - [ ] Verify the authenticated owner session and identify a cleared app-icon file
+- [x] Inspect available first-party backup and project access paths for the cleared app-icon and provenance material without exposing private content; no export, connected backup record, or cleared icon was exposed to this workspace
 - [x] Create and document an original frequency-informed open-ended ScrollVerse Spiral Signature, adapted beyond a standard Fibonacci spiral, as unregistered identity material pending formal review
 - [x] Apply imagination, wisdom, care, and creator understanding as documented principles of the free Signature System
 - [x] Create companion creator-owned app-icon and compact emoji or sticker concepts as part of the free Signature System
@@ -2104,6 +2105,8 @@
 - [ ] Create the private app-icon record and upload the cleared asset under the owner account
 - [ ] Assign a real administrator and link an existing provenance record
 - [ ] Verify the private record and report the owner-controlled completeness-feedback next step
+- [x] Preserve the protected release-bundle workflow as owner-ready with no attempted authentication bypass when the external session is unavailable
+- [x] Document the owner-confirmed desktop authorization as complete and classify the remaining missing session token as a platform handoff mismatch rather than a pending owner action
 
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
