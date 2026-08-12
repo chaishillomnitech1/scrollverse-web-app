@@ -2244,6 +2244,11 @@
 - [x] Implement original route-discovery and interaction enhancements that reduce dead ends without fabricating activity or bypassing owner and provider controls
 - [x] Validate and publish the selected portfolio improvements with durable source and dependency boundaries
 
+## Hero Skill Compass
+- [x] Inventory verified reusable ScrollVerse practices, Hero co-creator surfaces, and eligible route handoffs
+- [x] Build a source-linked Hero skill compass with ownership, privacy, and provider-dependency context
+- [x] Add regression coverage, validate the Hero enhancement, and preserve the reusable guidance
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation

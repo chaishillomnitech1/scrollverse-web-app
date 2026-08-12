@@ -200,6 +200,9 @@ describe("Phase 94 route map", () => {
     const home = readProjectFile("client/src/pages/Home.tsx");
     const server = readProjectFile("server/_core/index.ts");
     expect(hero).toContain("HERO CO-CREATOR DESK");
+    expect(hero).toContain("HERO SKILL COMPASS");
+    expect(hero).toContain("Useful practices. Clear limits. Direct routes.");
+    expect(hero).toContain("OUTBOUND REFERRALS ONLY");
     expect(hero).toContain("Make the work yours.");
     expect(hero).toContain("does not promise income, create an order, activate a transfer");
     expect(hero).toContain("OWNER-PROVIDED ORIGINAL-WORK REFERENCE");
