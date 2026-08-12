@@ -218,6 +218,7 @@ import AlHijra from "./pages/AlHijra";
 import AdminSaferWay from "./pages/AdminSaferWay";
 import AdminAtlantisCatalog from "./pages/AdminAtlantisCatalog";
 import AdminFashionReview from "./pages/AdminFashionReview";
+import AdminCreatorOperations from "./pages/AdminCreatorOperations";
 import Badr from "./pages/Badr";
 import OmniMetrics from "./pages/OmniMetrics";
 import FathMakkah from "./pages/FathMakkah";
@@ -563,6 +564,7 @@ function Router() {
         <Route path="/signalworks" component={Signalworks} />
         <Route path="/creator-workspace" component={CreatorWorkspace} />
         <Route path="/creator-operations" component={CreatorOperations} />
+        <Route path="/admin/creator-operations" component={AdminCreatorOperations} />
         <Route path="/legion-commons" component={LegionCommons} />
         <Route path="/manus-hero" component={ManusHeroCodex} />
         <Route path="/identity-system" component={IdentitySystem} />

@@ -26,9 +26,16 @@ type ReleaseAssetEntry = {
   title: string;
   description: string;
   reviewStatus: string;
+  storageKey: string | null;
+  assetUrl: string | null;
+  originalFileName: string | null;
+  mimeType: string | null;
+  byteSize: number | null;
+  assignedReviewerUserId: number | null;
   events: SupportEvent[];
 };
 type ProvenanceCandidate = { id: number; title: string; reviewStatus: string };
+type BundleReadiness = { totalRecords: number; uploadedFiles: number; provenanceLinked: number; submittedForCompleteness: number; assignedToReviewer: number; boundary: string };
 
 function statusColor(status: string) {
   if (["RESOLVED", "ACKNOWLEDGED"].includes(status)) return "#00FF88";
@@ -51,7 +58,7 @@ function StatusPill({ status }: { status: string }) {
 
 export default function CreatorOperations() {
   useSovereignHeartbeat({ page: "creator-operations" });
-  const { loading, isAuthenticated } = useAuth();
+  const { loading, isAuthenticated, user } = useAuth();
   const utils = trpc.useUtils();
   const operations = trpc.creatorOperations.getMyOperations.useQuery(undefined, {
     enabled: isAuthenticated,
@@ -59,6 +66,7 @@ export default function CreatorOperations() {
   const createSupport = trpc.creatorOperations.createSupportRequest.useMutation();
   const addSupportNote = trpc.creatorOperations.addSupportNote.useMutation();
   const createAsset = trpc.creatorOperations.createReleaseAsset.useMutation();
+  const uploadAsset = trpc.creatorOperations.uploadReleaseAssetFile.useMutation();
   const submitAsset = trpc.creatorOperations.submitReleaseAsset.useMutation();
 
   const [category, setCategory] = useState<(typeof SUPPORT_CATEGORIES)[number]>("CREATOR_WORKSPACE");
@@ -72,11 +80,13 @@ export default function CreatorOperations() {
   const [provenanceRecordId, setProvenanceRecordId] = useState("");
   const [assetAttestation, setAssetAttestation] = useState(false);
   const [notes, setNotes] = useState<Record<number, string>>({});
+  const [assetFiles, setAssetFiles] = useState<Record<number, File | null>>({});
 
   const supportRequests = (operations.data?.supportRequests ?? []) as SupportRequestEntry[];
   const releaseAssets = (operations.data?.releaseAssets ?? []) as ReleaseAssetEntry[];
   const provenanceCandidates = (operations.data?.provenanceCandidates ?? []) as ProvenanceCandidate[];
-  const busy = createSupport.isPending || addSupportNote.isPending || createAsset.isPending || submitAsset.isPending;
+  const bundleReadiness = operations.data?.bundleReadiness as BundleReadiness | undefined;
+  const busy = createSupport.isPending || addSupportNote.isPending || createAsset.isPending || uploadAsset.isPending || submitAsset.isPending;
 
   const refresh = async () => {
     await utils.creatorOperations.getMyOperations.invalidate();
@@ -154,6 +164,49 @@ export default function CreatorOperations() {
     }
   };
 
+  const readFileAsBase64 = (file: File) => new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("The selected file could not be read."));
+    reader.onload = () => {
+      if (typeof reader.result !== "string") {
+        reject(new Error("The selected file could not be read."));
+        return;
+      }
+      resolve(reader.result.split(",")[1] ?? reader.result);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  const uploadAssetFile = async (assetId: number) => {
+    const file = assetFiles[assetId];
+    if (!file) {
+      toast.error("Choose a PNG, JPEG, or WebP image first.");
+      return;
+    }
+    if (!(["image/png", "image/jpeg", "image/webp"] as string[]).includes(file.type)) {
+      toast.error("Use a PNG, JPEG, or WebP image.");
+      return;
+    }
+    if (file.size > 8 * 1024 * 1024) {
+      toast.error("Release images must be 8 MB or smaller.");
+      return;
+    }
+    try {
+      const base64Data = await readFileAsBase64(file);
+      await uploadAsset.mutateAsync({
+        id: assetId,
+        originalFileName: file.name,
+        mimeType: file.type as "image/png" | "image/jpeg" | "image/webp",
+        base64Data,
+      });
+      setAssetFiles(current => ({ ...current, [assetId]: null }));
+      toast.success("Private release image uploaded. It is ready for your own provenance and completeness workflow.");
+      await refresh();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Release image could not be uploaded.");
+    }
+  };
+
   if (loading) {
     return <main className="min-h-screen grid place-items-center text-white" style={{ background: "#050B1A" }}><div className="font-mono text-sm" style={{ color: "#B98CFF" }}>LOADING CREATOR OPERATIONS…</div></main>;
   }
@@ -175,6 +228,7 @@ export default function CreatorOperations() {
             <div className="flex flex-wrap gap-3">
               <Link href="/creator-workspace" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(0,212,255,0.4)", color: "#00D4FF" }}>Creator Workspace</Link>
               <Link href="/release-readiness" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(255,184,0,0.4)", color: "#FFB800" }}>Release Readiness</Link>
+              {user?.role === "admin" ? <Link href="/admin/creator-operations" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(185,140,255,0.42)", color: "#B98CFF" }}>Operations review</Link> : null}
             </div>
           </div>
         </div>
@@ -210,6 +264,27 @@ export default function CreatorOperations() {
         </form>
       </section>
 
+      <section className="max-w-7xl mx-auto px-5 pb-3">
+        <div className="rounded-3xl border p-6" style={{ borderColor: "rgba(0,212,255,0.26)", background: "linear-gradient(130deg, rgba(0,212,255,0.07), rgba(185,140,255,0.04))" }}>
+          <div className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>YOUR BUNDLE READINESS</div>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              ["Records", bundleReadiness?.totalRecords ?? 0, "#B98CFF"],
+              ["Files uploaded", bundleReadiness?.uploadedFiles ?? 0, "#00D4FF"],
+              ["Provenance linked", bundleReadiness?.provenanceLinked ?? 0, "#00FF88"],
+              ["Submitted", bundleReadiness?.submittedForCompleteness ?? 0, "#FFB800"],
+              ["Reviewer assigned", bundleReadiness?.assignedToReviewer ?? 0, "#FF8BCB"],
+            ].map(([label, value, color]) => (
+              <div key={String(label)} className="rounded-2xl border p-4" style={{ borderColor: `${color}33`, background: "rgba(4,14,30,0.54)" }}>
+                <div className="text-2xl font-black" style={{ color: String(color) }}>{value}</div>
+                <div className="mt-1 text-[10px] font-mono uppercase" style={{ color: "#A9B9C9" }}>{label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-xs leading-relaxed" style={{ color: "#C1D0DE" }}>{bundleReadiness?.boundary}</p>
+        </div>
+      </section>
+
       <section className="max-w-7xl mx-auto grid gap-7 px-5 py-3 lg:grid-cols-2">
         <section className="rounded-3xl border p-6" style={{ borderColor: "rgba(185,140,255,0.24)", background: "rgba(4,14,30,0.7)" }}>
           <div className="text-xs font-mono tracking-widest" style={{ color: "#B98CFF" }}>YOUR SUPPORT THREADS</div>
@@ -220,7 +295,32 @@ export default function CreatorOperations() {
         <section className="rounded-3xl border p-6" style={{ borderColor: "rgba(0,255,136,0.23)", background: "rgba(4,14,30,0.7)" }}>
           <div className="text-xs font-mono tracking-widest" style={{ color: "#00FF88" }}>YOUR RELEASE MATERIALS</div>
           <h2 className="mt-3 text-2xl font-black">Submit only when the record is ready.</h2>
-          <div className="mt-6 space-y-4">{releaseAssets.length ? releaseAssets.map((asset: ReleaseAssetEntry) => <article key={asset.id} className="rounded-2xl border p-4" style={{ borderColor: "rgba(0,255,136,0.18)" }}><div className="flex flex-wrap justify-between gap-3"><div><h3 className="font-black">{asset.title}</h3><p className="mt-1 text-[10px] font-mono" style={{ color: "#00FF88" }}>{asset.assetKind.replaceAll("_", " ")}</p></div><StatusPill status={asset.reviewStatus} /></div><p className="mt-3 text-sm leading-relaxed" style={{ color: "#C1D0DE" }}>{asset.description}</p>{asset.events.length ? <p className="mt-3 text-xs" style={{ color: "#A9B9C9" }}>Latest update: {asset.events[0]?.note}</p> : null}{canSubmitReleaseAssetForFeedback(asset.reviewStatus) ? <button type="button" onClick={() => submitForFeedback(asset.id)} disabled={busy} className="mt-4 text-xs font-black disabled:opacity-60" style={{ color: "#00FF88" }}>Submit for completeness feedback →</button> : null}</article>) : <p className="rounded-2xl border p-5 text-sm" style={{ borderColor: "rgba(255,255,255,0.1)", color: "#A9B9C9" }}>No release-material records yet. Start with one asset, one source note, and one honest attestation.</p>}</div>
+          <div className="mt-6 space-y-4">
+            {releaseAssets.length ? releaseAssets.map((asset: ReleaseAssetEntry) => {
+              const acceptsImage = ["APP_ICON", "SCREENSHOT", "OTHER"].includes(asset.assetKind);
+              return (
+                <article key={asset.id} className="rounded-2xl border p-4" style={{ borderColor: "rgba(0,255,136,0.18)" }}>
+                  <div className="flex flex-wrap justify-between gap-3">
+                    <div><h3 className="font-black">{asset.title}</h3><p className="mt-1 text-[10px] font-mono" style={{ color: "#00FF88" }}>{asset.assetKind.replaceAll("_", " ")}</p></div>
+                    <StatusPill status={asset.reviewStatus} />
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C1D0DE" }}>{asset.description}</p>
+                  {asset.assetUrl ? <a href={asset.assetUrl} target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs font-black" style={{ color: "#00D4FF" }}>Open private file: {asset.originalFileName ?? "release material"} →</a> : null}
+                  {acceptsImage ? (
+                    <div className="mt-4 rounded-xl border p-3" style={{ borderColor: "rgba(0,212,255,0.18)", background: "rgba(0,212,255,0.035)" }}>
+                      <label className="block text-[10px] font-mono uppercase" style={{ color: "#00D4FF" }}>Private image intake · PNG, JPEG, or WebP · 8 MB maximum</label>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        <input type="file" accept="image/png,image/jpeg,image/webp" onChange={event => setAssetFiles(current => ({ ...current, [asset.id]: event.target.files?.[0] ?? null }))} className="max-w-full text-xs" />
+                        <button type="button" onClick={() => uploadAssetFile(asset.id)} disabled={busy || !assetFiles[asset.id]} className="rounded-lg px-3 py-2 text-xs font-black disabled:opacity-50" style={{ background: "#00D4FF", color: "#050B1A" }}>{uploadAsset.isPending ? "Uploading…" : asset.assetUrl ? "Replace private file" : "Upload private file"}</button>
+                      </div>
+                    </div>
+                  ) : null}
+                  {asset.events.length ? <p className="mt-3 text-xs" style={{ color: "#A9B9C9" }}>Latest update: {asset.events[0]?.note}</p> : null}
+                  {canSubmitReleaseAssetForFeedback(asset.reviewStatus) ? <button type="button" onClick={() => submitForFeedback(asset.id)} disabled={busy} className="mt-4 text-xs font-black disabled:opacity-60" style={{ color: "#00FF88" }}>Submit for completeness feedback →</button> : null}
+                </article>
+              );
+            }) : <p className="rounded-2xl border p-5 text-sm" style={{ borderColor: "rgba(255,255,255,0.1)", color: "#A9B9C9" }}>No release-material records yet. Start with one asset, one source note, and one honest attestation.</p>}
+          </div>
         </section>
       </section>
 

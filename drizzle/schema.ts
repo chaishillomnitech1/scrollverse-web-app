@@ -1665,9 +1665,16 @@ export const creatorReleaseAssets = mysqlTable("creator_release_assets", {
   title: varchar("title", { length: 180 }).notNull(),
   description: varchar("description", { length: 2000 }).notNull(),
   sourceReference: varchar("source_reference", { length: 2048 }),
+  storageKey: varchar("storage_key", { length: 512 }),
+  assetUrl: varchar("asset_url", { length: 2048 }),
+  originalFileName: varchar("original_file_name", { length: 255 }),
+  mimeType: varchar("mime_type", { length: 100 }),
+  byteSize: int("byte_size"),
   ownerAttestation: boolean("owner_attestation").notNull().default(false),
   reviewStatus: mysqlEnum("review_status", ["DRAFT", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "EXCLUDED"]).notNull().default("DRAFT"),
   submittedAt: timestamp("submitted_at"),
+  assignedReviewerUserId: int("assigned_reviewer_user_id").references(() => users.id, { onDelete: "set null" }),
+  assignedAt: timestamp("assigned_at"),
   reviewedByUserId: int("reviewed_by_user_id").references(() => users.id, { onDelete: "set null" }),
   reviewedAt: timestamp("reviewed_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
@@ -1675,13 +1682,14 @@ export const creatorReleaseAssets = mysqlTable("creator_release_assets", {
 }, table => [
   index("creator_release_asset_owner_idx").on(table.ownerUserId, table.reviewStatus, table.updatedAt),
   index("creator_release_asset_review_idx").on(table.reviewStatus, table.submittedAt),
+  index("creator_release_asset_assignment_idx").on(table.assignedReviewerUserId, table.reviewStatus, table.updatedAt),
 ]);
 export type CreatorReleaseAsset = typeof creatorReleaseAssets.$inferSelect;
 
 export const creatorReleaseAssetEvents = mysqlTable("creator_release_asset_events", {
   id: int("id").autoincrement().primaryKey(),
   releaseAssetId: int("release_asset_id").notNull().references(() => creatorReleaseAssets.id, { onDelete: "cascade" }),
-  action: mysqlEnum("action", ["CREATED", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "EXCLUDED", "NOTE"]).notNull(),
+  action: mysqlEnum("action", ["CREATED", "UPLOADED", "ASSIGNED", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "EXCLUDED", "NOTE"]).notNull(),
   note: varchar("note", { length: 1500 }).notNull(),
   actorUserId: int("actor_user_id").references(() => users.id, { onDelete: "set null" }),
   createdAt: timestamp("created_at").defaultNow().notNull(),

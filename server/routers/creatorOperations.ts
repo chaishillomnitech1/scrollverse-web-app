@@ -1,4 +1,5 @@
 import { and, desc, eq, inArray } from "drizzle-orm";
+import { randomUUID } from "node:crypto";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import {
@@ -17,11 +18,14 @@ import type {
 } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { protectedProcedure, router } from "../_core/trpc";
+import { storagePut } from "../storage";
 
 const supportCategory = z.enum(["ACCESS", "CREATOR_WORKSPACE", "RELEASE_PLANNING", "PROVENANCE", "OTHER"]);
 const supportStatus = z.enum(["IN_REVIEW", "AWAITING_CREATOR", "RESOLVED", "CLOSED"]);
 const releaseAssetKind = z.enum(["APP_ICON", "SCREENSHOT", "STORE_COPY", "PRIVACY_COPY", "RELEASE_NOTE", "SUPPORT_POLICY", "OTHER"]);
 const releaseAssetDecision = z.enum(["ACKNOWLEDGED", "NEEDS_INFO", "EXCLUDED"]);
+const releaseAssetUploadMime = z.enum(["image/jpeg", "image/png", "image/webp"]);
+const MAX_RELEASE_ASSET_BYTES = 8 * 1024 * 1024;
 
 async function requireDb() {
   const db = await getDb();
@@ -49,6 +53,14 @@ async function getMyOperations(userId: number) {
     supportRequests: supportRequests.map((request: CreatorSupportRequest) => ({ ...request, events: supportEvents.filter((event: CreatorSupportRequestEvent) => event.supportRequestId === request.id) })),
     releaseAssets: releaseAssets.map((asset: CreatorReleaseAsset) => ({ ...asset, events: assetEvents.filter((event: CreatorReleaseAssetEvent) => event.releaseAssetId === asset.id) })),
     provenanceCandidates,
+    bundleReadiness: {
+      totalRecords: releaseAssets.length,
+      uploadedFiles: releaseAssets.filter((asset: CreatorReleaseAsset) => Boolean(asset.storageKey && asset.assetUrl)).length,
+      provenanceLinked: releaseAssets.filter((asset: CreatorReleaseAsset) => Boolean(asset.provenanceRecordId)).length,
+      submittedForCompleteness: releaseAssets.filter((asset: CreatorReleaseAsset) => asset.reviewStatus === "SUBMITTED").length,
+      assignedToReviewer: releaseAssets.filter((asset: CreatorReleaseAsset) => Boolean(asset.assignedReviewerUserId)).length,
+      boundary: "Bundle readiness records internal material presence only. It does not clear rights, submit to stores, or approve a release.",
+    },
   };
 }
 
@@ -114,15 +126,62 @@ export const creatorOperationsRouter = router({
     return { success: true, id, reviewStatus: "DRAFT" as const };
   }),
 
+  uploadReleaseAssetFile: protectedProcedure.input(z.object({
+    id: z.number().int().positive(),
+    originalFileName: z.string().trim().min(1).max(255),
+    mimeType: releaseAssetUploadMime,
+    base64Data: z.string().min(1).max(11_500_000),
+  })).mutation(async ({ ctx, input }) => {
+    const db = await requireDb();
+    const [asset] = await db.select().from(creatorReleaseAssets).where(and(eq(creatorReleaseAssets.id, input.id), eq(creatorReleaseAssets.ownerUserId, ctx.user.id))).limit(1);
+    if (!asset) throw new TRPCError({ code: "NOT_FOUND", message: "Release-asset record not found for this account." });
+    if (asset.assetKind !== "APP_ICON" && asset.assetKind !== "SCREENSHOT" && asset.assetKind !== "OTHER") {
+      throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Only app icon, screenshot, or other visual release records accept image uploads." });
+    }
+    const normalizedBase64 = input.base64Data.replace(/^data:[^;]+;base64,/, "");
+    let bytes: Buffer;
+    try {
+      bytes = Buffer.from(normalizedBase64, "base64");
+    } catch {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "The release file could not be decoded." });
+    }
+    if (bytes.length === 0 || bytes.length > MAX_RELEASE_ASSET_BYTES) {
+      throw new TRPCError({ code: "PAYLOAD_TOO_LARGE", message: "Release images must be between 1 byte and 8 MB." });
+    }
+    const safeName = input.originalFileName.replace(/[^a-zA-Z0-9._-]/g, "_");
+    const stored = await storagePut(`creator-operations/${ctx.user.id}/release-assets/${asset.id}/${randomUUID()}-${safeName}`, bytes, input.mimeType);
+    await db.update(creatorReleaseAssets).set({
+      storageKey: stored.key,
+      assetUrl: stored.url,
+      originalFileName: input.originalFileName,
+      mimeType: input.mimeType,
+      byteSize: bytes.length,
+      reviewStatus: "DRAFT",
+      submittedAt: null,
+      reviewedByUserId: null,
+      reviewedAt: null,
+    }).where(eq(creatorReleaseAssets.id, asset.id));
+    await db.insert(creatorReleaseAssetEvents).values({ releaseAssetId: asset.id, action: "UPLOADED", note: "Creator uploaded a private release-material file. File presence is not proof of rights, clearance, or store readiness.", actorUserId: ctx.user.id });
+    return { success: true, assetUrl: stored.url, byteSize: bytes.length };
+  }),
+
   submitReleaseAsset: protectedProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
     const db = await requireDb();
     const [asset] = await db.select().from(creatorReleaseAssets).where(and(eq(creatorReleaseAssets.id, input.id), eq(creatorReleaseAssets.ownerUserId, ctx.user.id))).limit(1);
     if (!asset) throw new TRPCError({ code: "NOT_FOUND", message: "Release-asset record not found for this account." });
     if (!asset.ownerAttestation) throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Confirm the release-asset attestation before requesting completeness review." });
     if (asset.reviewStatus !== "DRAFT" && asset.reviewStatus !== "NEEDS_INFO") throw new TRPCError({ code: "CONFLICT", message: "Only draft or information-requested release assets can be submitted." });
+    if ((asset.assetKind === "APP_ICON" || asset.assetKind === "SCREENSHOT") && !asset.storageKey) {
+      throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Upload the real app icon or screenshot before requesting completeness feedback for a visual release record." });
+    }
     await db.update(creatorReleaseAssets).set({ reviewStatus: "SUBMITTED", submittedAt: new Date(), reviewedByUserId: null, reviewedAt: null }).where(eq(creatorReleaseAssets.id, asset.id));
     await db.insert(creatorReleaseAssetEvents).values({ releaseAssetId: asset.id, action: "SUBMITTED", note: "Submitted for protected completeness feedback; no legal, platform, or commercial approval is implied.", actorUserId: ctx.user.id });
     return { success: true, reviewStatus: "SUBMITTED" as const };
+  }),
+
+  getMyBundleReadiness: protectedProcedure.query(async ({ ctx }) => {
+    const operations = await getMyOperations(ctx.user.id);
+    return operations.bundleReadiness;
   }),
 
   getSupportReviewQueue: adminProcedure.query(async () => {
@@ -148,17 +207,36 @@ export const creatorOperationsRouter = router({
   getReleaseAssetReviewQueue: adminProcedure.query(async () => {
     const db = await requireDb();
     const assets: CreatorReleaseAsset[] = await db.select().from(creatorReleaseAssets).where(inArray(creatorReleaseAssets.reviewStatus, ["SUBMITTED", "NEEDS_INFO", "ACKNOWLEDGED"])).orderBy(desc(creatorReleaseAssets.updatedAt));
-    const ownerIds = Array.from(new Set(assets.map(asset => asset.ownerUserId)));
-    const owners: Array<{ id: number; name: string | null }> = ownerIds.length ? await db.select({ id: users.id, name: users.name }).from(users).where(inArray(users.id, ownerIds)) : [];
-    const ownerById = new Map(owners.map(owner => [owner.id, owner]));
+    const personIds = Array.from(new Set(assets.flatMap(asset => [asset.ownerUserId, asset.assignedReviewerUserId]).filter((id): id is number => typeof id === "number")));
+    const people: Array<{ id: number; name: string | null; email: string | null }> = personIds.length ? await db.select({ id: users.id, name: users.name, email: users.email }).from(users).where(inArray(users.id, personIds)) : [];
+    const personById = new Map(people.map(person => [person.id, person]));
     const events: CreatorReleaseAssetEvent[] = assets.length ? await db.select().from(creatorReleaseAssetEvents).where(inArray(creatorReleaseAssetEvents.releaseAssetId, assets.map(asset => asset.id))).orderBy(desc(creatorReleaseAssetEvents.createdAt)) : [];
-    return assets.map(asset => ({ ...asset, owner: ownerById.get(asset.ownerUserId) ?? null, events: events.filter(event => event.releaseAssetId === asset.id) }));
+    return assets.map(asset => ({ ...asset, owner: personById.get(asset.ownerUserId) ?? null, assignedReviewer: asset.assignedReviewerUserId ? personById.get(asset.assignedReviewerUserId) ?? null : null, events: events.filter(event => event.releaseAssetId === asset.id) }));
+  }),
+
+  getEligibleReleaseReviewers: adminProcedure.query(async () => {
+    const db = await requireDb();
+    return db.select({ id: users.id, name: users.name, email: users.email }).from(users).where(eq(users.role, "admin")).orderBy(users.name);
+  }),
+
+  assignReleaseAssetReviewer: adminProcedure.input(z.object({ id: z.number().int().positive(), reviewerUserId: z.number().int().positive(), note: z.string().trim().min(3).max(1500) })).mutation(async ({ ctx, input }) => {
+    const db = await requireDb();
+    const [asset, reviewer] = await Promise.all([
+      db.select().from(creatorReleaseAssets).where(eq(creatorReleaseAssets.id, input.id)).limit(1),
+      db.select({ id: users.id, role: users.role, name: users.name }).from(users).where(eq(users.id, input.reviewerUserId)).limit(1),
+    ]);
+    if (!asset[0]) throw new TRPCError({ code: "NOT_FOUND", message: "Release-asset record not found." });
+    if (!reviewer[0] || reviewer[0].role !== "admin") throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Select an eligible administrator as the internal reviewer." });
+    await db.update(creatorReleaseAssets).set({ assignedReviewerUserId: reviewer[0].id, assignedAt: new Date() }).where(eq(creatorReleaseAssets.id, asset[0].id));
+    await db.insert(creatorReleaseAssetEvents).values({ releaseAssetId: asset[0].id, action: "ASSIGNED", note: input.note, actorUserId: ctx.user.id });
+    return { success: true, reviewer: { id: reviewer[0].id, name: reviewer[0].name }, boundary: "Reviewer assignment is internal coordination only and does not promise a decision or outcome." };
   }),
 
   reviewReleaseAsset: adminProcedure.input(z.object({ id: z.number().int().positive(), decision: releaseAssetDecision, note: z.string().trim().min(3).max(1500) })).mutation(async ({ ctx, input }) => {
     const db = await requireDb();
     const [asset] = await db.select().from(creatorReleaseAssets).where(eq(creatorReleaseAssets.id, input.id)).limit(1);
     if (!asset || asset.reviewStatus === "DRAFT") throw new TRPCError({ code: "NOT_FOUND", message: "Submitted release-asset record not found." });
+    if (asset.assignedReviewerUserId !== ctx.user.id) throw new TRPCError({ code: "FORBIDDEN", message: "This release-asset record must be assigned to you before you can record completeness feedback." });
     await db.update(creatorReleaseAssets).set({ reviewStatus: input.decision, reviewedByUserId: ctx.user.id, reviewedAt: new Date() }).where(eq(creatorReleaseAssets.id, asset.id));
     await db.insert(creatorReleaseAssetEvents).values({ releaseAssetId: asset.id, action: input.decision, note: input.note, actorUserId: ctx.user.id });
     return { success: true, reviewStatus: input.decision, reviewMeaning: "Completeness feedback only; this is not external-store acceptance, legal clearance, or commercial approval." };

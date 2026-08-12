@@ -288,6 +288,13 @@
       "when": 1786495122522,
       "tag": "0040_previous_brood",
       "breakpoints": true
+    },
+    {
+      "idx": 41,
+      "version": "5",
+      "when": 1786497403178,
+      "tag": "0041_youthful_bushwacker",
+      "breakpoints": true
     }
   ]
 }

@@ -233,4 +233,20 @@ describe("Phase 94 route map", () => {
     expect(channels).toContain("not platform affiliation");
     expect(signalworks).toContain("CREATOR-PROVIDED DESTINATIONS");
   });
+
+  it("registers protected Creator Operations activation controls without converting completeness feedback into approval", () => {
+    const operations = readProjectFile("client/src/pages/CreatorOperations.tsx");
+    const reviewConsole = readProjectFile("client/src/pages/AdminCreatorOperations.tsx");
+    const operationsRouter = readProjectFile("server/routers/creatorOperations.ts");
+    expect(app).toContain('import AdminCreatorOperations from "./pages/AdminCreatorOperations"');
+    expect(app).toContain('<Route path="/admin/creator-operations" component={AdminCreatorOperations} />');
+    expect(operations).toContain("YOUR BUNDLE READINESS");
+    expect(operations).toContain("Private image intake");
+    expect(reviewConsole).toContain("PROTECTED CREATOR OPERATIONS REVIEW");
+    expect(reviewConsole).toContain("Do not overstate approval.");
+    expect(operationsRouter).toContain("uploadReleaseAssetFile");
+    expect(operationsRouter).toContain("assignReleaseAssetReviewer");
+    expect(operationsRouter).toContain("must be assigned to you before you can record completeness feedback");
+    expect(operationsRouter).toContain("not external-store acceptance, legal clearance, or commercial approval");
+  });
 });
