@@ -182,6 +182,34 @@ describe("Phase 94 route map", () => {
     expect(ipReadiness).toContain("does not replace clearance, title analysis, filing decisions, or legal advice");
   });
 
+  it("places a transparent Manus Hero meet-and-greet on the home page with multiple valid first-party paths", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(home).toContain("function ManusHeroWelcome()");
+    expect(home).toContain('<ManusHeroWelcome />');
+    expect(home).toContain("A warm hello from the Manus Hero.");
+    expect(home).toContain("not an autonomous authority, private-system operator, or financial decision-maker");
+    expect(home).toContain('href: "/creator-operations"');
+    expect(home).toContain('href: "/signalworks"');
+    expect(home).toContain('href: "/legion-commons"');
+    expect(home).toContain('href: "/launchpad"');
+    expect(home).toContain('href: "/academy"');
+  });
+
+  it("registers the GitHub-to-Operations engine with source-to-review evidence lanes", () => {
+    const operations = readProjectFile("client/src/pages/GitHubOperations.tsx");
+    const sourceMap = readProjectFile("shared/githubOperations.ts");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import GitHubOperations from "./pages/GitHubOperations"');
+    expect(app).toContain('<Route path="/github-ops" component={GitHubOperations} />');
+    expect(operations).toContain("GITHUB-TO-OPERATIONS");
+    expect(operations).toContain("Extract · verify · adapt · test · document");
+    expect(operations).toContain("not proof that code is secure");
+    expect(sourceMap).toContain("GITHUB_OPERATION_LANES");
+    expect(sourceMap).toContain("scrollverse-platform");
+    expect(sourceMap).toContain("Independent cryptographic review");
+    expect(home).toContain('href: "/github-ops"');
+  });
+
   it("registers the first-party Launchpad without implying an external app-store listing", () => {
     const launchpad = readProjectFile("client/src/pages/ScrollVerseLaunchpad.tsx");
     const installBanner = readProjectFile("client/src/components/PWAInstallBanner.tsx");
@@ -248,5 +276,79 @@ describe("Phase 94 route map", () => {
     expect(operationsRouter).toContain("assignReleaseAssetReviewer");
     expect(operationsRouter).toContain("must be assigned to you before you can record completeness feedback");
     expect(operationsRouter).toContain("not external-store acceptance, legal clearance, or commercial approval");
+  });
+
+  it("registers the protected Revenue Operations workspace with owner-controlled non-transactional readiness records", () => {
+    const operations = readProjectFile("client/src/pages/RevenueOperations.tsx");
+    const operationsRouter = readProjectFile("server/routers/revenueOperations.ts");
+    const router = readProjectFile("server/routers.ts");
+    expect(app).toContain('import RevenueOperations from "./pages/RevenueOperations"');
+    expect(app).toContain('<Route path="/revenue-ops" component={RevenueOperations} />');
+    expect(operations).toContain("OWNER-CONTROLLED READINESS WORKSPACE");
+    expect(operations).toContain("without invented results.");
+    expect(operations).toContain("never starts charges, payouts, token actions, or deployments");
+    expect(operationsRouter).toContain("Revenue Operations records require administrator access.");
+    expect(operationsRouter).toContain("do not activate payments, providers, payouts, contracts, tokens, or deployments");
+    expect(operationsRouter).toContain("Pending registration");
+    expect(router).toContain("revenueOperations: revenueOperationsRouter");
+  });
+
+  it("registers the independent fashion partnership proposal without suggesting affiliation or a live product release", () => {
+    const proposal = readProjectFile("client/src/pages/FashionPartnershipProposal.tsx");
+    const proposalDoc = readProjectFile("docs/phase121-ovo-inspired-partnership-proposal.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import FashionPartnershipProposal from "./pages/FashionPartnershipProposal"');
+    expect(app).toContain('<Route path="/fashion-partnership-proposal" component={FashionPartnershipProposal} />');
+    expect(proposal).toContain("PARTNERSHIP PROPOSAL · NOT A LIVE DROP");
+    expect(proposal).toContain("not affiliated with, endorsed by, sponsored by, or produced for October’s Very Own, OVO, Drake");
+    expect(proposal).toContain("No product, affiliation, inventory, price, or purchase path is represented.");
+    expect(proposalDoc).toContain("independent, non-binding creative proposal");
+    expect(proposalDoc).toContain("No product link, checkout, payout, royalty, token reward");
+    expect(home).toContain('href: "/fashion-partnership-proposal"');
+  });
+
+  it("surfaces official first-party artifacts and transparent specialist guide roles on the home page", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(home).toContain("function ArtifactAndSpecialistNavigator()");
+    expect(home).toContain("<ArtifactAndSpecialistNavigator />");
+    expect(home).toContain("Official first-party work, easy to find.");
+    expect(home).toContain("Original ScrollVerse, XLVIII BLOCKS, and MEIN concept paths");
+    expect(home).toContain("OPEN SUBMITTED META REFERENCE");
+    expect(home).toContain("SPECIALIST GUIDE ROLES");
+    expect(home).toContain("Aegis Scribe");
+    expect(home).toContain("not claims of independent consciousness, private-system access, legal authority, or autonomous control");
+  });
+
+  it("registers the manufacturer readiness path without claiming a supplier, inventory, or live commercial authority", () => {
+    const readiness = readProjectFile("client/src/pages/ManufacturingReadiness.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import ManufacturingReadiness from "./pages/ManufacturingReadiness"');
+    expect(app).toContain('<Route path="/manufacturing-readiness" component={ManufacturingReadiness} />');
+    expect(readiness).toContain("READINESS MAP · NO ACTIVE PARTNERS CLAIMED");
+    expect(readiness).toContain("does not present an unverified manufacturer, product, order, inventory source, fulfillment partner, or commercial launch as active");
+    expect(readiness).toContain("not a supplier directory, manufacturing quote, quality certification, or purchasing service");
+    expect(home).toContain('href: "/manufacturing-readiness"');
+  });
+
+  it("registers community-impact incentive readiness without claiming an active token, payout, or direct beneficiary workflow", () => {
+    const impact = readProjectFile("client/src/pages/ImpactIncentiveReadiness.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import ImpactIncentiveReadiness from "./pages/ImpactIncentiveReadiness"');
+    expect(app).toContain('<Route path="/impact-incentive-readiness" component={ImpactIncentiveReadiness} />');
+    expect(impact).toContain("IMPACT INCENTIVE READINESS · NO ACTIVE DISTRIBUTION");
+    expect(impact).toContain("does not ask minors or survivors to connect wallets");
+    expect(impact).toContain("not a financial product, token sale, investment offer, charity registration, direct-aid intake, or guarantee of benefit");
+    expect(impact).toContain("does not ask minors or survivors to connect wallets, share sensitive identity data");
+    expect(home).toContain('href: "/impact-incentive-readiness"');
+  });
+
+  it("registers an authenticated, idempotent Revenue Operations review digest with no transactional action", () => {
+    const server = readProjectFile("server/_core/index.ts");
+    const digest = readProjectFile("server/scheduled/revenueOperationsDigest.ts");
+    expect(server).toContain('app.post("/api/scheduled/revenue-operations-digest", revenueOperationsDigestHandler)');
+    expect(digest).toContain("cron-only");
+    expect(digest).toContain("scheduleCronTaskUid, cronUser.taskUid");
+    expect(digest).toContain("already-delivered");
+    expect(digest).toContain("does not initiate charges, payouts, token actions, provider changes, or deployments");
   });
 });

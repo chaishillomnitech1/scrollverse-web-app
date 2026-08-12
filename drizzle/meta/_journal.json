@@ -295,6 +295,20 @@
       "when": 1786497403178,
       "tag": "0041_youthful_bushwacker",
       "breakpoints": true
+    },
+    {
+      "idx": 42,
+      "version": "5",
+      "when": 1786503435137,
+      "tag": "0042_gifted_raider",
+      "breakpoints": true
+    },
+    {
+      "idx": 43,
+      "version": "5",
+      "when": 1786504276366,
+      "tag": "0043_luxuriant_giant_girl",
+      "breakpoints": true
     }
   ]
 }

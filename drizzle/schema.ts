@@ -1697,3 +1697,52 @@ export const creatorReleaseAssetEvents = mysqlTable("creator_release_asset_event
   index("creator_release_asset_event_idx").on(table.releaseAssetId, table.createdAt),
 ]);
 export type CreatorReleaseAssetEvent = typeof creatorReleaseAssetEvents.$inferSelect;
+
+// ── Revenue Operations Workspace ─────────────────────────────────────────────
+// Owner-controlled readiness records make activation dependencies visible without
+// creating payments, payouts, provider accounts, or deployment authority.
+export const revenueOperationReadiness = mysqlTable("revenue_operation_readiness", {
+  id: int("id").autoincrement().primaryKey(),
+  operationKey: varchar("operation_key", { length: 96 }).notNull().unique(),
+  title: varchar("title", { length: 180 }).notNull(),
+  category: mysqlEnum("category", ["PAYMENT", "BOOKING", "COMMERCE", "CREATOR", "GITHUB", "SECURITY"]).notNull(),
+  readinessStatus: mysqlEnum("readiness_status", ["NOT_STARTED", "IN_PROGRESS", "AWAITING_OWNER", "BLOCKED", "READY"]).notNull().default("NOT_STARTED"),
+  evidenceSummary: varchar("evidence_summary", { length: 2000 }).notNull(),
+  evidenceUrl: varchar("evidence_url", { length: 2048 }),
+  nextOwnerAction: varchar("next_owner_action", { length: 1000 }).notNull(),
+  ownerAttestation: boolean("owner_attestation").notNull().default(false),
+  lastReviewedAt: timestamp("last_reviewed_at"),
+  updatedByUserId: int("updated_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("revenue_ops_readiness_status_idx").on(table.readinessStatus, table.updatedAt),
+  index("revenue_ops_readiness_category_idx").on(table.category, table.updatedAt),
+]);
+export type RevenueOperationReadiness = typeof revenueOperationReadiness.$inferSelect;
+
+export const revenueOperationReadinessEvents = mysqlTable("revenue_operation_readiness_events", {
+  id: int("id").autoincrement().primaryKey(),
+  readinessRecordId: int("readiness_record_id").notNull().references(() => revenueOperationReadiness.id, { onDelete: "cascade" }),
+  action: mysqlEnum("action", ["CREATED", "STATUS_CHANGED", "NOTE"]).notNull(),
+  previousStatus: mysqlEnum("previous_status", ["NOT_STARTED", "IN_PROGRESS", "AWAITING_OWNER", "BLOCKED", "READY"]),
+  nextStatus: mysqlEnum("next_status", ["NOT_STARTED", "IN_PROGRESS", "AWAITING_OWNER", "BLOCKED", "READY"]).notNull(),
+  note: varchar("note", { length: 1500 }).notNull(),
+  actorUserId: int("actor_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [
+  index("revenue_ops_readiness_event_idx").on(table.readinessRecordId, table.createdAt),
+]);
+export type RevenueOperationReadinessEvent = typeof revenueOperationReadinessEvents.$inferSelect;
+
+export const revenueOperationDigestSettings = mysqlTable("revenue_operation_digest_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  settingsKey: varchar("settings_key", { length: 96 }).notNull().unique(),
+  enabled: boolean("enabled").notNull().default(true),
+  scheduleCronTaskUid: varchar("schedule_cron_task_uid", { length: 65 }).unique(),
+  lastDigestDay: varchar("last_digest_day", { length: 10 }),
+  lastDigestAt: timestamp("last_digest_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type RevenueOperationDigestSettings = typeof revenueOperationDigestSettings.$inferSelect;

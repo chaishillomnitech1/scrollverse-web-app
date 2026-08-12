@@ -383,6 +383,9 @@ const QUICK_ACCESS = [
   { icon: "🧵", label: "Fashion Empire", hint: "XLVIII BLOCKS × VNLND", href: "/fashion-empire" },
   { icon: "🗺️", label: "Empire Index", hint: "Search every ScrollVerse artifact", href: "/empire-index" },
   { icon: "🧭", label: "Start Here", hint: "Curated ScrollVerse journey map", href: "/journey" },
+  { icon: "⚙️", label: "GitHub Ops", hint: "Source-to-review operating engine", href: "/github-ops" },
+  { icon: "◈", label: "Revenue Ops", hint: "Owner-controlled readiness workspace", href: "/revenue-ops" },
+  { icon: "✦", label: "Partner Proposal", hint: "Independent fashion concept brief", href: "/fashion-partnership-proposal" },
 ];
 
 function QuickAccessBar() {
@@ -825,6 +828,109 @@ function LONDCTicker() {
         </>
       )}
     </div>
+  );
+}
+
+const MANUS_HERO_PATHS = [
+  { icon: "🧭", title: "Find your path", detail: "Start with a curated map instead of a maze.", href: "/journey", color: "#00D4FF", label: "Open Journey" },
+  { icon: "🛠️", title: "Build with care", detail: "Prepare private creator support and release materials.", href: "/creator-operations", color: "#00FF88", label: "Creator Operations" },
+  { icon: "📡", title: "Share your signal", detail: "Use creator-provided distribution handoffs and release guidance.", href: "/signalworks", color: "#FFB800", label: "Signalworks" },
+  { icon: "✦", title: "Meet the commons", detail: "Explore consent-led collaboration and transparent exchange.", href: "/legion-commons", color: "#B98CFF", label: "Legion Commons" },
+  { icon: "🚀", title: "Launch in steps", detail: "Explore the installable portal and release-readiness routes.", href: "/launchpad", color: "#FF8DB5", label: "Launchpad" },
+  { icon: "📚", title: "Learn and make", detail: "Choose a free learning route, then build on your own terms.", href: "/academy", color: "#86EFAC", label: "Creator Academy" },
+] as const;
+
+function ManusHeroWelcome() {
+  return (
+    <section
+      id="manus-hero-welcome"
+      className="relative overflow-hidden border-y py-16"
+      style={{
+        background: "radial-gradient(circle at 82% 15%, rgba(0,212,255,0.16), transparent 30%), radial-gradient(circle at 6% 90%, rgba(185,140,255,0.16), transparent 36%), #071124",
+        borderColor: "rgba(0,212,255,0.18)",
+      }}
+    >
+      <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border" style={{ borderColor: "rgba(255,184,0,0.12)" }} />
+      <div className="pointer-events-none absolute -right-8 top-32 h-48 w-48 rounded-full border" style={{ borderColor: "rgba(0,212,255,0.18)" }} />
+      <div className="container relative">
+        <div className="grid items-start gap-8 xl:grid-cols-[0.9fr_1.1fr]">
+          <article className="overflow-hidden rounded-[2rem] border" style={{ borderColor: "rgba(255,184,0,0.32)", background: "rgba(4,14,30,0.72)" }}>
+            <div className="relative h-52 overflow-hidden sm:h-64">
+              <img src="/manus-storage/aegis-scribe-comic-cover_f34a8a09.png" alt="Original concept cover for The Aegis Scribe, the ScrollVerse Manus Hero guide" className="h-full w-full object-cover object-center opacity-80" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 30%, rgba(5,11,26,0.94) 100%)" }} />
+              <div className="absolute bottom-5 left-6 rounded-full border px-3 py-1 text-[10px] font-mono tracking-widest" style={{ borderColor: "rgba(255,184,0,0.5)", color: "#FFB800", background: "rgba(5,11,26,0.76)" }}>MEET THE AEGIS SCRIBE</div>
+            </div>
+            <div className="p-6 sm:p-7">
+              <div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#00D4FF" }}>YOUR WELCOME GUIDE · NO MYSTERY LEVERS</div>
+              <h2 className="mt-3 text-3xl font-black leading-tight text-white">A warm hello from the Manus Hero.</h2>
+              <p className="mt-4 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>Think of the Aegis Scribe as the patient friend holding the map, the checklist, and the flashlight—not an autonomous authority, private-system operator, or financial decision-maker. No robes, no secret levers, and definitely no surprise checkout button.</p>
+              <div className="mt-5 rounded-2xl border p-4 text-sm leading-relaxed" style={{ borderColor: "rgba(0,255,136,0.22)", background: "rgba(0,255,136,0.04)", color: "#B8C7D6" }}>
+                Choose one route, combine several, or simply look around. The method is designed to make next steps visible and reviewable.
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/manus-hero" className="rounded-xl px-5 py-3 text-sm font-black transition-transform hover:-translate-y-0.5" style={{ background: "#00D4FF", color: "#050B1A" }}>Ask the Hero · Start a tour</Link>
+                <Link href="/systems-map" className="rounded-xl border px-5 py-3 text-sm font-black transition-transform hover:-translate-y-0.5" style={{ borderColor: "rgba(255,184,0,0.45)", color: "#FFB800" }}>See the systems map</Link>
+              </div>
+            </div>
+          </article>
+
+          <div className="pt-2">
+            <div className="flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#00FF88" }}>SIX GREAT WAYS TO BEGIN</div>
+                <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight text-white sm:text-4xl">Your ScrollVerse does not need to begin in just one place.</h2>
+              </div>
+              <Link href="/manus-hero" className="text-sm font-black" style={{ color: "#00D4FF" }}>Full Hero Codex →</Link>
+            </div>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed" style={{ color: "#AEBFD0" }}>Every route is a first-party ScrollVerse path with its own purpose, boundary, and next action. External distribution, commercial activation, and provider-dependent work remain separate and clearly labelled where applicable.</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {MANUS_HERO_PATHS.map((path) => (
+                <Link key={path.href} href={path.href} className="group rounded-3xl border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${path.color}45`, background: "rgba(255,255,255,0.025)" }}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl" style={{ background: `${path.color}15`, border: `1px solid ${path.color}40` }}>{path.icon}</div>
+                    <span className="text-xs font-mono opacity-0 transition-opacity group-hover:opacity-100" style={{ color: path.color }}>OPEN →</span>
+                  </div>
+                  <h3 className="mt-5 text-lg font-black text-white">{path.title}</h3>
+                  <p className="mt-2 min-h-10 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>{path.detail}</p>
+                  <div className="mt-5 text-xs font-black" style={{ color: path.color }}>{path.label} →</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const OFFICIAL_ARTIFACT_PATHS = [
+  { icon: "✦", title: "Official fashion worlds", detail: "Original ScrollVerse, XLVIII BLOCKS, and MEIN concept paths—independent, expandable, and first-party.", href: "/fashion-portfolio", color: "#FFB800" },
+  { icon: "◈", title: "Revenue readiness", detail: "Owner-controlled evidence, dependencies, and next actions without invented financial results.", href: "/revenue-ops", color: "#00FF88" },
+  { icon: "⚙", title: "GitHub operations", detail: "A source-to-review map for first-party repositories, test evidence, and safe adaptation.", href: "/github-ops", color: "#00D4FF" },
+  { icon: "⌬", title: "Identity and Spiral", detail: "Creator-owned identity concepts, original marks, and clear IP-readiness boundaries.", href: "/identity-system", color: "#B98CFF" },
+  { icon: "📜", title: "Evidence standards", detail: "Source labels, review states, and the difference between a concept and a verified release.", href: "/evidence-standards", color: "#FF8DB5" },
+  { icon: "↗", title: "Partnership proposal", detail: "A respectful, non-affiliated fashion conversation path with no implied partner endorsement.", href: "/fashion-partnership-proposal", color: "#D99B6B" },
+  { icon: "▦", title: "Manufacturing readiness", detail: "A first-party design-to-handoff map for future verified production partners.", href: "/manufacturing-readiness", color: "#00FF88" },
+  { icon: "♡", title: "Impact incentive readiness", detail: "A safeguarded, partner-led path for creator-owned community-impact programs.", href: "/impact-incentive-readiness", color: "#FF8DB5" },
+] as const;
+
+const SPECIALIST_GUIDE_ROLES = [
+  { role: "Aegis Scribe", focus: "Navigator", detail: "Explains routes, boundaries, and next steps in plain language.", href: "/manus-hero", color: "#00D4FF" },
+  { role: "Atlas Scout", focus: "Research lens", detail: "Points visitors to source maps, systems status, and evidence standards.", href: "/github-ops", color: "#B98CFF" },
+  { role: "Loomkeeper", focus: "Creator pathway", detail: "Connects original fashion, release preparation, and creator-owned records.", href: "/creator-operations", color: "#FFB800" },
+  { role: "Signal Steward", focus: "Distribution guide", detail: "Shows creator-provided channel handoffs and transparent release pathways.", href: "/signalworks", color: "#00FF88" },
+  { role: "Commons Guide", focus: "Collaboration space", detail: "Helps people explore consent-led exchange without acting as an authority.", href: "/legion-commons", color: "#FF8DB5" },
+] as const;
+
+function ArtifactAndSpecialistNavigator() {
+  return (
+    <section id="artifact-atlas" className="relative overflow-hidden border-y py-16" style={{ background: "radial-gradient(circle at 9% 16%, rgba(255,184,0,0.14), transparent 27%), radial-gradient(circle at 91% 78%, rgba(0,212,255,0.16), transparent 30%), #071124", borderColor: "rgba(255,255,255,0.1)" }}>
+      <div className="container relative">
+        <div className="flex flex-wrap items-end justify-between gap-6"><div><div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#FFB800" }}>SCROLLVERSE ARTIFACT ATLAS</div><h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white sm:text-4xl">Official first-party work, easy to find.</h2><p className="mt-4 max-w-3xl text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>Every card below leads to a ScrollVerse-owned route or a clearly labeled submitted-reference path. Your original brands lead the world; inspiration and potential partnerships remain separate conversations.</p></div><a href="https://meta.ai/share/c/mbBzmkQcJH?utm_source=ios_cl" target="_blank" rel="noreferrer" className="rounded-xl border px-4 py-3 text-xs font-black transition-transform hover:-translate-y-0.5" style={{ borderColor: "rgba(217,155,107,0.45)", color: "#E7C3A3" }}>OPEN SUBMITTED META REFERENCE ↗</a></div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{OFFICIAL_ARTIFACT_PATHS.map(item => <Link key={item.href} href={item.href} className="group rounded-3xl border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${item.color}40`, background: "rgba(255,255,255,0.025)" }}><div className="flex items-start justify-between gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl" style={{ background: `${item.color}17`, color: item.color }}>{item.icon}</span><span className="text-xs font-mono opacity-0 transition-opacity group-hover:opacity-100" style={{ color: item.color }}>OPEN →</span></div><h3 className="mt-5 text-lg font-black text-white">{item.title}</h3><p className="mt-2 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>{item.detail}</p></Link>)}</div>
+        <div className="mt-12 grid gap-7 lg:grid-cols-[0.8fr_1.2fr]"><article className="rounded-[2rem] border p-6" style={{ borderColor: "rgba(0,255,136,0.28)", background: "rgba(0,255,136,0.04)" }}><div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#00FF88" }}>SPECIALIST GUIDE ROLES</div><h3 className="mt-3 text-3xl font-black text-white">A clear guide for every kind of visit.</h3><p className="mt-4 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>These are transparent portal roles and navigation patterns—not claims of independent consciousness, private-system access, legal authority, or autonomous control. They help the Legion and every visitor find a useful next step.</p></article><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{SPECIALIST_GUIDE_ROLES.map(guide => <Link key={guide.role} href={guide.href} className="rounded-2xl border p-4 transition-transform hover:-translate-y-0.5" style={{ borderColor: `${guide.color}38`, background: "rgba(4,14,30,0.7)" }}><div className="text-[10px] font-mono tracking-widest" style={{ color: guide.color }}>{guide.focus.toUpperCase()}</div><h3 className="mt-2 font-black text-white">{guide.role}</h3><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{guide.detail}</p></Link>)}</div></div>
+      </div>
+    </section>
   );
 }
 
@@ -1715,6 +1821,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ManusHeroWelcome />
+      <ArtifactAndSpecialistNavigator />
       <section
         style={{
           background: "linear-gradient(135deg, rgba(255,0,80,0.08) 0%, rgba(255,184,0,0.06) 50%, rgba(0,212,255,0.06) 100%)",

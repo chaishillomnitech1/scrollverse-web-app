@@ -62,6 +62,7 @@ import { journeyRouter } from "./routers/journey";
 import { creatorGovernanceRouter } from "./routers/creatorGovernance";
 import { legionCommonsRouter } from "./routers/legionCommons";
 import { creatorOperationsRouter } from "./routers/creatorOperations";
+import { revenueOperationsRouter } from "./routers/revenueOperations";
 
 export const appRouter = router({
   system: systemRouter,
@@ -136,6 +137,7 @@ export const appRouter = router({
   creatorGovernance: creatorGovernanceRouter,
   legionCommons: legionCommonsRouter,
   creatorOperations: creatorOperationsRouter,
+  revenueOperations: revenueOperationsRouter,
 });
 
 export type AppRouter = typeof appRouter;

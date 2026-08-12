@@ -2091,3 +2091,37 @@
 - [x] Implement authenticated release-asset upload, owner-controlled reviewer assignment, and provenance-bundle procedures
 - [x] Build creator asset intake and protected operations-review interfaces with clear completeness-only status language
 - [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 120 — First Owner Release Bundle
+- [ ] Verify the authenticated owner session and identify a cleared app-icon file
+- [ ] Create and document an original frequency-informed open-ended ScrollVerse Spiral Signature, adapted beyond a standard Fibonacci spiral, as unregistered identity material pending formal review
+- [ ] Apply imagination, wisdom, care, and creator understanding as documented principles of the free Signature System
+- [ ] Create companion creator-owned app-icon and compact emoji or sticker concepts as part of the free Signature System
+- [ ] Create a QR-linked public identity record that points to the Manus Hero Codex without embedding private credentials, keys, or software internals
+- [ ] Integrate the creator-owned Spiral Signature, frequency language, and sigil direction across relevant ScrollVerse identity surfaces
+- [ ] Keep the Signature System free and creator-owned as first-party ScrollVerse material, independent of outside-platform approval
+- [ ] Document optional commercial-readiness paths without activating sales, token, or marketplace functions
+- [ ] Create the private app-icon record and upload the cleared asset under the owner account
+- [ ] Assign a real administrator and link an existing provenance record
+- [ ] Verify the private record and report the owner-controlled completeness-feedback next step
+
+## Phase 121 — Revenue Operations System
+- [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
+- [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
+- [x] Complete the deep first-party GitHub portfolio inventory and identify safe reusable integration candidates for revenue, creator, media, identity, and operating infrastructure
+- [x] Build a Manus Hero main-page meet-and-greet and operating guide that offers multiple creator capability, free-learning, media, product, partnership, support, and participation paths with warmth, light humor, and transparent capability states
+- [x] Build a GitHub-to-Operations engine with source-to-review, test-evidence, gas-benchmark, deployment-readiness, and first-party public conversion paths for creator services, media, products, partnerships, and support workflows
+- [x] Map external implementation requirements alongside first-party activation pathways so existing ScrollVerse infrastructure remains the center of the operating system
+- [x] Assess the submitted zero-knowledge and post-quantum validator concept as a non-blocking review-and-build track; document cryptographic, audit, testing, dependency, and deployment prerequisites before any chain action
+- [x] Assess the submitted Universal Nexus IP-split and cross-chain settlement concepts as staged research tracks; document accounting, rights, security, audit, and authorization prerequisites before any payout, token, or settlement action
+- [x] Create and validate a reusable Sovereign Integration Engine skill covering source-to-review, ZK/PQC evidence, split/settlement readiness, test evidence, and owner-controlled release decisions
+- [x] Extend the reusable guidance with the Universal Nexus activation-script pattern for compilation, circuit generation, gas profiling, and evidence capture without representing any deployment as live
+- [x] Build a creator-owned Revenue Operations workspace with readiness records and external dependency visibility
+- [x] Document the submitted three-look OVO-inspired, non-affiliated fashion partnership proposal with source boundaries, product-rights checks, giveback-split readiness, and provider/chain prerequisites before any product link, payout, or token feature is activated
+- [x] Surface Meta-sourced and first-party ScrollVerse artifacts through an accessible main-page discovery layer with source labels and no implied external affiliation
+- [x] Expand and clearly label official ScrollVerse, XLVIII BLOCKS, and MEIN fashion directions and footwear concepts that remain independent of any third-party partner designs or trade dress
+- [x] Build transparent specialist guide roles for research, navigation, creator support, and Legion collaboration without claiming autonomous authority or external-system control
+- [x] Add a manufacturer and facilitator readiness path that maps design, technical-pack, sample, fulfillment, policy, and partner-verification stages without presenting unverified manufacturers or inventory as active
+- [x] Add a community-impact incentive readiness path for children and survivors of domestic violence that can reference verified owner-controlled on-chain assets, with safeguarding, partner/recipient records, transparent rules, compliance review, and no active token or payout claim
+- [x] Add deployment-ready first-party scheduled review handlers without creating live charges, payouts, token issuance, or marketplace activation
+- [ ] Validate, publish, activate approved schedules, preserve reusable guidance, and synchronize GitHub

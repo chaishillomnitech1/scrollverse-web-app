@@ -273,6 +273,11 @@ import ScrollVerseLaunchpad from "./pages/ScrollVerseLaunchpad";
 import ReleaseReadiness from "./pages/ReleaseReadiness";
 import PrivacySummary from "./pages/PrivacySummary";
 import SupportPath from "./pages/SupportPath";
+import GitHubOperations from "./pages/GitHubOperations";
+import RevenueOperations from "./pages/RevenueOperations";
+import FashionPartnershipProposal from "./pages/FashionPartnershipProposal";
+import ManufacturingReadiness from "./pages/ManufacturingReadiness";
+import ImpactIncentiveReadiness from "./pages/ImpactIncentiveReadiness";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -574,6 +579,11 @@ function Router() {
         <Route path="/release-readiness" component={ReleaseReadiness} />
         <Route path="/privacy" component={PrivacySummary} />
         <Route path="/support" component={SupportPath} />
+        <Route path="/github-ops" component={GitHubOperations} />
+        <Route path="/revenue-ops" component={RevenueOperations} />
+        <Route path="/fashion-partnership-proposal" component={FashionPartnershipProposal} />
+        <Route path="/manufacturing-readiness" component={ManufacturingReadiness} />
+        <Route path="/impact-incentive-readiness" component={ImpactIncentiveReadiness} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

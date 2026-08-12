@@ -16,6 +16,7 @@ import { compoundStakingRewards } from "../jobs/compoundRewards";
 import { notifyOwner } from "./notification";
 import { recordHeartbeatEvent } from "../routers/analytics";
 import { fashionEvidenceDigestHandler } from "../scheduled/fashionEvidenceDigest";
+import { revenueOperationsDigestHandler } from "../scheduled/revenueOperationsDigest";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -51,6 +52,7 @@ async function startServer() {
   // Heartbeat endpoints for scheduled jobs (compound rewards, etc.)
   app.use("/api/heartbeat", heartbeatRouter);
   app.post("/api/scheduled/fashion-evidence-digest", fashionEvidenceDigestHandler);
+  app.post("/api/scheduled/revenue-operations-digest", revenueOperationsDigestHandler);
   // ── PUBLIC REST API — accessible from any platform, wallet, or integration ──
   app.get("/api/public/ecosystem", async (_req, res) => {
     res.json({
