@@ -2224,6 +2224,11 @@
 - [x] Verify reachable destinations and distinguish first-party navigation from external referral routes without representing traffic guarantees or provider affiliation
 - [x] Improve source-labeled cross-site discovery, navigation health, and reusable routing documentation with regression coverage
 
+## Uploaded Analysis Archive Integration
+- [x] Inspect the uploaded archive manifest and classify file types, observable provenance, private material, and integration eligibility
+- [x] Incorporate only verified, privacy-aware findings that strengthen first-party operating workflows without executing archive contents or publishing unclear material
+- [x] Add source documentation, regression coverage where applicable, and validate the resulting portal changes
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
