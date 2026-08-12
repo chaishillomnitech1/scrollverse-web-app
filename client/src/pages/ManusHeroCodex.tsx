@@ -18,7 +18,8 @@ const CO_CREATOR_LANES = [
   { number: "01", title: "Name your build", detail: "Start with an idea, a draft, a release question, or a business need. The Hero helps turn it into a visible next step—not a vague promise.", href: "/creator-operations", action: "Open Creator Operations", color: "#00D4FF" },
   { number: "02", title: "Prepare original work", detail: "Shape an original look, media item, source note, or project record before you seek a partner, platform, or public audience.", href: "/fashion-portfolio", action: "Build an original look", color: "#FFB800" },
   { number: "03", title: "Stage the proof", detail: "Keep files, provenance, consent, and release material in a private staging path before you choose any public or external handoff.", href: "/media-dock", action: "Open Media Dock", color: "#00FF88" },
-  { number: "04", title: "Choose a growth route", detail: "Explore audience, media, distribution, collaboration, manufacturing, or operations routes with the status of each path stated plainly.", href: "/empire-map", action: "Explore Empire Map", color: "#B98CFF" },
+  { number: "04", title: "Build the release", detail: "Prepare a provider-aware live-stream plan, video or music metadata, review loop, and distribution handoff before any public launch.", href: "/creator-media-studio", action: "Open Creator Media Studio", color: "#B98CFF" },
+  { number: "05", title: "Choose a growth route", detail: "Explore audience, media, distribution, collaboration, manufacturing, or operations routes with the status of each path stated plainly.", href: "/empire-map", action: "Explore Empire Map", color: "#FF8DB5" },
 ] as const;
 
 const ORIGINAL_WORK_BOARD = "/manus-storage/xlviii-atlantis-concept-board-owner-upload_ceedf426.webp";

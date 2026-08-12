@@ -227,6 +227,7 @@ export default function CreatorOperations() {
             </div>
             <div className="flex flex-wrap gap-3">
               <Link href="/creator-workspace" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(0,212,255,0.4)", color: "#00D4FF" }}>Creator Workspace</Link>
+              <Link href="/creator-media-studio" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(0,212,255,0.4)", color: "#00D4FF" }}>Creator Media Studio</Link>
               <Link href="/specialist-constellation" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(0,255,136,0.4)", color: "#00FF88" }}>Specialist Team</Link>
               <Link href="/release-readiness" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(255,184,0,0.4)", color: "#FFB800" }}>Release Readiness</Link>
               {user?.role === "admin" ? <Link href="/admin/creator-operations" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(185,140,255,0.42)", color: "#B98CFF" }}>Operations review</Link> : null}

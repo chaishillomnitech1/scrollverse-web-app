@@ -285,6 +285,21 @@ describe("Phase 94 route map", () => {
     expect(mediaWorld).toContain("or send work to external platforms automatically");
   });
 
+  it("registers the Creator Media Studio with provider-dependent live readiness and explicit distribution handoffs", () => {
+    const studio = readProjectFile("client/src/pages/CreatorMediaStudio.tsx");
+    const mediaWorld = readProjectFile("client/src/pages/MediaWorld.tsx");
+    const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
+    const operations = readProjectFile("client/src/pages/CreatorOperations.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import CreatorMediaStudio from "./pages/CreatorMediaStudio"');
+    expect(app).toContain('<Route path="/creator-media-studio" component={CreatorMediaStudio} />');
+    expect(studio).toContain("Provider credentials and a provider-created ingest key are required before live delivery.");
+    expect(studio).toContain("This studio never generates a provider key in the browser");
+    expect(studio).toContain("does not publish, license, or distribute media automatically");
+    ["RTMPS", "SRT", "WHIP", "Spotify for Artists", "VEVO", "YouTube Studio", "Tubi", "Netflix Partner Help"].forEach(label => expect(studio).toContain(label));
+    [mediaWorld, hero, operations, home].forEach(source => expect(source).toContain("/creator-media-studio"));
+  });
+
   it("registers the zero-dead-end Empire Map with verified first-party operating paths", () => {
     const empireMap = readProjectFile("client/src/pages/EmpireMap.tsx");
     expect(app).toContain('import EmpireMap from "./pages/EmpireMap"');
