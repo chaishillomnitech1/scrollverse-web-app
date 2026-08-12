@@ -289,7 +289,8 @@ describe("Phase 94 route map", () => {
     expect(operations).toContain("never starts charges, payouts, token actions, or deployments");
     expect(operationsRouter).toContain("Revenue Operations records require administrator access.");
     expect(operationsRouter).toContain("do not activate payments, providers, payouts, contracts, tokens, or deployments");
-    expect(operationsRouter).toContain("Pending registration");
+    expect(operationsRouter).toContain("Daily · 14:00 UTC");
+    expect(operationsRouter).toContain("state: \"ACTIVE\"");
     expect(router).toContain("revenueOperations: revenueOperationsRouter");
   });
 

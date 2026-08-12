@@ -44,7 +44,7 @@ async function getWorkspace() {
     summary: summarize(records),
     schedules: [
       { key: "fashion-evidence", label: "Fashion evidence expiry digest", cadence: "Daily · 09:00 UTC", state: "ACTIVE", scope: "Non-transactional owner reminder for evidence expiry. No commerce action." },
-      { key: "revenue-readiness", label: "Revenue readiness review digest", cadence: "Pending registration", state: "PLANNED", scope: "Will summarize owner-controlled readiness states and never initiate a payment, payout, or deployment." },
+      { key: "revenue-readiness", label: "Revenue readiness review digest", cadence: "Daily · 14:00 UTC", state: "ACTIVE", scope: "Summarizes owner-controlled readiness states and never initiates a payment, payout, token action, provider change, or deployment." },
     ],
   };
 }
