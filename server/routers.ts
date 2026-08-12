@@ -61,6 +61,7 @@ import { fashionLookboardsRouter } from "./routers/fashionLookboards";
 import { journeyRouter } from "./routers/journey";
 import { creatorGovernanceRouter } from "./routers/creatorGovernance";
 import { legionCommonsRouter } from "./routers/legionCommons";
+import { creatorOperationsRouter } from "./routers/creatorOperations";
 
 export const appRouter = router({
   system: systemRouter,
@@ -134,6 +135,7 @@ export const appRouter = router({
   journey: journeyRouter,
   creatorGovernance: creatorGovernanceRouter,
   legionCommons: legionCommonsRouter,
+  creatorOperations: creatorOperationsRouter,
 });
 
 export type AppRouter = typeof appRouter;

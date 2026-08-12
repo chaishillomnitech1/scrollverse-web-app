@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+import { CREATOR_CHANNEL_HANDOFFS } from "@/data/creatorChannelHandoffs";
 
 type Pathway = {
   provider: string;
@@ -65,6 +66,13 @@ export default function Signalworks() {
             <p className="mt-3 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{pathway.boundary}</p>
             <a href={pathway.url} target="_blank" rel="noreferrer" className="mt-auto pt-6 text-sm font-black" style={{ color: pathway.color }}>{pathway.action} <span aria-hidden>↗</span></a>
           </article>)}
+        </div>
+      </section>
+
+      <section id="creator-channels" className="border-y" style={{ borderColor: "rgba(0,212,255,0.16)", background: "rgba(0,212,255,0.025)" }}>
+        <div className="max-w-7xl mx-auto px-5 py-14">
+          <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>CREATOR-PROVIDED DESTINATIONS</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Follow the signal at its source.</h2></div><p className="max-w-xl text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>These destinations were supplied by the ScrollVerse creator. They open in a new tab and remain subject to each platform’s access, policy, and visibility rules.</p></div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{CREATOR_CHANNEL_HANDOFFS.map(channel => <article key={channel.url} className="flex min-h-64 flex-col rounded-3xl border p-5" style={{ borderColor: `${channel.color}38`, background: "rgba(4,14,30,0.7)" }}><div className="flex items-start justify-between gap-4"><div className="text-2xl" style={{ color: channel.color }}>{channel.icon}</div><span className="rounded-full px-2.5 py-1 text-[10px] font-mono" style={{ background: `${channel.color}16`, color: channel.color }}>{channel.lane.toUpperCase()}</span></div><h3 className="mt-6 text-xl font-black">{channel.title}</h3><p className="mt-1 text-xs font-mono" style={{ color: channel.color }}>{channel.destination.toUpperCase()}</p><p className="mt-4 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{channel.note}</p><a href={channel.url} target="_blank" rel="noreferrer" className="mt-auto pt-6 text-sm font-black" style={{ color: channel.color }}>Open creator-provided destination <span aria-hidden>↗</span></a></article>)}</div>
         </div>
       </section>
 

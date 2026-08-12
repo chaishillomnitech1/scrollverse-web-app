@@ -215,4 +215,22 @@ describe("Phase 94 route map", () => {
     expect(worker).toContain("'/release-readiness'");
     expect(worker).toContain("scrollverse-trinity-v25");
   });
+
+  it("registers the authenticated Creator Operations workspace and source-labelled channel handoffs", () => {
+    const operations = readProjectFile("client/src/pages/CreatorOperations.tsx");
+    const channels = readProjectFile("client/src/data/creatorChannelHandoffs.ts");
+    const signalworks = readProjectFile("client/src/pages/Signalworks.tsx");
+    expect(app).toContain('import CreatorOperations from "./pages/CreatorOperations"');
+    expect(app).toContain('<Route path="/creator-operations" component={CreatorOperations} />');
+    expect(operations).toContain("MONITORED SUPPORT INTAKE");
+    expect(operations).toContain("RELEASE-MATERIAL RECORD");
+    expect(operations).toContain("CREATOR-PROVIDED CHANNEL HANDOFFS");
+    expect(channels).toContain("https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr");
+    expect(channels).toContain("https://www.instagram.com/chaishill");
+    expect(channels).toContain("https://youtube.com/@chaisthegreatvevo");
+    expect(channels).toContain("https://youtube.com/@juniormoviesentertainment");
+    expect(channels).toContain("https://youtu.be/wwXqO99diH0");
+    expect(channels).toContain("not platform affiliation");
+    expect(signalworks).toContain("CREATOR-PROVIDED DESTINATIONS");
+  });
 });

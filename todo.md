@@ -2076,3 +2076,11 @@
 - [x] Build a public Evidence & Standards route that distinguishes implemented, planned, optional external, and conceptual status without replacing legal, regulatory, or professional authority
 - [x] Connect evidence states to creator provenance, Signalworks boundaries, IP readiness, and the Systems Map
 - [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization
+
+## Phase 118 — Creator Operations Workspace
+- [x] Define a monitored support intake, release-assets workspace, and guided provenance-submission model with privacy and owner-review boundaries
+- [x] Add protected support-request, release-asset, and provenance-submission records with safe schema migrations
+- [x] Implement authenticated creator-operations procedures with ownership checks and auditable status updates
+- [x] Verify and add creator-provided Spotify, Instagram, VEVO, Junior Movies Entertainment, and YouTube video handoffs as source-labelled official destinations
+- [x] Build a creator-operations workspace linked to Launchpad and release-readiness guidance
+- [x] Add documentation, regression coverage, validation, checkpoint, and GitHub synchronization

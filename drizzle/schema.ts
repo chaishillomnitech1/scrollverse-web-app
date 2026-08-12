@@ -1623,3 +1623,69 @@ export const legionCommonsEntries = mysqlTable("legion_commons_entries", {
   index("legion_commons_author_idx").on(table.authorUserId, table.updatedAt),
 ]);
 export type LegionCommonsEntry = typeof legionCommonsEntries.$inferSelect;
+
+// ── Creator Operations Workspace ─────────────────────────────────────────────
+// Support and release records stay private to their creator and authorized
+// reviewers. They organize readiness work; they do not create provider accounts,
+// publish assets, make legal determinations, or submit to external stores.
+export const creatorSupportRequests = mysqlTable("creator_support_requests", {
+  id: int("id").autoincrement().primaryKey(),
+  requesterUserId: int("requester_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  category: mysqlEnum("category", ["ACCESS", "CREATOR_WORKSPACE", "RELEASE_PLANNING", "PROVENANCE", "OTHER"]).notNull().default("OTHER"),
+  subject: varchar("subject", { length: 180 }).notNull(),
+  details: varchar("details", { length: 2000 }).notNull(),
+  requesterAttestation: boolean("requester_attestation").notNull().default(false),
+  status: mysqlEnum("status", ["OPEN", "IN_REVIEW", "AWAITING_CREATOR", "RESOLVED", "CLOSED"]).notNull().default("OPEN"),
+  assignedReviewerUserId: int("assigned_reviewer_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("creator_support_requester_idx").on(table.requesterUserId, table.status, table.updatedAt),
+  index("creator_support_review_idx").on(table.status, table.updatedAt),
+]);
+export type CreatorSupportRequest = typeof creatorSupportRequests.$inferSelect;
+
+export const creatorSupportRequestEvents = mysqlTable("creator_support_request_events", {
+  id: int("id").autoincrement().primaryKey(),
+  supportRequestId: int("support_request_id").notNull().references(() => creatorSupportRequests.id, { onDelete: "cascade" }),
+  action: mysqlEnum("action", ["CREATED", "IN_REVIEW", "AWAITING_CREATOR", "RESOLVED", "CLOSED", "NOTE"]).notNull(),
+  note: varchar("note", { length: 1500 }).notNull(),
+  actorUserId: int("actor_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [
+  index("creator_support_event_request_idx").on(table.supportRequestId, table.createdAt),
+]);
+export type CreatorSupportRequestEvent = typeof creatorSupportRequestEvents.$inferSelect;
+
+export const creatorReleaseAssets = mysqlTable("creator_release_assets", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerUserId: int("owner_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  provenanceRecordId: int("provenance_record_id").references(() => provenanceRecords.id, { onDelete: "set null" }),
+  assetKind: mysqlEnum("asset_kind", ["APP_ICON", "SCREENSHOT", "STORE_COPY", "PRIVACY_COPY", "RELEASE_NOTE", "SUPPORT_POLICY", "OTHER"]).notNull(),
+  title: varchar("title", { length: 180 }).notNull(),
+  description: varchar("description", { length: 2000 }).notNull(),
+  sourceReference: varchar("source_reference", { length: 2048 }),
+  ownerAttestation: boolean("owner_attestation").notNull().default(false),
+  reviewStatus: mysqlEnum("review_status", ["DRAFT", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "EXCLUDED"]).notNull().default("DRAFT"),
+  submittedAt: timestamp("submitted_at"),
+  reviewedByUserId: int("reviewed_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("creator_release_asset_owner_idx").on(table.ownerUserId, table.reviewStatus, table.updatedAt),
+  index("creator_release_asset_review_idx").on(table.reviewStatus, table.submittedAt),
+]);
+export type CreatorReleaseAsset = typeof creatorReleaseAssets.$inferSelect;
+
+export const creatorReleaseAssetEvents = mysqlTable("creator_release_asset_events", {
+  id: int("id").autoincrement().primaryKey(),
+  releaseAssetId: int("release_asset_id").notNull().references(() => creatorReleaseAssets.id, { onDelete: "cascade" }),
+  action: mysqlEnum("action", ["CREATED", "SUBMITTED", "ACKNOWLEDGED", "NEEDS_INFO", "EXCLUDED", "NOTE"]).notNull(),
+  note: varchar("note", { length: 1500 }).notNull(),
+  actorUserId: int("actor_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [
+  index("creator_release_asset_event_idx").on(table.releaseAssetId, table.createdAt),
+]);
+export type CreatorReleaseAssetEvent = typeof creatorReleaseAssetEvents.$inferSelect;

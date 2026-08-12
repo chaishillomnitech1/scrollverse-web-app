@@ -12,7 +12,9 @@ const LAUNCH_GROUPS: Array<{ title: string; signal: string; description: string;
   { title: "Create & share", signal: "ORIGIN · COLLABORATION · MEDIA", description: "Build an original signature, keep source context, and choose optional distribution paths only when ready.", items: [
     { title: "Convergence Commons", href: "/commons", status: "FIRST_PARTY", description: "Creator ideas, personal signatures, and discovery pathways.", color: "#00FF88" },
     { title: "Creator Workspace", href: "/creator-workspace", status: "FIRST_PARTY", description: "Authenticated consent, private collaboration, and provenance records.", color: "#00D4FF" },
+    { title: "Creator Operations", href: "/creator-operations", status: "FIRST_PARTY", description: "Private support intake, release-asset notes, and guided provenance handoffs.", color: "#B98CFF" },
     { title: "Signalworks", href: "/signalworks", status: "OPTIONAL", description: "Provider-owned handoffs for film, music, live, and creator tools.", color: "#FFB800" },
+    { title: "Creator Channels", href: "/signalworks#creator-channels", status: "OPTIONAL", description: "Creator-provided Spotify, Instagram, and YouTube destinations.", color: "#FF8DB5" },
   ] },
   { title: "Learn & navigate", signal: "GUIDANCE · KNOWLEDGE · STORY", description: "Use human-centered guides, libraries, and original story surfaces without confusing narrative with authority.", items: [
     { title: "AI Legion Commons", href: "/legion-commons", status: "FIRST_PARTY", description: "Transparent opt-in exchange and visible activity states.", color: "#B98CFF" },

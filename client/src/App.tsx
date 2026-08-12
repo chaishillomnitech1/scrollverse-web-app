@@ -261,6 +261,7 @@ import PortalNavigator from "./pages/PortalNavigator";
 import ConvergenceCommons from "./pages/ConvergenceCommons";
 import Signalworks from "./pages/Signalworks";
 import CreatorWorkspace from "./pages/CreatorWorkspace";
+import CreatorOperations from "./pages/CreatorOperations";
 import LegionCommons from "./pages/LegionCommons";
 import AdminProvenanceReview from "./pages/AdminProvenanceReview";
 import ManusHeroCodex from "./pages/ManusHeroCodex";
@@ -561,6 +562,7 @@ function Router() {
         <Route path="/commons" component={ConvergenceCommons} />
         <Route path="/signalworks" component={Signalworks} />
         <Route path="/creator-workspace" component={CreatorWorkspace} />
+        <Route path="/creator-operations" component={CreatorOperations} />
         <Route path="/legion-commons" component={LegionCommons} />
         <Route path="/manus-hero" component={ManusHeroCodex} />
         <Route path="/identity-system" component={IdentitySystem} />
