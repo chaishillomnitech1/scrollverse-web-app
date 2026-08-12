@@ -2108,6 +2108,10 @@
 - [x] Preserve the protected release-bundle workflow as owner-ready with no attempted authentication bypass when the external session is unavailable
 - [x] Document the owner-confirmed desktop authorization as complete and classify the remaining missing session token as a platform handoff mismatch rather than a pending owner action
 
+## Phase 129 — Library-Manus Reference Intake
+- [x] Inspect the owner-provided Library-Manus reference as untrusted data, extract relevant first-party material, and record any provenance or privacy limitations; the submitted static capture contained no authenticated private library record
+- [x] Integrate only verified, non-sensitive Library-Manus material into the ScrollVerse source-linked operating map and continuity records; no public operating-map content was added because no authenticated private material was exposed
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
