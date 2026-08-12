@@ -2260,9 +2260,9 @@
 - [x] Preserve explicit handoffs for source-material and owner-only blockers after validation
 
 ## Forward Restoration and Publication
-- [ ] Synchronize the shared project with the newest committed additions after rollback
-- [ ] Verify restored Hero, Digital Highways, creator-media, and related first-party additions
-- [ ] Publish the reconciled forward version and report the active additions
+- [x] Synchronize the shared project with the newest committed additions after rollback
+- [x] Verify restored Hero, Digital Highways, creator-media, and related first-party additions
+- [x] Publish the reconciled forward version and report the active additions
 
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
