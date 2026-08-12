@@ -2114,17 +2114,17 @@
 
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
-- [ ] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
-- [ ] Validate and publish the expanded first-party operating map while preserving private-session material as unavailable until technically surfaced
+- [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
+- [x] Validate and publish the expanded first-party operating map while preserving private-session material as unavailable until technically surfaced
 
 ## Phase 131 — Hero Business Guide
-- [ ] Build a Hero-led visitor communication and conversation system with clear business, creator, product, media, and collaboration entry paths
-- [ ] Add product and digital-asset discovery that teaches visitors from verified first-party records without implying active custody, exchange, transfer, investment, or unverified inventory
-- [ ] Add direct creator communication and build pathways through existing protected intake, Creator Operations, Media Dock, Think Space, and Specialist Constellation routes
-- [ ] Teach visitors how to prepare original work, choose a path, and build responsibly without promising income, fabricating outcomes, or making choices on their behalf
+- [x] Build a Hero-led visitor communication and conversation system with clear business, creator, product, media, and collaboration entry paths
+- [x] Add product and digital-asset discovery that teaches visitors from verified first-party records without implying active custody, exchange, transfer, investment, or unverified inventory
+- [x] Add direct creator communication and build pathways through existing protected intake, Creator Operations, Media Dock, Think Space, and Specialist Constellation routes
+- [x] Teach visitors how to prepare original work, choose a path, and build responsibly without promising income, fabricating outcomes, or making choices on their behalf
 
 ## Phase 132 — Reusable Continuity Practice
-- [ ] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series
+- [x] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series
 
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
@@ -2207,7 +2207,7 @@
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
-- [ ] Validate and publish the expanded first-party operating map while preserving private-session material as unavailable until technically surfaced
+- [x] Validate and publish the expanded first-party operating map while preserving private-session material as unavailable until technically surfaced
 
 ## Phase 131 — Hero Business Guide
 - [x] Build a Hero-led visitor communication and conversation system with clear business, creator, product, media, and collaboration entry paths
