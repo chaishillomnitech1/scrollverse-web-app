@@ -160,6 +160,13 @@ describe("Phase 94 route map", () => {
     expect(commons).toContain("No entry is fabricated here.");
     expect(signalworks).toContain("without claiming a partnership, submission authority, or outcome");
     expect(signalworks).toContain("not a distributor, marketplace, talent agency");
+    expect(signalworks).toContain("All lanes");
+    expect(signalworks).toContain("setSelectedLane");
+    expect(signalworks).toContain("AUDIENCE-TO-REVENUE READINESS");
+    ["/fashion-portfolio", "/manufacturing-readiness", "/creator-media-studio", "/digital-highways", "/revenue-ops"].forEach(route => {
+      expect(signalworks).toContain(route);
+      expect(app).toContain(route);
+    });
   });
 
   it("preserves the Nick Ponte creator-learning reference as a non-affiliated public discovery handoff", () => {

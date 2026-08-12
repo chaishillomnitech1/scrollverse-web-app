@@ -2280,9 +2280,9 @@
 - [ ] Add clear verified handoffs and evidence boundaries for wallet, pricing, fulfillment, rights, and external-platform actions
 
 ## Manufacturer-to-Portfolio Readiness
-- [ ] Inventory current fashion portfolio, manufacturing, technical-pack, rights, sample, fulfillment, and partner-readiness surfaces
-- [ ] Add connected first-party guidance from original design to evidence, manufacturer readiness, and owner-controlled release preparation
-- [ ] Preserve explicit partner, pricing, fulfillment, customer-policy, and transaction-activation boundaries
+- [x] Inventory current fashion portfolio, manufacturing, technical-pack, rights, sample, fulfillment, and partner-readiness surfaces
+- [x] Add connected first-party guidance from original design to evidence, manufacturer readiness, and owner-controlled release preparation
+- [x] Preserve explicit partner, pricing, fulfillment, customer-policy, and transaction-activation boundaries
 
 ## Connector-Aware Workflow Integration
 - [x] Inspect configured connectors and identify verified capabilities relevant to creator, manufacturing, media, commerce-readiness, and communication workflows
@@ -2295,9 +2295,9 @@
 - [x] Translate only verified public workflow patterns into original first-party improvements with regression coverage
 
 ## Audience-to-Revenue Readiness
-- [ ] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
-- [ ] Add transparent audience-to-revenue guidance that distinguishes published routes from owner-controlled or provider-dependent activation
-- [ ] Test and document the improved handoffs without fabricating sales, pricing, balances, fulfillment, or partner status
+- [x] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
+- [x] Add transparent audience-to-revenue guidance that distinguishes published routes from owner-controlled or provider-dependent activation
+- [x] Test and document the improved handoffs without fabricating sales, pricing, balances, fulfillment, or partner status
 
 ## Concrete Communication and Readiness Pass
 - [x] Consolidate verified channel and route evidence into the active implementation scope

@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { Link } from "wouter";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 import { CREATOR_CHANNEL_HANDOFFS } from "@/data/creatorChannelHandoffs";
@@ -32,8 +33,23 @@ const READINESS = [
   ["04", "Keep the record", "Document submissions and outcomes outside this navigator. Signalworks does not submit, license, price, or distribute work."],
 ] as const;
 
+const OPERATING_PATH = [
+  { step: "01", title: "Shape the original", body: "Build the concept, specifications, and original-work evidence before a product or release is represented publicly.", href: "/fashion-portfolio", action: "Open Fashion Portfolio", color: "#FFB800" },
+  { step: "02", title: "Prepare the maker handoff", body: "Organize technical-pack, sample, partner-verification, and fulfillment readiness records before any manufacturing instruction.", href: "/manufacturing-readiness", action: "Open Manufacturing Readiness", color: "#00D4FF" },
+  { step: "03", title: "Stage the media", body: "Prepare rights-aware release materials, metadata, provenance, and creator collaboration records in the protected studio workflow.", href: "/creator-media-studio", action: "Open Creator Media Studio", color: "#B98CFF" },
+  { step: "04", title: "Choose the external route", body: "Use official publishing, channel, storefront, or creator-tool handoffs only after reviewing each provider’s own requirements.", href: "/digital-highways", action: "Open Digital Highways", color: "#00FF88" },
+  { step: "05", title: "Review activation evidence", body: "Keep pricing, customer policy, rights, fulfillment, provider approval, and owner attestation separate from this public navigator.", href: "/revenue-ops", action: "Open Revenue Operations", color: "#FF8DB5" },
+] as const;
+
+const LANE_FILTERS: Array<"All lanes" | Pathway["lane"]> = ["All lanes", "Film", "Music", "Live", "Creator tools"];
+
 export default function Signalworks() {
   useSovereignHeartbeat({ page: "signalworks" });
+  const [selectedLane, setSelectedLane] = useState<(typeof LANE_FILTERS)[number]>("All lanes");
+  const visiblePathways = useMemo(
+    () => selectedLane === "All lanes" ? PATHWAYS : PATHWAYS.filter((pathway) => pathway.lane === selectedLane),
+    [selectedLane],
+  );
 
   return (
     <main className="min-h-screen pb-20 text-white" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -60,8 +76,14 @@ export default function Signalworks() {
 
       <section className="max-w-7xl mx-auto px-5 py-14">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#B98CFF" }}>OFFICIAL HANDOFFS</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Choose a lane. Use the source.</h2></div><p className="max-w-xl text-sm leading-relaxed" style={{ color: "#95A6B8" }}>Every card opens a provider-owned public route in a new tab. Review their requirements directly before deciding whether the path fits your work.</p></div>
+        <div className="mt-6 flex flex-wrap gap-2" aria-label="Filter official handoffs by creator lane">
+          {LANE_FILTERS.map((lane) => {
+            const active = lane === selectedLane;
+            return <button key={lane} type="button" onClick={() => setSelectedLane(lane)} className="rounded-full border px-3 py-2 text-xs font-black transition-colors" style={{ borderColor: active ? "rgba(0,212,255,0.75)" : "rgba(255,255,255,0.14)", background: active ? "rgba(0,212,255,0.14)" : "transparent", color: active ? "#00D4FF" : "#A9B9C9" }}>{lane}</button>;
+          })}
+        </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {PATHWAYS.map(pathway => <article key={pathway.provider} className="flex min-h-72 flex-col rounded-3xl border p-5" style={{ borderColor: `${pathway.color}35`, background: "rgba(255,255,255,0.025)" }}>
+          {visiblePathways.map(pathway => <article key={pathway.provider} className="flex min-h-72 flex-col rounded-3xl border p-5" style={{ borderColor: `${pathway.color}35`, background: "rgba(255,255,255,0.025)" }}>
             <div className="flex items-start justify-between gap-4"><div className="text-2xl" style={{ color: pathway.color }}>{pathway.icon}</div><span className="rounded-full px-2.5 py-1 text-[10px] font-mono" style={{ background: `${pathway.color}14`, color: pathway.color }}>{pathway.lane.toUpperCase()}</span></div>
             <h3 className="mt-6 text-xl font-black">{pathway.provider}</h3>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{pathway.boundary}</p>
@@ -74,6 +96,13 @@ export default function Signalworks() {
         <div className="max-w-7xl mx-auto px-5 py-14">
           <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>CREATOR-PROVIDED DESTINATIONS</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Follow the signal at its source.</h2></div><p className="max-w-xl text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>These destinations were supplied by the ScrollVerse creator. They open in a new tab and remain subject to each platform’s access, policy, and visibility rules.</p></div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{CREATOR_CHANNEL_HANDOFFS.map(channel => <article key={channel.url} className="flex min-h-64 flex-col rounded-3xl border p-5" style={{ borderColor: `${channel.color}38`, background: "rgba(4,14,30,0.7)" }}><div className="flex items-start justify-between gap-4"><div className="text-2xl" style={{ color: channel.color }}>{channel.icon}</div><span className="rounded-full px-2.5 py-1 text-[10px] font-mono" style={{ background: `${channel.color}16`, color: channel.color }}>{channel.lane.toUpperCase()}</span></div><h3 className="mt-6 text-xl font-black">{channel.title}</h3><p className="mt-1 text-xs font-mono" style={{ color: channel.color }}>{channel.destination.toUpperCase()}</p><p className="mt-4 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{channel.note}</p><a href={channel.url} target="_blank" rel="noreferrer" className="mt-auto pt-6 text-sm font-black" style={{ color: channel.color }}>Open creator-provided destination <span aria-hidden>↗</span></a></article>)}</div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 py-14">
+        <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>AUDIENCE-TO-REVENUE READINESS</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Connect the dots before you ask the customer to act.</h2></div><p className="max-w-xl text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>This is a first-party operating path for original work, not a checkout, offer, price list, manufacturer order, wallet, mint, distribution submission, or revenue promise.</p></div>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          {OPERATING_PATH.map((item) => <article key={item.step} className="flex min-h-64 flex-col rounded-3xl border p-5" style={{ borderColor: `${item.color}35`, background: "rgba(255,255,255,0.025)" }}><div className="text-[10px] font-mono" style={{ color: item.color }}>{item.step}</div><h3 className="mt-4 text-lg font-black">{item.title}</h3><p className="mt-3 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{item.body}</p><Link href={item.href} className="mt-auto pt-6 text-sm font-black" style={{ color: item.color }}>{item.action} →</Link></article>)}
         </div>
       </section>
 
