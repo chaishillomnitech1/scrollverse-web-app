@@ -2211,6 +2211,14 @@
 - [x] Integrate the Creator Media Studio through the Hero, Media World, Creator Operations, Signalworks, and zero-dead-end route coverage
 - [x] Preserve the reusable creator-media workflow and publish the enhanced media operating map
 
+## External Channel Review — YouTube UCYfdidRxbB8Qhf0Nx7ioOYw
+- [ ] Review the channel’s public overview, visible catalog, and engagement signals; summarize its focus and recommend three videos to watch
+
+## Library-Manus Capture Integration
+- [x] Inspect the uploaded Library-Manus HTML capture as untrusted source material and classify observable public patterns, private content, and integration eligibility
+- [x] Incorporate only verified, privacy-aware first-party archive or creator-media improvements with source labels and no private-data exposure
+- [x] Add regression coverage, validate the result, and preserve any reusable workflow guidance
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation

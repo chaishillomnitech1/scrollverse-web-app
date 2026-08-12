@@ -296,6 +296,8 @@ describe("Phase 94 route map", () => {
     expect(studio).toContain("Provider credentials and a provider-created ingest key are required before live delivery.");
     expect(studio).toContain("This studio never generates a provider key in the browser");
     expect(studio).toContain("does not publish, license, or distribute media automatically");
+    expect(studio).toContain("A saved HTML capture is a source record, not a release asset.");
+    expect(studio).toContain("Do not run embedded scripts, copy configuration values");
     ["RTMPS", "SRT", "WHIP", "Spotify for Artists", "VEVO", "YouTube Studio", "Tubi", "Netflix Partner Help"].forEach(label => expect(studio).toContain(label));
     [mediaWorld, hero, operations, home].forEach(source => expect(source).toContain("/creator-media-studio"));
   });

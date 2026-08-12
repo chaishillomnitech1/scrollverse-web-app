@@ -1,14 +1,14 @@
 # Library-Manus Reference Intake
 
-**Source supplied by owner:** `pasted_file_xA7V5y_Library-Manus.html`.
+**Sources supplied by owner:** `pasted_file_xA7V5y_Library-Manus.html` and `pasted_file_GmCKdW_Library-Manus.html`.
 
 ## Finding
 
-The submitted HTML identifies itself as a saved capture of `https://manus.im/app/library`, but its canonical URL resolves to the Manus login page. The captured material contains public application shell markup, script/style references, and client configuration; it does **not** expose an authenticated library listing, project artifact, recovery export, cleared app icon, provenance record, or account-private content.
+Both submitted HTML files identify themselves as saved captures of `https://manus.im/app/library`, but their captured canonical URL resolves to a Manus browser/login surface rather than an authenticated library listing. The material contains public application shell markup, script/style references, and client configuration; it does **not** expose an authenticated library listing, project artifact, recovery export, cleared app icon, provenance record, or account-private content.
 
 ## Handling
 
-The file was treated as untrusted reference data. No embedded scripts, links, or configuration values were executed or adopted. No private information from the file was copied to public ScrollVerse pages.
+Each capture was treated as untrusted reference data. No embedded scripts, links, or configuration values were executed or adopted. No private information from either file was copied to public ScrollVerse pages. The capture pattern has been translated into a first-party archive-safe intake reminder in Creator Media Studio: static captures can be recorded as source material, but they are never proof of authentication, ownership, clearance, or release readiness.
 
 ## Relevance to ScrollVerse
 
