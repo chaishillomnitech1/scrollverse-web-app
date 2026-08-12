@@ -2275,9 +2275,9 @@
 - [x] Create reusable workflow guidance, add regression coverage, validate the upgrade, and publish it
 
 ## Visitor Commerce, Music, and Digital-Collectible Guidance
-- [ ] Inventory current merchandise, music, digital-asset, wallet, mint, and provider-readiness routes with activation dependencies
-- [ ] Add source-linked Hero guidance for merchandise, music, collection, and creator mint preparation without enabling unverified checkout, custody, or mint execution
-- [ ] Add clear verified handoffs and evidence boundaries for wallet, pricing, fulfillment, rights, and external-platform actions
+- [x] Inventory current merchandise, music, digital-asset, wallet, mint, and provider-readiness routes with activation dependencies
+- [x] Add source-linked Hero guidance for merchandise, music, collection, and creator mint preparation without enabling unverified checkout, custody, or mint execution
+- [x] Add clear verified handoffs and evidence boundaries for wallet, pricing, fulfillment, rights, and external-platform actions
 
 ## Manufacturer-to-Portfolio Readiness
 - [x] Inventory current fashion portfolio, manufacturing, technical-pack, rights, sample, fulfillment, and partner-readiness surfaces

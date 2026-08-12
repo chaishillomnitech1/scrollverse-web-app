@@ -26,6 +26,7 @@ const SKILL_COMPASS = [
   { title: "Continuity patterns", detail: "Record source, date, purpose, classification, and the real access boundary before connecting a route or artifact.", boundary: "PRIVATE RECORDS STAY PROTECTED", href: "/creator-operations", color: "#00D4FF" },
   { title: "Creator media workflow", detail: "Stage masters privately, prepare rights and metadata, then choose a provider-aware live, video, music, or distribution handoff.", boundary: "PROVIDER SETUP REQUIRED", href: "/creator-media-studio", color: "#00FF88" },
   { title: "Digital Highways", detail: "Use source-labeled first-party routes and transparent external referrals without confusing a handoff with access or affiliation.", boundary: "OUTBOUND REFERRALS ONLY", href: "/digital-highways", color: "#FFB800" },
+  { title: "Audience-to-revenue readiness", detail: "Connect original merchandise, music, collecting preparation, manufacturing evidence, media staging, and external research routes before any owner-controlled activation decision.", boundary: "NO CHECKOUT OR MINT HERE", href: "/signalworks", color: "#FF8DB5" },
   { title: "Evidence before activation", detail: "Turn a concept into a reviewable record, test it, and keep owner, rights, provider, and release decisions visible.", boundary: "OWNER-CONTROLLED REVIEW", href: "/evidence-standards", color: "#B98CFF" },
 ] as const;
 
@@ -153,7 +154,7 @@ export default function ManusHeroCodex() {
           <div><div className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>HERO SKILL COMPASS</div><h2 className="mt-3 text-3xl font-black sm:text-4xl">Useful practices. Clear limits. Direct routes.</h2></div>
           <p className="max-w-2xl text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>Hero teaches verified first-party ways of working. These cards do not expose private skills, credentials, owner records, or any third-party provider account; each opens the real ScrollVerse route where the practice can be reviewed.</p>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           {SKILL_COMPASS.map(skill => <Link key={skill.title} href={skill.href} className="group rounded-3xl border p-6 transition-transform hover:-translate-y-1" style={{ borderColor: `${skill.color}40`, background: "rgba(4,14,30,0.7)" }}><div className="text-[10px] font-mono tracking-widest" style={{ color: skill.color }}>{skill.boundary}</div><h3 className="mt-5 text-xl font-black">{skill.title}</h3><p className="mt-3 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>{skill.detail}</p><div className="mt-6 text-xs font-black" style={{ color: skill.color }}>Open verified route →</div></Link>)}
         </div>
       </section>

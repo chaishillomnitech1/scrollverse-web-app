@@ -219,6 +219,8 @@ describe("Phase 94 route map", () => {
     expect(hero).toContain("HERO CO-CREATOR DESK");
     expect(hero).toContain("HERO SKILL COMPASS");
     expect(hero).toContain("Useful practices. Clear limits. Direct routes.");
+    expect(hero).toContain("Audience-to-revenue readiness");
+    expect(hero).toContain("NO CHECKOUT OR MINT HERE");
     expect(hero).toContain("OUTBOUND REFERRALS ONLY");
     expect(hero).toContain("Make the work yours.");
     expect(hero).toContain("does not promise income, create an order, activate a transfer");
