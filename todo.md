@@ -2286,7 +2286,7 @@
 
 ## Connector-Aware Workflow Integration
 - [x] Inspect configured connectors and identify verified capabilities relevant to creator, manufacturing, media, commerce-readiness, and communication workflows
-- [ ] Add connector-aware guidance or handoffs only where the associated account, permissions, and action boundary are explicit
+- [x] Add connector-aware guidance or handoffs only where the associated account, permissions, and action boundary are explicit (no enabled external connector is currently eligible; the documented first-party and referral map is retained)
 - [x] Validate the integration map without exposing credentials or activating transactions
 
 ## Nick Ponte Channel Discovery Reference
