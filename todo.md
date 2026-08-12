@@ -2294,6 +2294,11 @@
 - [x] Add a source-labeled public channel handoff to the relevant ScrollVerse creator-media or discovery surface
 - [x] Translate only verified public workflow patterns into original first-party improvements with regression coverage
 
+## Dragon Ball CyberX Discovery Reference
+- [x] Review the public Dragon Ball CyberX YouTube channel and document visible source, content, and rights boundaries
+- [x] Add a source-labeled channel handoff from the ScrollVerse main page and Junior Movies route
+- [x] Test and publish the discovery update without implying affiliation, character rights, account control, or monetization
+
 ## Audience-to-Revenue Readiness
 - [x] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
 - [x] Add transparent audience-to-revenue guidance that distinguishes published routes from owner-controlled or provider-dependent activation

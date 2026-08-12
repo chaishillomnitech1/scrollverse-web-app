@@ -179,6 +179,18 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("does not establish affiliation");
   });
 
+  it("adds Dragon Ball CyberX as a source-labeled public animation reference without claiming character or channel rights", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const juniorMovies = readProjectFile("client/src/pages/JuniorMovies.tsx");
+    const record = readProjectFile("docs/phase144-dragon-ball-cyberx-reference.md");
+    expect(home).toContain("Public animation reference");
+    expect(home).toContain("Dragon Ball CyberX");
+    expect(juniorMovies).toContain("DRAGON_BALL_CYBERX_CHANNEL");
+    expect(juniorMovies).toContain("PUBLIC ANIMATION REFERENCE");
+    expect(juniorMovies).toContain("respective rights holders");
+    expect(record).toContain("does not imply authorization, affiliation");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

@@ -13,6 +13,7 @@ const JME_CHANNEL_VIDEO_ID = "PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSK"; // JME channe
 const JME_HIGHLIGHT_VIDEO_ID = "Lb5t_F7UlR4"; // Second highlight — JME Episode 2 (same channel, different embed style)
 const YOUTUBE_CHANNEL = "https://youtube.com/@juniormoviesentertainment";
 const CHANNEL_HANDLE = "@juniormoviesentertainment";
+const DRAGON_BALL_CYBERX_CHANNEL = "https://youtube.com/@dragonballcyberx";
 
 const CHANNEL_STATS = [
   { label: "Channel", value: "Junior Movies", color: "#FFB800" },
@@ -129,6 +130,13 @@ export default function JuniorMovies() {
           </svg>
           Subscribe — {CHANNEL_HANDLE}
         </a>
+
+        <div className="mx-auto mt-7 max-w-3xl rounded-2xl border p-5 text-left" style={{ borderColor: "rgba(167,139,250,0.38)", background: "rgba(167,139,250,0.07)" }}>
+          <div className="text-[10px] font-mono tracking-widest" style={{ color: "#C4B5FD" }}>PUBLIC ANIMATION REFERENCE</div>
+          <h2 className="mt-2 text-xl font-black text-white">Dragon Ball CyberX · serial-release study route</h2>
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C4D0E0" }}>A public creator channel supplied by the ScrollVerse owner for animation and episodic-release discovery. It is a reference only: Dragon Ball and related rights remain with their respective rights holders, while YouTube and the channel publisher control all account, access, publication, and monetization decisions.</p>
+          <a href={DRAGON_BALL_CYBERX_CHANNEL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex rounded-lg border px-4 py-2 text-sm font-bold" style={{ borderColor: "rgba(196,181,253,0.5)", color: "#C4B5FD" }}>Open Dragon Ball CyberX public channel ↗</a>
+        </div>
       </div>
 
       {/* THOTH — Featured Film */}
