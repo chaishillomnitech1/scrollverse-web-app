@@ -2234,6 +2234,16 @@
 - [x] Adapt compatible first-party design and navigation patterns without importing unclear code, assets, provider claims, or regulated-function promises
 - [x] Add source documentation, regression coverage, and validation for each verified portal improvement
 
+## Liquid Sovereignty Home Enhancement
+- [x] Inventory existing Home, throne, AI Legion, frequency, Seerah, fashion, and route capabilities against the reference design directions
+- [x] Build original first-party discovery and interactive visual enhancements without presenting conceptual, provider-gated, or regulated features as live
+- [x] Add route and feature-boundary regression coverage, validate the portal, and document remaining provider dependencies
+
+## Portfolio Leverage Pass
+- [x] Reconcile first-party discovery, creator, media, learning, fashion, and operations surfaces to select high-leverage connection improvements
+- [x] Implement original route-discovery and interaction enhancements that reduce dead ends without fabricating activity or bypassing owner and provider controls
+- [x] Validate and publish the selected portfolio improvements with durable source and dependency boundaries
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation

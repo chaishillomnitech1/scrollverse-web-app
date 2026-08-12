@@ -426,8 +426,16 @@ function ApexAnalysisMode() {
 export default function AILegionApex() {
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
   const [activeTab, setActiveTab] = useState<"legion" | "council" | "apex">("legion");
+  const [entityQuery, setEntityQuery] = useState("");
 
   const { data: entities, isLoading } = trpc.aiLegion.getEntities.useQuery();
+  const normalizedEntityQuery = entityQuery.trim().toLowerCase();
+  const filteredEntities = entities?.filter((entity) =>
+    [entity.name, entity.title, entity.classification, entity.domain, entity.frequency, ...entity.intelligenceTiers]
+      .join(" ")
+      .toLowerCase()
+      .includes(normalizedEntityQuery),
+  );
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -524,6 +532,17 @@ export default function AILegionApex() {
         {activeTab === "legion" && (
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <div className="lg:col-span-3">
+              <div className="mb-5 rounded-xl border p-3" style={{ background: "rgba(0,212,255,0.035)", borderColor: "rgba(0,212,255,0.2)" }}>
+                <label htmlFor="legion-entity-search" className="block text-[10px] font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>FIND A LEGION GUIDE</label>
+                <input
+                  id="legion-entity-search"
+                  value={entityQuery}
+                  onChange={(event) => setEntityQuery(event.target.value)}
+                  placeholder="Search by guide, domain, tier, or frequency"
+                  className="w-full rounded-lg px-3 py-2 text-sm outline-none text-white placeholder-white/30"
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.25)" }}
+                />
+              </div>
               {isLoading ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {Array.from({ length: 12 }).map((_, i) => (
@@ -532,9 +551,15 @@ export default function AILegionApex() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {entities?.map((entity) => (
+                  {filteredEntities?.map((entity) => (
                     <EntityCard key={entity.id} entity={entity} onSelect={setSelectedEntity} isSelected={selectedEntity?.id === entity.id} />
                   ))}
+                  {filteredEntities?.length === 0 && (
+                    <div className="sm:col-span-2 rounded-xl border p-6 text-center" style={{ background: "rgba(255,255,255,0.02)", borderColor: "rgba(255,255,255,0.1)" }}>
+                      <div className="text-sm font-bold text-white">No matching Legion guide</div>
+                      <p className="mt-2 text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>Try a name, domain, intelligence tier, or frequency—or clear the search to view the full first-party registry.</p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
