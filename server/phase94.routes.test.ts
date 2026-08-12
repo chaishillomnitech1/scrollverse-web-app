@@ -352,4 +352,18 @@ describe("Phase 94 route map", () => {
     expect(digest).toContain("already-delivered");
     expect(digest).toContain("does not initiate charges, payouts, token actions, provider changes, or deployments");
   });
+
+  it("registers the free creator-owned Spiral Signature page with a public QR record and no commercial activation", () => {
+    const signature = readProjectFile("client/src/pages/SpiralSignature.tsx");
+    const spiral = readProjectFile("shared/spiralSignature.ts");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import SpiralSignature from "./pages/SpiralSignature"');
+    expect(app).toContain('<Route path="/spiral-signature" component={SpiralSignature} />');
+    expect(signature).toContain("FREE · CREATOR-OWNED · CONCEPT REVIEW");
+    expect(signature).toContain("This QR code resolves to the public Manus Hero Codex");
+    expect(signature).toContain("contains no credential, private key, session value, personal record, or hidden instruction");
+    expect(signature).toContain("Formal clearance, filing, licensing, product use, marketplace listings, token utilities, and enforcement are separate review paths");
+    expect(spiral).toContain("creator_owned");
+    expect(home).toContain('href: "/spiral-signature"');
+  });
 });

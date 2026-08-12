@@ -907,7 +907,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "✦", title: "Official fashion worlds", detail: "Original ScrollVerse, XLVIII BLOCKS, and MEIN concept paths—independent, expandable, and first-party.", href: "/fashion-portfolio", color: "#FFB800" },
   { icon: "◈", title: "Revenue readiness", detail: "Owner-controlled evidence, dependencies, and next actions without invented financial results.", href: "/revenue-ops", color: "#00FF88" },
   { icon: "⚙", title: "GitHub operations", detail: "A source-to-review map for first-party repositories, test evidence, and safe adaptation.", href: "/github-ops", color: "#00D4FF" },
-  { icon: "⌬", title: "Identity and Spiral", detail: "Creator-owned identity concepts, original marks, and clear IP-readiness boundaries.", href: "/identity-system", color: "#B98CFF" },
+  { icon: "⌬", title: "Identity and Spiral", detail: "Creator-owned identity concepts, original marks, QR record, and clear IP-readiness boundaries.", href: "/spiral-signature", color: "#B98CFF" },
   { icon: "📜", title: "Evidence standards", detail: "Source labels, review states, and the difference between a concept and a verified release.", href: "/evidence-standards", color: "#FF8DB5" },
   { icon: "↗", title: "Partnership proposal", detail: "A respectful, non-affiliated fashion conversation path with no implied partner endorsement.", href: "/fashion-partnership-proposal", color: "#D99B6B" },
   { icon: "▦", title: "Manufacturing readiness", detail: "A first-party design-to-handoff map for future verified production partners.", href: "/manufacturing-readiness", color: "#00FF88" },

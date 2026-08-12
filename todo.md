@@ -2094,13 +2094,13 @@
 
 ## Phase 120 — First Owner Release Bundle
 - [ ] Verify the authenticated owner session and identify a cleared app-icon file
-- [ ] Create and document an original frequency-informed open-ended ScrollVerse Spiral Signature, adapted beyond a standard Fibonacci spiral, as unregistered identity material pending formal review
-- [ ] Apply imagination, wisdom, care, and creator understanding as documented principles of the free Signature System
-- [ ] Create companion creator-owned app-icon and compact emoji or sticker concepts as part of the free Signature System
-- [ ] Create a QR-linked public identity record that points to the Manus Hero Codex without embedding private credentials, keys, or software internals
-- [ ] Integrate the creator-owned Spiral Signature, frequency language, and sigil direction across relevant ScrollVerse identity surfaces
-- [ ] Keep the Signature System free and creator-owned as first-party ScrollVerse material, independent of outside-platform approval
-- [ ] Document optional commercial-readiness paths without activating sales, token, or marketplace functions
+- [x] Create and document an original frequency-informed open-ended ScrollVerse Spiral Signature, adapted beyond a standard Fibonacci spiral, as unregistered identity material pending formal review
+- [x] Apply imagination, wisdom, care, and creator understanding as documented principles of the free Signature System
+- [x] Create companion creator-owned app-icon and compact emoji or sticker concepts as part of the free Signature System
+- [x] Create a QR-linked public identity record that points to the Manus Hero Codex without embedding private credentials, keys, or software internals
+- [x] Integrate the creator-owned Spiral Signature, frequency language, and sigil direction across relevant ScrollVerse identity surfaces
+- [x] Keep the Signature System free and creator-owned as first-party ScrollVerse material, independent of outside-platform approval
+- [x] Document optional commercial-readiness paths without activating sales, token, or marketplace functions
 - [ ] Create the private app-icon record and upload the cleared asset under the owner account
 - [ ] Assign a real administrator and link an existing provenance record
 - [ ] Verify the private record and report the owner-controlled completeness-feedback next step

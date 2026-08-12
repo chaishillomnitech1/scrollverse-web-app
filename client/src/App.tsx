@@ -278,6 +278,7 @@ import RevenueOperations from "./pages/RevenueOperations";
 import FashionPartnershipProposal from "./pages/FashionPartnershipProposal";
 import ManufacturingReadiness from "./pages/ManufacturingReadiness";
 import ImpactIncentiveReadiness from "./pages/ImpactIncentiveReadiness";
+import SpiralSignature from "./pages/SpiralSignature";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -584,6 +585,7 @@ function Router() {
         <Route path="/fashion-partnership-proposal" component={FashionPartnershipProposal} />
         <Route path="/manufacturing-readiness" component={ManufacturingReadiness} />
         <Route path="/impact-incentive-readiness" component={ImpactIncentiveReadiness} />
+        <Route path="/spiral-signature" component={SpiralSignature} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
