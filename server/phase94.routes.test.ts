@@ -319,6 +319,9 @@ describe("Phase 94 route map", () => {
     expect(app).toContain('import DigitalHighways from "./pages/DigitalHighways"');
     expect(app).toContain('<Route path="/digital-highways" component={DigitalHighways} />');
     expect(highways).toContain("SCROLLVERSE DIGITAL HIGHWAYS");
+    expect(highways).toContain("LOCAL PATHWAY PLANNER");
+    expect(highways).toContain("nothing is submitted, shared, or connected to an outside account");
+    expect(highways).toContain("MARK PLANNED");
     expect(highways).toContain("An outbound link is a transparent referral.");
     expect(highways).toContain("not transferred traffic, shared audience data");
     expect(highways).toContain("CREATOR-PROVIDED DESTINATIONS");

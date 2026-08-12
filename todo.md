@@ -2249,6 +2249,16 @@
 - [x] Build a source-linked Hero skill compass with ownership, privacy, and provider-dependency context
 - [x] Add regression coverage, validate the Hero enhancement, and preserve the reusable guidance
 
+## Google Drive Source Intake
+- [x] Inspect the provided Drive item through its visible authorized access state and classify its file type, source, and integration eligibility
+- [ ] Incorporate only verified, privacy-aware content into first-party ScrollVerse workflows with source labels and no private-data exposure
+- [ ] Validate, document, and publish any approved improvements while retaining owner-only boundaries
+
+## Safe Unfinished-Work Completion Pass
+- [x] Classify remaining tracker items as independently actionable, owner-only, or blocked by unsafe/unavailable source material
+- [x] Complete the highest-leverage independently actionable route and workflow improvement
+- [x] Preserve explicit handoffs for source-material and owner-only blockers after validation
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
