@@ -385,6 +385,7 @@ const QUICK_ACCESS = [
   { icon: "🧭", label: "Start Here", hint: "Curated ScrollVerse journey map", href: "/journey" },
   { icon: "⚙️", label: "GitHub Ops", hint: "Source-to-review operating engine", href: "/github-ops" },
   { icon: "◈", label: "Revenue Ops", hint: "Owner-controlled readiness workspace", href: "/revenue-ops" },
+  { icon: "↗", label: "Highways", hint: "Transparent creator and provider routes", href: "/digital-highways" },
   { icon: "✦", label: "Partner Proposal", hint: "Independent fashion concept brief", href: "/fashion-partnership-proposal" },
 ];
 

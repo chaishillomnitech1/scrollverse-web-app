@@ -47,6 +47,7 @@ export default function Signalworks() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/commons" className="rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#FFB800", color: "#050B1A" }}>Return to Commons</Link>
                 <Link href="/journey" className="rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(0,212,255,0.45)", color: "#00D4FF" }}>Find Your Route</Link>
+                <Link href="/digital-highways" className="rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(0,255,136,0.45)", color: "#00FF88" }}>Digital Highways</Link>
               </div>
             </div>
             <aside className="rounded-3xl border p-6" style={{ background: "rgba(4,14,30,0.82)", borderColor: "rgba(0,255,136,0.24)" }}>

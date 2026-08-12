@@ -2219,6 +2219,11 @@
 - [x] Incorporate only verified, privacy-aware first-party archive or creator-media improvements with source labels and no private-data exposure
 - [x] Add regression coverage, validate the result, and preserve any reusable workflow guidance
 
+## Cross-Site Discovery Highways
+- [x] Inventory first-party routes and public external handoffs used by ScrollVerse discovery, media, creator, and partner paths
+- [x] Verify reachable destinations and distinguish first-party navigation from external referral routes without representing traffic guarantees or provider affiliation
+- [x] Improve source-labeled cross-site discovery, navigation health, and reusable routing documentation with regression coverage
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation

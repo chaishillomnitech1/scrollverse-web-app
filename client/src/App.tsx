@@ -285,6 +285,7 @@ import HealthResearchDesk from "./pages/HealthResearchDesk";
 import MediaDock from "./pages/MediaDock";
 import MediaWorld from "./pages/MediaWorld";
 import CreatorMediaStudio from "./pages/CreatorMediaStudio";
+import DigitalHighways from "./pages/DigitalHighways";
 import EmpireMap from "./pages/EmpireMap";
 import IpReadinessNavigator from "./pages/IpReadinessNavigator";
 import ChainIntelligence from "./pages/ChainIntelligence";
@@ -601,6 +602,7 @@ function Router() {
         <Route path="/media-dock" component={MediaDock} />
         <Route path="/media-world" component={MediaWorld} />
         <Route path="/creator-media-studio" component={CreatorMediaStudio} />
+        <Route path="/digital-highways" component={DigitalHighways} />
         <Route path="/empire-map" component={EmpireMap} />
         <Route path="/ip-readiness" component={IpReadinessNavigator} />
         <Route path="/chain-intelligence" component={ChainIntelligence} />

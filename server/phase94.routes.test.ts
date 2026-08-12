@@ -302,6 +302,22 @@ describe("Phase 94 route map", () => {
     [mediaWorld, hero, operations, home].forEach(source => expect(source).toContain("/creator-media-studio"));
   });
 
+  it("registers Digital Highways as a transparent first-party and creator-source discovery layer", () => {
+    const highways = readProjectFile("client/src/pages/DigitalHighways.tsx");
+    const mediaWorld = readProjectFile("client/src/pages/MediaWorld.tsx");
+    const signalworks = readProjectFile("client/src/pages/Signalworks.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import DigitalHighways from "./pages/DigitalHighways"');
+    expect(app).toContain('<Route path="/digital-highways" component={DigitalHighways} />');
+    expect(highways).toContain("SCROLLVERSE DIGITAL HIGHWAYS");
+    expect(highways).toContain("An outbound link is a transparent referral.");
+    expect(highways).toContain("not transferred traffic, shared audience data");
+    expect(highways).toContain("CREATOR-PROVIDED DESTINATIONS");
+    expect(highways).toContain("OFFICIAL PREPARATION RESOURCES");
+    ["/creator-media-studio", "/media-world", "/signalworks", "/github-ops", "/creator-operations", "/media-dock"].forEach(route => expect(highways).toContain(route));
+    [mediaWorld, signalworks, home].forEach(source => expect(source).toContain("/digital-highways"));
+  });
+
   it("registers the zero-dead-end Empire Map with verified first-party operating paths", () => {
     const empireMap = readProjectFile("client/src/pages/EmpireMap.tsx");
     expect(app).toContain('import EmpireMap from "./pages/EmpireMap"');
