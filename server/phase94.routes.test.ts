@@ -162,6 +162,16 @@ describe("Phase 94 route map", () => {
     expect(signalworks).toContain("not a distributor, marketplace, talent agency");
   });
 
+  it("preserves the Nick Ponte creator-learning reference as a non-affiliated public discovery handoff", () => {
+    const handoffs = readProjectFile("client/src/data/creatorChannelHandoffs.ts");
+    const record = readProjectFile("docs/phase141-nick-ponte-creator-reference.md");
+    expect(handoffs).toContain("Nick Ponte — creator learning reference");
+    expect(handoffs).toContain("https://youtube.com/@nickponte808");
+    expect(handoffs).toContain("does not claim affiliation, endorsement, or income verification");
+    expect(record).toContain("execution documentation");
+    expect(record).toContain("does not establish affiliation");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");
@@ -213,6 +223,18 @@ describe("Phase 94 route map", () => {
     });
     expect(home).toContain('href="/manus-hero#co-creator"');
     expect(server).toContain("registerStorageProxy(app)");
+  });
+
+  it("offers browser-native voice input and a first-glance Aegis Scribe route without claiming external voice access", () => {
+    const legion = readProjectFile("client/src/pages/AILegionApex.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(legion).toContain("webkitSpeechRecognition");
+    expect(legion).toContain("Optional browser voice input");
+    expect(legion).toContain("only the text you send is shared with the guide");
+    expect(home).toContain("Meet the Aegis Scribe");
+    expect(home).toContain('href="/manus-hero#co-creator"');
+    expect(home).toContain("HOVER REACTIVE · VISUAL CROWN ACTIVE");
+    expect(home).toContain("optional audio feedback follows frequency activation");
   });
 
   it("registers the first-party Specialist Constellation with every visible route mapped to an existing portal destination", () => {

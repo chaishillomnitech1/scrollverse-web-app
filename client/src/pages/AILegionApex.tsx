@@ -30,6 +30,26 @@ interface ChatMessage {
   content: string;
 }
 
+type BrowserSpeechRecognition = {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  start: () => void;
+  abort: () => void;
+  onresult: ((event: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
+  onend: (() => void) | null;
+  onerror: (() => void) | null;
+};
+
+type BrowserSpeechRecognitionConstructor = new () => BrowserSpeechRecognition;
+
+declare global {
+  interface Window {
+    SpeechRecognition?: BrowserSpeechRecognitionConstructor;
+    webkitSpeechRecognition?: BrowserSpeechRecognitionConstructor;
+  }
+}
+
 // ─── Intelligence Tier Colors ─────────────────────────────────────────────────
 
 const TIER_COLORS: Record<string, string> = {
@@ -143,7 +163,9 @@ function ChatPanel({ entity }: { entity: Entity }) {
     },
   ]);
   const [input, setInput] = useState("");
+  const [voiceStatus, setVoiceStatus] = useState<"idle" | "listening" | "unsupported" | "error">("idle");
   const bottomRef = useRef<HTMLDivElement>(null);
+  const recognitionRef = useRef<BrowserSpeechRecognition | null>(null);
 
   const chatMutation = trpc.aiLegion.chat.useMutation({
     onSuccess: (data) => {
@@ -154,6 +176,39 @@ function ChatPanel({ entity }: { entity: Entity }) {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => () => recognitionRef.current?.abort(), []);
+
+  const handleVoiceInput = () => {
+    if (voiceStatus === "listening") {
+      recognitionRef.current?.abort();
+      setVoiceStatus("idle");
+      return;
+    }
+
+    const Recognition = window.SpeechRecognition ?? window.webkitSpeechRecognition;
+    if (!Recognition) {
+      setVoiceStatus("unsupported");
+      return;
+    }
+
+    const recognition = new Recognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = navigator.language || "en-US";
+    recognition.onresult = (event) => {
+      const transcript = Array.from(event.results)
+        .map((result) => result[0]?.transcript ?? "")
+        .join(" ")
+        .trim();
+      if (transcript) setInput((current) => `${current}${current ? " " : ""}${transcript}`);
+    };
+    recognition.onend = () => setVoiceStatus("idle");
+    recognition.onerror = () => setVoiceStatus("error");
+    recognitionRef.current = recognition;
+    setVoiceStatus("listening");
+    recognition.start();
+  };
 
   const handleSend = () => {
     if (!input.trim() || chatMutation.isPending) return;
@@ -233,6 +288,21 @@ function ChatPanel({ entity }: { entity: Entity }) {
       </div>
 
       <div className="p-3 flex gap-2" style={{ borderTop: `1px solid ${entity.color}20` }}>
+        <button
+          type="button"
+          onClick={handleVoiceInput}
+          className="px-3 py-2 rounded-lg text-sm font-bold transition-all duration-200"
+          style={{
+            background: voiceStatus === "listening" ? `${entity.color}22` : "rgba(255,255,255,0.05)",
+            border: `1px solid ${voiceStatus === "listening" ? entity.color : entity.color + "30"}`,
+            color: voiceStatus === "listening" ? entity.color : "rgba(255,255,255,0.75)",
+          }}
+          aria-label={voiceStatus === "listening" ? "Stop voice input" : "Start voice input"}
+          title="Optional browser voice input"
+          disabled={chatMutation.isPending}
+        >
+          {voiceStatus === "listening" ? "◼" : "🎙"}
+        </button>
         <input
           className="flex-1 rounded-lg px-3 py-2 text-sm outline-none text-white placeholder-white/30"
           style={{ background: "rgba(255,255,255,0.05)", border: `1px solid ${entity.color}30` }}
@@ -250,6 +320,15 @@ function ChatPanel({ entity }: { entity: Entity }) {
         >
           ↑
         </button>
+      </div>
+      <div className="px-3 pb-3 text-[10px]" style={{ color: voiceStatus === "error" ? "#FF6B35" : "rgba(255,255,255,0.38)" }}>
+        {voiceStatus === "listening"
+          ? "Listening in this browser — tap again to stop."
+          : voiceStatus === "unsupported"
+            ? "Voice input is not supported by this browser. Type your message instead."
+            : voiceStatus === "error"
+              ? "Microphone input was unavailable. Check browser permission and try again."
+              : "Optional voice input transcribes into this field; only the text you send is shared with the guide."}
       </div>
     </div>
   );

@@ -57,4 +57,13 @@ export const CREATOR_CHANNEL_HANDOFFS: CreatorChannelHandoff[] = [
     note: "A direct video destination supplied by the creator. Title and channel attribution remain intentionally unlisted until they can be confirmed from a public source.",
     color: "#00D4FF",
   },
+  {
+    title: "Nick Ponte — creator learning reference",
+    destination: "Public YouTube creator-learning channel",
+    lane: "Video",
+    icon: "◉",
+    url: "https://youtube.com/@nickponte808",
+    note: "Public creator-learning reference supplied by the ScrollVerse owner. It is a source-labeled discovery handoff only; YouTube and the publisher retain all channel, rights, monetization, product, and outcome decisions. ScrollVerse does not claim affiliation, endorsement, or income verification.",
+    color: "#A78BFA",
+  },
 ];

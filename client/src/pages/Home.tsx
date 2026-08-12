@@ -16,6 +16,7 @@ const SUN_XIX_CDN = "https://files.manuscdn.com/user_upload_by_module/session_fi
 function SovereignThroneNFT() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const audioCtxRef = useRef<AudioContext | null>(null);
+  const lastHoverFeedbackRef = useRef(0);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [glowIntensity, setGlowIntensity] = useState(1);
   const [crowned, setCrowned] = useState(false);
@@ -185,10 +186,29 @@ function SovereignThroneNFT() {
     setAudioPlaying(true);
   };
 
+  const playHoverFeedback = () => {
+    const ctx = audioCtxRef.current;
+    if (!audioPlaying || !ctx || Date.now() - lastHoverFeedbackRef.current < 800) return;
+    lastHoverFeedbackRef.current = Date.now();
+    const tone = ctx.createOscillator();
+    const gain = ctx.createGain();
+    tone.type = "sine";
+    tone.frequency.setValueAtTime(1200, ctx.currentTime);
+    tone.frequency.exponentialRampToValueAtTime(720, ctx.currentTime + 0.16);
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.025, ctx.currentTime + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+    tone.connect(gain);
+    gain.connect(ctx.destination);
+    tone.start();
+    tone.stop(ctx.currentTime + 0.2);
+  };
+
   // Crown activation on hover
   const handleMouseEnter = () => {
     setGlowIntensity(2.5);
     setCrowned(true);
+    playHoverFeedback();
   };
   const handleMouseLeave = () => {
     setGlowIntensity(1);
@@ -201,6 +221,7 @@ function SovereignThroneNFT() {
       style={{ width: "320px" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      aria-label="Sovereign Throne visual. Hover for visual feedback; optional audio feedback follows frequency activation."
     >
       {/* Particle canvas — sits behind the card */}
       <canvas
@@ -301,6 +322,9 @@ function SovereignThroneNFT() {
           </div>
           <div className="text-sm font-black text-white mb-0.5">KUN FAYAKŪN</div>
           <div className="text-xs mb-1" style={{ color: "#8899AA" }}>Chais The Great · Throne of Sovereignty</div>
+          <div className="text-[10px] mb-2" style={{ color: crowned ? "#FFB800" : "rgba(255,255,255,0.45)" }}>
+            {crowned ? "HOVER REACTIVE · VISUAL CROWN ACTIVE" : "HOVER FOR VISUAL RESPONSE · AUDIO IS OPTIONAL"}
+          </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
@@ -1454,6 +1478,9 @@ export default function Home() {
               </a>
               <a href="/ai-legion-apex" className="px-8 py-3 rounded-xl text-base font-bold inline-block transition-all hover:scale-105" style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}>
                 🤖 Chat with the Legion
+              </a>
+              <a href="/manus-hero#co-creator" className="px-8 py-3 rounded-xl text-base font-bold inline-block transition-all hover:scale-105" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.32)", color: "#FFB800" }}>
+                ✦ Meet the Aegis Scribe
               </a>
             </div>
             {/* Sovereign Card Tier Strip */}

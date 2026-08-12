@@ -2264,6 +2264,46 @@
 - [x] Verify restored Hero, Digital Highways, creator-media, and related first-party additions
 - [x] Publish the reconciled forward version and report the active additions
 
+## Preview Synchronization
+- [x] Restart the shared development service and confirm the preview reflects the newest project version
+
+## Voice and First-Glance Communication Upgrade
+- [x] Inventory the AI Legion, Sovereign Throne, Home Hero, commerce-readiness, and Digital Highways surfaces plus reusable-skill guidance
+- [x] Add accessible browser-native voice input to AI Legion with explicit recognition support and privacy boundaries
+- [x] Add hover-based particle-canvas interaction and optional browser-native audio feedback to the Sovereign Throne
+- [x] Add a first-glance Hero communication path and clear commerce, crypto-readiness, and supply-highway access without false activation claims
+- [x] Create reusable workflow guidance, add regression coverage, validate the upgrade, and publish it
+
+## Visitor Commerce, Music, and Digital-Collectible Guidance
+- [ ] Inventory current merchandise, music, digital-asset, wallet, mint, and provider-readiness routes with activation dependencies
+- [ ] Add source-linked Hero guidance for merchandise, music, collection, and creator mint preparation without enabling unverified checkout, custody, or mint execution
+- [ ] Add clear verified handoffs and evidence boundaries for wallet, pricing, fulfillment, rights, and external-platform actions
+
+## Manufacturer-to-Portfolio Readiness
+- [ ] Inventory current fashion portfolio, manufacturing, technical-pack, rights, sample, fulfillment, and partner-readiness surfaces
+- [ ] Add connected first-party guidance from original design to evidence, manufacturer readiness, and owner-controlled release preparation
+- [ ] Preserve explicit partner, pricing, fulfillment, customer-policy, and transaction-activation boundaries
+
+## Connector-Aware Workflow Integration
+- [x] Inspect configured connectors and identify verified capabilities relevant to creator, manufacturing, media, commerce-readiness, and communication workflows
+- [ ] Add connector-aware guidance or handoffs only where the associated account, permissions, and action boundary are explicit
+- [x] Validate the integration map without exposing credentials or activating transactions
+
+## Nick Ponte Channel Discovery Reference
+- [x] Review the public Nick Ponte YouTube channel and document visible source, content, and rights boundaries
+- [x] Add a source-labeled public channel handoff to the relevant ScrollVerse creator-media or discovery surface
+- [x] Translate only verified public workflow patterns into original first-party improvements with regression coverage
+
+## Audience-to-Revenue Readiness
+- [ ] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
+- [ ] Add transparent audience-to-revenue guidance that distinguishes published routes from owner-controlled or provider-dependent activation
+- [ ] Test and document the improved handoffs without fabricating sales, pricing, balances, fulfillment, or partner status
+
+## Concrete Communication and Readiness Pass
+- [x] Consolidate verified channel and route evidence into the active implementation scope
+- [x] Complete browser-native communication, creator discovery, and readiness-route improvements
+- [x] Test, document, and publish the active additions with explicit dependency states
+
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
