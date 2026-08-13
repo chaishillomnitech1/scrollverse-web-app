@@ -867,6 +867,7 @@ describe("Phase 94 route map", () => {
     expect(app).toContain('<Route path="/creator-collection-records" component={CreatorCollectionRecords} />');
     expect(home).toContain("MAIN PAGE ACTION WHEEL");
     expect(home).toContain("Devotional material is presented with respect and is never gamified");
+    expect(home).toContain("Privacy note: this Action Wheel is a route directory");
     expect(home).toContain("NIPSEY BLUE · CEREAL KILLER");
     expect(names).toContain("99 Names of");
     expect(names).toContain("not a game, scorecard, spiritual ranking, commercial offer");
@@ -875,6 +876,7 @@ describe("Phase 94 route map", () => {
     expect(collections).toContain("Nipsey Blue");
     expect(collections).toContain("Cereal Killer");
     expect(collections).toContain("no association, endorsement, licensing");
+    expect(collections).toContain("Data-minimization note: this public collection page does not accept uploads");
     expect(record).toContain("Devotional, voluntary, non-commercial study");
   });
 });

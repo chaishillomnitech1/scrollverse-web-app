@@ -2290,8 +2290,9 @@
 
 ## Google Drive Source Intake
 - [x] Inspect the provided Drive item through its visible authorized access state and classify its file type, source, and integration eligibility
-- [ ] Incorporate only verified, privacy-aware content into first-party ScrollVerse workflows with source labels and no private-data exposure
-- [ ] Validate, document, and publish any approved improvements while retaining owner-only boundaries
+- [x] Incorporate only verified, privacy-aware content into first-party ScrollVerse workflows with source labels and no private-data exposure
+- [x] Validate, document, and publish any approved improvements while retaining owner-only boundaries
+- [x] Add source-backed data-minimization notices to the public Action Wheel and creator collection pathways
 
 ## Safe Unfinished-Work Completion Pass
 - [x] Classify remaining tracker items as independently actionable, owner-only, or blocked by unsafe/unavailable source material
