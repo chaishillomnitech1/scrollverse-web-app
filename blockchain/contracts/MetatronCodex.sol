@@ -32,22 +32,22 @@ contract MetatronCodex is ERC721URIStorage, Ownable, ReentrancyGuard {
 
     string[7] public RARE_NAMES = [
         "Metatron Sword of Divine Truth",
-        "Solomon Key — Star of David",
+        unicode"Solomon Key — Star of David",
         "Thoth Emerald Tablet",
         "Ra Solar Disc",
-        "Sanhedrin 38B — Two Powers",
-        "3 Enoch — Sar ha-Panim",
-        "Exodus 23:20-21 — The Angel"
+        unicode"Sanhedrin 38B — Two Powers",
+        unicode"3 Enoch — Sar ha-Panim",
+        unicode"Exodus 23:20-21 — The Angel"
     ];
 
     string[7] public RARE_SOURCES = [
-        "Sefer Hekhalot / 3 Enoch — Metatron as Heavenly Scribe",
-        "Talmud Sanhedrin 38b — Solomon Key reference",
-        "Emerald Tablet of Thoth — Hermetic tradition",
-        "Egyptian Book of the Dead — Ra Hymns",
-        "Talmud Sanhedrin 38b — Two Powers in Heaven",
-        "3 Enoch 12:5 — Sar ha-Panim (Prince of the Presence)",
-        "Exodus 23:20-21 — My Name is in Him"
+        unicode"Sefer Hekhalot / 3 Enoch — Metatron as Heavenly Scribe",
+        unicode"Talmud Sanhedrin 38b — Solomon Key reference",
+        unicode"Emerald Tablet of Thoth — Hermetic tradition",
+        unicode"Egyptian Book of the Dead — Ra Hymns",
+        unicode"Talmud Sanhedrin 38b — Two Powers in Heaven",
+        unicode"3 Enoch 12:5 — Sar ha-Panim (Prince of the Presence)",
+        unicode"Exodus 23:20-21 — My Name is in Him"
     ];
 
     constructor(
@@ -88,7 +88,7 @@ contract MetatronCodex is ERC721URIStorage, Ownable, ReentrancyGuard {
         sponsoredMintClaimed[beneficiary] = true;
         _safeMint(beneficiary, totalMinted);
         emit SponsoredMintGranted(beneficiary, totalMinted);
-        emit CodexMinted(beneficiary, totalMinted, "Sponsored — Impact Covenant", true);
+        emit CodexMinted(beneficiary, totalMinted, unicode"Sponsored — Impact Covenant", true);
     }
 
     /**

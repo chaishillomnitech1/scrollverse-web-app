@@ -66,3 +66,22 @@ The two complete addresses from the supplied Scroll zkEVM bundle were queried di
 | Primary `MeinSigilMint.sol` | `0x4E1nC0rE...MEIN` in the supplied bundle | Abbreviated string only; it is not a full valid EVM address and cannot be queried. | An exact 42-character hexadecimal contract address or creation transaction hash is still required for ScrollScan verification. |
 
 The current locally audited release package remains a separate **Polygon** configuration (`chainId: 137`). The supplied bundle identifies **Scroll zkEVM** (`chainId: 534352`). They are now preserved as separate network records and must not be substituted for each other.
+
+## Local compile configuration
+
+The local Hardhat preflight now uses `blockchain/hardhat.config.cjs` at the blockchain workspace root. The earlier configuration under `blockchain/config/` remains a reference configuration, but it cannot serve as the compiler entrypoint because Hardhat treats the configuration directory as its project root and rejects local sources outside that boundary. The blockchain-root configuration recognizes `contracts/`, `scripts/`, `artifacts/`, and `cache/` as local workspace paths.
+
+The configuration contains no source-controlled private-key fallback. When no secure `DEPLOYER_PRIVATE_KEY` is configured, it supplies an empty account list. Compilation does not use the account list and is therefore a non-broadcast check; any selected-network deployment remains separately gated by secure configuration and fresh confirmation.
+
+The current installed OpenZeppelin dependency graph uses the Solidity `mcopy` instruction through its `Bytes` utility. The 0.8.26 compiler entry is therefore explicitly targeted to the **Cancun** EVM version for local compilation. This is a compile compatibility setting, not evidence that a Polygon mainnet release has been assessed, approved, or broadcast; the target-chain compatibility and selected deployment configuration remain part of the release gate.
+
+## Non-broadcast preflight result
+
+On August 13, 2026, the blockchain-root Hardhat preflight completed successfully with the command below. The compiler processed 30 Solidity files using the Cancun EVM target. No RPC call, wallet connection, signature, deployment transaction, contract verification request, token transfer, mint, or other on-chain action was submitted.
+
+```bash
+cd blockchain && HARDHAT_DISABLE_TELEMETRY_PROMPT=true npx hardhat compile --config hardhat.config.cjs
+# Compiled 30 Solidity files successfully (evm target: cancun).
+```
+
+The compiler reported a non-blocking constructor-parameter shadowing warning in `MetatronCodex.sol`; it does not prevent artifact generation. It should be resolved as a code-quality follow-up before a selected production contract set is broadcast.

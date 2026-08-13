@@ -2135,7 +2135,9 @@
 - [x] Add a source-labeled ScrollScan traction layer that distinguishes public network activity from ScrollVerse-specific contract activity
 - [x] Research the public ScrollVerse and GitHub footprint, then record source-labeled verified findings
 - [x] Attach the owner-supplied Skool public-reference trail with source, topic, and evidence-boundary labels
-- [ ] Build and validate the Polygon mainnet deployment checklist and secure configuration path
+- [x] Build and validate the Polygon mainnet deployment checklist and secure configuration path
+- [x] Run and document a clean non-broadcast local compile preflight for the audited Polygon contract package
+- [x] Align the Hardhat configuration location with the blockchain workspace root and re-run compile preflight
 
 ## Phase 164 — Source-Led Evidence Commons
 - [x] Inventory existing creator channels, project artifacts, public platform sources, and evidence standards
@@ -2143,6 +2145,17 @@
 - [x] Build the public Evidence Commons with synchronized creator channels, project records, and open research pathways
 - [x] Add an explicit project-perspective layer while preserving alternative explanations and causal-evidence limits
 - [x] Validate, document, and publish the evidence-led public discussion and research surface
+
+## Phase 165 — Comprehensive Digital-Footprint Research Report
+- [ ] Inventory verified public sources, project records, and report evidence boundaries
+- [ ] Gather GitHub commit chronology, public explorer records, creator-channel evidence, and official external platform update timelines
+- [ ] Analyze chronology and classify documented facts, temporal overlap, and causal-evidence gaps
+- [ ] Write and deliver the comprehensive source-led digital-footprint report with references
+
+## Phase 166 — Sovereignty 9 Knicks Collection Highlight
+- [x] Inventory the existing Knicks NFT source record, campaign references, and verification limitations
+- [x] Build a prominent evidence-labeled front-page collection highlight with first-party pathways
+- [x] Validate, document, and publish the collection-highlight upgrade
 - [ ] Obtain explicit broadcast confirmation, deploy only the verified contract set, and capture on-chain evidence
 - [ ] Verify confirmed addresses and connect only verified contracts to portal surfaces
 

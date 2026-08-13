@@ -797,12 +797,19 @@ describe("Phase 94 route map", () => {
   });
   it("keeps the local Hardhat preflight free of a source-controlled private-key fallback", () => {
     const hardhat = readProjectFile("blockchain/config/hardhat.config.cjs");
+    const workspaceHardhat = readProjectFile("blockchain/hardhat.config.cjs");
+    const codex = readProjectFile("blockchain/contracts/MetatronCodex.sol");
     expect(hardhat).toContain("const DEPLOYER_KEY = process.env.DEPLOYER_PRIVATE_KEY");
     expect(hardhat).toContain("const DEPLOYER_ACCOUNTS = DEPLOYER_KEY ? [DEPLOYER_KEY] : []");
     expect(hardhat).toContain("accounts: DEPLOYER_ACCOUNTS");
     expect(hardhat).toContain('const PROJECT_ROOT = path.resolve(__dirname, "../..")');
     expect(hardhat).toContain('sources: path.join(PROJECT_ROOT, "blockchain/contracts")');
     expect(hardhat).not.toContain("0000000000000000000000000000000000000000000000000000000000000001");
+    expect(workspaceHardhat).toContain('version: "0.8.26"');
+    expect(workspaceHardhat).toContain('evmVersion: "cancun"');
+    expect(workspaceHardhat).toContain('sources: "./contracts"');
+    expect(workspaceHardhat).toContain("const DEPLOYER_ACCOUNTS = DEPLOYER_KEY ? [DEPLOYER_KEY] : []");
+    expect(codex).toContain('unicode"Solomon Key — Star of David"');
   });
   it("registers the owner-supplied Skool public-reference trail with source links and evidence boundaries", () => {
     const trail = readProjectFile("client/src/pages/PublicReferenceTrail.tsx");
@@ -836,5 +843,16 @@ describe("Phase 94 route map", () => {
     expect(commons).toContain("does not decide truth for a visitor");
     expect(home).toContain('href: "/evidence-commons"');
     expect(method).toContain("Public timing may document that two events occurred near each other");
+  });
+  it("surfaces the Sovereignty 9 Knicks collection as an evidence-labeled Home highlight without commercial or rights claims", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const inventory = readProjectFile("docs/phase166-knicks-collection-inventory.md");
+    expect(home).toContain("SOVEREIGNTY 9 · COLLECTION RECORD");
+    expect(home).toContain("SCROLL TESTNET PATH LABELED");
+    expect(home).toContain("/knicks-nft");
+    expect(home).toContain("/deploy");
+    expect(home).toContain("without presenting an unverified production contract, coin, mint, sale, payout, or sports result as live");
+    expect(home).toContain("No affiliation with, endorsement by, or rights claim regarding the NBA");
+    expect(inventory).toContain("Testnet Ready");
   });
 });
