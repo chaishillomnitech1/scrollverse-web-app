@@ -191,6 +191,21 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("does not imply authorization, affiliation");
   });
 
+  it("adds original Junior Movies concept lanes and child-safe public learning guidance without claiming external rights", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const juniorMovies = readProjectFile("client/src/pages/JuniorMovies.tsx");
+    const record = readProjectFile("docs/phase145-junior-movies-source-register.md");
+    expect(home).toContain("PUBLIC CREATOR LEARNING");
+    expect(home).toContain("Unsung Black History");
+    expect(home).toContain("Freya Ray");
+    expect(juniorMovies).toContain("ORIGINAL STORY DEVELOPMENT");
+    expect(juniorMovies).toContain("Boardwalk Nightwatch");
+    expect(juniorMovies).toContain("STORY SEED LAB");
+    expect(juniorMovies).toContain("guardian, consent record, moderation review");
+    expect(juniorMovies).toContain("FineStructure");
+    expect(record).toContain("No clear, exportable first-party Junior Movies");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

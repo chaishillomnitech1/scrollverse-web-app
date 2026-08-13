@@ -865,6 +865,13 @@ const MANUS_HERO_PATHS = [
   { icon: "📚", title: "Learn and make", detail: "Choose a free learning route, then build on your own terms.", href: "/academy", color: "#86EFAC", label: "Creator Academy" },
 ] as const;
 
+const PUBLIC_CREATOR_LEARNING = [
+  { label: "Junior Movies studio", href: "/junior-movies", color: "#FFB800", external: false },
+  { label: "Unsung Black History", href: "https://youtube.com/@unsungblackhistory", color: "#00D4FF", external: true },
+  { label: "Freya Ray", href: "https://youtube.com/@channeledthroughfreya", color: "#B98CFF", external: true },
+  { label: "FineStructure", href: "https://finestructure.ai/", color: "#00FF88", external: true },
+] as const;
+
 function ManusHeroWelcome() {
   return (
     <section
@@ -920,6 +927,17 @@ function ManusHeroWelcome() {
                   <div className="mt-5 text-xs font-black" style={{ color: path.color }}>{path.label} →</div>
                 </Link>
               ))}
+            </div>
+            <div className="mt-6 rounded-2xl border p-5" style={{ borderColor: "rgba(255,184,0,0.25)", background: "rgba(255,184,0,0.04)" }}>
+              <div className="text-xs font-mono tracking-[0.16em]" style={{ color: "#FFB800" }}>PUBLIC CREATOR LEARNING</div>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>Study public formats, then build original work. External channels and tools remain independently owned and are linked only as source-labeled discovery references; no account, agent, data, or provider access is implied.</p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {PUBLIC_CREATOR_LEARNING.map((item) => item.external ? (
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="rounded-xl border px-4 py-3 text-xs font-black" style={{ borderColor: `${item.color}55`, color: item.color }}>{item.label} ↗</a>
+                ) : (
+                  <Link key={item.label} href={item.href} className="rounded-xl border px-4 py-3 text-xs font-black" style={{ borderColor: `${item.color}55`, color: item.color }}>{item.label} →</Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

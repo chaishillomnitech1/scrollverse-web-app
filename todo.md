@@ -2299,6 +2299,17 @@
 - [x] Add a source-labeled channel handoff from the ScrollVerse main page and Junior Movies route
 - [x] Test and publish the discovery update without implying affiliation, character rights, account control, or monetization
 
+## Junior Movies Original Visual Storytelling Studio
+- [x] Inventory visible first-party Junior Movies, visual, comic, animation, and story assets with their source and rights status
+- [x] Design distinct creator-owned noir-guardian, martial-arts, and cyber-mythic visual concept lanes without copying unlicensed characters or episodes
+- [x] Build a source-labeled Junior Movies visual-storytelling studio with production-readiness, episode, comic, and original-discovery pathways
+- [x] Preserve the reusable original-storytelling workflow, add regression coverage, validate, and publish the studio expansion
+
+## Junior Movies Public Discovery and Participation
+- [x] Review the owner-supplied public channels and source material for visible rights, content, and integration boundaries
+- [x] Add source-labeled public discovery handoffs to the main page and appropriate Junior Movies surfaces
+- [x] Design an original, child-safe character and story-idea participation path with consent, moderation, and creator-ownership boundaries
+
 ## Audience-to-Revenue Readiness
 - [x] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
 - [x] Add transparent audience-to-revenue guidance that distinguishes published routes from owner-controlled or provider-dependent activation

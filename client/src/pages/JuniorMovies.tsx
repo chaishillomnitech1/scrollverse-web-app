@@ -14,6 +14,33 @@ const JME_HIGHLIGHT_VIDEO_ID = "Lb5t_F7UlR4"; // Second highlight — JME Episod
 const YOUTUBE_CHANNEL = "https://youtube.com/@juniormoviesentertainment";
 const CHANNEL_HANDLE = "@juniormoviesentertainment";
 const DRAGON_BALL_CYBERX_CHANNEL = "https://youtube.com/@dragonballcyberx";
+const UNSUNG_BLACK_HISTORY_CHANNEL = "https://youtube.com/@unsungblackhistory";
+const FREYA_RAY_CHANNEL = "https://youtube.com/@channeledthroughfreya";
+const FINESTRUCTURE_SITE = "https://finestructure.ai/";
+
+const ORIGINAL_STORY_LANES = [
+  {
+    title: "Boardwalk Nightwatch",
+    format: "Original noir-guardian animation",
+    description: "A young coastal guardian follows coded lanterns through rain-washed streets, protecting neighborhood stories without a borrowed universe or costume.",
+    image: "/manus-storage/junior-movies-noir-guardian_b8782e86.jpg",
+    color: "#00D4FF",
+  },
+  {
+    title: "The Scroll Courier",
+    format: "Original martial-arts adventure",
+    description: "A disciplined messenger carries lost story seeds between sky libraries, learning that focus, kindness, and practice travel farther than force.",
+    image: "/manus-storage/junior-movies-cosmic-courier_2208662d.jpg",
+    color: "#FFB800",
+  },
+  {
+    title: "Archive Seed",
+    format: "Original cyber-mythic learning series",
+    description: "A young archivist turns community questions into story constellations, connecting imagination, local memory, and science curiosity.",
+    image: "/manus-storage/junior-movies-archive-keeper_264d3b65.jpg",
+    color: "#B98CFF",
+  },
+] as const;
 
 const CHANNEL_STATS = [
   { label: "Channel", value: "Junior Movies", color: "#FFB800" },
@@ -138,6 +165,50 @@ export default function JuniorMovies() {
           <a href={DRAGON_BALL_CYBERX_CHANNEL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex rounded-lg border px-4 py-2 text-sm font-bold" style={{ borderColor: "rgba(196,181,253,0.5)", color: "#C4B5FD" }}>Open Dragon Ball CyberX public channel ↗</a>
         </div>
       </div>
+
+      <section className="relative z-10 mx-auto max-w-6xl px-4 pb-12">
+        <div className="rounded-[2rem] border p-6 sm:p-8" style={{ borderColor: "rgba(0,212,255,0.26)", background: "linear-gradient(145deg, rgba(0,212,255,0.08), rgba(185,140,255,0.08), rgba(3,8,18,0.84))" }}>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#00D4FF" }}>ORIGINAL STORY DEVELOPMENT</div>
+              <h2 className="mt-3 text-3xl font-black text-white">Three worlds. One creator-owned studio.</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed" style={{ color: "#C4D0E0" }}>These are original concept lanes for development, not released episodes or licensed franchise properties. Each visual is creator-owned concept art for ScrollVerse planning and needs a rights, script, production, and release record before publication.</p>
+            </div>
+            <Link href="/creator-operations" className="rounded-xl border px-4 py-3 text-sm font-black" style={{ borderColor: "rgba(0,255,136,0.5)", color: "#00FF88" }}>Prepare a cleared release →</Link>
+          </div>
+          <div className="mt-7 grid gap-5 md:grid-cols-3">
+            {ORIGINAL_STORY_LANES.map((lane) => (
+              <article key={lane.title} className="overflow-hidden rounded-2xl border" style={{ borderColor: `${lane.color}45`, background: "rgba(3,8,18,0.78)" }}>
+                <img src={lane.image} alt={`Original concept visual for ${lane.title}`} className="h-44 w-full object-cover" />
+                <div className="p-5">
+                  <div className="text-[10px] font-mono tracking-widest" style={{ color: lane.color }}>{lane.format.toUpperCase()}</div>
+                  <h3 className="mt-2 text-xl font-black text-white">{lane.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>{lane.description}</p>
+                  <div className="mt-4 text-xs font-bold" style={{ color: lane.color }}>CONCEPT STAGE · RIGHTS REVIEW REQUIRED</div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-7 grid gap-5 lg:grid-cols-2">
+            <article className="rounded-2xl border p-5" style={{ borderColor: "rgba(255,184,0,0.35)", background: "rgba(255,184,0,0.05)" }}>
+              <div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#FFB800" }}>STORY SEED LAB</div>
+              <h3 className="mt-2 text-xl font-black text-white">Ideas can grow with the audience—safely.</h3>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C4D0E0" }}>Young audiences may share character or story ideas only through an adult-supported, private creator workflow. No child profile, direct message, public posting, or automatic use of an idea is created here. A guardian, consent record, moderation review, and creator-rights decision are required before any material moves forward.</p>
+              <Link href="/creator-operations" className="mt-4 inline-flex rounded-lg border px-4 py-2 text-sm font-black" style={{ borderColor: "rgba(255,184,0,0.5)", color: "#FFB800" }}>Open protected story intake →</Link>
+            </article>
+            <article className="rounded-2xl border p-5" style={{ borderColor: "rgba(0,255,136,0.35)", background: "rgba(0,255,136,0.05)" }}>
+              <div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#00FF88" }}>PUBLIC LEARNING ROUTES</div>
+              <h3 className="mt-2 text-xl font-black text-white">Study formats, then make original work.</h3>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C4D0E0" }}>These owner-supplied public references are for discovery only. Their publishers retain all content, rights, accounts, and monetization. ScrollVerse does not claim affiliation or reproduce their protected material.</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a href={UNSUNG_BLACK_HISTORY_CHANNEL} target="_blank" rel="noopener noreferrer" className="rounded-lg border px-3 py-2 text-xs font-black" style={{ borderColor: "rgba(0,212,255,0.5)", color: "#00D4FF" }}>Unsung Black History ↗</a>
+                <a href={FREYA_RAY_CHANNEL} target="_blank" rel="noopener noreferrer" className="rounded-lg border px-3 py-2 text-xs font-black" style={{ borderColor: "rgba(185,140,255,0.5)", color: "#C4B5FD" }}>Freya Ray ↗</a>
+                <a href={FINESTRUCTURE_SITE} target="_blank" rel="noopener noreferrer" className="rounded-lg border px-3 py-2 text-xs font-black" style={{ borderColor: "rgba(0,255,136,0.5)", color: "#00FF88" }}>FineStructure ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
       {/* THOTH — Featured Film */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 mb-12">
