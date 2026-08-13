@@ -188,6 +188,10 @@ export default function NinetyNineNames() {
           <div className="text-5xl mb-4">☪️</div>
           <h1 className="text-5xl font-black text-white mb-3">The 99 Names of <span style={{ color: "#D4AF37" }}>Allah</span></h1>
           <p className="text-lg mb-6" style={{ color: "#8899AA" }}>Click any name to hear it spoken and feel its frequency. Each name is a door to the Divine.</p>
+          <div className="mx-auto mb-6 max-w-2xl rounded-xl border p-4 text-left text-xs leading-relaxed" style={{ borderColor: "rgba(212,175,55,0.3)", background: "rgba(212,175,55,0.05)", color: "#D8C99B" }}>
+            This is a voluntary learning index, not a game, scorecard, spiritual ranking, commercial offer, or substitute for qualified religious learning. The visual audio labels are interface cues only; they do not assign a devotional value, spiritual outcome, or scientific frequency to any Divine Name. Visitors in Dubai, Saudi Arabia, and everywhere else are encouraged to study with trusted scholars and local community guidance.
+          </div>
+          <div className="mb-7 flex flex-wrap justify-center gap-3 text-xs font-bold"><a href="https://www.islamic-relief.org.uk/resources/knowledge-base/99-names-of-allah/" target="_blank" rel="noopener noreferrer" style={{ color: "#D4AF37" }}>Islamic Relief learning resource ↗</a><a href="https://hadithanswers.com/the-ninety-nine-names-of-allah-taala/" target="_blank" rel="noopener noreferrer" style={{ color: "#D4AF37" }}>Source notes ↗</a><Link href="/gulf-learning" style={{ color: "#00D4FF" }}>Gulf learning pathways →</Link></div>
           <div className="text-sm mb-8" style={{ color: "#D4AF37", fontFamily: "'Amiri', serif", fontSize: "1.3rem" }}>
             وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا
           </div>

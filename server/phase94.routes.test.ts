@@ -855,4 +855,26 @@ describe("Phase 94 route map", () => {
     expect(home).toContain("No affiliation with, endorsement by, or rights claim regarding the NBA");
     expect(inventory).toContain("Testnet Ready");
   });
+  it("registers the respectful Main Page Action Wheel with devotional, regional, creator, and source-first pathways", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const names = readProjectFile("client/src/pages/NinetyNineNames.tsx");
+    const gulf = readProjectFile("client/src/pages/GulfLearning.tsx");
+    const collections = readProjectFile("client/src/pages/CreatorCollectionRecords.tsx");
+    const record = readProjectFile("docs/phase167-action-wheel-research.md");
+    expect(app).toContain('import NinetyNineNames from "./pages/NinetyNineNames"');
+    expect(app).toContain('<Route path="/99-names" component={NinetyNineNames} />');
+    expect(app).toContain('<Route path="/gulf-learning" component={GulfLearning} />');
+    expect(app).toContain('<Route path="/creator-collection-records" component={CreatorCollectionRecords} />');
+    expect(home).toContain("MAIN PAGE ACTION WHEEL");
+    expect(home).toContain("Devotional material is presented with respect and is never gamified");
+    expect(home).toContain("NIPSEY BLUE · CEREAL KILLER");
+    expect(names).toContain("99 Names of");
+    expect(names).toContain("not a game, scorecard, spiritual ranking, commercial offer");
+    expect(gulf).toContain("Dubai & UAE cultural learning");
+    expect(gulf).toContain("Saudi cultural learning");
+    expect(collections).toContain("Nipsey Blue");
+    expect(collections).toContain("Cereal Killer");
+    expect(collections).toContain("no association, endorsement, licensing");
+    expect(record).toContain("Devotional, voluntary, non-commercial study");
+  });
 });

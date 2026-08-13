@@ -299,6 +299,8 @@ import PlatformFoundations from "./pages/PlatformFoundations";
 import KnowledgeNavigator from "./pages/KnowledgeNavigator";
 import PublicReferenceTrail from "./pages/PublicReferenceTrail";
 import EvidenceCommons from "./pages/EvidenceCommons";
+import GulfLearning from "./pages/GulfLearning";
+import CreatorCollectionRecords from "./pages/CreatorCollectionRecords";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -626,6 +628,8 @@ function Router() {
         <Route path="/knowledge-navigator" component={KnowledgeNavigator} />
         <Route path="/public-reference-trail" component={PublicReferenceTrail} />
         <Route path="/evidence-commons" component={EvidenceCommons} />
+        <Route path="/gulf-learning" component={GulfLearning} />
+        <Route path="/creator-collection-records" component={CreatorCollectionRecords} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

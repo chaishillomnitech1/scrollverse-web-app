@@ -946,6 +946,18 @@ function ManusHeroWelcome() {
   );
 }
 
+function MainPageActionWheel() {
+  const routes = [
+    { title: "99 Names Learning", label: "DEVOTIONAL LEARNING", detail: "A respectful, non-commercial index for visitors who choose to study the Divine Names.", href: "/99-names", color: "#FFB800", icon: "✦" },
+    { title: "Gulf Learning Paths", label: "DUBAI · UAE · SAUDI", detail: "Voluntary cultural and heritage-learning sources with local-context boundaries.", href: "/gulf-learning", color: "#00D4FF", icon: "⌁" },
+    { title: "Creator Collections", label: "NIPSEY BLUE · CEREAL KILLER", detail: "Creator-submitted records connected to rights readiness, media staging, and workroom paths.", href: "/creator-collection-records", color: "#B98CFF", icon: "◫" },
+    { title: "Historic Research", label: "SOURCE-FIRST HISTORY", detail: "Compare primary and secondary sources before forming an interpretation of leadership or conquest.", href: "/knowledge-context", color: "#00FF88", icon: "⌕" },
+    { title: "Build a Path", label: "PRACTICAL CREATOR ROUTE", detail: "Move from an original idea to a protected, documented, and media-ready creator record.", href: "/creator-workspace", color: "#FF8DB5", icon: "↗" },
+    { title: "Open Evidence", label: "GAME FILM", detail: "Read the public research trail, external sources, and project records before deciding for yourself.", href: "/evidence-commons", color: "#00D4FF", icon: "◉" },
+  ];
+  return <section className="relative py-16" style={{ background: "radial-gradient(circle at 50% 45%, rgba(185,140,255,0.13), transparent 32%), rgba(0,0,0,0.32)", borderTop: "1px solid rgba(185,140,255,0.2)", borderBottom: "1px solid rgba(185,140,255,0.16)" }}><div className="container"><div className="mx-auto max-w-4xl text-center"><p className="text-xs font-mono tracking-[0.22em]" style={{ color: "#B98CFF" }}>MAIN PAGE ACTION WHEEL</p><h2 className="mt-3 text-3xl font-black text-white md:text-5xl">Find a real path.<br /><span style={{ color: "#00D4FF" }}>Build something better with it.</span></h2><p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed" style={{ color: "#BAC9D7" }}>A respectful entry wheel for learning, culture, history, creative records, and practical next steps. Every route names its source and boundary; none requires visitors to validate a claim before they can explore.</p></div><div className="mx-auto mt-10 grid max-w-6xl gap-4 md:grid-cols-3">{routes.map((route, index) => <Link key={route.title} href={route.href} className="group rounded-2xl p-5 transition-transform hover:-translate-y-1" style={{ border: `1px solid ${route.color}40`, background: `${route.color}0A` }}><div className="flex items-start justify-between"><span className="flex h-10 w-10 items-center justify-center rounded-xl text-xl" style={{ background: `${route.color}20`, color: route.color }}>{route.icon}</span><span className="text-[10px] font-mono" style={{ color: route.color }}>0{index + 1}</span></div><p className="mt-5 text-[10px] font-mono" style={{ color: route.color }}>{route.label}</p><h3 className="mt-2 text-xl font-black text-white">{route.title}</h3><p className="mt-3 text-sm leading-relaxed" style={{ color: "#B8C8D6" }}>{route.detail}</p><p className="mt-5 text-sm font-black" style={{ color: route.color }}>Open path →</p></Link>)}</div><p className="mx-auto mt-8 max-w-5xl text-center text-xs leading-relaxed" style={{ color: "#91A4B6" }}>Devotional material is presented with respect and is never gamified. Creator collections remain source and rights dependent. Gulf routes are voluntary cultural-learning links, not institutional affiliations. Historical material is for source-led study, not a single mandated interpretation.</p></div></section>;
+}
+
 const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "✦", title: "Official fashion worlds", detail: "Original ScrollVerse, XLVIII BLOCKS, and MEIN concept paths—independent, expandable, and first-party.", href: "/fashion-portfolio", color: "#FFB800" },
   { icon: "◈", title: "Revenue readiness", detail: "Owner-controlled evidence, dependencies, and next actions without invented financial results.", href: "/revenue-ops", color: "#00FF88" },
@@ -1568,6 +1580,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <MainPageActionWheel />
 
       {/* ── SAFERWAY BOOKING WIDGET ── */}
       <section className="relative z-10" style={{ background: "rgba(0,0,0,0.35)", borderTop: "1px solid rgba(0,212,255,0.1)", borderBottom: "1px solid rgba(0,212,255,0.08)" }}>

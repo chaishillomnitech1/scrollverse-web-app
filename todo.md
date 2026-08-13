@@ -2147,15 +2147,21 @@
 - [x] Validate, document, and publish the evidence-led public discussion and research surface
 
 ## Phase 165 — Comprehensive Digital-Footprint Research Report
-- [ ] Inventory verified public sources, project records, and report evidence boundaries
-- [ ] Gather GitHub commit chronology, public explorer records, creator-channel evidence, and official external platform update timelines
-- [ ] Analyze chronology and classify documented facts, temporal overlap, and causal-evidence gaps
-- [ ] Write and deliver the comprehensive source-led digital-footprint report with references
+- [x] Inventory verified public sources, project records, and report evidence boundaries
+- [x] Gather GitHub commit chronology, public explorer records, creator-channel evidence, and official external platform update timelines
+- [x] Analyze chronology and classify documented facts, temporal overlap, and causal-evidence gaps
+- [x] Write and deliver the comprehensive source-led digital-footprint report with references
 
 ## Phase 166 — Sovereignty 9 Knicks Collection Highlight
 - [x] Inventory the existing Knicks NFT source record, campaign references, and verification limitations
 - [x] Build a prominent evidence-labeled front-page collection highlight with first-party pathways
 - [x] Validate, document, and publish the collection-highlight upgrade
+
+## Phase 167 — Respectful Main Page Action Wheel
+- [x] Research and define source, devotional-respect, rights, and regional-context boundaries for each wheel pathway
+- [x] Build the accessible Main Page Action Wheel with first-party learning and creator routes
+- [x] Record the timestamped self-reported observation with measurement and causal-interpretation limits
+- [x] Validate, document, and publish the action-wheel experience
 - [ ] Obtain explicit broadcast confirmation, deploy only the verified contract set, and capture on-chain evidence
 - [ ] Verify confirmed addresses and connect only verified contracts to portal surfaces
 
