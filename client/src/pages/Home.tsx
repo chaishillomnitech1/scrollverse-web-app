@@ -992,6 +992,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "✦", title: "Artist Control Desk", detail: "Keep a creator-owned preparation record, choose specialist guidance, and explore free practical pathways before any provider handoff.", href: "/artist-control-desk", color: "#FFB800" },
   { icon: "◇", title: "ConsoleVerse", detail: "Open the first-party creator operations layer for linked records, visible workflow, source routing, and release preparation.", href: "/consoleverse", color: "#B98CFF" },
   { icon: "◎", title: "Opportunity Navigator", detail: "Start with free first-party preparation and move to transparent official opportunity routes when you are ready.", href: "/opportunity-navigator", color: "#00FF88" },
+  { icon: "⌘", title: "GitHub Showcase", detail: "Browse the August 13 public repository snapshot by portal, media, Web3, research, workflow, and portfolio lenses.", href: "/github-showcase", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

@@ -307,6 +307,7 @@ import DistributionHighwaysMap from "./pages/DistributionHighwaysMap";
 import ArtistControlDesk from "./pages/ArtistControlDesk";
 import ConsoleVerse from "./pages/ConsoleVerse";
 import OpportunityNavigator from "./pages/OpportunityNavigator";
+import GitHubShowcase from "./pages/GitHubShowcase";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -642,6 +643,7 @@ function Router() {
         <Route path="/artist-control-desk" component={ArtistControlDesk} />
         <Route path="/consoleverse" component={ConsoleVerse} />
         <Route path="/opportunity-navigator" component={OpportunityNavigator} />
+        <Route path="/github-showcase" component={GitHubShowcase} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

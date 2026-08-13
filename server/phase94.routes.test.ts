@@ -977,4 +977,24 @@ describe("Phase 94 route map", () => {
     expect(navigator).toContain("does not collect applications, decide eligibility");
     expect(record).toContain("does not bypass provider, employer, platform, grant");
   });
+
+  it("registers the GitHub Showcase as a source-labeled public repository directory without account or deployment claims", () => {
+    const showcase = readProjectFile("client/src/pages/GitHubShowcase.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const record = readProjectFile("docs/phase177-github-showcase-source-record.md");
+    expect(app).toContain('import GitHubShowcase from "./pages/GitHubShowcase"');
+    expect(app).toContain('<Route path="/github-showcase" component={GitHubShowcase} />');
+    expect(showcase).toContain("GITHUB REPOSITORY SHOWCASE");
+    expect(showcase).toContain("repositories.length");
+    expect(showcase).toContain("public repositories returned");
+    expect(showcase).toContain("Filter GitHub repositories");
+    expect(showcase).toContain("Inspect public source");
+    expect(showcase).toContain("does not search GitHub live, access private repositories, or collect visitor data");
+    expect(showcase).toContain("not an audit, legal title record, account-control verification, deployment ledger");
+    expect(showcase).toContain("scrollsoul-music-sync");
+    expect(showcase).toContain("vibranium-sovereignty-protocol");
+    expect(home).toContain('href: "/github-showcase"');
+    expect(record).toContain("51 public repositories");
+    expect(record).toContain("public repository does not, by itself, establish deployment");
+  });
 });
