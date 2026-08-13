@@ -957,13 +957,21 @@ describe("Phase 94 route map", () => {
   it("registers ConsoleVerse as a first-party operations layer without claiming third-party CRM access", () => {
     const consoleverse = readProjectFile("client/src/pages/ConsoleVerse.tsx");
     const record = readProjectFile("docs/phase171-consoleverse-patterns.md");
+    const expansion = readProjectFile("docs/phase180-consoleverse-workflow-patterns.md");
     expect(app).toContain('import ConsoleVerse from "./pages/ConsoleVerse"');
     expect(app).toContain('<Route path="/consoleverse" component={ConsoleVerse} />');
     expect(consoleverse).toContain("CONSOLEVErSE · CREATOR OPERATIONS LAYER");
     expect(consoleverse).toContain("Relationship record");
     expect(consoleverse).toContain("Visible workflow");
     expect(consoleverse).toContain("does not copy another company’s code");
+    expect(consoleverse).toContain("BROWSER-LOCAL OPERATION LENSES");
+    expect(consoleverse).toContain("RELATIONSHIP RECORD BLUEPRINT");
+    expect(consoleverse).toContain("ILLUSTRATIVE WORKFLOW TEMPLATE · NOT A CURRENT RELEASE RECORD");
+    expect(consoleverse).toContain("EXCEPTION REGISTER · VISIBLE BLOCKERS");
+    expect(consoleverse).toContain("does not create external CRM records, access another company’s account");
     expect(record).toContain("no proprietary code, account access, or implementation is copied");
+    expect(expansion).toContain("Stage-gated review");
+    expect(expansion).toContain("No automated escalation, notification, account action");
   });
 
   it("registers the Inclusive Opportunity Navigator with free preparation and external eligibility boundaries", () => {
