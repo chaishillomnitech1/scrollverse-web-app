@@ -291,6 +291,25 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("does not claim private access");
   });
 
+  it("registers source-labeled creator revenue education without earnings promises or provider activation", () => {
+    const learning = readProjectFile("client/src/pages/CreatorRevenueLearning.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const context = readProjectFile("client/src/pages/KnowledgeContext.tsx");
+    const research = readProjectFile("docs/phase158-creator-revenue-learning-research.md");
+    expect(app).toContain('import CreatorRevenueLearning from "./pages/CreatorRevenueLearning"');
+    expect(app).toContain('<Route path="/creator-revenue-learning" component={CreatorRevenueLearning} />');
+    expect(learning).toContain("FREE CREATOR REVENUE LEARNING SYSTEM");
+    expect(learning).toContain("Spotify for Artists · Royalties Guide");
+    expect(learning).toContain("TikTok Help Center · Creator Rewards Program");
+    expect(learning).toContain("does not forecast income, connect an account, submit an application, or create a payout");
+    expect(learning).toContain("There is no RPM calculator, revenue guarantee, provider status check");
+    ["/creator-media-studio", "/signalworks", "/revenue-ops", "/creator-workspace", "/protection-protocol"].forEach(route => expect(learning).toContain(route));
+    expect(home).toContain('href: "/creator-revenue-learning"');
+    expect(context).toContain('href="/creator-revenue-learning"');
+    expect(research).toContain("YouTube Partner Program");
+    expect(research).toContain("does not calculate a predicted payout");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

@@ -293,6 +293,7 @@ import KnowledgeContext from "./pages/KnowledgeContext";
 import OpenExchangeFieldGuide from "./pages/OpenExchangeFieldGuide";
 import ProtectionProtocol from "./pages/ProtectionProtocol";
 import AegisChronicles from "./pages/AegisChronicles";
+import CreatorRevenueLearning from "./pages/CreatorRevenueLearning";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -614,6 +615,7 @@ function Router() {
         <Route path="/open-exchange-field-guide" component={OpenExchangeFieldGuide} />
         <Route path="/protection-protocol" component={ProtectionProtocol} />
         <Route path="/aegis-chronicles" component={AegisChronicles} />
+        <Route path="/creator-revenue-learning" component={CreatorRevenueLearning} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

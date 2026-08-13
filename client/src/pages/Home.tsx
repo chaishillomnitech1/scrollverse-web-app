@@ -968,6 +968,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "✣", title: "Knowledge Context", detail: "Explore source-led history, manuscripts, mathematics, visual culture, and sound evidence with interpretation boundaries visible.", href: "/knowledge-context", color: "#B98CFF" },
   { icon: "↔", title: "Open Exchange Field Guide", detail: "Read the free original ScrollVerse book on clear offers, informed choice, consent, direct connection, and accountable records.", href: "/open-exchange-field-guide", color: "#00FF88" },
   { icon: "✦", title: "Aegis Chronicles", detail: "Enter the original ScrollVerse show-and-comic hub for a route-linked digital guide, episode blueprints, and creator pathways.", href: "/aegis-chronicles", color: "#00D4FF" },
+  { icon: "▣", title: "Creator Revenue Learning", detail: "Study source-labeled video, music, live, membership, and short-form revenue mechanics without income promises or account activation.", href: "/creator-revenue-learning", color: "#FFB800" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

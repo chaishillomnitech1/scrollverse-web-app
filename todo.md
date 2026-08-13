@@ -2418,6 +2418,11 @@
 - [x] Preserve transferable guide practices in reusable workflow documentation
 - [x] Validate and publish the bounded digital-guide foundation
 
+## Phase 158 — Creator Revenue Learning System
+- [x] Research authoritative creator revenue model documentation and record sources
+- [x] Build a free source-labeled learning page covering platform revenue mechanics and limitations
+- [x] Connect the learning route through Home and Knowledge Context, validate, document, and publish
+
 ## Continuous Evidence-Led Improvement Pass
 - [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity
 - [x] Implement the selected independent improvement with measurable quality controls
