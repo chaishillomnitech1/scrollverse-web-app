@@ -232,6 +232,9 @@ describe("Phase 94 route map", () => {
     expect(context).toContain("DOCUMENTED");
     expect(context).toContain("INTERPRETIVE");
     expect(context).toContain("EXPERIMENTAL");
+    expect(context).toContain("Perseid Meteor Shower");
+    expect(context).toContain("Schumann Resonance");
+    expect(context).toContain("Sirius & Lion’s Gate Framing");
     expect(research).toContain("Dead Sea Scrolls");
     expect(research).toContain("Fibonacci sequence");
     expect(research).toContain("Tarot");

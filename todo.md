@@ -2325,6 +2325,11 @@
 - [x] Add the multiple-path model to the knowledge context experience without overstating experimental claims
 - [x] Validate, document, and publish the exploration upgrade
 
+## Astronomy, Geophysics, and Cultural Context
+- [x] Research authoritative sources on the Perseid meteor shower, Schumann resonance, and the cultural Lion’s Gate framing
+- [x] Classify the two newly uploaded clipboard attachments as protected source material
+- [x] Add source-linked educational context with clear science, interpretation, wallet, and transaction boundaries
+
 ## Continuous Evidence-Led Improvement Pass
 - [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity
 - [x] Implement the selected independent improvement with measurable quality controls
