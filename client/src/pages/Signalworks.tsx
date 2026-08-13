@@ -41,6 +41,12 @@ const OPERATING_PATH = [
   { step: "05", title: "Review activation evidence", body: "Keep pricing, customer policy, rights, fulfillment, provider approval, and owner attestation separate from this public navigator.", href: "/revenue-ops", action: "Open Revenue Operations", color: "#FF8DB5" },
 ] as const;
 
+const OFFER_HIGHWAY = [
+  { label: "Original goods", title: "Design to maker readiness", body: "Explore the original fashion presentation, then move into technical-pack, sample, partner, and fulfillment readiness before any customer offer is activated.", href: "/fashion-partnership-proposal", action: "Explore Fashion Presentation", color: "#FFB800" },
+  { label: "Music & media", title: "Catalog to audience route", body: "Stage rights-aware release materials, follow creator-provided channels, and choose an official distribution or publishing handoff that matches the work.", href: "/media-world", action: "Explore Media World", color: "#B98CFF" },
+  { label: "Services & collaboration", title: "Ideas to accountable work", body: "Use the creator workspace, specialist routes, and collaboration records to prepare a service, partnership, or creative brief before you represent it outward.", href: "/creator-workspace", action: "Open Creator Workspace", color: "#00D4FF" },
+] as const;
+
 const LANE_FILTERS: Array<"All lanes" | Pathway["lane"]> = ["All lanes", "Film", "Music", "Live", "Creator tools"];
 
 export default function Signalworks() {
@@ -103,6 +109,13 @@ export default function Signalworks() {
         <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>AUDIENCE-TO-REVENUE READINESS</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Connect the dots before you ask the customer to act.</h2></div><p className="max-w-xl text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>This is a first-party operating path for original work, not a checkout, offer, price list, manufacturer order, wallet, mint, distribution submission, or revenue promise.</p></div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           {OPERATING_PATH.map((item) => <article key={item.step} className="flex min-h-64 flex-col rounded-3xl border p-5" style={{ borderColor: `${item.color}35`, background: "rgba(255,255,255,0.025)" }}><div className="text-[10px] font-mono" style={{ color: item.color }}>{item.step}</div><h3 className="mt-4 text-lg font-black">{item.title}</h3><p className="mt-3 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{item.body}</p><Link href={item.href} className="mt-auto pt-6 text-sm font-black" style={{ color: item.color }}>{item.action} →</Link></article>)}
+        </div>
+      </section>
+
+      <section className="border-y" style={{ borderColor: "rgba(255,184,0,0.16)", background: "rgba(255,184,0,0.025)" }}>
+        <div className="max-w-7xl mx-auto px-5 py-14">
+          <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>FIRST-PARTY OFFER HIGHWAY</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Make the work easy to find. Keep the next step clear.</h2></div><p className="max-w-xl text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>These routes organize original goods, media, and services for discovery. A route is not an external listing, quoted price, active inventory feed, checkout, payout, rights transfer, or provider approval.</p></div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">{OFFER_HIGHWAY.map((item) => <article key={item.label} className="flex min-h-64 flex-col rounded-3xl border p-6" style={{ borderColor: `${item.color}3a`, background: "rgba(4,14,30,0.75)" }}><div className="text-[10px] font-mono tracking-widest" style={{ color: item.color }}>{item.label.toUpperCase()}</div><h3 className="mt-4 text-xl font-black">{item.title}</h3><p className="mt-4 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{item.body}</p><Link href={item.href} className="mt-auto pt-6 text-sm font-black" style={{ color: item.color }}>{item.action} →</Link></article>)}</div>
         </div>
       </section>
 

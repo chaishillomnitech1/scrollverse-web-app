@@ -167,6 +167,10 @@ describe("Phase 94 route map", () => {
       expect(signalworks).toContain(route);
       expect(app).toContain(route);
     });
+    expect(signalworks).toContain("FIRST-PARTY OFFER HIGHWAY");
+    expect(signalworks).toContain("/fashion-partnership-proposal");
+    expect(signalworks).toContain("/media-world");
+    expect(signalworks).toContain("A route is not an external listing");
   });
 
   it("preserves the Nick Ponte creator-learning reference as a non-affiliated public discovery handoff", () => {
@@ -232,12 +236,24 @@ describe("Phase 94 route map", () => {
     expect(context).toContain("DOCUMENTED");
     expect(context).toContain("INTERPRETIVE");
     expect(context).toContain("EXPERIMENTAL");
+    expect(context).toContain("/open-exchange-field-guide");
     expect(context).toContain("Perseid Meteor Shower");
     expect(context).toContain("Schumann Resonance");
     expect(context).toContain("Sirius & Lion’s Gate Framing");
     expect(research).toContain("Dead Sea Scrolls");
     expect(research).toContain("Fibonacci sequence");
     expect(research).toContain("Tarot");
+  });
+
+  it("publishes the free original Open Exchange Field Guide through the knowledge and creator pathways", () => {
+    const guide = readProjectFile("client/src/pages/OpenExchangeFieldGuide.tsx");
+    expect(app).toContain('import OpenExchangeFieldGuide from "./pages/OpenExchangeFieldGuide"');
+    expect(app).toContain('<Route path="/open-exchange-field-guide" component={OpenExchangeFieldGuide} />');
+    expect(guide).toContain("FREE SCROLLVERSE FIELD GUIDE · ORIGINAL WORK");
+    expect(guide).toContain("The Open Exchange Field Guide");
+    expect(guide).toContain("Begin with what is real");
+    expect(guide).toContain("/manus-hero");
+    expect(guide).toContain("/creator-operations");
   });
 
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {

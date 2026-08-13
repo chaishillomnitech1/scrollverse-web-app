@@ -2345,6 +2345,37 @@
 - [x] Implement and test the selected original platform improvement
 - [x] Publish verified progress and retain clear protected-workflow handoffs
 
+## Creator-Owned Operating Platform Pass
+- [ ] Reconcile current workspaces, records, learning, media, and audience routes for the highest-impact independent improvement
+- [ ] Design and implement the selected creator-owned access and collaboration improvement
+- [ ] Validate, publish, and document the verified platform improvement with clear boundaries
+
+## Reusable Practice Registry and Continuity Maintenance
+- [ ] Inventory verified reusable practices, guide surfaces, and safe non-transactional maintenance candidates
+- [ ] Add a source-linked practice registry to Hero and first-party guide routes with privacy and automation boundaries
+- [ ] Evaluate and, if appropriate, register a bounded non-transactional continuity maintenance task
+- [ ] Validate, publish, and document active versus protected automation states
+
+## First-Party Offer and Cross-Promotion Highway
+- [x] Inventory existing product, media, service, catalog, and platform-handoff surfaces with activation dependencies
+- [x] Build a first-party offer and cross-promotion highway that makes ready material discoverable without claiming external listings
+- [x] Add clear rights, provider, pricing, fulfillment, and transaction boundaries and validate the improved discovery path
+
+## Transparent Creator-to-Audience Exchange
+- [ ] Inventory existing creator records, buyer information, consent, source, and handoff surfaces
+- [ ] Implement the highest-value first-party transparency improvement using existing routes
+- [ ] Validate and publish the transparent exchange update with clear private and provider boundaries
+
+## Free Book — The Open Exchange Field Guide
+- [x] Define the original book structure, verified first-party themes, audience, and source boundaries
+- [x] Write the free original ScrollVerse book and prepare a readable portal route through the knowledge and creator pathways
+- [x] Add source-linked navigation, validate the route, and publish the free resource
+
+## Visible Inspectable Platform Deliverable
+- [x] Reconcile the current verified platform work and select the next visible independent deliverable
+- [x] Implement and validate the selected inspectable platform improvement
+- [x] Publish the verified deliverable and retain clear owner or provider handoffs
+
 ## Continuous Evidence-Led Improvement Pass
 - [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity
 - [x] Implement the selected independent improvement with measurable quality controls

@@ -966,6 +966,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◫", title: "IP Readiness", detail: "Inventory original names, marks, code, media, design, methods, and references with provenance and filing-readiness boundaries.", href: "/ip-readiness", color: "#FFB800" },
   { icon: "⛓", title: "Chain Intelligence", detail: "Read source-linked network context, first-party wallet/token/NFT paths, explorer handoffs, and evidence status without financial activation claims.", href: "/chain-intelligence", color: "#00D4FF" },
   { icon: "✣", title: "Knowledge Context", detail: "Explore source-led history, manuscripts, mathematics, visual culture, and sound evidence with interpretation boundaries visible.", href: "/knowledge-context", color: "#B98CFF" },
+  { icon: "↔", title: "Open Exchange Field Guide", detail: "Read the free original ScrollVerse book on clear offers, informed choice, consent, direct connection, and accountable records.", href: "/open-exchange-field-guide", color: "#00FF88" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
