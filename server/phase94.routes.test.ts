@@ -997,4 +997,23 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("51 public repositories");
     expect(record).toContain("public repository does not, by itself, establish deployment");
   });
+
+  it("registers the Digital Footprint Report with dated evidence classes, source routes, and explicit causal limits", () => {
+    const report = readProjectFile("client/src/pages/DigitalFootprintReport.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const reconciliation = readProjectFile("docs/phase178-digital-footprint-reconciliation.md");
+    expect(app).toContain('import DigitalFootprintReport from "./pages/DigitalFootprintReport"');
+    expect(app).toContain('<Route path="/digital-footprint-report" component={DigitalFootprintReport} />');
+    expect(report).toContain("DIGITAL FOOTPRINT REPORT");
+    expect(report).toContain("Documented record");
+    expect(report).toContain("Temporal overlap");
+    expect(report).toContain("Causal evidence");
+    expect(report).toContain("Coexistence in a timeline is not proof of causation");
+    expect(report).toContain("The original August 13 research review reported 50 deduplicated records");
+    expect(report).toContain("does not collect visitor data, search private accounts");
+    ["/evidence-commons", "/github-showcase", "/signalworks", "/public-reference-trail", "/deploy", "/knowledge-navigator"].forEach(route => expect(report).toContain(route));
+    expect(home).toContain('href: "/digital-footprint-report"');
+    expect(reconciliation).toContain("50 deduplicated repository records");
+    expect(reconciliation).toContain("51 public repositories");
+  });
 });

@@ -308,6 +308,7 @@ import ArtistControlDesk from "./pages/ArtistControlDesk";
 import ConsoleVerse from "./pages/ConsoleVerse";
 import OpportunityNavigator from "./pages/OpportunityNavigator";
 import GitHubShowcase from "./pages/GitHubShowcase";
+import DigitalFootprintReport from "./pages/DigitalFootprintReport";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -644,6 +645,7 @@ function Router() {
         <Route path="/consoleverse" component={ConsoleVerse} />
         <Route path="/opportunity-navigator" component={OpportunityNavigator} />
         <Route path="/github-showcase" component={GitHubShowcase} />
+        <Route path="/digital-footprint-report" component={DigitalFootprintReport} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

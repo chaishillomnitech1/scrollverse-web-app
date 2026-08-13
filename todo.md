@@ -2218,6 +2218,12 @@
 - [x] Connect the showcase through first-party discovery surfaces and add regression coverage
 - [x] Validate, document, and publish the GitHub portfolio showcase
 
+## Phase 178 — Digital Footprint Report
+- [x] Reconcile the dated research report with the current public repository snapshot and evidence limitations
+- [x] Build a public, source-led digital-footprint report route with a dated timeline and evidence-class context
+- [x] Connect the report through first-party discovery and add regression coverage
+- [x] Validate, document, and publish the digital-footprint report route
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
