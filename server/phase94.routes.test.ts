@@ -310,6 +310,23 @@ describe("Phase 94 route map", () => {
     expect(research).toContain("does not calculate a predicted payout");
   });
 
+  it("registers the original Concept Seal Shrine with provenance metadata and non-registration boundaries", () => {
+    const shrine = readProjectFile("client/src/pages/ConceptSealShrine.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const record = readProjectFile("docs/phase159-concept-seal-shrine.md");
+    expect(app).toContain('import ConceptSealShrine from "./pages/ConceptSealShrine"');
+    expect(app).toContain('<Route path="/concept-seal-shrine" component={ConceptSealShrine} />');
+    expect(shrine).toContain("The Open Spiral Seal");
+    expect(shrine).toContain("SV-CS-2026-01");
+    expect(shrine).toContain("Original concept record · not a registration");
+    expect(shrine).toContain("does not gamify worship or make spiritual, legal, commercial, or technical claims");
+    expect(shrine).toContain("not proof of a trademark registration, copyright registration, patent, license");
+    ["/spiral-signature", "/ip-readiness", "/creator-workspace", "/creator-operations", "/protection-protocol"].forEach(route => expect(shrine).toContain(route));
+    expect(home).toContain('href: "/concept-seal-shrine"');
+    expect(record).toContain("Original public concept record; not a registration");
+    expect(record).toContain("does not establish a trademark");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

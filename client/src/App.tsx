@@ -294,6 +294,7 @@ import OpenExchangeFieldGuide from "./pages/OpenExchangeFieldGuide";
 import ProtectionProtocol from "./pages/ProtectionProtocol";
 import AegisChronicles from "./pages/AegisChronicles";
 import CreatorRevenueLearning from "./pages/CreatorRevenueLearning";
+import ConceptSealShrine from "./pages/ConceptSealShrine";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -616,6 +617,7 @@ function Router() {
         <Route path="/protection-protocol" component={ProtectionProtocol} />
         <Route path="/aegis-chronicles" component={AegisChronicles} />
         <Route path="/creator-revenue-learning" component={CreatorRevenueLearning} />
+        <Route path="/concept-seal-shrine" component={ConceptSealShrine} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

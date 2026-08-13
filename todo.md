@@ -2398,9 +2398,9 @@
 - [ ] Implement, validate, and publish the source-led discovery-system improvements
 
 ## Concept Seal and Shrine Experience
-- [ ] Define the original concept seal message, provenance metadata, visual direction, and future activation boundaries
-- [ ] Build the public shrine page and main-page entry with original visual treatment and readiness labels
-- [ ] Add provenance documentation, validate the route, and publish the concept seal experience
+- [x] Define the original concept seal message, provenance metadata, visual direction, and future activation boundaries
+- [x] Build the public shrine page and main-page entry with original visual treatment and readiness labels
+- [x] Add provenance documentation, validate the route, and publish the concept seal experience
 
 ## Original Digital Guide Show and Comic Universe
 - [x] Define the original show and comic premise, character boundaries, visual rules, and audience safety model
