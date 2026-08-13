@@ -2353,7 +2353,7 @@
 ## Reusable Practice Registry and Continuity Maintenance
 - [x] Inventory verified reusable practices, guide surfaces, and safe non-transactional maintenance candidates
 - [x] Add a source-linked practice registry to Hero and first-party guide routes with privacy and automation boundaries
-- [ ] Evaluate and, if appropriate, register a bounded non-transactional continuity maintenance task
+- [ ] Register the user-approved weekly non-transactional continuity review: first-party route health, tracker state, and dependency summary only
 - [x] Validate, publish, and document active versus protected automation states
 
 ## First-Party Offer and Cross-Promotion Highway
@@ -2386,6 +2386,37 @@
 - [x] Design a practical ScrollVerse protection architecture and source-led evidence-context model with clear scope boundaries
 - [x] Implement and test independently actionable security, documentation, and educational improvements
 - [x] Publish verified guidance and report remaining owner or provider dependencies
+
+## Source-Led Knowledge Navigator
+- [ ] Inventory current discovery, knowledge, research, creator, and public-reference surfaces for a unified navigator
+- [ ] Design the knowledge navigator with source, date, evidence, and external-dependency labels
+- [ ] Implement, validate, and publish the unified first-party discovery experience
+
+## Platform-Foundation Research and Original Navigator Patterns
+- [ ] Research practical discovery, browser, communication, creation, and community-platform foundations from authoritative public sources
+- [ ] Design original ScrollVerse navigator patterns that connect verified knowledge, creation, community, and distribution context
+- [ ] Implement, validate, and publish the source-led discovery-system improvements
+
+## Concept Seal and Shrine Experience
+- [ ] Define the original concept seal message, provenance metadata, visual direction, and future activation boundaries
+- [ ] Build the public shrine page and main-page entry with original visual treatment and readiness labels
+- [ ] Add provenance documentation, validate the route, and publish the concept seal experience
+
+## Original Digital Guide Show and Comic Universe
+- [x] Define the original show and comic premise, character boundaries, visual rules, and audience safety model
+- [x] Create the season, episode, comic, and character development blueprint
+- [x] Build a source-labeled story hub and connect it to Junior Movies and Hero
+- [x] Validate, document, and publish the original story-universe foundation
+
+## Transparent Digital Guide Signature
+- [x] Define the guide signature, public role, code-linked route logic, and versioning boundaries
+- [x] Implement the guide signature within the story hub, Hero, and versioned project documentation
+- [x] Validate and publish the transparent digital-guide foundation
+
+## Visible Digital Guide Boundaries
+- [x] Define the guide’s visible role, implemented behaviors, and non-implication boundaries
+- [x] Preserve transferable guide practices in reusable workflow documentation
+- [x] Validate and publish the bounded digital-guide foundation
 
 ## Continuous Evidence-Led Improvement Pass
 - [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity

@@ -235,6 +235,7 @@ export default function JuniorMovies() {
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: "#D6E2EE" }}>{selectedStoryLane.audiencePrompt}</p>
                 <Link href="/creator-operations" className="mt-4 inline-flex text-xs font-black" style={{ color: selectedStoryLane.color }}>Route an adult-supported story seed →</Link>
               </div>
+              <Link href="/aegis-chronicles" className="inline-flex rounded-lg border px-4 py-2 text-xs font-black" style={{ borderColor: `${selectedStoryLane.color}66`, color: selectedStoryLane.color }}>Open Aegis Chronicles story hub →</Link>
             </div>
             <p className="mt-4 text-xs leading-relaxed" style={{ color: "#94A8BC" }}>Concept development stays separate from release. Any submitted seed needs adult support, consent, moderation, creator-rights review, and an owner-controlled release decision before it can be used or shared.</p>
           </div>

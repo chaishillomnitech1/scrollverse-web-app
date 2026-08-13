@@ -274,6 +274,23 @@ describe("Phase 94 route map", () => {
     expect(context).toContain("Open Protection Protocol");
   });
 
+  it("registers the original Aegis Chronicles story hub with transparent visible-behavior boundaries", () => {
+    const chronicles = readProjectFile("client/src/pages/AegisChronicles.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const juniorMovies = readProjectFile("client/src/pages/JuniorMovies.tsx");
+    const record = readProjectFile("docs/phase157-aegis-chronicles.md");
+    expect(app).toContain('import AegisChronicles from "./pages/AegisChronicles"');
+    expect(app).toContain('<Route path="/aegis-chronicles" component={AegisChronicles} />');
+    expect(chronicles).toContain("Aegis Chronicles");
+    expect(chronicles).toContain("Aegis Scribe");
+    expect(chronicles).toContain("does not claim background autonomy, private access, wallet control");
+    expect(chronicles).toContain("/creator-workspace");
+    expect(home).toContain('href: "/aegis-chronicles"');
+    expect(juniorMovies).toContain('href="/aegis-chronicles"');
+    expect(record).toContain("public, first-party navigation character");
+    expect(record).toContain("does not claim private access");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");
