@@ -1772,3 +1772,34 @@ export const revenueOperationDigestSettings = mysqlTable("revenue_operation_dige
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
 });
 export type RevenueOperationDigestSettings = typeof revenueOperationDigestSettings.$inferSelect;
+
+/**
+ * Weekly first-party continuity review. The scheduled task can only resolve
+ * this setting by its authenticated Heartbeat task UID.
+ */
+export const continuityReviewSettings = mysqlTable("continuity_review_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  settingsKey: varchar("settings_key", { length: 96 }).notNull().unique(),
+  enabled: boolean("enabled").notNull().default(true),
+  scheduleCronTaskUid: varchar("schedule_cron_task_uid", { length: 65 }).unique(),
+  lastReviewWeek: varchar("last_review_week", { length: 10 }),
+  lastReviewAt: timestamp("last_review_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+export type ContinuityReviewSettings = typeof continuityReviewSettings.$inferSelect;
+
+export const continuityReviewRuns = mysqlTable("continuity_review_runs", {
+  id: int("id").autoincrement().primaryKey(),
+  reviewWeek: varchar("review_week", { length: 10 }).notNull().unique(),
+  routeCount: int("route_count").notNull(),
+  readinessRecordCount: int("readiness_record_count").notNull(),
+  readyCount: int("ready_count").notNull(),
+  awaitingOwnerCount: int("awaiting_owner_count").notNull(),
+  blockedCount: int("blocked_count").notNull(),
+  inProgressCount: int("in_progress_count").notNull(),
+  routeSummary: text("route_summary").notNull(),
+  dependencySummary: text("dependency_summary").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [index("continuity_review_runs_created_idx").on(table.createdAt)]);
+export type ContinuityReviewRun = typeof continuityReviewRuns.$inferSelect;

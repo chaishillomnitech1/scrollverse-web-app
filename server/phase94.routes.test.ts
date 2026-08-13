@@ -364,6 +364,24 @@ describe("Phase 94 route map", () => {
     expect(inventory).toContain("/platform-foundations");
   });
 
+  it("mounts the authenticated weekly continuity review with task-UID binding and non-transactional scope", () => {
+    const serverEntry = readProjectFile("server/_core/index.ts");
+    const handler = readProjectFile("server/scheduled/continuityReview.ts");
+    const schema = readProjectFile("drizzle/schema.ts");
+    const record = readProjectFile("docs/phase162-weekly-continuity-review.md");
+    expect(serverEntry).toContain('import { continuityReviewHandler } from "../scheduled/continuityReview"');
+    expect(serverEntry).toContain('app.post("/api/scheduled/continuity-review", continuityReviewHandler)');
+    expect(handler).toContain("if (!cronUser.isCron || !cronUser.taskUid)");
+    expect(handler).toContain("scheduleCronTaskUid, cronUser.taskUid");
+    expect(handler).toContain("already-reviewed");
+    expect(handler).toContain("does not inspect private files, authenticate a user, contact providers");
+    expect(handler).toContain("move funds, activate commerce, alter a wallet, or take a release action");
+    expect(schema).toContain('mysqlTable("continuity_review_settings"');
+    expect(schema).toContain('mysqlTable("continuity_review_runs"');
+    expect(record).toContain("14:00 UTC every Monday");
+    expect(record).toContain("authenticated task UID");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");
