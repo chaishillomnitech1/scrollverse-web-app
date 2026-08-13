@@ -2315,6 +2315,21 @@
 - [x] Expand distinct original character, episode, comic, and audience-participation development paths
 - [x] Add reusable story-universe guidance, regression coverage, and validate the published experience
 
+## Source-Led Cultural and Knowledge Context
+- [x] Research institutional and primary sources on Hermetic or Thoth traditions, the Dead Sea Scrolls, Fibonacci mathematics, tarot history, and sound-frequency evidence
+- [x] Synthesize documented history, mathematics, cultural interpretation, and evidence limits into a source-linked educational context
+- [x] Add the source-linked context to a suitable ScrollVerse educational surface, validate it, and publish the update
+
+## Evidence-Aware Multiple-Path Exploration
+- [x] Define a clear model for documented evidence, cultural interpretation, and experimental creative hypotheses
+- [x] Add the multiple-path model to the knowledge context experience without overstating experimental claims
+- [x] Validate, document, and publish the exploration upgrade
+
+## Continuous Evidence-Led Improvement Pass
+- [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity
+- [x] Implement the selected independent improvement with measurable quality controls
+- [x] Validate, preserve reusable practice, and publish the verified progress with transparent dependencies
+
 ## Clipboard Release-Evidence Intake
 - [x] Classify the four uploaded clipboard attachments by visible file type, content, source, and privacy status
 - [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow

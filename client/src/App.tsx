@@ -289,6 +289,7 @@ import DigitalHighways from "./pages/DigitalHighways";
 import EmpireMap from "./pages/EmpireMap";
 import IpReadinessNavigator from "./pages/IpReadinessNavigator";
 import ChainIntelligence from "./pages/ChainIntelligence";
+import KnowledgeContext from "./pages/KnowledgeContext";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -606,6 +607,7 @@ function Router() {
         <Route path="/empire-map" component={EmpireMap} />
         <Route path="/ip-readiness" component={IpReadinessNavigator} />
         <Route path="/chain-intelligence" component={ChainIntelligence} />
+        <Route path="/knowledge-context" component={KnowledgeContext} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

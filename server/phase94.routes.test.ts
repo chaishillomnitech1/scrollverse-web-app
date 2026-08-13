@@ -218,6 +218,25 @@ describe("Phase 94 route map", () => {
     expect(principles).toContain("does not create public child profiles");
   });
 
+  it("registers a source-led cultural and knowledge context page with evidence boundaries", () => {
+    const context = readProjectFile("client/src/pages/KnowledgeContext.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const research = readProjectFile("docs/phase151-cultural-knowledge-research.md");
+    expect(app).toContain('import KnowledgeContext from "./pages/KnowledgeContext"');
+    expect(app).toContain('<Route path="/knowledge-context" component={KnowledgeContext} />');
+    expect(home).toContain('href: "/knowledge-context"');
+    expect(context).toContain("SOURCE-LED KNOWLEDGE CONTEXT");
+    expect(context).toContain("INTERPRETATION BOUNDARY");
+    expect(context).toContain("does not offer medical care, divination, predictive guidance");
+    expect(context).toContain("MULTIPLE-PATH EXPLORATION MODEL");
+    expect(context).toContain("DOCUMENTED");
+    expect(context).toContain("INTERPRETIVE");
+    expect(context).toContain("EXPERIMENTAL");
+    expect(research).toContain("Dead Sea Scrolls");
+    expect(research).toContain("Fibonacci sequence");
+    expect(research).toContain("Tarot");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

@@ -1,0 +1,97 @@
+import { Link } from "wouter";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+
+const TOPICS = [
+  {
+    mark: "✦",
+    title: "Hermetic & Thoth Traditions",
+    lens: "Late-antique texts and later reception",
+    color: "#B98CFF",
+    finding: "Hermetism is associated with writings attributed to Hermes Trismegistus, a syncretic figure connecting Greek Hermes and Egyptian Thoth in Greco-Egyptian contexts.",
+    boundary: "Historical study does not verify modern claims of secret sciences, direct authority, or universal historical continuity.",
+    source: "Encyclopaedia Britannica — Hermetism",
+    url: "https://www.britannica.com/topic/Hermetism",
+  },
+  {
+    mark: "▤",
+    title: "Dead Sea Scrolls",
+    lens: "Manuscripts, preservation, and history",
+    color: "#00D4FF",
+    finding: "The Israel Antiquities Authority’s digital library makes thousands of fragments, including ancient copies of biblical texts, available with imaging and preservation context.",
+    boundary: "The manuscripts are historical artifacts; later doctrinal or speculative conclusions should be distinguished from the surviving evidence.",
+    source: "Israel Antiquities Authority — Leon Levy Dead Sea Scrolls Digital Library",
+    url: "https://www.deadseascrolls.org.il/",
+  },
+  {
+    mark: "φ",
+    title: "Fibonacci Mathematics",
+    lens: "Recursive sequence and golden ratio",
+    color: "#FFB800",
+    finding: "Each term in the Fibonacci sequence is the sum of the preceding two, and ratios of successive terms tend toward the golden ratio.",
+    boundary: "A true mathematical relationship is not proof of a universal design law or mystical property.",
+    source: "Encyclopaedia Britannica — Fibonacci Sequence",
+    url: "https://www.britannica.com/science/Fibonacci-number",
+  },
+  {
+    mark: "◇",
+    title: "Tarot in History",
+    lens: "Italian card games and later interpretation",
+    color: "#FF8DB5",
+    finding: "The Met documents tarot as a fifteenth-century European trick-taking game; the modern association with fortune-telling emerged much later.",
+    boundary: "Later symbolic practices may be meaningful to participants, but they are distinct from the early documented history.",
+    source: "The Metropolitan Museum of Art — Before Fortune-Telling",
+    url: "https://www.metmuseum.org/perspectives/tarot-2",
+  },
+  {
+    mark: "≈",
+    title: "Sound & Frequency",
+    lens: "Acoustics, listening, and evidence",
+    color: "#00FF88",
+    finding: "Acoustics describes measurable wave properties such as frequency, amplitude, resonance, and standing-wave patterns.",
+    boundary: "Specific frequency claims about healing or biological regeneration require rigorous evidence and are not established by acoustic physics alone.",
+    source: "NASA — The Science of Sound",
+    url: "https://www3.nasa.gov/specials/Quesst/science-of-sound.html",
+  },
+] as const;
+
+export default function KnowledgeContext() {
+  useSovereignHeartbeat({ page: "knowledge-context" });
+
+  return (
+    <main className="min-h-screen bg-[#050B1A] px-4 py-12 text-white sm:px-6 lg:px-10">
+      <section className="mx-auto max-w-6xl">
+        <Link href="/" className="text-sm font-black text-[#00D4FF] transition-colors hover:text-white">← Return to ScrollVerse</Link>
+        <div className="mt-10 overflow-hidden rounded-[2rem] border p-7 sm:p-10" style={{ borderColor: "rgba(0,212,255,0.28)", background: "radial-gradient(circle at 8% 15%, rgba(185,140,255,0.18), transparent 28%), radial-gradient(circle at 90% 75%, rgba(0,212,255,0.17), transparent 35%), rgba(7,17,36,0.92)" }}>
+          <div className="text-xs font-mono tracking-[0.22em] text-[#00D4FF]">SOURCE-LED KNOWLEDGE CONTEXT</div>
+          <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">Explore context. Keep the source visible.</h1>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#B8C7D6]">A ScrollVerse learning map for historical traditions, manuscripts, mathematics, visual culture, and sound. Every card separates documented material from modern, symbolic, or spiritual interpretation so visitors can explore with context.</p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href="/scroll-library" className="rounded-xl border border-[#00D4FF]/40 bg-[#00D4FF]/10 px-4 py-3 text-sm font-black text-[#00D4FF]">Explore the Scroll Library</Link>
+            <Link href="/sacred-frequencies" className="rounded-xl border border-[#00FF88]/40 bg-[#00FF88]/10 px-4 py-3 text-sm font-black text-[#00FF88]">Open Frequency Context</Link>
+            <Link href="/evidence-standards" className="rounded-xl border border-[#FFB800]/40 bg-[#FFB800]/10 px-4 py-3 text-sm font-black text-[#FFB800]">Read Evidence Standards</Link>
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {TOPICS.map(topic => (
+            <article key={topic.title} className="rounded-3xl border p-6" style={{ borderColor: `${topic.color}40`, background: "rgba(255,255,255,0.025)" }}>
+              <div className="flex items-start gap-4"><div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-2xl" style={{ background: `${topic.color}16`, color: topic.color }}>{topic.mark}</div><div><div className="text-[10px] font-mono tracking-[0.16em]" style={{ color: topic.color }}>{topic.lens.toUpperCase()}</div><h2 className="mt-1 text-xl font-black">{topic.title}</h2></div></div>
+              <p className="mt-5 text-sm leading-relaxed text-[#D7E3EE]">{topic.finding}</p>
+              <div className="mt-5 rounded-xl border p-4" style={{ borderColor: `${topic.color}30`, background: `${topic.color}08` }}><div className="text-[10px] font-mono tracking-widest" style={{ color: topic.color }}>INTERPRETATION BOUNDARY</div><p className="mt-2 text-xs leading-relaxed text-[#B8C7D6]">{topic.boundary}</p></div>
+              <a href={topic.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex text-sm font-black" style={{ color: topic.color }}>{topic.source} ↗</a>
+            </article>
+          ))}
+        </div>
+        <section className="mt-8 overflow-hidden rounded-3xl border border-[#B98CFF]/35" style={{ background: "linear-gradient(135deg, rgba(185,140,255,0.11), rgba(0,212,255,0.06))" }}>
+          <div className="border-b border-white/10 p-6 sm:p-7"><div className="text-xs font-mono tracking-[0.18em] text-[#B98CFF]">MULTIPLE-PATH EXPLORATION MODEL</div><h2 className="mt-3 text-3xl font-black">More than one lens—without blurring the evidence.</h2><p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#C8D7E5]">A question can hold historical data, cultural meaning, and a creative hypothesis at the same time. The portal labels the lens so visitors can explore openly and still see what is documented, what is interpretive, and what remains to be tested.</p></div>
+          <div className="grid md:grid-cols-3">
+            <div className="border-b border-white/10 p-6 md:border-b-0 md:border-r"><div className="text-xs font-mono tracking-widest text-[#00D4FF]">01 · DOCUMENTED</div><h3 className="mt-3 text-xl font-black">Source & method</h3><p className="mt-3 text-sm leading-relaxed text-[#B8C7D6]">Use primary records, institutional archives, established mathematics, or reproducible measurements. Link the source and name its limitation.</p></div>
+            <div className="border-b border-white/10 p-6 md:border-b-0 md:border-r"><div className="text-xs font-mono tracking-widest text-[#FFB800]">02 · INTERPRETIVE</div><h3 className="mt-3 text-xl font-black">Meaning & culture</h3><p className="mt-3 text-sm leading-relaxed text-[#B8C7D6]">Identify the community, tradition, or author framing a symbol or practice. Treat meaning with respect without recasting it as settled universal fact.</p></div>
+            <div className="p-6"><div className="text-xs font-mono tracking-widest text-[#00FF88]">03 · EXPERIMENTAL</div><h3 className="mt-3 text-xl font-black">Hypothesis & creative test</h3><p className="mt-3 text-sm leading-relaxed text-[#B8C7D6]">State the question, design a safe test, record the method and outcome, and keep a hypothesis distinct from a verified result or promise.</p></div>
+          </div>
+        </section>
+        <section className="mt-8 rounded-2xl border border-[#FFB800]/30 bg-[#FFB800]/[0.05] p-6"><div className="text-xs font-mono tracking-[0.18em] text-[#FFB800]">HOW TO USE THIS MAP</div><p className="mt-3 max-w-4xl text-sm leading-relaxed text-[#D6E2EE]">Use a primary or institutional source as the starting point; name the source, date, evidence state, and limitation; then leave room for personal, cultural, and spiritual reflection without presenting interpretation as settled fact. This page does not offer medical care, divination, predictive guidance, or claims about hidden historical authority.</p></section>
+      </section>
+    </main>
+  );
+}
