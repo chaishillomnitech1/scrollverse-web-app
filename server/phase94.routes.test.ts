@@ -206,6 +206,18 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("No clear, exportable first-party Junior Movies");
   });
 
+  it("expands original Junior Movies worlds through a distinct story-development atlas", () => {
+    const juniorMovies = readProjectFile("client/src/pages/JuniorMovies.tsx");
+    const principles = readProjectFile("docs/phase149-original-story-universe-principles.md");
+    expect(juniorMovies).toContain("ORIGINAL WORLD DEVELOPMENT ATLAS");
+    expect(juniorMovies).toContain("Build the world before the release.");
+    expect(juniorMovies).toContain("Question Constellation");
+    expect(juniorMovies).toContain("Route an adult-supported story seed");
+    expect(juniorMovies).toContain("creator-rights review");
+    expect(principles).toContain("distinct character name, premise, setting, visual motif");
+    expect(principles).toContain("does not create public child profiles");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

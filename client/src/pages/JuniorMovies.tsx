@@ -25,6 +25,9 @@ const ORIGINAL_STORY_LANES = [
     description: "A young coastal guardian follows coded lanterns through rain-washed streets, protecting neighborhood stories without a borrowed universe or costume.",
     image: "/manus-storage/junior-movies-noir-guardian_b8782e86.jpg",
     color: "#00D4FF",
+    episode: "Lantern Code: When the harbor lights go dark, the Nightwatch follows a hand-drawn map toward a missing community memory.",
+    comic: "Panel rhythm: rain, reflections, coded lanterns, and a final wide shot of a neighborhood choosing to keep its stories visible.",
+    audiencePrompt: "What local place would your guardian protect, and what symbol would guide them home?",
   },
   {
     title: "The Scroll Courier",
@@ -32,6 +35,9 @@ const ORIGINAL_STORY_LANES = [
     description: "A disciplined messenger carries lost story seeds between sky libraries, learning that focus, kindness, and practice travel farther than force.",
     image: "/manus-storage/junior-movies-cosmic-courier_2208662d.jpg",
     color: "#FFB800",
+    episode: "The Quiet Route: A courier must deliver a fragile seed without racing, learning that patience can be the strongest movement.",
+    comic: "Panel rhythm: shifting cloud paths, a folded library map, a calm training sequence, and a sky-library arrival.",
+    audiencePrompt: "What skill would your courier practice before leaving on a mission?",
   },
   {
     title: "Archive Seed",
@@ -39,6 +45,9 @@ const ORIGINAL_STORY_LANES = [
     description: "A young archivist turns community questions into story constellations, connecting imagination, local memory, and science curiosity.",
     image: "/manus-storage/junior-movies-archive-keeper_264d3b65.jpg",
     color: "#B98CFF",
+    episode: "Question Constellation: A question from the community becomes a star-map challenge that teaches the archivist how to verify a story before sharing it.",
+    comic: "Panel rhythm: notebook notes, constellations forming from questions, a library observatory, and a source-label reveal.",
+    audiencePrompt: "What question should an archivist investigate before turning it into a story?",
   },
 ] as const;
 
@@ -54,6 +63,8 @@ export default function JuniorMovies() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [activeVideo2, setActiveVideo2] = useState<string | null>(null);
   const [channelExpanded, setChannelExpanded] = useState(false);
+  const [activeStoryLane, setActiveStoryLane] = useState(0);
+  const selectedStoryLane = ORIGINAL_STORY_LANES[activeStoryLane];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -188,6 +199,44 @@ export default function JuniorMovies() {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="mt-7 rounded-2xl border p-5" style={{ borderColor: `${selectedStoryLane.color}55`, background: "rgba(3,8,18,0.74)" }}>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <div className="text-[10px] font-mono tracking-[0.18em]" style={{ color: selectedStoryLane.color }}>ORIGINAL WORLD DEVELOPMENT ATLAS</div>
+                <h3 className="mt-2 text-2xl font-black text-white">Build the world before the release.</h3>
+              </div>
+              <div className="flex flex-wrap gap-2" role="tablist" aria-label="Original story worlds">
+                {ORIGINAL_STORY_LANES.map((lane, index) => (
+                  <button
+                    key={lane.title}
+                    type="button"
+                    onClick={() => setActiveStoryLane(index)}
+                    className="rounded-lg border px-3 py-2 text-xs font-black transition-all"
+                    style={{ borderColor: index === activeStoryLane ? lane.color : `${lane.color}45`, color: index === activeStoryLane ? lane.color : "#B8C7D6", background: index === activeStoryLane ? `${lane.color}18` : "transparent" }}
+                    aria-pressed={index === activeStoryLane}
+                  >
+                    {lane.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              <div className="rounded-xl border p-4" style={{ borderColor: `${selectedStoryLane.color}35`, background: `${selectedStoryLane.color}08` }}>
+                <div className="text-[10px] font-mono tracking-widest" style={{ color: selectedStoryLane.color }}>EPISODE SEED</div>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "#D6E2EE" }}>{selectedStoryLane.episode}</p>
+              </div>
+              <div className="rounded-xl border p-4" style={{ borderColor: `${selectedStoryLane.color}35`, background: `${selectedStoryLane.color}08` }}>
+                <div className="text-[10px] font-mono tracking-widest" style={{ color: selectedStoryLane.color }}>COMIC BLUEPRINT</div>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "#D6E2EE" }}>{selectedStoryLane.comic}</p>
+              </div>
+              <div className="rounded-xl border p-4" style={{ borderColor: `${selectedStoryLane.color}35`, background: `${selectedStoryLane.color}08` }}>
+                <div className="text-[10px] font-mono tracking-widest" style={{ color: selectedStoryLane.color }}>SAFE STORY QUESTION</div>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "#D6E2EE" }}>{selectedStoryLane.audiencePrompt}</p>
+                <Link href="/creator-operations" className="mt-4 inline-flex text-xs font-black" style={{ color: selectedStoryLane.color }}>Route an adult-supported story seed →</Link>
+              </div>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed" style={{ color: "#94A8BC" }}>Concept development stays separate from release. Any submitted seed needs adult support, consent, moderation, creator-rights review, and an owner-controlled release decision before it can be used or shared.</p>
           </div>
           <div className="mt-7 grid gap-5 lg:grid-cols-2">
             <article className="rounded-2xl border p-5" style={{ borderColor: "rgba(255,184,0,0.35)", background: "rgba(255,184,0,0.05)" }}>

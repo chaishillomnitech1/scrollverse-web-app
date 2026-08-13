@@ -2310,10 +2310,44 @@
 - [x] Add source-labeled public discovery handoffs to the main page and appropriate Junior Movies surfaces
 - [x] Design an original, child-safe character and story-idea participation path with consent, moderation, and creator-ownership boundaries
 
+## Original ScrollVerse Story Universe
+- [x] Define original-world principles and a verified first-party story-resource map separate from public inspiration references
+- [x] Expand distinct original character, episode, comic, and audience-participation development paths
+- [x] Add reusable story-universe guidance, regression coverage, and validate the published experience
+
 ## Clipboard Release-Evidence Intake
 - [x] Classify the four uploaded clipboard attachments by visible file type, content, source, and privacy status
 - [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow
 - [x] Apply verified evidence or record the exact remaining owner-only dependency without exposing private content
+
+## Extended Clipboard Release-Evidence Intake
+- [x] Classify the eight newly uploaded clipboard attachments by visible file type, content, source, and privacy status
+- [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow
+- [x] Apply verified evidence or record the exact remaining owner-only dependency without exposing private content
+
+## Latest Clipboard Release-Evidence Intake
+- [x] Classify the two latest clipboard attachments by visible file type, content, source, and privacy status
+- [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow
+- [x] Apply verified evidence or record the exact remaining owner-only dependency without exposing private content
+
+## Newest Clipboard Release-Evidence Intake
+- [x] Classify the newest two clipboard attachments by visible file type, content, source, and privacy status
+- [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow
+- [x] Apply verified evidence or record the exact remaining owner-only dependency without exposing private content
+
+## Latest Pair Clipboard Release-Evidence Intake
+- [x] Classify the latest pair of clipboard attachments by visible file type, content, source, and privacy status
+- [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow
+- [x] Apply verified evidence or record the exact remaining owner-only dependency without exposing private content
+
+## Consolidated Private-Intake and Verified Development Pass
+- [x] Consolidate all recent clipboard classifications and record their verified versus unsupported release-evidence state
+- [x] Complete the next independently actionable first-party portal or protected-workflow improvement without converting private intake into public release material
+- [x] Publish the verified improvement and retain explicit owner-only evidence requirements
+
+## Owner Likeness and Title Assertion
+- [x] Record the owner-provided likeness and title assertion as protected intake, distinct from release-ready provenance evidence
+- [x] Identify the exact cleared source asset, provenance record, and authenticated-owner step required before public use or activation
 
 ## Audience-to-Revenue Readiness
 - [x] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
