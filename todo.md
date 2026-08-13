@@ -2353,7 +2353,7 @@
 ## Reusable Practice Registry and Continuity Maintenance
 - [x] Inventory verified reusable practices, guide surfaces, and safe non-transactional maintenance candidates
 - [x] Add a source-linked practice registry to Hero and first-party guide routes with privacy and automation boundaries
-- [ ] Register the user-approved weekly non-transactional continuity review: first-party route health, tracker state, and dependency summary only
+- [x] Register the user-approved weekly non-transactional continuity review: first-party route health, tracker state, and dependency summary only
 - [x] Validate, publish, and document active versus protected automation states
 
 ## First-Party Offer and Cross-Promotion Highway
