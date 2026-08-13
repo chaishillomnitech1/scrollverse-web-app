@@ -989,6 +989,9 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◈", title: "Operational Safeguards", detail: "Read first-party managed-connector, dry-run, idempotency, source-routing, and secret-isolation controls without implying external activation.", href: "/operational-safeguards", color: "#00FF88" },
   { icon: "◌", title: "Media Readiness Lab", detail: "Inspect image, video, and music files locally; export a provider-preparation record before private staging or delivery research.", href: "/media-readiness-lab", color: "#FFB800" },
   { icon: "⇄", title: "Distribution Highways", detail: "Compare official public music, video, streaming, and creator-platform routes with their source and submission boundaries visible.", href: "/distribution-highways", color: "#00D4FF" },
+  { icon: "✦", title: "Artist Control Desk", detail: "Keep a creator-owned preparation record, choose specialist guidance, and explore free practical pathways before any provider handoff.", href: "/artist-control-desk", color: "#FFB800" },
+  { icon: "◇", title: "ConsoleVerse", detail: "Open the first-party creator operations layer for linked records, visible workflow, source routing, and release preparation.", href: "/consoleverse", color: "#B98CFF" },
+  { icon: "◎", title: "Opportunity Navigator", detail: "Start with free first-party preparation and move to transparent official opportunity routes when you are ready.", href: "/opportunity-navigator", color: "#00FF88" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

@@ -2174,12 +2174,12 @@
 - [x] Classify the supplied Master Startup and audit reference against accessible source evidence
 - [x] Integrate only verified dry-run, idempotency, source-routing, and secret-isolation patterns
 - [x] Clarify the managed platform-connector boundary without exposing connector credentials or implying provider activation
-- [ ] Validate, document, and publish the verified control improvements
+- [x] Validate, document, and publish the verified control improvements
 
 ## Phase 171 — ConsoleVerse CRM and Creator Operations
-- [ ] Research public CRM, creator-operations, and console patterns with source and rights boundaries
-- [ ] Build the first-party ConsoleVerse control surface and reusable operating practice
-- [ ] Validate, document, and publish the ConsoleVerse improvement
+- [x] Research public CRM, creator-operations, and console patterns with source and rights boundaries
+- [x] Build the first-party ConsoleVerse control surface and reusable operating practice
+- [x] Validate, document, and publish the ConsoleVerse improvement
 
 ## Phase 172 — Creator Media Intake and Release Readiness
 - [x] Audit existing image, video, music, live-stream, rights, and distribution handoff workflows
@@ -2192,6 +2192,23 @@
 - [x] Research official public music, video, streaming, and creator-platform routes with source and submission boundaries
 - [x] Build the source-labeled first-party Distribution Highways map and reusable operating practice
 - [x] Validate, document, and publish the distribution preparation and public handoff layer
+
+## Phase 174 — Artist Control and Specialized Assistance
+- [x] Inventory existing artist-control, creator-guidance, incentive-readiness, and provider-boundary routes
+- [x] Build the first-party Artist Control Desk with specialized guidance and low-cost learning pathways
+- [x] Add transparent incentive-readiness and provider-comparison boundaries
+- [x] Validate, document, and publish the artist-control and assistance upgrade
+
+## Phase 175 — Inclusive Opportunity Navigator
+- [x] Inventory accessible opportunity routes and identify first-party barriers that can be reduced safely
+- [x] Build an inclusive opportunity navigator with free preparation and transparent eligibility pathways
+- [x] Validate, document, and publish the accessible opportunity layer
+
+## Phase 176 — Knowledge and Creator Guidance Consolidation
+- [x] Inventory current uncheckpointed improvements and outstanding active worklist items
+- [x] Consolidate actionable source-led knowledge and creator-guidance updates
+- [x] Complete the full continuity sweep across all currently actionable first-party improvements
+- [x] Validate, document, and publish the latest consolidated update
 - [ ] Obtain explicit broadcast confirmation, deploy only the verified contract set, and capture on-chain evidence
 - [ ] Verify confirmed addresses and connect only verified contracts to portal surfaces
 

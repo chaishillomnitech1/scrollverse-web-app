@@ -304,6 +304,9 @@ import CreatorCollectionRecords from "./pages/CreatorCollectionRecords";
 import OperationalSafeguards from "./pages/OperationalSafeguards";
 import MediaReadinessLab from "./pages/MediaReadinessLab";
 import DistributionHighwaysMap from "./pages/DistributionHighwaysMap";
+import ArtistControlDesk from "./pages/ArtistControlDesk";
+import ConsoleVerse from "./pages/ConsoleVerse";
+import OpportunityNavigator from "./pages/OpportunityNavigator";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -636,6 +639,9 @@ function Router() {
         <Route path="/operational-safeguards" component={OperationalSafeguards} />
         <Route path="/media-readiness-lab" component={MediaReadinessLab} />
         <Route path="/distribution-highways" component={DistributionHighwaysMap} />
+        <Route path="/artist-control-desk" component={ArtistControlDesk} />
+        <Route path="/consoleverse" component={ConsoleVerse} />
+        <Route path="/opportunity-navigator" component={OpportunityNavigator} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

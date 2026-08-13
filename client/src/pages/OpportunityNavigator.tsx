@@ -1,0 +1,28 @@
+import { Link } from "wouter";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+
+const FREE_PATHS = [
+  { title: "Build your preparation record", route: "/artist-control-desk", detail: "Free first-party creator, media, rights, evidence, and provider-comparison routes." },
+  { title: "Prepare a release package", route: "/media-readiness-lab", detail: "Inspect a local asset and export a readiness record before a private staging or delivery decision." },
+  { title: "Find official public routes", route: "/distribution-highways", detail: "Compare public provider destinations and their stated account, qualification, licensing, and delivery boundaries." },
+  { title: "Study revenue models", route: "/creator-revenue-learning", detail: "Learn the mechanics of creator revenue models without an income promise or account activation." },
+];
+
+const EXTERNAL_OPPORTUNITIES = [
+  { title: "National Endowment for the Arts", href: "https://www.arts.gov/grants", eligibility: "Program-specific eligibility, location, organization type, deadlines, and review criteria apply." },
+  { title: "Creative Capital artist opportunities", href: "https://creative-capital.org/artist-resources/artist-opportunities/", eligibility: "Each listing maintains its own discipline, geography, eligibility, cost, and closing-date rules." },
+  { title: "South Arts individual artist opportunities", href: "https://www.southarts.org/grants-opportunities/individual-artist-career-opportunity-grants", eligibility: "Eligibility is regional and program-specific; verify current residency and deadline rules directly." },
+  { title: "YouTube Creator resources", href: "https://www.youtube.com/creators/", eligibility: "Creator tools and monetization access depend on account status, policies, and applicable thresholds." },
+] as const;
+
+export default function OpportunityNavigator() {
+  useSovereignHeartbeat({ page: "opportunity-navigator" });
+  return <main className="min-h-screen pb-16 text-white" style={{ background: "radial-gradient(circle at 12% 4%, rgba(0,255,136,0.15), transparent 30%), radial-gradient(circle at 90% 40%, rgba(255,184,0,0.1), transparent 29%), #050B1A" }}>
+    <header className="border-b" style={{ borderColor: "rgba(0,255,136,0.22)", background: "rgba(5,11,26,0.9)" }}><div className="container flex items-center justify-between py-4"><Link href="/" className="font-black text-white">ScrollVerse</Link><Link href="/artist-control-desk" className="text-xs font-mono" style={{ color: "#00FF88" }}>ARTIST CONTROL DESK</Link></div></header>
+    <section className="container py-12 md:py-16"><p className="text-xs font-mono tracking-[0.22em]" style={{ color: "#00FF88" }}>INCLUSIVE OPPORTUNITY NAVIGATOR</p><h1 className="mt-4 max-w-5xl text-4xl font-black leading-tight md:text-6xl">Remove the confusion.<br /><span style={{ color: "#FFB800" }}>Keep the creator’s choice.</span></h1><p className="mt-6 max-w-4xl text-base leading-relaxed md:text-lg" style={{ color: "#C8D8E7" }}>ScrollVerse reduces first-party barriers with free preparation tools, clear evidence routes, accessible language, and direct official opportunity links. It does not bypass a grant, platform, employer, or provider’s eligibility rules; it helps a creator arrive prepared and understand the path.</p>
+      <section className="mt-10"><p className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>FREE FIRST-PARTY STARTING POINTS</p><div className="mt-5 grid gap-4 md:grid-cols-2">{FREE_PATHS.map(path => <Link key={path.title} href={path.route} className="rounded-2xl border p-6" style={{ borderColor: "rgba(0,212,255,0.28)", background: "rgba(0,212,255,0.035)" }}><h2 className="text-xl font-black">{path.title}</h2><p className="mt-3 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>{path.detail}</p><p className="mt-5 text-sm font-black" style={{ color: "#00D4FF" }}>Open free route →</p></Link>)}</div></section>
+      <section className="mt-12"><p className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>OFFICIAL PUBLIC OPPORTUNITY ROUTES</p><p className="mt-3 max-w-4xl text-sm leading-relaxed" style={{ color: "#B7C9D7" }}>These are outside opportunities published by their providers. ScrollVerse does not collect applications, decide eligibility, charge an access fee, or represent an award, placement, or acceptance.</p><div className="mt-5 grid gap-4 md:grid-cols-2">{EXTERNAL_OPPORTUNITIES.map(opportunity => <a key={opportunity.title} href={opportunity.href} target="_blank" rel="noopener noreferrer" className="rounded-2xl border p-6" style={{ borderColor: "rgba(255,184,0,0.27)", background: "rgba(255,184,0,0.035)" }}><h2 className="text-xl font-black">{opportunity.title}</h2><p className="mt-3 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>{opportunity.eligibility}</p><p className="mt-5 text-sm font-black" style={{ color: "#FFB800" }}>Open official route ↗</p></a>)}</div></section>
+      <section className="mt-10 rounded-2xl border p-6" style={{ borderColor: "rgba(185,140,255,0.3)", background: "rgba(185,140,255,0.04)" }}><p className="text-xs font-mono tracking-widest" style={{ color: "#B98CFF" }}>FAIR ACCESS STANDARD</p><p className="mt-3 max-w-5xl text-sm leading-relaxed" style={{ color: "#CFDCE8" }}>A creator should be able to understand a path without paying to decode it. ScrollVerse therefore keeps its first-party preparation, evidence, and learning routes open, states when an outside organization controls the next step, and leaves the creator in control of their private source material and decisions.</p></section>
+    </section>
+  </main>;
+}

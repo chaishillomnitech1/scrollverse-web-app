@@ -938,4 +938,43 @@ describe("Phase 94 route map", () => {
     expect(register).toContain("Hulu Content Portal");
     expect(register).toContain("The Orchard");
   });
+  it("registers the Artist Control Desk with first-party assistance and evidence-gated incentive boundaries", () => {
+    const desk = readProjectFile("client/src/pages/ArtistControlDesk.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const record = readProjectFile("docs/phase174-artist-control-desk.md");
+    expect(app).toContain('import ArtistControlDesk from "./pages/ArtistControlDesk"');
+    expect(app).toContain('<Route path="/artist-control-desk" component={ArtistControlDesk} />');
+    expect(desk).toContain("ARTIST CONTROL DESK · FIRST-PARTY ASSISTANCE");
+    expect(desk).toContain("SPECIALIZED ASSISTANCE");
+    expect(desk).toContain("AFFORDABLE BY DESIGN · INCENTIVE READINESS");
+    expect(desk).toContain("Tokenized service incentive");
+    expect(desk).toContain("Kickback or revenue share");
+    expect(desk).toContain("does not upload your work, sign agreements, send media");
+    expect(home).toContain('href: "/artist-control-desk"');
+    expect(record).toContain("Any tokenized service, creator reward, kickback");
+  });
+
+  it("registers ConsoleVerse as a first-party operations layer without claiming third-party CRM access", () => {
+    const consoleverse = readProjectFile("client/src/pages/ConsoleVerse.tsx");
+    const record = readProjectFile("docs/phase171-consoleverse-patterns.md");
+    expect(app).toContain('import ConsoleVerse from "./pages/ConsoleVerse"');
+    expect(app).toContain('<Route path="/consoleverse" component={ConsoleVerse} />');
+    expect(consoleverse).toContain("CONSOLEVErSE · CREATOR OPERATIONS LAYER");
+    expect(consoleverse).toContain("Relationship record");
+    expect(consoleverse).toContain("Visible workflow");
+    expect(consoleverse).toContain("does not copy another company’s code");
+    expect(record).toContain("no proprietary code, account access, or implementation is copied");
+  });
+
+  it("registers the Inclusive Opportunity Navigator with free preparation and external eligibility boundaries", () => {
+    const navigator = readProjectFile("client/src/pages/OpportunityNavigator.tsx");
+    const record = readProjectFile("docs/phase175-inclusive-opportunity-navigator.md");
+    expect(app).toContain('import OpportunityNavigator from "./pages/OpportunityNavigator"');
+    expect(app).toContain('<Route path="/opportunity-navigator" component={OpportunityNavigator} />');
+    expect(navigator).toContain("INCLUSIVE OPPORTUNITY NAVIGATOR");
+    expect(navigator).toContain("National Endowment for the Arts");
+    expect(navigator).toContain("does not bypass a grant, platform, employer, or provider’s eligibility rules");
+    expect(navigator).toContain("does not collect applications, decide eligibility");
+    expect(record).toContain("does not bypass provider, employer, platform, grant");
+  });
 });
