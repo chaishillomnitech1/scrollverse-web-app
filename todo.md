@@ -2310,6 +2310,11 @@
 - [x] Add source-labeled public discovery handoffs to the main page and appropriate Junior Movies surfaces
 - [x] Design an original, child-safe character and story-idea participation path with consent, moderation, and creator-ownership boundaries
 
+## Clipboard Release-Evidence Intake
+- [x] Classify the four uploaded clipboard attachments by visible file type, content, source, and privacy status
+- [x] Identify any clear app-icon, administrator, provenance, or release-bundle evidence that can be safely used in the protected workflow
+- [x] Apply verified evidence or record the exact remaining owner-only dependency without exposing private content
+
 ## Audience-to-Revenue Readiness
 - [x] Review public creator-channel evidence and current ScrollVerse audience, merchandise, music, collecting, and release-readiness surfaces
 - [x] Add transparent audience-to-revenue guidance that distinguishes published routes from owner-controlled or provider-dependent activation
