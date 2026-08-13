@@ -994,6 +994,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◎", title: "Opportunity Navigator", detail: "Start with free first-party preparation and move to transparent official opportunity routes when you are ready.", href: "/opportunity-navigator", color: "#00FF88" },
   { icon: "⌘", title: "GitHub Showcase", detail: "Browse the August 13 public repository snapshot by portal, media, Web3, research, workflow, and portfolio lenses.", href: "/github-showcase", color: "#00D4FF" },
   { icon: "◌", title: "Digital Footprint Report", detail: "Review the dated portal, creator, GitHub, explorer, and external-update trail with evidence classes and limitations visible.", href: "/digital-footprint-report", color: "#B98CFF" },
+  { icon: "▶", title: "Creator Channel Hub", detail: "Organize creator-provided public destinations, direct-video handoffs, and learning references with visible source limits.", href: "/creator-channel-hub", color: "#FF5568" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

@@ -1016,4 +1016,22 @@ describe("Phase 94 route map", () => {
     expect(reconciliation).toContain("50 deduplicated repository records");
     expect(reconciliation).toContain("51 public repositories");
   });
+
+  it("registers the Creator Channel Hub with local organization and no fabricated platform-video metadata", () => {
+    const hub = readProjectFile("client/src/pages/CreatorChannelHub.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const record = readProjectFile("docs/phase179-creator-channel-source-record.md");
+    expect(app).toContain('import CreatorChannelHub from "./pages/CreatorChannelHub"');
+    expect(app).toContain('<Route path="/creator-channel-hub" component={CreatorChannelHub} />');
+    expect(hub).toContain("CREATOR CHANNEL HUB");
+    expect(hub).toContain("BROWSER-LOCAL ORGANIZER");
+    expect(hub).toContain("DIRECT LINK · METADATA UNLISTED");
+    expect(hub).toContain("does not invent a top-video chart, view count, upload date, or platform connection");
+    expect(hub).toContain("does not retrieve live YouTube or Spotify data, authenticate a channel");
+    expect(hub).toContain("Junior Movies is linked as a youth-and-family discovery destination");
+    expect(hub).toContain("https://youtu.be/wwXqO99diH0");
+    expect(home).toContain('href: "/creator-channel-hub"');
+    expect(record).toContain("Google’s automated-traffic verification page");
+    expect(record).toContain("must not label that ID as a verified creator channel");
+  });
 });

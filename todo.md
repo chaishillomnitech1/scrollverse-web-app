@@ -2224,6 +2224,12 @@
 - [x] Connect the report through first-party discovery and add regression coverage
 - [x] Validate, document, and publish the digital-footprint report route
 
+## Phase 179 — Enhanced Creator Channel Hub
+- [x] Verify creator-channel source records and separate unverified/direct references from attributable public destinations
+- [x] Build a source-labeled creator-channel hub with browser-local organization and public route handoffs
+- [x] Connect the enhanced channel hub to creator-evidence routes and add regression coverage
+- [x] Validate, document, and publish the enhanced creator-channel hub
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
