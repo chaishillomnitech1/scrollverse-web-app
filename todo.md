@@ -2393,9 +2393,9 @@
 - [ ] Implement, validate, and publish the unified first-party discovery experience
 
 ## Platform-Foundation Research and Original Navigator Patterns
-- [ ] Research practical discovery, browser, communication, creation, and community-platform foundations from authoritative public sources
-- [ ] Design original ScrollVerse navigator patterns that connect verified knowledge, creation, community, and distribution context
-- [ ] Implement, validate, and publish the source-led discovery-system improvements
+- [x] Research practical discovery, browser, communication, creation, and community-platform foundations from authoritative public sources
+- [x] Design original ScrollVerse navigator patterns that connect verified knowledge, creation, community, and distribution context
+- [x] Implement, validate, and publish the source-led discovery-system improvements
 
 ## Concept Seal and Shrine Experience
 - [x] Define the original concept seal message, provenance metadata, visual direction, and future activation boundaries

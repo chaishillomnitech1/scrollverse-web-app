@@ -327,6 +327,23 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("does not establish a trademark");
   });
 
+  it("registers the Platform Foundations Navigator with source-led lanes and no external-control claim", () => {
+    const navigator = readProjectFile("client/src/pages/PlatformFoundations.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const context = readProjectFile("client/src/pages/KnowledgeContext.tsx");
+    const research = readProjectFile("docs/phase160-platform-foundations-research.md");
+    expect(app).toContain('import PlatformFoundations from "./pages/PlatformFoundations"');
+    expect(app).toContain('<Route path="/platform-foundations" component={PlatformFoundations} />');
+    expect(navigator).toContain("PLATFORM FOUNDATIONS NAVIGATOR");
+    expect(navigator).toContain("SOURCE → CURRENT STATE → FIRST-PARTY NEXT ROUTE");
+    expect(navigator).toContain("does not connect accounts, operate external communities, fetch private data, or control another service");
+    expect(navigator).toContain("does not rank people, recommend a transaction, guarantee reach");
+    ["/knowledge-context", "/evidence-standards", "/creator-workspace", "/creator-media-studio", "/legion-commons", "/digital-highways", "/signalworks", "/creator-revenue-learning", "/protection-protocol", "/ip-readiness"].forEach(route => expect(navigator).toContain(route));
+    expect(home).toContain('href: "/platform-foundations"');
+    expect(context).toContain('href="/platform-foundations"');
+    ["W3C WAI Page Structure Tutorial", "MDN `<nav>` element reference", "Discord Community Onboarding FAQ"].forEach(source => expect(research).toContain(source));
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");
