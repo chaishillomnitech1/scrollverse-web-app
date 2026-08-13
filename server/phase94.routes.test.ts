@@ -344,6 +344,26 @@ describe("Phase 94 route map", () => {
     ["W3C WAI Page Structure Tutorial", "MDN `<nav>` element reference", "Discord Community Onboarding FAQ"].forEach(source => expect(research).toContain(source));
   });
 
+  it("registers the unified Knowledge Navigator with source, evidence, dependency labels, and browser-local filtering", () => {
+    const navigator = readProjectFile("client/src/pages/KnowledgeNavigator.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const context = readProjectFile("client/src/pages/KnowledgeContext.tsx");
+    const inventory = readProjectFile("docs/phase161-knowledge-navigator-inventory.md");
+    expect(app).toContain('import KnowledgeNavigator from "./pages/KnowledgeNavigator"');
+    expect(app).toContain('<Route path="/knowledge-navigator" component={KnowledgeNavigator} />');
+    expect(navigator).toContain("SOURCE-LED KNOWLEDGE NAVIGATOR");
+    expect(navigator).toContain("Every route carries its context.");
+    expect(navigator).toContain("Filtering happens in this browser only.");
+    ["SOURCE", "EVIDENCE", "EXTERNAL DEPENDENCY"].forEach(label => expect(navigator).toContain(label));
+    expect(navigator).toContain("does not automatically collect new sources, validate a third-party claim");
+    expect(navigator).toContain("create an external account, alter a community, transmit visitor data");
+    ["/knowledge-context", "/evidence-standards", "/creator-workspace", "/creator-media-studio", "/digital-highways", "/legion-commons", "/signalworks", "/creator-revenue-learning", "/protection-protocol", "/ip-readiness", "/platform-foundations"].forEach(route => expect(navigator).toContain(route));
+    expect(home).toContain('href: "/knowledge-navigator"');
+    expect(context).toContain('href="/knowledge-navigator"');
+    expect(inventory).toContain("/knowledge-context");
+    expect(inventory).toContain("/platform-foundations");
+  });
+
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
     const hero = readProjectFile("client/src/pages/ManusHeroCodex.tsx");
     const identity = readProjectFile("client/src/pages/IdentitySystem.tsx");

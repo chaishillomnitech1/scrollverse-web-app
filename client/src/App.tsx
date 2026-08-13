@@ -296,6 +296,7 @@ import AegisChronicles from "./pages/AegisChronicles";
 import CreatorRevenueLearning from "./pages/CreatorRevenueLearning";
 import ConceptSealShrine from "./pages/ConceptSealShrine";
 import PlatformFoundations from "./pages/PlatformFoundations";
+import KnowledgeNavigator from "./pages/KnowledgeNavigator";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -620,6 +621,7 @@ function Router() {
         <Route path="/creator-revenue-learning" component={CreatorRevenueLearning} />
         <Route path="/concept-seal-shrine" component={ConceptSealShrine} />
         <Route path="/platform-foundations" component={PlatformFoundations} />
+        <Route path="/knowledge-navigator" component={KnowledgeNavigator} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

@@ -971,6 +971,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "▣", title: "Creator Revenue Learning", detail: "Study source-labeled video, music, live, membership, and short-form revenue mechanics without income promises or account activation.", href: "/creator-revenue-learning", color: "#FFB800" },
   { icon: "◎", title: "Open Spiral Seal", detail: "Visit the public concept shrine for the original 2026 ScrollVerse Open Spiral Seal, its provenance record, and future-readiness boundaries.", href: "/concept-seal-shrine", color: "#B98CFF" },
   { icon: "⌁", title: "Platform Foundations", detail: "Choose a source-led route through discovery, creation, community, distribution context, and protection without external account control.", href: "/platform-foundations", color: "#00FF88" },
+  { icon: "⌕", title: "Knowledge Navigator", detail: "Browse the unified first-party route index with visible source, evidence, and external-dependency labels.", href: "/knowledge-navigator", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

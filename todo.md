@@ -2388,9 +2388,9 @@
 - [x] Publish verified guidance and report remaining owner or provider dependencies
 
 ## Source-Led Knowledge Navigator
-- [ ] Inventory current discovery, knowledge, research, creator, and public-reference surfaces for a unified navigator
-- [ ] Design the knowledge navigator with source, date, evidence, and external-dependency labels
-- [ ] Implement, validate, and publish the unified first-party discovery experience
+- [x] Inventory current discovery, knowledge, research, creator, and public-reference surfaces for a unified navigator
+- [x] Design the knowledge navigator with source, date, evidence, and external-dependency labels
+- [x] Implement, validate, and publish the unified first-party discovery experience
 
 ## Platform-Foundation Research and Original Navigator Patterns
 - [x] Research practical discovery, browser, communication, creation, and community-platform foundations from authoritative public sources
