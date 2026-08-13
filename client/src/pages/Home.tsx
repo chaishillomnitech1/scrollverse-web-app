@@ -986,6 +986,9 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "⌕", title: "Knowledge Navigator", detail: "Browse the unified first-party route index with visible source, evidence, and external-dependency labels.", href: "/knowledge-navigator", color: "#00D4FF" },
   { icon: "↗", title: "Public Reference Trail", detail: "Open the source-labeled Skool research trail: public articles, videos, code references, creator profiles, and evidence limits in one route.", href: "/public-reference-trail", color: "#B98CFF" },
   { icon: "◫", title: "Evidence Commons", detail: "Compare creator channels, project records, and dated external platform updates without confusing timing with proof of cause.", href: "/evidence-commons", color: "#00FF88" },
+  { icon: "◈", title: "Operational Safeguards", detail: "Read first-party managed-connector, dry-run, idempotency, source-routing, and secret-isolation controls without implying external activation.", href: "/operational-safeguards", color: "#00FF88" },
+  { icon: "◌", title: "Media Readiness Lab", detail: "Inspect image, video, and music files locally; export a provider-preparation record before private staging or delivery research.", href: "/media-readiness-lab", color: "#FFB800" },
+  { icon: "⇄", title: "Distribution Highways", detail: "Compare official public music, video, streaming, and creator-platform routes with their source and submission boundaries visible.", href: "/distribution-highways", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

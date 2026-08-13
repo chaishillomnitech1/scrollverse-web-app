@@ -2162,6 +2162,36 @@
 - [x] Build the accessible Main Page Action Wheel with first-party learning and creator routes
 - [x] Record the timestamped self-reported observation with measurement and causal-interpretation limits
 - [x] Validate, document, and publish the action-wheel experience
+
+## Phase 169 — Referenced Research and Owner Release Follow-Through
+- [x] Inspect referenced task materials and classify reusable diagram, file-reference, and blockchain-royalty findings
+- [x] Inspect the referenced mobile and website application task for reusable first-party architecture and interaction patterns
+- [x] Integrate only verified, source-labeled improvements into first-party ScrollVerse routes and documentation
+- [ ] Complete any newly available authenticated Creator Operations release-record actions
+- [x] Validate, document, and publish the reference-integration and release-record update
+
+## Phase 170 — Master Startup Reference Review
+- [x] Classify the supplied Master Startup and audit reference against accessible source evidence
+- [x] Integrate only verified dry-run, idempotency, source-routing, and secret-isolation patterns
+- [x] Clarify the managed platform-connector boundary without exposing connector credentials or implying provider activation
+- [ ] Validate, document, and publish the verified control improvements
+
+## Phase 171 — ConsoleVerse CRM and Creator Operations
+- [ ] Research public CRM, creator-operations, and console patterns with source and rights boundaries
+- [ ] Build the first-party ConsoleVerse control surface and reusable operating practice
+- [ ] Validate, document, and publish the ConsoleVerse improvement
+
+## Phase 172 — Creator Media Intake and Release Readiness
+- [x] Audit existing image, video, music, live-stream, rights, and distribution handoff workflows
+- [x] Build first-party media intake, local validation, preview, rights, and release-readiness controls
+- [x] Add source-backed quality checks for video delivery, lossless audio, metadata, and asset-integrity preparation
+- [x] Add a first-party provider-preparation package record with media facts, metadata, rights, provenance, and review checkpoints
+- [x] Validate, document, and publish the creator-media operations upgrade
+
+## Phase 173 — Distribution Highways Map
+- [x] Research official public music, video, streaming, and creator-platform routes with source and submission boundaries
+- [x] Build the source-labeled first-party Distribution Highways map and reusable operating practice
+- [x] Validate, document, and publish the distribution preparation and public handoff layer
 - [ ] Obtain explicit broadcast confirmation, deploy only the verified contract set, and capture on-chain evidence
 - [ ] Verify confirmed addresses and connect only verified contracts to portal surfaces
 

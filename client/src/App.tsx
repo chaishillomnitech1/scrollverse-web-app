@@ -301,6 +301,9 @@ import PublicReferenceTrail from "./pages/PublicReferenceTrail";
 import EvidenceCommons from "./pages/EvidenceCommons";
 import GulfLearning from "./pages/GulfLearning";
 import CreatorCollectionRecords from "./pages/CreatorCollectionRecords";
+import OperationalSafeguards from "./pages/OperationalSafeguards";
+import MediaReadinessLab from "./pages/MediaReadinessLab";
+import DistributionHighwaysMap from "./pages/DistributionHighwaysMap";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -630,6 +633,9 @@ function Router() {
         <Route path="/evidence-commons" component={EvidenceCommons} />
         <Route path="/gulf-learning" component={GulfLearning} />
         <Route path="/creator-collection-records" component={CreatorCollectionRecords} />
+        <Route path="/operational-safeguards" component={OperationalSafeguards} />
+        <Route path="/media-readiness-lab" component={MediaReadinessLab} />
+        <Route path="/distribution-highways" component={DistributionHighwaysMap} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
