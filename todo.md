@@ -2126,6 +2126,26 @@
 ## Phase 132 — Reusable Continuity Practice
 - [x] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series
 
+## Phase 163 — Controlled Polygon Mainnet Deployment
+- [x] Audit ScrollSoul contracts, deployment scripts, network settings, royalty mechanics, and current deployment evidence
+- [x] Verify user-referenced source material and preserve only confirmed deployment practices in reusable documentation
+- [x] Verify the supplied Scroll zkEVM vault and treasury evidence, then reconcile it with the local Polygon release path
+- [x] Preserve the nonsecret credential-exposure boundary and secure replacement path without retaining the exposed secret
+- [x] Build public read-only deployment evidence controls for the verified Scroll and Polygon paths
+- [x] Add a source-labeled ScrollScan traction layer that distinguishes public network activity from ScrollVerse-specific contract activity
+- [x] Research the public ScrollVerse and GitHub footprint, then record source-labeled verified findings
+- [x] Attach the owner-supplied Skool public-reference trail with source, topic, and evidence-boundary labels
+- [ ] Build and validate the Polygon mainnet deployment checklist and secure configuration path
+
+## Phase 164 — Source-Led Evidence Commons
+- [x] Inventory existing creator channels, project artifacts, public platform sources, and evidence standards
+- [x] Research dated public platform records and define a documented-fact, temporal-overlap, and causal-evidence classification method
+- [x] Build the public Evidence Commons with synchronized creator channels, project records, and open research pathways
+- [x] Add an explicit project-perspective layer while preserving alternative explanations and causal-evidence limits
+- [x] Validate, document, and publish the evidence-led public discussion and research surface
+- [ ] Obtain explicit broadcast confirmation, deploy only the verified contract set, and capture on-chain evidence
+- [ ] Verify confirmed addresses and connect only verified contracts to portal surfaces
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points

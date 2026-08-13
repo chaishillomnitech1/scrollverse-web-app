@@ -4,8 +4,11 @@
  */
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config({ path: ".env.blockchain" });
+const path = require("path");
 
-const DEPLOYER_KEY = process.env.DEPLOYER_PRIVATE_KEY || "0x0000000000000000000000000000000000000000000000000000000000000001";
+const DEPLOYER_KEY = process.env.DEPLOYER_PRIVATE_KEY;
+const DEPLOYER_ACCOUNTS = DEPLOYER_KEY ? [DEPLOYER_KEY] : [];
+const PROJECT_ROOT = path.resolve(__dirname, "../..");
 
 module.exports = {
   solidity: {
@@ -18,27 +21,27 @@ module.exports = {
     // Polygon Mainnet — PRODUCTION
     polygon: {
       url: process.env.POLYGON_RPC_URL || "https://polygon-rpc.com",
-      accounts: [DEPLOYER_KEY],
+      accounts: DEPLOYER_ACCOUNTS,
       chainId: 137,
       gasPrice: "auto",
     },
     // Polygon Amoy Testnet — TESTING
     amoy: {
       url: process.env.AMOY_RPC_URL || "https://rpc-amoy.polygon.technology",
-      accounts: [DEPLOYER_KEY],
+      accounts: DEPLOYER_ACCOUNTS,
       chainId: 80002,
       gasPrice: "auto",
     },
     // Base Mainnet — for Sovereign 9 NFTs
     base: {
       url: process.env.BASE_RPC_URL || "https://mainnet.base.org",
-      accounts: [DEPLOYER_KEY],
+      accounts: DEPLOYER_ACCOUNTS,
       chainId: 8453,
     },
     // Ethereum Mainnet — for Mika-Solara & Allversal Empire
     ethereum: {
       url: process.env.ETH_RPC_URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: [DEPLOYER_KEY],
+      accounts: DEPLOYER_ACCOUNTS,
       chainId: 1,
     },
   },
@@ -61,9 +64,9 @@ module.exports = {
     ],
   },
   paths: {
-    sources: "./blockchain/contracts",
-    scripts: "./blockchain/scripts",
-    artifacts: "./blockchain/artifacts",
-    cache: "./blockchain/cache",
+    sources: path.join(PROJECT_ROOT, "blockchain/contracts"),
+    scripts: path.join(PROJECT_ROOT, "blockchain/scripts"),
+    artifacts: path.join(PROJECT_ROOT, "blockchain/artifacts"),
+    cache: path.join(PROJECT_ROOT, "blockchain/cache"),
   },
 };

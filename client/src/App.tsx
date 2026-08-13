@@ -297,6 +297,8 @@ import CreatorRevenueLearning from "./pages/CreatorRevenueLearning";
 import ConceptSealShrine from "./pages/ConceptSealShrine";
 import PlatformFoundations from "./pages/PlatformFoundations";
 import KnowledgeNavigator from "./pages/KnowledgeNavigator";
+import PublicReferenceTrail from "./pages/PublicReferenceTrail";
+import EvidenceCommons from "./pages/EvidenceCommons";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -622,6 +624,8 @@ function Router() {
         <Route path="/concept-seal-shrine" component={ConceptSealShrine} />
         <Route path="/platform-foundations" component={PlatformFoundations} />
         <Route path="/knowledge-navigator" component={KnowledgeNavigator} />
+        <Route path="/public-reference-trail" component={PublicReferenceTrail} />
+        <Route path="/evidence-commons" component={EvidenceCommons} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

@@ -972,6 +972,8 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◎", title: "Open Spiral Seal", detail: "Visit the public concept shrine for the original 2026 ScrollVerse Open Spiral Seal, its provenance record, and future-readiness boundaries.", href: "/concept-seal-shrine", color: "#B98CFF" },
   { icon: "⌁", title: "Platform Foundations", detail: "Choose a source-led route through discovery, creation, community, distribution context, and protection without external account control.", href: "/platform-foundations", color: "#00FF88" },
   { icon: "⌕", title: "Knowledge Navigator", detail: "Browse the unified first-party route index with visible source, evidence, and external-dependency labels.", href: "/knowledge-navigator", color: "#00D4FF" },
+  { icon: "↗", title: "Public Reference Trail", detail: "Open the source-labeled Skool research trail: public articles, videos, code references, creator profiles, and evidence limits in one route.", href: "/public-reference-trail", color: "#B98CFF" },
+  { icon: "◫", title: "Evidence Commons", detail: "Compare creator channels, project records, and dated external platform updates without confusing timing with proof of cause.", href: "/evidence-commons", color: "#00FF88" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
