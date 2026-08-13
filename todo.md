@@ -2330,6 +2330,21 @@
 - [x] Classify the two newly uploaded clipboard attachments as protected source material
 - [x] Add source-linked educational context with clear science, interpretation, wallet, and transaction boundaries
 
+## Master Choice Matrix Verification
+- [x] Classify the owner-provided matrix claims against visible first-party records and protected Creator Operations requirements
+- [x] Document a source, deployment, and authorization map distinguishing active first-party routes from unverified contracts, mints, telemetry, and revenue claims
+- [x] Apply any independently verifiable workflow improvement while retaining protected activation handoffs
+
+## Owner-Directed Original Platform Pass
+- [x] Reconcile existing Legion, character, media, creator, and platform surfaces for the next independent build
+- [x] Implement the highest-leverage original first-party platform improvement
+- [x] Validate and publish the completed original-platform update
+
+## Original Platform Continuity
+- [x] Reconcile the verified platform state and identify the highest-value independent improvement
+- [x] Implement and test the selected original platform improvement
+- [x] Publish verified progress and retain clear protected-workflow handoffs
+
 ## Continuous Evidence-Led Improvement Pass
 - [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity
 - [x] Implement the selected independent improvement with measurable quality controls

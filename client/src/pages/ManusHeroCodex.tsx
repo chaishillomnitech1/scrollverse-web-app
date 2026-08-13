@@ -28,6 +28,7 @@ const SKILL_COMPASS = [
   { title: "Digital Highways", detail: "Use source-labeled first-party routes and transparent external referrals without confusing a handoff with access or affiliation.", boundary: "OUTBOUND REFERRALS ONLY", href: "/digital-highways", color: "#FFB800" },
   { title: "Audience-to-revenue readiness", detail: "Connect original merchandise, music, collecting preparation, manufacturing evidence, media staging, and external research routes before any owner-controlled activation decision.", boundary: "NO CHECKOUT OR MINT HERE", href: "/signalworks", color: "#FF8DB5" },
   { title: "Evidence before activation", detail: "Turn a concept into a reviewable record, test it, and keep owner, rights, provider, and release decisions visible.", boundary: "OWNER-CONTROLLED REVIEW", href: "/evidence-standards", color: "#B98CFF" },
+  { title: "Implementation map", detail: "Separate working first-party routes and protected handoffs from code, contract, mint, telemetry, or revenue claims that still need a visible record.", boundary: "VERIFY BEFORE DEPLOYMENT", href: "/revenue-ops", color: "#FFB800" },
 ] as const;
 
 const ORIGINAL_WORK_BOARD = "/manus-storage/xlviii-atlantis-concept-board-owner-upload_ceedf426.webp";
