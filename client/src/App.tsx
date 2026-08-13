@@ -291,6 +291,7 @@ import IpReadinessNavigator from "./pages/IpReadinessNavigator";
 import ChainIntelligence from "./pages/ChainIntelligence";
 import KnowledgeContext from "./pages/KnowledgeContext";
 import OpenExchangeFieldGuide from "./pages/OpenExchangeFieldGuide";
+import ProtectionProtocol from "./pages/ProtectionProtocol";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -610,6 +611,7 @@ function Router() {
         <Route path="/chain-intelligence" component={ChainIntelligence} />
         <Route path="/knowledge-context" component={KnowledgeContext} />
         <Route path="/open-exchange-field-guide" component={OpenExchangeFieldGuide} />
+        <Route path="/protection-protocol" component={ProtectionProtocol} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

@@ -2371,10 +2371,21 @@
 - [x] Write the free original ScrollVerse book and prepare a readable portal route through the knowledge and creator pathways
 - [x] Add source-linked navigation, validate the route, and publish the free resource
 
+## Creation Record and Knowledge Pathway
+- [x] Inventory existing book, knowledge, provenance, IP-readiness, and digital-collectible preparation surfaces
+- [x] Expand the free book and knowledge pathway with original-creation records, dated source context, and IP-readiness guidance
+- [x] Validate, document, and publish the expanded learning and readiness resource with protected action boundaries
+
 ## Visible Inspectable Platform Deliverable
 - [x] Reconcile the current verified platform work and select the next visible independent deliverable
 - [x] Implement and validate the selected inspectable platform improvement
 - [x] Publish the verified deliverable and retain clear owner or provider handoffs
+
+## Defensive Protection and Evidence Context
+- [x] Research authoritative defensive security, privacy, backup, provenance, incident-response, astronomy, geophysics, sound, and human-effects sources
+- [x] Design a practical ScrollVerse protection architecture and source-led evidence-context model with clear scope boundaries
+- [x] Implement and test independently actionable security, documentation, and educational improvements
+- [x] Publish verified guidance and report remaining owner or provider dependencies
 
 ## Continuous Evidence-Led Improvement Pass
 - [x] Stabilize the active environment and reconcile the next highest-leverage verified improvement opportunity

@@ -254,6 +254,21 @@ describe("Phase 94 route map", () => {
     expect(guide).toContain("Begin with what is real");
     expect(guide).toContain("/manus-hero");
     expect(guide).toContain("/creator-operations");
+    expect(guide).toContain("ORIGINAL CREATION RECORD PATH");
+    expect(guide).toContain("Make · date · describe · review · choose a route.");
+    expect(guide).toContain("does not itself file a patent, register copyright");
+    ["/creator-workspace", "/ip-readiness", "/chain-intelligence"].forEach(route => expect(guide).toContain(route));
+  });
+
+  it("registers a practical Protection Protocol without privacy, wallet, or perfect-security claims", () => {
+    const protocol = readProjectFile("client/src/pages/ProtectionProtocol.tsx");
+    const context = readProjectFile("client/src/pages/KnowledgeContext.tsx");
+    expect(app).toContain('import ProtectionProtocol from "./pages/ProtectionProtocol"');
+    expect(app).toContain('<Route path="/protection-protocol" component={ProtectionProtocol} />');
+    expect(protocol).toContain("SCROLLVERSE PROTECTION PROTOCOL");
+    expect(protocol).toContain("Private intake");
+    expect(protocol).toContain("does not access a wallet, create a transaction, inspect private archives");
+    expect(context).toContain("Open Protection Protocol");
   });
 
   it("registers the Manus Hero and identity concepts without treating marks as registrations", () => {
