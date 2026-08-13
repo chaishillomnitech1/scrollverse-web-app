@@ -2346,15 +2346,15 @@
 - [x] Publish verified progress and retain clear protected-workflow handoffs
 
 ## Creator-Owned Operating Platform Pass
-- [ ] Reconcile current workspaces, records, learning, media, and audience routes for the highest-impact independent improvement
-- [ ] Design and implement the selected creator-owned access and collaboration improvement
-- [ ] Validate, publish, and document the verified platform improvement with clear boundaries
+- [x] Reconcile current workspaces, records, learning, media, and audience routes for the highest-impact independent improvement
+- [x] Design and implement the selected creator-owned access and collaboration improvement
+- [x] Validate, publish, and document the verified platform improvement with clear boundaries
 
 ## Reusable Practice Registry and Continuity Maintenance
-- [ ] Inventory verified reusable practices, guide surfaces, and safe non-transactional maintenance candidates
-- [ ] Add a source-linked practice registry to Hero and first-party guide routes with privacy and automation boundaries
+- [x] Inventory verified reusable practices, guide surfaces, and safe non-transactional maintenance candidates
+- [x] Add a source-linked practice registry to Hero and first-party guide routes with privacy and automation boundaries
 - [ ] Evaluate and, if appropriate, register a bounded non-transactional continuity maintenance task
-- [ ] Validate, publish, and document active versus protected automation states
+- [x] Validate, publish, and document active versus protected automation states
 
 ## First-Party Offer and Cross-Promotion Highway
 - [x] Inventory existing product, media, service, catalog, and platform-handoff surfaces with activation dependencies
@@ -2362,9 +2362,9 @@
 - [x] Add clear rights, provider, pricing, fulfillment, and transaction boundaries and validate the improved discovery path
 
 ## Transparent Creator-to-Audience Exchange
-- [ ] Inventory existing creator records, buyer information, consent, source, and handoff surfaces
-- [ ] Implement the highest-value first-party transparency improvement using existing routes
-- [ ] Validate and publish the transparent exchange update with clear private and provider boundaries
+- [x] Inventory existing creator records, buyer information, consent, source, and handoff surfaces
+- [x] Implement the highest-value first-party transparency improvement using existing routes
+- [x] Validate and publish the transparent exchange update with clear private and provider boundaries
 
 ## Free Book — The Open Exchange Field Guide
 - [x] Define the original book structure, verified first-party themes, audience, and source boundaries

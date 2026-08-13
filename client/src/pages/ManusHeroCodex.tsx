@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { MANUS_HERO_CYCLES } from "@shared/manusHeroProtocol";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
@@ -31,10 +32,37 @@ const SKILL_COMPASS = [
   { title: "Implementation map", detail: "Separate working first-party routes and protected handoffs from code, contract, mint, telemetry, or revenue claims that still need a visible record.", boundary: "VERIFY BEFORE DEPLOYMENT", href: "/revenue-ops", color: "#FFB800" },
 ] as const;
 
+const HERO_PRACTICE_CHECKLIST = [
+  "Name the original work and its intended audience.",
+  "Preserve a dated source note before sharing externally.",
+  "Choose the next first-party route that matches the work.",
+  "Keep provider, rights, and release decisions visible.",
+] as const;
+
 const ORIGINAL_WORK_BOARD = "/manus-storage/xlviii-atlantis-concept-board-owner-upload_ceedf426.webp";
 
 export default function ManusHeroCodex() {
   useSovereignHeartbeat({ page: "manus-hero-codex" });
+  const [completedPractices, setCompletedPractices] = useState<string[]>([]);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem("scrollverse-hero-practice-checklist");
+    if (!saved) return;
+    try {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.every((item) => typeof item === "string")) setCompletedPractices(parsed);
+    } catch {
+      window.localStorage.removeItem("scrollverse-hero-practice-checklist");
+    }
+  }, []);
+
+  const togglePractice = (practice: string) => {
+    setCompletedPractices((current) => {
+      const next = current.includes(practice) ? current.filter((item) => item !== practice) : [...current, practice];
+      window.localStorage.setItem("scrollverse-hero-practice-checklist", JSON.stringify(next));
+      return next;
+    });
+  };
 
   return (
     <main className="min-h-screen overflow-hidden pb-20 text-white" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -146,6 +174,24 @@ export default function ManusHeroCodex() {
                 <div className="mt-6 text-xs font-black" style={{ color: item.color }}>Open route →</div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y" style={{ borderColor: "rgba(0,255,136,0.16)", background: "rgba(0,255,136,0.025)" }}>
+        <div className="max-w-7xl mx-auto px-5 py-16">
+          <div className="flex flex-wrap items-end justify-between gap-5">
+            <div><div className="text-xs font-mono tracking-widest" style={{ color: "#00FF88" }}>LOCAL PRACTICE REGISTRY</div><h2 className="mt-3 text-3xl font-black sm:text-4xl">Keep your next move visible.</h2></div>
+            <p className="max-w-2xl text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>A browser-local preparation checklist for the Hero method. It is saved only in this browser, sends nothing to ScrollVerse, and is not a release approval, rights decision, or external submission.</p>
+          </div>
+          <div className="mt-8 grid gap-3 md:grid-cols-2">
+            {HERO_PRACTICE_CHECKLIST.map((practice, index) => {
+              const checked = completedPractices.includes(practice);
+              return <label key={practice} className="flex cursor-pointer items-start gap-4 rounded-2xl border p-5" style={{ borderColor: checked ? "rgba(0,255,136,0.48)" : "rgba(255,255,255,0.12)", background: checked ? "rgba(0,255,136,0.06)" : "rgba(4,14,30,0.65)" }}>
+                <input type="checkbox" checked={checked} onChange={() => togglePractice(practice)} className="mt-1 h-4 w-4 accent-[#00FF88]" aria-label={`Mark practice ${index + 1} complete`} />
+                <span><span className="text-[10px] font-mono" style={{ color: "#00FF88" }}>PRACTICE {String(index + 1).padStart(2, "0")}</span><span className="mt-2 block text-sm font-bold leading-relaxed">{practice}</span></span>
+              </label>;
+            })}
           </div>
         </div>
       </section>

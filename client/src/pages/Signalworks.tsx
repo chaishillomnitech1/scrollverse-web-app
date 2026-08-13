@@ -49,13 +49,37 @@ const OFFER_HIGHWAY = [
 
 const LANE_FILTERS: Array<"All lanes" | Pathway["lane"]> = ["All lanes", "Film", "Music", "Live", "Creator tools"];
 
+const LOCAL_READINESS_CHECKLIST = [
+  "I preserved a source note and collaborator permissions.",
+  "I checked current export, credit, and accessibility requirements.",
+  "I selected an official route that matches the work.",
+  "I understand that a handoff is not a submission or outcome guarantee.",
+] as const;
+
 export default function Signalworks() {
   useSovereignHeartbeat({ page: "signalworks" });
   const [selectedLane, setSelectedLane] = useState<(typeof LANE_FILTERS)[number]>("All lanes");
+  const [completedReadiness, setCompletedReadiness] = useState<string[]>(() => {
+    try {
+      const saved = window.localStorage.getItem("scrollverse-signalworks-readiness");
+      const parsed = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) && parsed.every((item) => typeof item === "string") ? parsed : [];
+    } catch {
+      return [];
+    }
+  });
   const visiblePathways = useMemo(
     () => selectedLane === "All lanes" ? PATHWAYS : PATHWAYS.filter((pathway) => pathway.lane === selectedLane),
     [selectedLane],
   );
+
+  const toggleReadiness = (item: string) => {
+    setCompletedReadiness((current) => {
+      const next = current.includes(item) ? current.filter((entry) => entry !== item) : [...current, item];
+      window.localStorage.setItem("scrollverse-signalworks-readiness", JSON.stringify(next));
+      return next;
+    });
+  };
 
   return (
     <main className="min-h-screen pb-20 text-white" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -123,6 +147,21 @@ export default function Signalworks() {
         <div className="max-w-7xl mx-auto px-5 py-14">
           <div className="max-w-3xl"><div className="text-xs font-mono tracking-widest" style={{ color: "#00FF88" }}>CREATOR READINESS</div><h2 className="mt-3 text-3xl font-black">A handoff is not the work. It is the next accountable step.</h2></div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{READINESS.map(([number, title, body]) => <article key={number} className="rounded-2xl border p-5" style={{ borderColor: "rgba(0,255,136,0.19)", background: "rgba(0,255,136,0.035)" }}><div className="text-[10px] font-mono" style={{ color: "#00FF88" }}>{number}</div><h3 className="mt-3 font-black">{title}</h3><p className="mt-3 text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>{body}</p></article>)}</div>
+        </div>
+      </section>
+
+      <section className="border-y" style={{ borderColor: "rgba(0,212,255,0.16)", background: "rgba(0,212,255,0.025)" }}>
+        <div className="max-w-7xl mx-auto px-5 py-14">
+          <div className="flex flex-wrap items-end justify-between gap-5"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#00D4FF" }}>LOCAL READINESS INSPECTION</div><h2 className="mt-2 text-3xl font-black sm:text-4xl">Check the source. Keep the handoff honest.</h2></div><p className="max-w-2xl text-sm leading-relaxed" style={{ color: "#A9B9C9" }}>This checklist stays in your browser. It does not send a submission, share a file, verify rights, or change any provider account. Use it to prepare before deciding whether an official route fits.</p></div>
+          <div className="mt-8 grid gap-3 md:grid-cols-2">
+            {LOCAL_READINESS_CHECKLIST.map((item, index) => {
+              const checked = completedReadiness.includes(item);
+              return <label key={item} className="flex cursor-pointer items-start gap-4 rounded-2xl border p-5" style={{ borderColor: checked ? "rgba(0,212,255,0.52)" : "rgba(255,255,255,0.12)", background: checked ? "rgba(0,212,255,0.06)" : "rgba(4,14,30,0.68)" }}>
+                <input type="checkbox" checked={checked} onChange={() => toggleReadiness(item)} className="mt-1 h-4 w-4 accent-[#00D4FF]" aria-label={`Mark readiness item ${index + 1} complete`} />
+                <span><span className="text-[10px] font-mono" style={{ color: "#00D4FF" }}>CHECK {String(index + 1).padStart(2, "0")}</span><span className="mt-2 block text-sm font-bold leading-relaxed">{item}</span></span>
+              </label>;
+            })}
+          </div>
         </div>
       </section>
 

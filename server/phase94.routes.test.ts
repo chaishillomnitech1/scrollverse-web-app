@@ -171,6 +171,9 @@ describe("Phase 94 route map", () => {
     expect(signalworks).toContain("/fashion-partnership-proposal");
     expect(signalworks).toContain("/media-world");
     expect(signalworks).toContain("A route is not an external listing");
+    expect(signalworks).toContain("LOCAL READINESS INSPECTION");
+    expect(signalworks).toContain("scrollverse-signalworks-readiness");
+    expect(signalworks).toContain("does not send a submission");
   });
 
   it("preserves the Nick Ponte creator-learning reference as a non-affiliated public discovery handoff", () => {
@@ -311,6 +314,9 @@ describe("Phase 94 route map", () => {
     expect(hero).toContain("HERO CO-CREATOR DESK");
     expect(hero).toContain("HERO SKILL COMPASS");
     expect(hero).toContain("Useful practices. Clear limits. Direct routes.");
+    expect(hero).toContain("LOCAL PRACTICE REGISTRY");
+    expect(hero).toContain("scrollverse-hero-practice-checklist");
+    expect(hero).toContain("sends nothing to ScrollVerse");
     expect(hero).toContain("Audience-to-revenue readiness");
     expect(hero).toContain("NO CHECKOUT OR MINT HERE");
     expect(hero).toContain("OUTBOUND REFERRALS ONLY");
