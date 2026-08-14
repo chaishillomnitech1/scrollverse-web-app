@@ -327,6 +327,7 @@ import IdeaExchange from "./pages/IdeaExchange";
 import PortalTrustStandard from "./pages/PortalTrustStandard";
 import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator";
 import CreatorStudioNavigator from "./pages/CreatorStudioNavigator";
+import CreatorOperationsIntelligence from "./pages/CreatorOperationsIntelligence";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -630,6 +631,7 @@ function Router() {
         <Route path="/support" component={SupportPath} />
         <Route path="/github-ops" component={GitHubOperations} />
         <Route path="/revenue-ops" component={RevenueOperations} />
+        <Route path="/revenue-operations" component={RevenueOperations} />
         <Route path="/fashion-partnership-proposal" component={FashionPartnershipProposal} />
         <Route path="/manufacturing-readiness" component={ManufacturingReadiness} />
         <Route path="/impact-incentive-readiness" component={ImpactIncentiveReadiness} />
@@ -682,6 +684,7 @@ function Router() {
         <Route path="/portal-trust-standard" component={PortalTrustStandard} />
         <Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />
         <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
+        <Route path="/creator-operations-intelligence" component={CreatorOperationsIntelligence} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

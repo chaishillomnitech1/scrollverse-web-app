@@ -1319,4 +1319,21 @@ describe("Phase 94 route map", () => {
     expect(workflow).toContain("not independent proof of ownership");
     expect(home).toContain('href: "/creator-studio-navigator"');
   });
+
+  it("registers Creator Operations Intelligence with browser-local evidence planning, specialist boundaries, and legal-information limits", () => {
+    const operations = readProjectFile("client/src/pages/CreatorOperationsIntelligence.tsx");
+    const record = readProjectFile("docs/phase211-creator-operations-intelligence.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import CreatorOperationsIntelligence from "./pages/CreatorOperationsIntelligence"');
+    expect(app).toContain('<Route path="/creator-operations-intelligence" component={CreatorOperationsIntelligence} />');
+    expect(operations).toContain("Creator Operations Intelligence");
+    expect(operations).toContain("LOCAL REVENUE-EVIDENCE BRIEF");
+    expect(operations).toContain("SPECIALIST CONTROL ROOM");
+    expect(operations).toContain("Financial and legal notice");
+    expect(operations).toContain("does not access accounts, verify an entitlement");
+    expect(operations).toContain("not a music publisher, DSP, collective management organization");
+    expect(record).toContain("Streaming analytics and financial statements may differ");
+    expect(record).toContain("not financial advice, legal advice, legal representation");
+    expect(home).toContain('href: "/creator-operations-intelligence"');
+  });
 });

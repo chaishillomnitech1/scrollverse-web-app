@@ -1013,6 +1013,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◌", title: "Portal Trust Standard", detail: "See the shared source, readiness, privacy, co-creation, and activation-boundary standard across the ScrollVerse ecosystem.", href: "/portal-trust-standard", color: "#00FF88" },
   { icon: "◈", title: "Creator Exchange", detail: "Plan original music, stories, comics, books, art, downloads, merchandise, and collectible readiness as one evidence-gated release universe.", href: "/creator-exchange-navigator", color: "#FFB800" },
   { icon: "◉", title: "Creator Studio", detail: "Plan original recording, music, film, video, art, story, collaboration, accessibility, and release preparation through a local-first production workflow.", href: "/creator-studio-navigator", color: "#00D4FF" },
+  { icon: "◍", title: "Creator Operations Intelligence", detail: "Organize rights, traffic, revenue evidence, specialist roles, CRM readiness, and public legal-information research before an authorized handoff.", href: "/creator-operations-intelligence", color: "#FF8A4C" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
