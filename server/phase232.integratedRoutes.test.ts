@@ -15,6 +15,17 @@ const integratedRoutes = [
 ] as const;
 
 describe("Phase 232 integrated route validation", () => {
+  it("keeps every static internal Home discovery route registered in App", () => {
+    const home = read("client/src/pages/Home.tsx");
+    const app = read("client/src/App.tsx");
+    const routes = [...home.matchAll(/href: "(\/[^\"]+)"/g)].map(match => match[1]);
+
+    expect(routes.length).toBeGreaterThan(0);
+    for (const route of new Set(routes)) {
+      expect(app).toMatch(new RegExp(`path=(?:\\{\"${route}\"\\}|\"${route}\")`));
+    }
+  });
+
   it("keeps each active cross-system discovery route registered in both Home and App", () => {
     const home = read("client/src/pages/Home.tsx");
     const app = read("client/src/App.tsx");

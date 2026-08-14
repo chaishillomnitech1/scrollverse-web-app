@@ -19,6 +19,10 @@ All six audited Home discovery paths are present and resolve to matching App rou
 
 The audit also confirms the repaired Home discovery uniqueness rule for `/institutional-systems-atlas` and adds an explicit **Continuity & Recovery Record** entry. That recovery entry points to a first-party public learning route and does not imply recovery of any private account, chat, external file, or provider session.
 
+## Static Discovery Guard
+
+The integrated regression suite now scans every static internal `href` declared by the Home discovery catalog and accepts both route styles already present in `App.tsx`: `path={"/route"}` and `path="/route"`. The current audit found that every static Home discovery path has a corresponding router registration. This protects the visible portal catalog against a newly introduced static Home 404 while allowing existing route syntax to remain stable.
+
 ## Outstanding Owner-Controlled Gates
 
 The following remain deliberately separate from this route audit: provider accounts, external distribution submissions, publication decisions, rights determinations, collectible/token deployment, wallets, payments, and transactions. A visible route can explain preparation and evidence state; it cannot activate those external functions by itself.

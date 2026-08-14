@@ -2852,34 +2852,34 @@
 - [x] Validate routes, tests, and visual behavior, then publish the source-labeled feature studio
 
 ## Phase 223 — Creator AI Operations and Music-Web3 Release Readiness
-- [ ] Research independently verifiable creator-owned music/Web3 release patterns, documented artist case studies, direct-to-fan editions, publishing/rights workflow, and music/visual/merch bundle models without relying on promotional claims
-- [ ] Review the newly supplied public repositories as dated source records; classify reusable music, creator, NFT, provenance, security, and workflow patterns without treating repository names or claims as live deployment, financial, provider, or ownership proof
-- [ ] Review the newly supplied Expansion-, nextjs-boilerplate, and skills-hello-github-actions repositories as public source records; classify only compatible planning, framework, testing, and CI workflow patterns before any first-party adaptation
-- [ ] Consolidate the reviewable repository patterns into a first-party creator-release and asset-readiness map with a staged contract, provider, rights, security, customer-support, and explicit owner-confirmation checklist for any future activation
-- [ ] Define dedicated specialist AI role guides for music production, visual production, fashion/merch design, rights/publishing preparation, creator operations, metadata, audience communication, and release evidence—each advisory and human-controlled
-- [ ] Build a Music and Creator Release Readiness Navigator that maps original music, visual, name/likeness, publishing, distribution, merchandise, collectible, and incentive concepts to source, rights, provider, security, and owner-approval gates
-- [ ] Record the user-supplied Vydia split/publishing statements only as owner-supplied context pending the applicable agreement, provider record, and rights review; do not represent an active deal or payout as verified
-- [ ] Keep all live minting, wallet, currency, token, incentive, distribution, publishing, payment, prize, account, provider, and transfer actions fail-closed until required evidence, credentials, terms, qualified review, and explicit owner confirmation exist
-- [ ] Add route discovery and regression coverage; validate with TypeScript and Vitest; then publish
+- [x] Research independently verifiable creator-owned music/Web3 release patterns, documented artist case studies, direct-to-fan editions, publishing/rights workflow, and music/visual/merch bundle models without relying on promotional claims
+- [x] Review the newly supplied public repositories as dated source records; classify reusable music, creator, NFT, provenance, security, and workflow patterns without treating repository names or claims as live deployment, financial, provider, or ownership proof
+- [x] Review the newly supplied Expansion-, nextjs-boilerplate, and skills-hello-github-actions repositories as public source records; classify only compatible planning, framework, testing, and CI workflow patterns before any first-party adaptation
+- [x] Consolidate the reviewable repository patterns into a first-party creator-release and asset-readiness map with a staged contract, provider, rights, security, customer-support, and explicit owner-confirmation checklist for any future activation
+- [x] Define dedicated specialist AI role guides for music production, visual production, fashion/merch design, rights/publishing preparation, creator operations, metadata, audience communication, and release evidence—each advisory and human-controlled
+- [x] Build a Music and Creator Release Readiness Navigator that maps original music, visual, name/likeness, publishing, distribution, merchandise, collectible, and incentive concepts to source, rights, provider, security, and owner-approval gates
+- [x] Record the user-supplied Vydia split/publishing statements only as owner-supplied context pending the applicable agreement, provider record, and rights review; do not represent an active deal or payout as verified
+- [x] Keep all live minting, wallet, currency, token, incentive, distribution, publishing, payment, prize, account, provider, and transfer actions fail-closed until required evidence, credentials, terms, qualified review, and explicit owner confirmation exist
+- [x] Add route discovery and regression coverage; validate with TypeScript and Vitest; then publish
 
 ## Phase 224 — ScrollVerse Chess Arena
-- [ ] Build an original, responsive chess game with legal move validation, board interaction, game state, player-side selection, move history, restart, and accessible keyboard/status support
-- [ ] Design a distinctive ScrollVerse Chess Arena visual system with difficulty modes, tactical-learning prompts, clear turn/selection states, and a witty assistant-guide conversation layer
-- [ ] Add a local AI-opponent/hint behavior that is transparent about its difficulty and limitations, avoids deceptive claims, and remains functional without a paid external service
-- [ ] Add voice-ready controls with explicit user gesture, mute, caption/transcript, and browser-support boundaries; do not synthesize or clone a voice without a configured permissioned service
-- [ ] Review the newly referenced Manus task and library source records; record only reusable, compatible implementation patterns before adapting them to the first-party Chess Arena
-- [ ] Wire Home discovery and regression coverage; validate gameplay, TypeScript, and Vitest; then publish
+- [x] Build an original, responsive chess game with legal move validation, board interaction, game state, player-side selection, move history, restart, and accessible keyboard/status support
+- [x] Design a distinctive ScrollVerse Chess Arena visual system with difficulty modes, tactical-learning prompts, clear turn/selection states, and a witty assistant-guide conversation layer
+- [x] Add a local AI-opponent/hint behavior that is transparent about its difficulty and limitations, avoids deceptive claims, and remains functional without a paid external service
+- [x] Add voice-ready controls with explicit user gesture, mute, caption/transcript, and browser-support boundaries; do not synthesize or clone a voice without a configured permissioned service
+- [x] Review the newly referenced Manus task and library source records; record only reusable, compatible implementation patterns before adapting them to the first-party Chess Arena
+- [x] Wire Home discovery and regression coverage; validate gameplay, TypeScript, and Vitest; then publish
 
 ## Phase 225 — ScrollVerse × XLVIII Blocks Interiors Monograph
-- [ ] Establish the single-page editorial brief: oversized coffee-table pacing, full-bleed architectural spreads, refined typography, tactile material details, atmospheric captions, and accessible responsive behavior
-- [ ] Research and source-label restaurant, activity, and point-of-interest context; separate real venue information from original ScrollVerse/XLVIII Blocks editorial concepts
-- [ ] Include a concise transparency lens that shows source, date, context type, limitation, visitor interpretation, and correction path without converting source labels into affiliation, ownership, availability, or authorization claims
-- [ ] Add a transparent discovery/availability vocabulary that distinguishes view-only editorial context, source-linked destination context, original ScrollVerse concepts, and separately approved future offers
-- [ ] Create an evidence-gated collectible/provenance record for the monograph, separating original editorial material and visual-asset inventory from any future NFT, token, wallet, or sale activation
-- [ ] Review the newly supplied nextjs-commerce, chais-hill-portfolio, Infinite-Nexus-ScrollVerse, ChaisTheGreatApp-GodMode, and ps-email-airdrop repositories as public source records; adapt only compatible, independently reviewable patterns
-- [ ] Generate original architecture/interiors editorial imagery and retain it outside the project tree with project-managed asset URLs
-- [ ] Build and wire the responsive `/xlviii-blocks-monograph` page with original visual spreads, curated destination atlas, and clear source/context boundaries
-- [ ] Add Home discovery and regression coverage; validate TypeScript, visual layout, and mobile behavior; then publish
+- [x] Establish the single-page editorial brief: oversized coffee-table pacing, full-bleed architectural spreads, refined typography, tactile material details, atmospheric captions, and accessible responsive behavior
+- [x] Research and source-label restaurant, activity, and point-of-interest context; separate real venue information from original ScrollVerse/XLVIII Blocks editorial concepts
+- [x] Include a concise transparency lens that shows source, date, context type, limitation, visitor interpretation, and correction path without converting source labels into affiliation, ownership, availability, or authorization claims
+- [x] Add a transparent discovery/availability vocabulary that distinguishes view-only editorial context, source-linked destination context, original ScrollVerse concepts, and separately approved future offers
+- [x] Create an evidence-gated collectible/provenance record for the monograph, separating original editorial material and visual-asset inventory from any future NFT, token, wallet, or sale activation
+- [x] Review the newly supplied nextjs-commerce, chais-hill-portfolio, Infinite-Nexus-ScrollVerse, ChaisTheGreatApp-GodMode, and ps-email-airdrop repositories as public source records; adapt only compatible, independently reviewable patterns
+- [x] Generate original architecture/interiors editorial imagery and retain it outside the project tree with project-managed asset URLs
+- [x] Build and wire the responsive `/xlviii-blocks-monograph` page with original visual spreads, curated destination atlas, and clear source/context boundaries
+- [x] Add Home discovery and regression coverage; validate TypeScript, visual layout, and mobile behavior; then publish
 
 ## Phase 226 — ScrollVerse Education System Audit and Learning Pathways
 - [x] Inventory all first-party school, academy, curriculum, course, lesson, learning, youth, and education routes; classify active learning surface, informational index, protected workflow, external handoff, or missing/dead-end risk
@@ -2935,6 +2935,7 @@
 - [x] Verify cross-links between standards, learning, creator, asset, discovery, monograph, game, and comparison routes so visible first-party links resolve without internal dead ends
 - [x] Maintain source, limitation, readiness, and owner-controlled activation labels across each active integrated work block before publication
 - [x] Publish each validated integrated work block with a concise record of what is live, what remains browser-local, and what requires separate owner-controlled activation
+- [x] Add a regression guard that verifies every static internal Home discovery route has a corresponding App router registration across both established route syntaxes
 
 ## Phase 233 — Archive, Minting, Covenant, and Codex Source Review
 - [x] Review the newly supplied scrollverse-eternal-sovereign-archive, mein-sigil-mint-scroll-zkevm, XLVIIIblocks, scrollverse-first-knight-covenant, and sovereign-codex repositories as dated public source records
