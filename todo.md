@@ -2790,3 +2790,40 @@
 - [x] Research authoritative music-rights, royalty data, traffic analytics, creator operations, CRM, and legal-information workflow patterns
 - [x] Build a source-led Creator Operations Intelligence Navigator with browser-local revenue-readiness and specialist-role planning plus protected operational handoffs
 - [x] Connect the navigator to Creator Studio, Creator Exchange, Revenue Operations, Specialist Constellation, Knowledge Navigator, and Creator Operations; validate, document review dependencies, and publish the update
+
+## Phase 213 — Creator Services and Free Knowledge Editions
+- [x] Define creator-service, rights/royalty evidence, recovery-support, free-edition, platform-edition, monetization, privacy, legal, financial, provider, and authorization boundaries
+- [x] Research authoritative music data, rights/royalty recovery preparation, direct-to-fan, publishing, audiobook, accessibility, and sustainable creator-service patterns
+- [x] Build a Creator Services Navigator with browser-local evidence briefs, free-edition map, platform-edition readiness, and protected service handoffs
+- [x] Connect books, music, studio, exchange, revenue, and Creator Operations; validate, document professional/provider dependencies, and publish the update
+
+## Phase 214 — Historical Transmission Intake
+- [x] Classify the newly supplied historical transmission exports for creative, technical, workflow, private, financial, legal, security, medical, and extraordinary-claim content
+- [x] Create a source-labeled transmission register that preserves public-safe creative and workflow patterns while excluding unsupported operational, deployment, security, financial, legal, and medical assertions
+- [x] Connect approved public-safe patterns to Creator Services, Creator Studio, Creator Exchange, Recovery Materials, and Evidence Commons without publishing raw transmission content
+- [ ] Validate the intake pathway, document owner/professional-review needs, and publish the bounded integration
+
+## Phase 215 — IP and Digital Evidence Dossier
+- [ ] Inventory public GitHub, domain, invention, data, and intellectual-property source records; classify independent evidence versus owner-supplied assertion
+- [ ] Research official copyright, patent, trademark, domain, trade-secret, and data-governance evidence requirements
+- [ ] Build an IP and Digital Evidence Navigator with dated source categories, evidence gaps, and qualified-review handoffs without publishing sensitive records or unsupported ownership/valuation claims
+- [ ] Connect the navigator to GitHub Showcase, Digital Footprint, Creator Operations, and legal-information research; validate and publish the update
+
+## Phase 216 — Narrative, Hero, and Original Media Readiness
+- [x] Classify owner-perspective timestamp materials and define source-label, originality, youth-safety, accessibility, rights, and release boundaries for narrative media
+- [x] Research source-backed original storytelling, animation, educational-media, accessibility, and production-readiness patterns
+- [x] Build a source-labeled narrative evidence route and expand Manus Hero with transparent specialist navigation roles
+- [x] Build original comic and animation production-readiness pathways linked to Creator Studio, Co-Creation, youth safety, and protected release review; validate and publish the update
+
+## Phase 217 — Private Visual Observation Archive
+- [x] Record the owner-supplied red-sun roadway image sequence as a private visual observation asset with source, date-context, privacy, and no-extraordinary-claim boundaries
+- [x] Define original moodboard, art-direction, comic, animation, and film-production uses without asserting external causation or publishing original images absent explicit release review
+- [x] Connect the private observation record to Creator Studio and Creator Operations as a protected source-asset handoff
+- [x] Document archive and road-safety boundaries, then continue the original narrative/media readiness work
+
+## Phase 218 — NFT and Tokenization Monetization Blueprint
+- [x] Research creator-owned NFT, token, direct-to-fan bundle, royalty, security, and regulatory design patterns using primary sources
+- [x] Define the ScrollVerse collection ladder, $LONDC utility boundaries, release-package architecture, revenue routing, and first-party-versus-marketplace strategy
+- [x] Document contract, wallet, custody, payment, legal, privacy, tax, rights, customer-support, and owner-authorization activation prerequisites
+- [x] Build and wire `/nft-monetization-blueprint` with browser-local architecture planning, source labels, direct-to-fan pathways, and explicit fail-closed activation states
+- [x] Add Home discovery and regression coverage, validate with TypeScript and Vitest, then publish the checkpoint

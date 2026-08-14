@@ -329,6 +329,11 @@ import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator";
 import CreatorStudioNavigator from "./pages/CreatorStudioNavigator";
 import CreatorOperationsIntelligence from "./pages/CreatorOperationsIntelligence";
 import ReleasePackageChecklist from "./pages/ReleasePackageChecklist";
+import CreatorServicesNavigator from "./pages/CreatorServicesNavigator";
+import HistoricalTransmissionPatterns from "./pages/HistoricalTransmissionPatterns";
+import NarrativeSourceTrail from "./pages/NarrativeSourceTrail";
+import OriginalMediaReadiness from "./pages/OriginalMediaReadiness";
+import NftMonetizationBlueprint from "./pages/NftMonetizationBlueprint";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -687,6 +692,11 @@ function Router() {
         <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
         <Route path="/creator-operations-intelligence" component={CreatorOperationsIntelligence} />
         <Route path="/release-package-checklist" component={ReleasePackageChecklist} />
+        <Route path="/creator-services-navigator" component={CreatorServicesNavigator} />
+        <Route path="/historical-transmission-patterns" component={HistoricalTransmissionPatterns} />
+        <Route path="/narrative-source-trail" component={NarrativeSourceTrail} />
+        <Route path="/original-media-readiness" component={OriginalMediaReadiness} />
+        <Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

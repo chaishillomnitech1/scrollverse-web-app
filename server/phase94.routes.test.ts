@@ -1349,4 +1349,62 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("A book or media title must have a separate release record");
     expect(record).toContain("does not by itself establish rights, availability");
   });
+
+  it("registers Creator Services with local rights and revenue evidence preparation, free-edition mapping, and financial/legal/provider boundaries", () => {
+    const services = readProjectFile("client/src/pages/CreatorServicesNavigator.tsx");
+    const research = readProjectFile("docs/phase213-creator-services-research.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import CreatorServicesNavigator from "./pages/CreatorServicesNavigator"');
+    expect(app).toContain('<Route path="/creator-services-navigator" component={CreatorServicesNavigator} />');
+    expect(services).toContain("Creator Services Navigator");
+    expect(services).toContain("BROWSER-LOCAL SERVICE BRIEF");
+    expect(services).toContain("FREE KNOWLEDGE EDITIONS AND SEPARATE PLATFORM EDITIONS");
+    expect(services).toContain("Does not calculate money owed, collect funds, submit a claim");
+    expect(services).toContain("does not recommend a price, promise a recovery result");
+    expect(research).toContain("accurate, complete music metadata is essential");
+    expect(research).toContain("free first-party route and a paid or external-platform edition");
+    expect(home).toContain('href: "/creator-services-navigator"');
+  });
+
+  it("registers Historical Transmission Patterns as a source-labeled creative and workflow concept map with raw-material and claim boundaries", () => {
+    const patterns = readProjectFile("client/src/pages/HistoricalTransmissionPatterns.tsx");
+    const register = readProjectFile("docs/phase214-historical-transmission-register.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import HistoricalTransmissionPatterns from "./pages/HistoricalTransmissionPatterns"');
+    expect(app).toContain('<Route path="/historical-transmission-patterns" component={HistoricalTransmissionPatterns} />');
+    expect(patterns).toContain("Historical Transmission Patterns");
+    expect(patterns).toContain("SOURCE-LABELED CONCEPT ONLY");
+    expect(patterns).toContain("does not restore a prior project, execute a command");
+    expect(patterns).toContain("No raw transmission, private detail, credential");
+    expect(register).toContain("public route publishes only a high-level, source-labeled pattern map");
+    expect(register).toContain("They do not establish that an earlier system exists");
+    expect(home).toContain('href: "/historical-transmission-patterns"');
+  });
+
+  it("registers narrative, original-media, and NFT monetization routes with source labels and fail-closed launch boundaries", () => {
+    const trail = readProjectFile("client/src/pages/NarrativeSourceTrail.tsx");
+    const media = readProjectFile("client/src/pages/OriginalMediaReadiness.tsx");
+    const blueprint = readProjectFile("client/src/pages/NftMonetizationBlueprint.tsx");
+    const research = readProjectFile("docs/phase218-nft-monetization-research.md");
+    const architecture = readProjectFile("docs/phase218-nft-tokenization-monetization-blueprint.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import NarrativeSourceTrail from "./pages/NarrativeSourceTrail"');
+    expect(app).toContain('import OriginalMediaReadiness from "./pages/OriginalMediaReadiness"');
+    expect(app).toContain('import NftMonetizationBlueprint from "./pages/NftMonetizationBlueprint"');
+    expect(app).toContain('<Route path="/narrative-source-trail" component={NarrativeSourceTrail} />');
+    expect(app).toContain('<Route path="/original-media-readiness" component={OriginalMediaReadiness} />');
+    expect(app).toContain('<Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />');
+    expect(trail).toContain("Narrative Source Trail");
+    expect(trail).toContain("not converted into an independently verified");
+    expect(media).toContain("Original Media Readiness");
+    expect(media).toContain("No third-party protected character");
+    expect(blueprint).toContain("NFT Monetization Blueprint");
+    expect(blueprint).toContain("AGAPECYCLE 88/12 ROUTING CONCEPT");
+    expect(blueprint).toContain("No live financial or on-chain action from this route");
+    expect(blueprint).toContain("previously exposed wallet secret is permanently disqualified");
+    expect(research).toContain("ERC-2981 royalty interface");
+    expect(architecture).toContain("Staged Utility Rather Than a Profit Promise");
+    expect(architecture).toContain("No purchase should imply equity");
+    expect(home).toContain('href: "/nft-monetization-blueprint"');
+  });
 });

@@ -1014,6 +1014,11 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◈", title: "Creator Exchange", detail: "Plan original music, stories, comics, books, art, downloads, merchandise, and collectible readiness as one evidence-gated release universe.", href: "/creator-exchange-navigator", color: "#FFB800" },
   { icon: "◉", title: "Creator Studio", detail: "Plan original recording, music, film, video, art, story, collaboration, accessibility, and release preparation through a local-first production workflow.", href: "/creator-studio-navigator", color: "#00D4FF" },
   { icon: "◍", title: "Creator Operations Intelligence", detail: "Organize rights, traffic, revenue evidence, specialist roles, CRM readiness, and public legal-information research before an authorized handoff.", href: "/creator-operations-intelligence", color: "#FF8A4C" },
+  { icon: "◇", title: "Creator Services", detail: "Prepare music, audience, rights, recovery-support, free-edition, and platform-edition evidence before a protected service or provider handoff.", href: "/creator-services-navigator", color: "#00D4FF" },
+  { icon: "⌁", title: "Transmission Patterns", detail: "Explore source-labeled creative and workflow patterns from historical transmissions without exposing raw material or endorsing unsupported claims.", href: "/historical-transmission-patterns", color: "#B98CFF" },
+  { icon: "◒", title: "Narrative Source Trail", detail: "Explore source-labeled creator perspective, timestamps, visual observations, and original storytelling context without treating perspective as unverified fact.", href: "/narrative-source-trail", color: "#FFB800" },
+  { icon: "▣", title: "Original Media Readiness", detail: "Plan an original comic, animation, learning visual, episode, or story world with rights, access, youth-safety, and release boundaries.", href: "/original-media-readiness", color: "#00FF88" },
+  { icon: "◈", title: "NFT Monetization Blueprint", detail: "Design original IP, direct-to-fan editions, collectible architecture, $LONDC utility boundaries, and evidence-gated launch readiness with no live activation.", href: "/nft-monetization-blueprint", color: "#FF6B9A" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
