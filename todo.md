@@ -2931,10 +2931,10 @@
 - [x] Add route discovery, regression coverage, TypeScript/Vitest validation, visual verification, and publish
 
 ## Phase 232 — Integrated Route Completion and Cross-System Validation
-- [ ] Complete remaining Chess Arena, XLVIII Blocks monograph, creator-release, scorecard, and systems-sparring deliverables in tested increments while preserving source labels and activation boundaries
-- [ ] Verify cross-links between standards, learning, creator, asset, discovery, monograph, game, and comparison routes so visible first-party links resolve without internal dead ends
-- [ ] Maintain source, limitation, readiness, and owner-controlled activation labels across each active integrated work block before publication
-- [ ] Publish each validated integrated work block with a concise record of what is live, what remains browser-local, and what requires separate owner-controlled activation
+- [x] Complete remaining Chess Arena, XLVIII Blocks monograph, creator-release, scorecard, and systems-sparring deliverables in tested increments while preserving source labels and activation boundaries
+- [x] Verify cross-links between standards, learning, creator, asset, discovery, monograph, game, and comparison routes so visible first-party links resolve without internal dead ends
+- [x] Maintain source, limitation, readiness, and owner-controlled activation labels across each active integrated work block before publication
+- [x] Publish each validated integrated work block with a concise record of what is live, what remains browser-local, and what requires separate owner-controlled activation
 
 ## Phase 233 — Archive, Minting, Covenant, and Codex Source Review
 - [x] Review the newly supplied scrollverse-eternal-sovereign-archive, mein-sigil-mint-scroll-zkevm, XLVIIIblocks, scrollverse-first-knight-covenant, and sovereign-codex repositories as dated public source records
