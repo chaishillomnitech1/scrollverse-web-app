@@ -2915,3 +2915,31 @@
 - [x] Build a first-party Standards Studio route with transparent methodology, browser-local review planning, correction pathways, and connections to the Standards & Evidence Commons, Evidence Commons, and Co-Creation Navigator
 - [x] State clearly that the Studio’s self-defined review outputs are not government, court, regulatory, accreditation, licensure, medical, legal, financial, or other external official determinations
 - [x] Add route discovery, regression coverage, TypeScript/Vitest validation, and publish the Standards Studio
+
+## Phase 230 — Ecosystem Outcomes Scorecard
+- [x] Research authoritative public-interest frameworks for accessibility, rights, evidence quality, transparency, privacy, accountability, resilience, participation, learning access, environmental impact, and distribution of benefits
+- [x] Define a transparent, source-labeled comparative method that separates documented design feature, independently measured outcome, source gap, owner-supplied context, and interpretation
+- [x] Build a first-party Ecosystem Outcomes Scorecard that compares patterns and criteria without ranking people, choosing rulers, asserting a universal winner, or presenting unsupported system performance claims
+- [x] Connect the scorecard to Standards Studio, Standards & Evidence Commons, Evidence Commons, and Open Knowledge Verse with an accessible browser-local comparison planner
+- [x] Add discovery, regression coverage, TypeScript/Vitest validation, and publish the scorecard
+
+## Phase 231 — Hypothetical Systems Sparring Lab
+- [x] Select public institutional frameworks and first-party ScrollVerse architecture records as comparison subjects; use only source-labeled observable design patterns, not claims about hidden operations or universal superiority
+- [x] Define interactive scenario controls and criteria for evidence quality, access, rights/remedy, privacy, accountability, transparency, resilience, learning, participation, environmental context, and benefit distribution
+- [x] Build a browser-local Sparring Lab that displays assumptions, source coverage, trade-offs, source gaps, and a scenario-specific “design fit” rather than a winner, authority ranking, or prediction about who should govern
+- [x] Connect to the Ecosystem Outcomes Scorecard, Standards Studio, Standards & Evidence Commons, and Open Knowledge Verse; preserve a transparent correction/contribution pathway
+- [x] Add route discovery, regression coverage, TypeScript/Vitest validation, visual verification, and publish
+
+## Phase 232 — Integrated Route Completion and Cross-System Validation
+- [ ] Complete remaining Chess Arena, XLVIII Blocks monograph, creator-release, scorecard, and systems-sparring deliverables in tested increments while preserving source labels and activation boundaries
+- [ ] Verify cross-links between standards, learning, creator, asset, discovery, monograph, game, and comparison routes so visible first-party links resolve without internal dead ends
+- [ ] Maintain source, limitation, readiness, and owner-controlled activation labels across each active integrated work block before publication
+- [ ] Publish each validated integrated work block with a concise record of what is live, what remains browser-local, and what requires separate owner-controlled activation
+
+## Phase 233 — Archive, Minting, Covenant, and Codex Source Review
+- [ ] Review the newly supplied scrollverse-eternal-sovereign-archive, mein-sigil-mint-scroll-zkevm, XLVIIIblocks, scrollverse-first-knight-covenant, and sovereign-codex repositories as dated public source records
+- [ ] Classify only observable archive, provenance, collectible-contract, fashion/monograph, governance/covenant, and codex workflow patterns; distinguish code/public documentation from live deployment, ownership, financial, provider, or authority claims
+- [ ] Record owner-supplied bank-information context only as protected private context; exclude account details, credentials, balances, and transactions from public routes, source code, and unreviewed public records
+- [ ] Maintain a protected-private versus source-labeled-public boundary for all reviewed materials, including public links, owner-supplied context, release decisions, and rights-controlled assets
+- [ ] Connect compatible first-party patterns to the Archive, Empire Asset Navigator, XLVIII Blocks Monograph, Standards Studio, and creator-release readiness documentation without activating a wallet, contract, transaction, provider, or token
+- [ ] Add source-register coverage, route/test updates where appropriate, validate, and publish the review record

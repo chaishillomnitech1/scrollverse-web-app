@@ -344,6 +344,8 @@ import VoiceLanguageStudio from "./pages/VoiceLanguageStudio";
 import DomainDiscoveryMap from "./pages/DomainDiscoveryMap";
 import StandardsEvidenceCommons from "./pages/StandardsEvidenceCommons";
 import StandardsStudio from "./pages/StandardsStudio";
+import HypotheticalSystemsLab from "./pages/HypotheticalSystemsLab";
+import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -717,6 +719,8 @@ function Router() {
         <Route path="/domain-discovery-map" component={DomainDiscoveryMap} />
         <Route path="/standards-evidence-commons" component={StandardsEvidenceCommons} />
         <Route path="/standards-studio" component={StandardsStudio} />
+        <Route path="/hypothetical-systems-lab" component={HypotheticalSystemsLab} />
+        <Route path="/ecosystem-outcomes-scorecard" component={EcosystemOutcomesScorecard} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
