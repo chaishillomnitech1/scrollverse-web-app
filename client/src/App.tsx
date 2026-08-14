@@ -341,6 +341,9 @@ import MusicCreatorReleaseReadiness from "./pages/MusicCreatorReleaseReadiness";
 import XLVIIIBlocksMonograph from "./pages/XLVIIIBlocksMonograph";
 import OpenKnowledgeVerse from "./pages/OpenKnowledgeVerse";
 import VoiceLanguageStudio from "./pages/VoiceLanguageStudio";
+import DomainDiscoveryMap from "./pages/DomainDiscoveryMap";
+import StandardsEvidenceCommons from "./pages/StandardsEvidenceCommons";
+import StandardsStudio from "./pages/StandardsStudio";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -711,6 +714,9 @@ function Router() {
         <Route path="/xlviii-blocks-monograph" component={XLVIIIBlocksMonograph} />
         <Route path="/open-knowledge-verse" component={OpenKnowledgeVerse} />
         <Route path="/voice-language-studio" component={VoiceLanguageStudio} />
+        <Route path="/domain-discovery-map" component={DomainDiscoveryMap} />
+        <Route path="/standards-evidence-commons" component={StandardsEvidenceCommons} />
+        <Route path="/standards-studio" component={StandardsStudio} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

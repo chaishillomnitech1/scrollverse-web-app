@@ -2867,6 +2867,7 @@
 - [ ] Design a distinctive ScrollVerse Chess Arena visual system with difficulty modes, tactical-learning prompts, clear turn/selection states, and a witty assistant-guide conversation layer
 - [ ] Add a local AI-opponent/hint behavior that is transparent about its difficulty and limitations, avoids deceptive claims, and remains functional without a paid external service
 - [ ] Add voice-ready controls with explicit user gesture, mute, caption/transcript, and browser-support boundaries; do not synthesize or clone a voice without a configured permissioned service
+- [ ] Review the newly referenced Manus task and library source records; record only reusable, compatible implementation patterns before adapting them to the first-party Chess Arena
 - [ ] Wire Home discovery and regression coverage; validate gameplay, TypeScript, and Vitest; then publish
 
 ## Phase 225 — ScrollVerse × XLVIII Blocks Interiors Monograph
@@ -2892,3 +2893,25 @@
 - [x] Add clear voice disclosure, transcript/caption, mute, voice-choice, supported-use, revocation, and protected-review states so visitors and the owner can distinguish a prototype/control surface from a live generated voice
 - [x] Ensure no page claims an accredited credential, professional license, guaranteed outcome, external enrollment, or youth participation approval without independently verifiable evidence and appropriate owner/reviewer gates
 - [x] Validate in browser and with TypeScript/Vitest, then publish the education-system upgrade
+
+## Phase 227 — Manus-Wide Domain and Artifact Discovery Architecture
+- [x] Inventory ScrollVerse first-party domains, live project hostnames, public routes, repository artifacts, and external destinations; distinguish verified active domains from owner-supplied or conceptual properties
+- [x] Research free/low-cost subdomain options, canonical-domain structure, DNS verification, redirects, SEO/discovery, and artifact-link preservation using official hosting and search guidance
+- [x] Define how original first-party components can cite public patterns, preserve provenance/rights boundaries, and attach an evidence-gated collectible-readiness record without copying protected implementations or activating tokens
+- [x] Define a staged domain architecture for `scrollverse.co`, `www`, project subdomains, canonical routes, artifact landing paths, and first-party cross-linking without creating DNS records, registrations, or redirects
+- [x] Build source-labeled first-party discovery improvements that do not require DNS/account control, and document all registrar/DNS/custom-domain binding actions as owner-controlled activation steps
+- [x] Validate the discovery map and publish the domain strategy without altering external domains or hosting accounts
+
+## Phase 228 — Standards & Evidence Commons
+- [x] Research public authoritative standards, accreditation, methodology, peer-review, regulatory, and public-record systems across education, science, medicine, law, technology, finance, government, and cultural research
+- [x] Distinguish institutional validation, licensing, accreditation, certification, peer review, ethics review, regulatory authorization, source citation, and first-party evidence readiness without treating any one as interchangeable
+- [x] Build a source-led Standards & Evidence Commons with cross-domain learning cards, transparent criteria, browser-local evidence planning, and qualified-review handoffs
+- [x] State clearly that ScrollVerse is not an accreditor, licensing body, court, government, medical regulator, legal authority, financial institution, or official validator absent independently verifiable authorization
+- [x] Add discovery, regression coverage, TypeScript/Vitest validation, and publish the evidence system
+
+## Phase 229 — ScrollVerse Standards Studio
+- [x] Research public institutional credibility patterns including published criteria, independence, governance, conflict handling, evidence trails, review panels, correction/appeal pathways, version control, accessibility, privacy, and decision transparency
+- [x] Define an original ScrollVerse Standards Studio methodology that labels its own criteria, review scope, contributor roles, evidence limits, correction state, and public/restricted record status
+- [x] Build a first-party Standards Studio route with transparent methodology, browser-local review planning, correction pathways, and connections to the Standards & Evidence Commons, Evidence Commons, and Co-Creation Navigator
+- [x] State clearly that the Studio’s self-defined review outputs are not government, court, regulatory, accreditation, licensure, medical, legal, financial, or other external official determinations
+- [x] Add route discovery, regression coverage, TypeScript/Vitest validation, and publish the Standards Studio
