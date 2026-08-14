@@ -19,7 +19,9 @@ describe("Phase 224 ScrollVerse Chess Arena", () => {
     expect(arena).toContain("The local guide uses a bounded local heuristic");
     expect(arena).toContain("Enable device voice");
     expect(arena).toContain("No account, rating, wager, prize, token, payment");
-    expect(backdrop).toContain('from "@babylonjs/core"');
-    expect(backdrop).toContain("scene.dispose()");
+    expect(backdrop).toContain('getContext("2d")');
+    expect(backdrop).toContain("prefers-reduced-motion");
+    expect(backdrop).toContain("ResizeObserver");
+    expect(backdrop).not.toContain("@babylonjs/core");
   });
 });

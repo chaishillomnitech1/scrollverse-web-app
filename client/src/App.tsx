@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { lazy, Suspense } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -108,7 +109,6 @@ import MassiveStorage from "./pages/MassiveStorage";
 import ManusAmbassador from "./pages/ManusAmbassador";
 import SovereignLegacy from "./pages/SovereignLegacy";
 import JPMMirror from "./pages/JPMMirror";
-import AILegionApex from "./pages/AILegionApex";
 import SovereignBank from "./pages/SovereignBank";
 import SovereignCodex from "./pages/SovereignCodex";
 import SoulAltar from "./pages/SoulAltar";
@@ -135,7 +135,6 @@ import RevenueFlywheel from "./pages/RevenueFlywheel";
 import JuneteenthDeclaration from "./pages/JuneteenthDeclaration";
 import GuardianCrusade from "./pages/GuardianCrusade";
 import RevenueDashboard from "./pages/RevenueDashboard";
-import ComponentShowcase from "./pages/ComponentShowcase";
 import Partnerships from "./pages/Partnerships";
 import SovereignCRM from "./pages/SovereignCRM";
 import MasterGateway from "./pages/MasterGateway";
@@ -333,6 +332,7 @@ import CreatorServicesNavigator from "./pages/CreatorServicesNavigator";
 import HistoricalTransmissionPatterns from "./pages/HistoricalTransmissionPatterns";
 import NarrativeSourceTrail from "./pages/NarrativeSourceTrail";
 import OriginalMediaReadiness from "./pages/OriginalMediaReadiness";
+import MediaPortfolioReadiness from "./pages/MediaPortfolioReadiness";
 import NftMonetizationBlueprint from "./pages/NftMonetizationBlueprint";
 import EmpireAssetNavigator from "./pages/EmpireAssetNavigator";
 import BrandFeatureStudio from "./pages/BrandFeatureStudio";
@@ -348,6 +348,13 @@ import StandardsStudio from "./pages/StandardsStudio";
 import HypotheticalSystemsLab from "./pages/HypotheticalSystemsLab";
 import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
+
+const AILegionApex = lazy(() => import("./pages/AILegionApex"));
+const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
+
+function RouteLoadingFallback() {
+  return <main className="min-h-screen bg-[#050B1A] px-6 py-24 text-center text-white"><p className="text-xs font-mono tracking-[0.2em] text-[#00D4FF]">SCROLLVERSE ROUTE LOADING</p><p className="mt-4 text-sm text-[#C8D8E7]">Preparing this first-party experience…</p></main>;
+}
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -380,6 +387,7 @@ function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <>
+    <Suspense fallback={<RouteLoadingFallback />}>
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/global-map"} component={GlobalMap} />
@@ -710,6 +718,7 @@ function Router() {
         <Route path="/historical-transmission-patterns" component={HistoricalTransmissionPatterns} />
         <Route path="/narrative-source-trail" component={NarrativeSourceTrail} />
         <Route path="/original-media-readiness" component={OriginalMediaReadiness} />
+        <Route path="/media-portfolio-readiness" component={MediaPortfolioReadiness} />
         <Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />
         <Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />
         <Route path="/brand-feature-studio" component={BrandFeatureStudio} />
@@ -728,6 +737,7 @@ function Router() {
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
+    </Suspense>
     <MobileBottomNav />
     </>
   );

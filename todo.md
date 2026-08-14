@@ -2335,10 +2335,22 @@
 - [x] Publish the coherent verified systems upgrade with remaining owner-controlled handoffs stated separately
 
 ## Phase 198 — Media, Portfolio, and On-Chain Readiness Audit
-- [ ] Inventory public media routes, accessible GitHub portfolio materials, and on-chain evidence states
-- [ ] Classify playable, source-linked, planned, and externally gated media and blockchain items
-- [ ] Build evidence-led readiness improvements for verified first-party media and on-chain pathways only
-- [ ] Validate and publish the readiness audit with owner and provider handoffs stated separately
+- [x] Inventory public media routes, accessible GitHub portfolio materials, and on-chain evidence states
+- [x] Classify playable, source-linked, planned, and externally gated media and blockchain items
+- [x] Build evidence-led readiness improvements for verified first-party media and on-chain pathways only
+- [x] Validate and publish the readiness audit with owner and provider handoffs stated separately
+- [x] Build and wire a first-party `/media-portfolio-readiness` route that consolidates verified media, portfolio, IP, and blockchain-learning paths with source, readiness, and activation boundaries
+- [x] Classify the newly supplied clipboard materials as protected owner input and record any compatible first-party patterns without exposing, executing, or copying credentials, secrets, external-account details, or transaction instructions
+- [x] Diagnose the deployment out-of-memory failure and reduce the production bundle/build memory footprint without removing active routes or weakening existing source, privacy, or activation boundaries
+- [x] Verify a clean production build before saving the next auto-published checkpoint; record any platform-level deployment limitation separately from application validation
+- [x] Replace the decorative Babylon Chess Arena backdrop with a first-party lightweight canvas/CSS visual that preserves the playable accessible chess surface while removing the heavy 3D package from the production route graph
+- [x] Lazy-load the Mermaid-heavy AI Legion Apex and Component Showcase routes behind a visible route fallback so the primary production chunk excludes their large markdown/rendering dependency graph
+- [x] Classify the Google-supplied automation, ZK, Solidity, signature, and payout materials as non-executable architecture references; do not run supplied scripts, create contracts, compile circuits, use payout addresses, or initiate transactions
+- [x] Extract only compatible first-party lessons for modular verification, evidence records, test gates, secure secret handling, and fail-closed activation boundaries; record limitations of unsupported security, performance, and financial claims
+- [x] Classify the supplied dual-AI, registry, staged-split, cryptographic, and circuit references as protected non-executable input; do not create, compile, deploy, or link the supplied contract/circuit material to an account, wallet, payout, or network
+- [x] Extend the protected architecture record with only the compatible first-party principles of staged review, replay-resistance questions, separated evidence packets, and multi-step confirmation; preserve limits on automation, security, ownership, and payout claims
+- [x] Classify the supplied deployment shell, environment-variable handling, contract-address labels, low-level signature code, and CI/CD blueprint as protected non-executable input; do not source environment files, run scripts, create deployment artifacts, connect an RPC endpoint, or initiate a transaction
+- [x] Extend the protected architecture record with only compatible first-party lessons for build checks, secret isolation, safe review sequencing, and dependency validation; record that the supplied contract, deployment, performance, and security claims are not independently verified
 
 ## Phase 199 — Creator-Controlled Value Pathways
 - [ ] Restore missing systems route components and confirm route integrity before expanding discovery
@@ -2768,10 +2780,10 @@
 - [x] Connect the innovation layer to Idea Exchange, Co-Creation Navigator, Recovery Materials, Home, and Creator Operations; validate and publish the update
 
 ## Phase 208 — Portal-Wide Trust and Co-Creation Standard
-- [ ] Inventory each major ScrollVerse ecosystem lane for evidence labeling, functional-readiness state, contribution opportunity, privacy boundary, accessibility path, and zero-dead-end navigation
-- [ ] Design a reusable cross-portal standard and shared components for source/date/limitations, local interaction state, protected handoff, correction invitation, and activation boundary
-- [ ] Apply the common framework first to the knowledge, media, creator, fashion, blockchain-learning, and community lanes without activating unapproved external actions
-- [ ] Expand through remaining public routes, add regression coverage, validate major interaction paths, document owner/provider dependencies, and publish the release
+- [x] Inventory each major ScrollVerse ecosystem lane for evidence labeling, functional-readiness state, contribution opportunity, privacy boundary, accessibility path, and zero-dead-end navigation
+- [x] Design a reusable cross-portal standard and shared components for source/date/limitations, local interaction state, protected handoff, correction invitation, and activation boundary
+- [x] Apply the common framework first to the knowledge, media, creator, fashion, blockchain-learning, and community lanes without activating unapproved external actions
+- [x] Expand through remaining public routes, add regression coverage, validate major interaction paths, document owner/provider dependencies, and publish the release
 
 ## Phase 209 — Creator Exchange and Bundle Readiness
 - [x] Define music, merchandise, digital-download, book, comic, art, story, collectible, currency-learning, and direct-to-fan bundle lanes with explicit rights, pricing, provider, custody, and activation boundaries

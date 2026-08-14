@@ -150,7 +150,17 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+const isDevelopment = process.env.NODE_ENV !== "production";
+
+// JSX source-location attributes and the browser debug collector are development-only
+// diagnostics. Excluding them from production avoids a second transform pass across the
+// large route catalog while preserving the runtime plugin used by the deployed portal.
+const plugins = [
+  react(),
+  tailwindcss(),
+  vitePluginManusRuntime(),
+  ...(isDevelopment ? [jsxLocPlugin(), vitePluginManusDebugCollector()] : []),
+];
 
 export default defineConfig({
   plugins,
