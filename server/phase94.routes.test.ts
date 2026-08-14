@@ -1229,4 +1229,94 @@ describe("Phase 94 route map", () => {
     expect(audit).toContain("No full audiobook, video, or motion edition is claimed");
     expect(home).toContain('href: "/books-media-readiness"');
   });
+
+  it("registers Recovery Materials as a source-labeled concept navigator with private and unverified-material boundaries", () => {
+    const recovery = readProjectFile("client/src/pages/RecoveryMaterials.tsx");
+    const register = readProjectFile("docs/phase203-recovery-materials-register.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import RecoveryMaterials from "./pages/RecoveryMaterials"');
+    expect(app).toContain('<Route path="/recovery-materials" component={RecoveryMaterials} />');
+    expect(recovery).toContain("Recovery Materials Navigator");
+    expect(recovery).toContain("Owner review required");
+    expect(recovery).toContain("Source-labeled concept only");
+    expect(recovery).toContain("It does not upload, copy, release, or alter the supplied recovery exports");
+    expect(recovery).toContain("not a restored system, a technical audit, a publication record");
+    expect(register).toContain("Five user-supplied recovery text exports were classified");
+    expect(register).toContain("The public navigator contains classifications and high-level concept lenses");
+    expect(home).toContain('href: "/recovery-materials"');
+  });
+
+  it("registers public co-creation with browser-local drafting, protected handoff, and explicit review boundaries", () => {
+    const coCreation = readProjectFile("client/src/pages/CoCreationNavigator.tsx");
+    const protocol = readProjectFile("docs/phase204-public-co-creation-protocol.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import CoCreationNavigator from "./pages/CoCreationNavigator"');
+    expect(app).toContain('<Route path="/co-creation-navigator" component={CoCreationNavigator} />');
+    expect(coCreation).toContain("Co-Creation Navigator");
+    expect(coCreation).toContain("BROWSER-LOCAL PROPOSAL DRAFT");
+    expect(coCreation).toContain("Protected Contributor Handoff");
+    expect(coCreation).toContain("Copy proposal draft");
+    expect(coCreation).toContain("automatic publication, system change, commercial agreement");
+    expect(coCreation).toContain("Do not submit secrets, credentials, recovery phrases");
+    expect(protocol).toContain("The material remains a local proposal");
+    expect(protocol).toContain("Young creators should participate with a parent");
+    expect(coCreation).toContain("Recovery Materials Register");
+    expect(home).toContain('href: "/co-creation-navigator"');
+  });
+
+  it("registers the Idea Exchange and portal-wide trust standard with browser-local social collaboration boundaries", () => {
+    const exchange = readProjectFile("client/src/pages/IdeaExchange.tsx");
+    const standard = readProjectFile("client/src/pages/PortalTrustStandard.tsx");
+    const designRecord = readProjectFile("docs/phase207-social-cocreation-design-record.md");
+    const lens = readProjectFile("client/src/components/PortalTrustLens.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import IdeaExchange from "./pages/IdeaExchange"');
+    expect(app).toContain('import PortalTrustStandard from "./pages/PortalTrustStandard"');
+    expect(app).toContain('<Route path="/idea-exchange" component={IdeaExchange} />');
+    expect(app).toContain('<Route path="/portal-trust-standard" component={PortalTrustStandard} />');
+    expect(exchange).toContain("Idea Exchange");
+    expect(exchange).toContain("BROWSER-LOCAL DRAFT");
+    expect(exchange).toContain("COMPLEMENTARY-STRENGTH LENS");
+    expect(exchange).toContain("not a live chatroom, public social feed");
+    expect(standard).toContain("Portal Trust Standard");
+    expect(standard).toContain("every major lane should show what it is");
+    expect(lens).toContain("PORTAL TRUST LENS");
+    expect(designRecord).toContain("does not create public profiles");
+    expect(home).toContain('href: "/idea-exchange"');
+    expect(home).toContain('href: "/portal-trust-standard"');
+  });
+
+  it("registers the Creator Exchange Navigator with local bundle planning and explicit direct-to-fan, platform, fulfillment, and collectible boundaries", () => {
+    const exchange = readProjectFile("client/src/pages/CreatorExchangeNavigator.tsx");
+    const readiness = readProjectFile("docs/phase209-creator-exchange-readiness.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator"');
+    expect(app).toContain('<Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />');
+    expect(exchange).toContain("Creator Exchange Navigator");
+    expect(exchange).toContain("BUILD A BUNDLE PLAN");
+    expect(exchange).toContain("LOCAL BUNDLE READINESS BRIEF");
+    expect(exchange).toContain("OFFICIAL PREPARATION REFERENCES · OUTBOUND");
+    expect(exchange).toContain("does not set a price, create a SKU, publish files");
+    expect(exchange).toContain("not a bank, broker, payment processor, exchange");
+    expect(readiness).toContain("A release can connect music, a story, comics, artwork, books");
+    expect(readiness).toContain("not a mint, listing, wallet connection, offer, custody, trade");
+    expect(home).toContain('href: "/creator-exchange-navigator"');
+  });
+
+  it("registers the Creator Studio Navigator with local production planning and provider-safe music, video, art, and collaboration boundaries", () => {
+    const studio = readProjectFile("client/src/pages/CreatorStudioNavigator.tsx");
+    const workflow = readProjectFile("docs/phase210-creator-studio-workflow.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import CreatorStudioNavigator from "./pages/CreatorStudioNavigator"');
+    expect(app).toContain('<Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />');
+    expect(studio).toContain("Creator Studio Navigator");
+    expect(studio).toContain("PROJECT BOARD · LOCAL DRAFT");
+    expect(studio).toContain("FIVE-STAGE PRODUCTION MAP");
+    expect(studio).toContain("OFFICIAL WORKFLOW REFERENCES · OUTBOUND");
+    expect(studio).toContain("does not record audio, generate music, edit video");
+    expect(studio).toContain("not a recording application, digital-audio workstation");
+    expect(workflow).toContain("A completed local checklist is a planning signal");
+    expect(workflow).toContain("not independent proof of ownership");
+    expect(home).toContain('href: "/creator-studio-navigator"');
+  });
 });

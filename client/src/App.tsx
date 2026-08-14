@@ -321,6 +321,12 @@ import OriginalSystemsHub from "./pages/OriginalSystemsHub";
 import PublicPortfolioGovernance from "./pages/PublicPortfolioGovernance";
 import ManifestoBuildersBook from "./pages/ManifestoBuildersBook";
 import BooksMediaReadiness from "./pages/BooksMediaReadiness";
+import RecoveryMaterials from "./pages/RecoveryMaterials";
+import CoCreationNavigator from "./pages/CoCreationNavigator";
+import IdeaExchange from "./pages/IdeaExchange";
+import PortalTrustStandard from "./pages/PortalTrustStandard";
+import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator";
+import CreatorStudioNavigator from "./pages/CreatorStudioNavigator";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -670,6 +676,12 @@ function Router() {
         <Route path="/public-portfolio-governance" component={PublicPortfolioGovernance} />
         <Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />
         <Route path="/books-media-readiness" component={BooksMediaReadiness} />
+        <Route path="/recovery-materials" component={RecoveryMaterials} />
+        <Route path="/co-creation-navigator" component={CoCreationNavigator} />
+        <Route path="/idea-exchange" component={IdeaExchange} />
+        <Route path="/portal-trust-standard" component={PortalTrustStandard} />
+        <Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />
+        <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

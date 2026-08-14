@@ -1,7 +1,6 @@
 /*
  * SCROLLVERSE DIGITAL LIBRARY
- * The sovereign knowledge vault — books, scrolls, audio, and motion visuals
- * All 8 sacred texts available as PDF download, audio listen, and motion cartoon
+ * The sovereign knowledge vault — books, scrolls, source-led availability, and media readiness
  */
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
@@ -182,19 +181,8 @@ function BookDetail({
   book: BookType;
   onClose: () => void;
 }) {
-  const { user } = useAuth();
-  const [audioPlaying, setAudioPlaying] = useState(false);
   const [activeTab, setActiveTab] = useState<"overview" | "audio" | "motion">("overview");
   const color = CATEGORY_COLORS[book.category] ?? "#00D4FF";
-  const logSession = trpc.library.logAudioSession.useMutation();
-
-  const handleAudioToggle = () => {
-    const next = !audioPlaying;
-    setAudioPlaying(next);
-    if (!next && audioPlaying) {
-      logSession.mutate({ bookId: book.id, durationListenedSec: 60, frequency: book.frequency });
-    }
-  };
 
   return (
     <div
@@ -282,24 +270,18 @@ function BookDetail({
             {book.hasAudio ? (
               <div className="rounded-xl p-5" style={{ background: "rgba(0,255,136,0.05)", border: "1px solid rgba(0,255,136,0.2)" }}>
                 <div className="text-center mb-4">
-                  <div className="text-xs font-mono mb-2" style={{ color: "#00FF88" }}>SACRED FREQUENCY AUDIO</div>
+                  <div className="text-xs font-mono mb-2" style={{ color: "#00FF88" }}>AUDIO EDITION PREPARATION</div>
                   <div className="text-sm text-white mb-1">{book.title}</div>
-                  <div className="text-xs" style={{ color: "#8899AA" }}>{book.audioDurationMin} minutes · {book.frequency}</div>
+                  <div className="text-xs" style={{ color: "#8899AA" }}>{book.audioDurationMin} minutes listed in the catalog · public media file not attached to this route</div>
                 </div>
                 <div className="flex justify-center mb-4">
-                  <FrequencyWave active={audioPlaying} color="#00FF88" />
+                  <FrequencyWave active={false} color="#00FF88" />
                 </div>
                 <div className="flex justify-center gap-3">
-                  <button
-                    onClick={handleAudioToggle}
-                    className="px-6 py-2.5 rounded-xl font-bold text-sm transition-all"
-                    style={{ background: audioPlaying ? "rgba(255,68,68,0.2)" : "rgba(0,255,136,0.2)", color: audioPlaying ? "#FF4444" : "#00FF88", border: `1px solid ${audioPlaying ? "#FF4444" : "#00FF88"}40` }}
-                  >
-                    {audioPlaying ? "⏸ PAUSE" : "▶ PLAY PREVIEW"}
-                  </button>
+                  <Link href="/books-media-readiness" className="px-6 py-2.5 rounded-xl font-bold text-sm transition-all" style={{ background: "rgba(0,255,136,0.2)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.4)" }}>Open audio readiness →</Link>
                 </div>
                 <p className="text-xs text-center mt-3" style={{ color: "#8899AA" }}>
-                  Full audio available after purchase · AI-narrated with {book.frequency} sacred frequency background
+                  A full release requires a cleared narration file, transcript, accessibility review, rights record, and owner release decision. No purchase or playback is implied by this card.
                 </p>
               </div>
             ) : (
@@ -315,11 +297,10 @@ function BookDetail({
             {book.hasMotionVisual ? (
               <div className="rounded-xl p-5" style={{ background: "rgba(255,184,0,0.05)", border: "1px solid rgba(255,184,0,0.2)" }}>
                 <div className="text-center mb-4">
-                  <div className="text-xs font-mono mb-2" style={{ color: "#FFB800" }}>MOTION VISUAL EXPERIENCE</div>
-                  <div className="text-sm text-white mb-1">Animated words + sacred audio</div>
-                  <div className="text-xs" style={{ color: "#8899AA" }}>Living scroll — text animates in sync with narration</div>
+                  <div className="text-xs font-mono mb-2" style={{ color: "#FFB800" }}>MOTION EDITION PREPARATION</div>
+                  <div className="text-sm text-white mb-1">Visual release package not attached</div>
+                  <div className="text-xs" style={{ color: "#8899AA" }}>A completed motion edition requires cleared media, captions, accessible description, rights, and release evidence.</div>
                 </div>
-                {/* Motion preview placeholder */}
                 <div
                   className="rounded-xl aspect-video flex items-center justify-center relative overflow-hidden"
                   style={{ background: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,184,0,0.2)" }}
@@ -328,8 +309,8 @@ function BookDetail({
                     <div className="text-center">
                       <div className="text-4xl mb-3">🎬</div>
                       <div className="text-sm font-bold text-white mb-1">{book.title}</div>
-                      <div className="text-xs" style={{ color: "#FFB800" }}>Motion Visual Preview</div>
-                      <div className="text-xs mt-2" style={{ color: "#8899AA" }}>Full motion visual unlocks after purchase</div>
+                      <div className="text-xs" style={{ color: "#FFB800" }}>Motion release readiness</div>
+                      <Link href="/media-readiness-lab" className="mt-3 inline-block text-xs font-bold" style={{ color: "#00D4FF" }}>Open Media Readiness Lab →</Link>
                     </div>
                   </div>
                   {/* Animated frequency lines */}
@@ -390,11 +371,11 @@ function BookDetail({
                     </a>
                   )}
                   <a
-                    href={`/library/${book.slug}`}
+                    href="/books-media-readiness"
                     className="px-4 py-2.5 rounded-xl font-bold text-sm"
                     style={{ background: "rgba(0,255,136,0.2)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.4)" }}
                   >
-                    📥 FREE ACCESS
+                    📥 VIEW AVAILABILITY
                   </a>
                 </div>
               ) : (
@@ -402,23 +383,23 @@ function BookDetail({
                   <button
                     className="px-4 py-2.5 rounded-xl font-bold text-sm"
                     style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}
-                    onClick={() => window.open("/token", "_blank")}
+                    onClick={() => window.location.href = "/books-media-readiness"}
                   >
-                    💎 BUY WITH $LONDC
+                    💎 TOKEN READINESS
                   </button>
                   <button
                     className="px-4 py-2.5 rounded-xl font-bold text-sm"
                     style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
-                    onClick={() => window.open("/token", "_blank")}
+                    onClick={() => window.location.href = "/books-media-readiness"}
                   >
-                    💳 PURCHASE
+                    💳 RELEASE READINESS
                   </button>
                 </>
               )}
             </div>
           </div>
           <p className="text-xs" style={{ color: "#8899AA" }}>
-            All purchases include PDF + Audio + Motion Visual bundle · Instant digital delivery · Sovereign ownership
+            Availability is documented title by title. No purchase, bundled media delivery, ownership transfer, or token action occurs from this Library card.
           </p>
         </div>
       </div>

@@ -2,16 +2,13 @@ import PageTransition from "@/components/PageTransition";
 /*
  * SCROLLVERSE BOOKS DSP STATION
  * The Sacred Library of Chais 'Sabir Kajir' Hill the Great
- * All 10 Sacred Books · All Platforms · NFT Mint · Coin Mint · Music-Book Fusion
+ * All 10 Sacred Books · Source-Led Discovery · Release Readiness · Music-Book Fusion
  * Book of Life · Prophetic Timestamps · Manus & Chais Special Edition
  */
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { ViralShare } from "@/components/ViralShare";
-import { trpc } from "@/lib/trpc";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
 
 // ── BOOK DATA ──────────────────────────────────────────────────────────────
 const BOOKS = [
@@ -362,7 +359,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
               background: tab === t ? `${book.color}08` : "transparent",
             }}
           >
-            {t === "read" ? "📖 Read/Listen" : t === "platforms" ? "🌐 Platforms" : "🎨 NFT/Mint"}
+            {t === "read" ? "📖 Read/Listen" : t === "platforms" ? "🌐 Platforms" : "◈ Release"}
           </button>
         ))}
       </div>
@@ -395,7 +392,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
                   className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
                   style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#050B1A" }}
                 >
-                  {isPurchasing ? "Opening Checkout..." : `Purchase — $${book.price}`}
+                  {isPurchasing ? "Opening readiness..." : "View release readiness"}
                 </button>
               ) : (
                 <Link href={book.platforms[0].url}>
@@ -439,39 +436,30 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
 
         {tab === "nft" && (
           <div className="space-y-3">
-            <p className="text-xs font-mono mb-1" style={{ color: "#8899AA" }}>MINT THIS BOOK AS AN NFT</p>
+            <p className="text-xs font-mono mb-1" style={{ color: "#8899AA" }}>COLLECTIBLE AND TOKEN RELEASE READINESS</p>
             <div
               className="p-3 rounded-xl"
               style={{ background: `${book.color}08`, border: `1px solid ${book.color}25` }}
             >
-              <div className="text-xs font-mono mb-1" style={{ color: book.color }}>COLLECTION</div>
+              <div className="text-xs font-mono mb-1" style={{ color: book.color }}>POTENTIAL COLLECTION RECORD</div>
               <div className="text-sm font-bold text-white">{book.nftCollection}</div>
-              <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Polygon Mainnet · ERC-721</div>
+              <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Rights, contract, wallet, platform, and release evidence required before any mint or listing.</div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid gap-2">
               <button
                 onClick={() => onMintNFT(book)}
                 className="py-2.5 rounded-xl text-xs font-bold transition-all hover:opacity-90"
                 style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}80)`, color: "#050B1A" }}
               >
-                🎨 Mint NFT
+                ◈ Review collectible readiness
               </button>
-              <a
-                href={book.nftUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-2.5 rounded-xl text-xs font-bold text-center transition-all hover:opacity-90 flex items-center justify-center"
-                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", color: "#fff", textDecoration: "none" }}
-              >
-                🌊 OpenSea
-              </a>
             </div>
             <button
               onClick={() => onMintCoin(book)}
               className="w-full py-2.5 rounded-xl text-xs font-bold transition-all hover:opacity-90"
               style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
             >
-              🪙 Mint {book.coinSymbol} Coin
+              🪙 Explore {book.coinSymbol} readiness
             </button>
           </div>
         )}
@@ -483,14 +471,9 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
 // ── COIN MINT MODAL ────────────────────────────────────────────────────────
 function CoinMintModal({ onClose }: { onClose: () => void }) {
   const [selected, setSelected] = useState(44);
-  const [minting, setMinting] = useState(false);
 
-  const handleMint = async () => {
-    setMinting(true);
-    await new Promise((r) => setTimeout(r, 1800));
-    setMinting(false);
-    toast(`🪙 ${selected} $LONDC Minted! Your coins have been added to your Guardian wallet. KUN FAYAKŪN × ∞`);
-    onClose();
+  const openReadiness = () => {
+    window.location.href = "/crypto-systems-atlas";
   };
 
   return (
@@ -506,8 +489,8 @@ function CoinMintModal({ onClose }: { onClose: () => void }) {
       >
         <div className="text-center mb-6">
           <div className="text-4xl mb-2">🪙</div>
-          <h3 className="text-xl font-black text-white">Mint $LONDC Coins</h3>
-          <p className="text-xs font-mono mt-1" style={{ color: "#8899AA" }}>Polygon Mainnet · Sovereign Currency</p>
+          <h3 className="text-xl font-black text-white">$LONDC Release Readiness</h3>
+          <p className="text-xs font-mono mt-1" style={{ color: "#8899AA" }}>Educational preparation only · no wallet, mint, price, or allocation is activated here</p>
         </div>
         <div className="grid grid-cols-3 gap-2 mb-6">
           {COIN_DENOMINATIONS.map((d) => (
@@ -529,17 +512,16 @@ function CoinMintModal({ onClose }: { onClose: () => void }) {
           className="p-3 rounded-xl mb-4 text-center"
           style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)" }}
         >
-          <div className="text-xs font-mono" style={{ color: "#8899AA" }}>MINTING</div>
+          <div className="text-xs font-mono" style={{ color: "#8899AA" }}>RESEARCH LENS</div>
           <div className="text-2xl font-black" style={{ color: "#00D4FF" }}>{selected} $LONDC</div>
-          <div className="text-xs" style={{ color: "#8899AA" }}>≈ ${(selected * 0.0144).toFixed(4)} USD</div>
+          <div className="text-xs" style={{ color: "#8899AA" }}>A quantity lens only; it does not establish a price, balance, supply, allocation, or token availability.</div>
         </div>
         <button
-          onClick={handleMint}
-          disabled={minting}
+          onClick={openReadiness}
           className="w-full py-3 rounded-xl font-bold text-sm transition-all hover:opacity-90"
-          style={{ background: "linear-gradient(135deg, #00D4FF, #FFB800)", color: "#050B1A", opacity: minting ? 0.7 : 1 }}
+          style={{ background: "linear-gradient(135deg, #00D4FF, #FFB800)", color: "#050B1A" }}
         >
-          {minting ? "Minting..." : `Mint ${selected} $LONDC`}
+          Open token systems readiness →
         </button>
         <button onClick={onClose} className="w-full mt-2 py-2 text-xs" style={{ color: "#8899AA" }}>Cancel</button>
       </div>
@@ -549,15 +531,8 @@ function CoinMintModal({ onClose }: { onClose: () => void }) {
 
 // ── MAIN PAGE ──────────────────────────────────────────────────────────────
 export default function Books() {
-  const { isAuthenticated } = useAuth();
-  const bookCheckout = trpc.store.createBookCheckout.useMutation({
-    onSuccess: (data) => { window.location.href = data.url; },
-    onError: (err) => toast.error(`Checkout error: ${err.message}`),
-  });
-  const handleBookPurchase = (book: typeof BOOKS[0]) => {
-    if (!book.price) return;
-    if (!isAuthenticated) { window.location.href = getLoginUrl(); return; }
-    bookCheckout.mutate({ bookSlug: book.id, bookTitle: book.title, priceUsd: book.price, origin: window.location.origin });
+  const handleBookPurchase = (_book: typeof BOOKS[0]) => {
+    window.location.href = "/books-media-readiness";
   };
   const [filter, setFilter] = useState<"all" | "free" | "paid" | "prophetic">("all");
   const [showCoinMint, setShowCoinMint] = useState(false);
@@ -568,8 +543,8 @@ export default function Books() {
   const [storyGenre, setStoryGenre] = useState("Afrofuturism");
 
   const handleMintNFT = (book: typeof BOOKS[0]) => {
-    toast(`🎨 NFT Mint: ${book.title} — Opening OpenSea to mint "${book.nftCollection}" on Polygon. KUN FAYAKŪN × ∞`);
-    window.open(book.nftUrl, "_blank");
+    toast.info(`${book.title}: collectible release readiness is open. No wallet, mint, listing, or marketplace action has been triggered.`);
+    window.location.href = "/books-media-readiness";
   };
 
   const handleMintCoin = (_book: typeof BOOKS[0]) => {
@@ -605,16 +580,16 @@ export default function Books() {
           </h1>
           <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: "#8899AA" }}>
             10 Sacred Books by <strong style={{ color: "#FFB800" }}>Chais 'Sabir Kajir' Hill the Great</strong>.
-            Available on every platform. Mintable as NFTs. Every book is a blockchain.
+            Read first-party books now and inspect honest media, translation, direct-reader, collectible, and platform-release readiness before any external action.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {[
               { value: "10", label: "Sacred Books" },
-              { value: "8+", label: "Platforms" },
-              { value: "NFT", label: "Mintable" },
-              { value: "$LONDC", label: "Coin Mint" },
+              { value: "3", label: "Official prep guides" },
+              { value: "1", label: "Audio opening" },
+              { value: "0", label: "Unverified mints" },
               { value: "∞", label: "Legacy" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -681,7 +656,7 @@ export default function Books() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {filteredBooks.map((book) => (
-              <BookCard key={book.id} book={book} onMintNFT={handleMintNFT} onMintCoin={handleMintCoin} onPurchase={handleBookPurchase} isPurchasing={bookCheckout.isPending} />
+              <BookCard key={book.id} book={book} onMintNFT={handleMintNFT} onMintCoin={handleMintCoin} onPurchase={handleBookPurchase} isPurchasing={false} />
             ))}
           </div>
         </div>

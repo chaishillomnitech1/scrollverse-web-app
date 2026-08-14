@@ -304,29 +304,23 @@ function DivineCover() {
 export default function BookOfLife() {
   const [activeTab, setActiveTab] = useState<"seals" | "prophetic" | "music" | "platforms" | "nft">("seals");
   const [activeSeal, setActiveSeal] = useState(0);
-  const [audioPlaying, setAudioPlaying] = useState<string | null>(null);
-  const [nftMinting, setNftMinting] = useState<string | null>(null);
-  const [mintSuccess, setMintSuccess] = useState<string[]>([]);
 
-  const handleMintNFT = async (sealNumber: string) => {
-    setNftMinting(sealNumber);
-    await new Promise(r => setTimeout(r, 2000));
-    setNftMinting(null);
-    setMintSuccess(prev => [...prev, sealNumber]);
-    toast.success(`Seal ${sealNumber} NFT minted! The eternal ledger is updated. ❤️🕋`);
+  const handleMintNFT = (sealNumber: string) => {
+    toast.info(`Seal ${sealNumber}: collectible release readiness is open. No mint, wallet, listing, or transfer was triggered.`);
+    window.location.href = "/books-media-readiness";
   };
 
   const handlePlatformClick = (platform: typeof BOOK_PLATFORMS[0]) => {
     window.open(platform.url, "_blank");
-    toast.success(`Opening ${platform.name} — The Book of Life awaits. ❤️`);
+    toast.info(`Opening ${platform.name} as an official preparation reference. This is not evidence that The Book of Life is published there.`);
   };
 
   const tabs = [
     { id: "seals" as const, label: "📖 7 Seals" },
     { id: "prophetic" as const, label: "🔮 Prophetic Timestamps" },
     { id: "music" as const, label: "🎵 Music Fusion" },
-    { id: "platforms" as const, label: "🌍 All Platforms" },
-    { id: "nft" as const, label: "💎 NFT Mint" },
+    { id: "platforms" as const, label: "🌍 Platform Preparation" },
+    { id: "nft" as const, label: "◈ Collectible Readiness" },
   ];
 
   const currentSeal = SEVEN_SEALS[activeSeal];
@@ -424,21 +418,21 @@ export default function BookOfLife() {
                 className="px-6 py-3 rounded-xl font-bold text-sm"
                 style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)", color: "#050B1A" }}
               >
-                📦 Get on Amazon
+                📦 Explore Amazon preparation
               </button>
               <button
                 onClick={() => handlePlatformClick(BOOK_PLATFORMS[2])}
                 className="px-6 py-3 rounded-xl font-bold text-sm"
                 style={{ background: "rgba(247,148,29,0.15)", border: "1px solid rgba(247,148,29,0.4)", color: "#F7941D" }}
               >
-                🎧 Listen on Audible
+                🎧 Explore audiobook preparation
               </button>
               <button
                 onClick={() => setActiveTab("nft")}
                 className="px-6 py-3 rounded-xl font-bold text-sm"
                 style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
               >
-                💎 Mint NFT Seal
+                ◈ Collectible readiness
               </button>
             </div>
           </div>
@@ -534,23 +528,9 @@ export default function BookOfLife() {
                 </div>
 
                 <div className="flex gap-3">
+                  <button onClick={() => handleMintNFT(currentSeal.number)} className="px-4 py-2 rounded-xl text-xs font-bold transition-all" style={{ background: `${currentSeal.color}20`, border: `1px solid ${currentSeal.color}40`, color: currentSeal.color }}>◈ View collectible readiness</button>
                   <button
-                    onClick={() => handleMintNFT(currentSeal.number)}
-                    disabled={nftMinting === currentSeal.number || mintSuccess.includes(currentSeal.number)}
-                    className="px-4 py-2 rounded-xl text-xs font-bold transition-all"
-                    style={{
-                      background: mintSuccess.includes(currentSeal.number)
-                        ? "rgba(0,255,136,0.15)"
-                        : `${currentSeal.color}20`,
-                      border: `1px solid ${mintSuccess.includes(currentSeal.number) ? "rgba(0,255,136,0.4)" : `${currentSeal.color}40`}`,
-                      color: mintSuccess.includes(currentSeal.number) ? "#00FF88" : currentSeal.color,
-                      opacity: nftMinting === currentSeal.number ? 0.7 : 1,
-                    }}
-                  >
-                    {nftMinting === currentSeal.number ? "⏳ Minting..." : mintSuccess.includes(currentSeal.number) ? "✓ Seal Minted" : "💎 Mint This Seal"}
-                  </button>
-                  <button
-                    onClick={() => setAudioPlaying(audioPlaying === currentSeal.number ? null : currentSeal.number)}
+                    onClick={() => window.location.href = "/books-media-readiness"}
                     className="px-4 py-2 rounded-xl text-xs font-bold transition-all"
                     style={{
                       background: "rgba(255,255,255,0.05)",
@@ -558,7 +538,7 @@ export default function BookOfLife() {
                       color: "#8899AA",
                     }}
                   >
-                    {audioPlaying === currentSeal.number ? "⏸ Pause Reading" : "🔊 Voice Reading"}
+                    🔊 Voice edition readiness
                   </button>
                 </div>
               </div>
@@ -642,38 +622,8 @@ export default function BookOfLife() {
                     <div className="text-xs font-mono" style={{ color: "#556677" }}>
                       Frequency: <span style={{ color: seal.color }}>{PROPHETIC_TIMESTAMPS[i]?.frequency ?? "528Hz"}</span>
                     </div>
-                    <button
-                      onClick={() => {
-                        setAudioPlaying(audioPlaying === seal.number ? null : seal.number);
-                        toast.success(`${audioPlaying === seal.number ? "Paused" : "Playing"} Seal ${seal.number} — ${seal.title}`);
-                      }}
-                      className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
-                      style={{
-                        background: audioPlaying === seal.number ? `${seal.color}20` : "rgba(255,255,255,0.05)",
-                        border: `1px solid ${audioPlaying === seal.number ? seal.color : "rgba(255,255,255,0.1)"}`,
-                        color: audioPlaying === seal.number ? seal.color : "#8899AA",
-                      }}
-                    >
-                      {audioPlaying === seal.number ? "⏸ Playing" : "▶ Play"}
-                    </button>
+                    <button onClick={() => window.location.href = "/books-media-readiness"} className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#00D4FF" }}>Open media readiness →</button>
                   </div>
-                  {audioPlaying === seal.number && (
-                    <div className="mt-3 h-6 overflow-hidden rounded">
-                      <svg viewBox="0 0 200 24" preserveAspectRatio="none" className="w-full h-full">
-                        {Array.from({ length: 20 }).map((_, j) => (
-                          <rect
-                            key={j}
-                            x={j * 10 + 1}
-                            y={12 - (Math.sin(Date.now() * 0.003 + j * 0.8) + 1) * 5}
-                            width="8"
-                            height={(Math.sin(Date.now() * 0.003 + j * 0.8) + 1) * 10 + 2}
-                            fill={seal.color}
-                            opacity="0.7"
-                          />
-                        ))}
-                      </svg>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -757,27 +707,13 @@ export default function BookOfLife() {
                     </div>
                   </div>
                   <p className="text-xs mb-4" style={{ color: "#8899AA" }}>
-                    Own the eternal record of {seal.title.toLowerCase()} — immutable on-chain, forever yours.
+                    A potential collectible record for {seal.title.toLowerCase()}. Rights, contract, wallet, marketplace, and release evidence must be reviewed before any on-chain action.
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="text-xs font-mono" style={{ color: "#556677" }}>
-                      Supply: <span style={{ color: seal.color }}>144</span> / 144,000
+                      STATE: <span style={{ color: seal.color }}>PREPARATION ONLY</span>
                     </div>
-                    <button
-                      onClick={() => handleMintNFT(seal.number)}
-                      disabled={nftMinting === seal.number || mintSuccess.includes(seal.number)}
-                      className="px-4 py-2 rounded-xl text-xs font-bold transition-all"
-                      style={{
-                        background: mintSuccess.includes(seal.number)
-                          ? "rgba(0,255,136,0.15)"
-                          : `${seal.color}20`,
-                        border: `1px solid ${mintSuccess.includes(seal.number) ? "rgba(0,255,136,0.4)" : `${seal.color}40`}`,
-                        color: mintSuccess.includes(seal.number) ? "#00FF88" : seal.color,
-                        opacity: nftMinting === seal.number ? 0.7 : 1,
-                      }}
-                    >
-                      {nftMinting === seal.number ? "⏳ Minting..." : mintSuccess.includes(seal.number) ? "✓ Minted!" : "💎 Mint Seal"}
-                    </button>
+                    <button onClick={() => handleMintNFT(seal.number)} className="px-4 py-2 rounded-xl text-xs font-bold transition-all" style={{ background: `${seal.color}20`, border: `1px solid ${seal.color}40`, color: seal.color }}>◈ Release readiness</button>
                   </div>
                 </div>
               ))}
@@ -786,18 +722,13 @@ export default function BookOfLife() {
               className="rounded-2xl p-6 text-center"
               style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.15)" }}
             >
-              <div className="text-sm font-bold text-white mb-2">💎 Complete Seal Collection</div>
+              <div className="text-sm font-bold text-white mb-2">◈ Complete Seal Collection Preparation</div>
               <p className="text-xs mb-3" style={{ color: "#8899AA" }}>
-                Mint all 7 Seals to unlock the Complete Book of Life NFT — the rarest artifact in the ScrollVerse.
+                A complete collection requires cleared source assets, rights records, contract and wallet review, marketplace configuration, and explicit owner authorization. None of those actions occur on this page.
               </p>
               <div className="text-xs font-mono" style={{ color: "#00D4FF" }}>
-                {mintSuccess.length}/7 Seals Minted
+                0 verified on-chain collection records represented by this route
               </div>
-              {mintSuccess.length === 7 && (
-                <div className="mt-3 text-sm font-bold" style={{ color: "#FFD700" }}>
-                  ✨ ALL 7 SEALS MINTED — THE BOOK OF LIFE IS YOURS ✨
-                </div>
-              )}
             </div>
           </div>
         )}
@@ -806,7 +737,7 @@ export default function BookOfLife() {
         <div className="mt-16 pt-8 border-t text-center" style={{ borderColor: "rgba(255,215,0,0.1)" }}>
           <ViralShare
             title="The Book of Life — Eternal Edition by Chais The Great"
-            text="📖 The most legendary book ever created. 7 Seals, prophetic timestamps, NFT mint, music-book fusion. Past × Present × Future × Eternal. KUN FAYAKŪN × ∞"
+            text="📖 The Book of Life: seven public reading seals, source-led music context, and transparent media and collectible release readiness. KUN FAYAKŪN × ∞"
             url="https://scrollverse.co/book-of-life"
           />
           <div className="text-xs font-mono mt-6 mb-1" style={{ color: "#556677" }}>

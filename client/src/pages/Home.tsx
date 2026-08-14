@@ -1007,6 +1007,12 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "⌘", title: "Public Portfolio Governance", detail: "Review public repository patterns as source-led governance learning with clear authority, deployment, and financial evidence limits.", href: "/public-portfolio-governance", color: "#B98CFF" },
   { icon: "▤", title: "Manifesto & Builder’s Book", detail: "Read the free ScrollVerse philosophy, practical systems patterns, blueprint vocabulary, and protected-material boundaries.", href: "/manifesto-builders-book", color: "#FFB800" },
   { icon: "◫", title: "Books & Media Readiness", detail: "See what is readable now, what media is actually available, and which book-release steps remain owner or provider controlled.", href: "/books-media-readiness", color: "#00FF88" },
+  { icon: "⟐", title: "Recovery Materials", detail: "Inspect the source-labeled classification of newly supplied recovery exports and open only public-safe concept pathways.", href: "/recovery-materials", color: "#B98CFF" },
+  { icon: "✦", title: "Co-Creation Navigator", detail: "Offer original work, sources, corrections, access improvements, or route ideas through a transparent, review-labeled contribution path.", href: "/co-creation-navigator", color: "#00D4FF" },
+  { icon: "🧩", title: "Idea Exchange", detail: "Name what you offer, what you seek, and draft a respectful collaboration brief without creating a public profile or social feed.", href: "/idea-exchange", color: "#B98CFF" },
+  { icon: "◌", title: "Portal Trust Standard", detail: "See the shared source, readiness, privacy, co-creation, and activation-boundary standard across the ScrollVerse ecosystem.", href: "/portal-trust-standard", color: "#00FF88" },
+  { icon: "◈", title: "Creator Exchange", detail: "Plan original music, stories, comics, books, art, downloads, merchandise, and collectible readiness as one evidence-gated release universe.", href: "/creator-exchange-navigator", color: "#FFB800" },
+  { icon: "◉", title: "Creator Studio", detail: "Plan original recording, music, film, video, art, story, collaboration, accessibility, and release preparation through a local-first production workflow.", href: "/creator-studio-navigator", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

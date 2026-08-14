@@ -2717,10 +2717,10 @@
 - [x] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series
 
 ## Phase 200 — Free Manifesto and Builder’s Book
-- [ ] Inventory verified first-party systems material and separate public learning content from protected materials
-- [ ] Write a free ScrollVerse Manifesto and Builder’s Book with philosophy, practical patterns, blueprint vocabulary, source notes, and rights boundaries
-- [ ] Build a public reading route and protected-material handoff without exposing private files, credentials, or unreviewed source assets
-- [ ] Validate and publish the free book and manifesto update
+- [x] Inventory verified first-party systems material and separate public learning content from protected materials
+- [x] Write a free ScrollVerse Manifesto and Builder’s Book with philosophy, practical patterns, blueprint vocabulary, source notes, and rights boundaries
+- [x] Build a public reading route and protected-material handoff without exposing private files, credentials, or unreviewed source assets
+- [x] Validate and publish the free book and manifesto update
 
 ## Phase 201 — Adaptive Book, Media, Language, and Distribution Readiness
 - [x] Audit every visible book route, reading control, audio/voice control, motion-media control, and external platform handoff for real destination, evidence, and functional-state accuracy
@@ -2730,3 +2730,57 @@
 - [x] Build a source-led Books and Media Readiness route that distinguishes free reading, direct-reader commerce readiness, audio/video readiness, and external-platform submission readiness
 - [x] Prepare owner-controlled direct-to-reader and external-platform handoffs for each verified book without creating listings, pricing, checkout, account access, uploads, publication, or transactions absent explicit authorization and credentials
 - [x] Add regression coverage, validate routes, TypeScript, and tests, document all remaining rights/provider/owner dependencies, and publish the verified update
+
+## Phase 202 — Book-Control Remediation and Release Packages
+- [ ] Inventory remaining Book Hub, Digital Library, and Book of Life controls that are simulated, use placeholder media, or route to unresolved destinations
+- [ ] Replace unsupported simulated controls with functional first-party reading/readiness handoffs and clear user-facing state labels
+- [ ] Create a verified per-title release-package checklist covering source text, accessibility, cover, narration, translation, catalog, rights, and direct-reader prerequisites
+- [ ] Validate all changed routes, update regression coverage, record owner/provider dependencies, and publish the remediation update
+
+## Phase 203 — Recovery Material Integration Register
+- [x] Inventory the five user-supplied recovery/Google AI Studio text exports and classify source, completeness, sensitivity, and public-release eligibility
+- [x] Create a source-labeled recovery register that separates documented source material, unverified assistant-generated claims, private material, and public-safe concept references
+- [x] Map cleared concepts to existing ScrollVerse routes and add only source-labeled discovery or reading entries that do not expose private, legal, financial, security, credential, or unreviewed material
+- [x] Validate the recovery-material integration, record owner-review requirements, and publish the verified update
+
+## Phase 204 — Public Co-Creation and Contribution Lane
+- [x] Define public co-creator roles, permitted contribution types, review states, correction workflow, rights attestation, youth-safety guidance, and prohibited submission categories
+- [x] Build a transparent public Co-Creation Navigator with browser-local proposal drafting and a functional protected contribution handoff
+- [x] Connect recovery-material gaps, knowledge routes, and creator pathways to source-labeled public contribution and correction invitations
+- [x] Add regression coverage, validate routes and interaction states, document moderation/owner dependencies, and publish the verified co-creation update
+
+## Phase 205 — Public Idea Exchange
+- [x] Define idea-exchange proposal types, shared-strength principles, review states, rights confirmation, youth-safety guidance, and prohibited submission categories
+- [x] Build a browser-local suggestion box and collaboration-drafting experience with an explicit protected review handoff
+- [x] Connect the Idea Exchange with Co-Creation Navigator, Recovery Materials, and Home discovery routes
+- [x] Add regression coverage, validate routes and interaction states, document review dependencies, and publish the verified idea-sharing update
+
+## Phase 206 — Social Co-Creation Profiles
+- [x] Define browser-local social co-creation profile fields for what a visitor offers, seeks, values, and proposes without creating public user profiles or collecting data
+- [x] Build a collaboration-fit draft that helps visitors identify complementary strengths and export a respectful collaboration request for protected review
+- [x] Connect the social co-creation layer to Idea Exchange, Co-Creation Navigator, Recovery Materials, Home, and Creator Operations
+- [x] Add regression coverage, validate routes and local interactions, document privacy/moderation dependencies, and publish the update
+
+## Phase 207 — Research-Led Social Co-Creation Innovation
+- [x] Research authoritative collaboration, contribution review, privacy-by-design, knowledge-graph, and online-safety patterns relevant to an original ScrollVerse social co-creation system
+- [x] Translate the research into a source-labeled social co-creation design record with explicit limits on automated matching, public profiles, ranking, moderation, and data retention
+- [x] Implement original high-function collaboration-fit, proposal, and knowledge-navigation interfaces using only browser-local state until a separately approved moderated backend is available
+- [x] Connect the innovation layer to Idea Exchange, Co-Creation Navigator, Recovery Materials, Home, and Creator Operations; validate and publish the update
+
+## Phase 208 — Portal-Wide Trust and Co-Creation Standard
+- [ ] Inventory each major ScrollVerse ecosystem lane for evidence labeling, functional-readiness state, contribution opportunity, privacy boundary, accessibility path, and zero-dead-end navigation
+- [ ] Design a reusable cross-portal standard and shared components for source/date/limitations, local interaction state, protected handoff, correction invitation, and activation boundary
+- [ ] Apply the common framework first to the knowledge, media, creator, fashion, blockchain-learning, and community lanes without activating unapproved external actions
+- [ ] Expand through remaining public routes, add regression coverage, validate major interaction paths, document owner/provider dependencies, and publish the release
+
+## Phase 209 — Creator Exchange and Bundle Readiness
+- [x] Define music, merchandise, digital-download, book, comic, art, story, collectible, currency-learning, and direct-to-fan bundle lanes with explicit rights, pricing, provider, custody, and activation boundaries
+- [x] Research authoritative direct-to-fan, music-distribution, merchandise, digital-delivery, rights, commerce, and marketplace operating patterns
+- [x] Build a source-led Creator Exchange Navigator with browser-local bundle planning, release-readiness states, and protected creator handoffs
+- [x] Connect music, media, fashion, books, collectibles, distribution, and commerce-readiness routes; validate, document owner/provider dependencies, and publish the update
+
+## Phase 210 — Creator Studio Production Readiness
+- [x] Define a browser-local Creator Studio workflow for music recording, audio production, video/film planning, visual art, asset organization, collaboration, rights, and release readiness
+- [x] Research authoritative collaboration, recording, audio, video, film, visual-art, asset-management, and creator-production workflow patterns
+- [x] Build the source-led Creator Studio Navigator with local production planning, asset checklist, collaboration roles, and protected creator handoffs
+- [x] Connect Creator Studio to Creator Exchange, media readiness, distribution, co-creation, and Creator Operations; validate, document provider dependencies, and publish the update
