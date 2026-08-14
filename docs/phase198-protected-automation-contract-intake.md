@@ -46,3 +46,22 @@ An additional owner-supplied reference describes a deployment shell that reads e
 | CI/CD outline | Keep versioned changes, test outputs, source records, and explicit release gates visible in project documentation. | No external repository workflow, automatic deployment, account connection, or live operation is enabled. |
 
 The supplied material is not treated as a security audit, deployment receipt, legal/financial framework, or production runbook. ScrollVerse retains its existing requirement that any future contract, payout, or network action be separately designed, reviewed, tested, provider-compatible, and explicitly confirmed at the transaction point.
+
+## Addendum — Verification Shell, Signature Parser, and Benchmark References
+
+The latest owner-supplied reference describes a shell script for creating local directories, checking tooling, compiling proposed circuits, optimizing contract builds, collecting gas reports, and staging an external deployment sequence. It also provides a low-level signature-recovery code example and a comparative performance matrix. The script and code remain **protected non-executable reference material**.
+
+| Reference topic | Compatible first-party lesson | Explicit limitation |
+|---|---|---|
+| Dependency checks | Keep project checks repeatable and make missing prerequisites visible before a release checkpoint. | The proposed command set is not run, and the availability or correctness of external contract/circuit dependencies is not established. |
+| Staged verification | Separate source review, type checking, regression testing, production build verification, and owner authorization. | A staged outline does not prove a system is deployment-ready, secure, integrated, or operating on any network. |
+| Low-level signature code | Treat signature parsing and cryptographic code as specialized review subjects requiring independent tests and audit before use. | No claim is made about memory safety, signature validity, gas efficiency, replay protection, or security of the supplied code. |
+| Benchmark matrix | Distinguish a design aspiration from measured performance. | No performance, settlement, cryptographic, synchronization, revenue-split, or payout statement has been independently benchmarked or activated. |
+
+No directory setup, local circuit build, contract build, static analysis, gas report, repository hook, wallet, RPC connection, deployment, split, payout, or network operation was performed from this reference.
+
+## Addendum — Multi-Region Deployment Variant
+
+The latest Google-provided multi-region script is a variant of the already classified verification-shell pattern. Its directory setup, dependency checks, circuit and contract commands, simulated address labels, low-level signature parser, benchmark matrix, and deployment roadmap do not add independently verified deployment evidence or a new first-party capability. The added multi-region wording is treated as a **planning label**, not confirmation of a network, region, contract, address, chain state, or active operation.
+
+The existing non-execution rule continues unchanged: no script was run; no contract or circuit was compiled; no simulated address was treated as deployed; no gas/performance claim was accepted; and no repository hook, provider, wallet, payout, or network action was created.

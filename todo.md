@@ -2105,6 +2105,7 @@
 - [ ] Create the private app-icon record and upload the cleared asset under the owner account
 - [ ] Assign a real administrator and link an existing provenance record
 - [ ] Verify the private record and report the owner-controlled completeness-feedback next step
+- [x] Prepare a consolidated non-sensitive handoff that separates release-record authentication, cleared app-icon/provenance needs, and mainnet deployment confirmation from completed first-party portal work
 - [x] Preserve the protected release-bundle workflow as owner-ready with no attempted authentication bypass when the external session is unavailable
 - [x] Document the owner-confirmed desktop authorization as complete and classify the remaining missing session token as a platform handoff mismatch rather than a pending owner action
 
@@ -2351,6 +2352,10 @@
 - [x] Extend the protected architecture record with only the compatible first-party principles of staged review, replay-resistance questions, separated evidence packets, and multi-step confirmation; preserve limits on automation, security, ownership, and payout claims
 - [x] Classify the supplied deployment shell, environment-variable handling, contract-address labels, low-level signature code, and CI/CD blueprint as protected non-executable input; do not source environment files, run scripts, create deployment artifacts, connect an RPC endpoint, or initiate a transaction
 - [x] Extend the protected architecture record with only compatible first-party lessons for build checks, secret isolation, safe review sequencing, and dependency validation; record that the supplied contract, deployment, performance, and security claims are not independently verified
+- [x] Classify the newly supplied verification shell, signature parser, benchmark matrix, and deployment roadmap as protected non-executable reference input; do not run its commands, compile circuits, build contracts, profile gas, or perform network actions
+- [x] Extend the protected architecture record with only compatible staged-review, test-evidence, and dependency-validation lessons while documenting that its performance, security, and payout statements are unverified
+- [x] Classify the newly supplied multi-region deployment engine, simulated address labels, signature parser, and benchmark matrix as protected non-executable reference input; do not run its script, compile code, rely on its deployment statements, or connect to a network
+- [x] Extend the protected architecture record only if the variant introduces a distinct compatible first-party review lesson; otherwise record it as a duplicate-pattern intake without replicating content
 
 ## Phase 199 — Creator-Controlled Value Pathways
 - [x] Restore missing systems route components and confirm route integrity before expanding discovery
