@@ -348,6 +348,7 @@ import StandardsStudio from "./pages/StandardsStudio";
 import HypotheticalSystemsLab from "./pages/HypotheticalSystemsLab";
 import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
+import DigitalHollywoodStudio from "./pages/DigitalHollywoodStudio";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -719,6 +720,7 @@ function Router() {
         <Route path="/narrative-source-trail" component={NarrativeSourceTrail} />
         <Route path="/original-media-readiness" component={OriginalMediaReadiness} />
         <Route path="/media-portfolio-readiness" component={MediaPortfolioReadiness} />
+        <Route path="/digital-hollywood-studio" component={DigitalHollywoodStudio} />
         <Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />
         <Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />
         <Route path="/brand-feature-studio" component={BrandFeatureStudio} />

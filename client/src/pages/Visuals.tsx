@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { ViralShare } from "@/components/ViralShare";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
 
 // ── CHARACTERS ─────────────────────────────────────────────────────────────
 const CHARACTERS = [
@@ -28,8 +29,7 @@ const CHARACTERS = [
     tier: "GUARDIAN",
     universe: "ScrollVerse Earth",
     firstAppearance: "VaultBook XV, Chapter 44",
-    nftCollection: "Karate Scotty Origins",
-    nftUrl: "https://opensea.io/collection/scrollverse",
+    collectibleRecord: "Karate Scotty Origins — original-character readiness record",
     comicPanels: [
       { panel: "ORIGIN", desc: "Young Scotty finds the ancient scrolls beneath Vineland's Agape Hub" },
       { panel: "TRAINING", desc: "The Lyrian Lion masters teach Scotty the 528Hz combat arts" },
@@ -57,8 +57,7 @@ const CHARACTERS = [
     tier: "SOVEREIGN",
     universe: "ScrollVerse Earth",
     firstAppearance: "Scroll of 44:Omni, Chapter 7",
-    nftCollection: "AC Batman Sovereign Series",
-    nftUrl: "https://opensea.io/collection/scrollverse",
+    collectibleRecord: "Atlantic City Batman — original-character readiness record",
     comicPanels: [
       { panel: "THE BOARDWALK", desc: "Atlantic City — where empires rise and fall with the tide" },
       { panel: "THE MANTLE", desc: "Chais takes up the sovereign mantle after witnessing economic injustice" },
@@ -75,88 +74,80 @@ const VISUAL_CONCEPTS = [
   {
     id: "auroral-sigil",
     name: "Auroral Sigil NFTs",
-    desc: "Sacred geometric seals activated at 963Hz. Each sigil is a unique frequency signature — minted as ERC-721 NFTs on Polygon. The Auroral Sigil collection represents the 144,000 Guardian seals.",
+    desc: "Original geometric visual concept with a source-linked readiness record. Any collectible or chain attachment remains separately evidence, rights, security, and owner-review gated.",
     icon: "✨",
     color: "#9B59B6",
     github: "https://github.com/chaishillomnitech1/OmniBuilderZero",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["NFT", "Sacred Geometry", "963Hz", "Polygon"],
+    tags: ["Original concept", "Source record", "Readiness"],
   },
   {
     id: "thoth-sigil",
     name: "Thoth Sigil Galactic Echo",
-    desc: "The Thoth Sigil — eternal validation seal from the ScrollSoul NFT Core. Ancient Egyptian wisdom encoded in modern blockchain. Each mint is a galactic echo that resonates across dimensions.",
+    desc: "Original visual concept linked to a public source record. Historical and cultural references require context, rights review, and correction pathways before any release decision.",
     icon: "𓂀",
     color: "#E74C3C",
     github: "https://github.com/chaishillomnitech1/scrollsoul-nft-core",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["NFT", "Ancient Wisdom", "ERC-721", "Galactic"],
+    tags: ["Original concept", "Historical context", "Readiness"],
   },
   {
     id: "infinite-nexus",
     name: "Infinite Nexus ScrollVerse",
-    desc: "A transcendent frequency-powered visual interface. Interactive divine scroll activated at 528Hz by Chais The Great (Al-Miftah). Reality ripples, lightcode, and beyond. The living scroll.",
+    desc: "Interactive visual-interface concept with a public source handoff. Frequency language is creative context, not a health, scientific, or activation claim.",
     icon: "🌀",
     color: "#00D4FF",
     github: "https://github.com/chaishillomnitech1/Infinite-Nexus-ScrollVerse",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["Interactive", "528Hz", "Living Scroll", "JavaScript"],
+    tags: ["Interactive", "Creative context", "JavaScript"],
   },
   {
     id: "psyche16",
     name: "PSYCHE16 NFT Collection",
-    desc: "The Consciousness Mirror NFT collection — 16 aspects of sovereign consciousness, each minted as a unique digital artifact. Named after the asteroid PSYCHE-16, valued at $10 quintillion.",
+    desc: "A visual-concept record for sixteen creative themes. It is not a valuation, issued collection, or live collectible offer.",
     icon: "🔮",
     color: "#1DB954",
     github: "https://github.com/chaishillomnitech1/AkashicLogs-NFTMetaFramework",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["NFT", "Consciousness", "ERC-1155", "16 Aspects"],
+    tags: ["Visual concept", "Creative themes", "Readiness"],
   },
   {
     id: "azurath",
     name: "Azurath Collection",
-    desc: "The Azurath NFT collection — interdimensional beings from the ScrollVerse multiverse. Each Azurath is a unique sovereign entity with its own frequency signature and dimensional origin.",
+    desc: "An original-world character concept with source, rights, and release-readiness questions kept separate from any collectible decision.",
     icon: "👁️",
     color: "#8E44AD",
     github: "https://github.com/chaishillomnitech1/omniversal-kernel",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["NFT", "Interdimensional", "Multiverse", "Sovereign"],
+    tags: ["Original world", "Character concept", "Readiness"],
   },
   {
     id: "lyrian-lion",
     name: "Lyrian Lion Codes",
-    desc: "Sacred activation codes from the Lyrian Lion lineage. Ancient star-being wisdom encoded for the modern sovereign. DNA upgrade protocols, blockchain activation, and cosmic frequency alignment.",
+    desc: "A speculative visual-lore concept. It is presented as creative material, not as a biological, technical, blockchain, or health claim.",
     icon: "🦁",
     color: "#F39C12",
     github: "https://github.com/chaishillomnitech1/lyrian-lion-codes",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["Lineage", "DNA Codes", "Star Beings", "Activation"],
+    tags: ["Speculative lore", "Creative context", "Readiness"],
   },
   {
     id: "galactic-broadcaster",
     name: "Galactic Frequency Broadcaster",
-    desc: "Real-time generation and broadcasting of healing frequencies: 963Hz DNA Activation, 528Hz Love Frequency, 432Hz Universal Harmony. The visual interface for the frequency empire.",
+    desc: "A frequency-themed visual interface concept. It does not provide health treatment, biological activation, or real-time broadcast assurance.",
     icon: "📡",
     color: "#00FF88",
     github: "https://github.com/chaishillomnitech1/Galactic-Frequency-Broadcaster-",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["Frequency", "963Hz", "528Hz", "432Hz", "Broadcasting"],
+    tags: ["Frequency theme", "Visual interface", "Readiness"],
   },
   {
     id: "vineland-eternal",
     name: "VinelandEternal Visual",
-    desc: "The ScrollSoul's living nexus — IoT agriculture meets Agape-Ledger meets Drone-Alchemy meets Zaire ∞. A cosmic blueprint of abundance. The Vineland sanctuary visualized.",
+    desc: "A creator-world visual blueprint that links to a public source record. Operational, IoT, agricultural, or ledger claims require independent project-specific evidence.",
     icon: "🌱",
     color: "#27AE60",
     github: "https://github.com/chaishillomnitech1/VinelandEternal",
-    nftUrl: "https://opensea.io/collection/scrollverse",
-    tags: ["Vineland", "IoT", "Agriculture", "Agape", "Zaire ∞"],
+    tags: ["Visual blueprint", "Source record", "Readiness"],
   },
 ];
 
 // ── CHARACTER CARD ─────────────────────────────────────────────────────────
 function CharacterCard({ char }: { char: typeof CHARACTERS[0] }) {
-  const [tab, setTab] = useState<"story" | "powers" | "comic" | "nft">("story");
+  const [tab, setTab] = useState<"story" | "powers" | "comic" | "collectible">("story");
 
   return (
     <div
@@ -199,7 +190,7 @@ function CharacterCard({ char }: { char: typeof CHARACTERS[0] }) {
 
       {/* Tabs */}
       <div className="flex border-b" style={{ borderColor: "rgba(0,212,255,0.1)" }}>
-        {(["story", "powers", "comic", "nft"] as const).map((t) => (
+        {(["story", "powers", "comic", "collectible"] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
@@ -210,7 +201,7 @@ function CharacterCard({ char }: { char: typeof CHARACTERS[0] }) {
               background: tab === t ? `${char.color}08` : "transparent",
             }}
           >
-            {t === "story" ? "📖 Story" : t === "powers" ? "⚡ Powers" : t === "comic" ? "🎨 Comic" : "🎨 NFT"}
+            {t === "story" ? "📖 Story" : t === "powers" ? "⚡ Powers" : t === "comic" ? "🎨 Comic" : "🧾 Readiness"}
           </button>
         ))}
       </div>
@@ -290,43 +281,40 @@ function CharacterCard({ char }: { char: typeof CHARACTERS[0] }) {
           </div>
         )}
 
-        {tab === "nft" && (
+        {tab === "collectible" && (
           <div className="space-y-3">
             <div
               className="p-4 rounded-xl"
               style={{ background: `${char.color}08`, border: `1px solid ${char.color}25` }}
             >
-              <div className="text-xs font-mono mb-1" style={{ color: char.color }}>NFT COLLECTION</div>
-              <div className="text-lg font-black text-white">{char.nftCollection}</div>
-              <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Polygon Mainnet · ERC-721 · Limited Edition</div>
+              <div className="text-xs font-mono mb-1" style={{ color: char.color }}>COLLECTIBLE READINESS</div>
+              <div className="text-lg font-black text-white">{char.collectibleRecord}</div>
+              <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Fail-closed: rights, source, contract, security, terms, and owner approval remain separate requirements.</div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => {
-                  toast(`🎨 Minting ${char.name} NFT — Opening OpenSea. KUN FAYAKŪN × ∞`);
-                  window.open(char.nftUrl, "_blank");
-                }}
+                onClick={() => toast(`${char.name} readiness record is browser-local. No mint, wallet, sale, or marketplace action is active.`)}
                 className="py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90"
                 style={{ background: `linear-gradient(135deg, ${char.color}, ${char.color}80)`, color: "#050B1A" }}
               >
-                🎨 Mint NFT
+                🧾 Review readiness
               </button>
               <a
-                href={char.nftUrl}
+                href={char.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="py-3 rounded-xl text-sm font-bold text-center flex items-center justify-center transition-all hover:opacity-90"
                 style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", color: "#fff", textDecoration: "none" }}
               >
-                🌊 OpenSea
+                🐙 Source record
               </a>
             </div>
             <button
-              onClick={() => toast(`🪙 $LONDC coin mint for ${char.name} — opening mint interface`)}
+              onClick={() => toast("Token or coin functions remain fail-closed until separately reviewed and owner-authorized.")}
               className="w-full py-2.5 rounded-xl text-xs font-bold"
               style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
             >
-              🪙 Mint Character $LONDC Coin
+              🛡️ Token readiness boundary
             </button>
           </div>
         )}
@@ -371,14 +359,11 @@ function VisualCard({ concept }: { concept: typeof VISUAL_CONCEPTS[0] }) {
           🐙 GitHub
         </a>
         <button
-          onClick={() => {
-            toast(`🎨 Minting ${concept.name} NFT — Opening OpenSea`);
-            window.open(concept.nftUrl, "_blank");
-          }}
+          onClick={() => toast(`${concept.name} is a source-linked concept record. No mint, marketplace, wallet, or sale action is active.`)}
           className="flex-1 py-2 rounded-lg text-xs font-bold transition-all hover:opacity-90"
           style={{ background: `${concept.color}15`, color: concept.color, border: `1px solid ${concept.color}30` }}
         >
-          🎨 Mint NFT
+          🧾 Readiness
         </button>
       </div>
     </div>
@@ -408,8 +393,8 @@ export default function Visuals() {
             </span>
           </h1>
           <p className="text-lg max-w-2xl mx-auto mb-8" style={{ color: "#8899AA" }}>
-            Characters, cartoons, NFT collections, and visual concepts from the ScrollVerse universe.
-            Every character is mintable. Every concept is a blockchain. Every visual is sovereign.
+            Original characters, cartoons, visual concepts, and source-linked creative records from the ScrollVerse universe.
+            Each public record distinguishes story development from any future collectible, marketplace, or chain decision.
           </p>
 
           {/* Section Nav */}
@@ -442,7 +427,7 @@ export default function Visuals() {
           <div className="text-center mb-8">
             <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>SOVEREIGN CHARACTERS</div>
             <h2 className="text-2xl font-black text-white">Karate Scotty & Atlantic City Batman</h2>
-            <p className="text-sm mt-2" style={{ color: "#8899AA" }}>Original characters from the ScrollVerse universe — mintable as NFTs on Polygon</p>
+            <p className="text-sm mt-2" style={{ color: "#8899AA" }}>Original characters from the ScrollVerse universe with source, rights, and release-readiness records.</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {CHARACTERS.map((char) => (
@@ -479,9 +464,9 @@ export default function Visuals() {
       {section === "concepts" && (
         <div className="container pb-16">
           <div className="text-center mb-8">
-            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#9B59B6" }}>NFT COLLECTIONS & VISUAL CONCEPTS</div>
-            <h2 className="text-2xl font-black text-white">From GitHub to the Blockchain</h2>
-            <p className="text-sm mt-2" style={{ color: "#8899AA" }}>Every visual concept from the chaishillomnitech1 GitHub — mintable, sovereign, eternal</p>
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#9B59B6" }}>VISUAL CONCEPTS & SOURCE RECORDS</div>
+            <h2 className="text-2xl font-black text-white">From public source to creative readiness</h2>
+            <p className="text-sm mt-2" style={{ color: "#8899AA" }}>Visual concepts linked to public source records, with collectible and distribution functions held fail-closed.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             {VISUAL_CONCEPTS.map((concept) => (
@@ -597,7 +582,8 @@ export default function Visuals() {
       {/* ── FOOTER CTA ── */}
       <div className="py-12 text-center" style={{ background: "linear-gradient(180deg, transparent, rgba(255,184,0,0.04))" }}>
         <div className="container">
-          <p className="text-sm mb-4" style={{ color: "#8899AA" }}>Every character. Every concept. Every visual. Sovereign and eternal.</p>
+          <PortalTrustLens lane="Visual worlds" source="Original-character concepts and public-source handoffs" readiness="Creative records and browser-local exploration are live; release and collectible paths are staged." boundary="No mint, wallet, marketplace, token, sale, or health claim is active from this page." />
+          <p className="text-sm mt-6 mb-4" style={{ color: "#8899AA" }}>Every character, concept, and visual remains a source-labeled first-party creative record.</p>
           <ViralShare
             title="ScrollVerse Visuals — Sovereign Characters, NFTs & Cartoon Universe"
             text="🎨 Karate Scotty, Atlantic City Batman, Auroral Sigil NFTs — the ScrollVerse visual universe. Sovereign characters, NFT collections, and cosmic art. KUN FAYAKŪN × ∞"
