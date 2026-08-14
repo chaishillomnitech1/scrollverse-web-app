@@ -2937,9 +2937,35 @@
 - [ ] Publish each validated integrated work block with a concise record of what is live, what remains browser-local, and what requires separate owner-controlled activation
 
 ## Phase 233 — Archive, Minting, Covenant, and Codex Source Review
-- [ ] Review the newly supplied scrollverse-eternal-sovereign-archive, mein-sigil-mint-scroll-zkevm, XLVIIIblocks, scrollverse-first-knight-covenant, and sovereign-codex repositories as dated public source records
-- [ ] Classify only observable archive, provenance, collectible-contract, fashion/monograph, governance/covenant, and codex workflow patterns; distinguish code/public documentation from live deployment, ownership, financial, provider, or authority claims
-- [ ] Record owner-supplied bank-information context only as protected private context; exclude account details, credentials, balances, and transactions from public routes, source code, and unreviewed public records
-- [ ] Maintain a protected-private versus source-labeled-public boundary for all reviewed materials, including public links, owner-supplied context, release decisions, and rights-controlled assets
-- [ ] Connect compatible first-party patterns to the Archive, Empire Asset Navigator, XLVIII Blocks Monograph, Standards Studio, and creator-release readiness documentation without activating a wallet, contract, transaction, provider, or token
-- [ ] Add source-register coverage, route/test updates where appropriate, validate, and publish the review record
+- [x] Review the newly supplied scrollverse-eternal-sovereign-archive, mein-sigil-mint-scroll-zkevm, XLVIIIblocks, scrollverse-first-knight-covenant, and sovereign-codex repositories as dated public source records
+- [x] Classify only observable archive, provenance, collectible-contract, fashion/monograph, governance/covenant, and codex workflow patterns; distinguish code/public documentation from live deployment, ownership, financial, provider, or authority claims
+- [x] Record owner-supplied bank-information context only as protected private context; exclude account details, credentials, balances, and transactions from public routes, source code, and unreviewed public records
+- [x] Maintain a protected-private versus source-labeled-public boundary for all reviewed materials, including public links, owner-supplied context, release decisions, and rights-controlled assets
+- [x] Connect compatible first-party patterns to the Archive, Empire Asset Navigator, XLVIII Blocks Monograph, Standards Studio, and creator-release readiness documentation without activating a wallet, contract, transaction, provider, or token
+- [x] Add source-register coverage, route/test updates where appropriate, validate, and publish the review record
+
+## Phase 234 — Supplied Manus Site Source Review
+- [x] Review the supplied scrollverse-4j2bciqz, scrollverse-jqwuy5bt, and omnitech-mwws68ge Manus public sites as source-labeled property records
+- [x] Classify only publicly observable route structure, visual patterns, discovery paths, and accessibility cues; do not infer ownership, shared hosting control, user data access, or active integration from URLs alone
+- [x] Document compatible first-party discovery or cross-linking ideas, retain owner-controlled domain boundaries, and publish the source review without altering external sites
+- [x] Consolidate available task summaries, supplied continuity screenshots, public source records, and completed project documents into a protected continuity ledger that preserves source, date, access limits, and public/private status
+- [x] Add a repeatable first-party continuity protocol so new route work records decisions, sources, evidence state, and activation boundary without claiming access to every historical private chat or third-party account
+- [x] Repair the duplicate Home discovery key for `/institutional-systems-atlas` without removing its unique systems-learning purpose
+- [x] Add a first-party archive-and-continuity discovery link that distinguishes records, media, source status, and unavailable-route recovery from live external control
+
+## Phase 235 — ScrollVerse Consortium Architecture
+- [x] Record the owner-requested multi-project, multi-account, repository, documented-mail-route, and AI-workspace consortium scope as a source-labeled planning model without requesting credentials or accessing private accounts, inboxes, chats, or files
+- [x] Research public federated portfolio, identity, project-registry, permission, audit, and consent-based collaboration patterns for an owner-controlled central discovery plane
+- [x] Build a first-party Consortium blueprint that organizes verified/owner-supplied/public/pending sources, project handoffs, AI role boundaries, and explicit connection readiness states without live external synchronization or autonomous external action
+- [x] Add route discovery and regression coverage; validate the consortium work with TypeScript and Vitest before publication
+- [x] Classify the owner-supplied self-hosted architecture proposal as a resilience research input; distinguish portable backups and local tooling from unsupported claims of immutability, automatic evolution, or zero-cost operation
+- [x] Add a self-hosted resilience lane to the first-party Consortium blueprint covering staged repository backup, portable asset records, local model/tool research, scoped automation design, and human review/revocation boundaries
+- [x] Classify the supplied agent environment, pipeline, self-evolution, and on-chain liquidation references as protected, non-executable material; do not download, run, expose, or copy secret-bearing configuration or transaction code into the portal
+- [x] Add a visible transaction-and-secret safety gate to the Consortium resilience lane, distinguishing documentation, simulation review, owner-controlled secret storage, and an explicit confirmation requirement before any irreversible on-chain action
+
+## Phase 236 — Consent-First Media Launch Kit
+- [x] Classify the supplied Google campaign outlines as owner-supplied planning inputs; exclude linked inbox URLs, unsupported operating claims, and any scrape-or-flood instruction from active campaign behavior
+- [x] Research compliant professional-contact, email outreach, opt-in capture, unsubscribe, and community-engagement practices for a high-quality Tech, Fashion, and Music media launch
+- [x] Create an empty, structured media-contact CSV template with field definitions, consent/source tracking, status controls, and no fabricated leads or contact details
+- [x] Draft personalized Tech, Fashion, and Music editor outreach templates plus an opt-in community/Discord participation brief; keep all sending, posting, imports, and CRM synchronization disabled pending targeted review
+- [x] Validate the materials and attach the review-ready campaign package without contacting, scraping, importing, or publishing to any external outlet or community

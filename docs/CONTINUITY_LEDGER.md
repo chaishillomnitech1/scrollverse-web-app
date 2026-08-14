@@ -17,3 +17,9 @@ This document is the durable entry point for the ScrollVerse fashion continuity 
 ## Versioned, Not Self-Activating
 
 This ledger is versioned with the repository and checked by a local documentation preflight. It cannot change checkout status, provider authorization, inventory, merchant writes, smart contracts, or payment rails.
+
+## Phase 234 — Source-Led Continuity Review
+
+The Phase 234 record extends the ledger from fashion continuity into source-led project continuity. The review uses a four-field record—**source**, **classification**, **decision**, and **activation boundary**—for owner-supplied information, public sites, first-party documents, and protected evidence. The related source register and public-site review scope are maintained in [`phase234-manus-site-review.md`](./phase234-manus-site-review.md).
+
+Protected records are not copied into public routes, credentials are not committed, and project documentation does not imply access to historical private chats, remote site administration, or third-party accounts that have not been explicitly provided to this workspace.

@@ -342,10 +342,12 @@ import XLVIIIBlocksMonograph from "./pages/XLVIIIBlocksMonograph";
 import OpenKnowledgeVerse from "./pages/OpenKnowledgeVerse";
 import VoiceLanguageStudio from "./pages/VoiceLanguageStudio";
 import DomainDiscoveryMap from "./pages/DomainDiscoveryMap";
+import ConsortiumNexus from "./pages/ConsortiumNexus";
 import StandardsEvidenceCommons from "./pages/StandardsEvidenceCommons";
 import StandardsStudio from "./pages/StandardsStudio";
 import HypotheticalSystemsLab from "./pages/HypotheticalSystemsLab";
 import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
+import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -717,10 +719,12 @@ function Router() {
         <Route path="/open-knowledge-verse" component={OpenKnowledgeVerse} />
         <Route path="/voice-language-studio" component={VoiceLanguageStudio} />
         <Route path="/domain-discovery-map" component={DomainDiscoveryMap} />
+        <Route path="/consortium-nexus" component={ConsortiumNexus} />
         <Route path="/standards-evidence-commons" component={StandardsEvidenceCommons} />
         <Route path="/standards-studio" component={StandardsStudio} />
         <Route path="/hypothetical-systems-lab" component={HypotheticalSystemsLab} />
         <Route path="/ecosystem-outcomes-scorecard" component={EcosystemOutcomesScorecard} />
+        <Route path="/scrollverse-chess-arena" component={ScrollVerseChessArena} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
