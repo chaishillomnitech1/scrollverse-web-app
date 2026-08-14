@@ -49,3 +49,9 @@ If the owner elects to change a repository’s visibility later, that decision s
 The latest supplied variant combines a private-repository webhook proposal with an adjustable polynomial-circuit example and claims about alternative ring parameters. It is a duplicate-pattern intake under this record: no repository privacy setting was verified or changed, no token or webhook endpoint was used, no circuit was compiled, and no claims about proof complexity, device performance, cryptographic security, gas, or deployment were accepted.
 
 The only retained lesson is procedural: external synchronization, code generation, specialized cryptographic research, and any potential deployment should remain separate from the portal’s browser-local readiness work and require their own source, dependency, security, provider, and owner-action review.
+
+## Addendum — Frontend Binding and Gas-Profile Variant
+
+The latest reference repeats the proposal to generate frontend bindings from named contract endpoints and to use low-level signature and gas-optimization code. It is retained as a duplicate protected intake. ScrollVerse will continue to show only source, readiness, and owner-review states until a separately verified, audited, and explicitly authorized integration exists.
+
+No endpoint was added to the portal, no address was accepted as a verified deployment, no binding/configuration file was generated, and no contract, gas profile, provider connection, wallet, payout, or transaction action occurred.
