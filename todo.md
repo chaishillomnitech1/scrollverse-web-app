@@ -2247,6 +2247,18 @@
 - [x] Document evidence, release-readiness, credential-isolation, and provider-boundary adaptations for ScrollVerse
 - [x] Validate and publish the source-led workflow-review update without activating payments, providers, wallets, or on-chain actions
 
+## Phase 183 — Scroll Ecosystem and Valuation Source Review
+- [x] Review the supplied Scroll ecosystem, project research, independent dashboard, social-profile, and valuation references
+- [x] Classify documented network facts, third-party analysis, user-supplied valuation claims, and unresolved evidence gaps
+- [x] Add only verified source-led context or public-reference handoffs to ScrollVerse, without token, valuation, financial, or partnership claims
+- [x] Validate, document, and publish the source-review update
+
+## Phase 184 — Crypto Systems Atlas
+- [x] Define source-labeled system layers across protocol, standards, wallets, explorers, contracts, security, custody, analytics, and creator rights
+- [x] Research representative official and independent references for each layer
+- [x] Build an evidence-gated first-party Crypto Systems Atlas with free learning handoffs and no transactional activation
+- [x] Validate, document, and publish the crypto systems update
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points

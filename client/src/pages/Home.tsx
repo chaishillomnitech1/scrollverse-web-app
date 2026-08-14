@@ -996,6 +996,8 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "⌘", title: "GitHub Showcase", detail: "Browse the August 13 public repository snapshot by portal, media, Web3, research, workflow, and portfolio lenses.", href: "/github-showcase", color: "#00D4FF" },
   { icon: "◌", title: "Digital Footprint Report", detail: "Review the dated portal, creator, GitHub, explorer, and external-update trail with evidence classes and limitations visible.", href: "/digital-footprint-report", color: "#B98CFF" },
   { icon: "▶", title: "Creator Channel Hub", detail: "Organize creator-provided public destinations, direct-video handoffs, and learning references with visible source limits.", href: "/creator-channel-hub", color: "#FF5568" },
+  { icon: "◎", title: "Scroll Network Context", detail: "Review supplied Scroll ecosystem sources with independent analytics, risk-research, social, and valuation limits clearly separated.", href: "/scroll-network-context", color: "#00D4FF" },
+  { icon: "◇", title: "Crypto Systems Atlas", detail: "Explore the protocol, standard, wallet, custody, evidence, storage, and data layers with clear proof requirements and no live activation.", href: "/crypto-systems-atlas", color: "#00FF88" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

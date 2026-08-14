@@ -1048,4 +1048,38 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("Google’s automated-traffic verification page");
     expect(record).toContain("must not label that ID as a verified creator channel");
   });
+  it("registers Scroll Network Context with source classes and explicit valuation, token, and deployment limits", () => {
+    const context = readProjectFile("client/src/pages/ScrollNetworkContext.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const register = readProjectFile("docs/phase183-scroll-ecosystem-source-register.md");
+    expect(app).toContain('import ScrollNetworkContext from "./pages/ScrollNetworkContext"');
+    expect(app).toContain('<Route path="/scroll-network-context" component={ScrollNetworkContext} />');
+    expect(context).toContain("SCROLL NETWORK CONTEXT");
+    expect(context).toContain("CHAIN CONTEXT · NOT SCROLLVERSE CLAIMS");
+    expect(context).toContain("Scribd presentation with a similar name");
+    expect(context).toContain("not a ScrollVerse.co record");
+    expect(context).toContain("A listed figure is not a verified value");
+    expect(context).toContain("Explorer context is not a deployment record");
+    expect(context).toContain("does not provide investment, legal, tax, or financial advice");
+    expect(context).toContain("534352");
+    expect(home).toContain('href: "/scroll-network-context"');
+    expect(register).toContain("separately attributed project with a similar name");
+    expect(register).toContain("not incorporate current dashboard figures as permanent status");
+  });
+  it("registers the Crypto Systems Atlas with evidence gates and no financial, custody, or transaction activation", () => {
+    const atlas = readProjectFile("client/src/pages/CryptoSystemsAtlas.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const register = readProjectFile("docs/phase184-crypto-systems-atlas-source-register.md");
+    expect(app).toContain('import CryptoSystemsAtlas from "./pages/CryptoSystemsAtlas"');
+    expect(app).toContain('<Route path="/crypto-systems-atlas" component={CryptoSystemsAtlas} />');
+    expect(atlas).toContain("CRYPTO SYSTEMS ATLAS");
+    expect(atlas).toContain("Build capability from evidence, not imitation.");
+    expect(atlas).toContain("ERC-2981");
+    expect(atlas).toContain("A royalty interface is not a revenue guarantee");
+    expect(atlas).toContain("ScrollVerse does not request recovery phrases, private keys");
+    expect(atlas).toContain("does not issue, buy, sell, hold, transfer, custody, value, list, stake, bridge, mint");
+    expect(home).toContain('href: "/crypto-systems-atlas"');
+    expect(register).toContain("Crypto Systems Atlas is a first-party educational map");
+    expect(register).toContain("An interface standard does not guarantee value, liquidity");
+  });
 });

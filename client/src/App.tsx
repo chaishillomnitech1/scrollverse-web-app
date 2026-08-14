@@ -310,6 +310,8 @@ import OpportunityNavigator from "./pages/OpportunityNavigator";
 import GitHubShowcase from "./pages/GitHubShowcase";
 import DigitalFootprintReport from "./pages/DigitalFootprintReport";
 import CreatorChannelHub from "./pages/CreatorChannelHub";
+import ScrollNetworkContext from "./pages/ScrollNetworkContext";
+import CryptoSystemsAtlas from "./pages/CryptoSystemsAtlas";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -648,6 +650,8 @@ function Router() {
         <Route path="/github-showcase" component={GitHubShowcase} />
         <Route path="/digital-footprint-report" component={DigitalFootprintReport} />
         <Route path="/creator-channel-hub" component={CreatorChannelHub} />
+        <Route path="/scroll-network-context" component={ScrollNetworkContext} />
+        <Route path="/crypto-systems-atlas" component={CryptoSystemsAtlas} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
