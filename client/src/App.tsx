@@ -334,6 +334,8 @@ import HistoricalTransmissionPatterns from "./pages/HistoricalTransmissionPatter
 import NarrativeSourceTrail from "./pages/NarrativeSourceTrail";
 import OriginalMediaReadiness from "./pages/OriginalMediaReadiness";
 import NftMonetizationBlueprint from "./pages/NftMonetizationBlueprint";
+import EmpireAssetNavigator from "./pages/EmpireAssetNavigator";
+import BrandFeatureStudio from "./pages/BrandFeatureStudio";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -697,6 +699,8 @@ function Router() {
         <Route path="/narrative-source-trail" component={NarrativeSourceTrail} />
         <Route path="/original-media-readiness" component={OriginalMediaReadiness} />
         <Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />
+        <Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />
+        <Route path="/brand-feature-studio" component={BrandFeatureStudio} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

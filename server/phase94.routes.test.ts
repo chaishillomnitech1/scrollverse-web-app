@@ -1407,4 +1407,43 @@ describe("Phase 94 route map", () => {
     expect(architecture).toContain("No purchase should imply equity");
     expect(home).toContain('href: "/nft-monetization-blueprint"');
   });
+
+  it("registers the empire-wide asset navigator for company, clothing-line, digital-twin, and tokenization-readiness planning without live asset actions", () => {
+    const navigator = readProjectFile("client/src/pages/EmpireAssetNavigator.tsx");
+    const architecture = readProjectFile("docs/phase220-empire-asset-provenance-architecture.md");
+    const skill = readProjectFile("/home/ubuntu/skills/scrollverse-asset-provenance/SKILL.md");
+    const reference = readProjectFile("/home/ubuntu/skills/scrollverse-asset-provenance/references/asset-record.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import EmpireAssetNavigator from "./pages/EmpireAssetNavigator"');
+    expect(app).toContain('<Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />');
+    expect(navigator).toContain("Empire Asset Navigator");
+    expect(navigator).toContain("Clothing Line and Fashion Lane");
+    expect(navigator).toContain("ROSE-GOLD VISUAL SIGNATURE");
+    expect(navigator).toContain("VISUAL SEAL — NOT CRYPTOGRAPHIC PROOF");
+    expect(navigator).toContain("This navigator does not operate as a registry authority");
+    expect(architecture).toContain("Clothing and Company Operating Rule");
+    expect(architecture).toContain("not encryption or a cryptographic signature");
+    expect(skill).toContain("clothing-line, company");
+    expect(reference).toContain("product_spec_state");
+    expect(home).toContain('href: "/empire-asset-navigator"');
+  });
+
+  it("registers Brand Feature Studio for protected feature concepts, original look planning, and no-activation promotion boundaries", () => {
+    const studio = readProjectFile("client/src/pages/BrandFeatureStudio.tsx");
+    const intake = readProjectFile("docs/phase222-brand-feature-media-intake.md");
+    const workflow = readProjectFile("docs/phase222-brand-feature-workflow.md");
+    const reference = readProjectFile("/home/ubuntu/skills/scrollverse-asset-provenance/references/brand-feature.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import BrandFeatureStudio from "./pages/BrandFeatureStudio"');
+    expect(app).toContain('<Route path="/brand-feature-studio" component={BrandFeatureStudio} />');
+    expect(studio).toContain("Brand Feature Studio");
+    expect(studio).toContain("ST8 Drop");
+    expect(studio).toContain("Owner-supplied upcoming feature idea");
+    expect(studio).toContain("NO-ACTIVATION PROMOTION AND INCENTIVE BOUNDARY");
+    expect(studio).toContain("does not notify any company");
+    expect(intake).toContain("Owner-Supplied Prior Lookbook Build Summary");
+    expect(workflow).toContain("A brand reference never advances itself");
+    expect(reference).toContain("Keep disabled by default");
+    expect(home).toContain('href: "/brand-feature-studio"');
+  });
 });

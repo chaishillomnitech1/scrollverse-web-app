@@ -1019,6 +1019,8 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◒", title: "Narrative Source Trail", detail: "Explore source-labeled creator perspective, timestamps, visual observations, and original storytelling context without treating perspective as unverified fact.", href: "/narrative-source-trail", color: "#FFB800" },
   { icon: "▣", title: "Original Media Readiness", detail: "Plan an original comic, animation, learning visual, episode, or story world with rights, access, youth-safety, and release boundaries.", href: "/original-media-readiness", color: "#00FF88" },
   { icon: "◈", title: "NFT Monetization Blueprint", detail: "Design original IP, direct-to-fan editions, collectible architecture, $LONDC utility boundaries, and evidence-gated launch readiness with no live activation.", href: "/nft-monetization-blueprint", color: "#FF6B9A" },
+  { icon: "◉", title: "Empire Asset Navigator", detail: "Map companies, clothing lines, merchandise, music, media, code, collectibles, and digital twins through one source, rights, release, and tokenization-readiness vocabulary.", href: "/empire-asset-navigator", color: "#FFC2B8" },
+  { icon: "✧", title: "Brand Feature Studio", detail: "Plan daily, weekly, and monthly source-labeled fashion features, original looks, still/clip cut sheets, music-and-merch ideas, and collaboration readiness without public activation.", href: "/brand-feature-studio", color: "#39FF14" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
