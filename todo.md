@@ -2267,9 +2267,9 @@
 
 ## Phase 186 — Transactional Exchange and Institutional Systems Atlas
 - [x] Verify the claimed Creator Operations owner session and record only visible private release-readiness status
-- [ ] Research source-led operating layers across public monetary infrastructure, payment systems, governance, risk controls, historical institutions, and creator-owned exchange
-- [ ] Build an evidence-gated first-party Transactional Exchange and Institutional Systems Atlas with no financial activation
-- [ ] Validate, document, and publish the research and owner-status update
+- [x] Research source-led operating layers across public monetary infrastructure, payment systems, governance, risk controls, historical institutions, and creator-owned exchange
+- [x] Build an evidence-gated first-party Transactional Exchange and Institutional Systems Atlas with no financial activation
+- [x] Validate, document, and publish the research and owner-status update
 
 ## Phase 187 — Public Portfolio Governance Review
 - [x] Inventory accessible public repositories and classify governance, systems, documentation, and QFS-branded materials without treating names as verified claims

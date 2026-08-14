@@ -1022,6 +1022,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◉", title: "Empire Asset Navigator", detail: "Map companies, clothing lines, merchandise, music, media, code, collectibles, and digital twins through one source, rights, release, and tokenization-readiness vocabulary.", href: "/empire-asset-navigator", color: "#FFC2B8" },
   { icon: "✧", title: "Brand Feature Studio", detail: "Plan daily, weekly, and monthly source-labeled fashion features, original looks, still/clip cut sheets, music-and-merch ideas, and collaboration readiness without public activation.", href: "/brand-feature-studio", color: "#39FF14" },
   { icon: "⌘", title: "IP and Digital Evidence", detail: "Map public code, work, mark, patent, domain, and source records with dated evidence labels, limitations, and qualified-review handoffs.", href: "/ip-digital-evidence-navigator", color: "#00D4FF" },
+  { icon: "◈", title: "Institutional Systems Atlas", detail: "Learn how public payment, exchange, governance, risk, and creator-commerce systems divide roles and controls—without activating financial activity.", href: "/institutional-systems-atlas", color: "#FFB800" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

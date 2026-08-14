@@ -1465,4 +1465,20 @@ describe("Phase 94 route map", () => {
     expect(architecture).toContain("browser-local record builder deliberately excludes sensitive material");
     expect(home).toContain('href: "/ip-digital-evidence-navigator"');
   });
+
+  it("registers the Institutional Systems Atlas as a source-led, non-transactional payment and creator-commerce learning route", () => {
+    const atlas = readProjectFile("client/src/pages/InstitutionalSystemsAtlas.tsx");
+    const research = readProjectFile("docs/phase186-transactional-institutional-systems-research.md");
+    const architecture = readProjectFile("docs/phase186-transactional-institutional-systems-architecture.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import InstitutionalSystemsAtlas from "./pages/InstitutionalSystemsAtlas"');
+    expect(app).toContain('<Route path="/institutional-systems-atlas" component={InstitutionalSystemsAtlas} />');
+    expect(atlas).toContain("INSTITUTIONAL SYSTEMS ATLAS");
+    expect(atlas).toContain("BROWSER-LOCAL PRACTICE LENSES");
+    expect(atlas).toContain("NO-HIDDEN-ACTION PROMISE");
+    expect(atlas).toContain("does not take deposits");
+    expect(research).toContain("Federal Reserve — Payment Systems");
+    expect(architecture).toContain("offers no financial functionality");
+    expect(home).toContain('href: "/institutional-systems-atlas"');
+  });
 });
