@@ -1082,4 +1082,20 @@ describe("Phase 94 route map", () => {
     expect(register).toContain("Crypto Systems Atlas is a first-party educational map");
     expect(register).toContain("An interface standard does not guarantee value, liquidity");
   });
+  it("registers the Artifact Evidence Blueprint with integrity context and no artifact, hash, or transaction claim", () => {
+    const blueprint = readProjectFile("client/src/pages/ArtifactEvidenceBlueprint.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const review = readProjectFile("docs/phase185-shared-reference-review.md");
+    expect(app).toContain('import ArtifactEvidenceBlueprint from "./pages/ArtifactEvidenceBlueprint"');
+    expect(app).toContain('<Route path="/artifact-evidence-blueprint" component={ArtifactEvidenceBlueprint} />');
+    expect(blueprint).toContain("ARTIFACT EVIDENCE BLUEPRINT");
+    expect(blueprint).toContain("A hash can compare data. It cannot tell the whole story.");
+    expect(blueprint).toContain("A blueprint is not a command.");
+    expect(blueprint).toContain("does not save, hash, upload, sign, or publish any material");
+    expect(blueprint).toContain("does not make an ownership, authenticity, weight, metal-content, custody, valuation");
+    expect(blueprint).toContain("https://www.nist.gov/glossary-term/38726");
+    expect(home).toContain('href: "/artifact-evidence-blueprint"');
+    expect(review).toContain("user-supplied ideas, not as deployed code");
+    expect(review).toContain("Hash, Hash Value");
+  });
 });

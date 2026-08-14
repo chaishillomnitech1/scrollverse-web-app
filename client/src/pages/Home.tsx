@@ -998,6 +998,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "▶", title: "Creator Channel Hub", detail: "Organize creator-provided public destinations, direct-video handoffs, and learning references with visible source limits.", href: "/creator-channel-hub", color: "#FF5568" },
   { icon: "◎", title: "Scroll Network Context", detail: "Review supplied Scroll ecosystem sources with independent analytics, risk-research, social, and valuation limits clearly separated.", href: "/scroll-network-context", color: "#00D4FF" },
   { icon: "◇", title: "Crypto Systems Atlas", detail: "Explore the protocol, standard, wallet, custody, evidence, storage, and data layers with clear proof requirements and no live activation.", href: "/crypto-systems-atlas", color: "#00FF88" },
+  { icon: "▣", title: "Artifact Evidence Blueprint", detail: "Learn a clear source, integrity, rights, release, and public-evidence record structure without claiming a live artifact or on-chain seal.", href: "/artifact-evidence-blueprint", color: "#B98CFF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
