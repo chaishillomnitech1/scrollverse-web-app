@@ -1369,6 +1369,7 @@ describe("Phase 94 route map", () => {
   it("registers Historical Transmission Patterns as a source-labeled creative and workflow concept map with raw-material and claim boundaries", () => {
     const patterns = readProjectFile("client/src/pages/HistoricalTransmissionPatterns.tsx");
     const register = readProjectFile("docs/phase214-historical-transmission-register.md");
+    const handoff = readProjectFile("docs/phase214-historical-transmission-review-handoff.md");
     const home = readProjectFile("client/src/pages/Home.tsx");
     expect(app).toContain('import HistoricalTransmissionPatterns from "./pages/HistoricalTransmissionPatterns"');
     expect(app).toContain('<Route path="/historical-transmission-patterns" component={HistoricalTransmissionPatterns} />');
@@ -1378,6 +1379,8 @@ describe("Phase 94 route map", () => {
     expect(patterns).toContain("No raw transmission, private detail, credential");
     expect(register).toContain("public route publishes only a high-level, source-labeled pattern map");
     expect(register).toContain("They do not establish that an earlier system exists");
+    expect(handoff).toContain("Protected Review Handoff");
+    expect(handoff).toContain("Do not treat this handoff as permission to publish raw records");
     expect(home).toContain('href: "/historical-transmission-patterns"');
   });
 
