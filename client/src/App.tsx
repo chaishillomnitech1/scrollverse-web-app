@@ -337,6 +337,10 @@ import NftMonetizationBlueprint from "./pages/NftMonetizationBlueprint";
 import EmpireAssetNavigator from "./pages/EmpireAssetNavigator";
 import BrandFeatureStudio from "./pages/BrandFeatureStudio";
 import IpDigitalEvidenceNavigator from "./pages/IpDigitalEvidenceNavigator";
+import MusicCreatorReleaseReadiness from "./pages/MusicCreatorReleaseReadiness";
+import XLVIIIBlocksMonograph from "./pages/XLVIIIBlocksMonograph";
+import OpenKnowledgeVerse from "./pages/OpenKnowledgeVerse";
+import VoiceLanguageStudio from "./pages/VoiceLanguageStudio";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -703,6 +707,10 @@ function Router() {
         <Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />
         <Route path="/brand-feature-studio" component={BrandFeatureStudio} />
         <Route path="/ip-digital-evidence-navigator" component={IpDigitalEvidenceNavigator} />
+        <Route path="/music-creator-release-readiness" component={MusicCreatorReleaseReadiness} />
+        <Route path="/xlviii-blocks-monograph" component={XLVIIIBlocksMonograph} />
+        <Route path="/open-knowledge-verse" component={OpenKnowledgeVerse} />
+        <Route path="/voice-language-studio" component={VoiceLanguageStudio} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
