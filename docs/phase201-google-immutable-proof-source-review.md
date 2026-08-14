@@ -43,3 +43,9 @@ The reference did not lead to any code execution, contract/circuit generation, r
 One supplied reference recommends making the Google-immutable-proof repository private and then running generated dashboard and orchestration scripts. That recommendation is treated as an **owner-controlled repository setting decision**, not as a completed action or a substitute for security review. No visibility setting was changed, no code was hidden or published, and no configuration generator was used.
 
 If the owner elects to change a repository’s visibility later, that decision should be recorded separately with the intended audience, licensing choice, backup/recovery plan, collaborator access, dependency review, and a check that no credentials or sensitive user data enter repository history.
+
+## Addendum — Private Webhook and Configurable-Circuit Variant
+
+The latest supplied variant combines a private-repository webhook proposal with an adjustable polynomial-circuit example and claims about alternative ring parameters. It is a duplicate-pattern intake under this record: no repository privacy setting was verified or changed, no token or webhook endpoint was used, no circuit was compiled, and no claims about proof complexity, device performance, cryptographic security, gas, or deployment were accepted.
+
+The only retained lesson is procedural: external synchronization, code generation, specialized cryptographic research, and any potential deployment should remain separate from the portal’s browser-local readiness work and require their own source, dependency, security, provider, and owner-action review.
