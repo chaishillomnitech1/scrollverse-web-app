@@ -202,15 +202,21 @@ describe("Phase 94 route map", () => {
     const home = readProjectFile("client/src/pages/Home.tsx");
     const juniorMovies = readProjectFile("client/src/pages/JuniorMovies.tsx");
     const record = readProjectFile("docs/phase145-junior-movies-source-register.md");
+    const aiUncovered = readProjectFile("docs/phase181-ai-uncovered-source-record.md");
     expect(home).toContain("PUBLIC CREATOR LEARNING");
     expect(home).toContain("Unsung Black History");
     expect(home).toContain("Freya Ray");
+    expect(home).toContain("AI Uncovered");
+    expect(home).toContain("https://youtube.com/@ai.uncovered");
+    expect(home).toContain("affiliation, or endorsement is implied");
     expect(juniorMovies).toContain("ORIGINAL STORY DEVELOPMENT");
     expect(juniorMovies).toContain("Boardwalk Nightwatch");
     expect(juniorMovies).toContain("STORY SEED LAB");
     expect(juniorMovies).toContain("guardian, consent record, moderation review");
     expect(juniorMovies).toContain("FineStructure");
     expect(record).toContain("No clear, exportable first-party Junior Movies");
+    expect(aiUncovered).toContain("external public learning reference");
+    expect(aiUncovered).toContain("does not state or imply channel ownership, partnership, endorsement");
   });
 
   it("expands original Junior Movies worlds through a distinct story-development atlas", () => {

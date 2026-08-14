@@ -2236,6 +2236,17 @@
 - [x] Add route discovery and regression coverage for the ConsoleVerse enhancement
 - [x] Validate, document, and publish the ConsoleVerse workflow enhancement
 
+## Phase 181 — AI Uncovered and Shared Blueprint Review
+- [x] Verify the supplied AI Uncovered public learning reference and record its discovery boundary
+- [x] Add the evidence-labeled public reference to ScrollVerse main-page discovery and source trails
+- [x] Review the supplied attachment and referenced task for reusable first-party concepts without adopting unverified claims
+- [x] Validate, document, and publish the discovery update
+
+## Phase 182 — Royalties Workflow Reference Review
+- [x] Inspect the shared royalties-workflow task and classify reusable operational practices versus unverified or external-action claims
+- [x] Document evidence, release-readiness, credential-isolation, and provider-boundary adaptations for ScrollVerse
+- [x] Validate and publish the source-led workflow-review update without activating payments, providers, wallets, or on-chain actions
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
