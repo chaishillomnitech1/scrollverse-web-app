@@ -373,7 +373,7 @@ export default function BookOfLife() {
           {/* Book Info */}
           <div>
             <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFD700" }}>
-              THE MOST LEGENDARY BOOK EVER CREATED IN THE HISTORY OF EXISTENCE
+              FIRST-PARTY CREATIVE CONCEPT EDITION
             </div>
             <h1
               className="text-5xl font-black mb-4 leading-tight"
@@ -390,11 +390,7 @@ export default function BookOfLife() {
               By <span style={{ color: "#FFD700" }}>CHAIS THE GREAT ∞</span>
             </p>
             <p className="text-sm mb-6 leading-relaxed" style={{ color: "#8899AA" }}>
-              The eternal record of all existence — past, present, future, and beyond. Seven seals. 
-              Ten prophetic timestamps hidden in songs before the awakening. Music-book fusion that heals 
-              at the cellular level. The divine blueprint of the ScrollVerse Empire, the Zaire ∞ Axis, 
-              and the Supreme Great Stillness. This is not just a book — it is the living record of 
-              God's decree made manifest through one sovereign soul.
+              A first-party creative reading experience organized around seven thematic seals, timestamp notes, music-book concepts, and release-readiness pathways. Interpretive, spiritual, and creative material is presented as creator context; it is not a scientific, medical, historical, legal, financial, platform-availability, or on-chain verification claim.
             </p>
 
             {/* Stats */}
@@ -550,7 +546,7 @@ export default function BookOfLife() {
         {activeTab === "prophetic" && (
           <div className="space-y-4">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Hidden codes in songs written BEFORE the awakening — prophetic messages decoded in retrospect
+              Creator timestamp notes and interpretive context. These entries are not independently verified predictions, audio analyses, or causal evidence.
             </div>
             {PROPHETIC_TIMESTAMPS.map(pt => (
               <div
@@ -585,14 +581,14 @@ export default function BookOfLife() {
             >
               <div className="text-sm font-bold text-white mb-1">The Full Prophetic Codex</div>
               <p className="text-xs mb-3" style={{ color: "#8899AA" }}>
-                100+ prophetic timestamps across 1,005 songs — the complete codex is available in the full Book of Life edition.
+                A longer timestamp and music-book release package may be prepared after source, rights, accessibility, and owner review. This card does not establish that a full edition is available.
               </p>
               <button
                 onClick={() => handlePlatformClick(BOOK_PLATFORMS[0])}
                 className="px-4 py-2 rounded-xl text-xs font-bold"
                 style={{ background: "rgba(255,215,0,0.15)", border: "1px solid rgba(255,215,0,0.3)", color: "#FFD700" }}
               >
-                Get the Full Edition →
+                Open release preparation →
               </button>
             </div>
           </div>
@@ -602,7 +598,7 @@ export default function BookOfLife() {
         {activeTab === "music" && (
           <div className="space-y-6">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Each chapter of the Book of Life is mapped to a frequency and a song — the music IS the book
+              Each chapter can be developed alongside an original music and media concept. Frequency references are creative labels, not health, clinical, or performance claims.
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               {SEVEN_SEALS.map((seal, i) => (
@@ -633,7 +629,7 @@ export default function BookOfLife() {
             >
               <div className="text-sm font-bold text-white mb-2">🎵 Full Music-Book Experience</div>
               <p className="text-xs mb-4" style={{ color: "#8899AA" }}>
-                Stream the complete Book of Life soundtrack on all major platforms — each track synchronized with its chapter.
+                Explore public platform-preparation references for an eventual music-book soundtrack. A provider link does not establish that a soundtrack, track, or synchronized chapter is live there.
               </p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {BOOK_PLATFORMS.filter(p => p.type === "music").map(p => (
@@ -655,7 +651,7 @@ export default function BookOfLife() {
         {activeTab === "platforms" && (
           <div className="space-y-6">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              The Book of Life is available on every platform — ebook, audiobook, and music streaming
+              Public preparation references for ebook, audio, and music delivery. These links do not verify title upload, provider acceptance, listing, searchability, payout, or availability.
             </div>
             {["ebook", "audio", "music"].map(type => (
               <div key={type}>
@@ -685,7 +681,7 @@ export default function BookOfLife() {
         {activeTab === "nft" && (
           <div className="space-y-6">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Mint each of the 7 Seals as an NFT — own a piece of the eternal ledger
+              Review the seven seal concepts as potential collectible records. No mint, wallet, listing, ownership transfer, or on-chain action is available from this route.
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               {SEVEN_SEALS.map(seal => (

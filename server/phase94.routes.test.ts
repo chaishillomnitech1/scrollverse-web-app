@@ -1336,4 +1336,17 @@ describe("Phase 94 route map", () => {
     expect(record).toContain("not financial advice, legal advice, legal representation");
     expect(home).toContain('href: "/creator-operations-intelligence"');
   });
+
+  it("registers the Release Package Checklist with title-level source, rights, accessibility, delivery, and owner-decision boundaries", () => {
+    const checklist = readProjectFile("client/src/pages/ReleasePackageChecklist.tsx");
+    const record = readProjectFile("docs/phase202-release-package-checklist.md");
+    expect(app).toContain('import ReleasePackageChecklist from "./pages/ReleasePackageChecklist"');
+    expect(app).toContain('<Route path="/release-package-checklist" component={ReleasePackageChecklist} />');
+    expect(checklist).toContain("Release Package Checklist");
+    expect(checklist).toContain("LOCAL PREPARATION CHECKS");
+    expect(checklist).toContain("All checkboxes remain only in current browser memory");
+    expect(checklist).toContain("No file upload, rights assertion, price, checkout");
+    expect(record).toContain("A book or media title must have a separate release record");
+    expect(record).toContain("does not by itself establish rights, availability");
+  });
 });

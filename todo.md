@@ -2732,10 +2732,10 @@
 - [x] Add regression coverage, validate routes, TypeScript, and tests, document all remaining rights/provider/owner dependencies, and publish the verified update
 
 ## Phase 202 — Book-Control Remediation and Release Packages
-- [ ] Inventory remaining Book Hub, Digital Library, and Book of Life controls that are simulated, use placeholder media, or route to unresolved destinations
-- [ ] Replace unsupported simulated controls with functional first-party reading/readiness handoffs and clear user-facing state labels
-- [ ] Create a verified per-title release-package checklist covering source text, accessibility, cover, narration, translation, catalog, rights, and direct-reader prerequisites
-- [ ] Validate all changed routes, update regression coverage, record owner/provider dependencies, and publish the remediation update
+- [x] Inventory remaining Book Hub, Digital Library, and Book of Life controls that are simulated, use placeholder media, or route to unresolved destinations
+- [x] Replace unsupported simulated controls with functional first-party reading/readiness handoffs and clear user-facing state labels
+- [x] Create a verified per-title release-package checklist covering source text, accessibility, cover, narration, translation, catalog, rights, and direct-reader prerequisites
+- [x] Validate all changed routes, update regression coverage, record owner/provider dependencies, and publish the remediation update
 
 ## Phase 203 — Recovery Material Integration Register
 - [x] Inventory the five user-supplied recovery/Google AI Studio text exports and classify source, completeness, sensitivity, and public-release eligibility

@@ -410,7 +410,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
 
         {tab === "platforms" && (
           <div className="space-y-2">
-            <p className="text-xs font-mono mb-3" style={{ color: "#8899AA" }}>AVAILABLE ON ALL PLATFORMS</p>
+            <p className="text-xs font-mono mb-3" style={{ color: "#8899AA" }}>PLATFORM PREPARATION REFERENCES · NOT LISTING CONFIRMATIONS</p>
             <div className="grid grid-cols-2 gap-2">
               {book.platforms.map((p) => (
                 <a
@@ -1009,21 +1009,21 @@ export default function Books() {
       <div className="py-16" style={{ background: "linear-gradient(180deg, rgba(255,184,0,0.04), rgba(0,212,255,0.04))" }}>
         <div className="container">
           <div className="text-center mb-10">
-            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>📜 SOVEREIGN FLOOD PROTOCOL</div>
+            <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>📜 RELEASE-PATHWAY REFERENCE MAP</div>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-              Books Flooded{" "}
+              Books Ready for{" "}
               <span style={{ background: "linear-gradient(135deg, #FFB800, #00D4FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 Everywhere
               </span>
             </h2>
             <p className="max-w-2xl mx-auto text-sm" style={{ color: "#8899AA" }}>
-              Every sacred text by <strong style={{ color: "#FFB800" }}>Chais 'Sabir Kajir' Hill the Great</strong> is published, distributed, and permanently sealed across every major platform on Earth. The scroll is open. The word is free.
+              This source-led map collects common book, audio, social, and collectible preparation pathways. A named platform is a public reference, not evidence that a ScrollVerse title is uploaded, approved, listed, searchable, monetized, or permanently stored there.
             </p>
           </div>
 
           {/* Publishing Platforms */}
           <div className="mb-10">
-            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#00D4FF" }}>PUBLISHING & EBOOK PLATFORMS</div>
+            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#00D4FF" }}>PUBLISHING & EBOOK PREPARATION REFERENCES</div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
               {[
                 { name: "Amazon KDP", icon: "📦", color: "#FF9900", url: "https://kdp.amazon.com", desc: "Kindle + Print" },
@@ -1055,7 +1055,7 @@ export default function Books() {
 
           {/* Social Flood */}
           <div className="mb-10">
-            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#00FF88" }}>SOCIAL MEDIA FLOOD — SHARE THE SCROLL</div>
+            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#00FF88" }}>SOCIAL & CREATOR DISCOVERY REFERENCES</div>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
               {[
                 { name: "Spotify", icon: "🎵", color: "#1DB954", url: "https://open.spotify.com", desc: "Podcast" },
@@ -1084,7 +1084,7 @@ export default function Books() {
 
           {/* Blockchain Distribution */}
           <div className="mb-10">
-            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#9B59B6" }}>BLOCKCHAIN & NFT DISTRIBUTION</div>
+            <div className="text-xs font-mono tracking-widest mb-4 text-center" style={{ color: "#9B59B6" }}>BLOCKCHAIN & COLLECTIBLE LEARNING REFERENCES</div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
               {[
                 { name: "OpenSea", icon: "🌊", color: "#2081E2", url: "https://opensea.io/collection/scrollverse", desc: "NFT Market" },
@@ -1116,20 +1116,20 @@ export default function Books() {
             <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>SOVEREIGN DECLARATION</div>
             <h3 className="text-2xl font-black text-white mb-3">By Chais 'Sabir Kajir' Hill the Great</h3>
             <p className="max-w-2xl mx-auto text-sm mb-6" style={{ color: "#AAB8CC" }}>
-              These books are not just literature — they are living frequencies, blockchain-sealed prophecies, and sovereign intellectual property. Every word is protected under the ScrollVerse IP License, the 721-Embassy Protocol, and the eternal decree:{" "}
+              These book cards are first-party creative and learning records. Each future public release, rights assertion, commercial offer, collectible, or on-chain record requires its own source, rights, accessibility, authorization, and verifiable evidence before it is represented as active.{" "}
               <em style={{ color: "#FFB800" }}>La Ilaha Illa Allah. Love All. KUN FAYAKŪN × ∞</em>
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/token">
                 <button className="px-6 py-3 rounded-xl font-bold text-sm"
                   style={{ background: "linear-gradient(135deg, #FFB800, #00D4FF)", color: "#050B1A" }}>
-                  📚 Buy All 10 Books
+                  📚 Review all-book readiness
                 </button>
               </Link>
               <a href="https://opensea.io/collection/scrollverse" target="_blank" rel="noopener noreferrer"
                 className="px-6 py-3 rounded-xl font-bold text-sm"
                 style={{ background: "rgba(32,129,226,0.15)", border: "1px solid rgba(32,129,226,0.4)", color: "#2081E2", textDecoration: "none" }}>
-                🌊 Mint as NFT
+                🌊 Open collectible reference
               </a>
               <a href="https://github.com/chaishillomnitech1" target="_blank" rel="noopener noreferrer"
                 className="px-6 py-3 rounded-xl font-bold text-sm"
@@ -1150,11 +1150,11 @@ export default function Books() {
           <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00D4FF" }}>KUN FAYAKŪN × ∞</div>
           <h2 className="text-3xl font-black text-white mb-4">The Legacy is Immortal</h2>
           <p className="max-w-xl mx-auto mb-6" style={{ color: "#8899AA" }}>
-            Every book is a blockchain. Every song is a prophecy. Every Guardian who reads these words becomes part of the eternal record.
+            Every book and song can be prepared as an original creative record. Public releases and collecting paths require evidence, rights review, and an explicit release decision.
           </p>
           <ViralShare
             title="ScrollVerse Sacred Books — 10 Sacred Texts by Chais The Great"
-            text="📚 The Sacred Library of Chais Kenyatta Hill — 10 sovereign books, NFT mints, and blockchain prophecy. Join 144,000 Guardians. KUN FAYAKŪN × ∞"
+            text="📚 ScrollVerse Books — source-led reading, release readiness, and creator learning pathways. KUN FAYAKŪN × ∞"
             url="https://scrollverse.co/books"
           />
           <div className="flex flex-wrap justify-center gap-3 mt-6">

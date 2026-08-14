@@ -443,7 +443,7 @@ export default function Library() {
             </span>
           </h1>
           <p className="text-base max-w-xl mx-auto mb-6" style={{ color: "#8899AA" }}>
-            Every scroll, doctrine, and sacred text — available as PDF download, audio listen, and motion cartoon visual. The empire's knowledge, permanently accessible.
+            A source-led catalog of scrolls, doctrine, and creative texts. Each title shows its documented format signals and routes to media and release readiness before any public download, audio, motion, or commercial claim.
           </p>
 
           {/* Books Hub CTA */}
@@ -550,19 +550,19 @@ export default function Library() {
           className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.15)" }}
         >
-          <div className="text-xs font-mono mb-3" style={{ color: "#00D4FF" }}>SOVEREIGN LIBRARY ACCESS</div>
-          <h3 className="text-2xl font-black text-white mb-2">Every Purchase is a Kingdom Investment</h3>
+          <div className="text-xs font-mono mb-3" style={{ color: "#00D4FF" }}>SOURCE-LED LIBRARY READINESS</div>
+          <h3 className="text-2xl font-black text-white mb-2">Every Title Needs Its Own Release Record</h3>
           <p className="text-sm mb-5 max-w-lg mx-auto" style={{ color: "#8899AA" }}>
-            10% of every book purchase flows directly into the Guardian Zakat Pool. Buying knowledge funds the empire. Reading is sovereignty. Listening is investing.
+            A catalog card does not establish a price, purchase, download, media delivery, Zakat allocation, token entitlement, or ownership transfer. Each title needs an evidence, rights, accessibility, delivery, and owner-approved release record before it can be presented as commercially available.
           </p>
           <ViralShare
             title="ScrollVerse Digital Library — Sovereign Knowledge Vault"
-            text="📚 The ScrollVerse Digital Library — sacred texts, audio scrolls, and motion visuals. Every purchase funds the Guardian Zakat Pool. KUN FAYAKŪN × ∞"
+            text="📚 The ScrollVerse Digital Library — source-led reading, media readiness, and creator learning pathways. KUN FAYAKŪN × ∞"
             url="https://scrollverse.co/library"
           />
           <div className="flex flex-wrap gap-3 justify-center mt-5">
             <a href="/token" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}>
-              📎 Get $LONDC to Unlock All
+              📎 Explore $LONDC readiness
             </a>
             <a href="/guardians" className="px-5 py-2.5 rounded-xl font-bold text-sm" style={{ background: "rgba(0,212,255,0.15)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>
               🛡️ Join Guardian Tier

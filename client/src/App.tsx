@@ -328,6 +328,7 @@ import PortalTrustStandard from "./pages/PortalTrustStandard";
 import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator";
 import CreatorStudioNavigator from "./pages/CreatorStudioNavigator";
 import CreatorOperationsIntelligence from "./pages/CreatorOperationsIntelligence";
+import ReleasePackageChecklist from "./pages/ReleasePackageChecklist";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -685,6 +686,7 @@ function Router() {
         <Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />
         <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
         <Route path="/creator-operations-intelligence" component={CreatorOperationsIntelligence} />
+        <Route path="/release-package-checklist" component={ReleasePackageChecklist} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
