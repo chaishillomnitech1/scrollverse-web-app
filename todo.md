@@ -2353,10 +2353,11 @@
 - [x] Extend the protected architecture record with only compatible first-party lessons for build checks, secret isolation, safe review sequencing, and dependency validation; record that the supplied contract, deployment, performance, and security claims are not independently verified
 
 ## Phase 199 — Creator-Controlled Value Pathways
-- [ ] Restore missing systems route components and confirm route integrity before expanding discovery
-- [ ] Inventory verified first-party media, rights, provenance, original-story, learning, and public-discovery pathways
-- [ ] Build evidence-led readiness and discovery improvements without external financial or blockchain service activation
-- [ ] Validate and publish the restored creator-controlled systems update
+- [x] Restore missing systems route components and confirm route integrity before expanding discovery
+- [x] Inventory verified first-party media, rights, provenance, original-story, learning, and public-discovery pathways
+- [x] Build evidence-led readiness and discovery improvements without external financial or blockchain service activation
+- [x] Validate and publish the restored creator-controlled systems update
+- [x] Add a focused regression guard for the creator, media, portfolio, IP, systems, and learning route component catalog
 
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
