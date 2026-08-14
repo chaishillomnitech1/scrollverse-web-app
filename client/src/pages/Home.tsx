@@ -999,6 +999,11 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◎", title: "Scroll Network Context", detail: "Review supplied Scroll ecosystem sources with independent analytics, risk-research, social, and valuation limits clearly separated.", href: "/scroll-network-context", color: "#00D4FF" },
   { icon: "◇", title: "Crypto Systems Atlas", detail: "Explore the protocol, standard, wallet, custody, evidence, storage, and data layers with clear proof requirements and no live activation.", href: "/crypto-systems-atlas", color: "#00FF88" },
   { icon: "▣", title: "Artifact Evidence Blueprint", detail: "Learn a clear source, integrity, rights, release, and public-evidence record structure without claiming a live artifact or on-chain seal.", href: "/artifact-evidence-blueprint", color: "#B98CFF" },
+  { icon: "↔", title: "Institutional Systems Atlas", detail: "Study governance, resilience, transparency, fair access, continuity, and narrative boundaries as source-led project practices.", href: "/institutional-systems-atlas", color: "#FFB800" },
+  { icon: "⌁", title: "Operating Pattern Navigator", detail: "See how source records, accountability, release gates, privacy, recovery, audit trails, and creator control connect across ScrollVerse.", href: "/operating-pattern-navigator", color: "#00D4FF" },
+  { icon: "⇄", title: "Financial Systems Capability Map", detail: "Explore connected but separated education, records, authorization, provider, wallet, and security lanes with no service activation.", href: "/financial-systems-capability-map", color: "#00FF88" },
+  { icon: "✓", title: "Lawful Operating Navigator", detail: "Follow source-led practices for truthful disclosure, rights records, permission, privacy, correction, and clear exchange boundaries.", href: "/lawful-operating-navigator", color: "#00FF88" },
+  { icon: "◈", title: "Original Systems Hub", detail: "Navigate ScrollVerse evidence, creator, release, systems, discovery, and lawful-practice lanes through one shared operating vocabulary.", href: "/original-systems-hub", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
@@ -1477,16 +1482,16 @@ export default function Home() {
               Trinity Empire
             </h1>
             <p className="text-lg md:text-xl mb-4 leading-relaxed" style={{ color: "#8899AA", maxWidth: "580px" }}>
-              A living, breathing sovereign digital ecosystem built by{" "}
-              <span style={{ color: "#FFB800" }}>Chais Kenyatta Hill — Sabir Allah The Great</span>.
-              Blockchain infrastructure, $LONDC token, Zakat distribution, and 50M+ user scaling — all unified.
+              A creator-owned, source-led digital ecosystem built by{" "}
+              <span style={{ color: "#FFB800" }}>Chais “Sabir Kajir” Hill the Great</span>.
+              Original storytelling, free learning, creator readiness, public evidence, and first-party systems navigation—connected with visible boundaries.
             </p>
             {/* Animated frequency badges */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
               {[
-                { hz: "528Hz", label: "Healing", color: "#00FF88" },
-                { hz: "963Hz", label: "Cosmic", color: "#FFB800" },
-                { hz: "1558Hz", label: "FlameDNA", color: "#EC4899" },
+                { hz: "528Hz", label: "Sound study", color: "#00FF88" },
+                { hz: "963Hz", label: "Creative listening", color: "#FFB800" },
+                { hz: "1558Hz", label: "Audio label", color: "#EC4899" },
               ].map((f) => (
                 <div
                   key={f.hz}
@@ -1506,14 +1511,14 @@ export default function Home() {
             <div className="flex items-center gap-3 mb-10">
               <div className="w-2 h-2 rounded-full" style={{ background: "#00D4FF", boxShadow: "0 0 8px #00D4FF" }} />
               <span className="text-sm font-mono" style={{ color: "#00D4FF" }}>
-                24 TESTS PASSING · 53 REPOSITORIES · {totalBookings > 0 ? `${totalBookings} BOOKINGS` : "LIVE"}
+                SOURCE-LED ROUTES · TESTED BUILD · FIRST-PARTY SYSTEMS
               </span>
             </div>
             {guardianWaitlistSize > 0 && (
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88", boxShadow: "0 0 8px #00FF88" }} />
               <span className="text-sm font-mono" style={{ color: "#00FF88" }}>
-                {guardianWaitlistSize.toLocaleString()} GUARDIANS REGISTERED · EMPIRE IS LIVE
+                GUARDIAN PATHWAY · OWNER-CONTROLLED FOLLOW-UP
               </span>
             </div>
             )}

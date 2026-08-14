@@ -313,6 +313,11 @@ import CreatorChannelHub from "./pages/CreatorChannelHub";
 import ScrollNetworkContext from "./pages/ScrollNetworkContext";
 import CryptoSystemsAtlas from "./pages/CryptoSystemsAtlas";
 import ArtifactEvidenceBlueprint from "./pages/ArtifactEvidenceBlueprint";
+import InstitutionalSystemsAtlas from "./pages/InstitutionalSystemsAtlas";
+import OperatingPatternNavigator from "./pages/OperatingPatternNavigator";
+import FinancialSystemsCapabilityMap from "./pages/FinancialSystemsCapabilityMap";
+import LawfulOperatingNavigator from "./pages/LawfulOperatingNavigator";
+import OriginalSystemsHub from "./pages/OriginalSystemsHub";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -654,6 +659,11 @@ function Router() {
         <Route path="/scroll-network-context" component={ScrollNetworkContext} />
         <Route path="/crypto-systems-atlas" component={CryptoSystemsAtlas} />
         <Route path="/artifact-evidence-blueprint" component={ArtifactEvidenceBlueprint} />
+        <Route path="/institutional-systems-atlas" component={InstitutionalSystemsAtlas} />
+        <Route path="/operating-pattern-navigator" component={OperatingPatternNavigator} />
+        <Route path="/financial-systems-capability-map" component={FinancialSystemsCapabilityMap} />
+        <Route path="/lawful-operating-navigator" component={LawfulOperatingNavigator} />
+        <Route path="/original-systems-hub" component={OriginalSystemsHub} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>

@@ -2265,6 +2265,75 @@
 - [x] Add any verified source-led navigation, learning, or evidence improvement
 - [x] Validate, document, and publish the shared-reference review update
 
+## Phase 186 — Transactional Exchange and Institutional Systems Atlas
+- [x] Verify the claimed Creator Operations owner session and record only visible private release-readiness status
+- [ ] Research source-led operating layers across public monetary infrastructure, payment systems, governance, risk controls, historical institutions, and creator-owned exchange
+- [ ] Build an evidence-gated first-party Transactional Exchange and Institutional Systems Atlas with no financial activation
+- [ ] Validate, document, and publish the research and owner-status update
+
+## Phase 187 — Public Portfolio Governance Review
+- [ ] Inventory accessible public repositories and classify governance, systems, documentation, and QFS-branded materials without treating names as verified claims
+- [ ] Extract reusable first-party governance, security, provenance, and evidence patterns from reviewable source files
+- [ ] Build a source-led governance-learning improvement with explicit legal, financial, deployment, and authority limits
+- [ ] Validate, document, and publish the public portfolio governance review
+
+## Phase 188 — Institutional and Transparent Exchange Systems Atlas
+- [x] Research representative public monetary infrastructure, payment systems, custody standards, lending governance, market safeguards, family-enterprise continuity, and historical institutional records
+- [x] Distinguish documented operating patterns from historical narrative, mythology, marketing, and unsupported legal or financial claims
+- [x] Build a first-party systems atlas centered on consent, transparency, risk controls, auditability, resilience, and equal-access learning without financial activation
+- [x] Validate, document, and publish the institutional and transparent-exchange systems atlas
+
+## Phase 189 — Evidence-First Interpretation Standard
+- [x] Apply an explicit no-unsupported-claims standard to the institutional and governance learning routes
+- [x] Keep source, date, evidence state, limitation, and visitor-interpretation cues visible in the public experience
+- [x] Validate and publish the evidence-first interpretation refinement
+
+## Phase 190 — First-Party Operating Pattern Application
+- [x] Map source records, accountable roles, release gates, privacy separation, recovery paths, audit trails, and creator-control routes across existing ScrollVerse surfaces
+- [x] Build a first-party Operating Pattern Navigator with route-level readiness handoffs and no external service activation
+- [x] Document cross-route accountability, evidence, recovery, and data-minimization boundaries
+- [x] Validate and publish the operating-pattern application update
+
+## Phase 191 — Financial Systems Capability Map
+- [x] Define source-labeled capability layers across payments, custody, lending governance, investment-platform controls, wallets, validation, identity, security, and consumer safeguards
+- [x] Research representative primary and independent public sources for each capability layer
+- [x] Build a first-party Financial Systems Capability Map with learning routes, readiness gates, and no financial-service activation
+- [x] Validate and publish the financial systems capability-map update
+
+## Phase 192 — Responsibility-Lane Capability Map
+- [x] Synthesize collected financial-system sources into distinct education, private-record, authorization, external-provider, wallet, and on-chain evidence lanes
+- [x] Build a connected first-party capability map that states each lane’s purpose, handoff, and no-action boundary
+- [x] Document separation rules, source evidence, and explicit external-action gates
+- [x] Validate and publish the responsibility-lane capability map update
+
+## Phase 193 — Lawful Operating and Compliance Navigator
+- [x] Define source-led principles for truthful disclosures, rights review, authorization, privacy, consumer clarity, and transparent exchange
+- [x] Map lawful operating principles to existing evidence, release, creator-control, and safeguard routes
+- [x] Build a first-party lawful-operating navigator without legal advice, loophole strategies, or external action activation
+- [x] Validate and publish the lawful-operating update
+
+## Phase 194 — Lawful and Auditable Operating Navigator
+- [x] Synthesize official-source principles for truthful disclosures, rights records, permission, privacy, and auditable operating practice
+- [x] Map lawful operating principles to existing ScrollVerse evidence and readiness routes
+- [x] Build a first-party navigator with no concealment, evasion, deception, loophole, or external-action strategy
+- [x] Validate and publish the lawful and auditable operating update
+
+## Phase 195 — Contextual Interpretation Refinement
+- [x] Apply the clarified distinction between lawful creative systems-building and an actual request to evade rules across the current navigator copy
+- [x] Preserve precise evidence, authorization, privacy, and external-action boundaries without flattening user context into generic warnings
+- [x] Validate and publish the contextual-interpretation refinement
+
+## Phase 196 — Original Creator-Controlled Systems Integration
+- [x] Reconcile institutional, financial capability, operating pattern, and lawful operating routes with the clarified original creator-controlled design intent
+- [x] Connect the first-party systems routes through consistent evidence, authorization, privacy, resilience, and transparent-exchange vocabulary
+- [x] Validate and publish the connected original-systems infrastructure update
+
+## Phase 197 — Top-to-Bottom Verified Systems Upgrade Sweep
+- [x] Inventory active systems routes, shared vocabulary, source records, and unresolved worklist gaps
+- [x] Reconcile cross-route discovery, evidence, authorization, privacy, recovery, and creator-control handoffs
+- [x] Run full route, type, regression, and visual validation across upgraded systems surfaces
+- [x] Publish the coherent verified systems upgrade with remaining owner-controlled handoffs stated separately
+
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
 - [x] Define deterministic operations schedules with embedded ownership safeguards and confirmation only at direct irreversible action points
