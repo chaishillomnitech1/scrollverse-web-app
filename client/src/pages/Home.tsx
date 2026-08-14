@@ -1004,6 +1004,9 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "⇄", title: "Financial Systems Capability Map", detail: "Explore connected but separated education, records, authorization, provider, wallet, and security lanes with no service activation.", href: "/financial-systems-capability-map", color: "#00FF88" },
   { icon: "✓", title: "Lawful Operating Navigator", detail: "Follow source-led practices for truthful disclosure, rights records, permission, privacy, correction, and clear exchange boundaries.", href: "/lawful-operating-navigator", color: "#00FF88" },
   { icon: "◈", title: "Original Systems Hub", detail: "Navigate ScrollVerse evidence, creator, release, systems, discovery, and lawful-practice lanes through one shared operating vocabulary.", href: "/original-systems-hub", color: "#00D4FF" },
+  { icon: "⌘", title: "Public Portfolio Governance", detail: "Review public repository patterns as source-led governance learning with clear authority, deployment, and financial evidence limits.", href: "/public-portfolio-governance", color: "#B98CFF" },
+  { icon: "▤", title: "Manifesto & Builder’s Book", detail: "Read the free ScrollVerse philosophy, practical systems patterns, blueprint vocabulary, and protected-material boundaries.", href: "/manifesto-builders-book", color: "#FFB800" },
+  { icon: "◫", title: "Books & Media Readiness", detail: "See what is readable now, what media is actually available, and which book-release steps remain owner or provider controlled.", href: "/books-media-readiness", color: "#00FF88" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [

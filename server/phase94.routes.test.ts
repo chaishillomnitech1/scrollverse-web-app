@@ -1190,4 +1190,43 @@ describe("Phase 94 route map", () => {
     expect(home).not.toContain("Zakat distribution, and 50M+ user scaling — all unified");
     expect(home).not.toContain('label: "Healing"');
   });
+
+  it("registers the public Manifesto and Builder’s Book with adaptive cover, functional audio, and translation-review boundaries", () => {
+    const book = readProjectFile("client/src/pages/ManifestoBuildersBook.tsx");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const manuscript = readProjectFile("docs/SCROLLVERSE_MANIFESTO_AND_BUILDERS_BOOK.md");
+    expect(app).toContain('import ManifestoBuildersBook from "./pages/ManifestoBuildersBook"');
+    expect(app).toContain('<Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />');
+    expect(book).toContain("ScrollVerse Manifesto and Builder’s Book");
+    expect(book).toContain("Touch-responsive reading cover");
+    expect(book).toContain("AUDIO EDITION · ENGLISH OPENING");
+    expect(book).toContain("scrollverse-manifesto-opening-en-us_63edd596.wav");
+    expect(book).toContain("LANGUAGE ACCESS FOUNDATION");
+    expect(book).toContain("Translation review queue");
+    expect(book).toContain("does not generate a translation");
+    expect(book).toContain("does not activate a provider, create an account, accept payment");
+    expect(home).toContain('href: "/manifesto-builders-book"');
+    expect(manuscript).toContain("A free book for builders, creators, families");
+    expect(manuscript).toContain("Build with imagination. Operate with evidence.");
+  });
+
+  it("registers Books and Media Readiness with truthful delivery and distribution states", () => {
+    const readiness = readProjectFile("client/src/pages/BooksMediaReadiness.tsx");
+    const audit = readProjectFile("docs/phase201-books-media-readiness-audit.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import BooksMediaReadiness from "./pages/BooksMediaReadiness"');
+    expect(app).toContain('<Route path="/books-media-readiness" component={BooksMediaReadiness} />');
+    expect(readiness).toContain("Books and Media Readiness");
+    expect(readiness).toContain("SOURCE-LED RELEASE INVENTORY");
+    expect(readiness).toContain("AUDIO AND VISUAL RELEASE");
+    expect(readiness).toContain("not proof that a book has been uploaded, accepted, published");
+    expect(readiness).toContain("does not itself publish a book, create a translation");
+    expect(readiness).toContain("OFFICIAL PREPARATION SOURCES · OUTBOUND");
+    expect(readiness).toContain("Amazon KDP metadata guide");
+    expect(readiness).toContain("Apple Books publishing guide");
+    expect(readiness).toContain("Spotify for Authors guide");
+    expect(audit).toContain("local-state mint simulation");
+    expect(audit).toContain("No full audiobook, video, or motion edition is claimed");
+    expect(home).toContain('href: "/books-media-readiness"');
+  });
 });

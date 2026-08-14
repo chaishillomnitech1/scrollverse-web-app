@@ -2272,9 +2272,9 @@
 - [ ] Validate, document, and publish the research and owner-status update
 
 ## Phase 187 — Public Portfolio Governance Review
-- [ ] Inventory accessible public repositories and classify governance, systems, documentation, and QFS-branded materials without treating names as verified claims
-- [ ] Extract reusable first-party governance, security, provenance, and evidence patterns from reviewable source files
-- [ ] Build a source-led governance-learning improvement with explicit legal, financial, deployment, and authority limits
+- [x] Inventory accessible public repositories and classify governance, systems, documentation, and QFS-branded materials without treating names as verified claims
+- [x] Extract reusable first-party governance, security, provenance, and evidence patterns from reviewable source files
+- [x] Build a source-led governance-learning improvement with explicit legal, financial, deployment, and authority limits
 - [ ] Validate, document, and publish the public portfolio governance review
 
 ## Phase 188 — Institutional and Transparent Exchange Systems Atlas
@@ -2333,6 +2333,18 @@
 - [x] Reconcile cross-route discovery, evidence, authorization, privacy, recovery, and creator-control handoffs
 - [x] Run full route, type, regression, and visual validation across upgraded systems surfaces
 - [x] Publish the coherent verified systems upgrade with remaining owner-controlled handoffs stated separately
+
+## Phase 198 — Media, Portfolio, and On-Chain Readiness Audit
+- [ ] Inventory public media routes, accessible GitHub portfolio materials, and on-chain evidence states
+- [ ] Classify playable, source-linked, planned, and externally gated media and blockchain items
+- [ ] Build evidence-led readiness improvements for verified first-party media and on-chain pathways only
+- [ ] Validate and publish the readiness audit with owner and provider handoffs stated separately
+
+## Phase 199 — Creator-Controlled Value Pathways
+- [ ] Restore missing systems route components and confirm route integrity before expanding discovery
+- [ ] Inventory verified first-party media, rights, provenance, original-story, learning, and public-discovery pathways
+- [ ] Build evidence-led readiness and discovery improvements without external financial or blockchain service activation
+- [ ] Validate and publish the restored creator-controlled systems update
 
 ## Phase 121 — Revenue Operations System
 - [x] Conduct a deep continuity audit of current revenue pathways, attached-service dependencies, routes, records, and direct live-activation boundaries
@@ -2690,7 +2702,6 @@
 - [x] Consolidate verified channel and route evidence into the active implementation scope
 - [x] Complete browser-native communication, creator discovery, and readiness-route improvements
 - [x] Test, document, and publish the active additions with explicit dependency states
-
 ## Phase 130 — First-Party Artifact Integration
 - [x] Inventory owner-uploaded first-party artifacts and identify which can be safely integrated into public ScrollVerse knowledge, media, fashion, and AI guide routes
 - [x] Integrate verified first-party artifacts with clear source labels, original-work boundaries, and zero-dead-end navigation
@@ -2704,3 +2715,18 @@
 
 ## Phase 132 — Reusable Continuity Practice
 - [x] Update reusable ScrollVerse continuity guidance with the source-first artifact intake, Hero co-creator, media, digital-asset, IP, specialist, and owner-ready workflow patterns completed in the current release series
+
+## Phase 200 — Free Manifesto and Builder’s Book
+- [ ] Inventory verified first-party systems material and separate public learning content from protected materials
+- [ ] Write a free ScrollVerse Manifesto and Builder’s Book with philosophy, practical patterns, blueprint vocabulary, source notes, and rights boundaries
+- [ ] Build a public reading route and protected-material handoff without exposing private files, credentials, or unreviewed source assets
+- [ ] Validate and publish the free book and manifesto update
+
+## Phase 201 — Adaptive Book, Media, Language, and Distribution Readiness
+- [x] Audit every visible book route, reading control, audio/voice control, motion-media control, and external platform handoff for real destination, evidence, and functional-state accuracy
+- [x] Create an original adaptive visual cover for the ScrollVerse Manifesto and Builder’s Book, with frequency-inspired interaction that respects reduced-motion and does not make wellness claims
+- [x] Create an accessible public audio-edition foundation for cleared book text, including visible playback state, transcript boundary, and no fabricated narration or provider-delivery claim
+- [x] Design and implement a browser-local visitor language-selection foundation with clear translation availability, source-text, and human-review limitations
+- [x] Build a source-led Books and Media Readiness route that distinguishes free reading, direct-reader commerce readiness, audio/video readiness, and external-platform submission readiness
+- [x] Prepare owner-controlled direct-to-reader and external-platform handoffs for each verified book without creating listings, pricing, checkout, account access, uploads, publication, or transactions absent explicit authorization and credentials
+- [x] Add regression coverage, validate routes, TypeScript, and tests, document all remaining rights/provider/owner dependencies, and publish the verified update

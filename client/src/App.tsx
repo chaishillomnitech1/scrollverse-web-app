@@ -318,6 +318,9 @@ import OperatingPatternNavigator from "./pages/OperatingPatternNavigator";
 import FinancialSystemsCapabilityMap from "./pages/FinancialSystemsCapabilityMap";
 import LawfulOperatingNavigator from "./pages/LawfulOperatingNavigator";
 import OriginalSystemsHub from "./pages/OriginalSystemsHub";
+import PublicPortfolioGovernance from "./pages/PublicPortfolioGovernance";
+import ManifestoBuildersBook from "./pages/ManifestoBuildersBook";
+import BooksMediaReadiness from "./pages/BooksMediaReadiness";
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────
 function MobileBottomNav() {
@@ -664,6 +667,9 @@ function Router() {
         <Route path="/financial-systems-capability-map" component={FinancialSystemsCapabilityMap} />
         <Route path="/lawful-operating-navigator" component={LawfulOperatingNavigator} />
         <Route path="/original-systems-hub" component={OriginalSystemsHub} />
+        <Route path="/public-portfolio-governance" component={PublicPortfolioGovernance} />
+        <Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />
+        <Route path="/books-media-readiness" component={BooksMediaReadiness} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route component={NotFound} />
     </Switch>
