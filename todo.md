@@ -2804,10 +2804,10 @@
 - [ ] Validate the intake pathway, document owner/professional-review needs, and publish the bounded integration
 
 ## Phase 215 — IP and Digital Evidence Dossier
-- [ ] Inventory public GitHub, domain, invention, data, and intellectual-property source records; classify independent evidence versus owner-supplied assertion
-- [ ] Research official copyright, patent, trademark, domain, trade-secret, and data-governance evidence requirements
-- [ ] Build an IP and Digital Evidence Navigator with dated source categories, evidence gaps, and qualified-review handoffs without publishing sensitive records or unsupported ownership/valuation claims
-- [ ] Connect the navigator to GitHub Showcase, Digital Footprint, Creator Operations, and legal-information research; validate and publish the update
+- [x] Inventory public GitHub, domain, invention, data, and intellectual-property source records; classify independent evidence versus owner-supplied assertion
+- [x] Research official copyright, patent, trademark, domain, trade-secret, and data-governance evidence requirements
+- [x] Build an IP and Digital Evidence Navigator with dated source categories, evidence gaps, and qualified-review handoffs without publishing sensitive records or unsupported ownership/valuation claims
+- [x] Connect the navigator to GitHub Showcase, Digital Footprint, Creator Operations, and legal-information research; validate and publish the update
 
 ## Phase 216 — Narrative, Hero, and Original Media Readiness
 - [x] Classify owner-perspective timestamp materials and define source-label, originality, youth-safety, accessibility, rights, and release boundaries for narrative media

@@ -24,6 +24,18 @@ Public source links can guide discovery; exact filings, registrations, title mat
 
 The U.S. Copyright Office states that copyright protects original works of authorship once fixed in a tangible medium, while registration provides a public record of the claim and carries additional U.S. enforcement consequences. This supports a public route that distinguishes an original work, a dated source artifact, a registration/record number, and an ownership/legal conclusion rather than treating any one field as proof of every other field. [1]
 
+USPTO’s Patent Public Search provides public access to U.S. patents and published applications, including basic and advanced search by fields such as inventor or publication number. The same USPTO page directs separate assignment/ownership-change research to Patent Assignment Search, so a search result should not be presented as a current ownership, patentability, infringement, or commercialization conclusion. [2]
+
+ICANN states that RDAP provides access to current domain registration data as the replacement for WHOIS. A domain-record result can provide technical registration context, but the navigator will separately label it as not establishing brand rights, legal ownership, website provenance, business control, or trademark status. [3]
+
 ## Reference
 
 [1] [U.S. Copyright Office: What Is Copyright?](https://www.copyright.gov/what-is-copyright/)
+
+[2] [USPTO: Patent Public Search](https://www.uspto.gov/patents/search/patent-public-search)
+
+[3] [ICANN: Registration Data Access Protocol](https://www.icann.org/rdap)
+
+## Route Verification
+
+On August 14, 2026, `/ip-digital-evidence-navigator` was visually verified in the ScrollVerse development portal. The route rendered the four evidence labels, a browser-local evidence-record builder, public Copyright Office/USPTO/ICANN source handoffs, and route connections to GitHub Showcase, Digital Footprint, and Creator Operations Intelligence. It displayed no record upload, storage, agency search, filing, registration, intellectual-property conclusion, sensitive-data intake, wallet, payment, or transaction control.

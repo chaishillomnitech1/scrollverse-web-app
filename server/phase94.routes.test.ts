@@ -1446,4 +1446,20 @@ describe("Phase 94 route map", () => {
     expect(reference).toContain("Keep disabled by default");
     expect(home).toContain('href: "/brand-feature-studio"');
   });
+
+  it("registers the IP and Digital Evidence Navigator with dated evidence classes, official-source handoffs, and sensitive-record boundaries", () => {
+    const navigator = readProjectFile("client/src/pages/IpDigitalEvidenceNavigator.tsx");
+    const inventory = readProjectFile("docs/phase219-ip-digital-evidence-inventory.md");
+    const architecture = readProjectFile("docs/phase219-ip-digital-evidence-architecture.md");
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    expect(app).toContain('import IpDigitalEvidenceNavigator from "./pages/IpDigitalEvidenceNavigator"');
+    expect(app).toContain('<Route path="/ip-digital-evidence-navigator" component={IpDigitalEvidenceNavigator} />');
+    expect(navigator).toContain("IP and Digital Evidence Navigator");
+    expect(navigator).toContain("Independently verified official record");
+    expect(navigator).toContain("does not accept sensitive records");
+    expect(navigator).toContain("SENSITIVE-RECORD AND LEGAL BOUNDARY");
+    expect(inventory).toContain("Registration Data Access Protocol");
+    expect(architecture).toContain("browser-local record builder deliberately excludes sensitive material");
+    expect(home).toContain('href: "/ip-digital-evidence-navigator"');
+  });
 });

@@ -1021,6 +1021,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◈", title: "NFT Monetization Blueprint", detail: "Design original IP, direct-to-fan editions, collectible architecture, $LONDC utility boundaries, and evidence-gated launch readiness with no live activation.", href: "/nft-monetization-blueprint", color: "#FF6B9A" },
   { icon: "◉", title: "Empire Asset Navigator", detail: "Map companies, clothing lines, merchandise, music, media, code, collectibles, and digital twins through one source, rights, release, and tokenization-readiness vocabulary.", href: "/empire-asset-navigator", color: "#FFC2B8" },
   { icon: "✧", title: "Brand Feature Studio", detail: "Plan daily, weekly, and monthly source-labeled fashion features, original looks, still/clip cut sheets, music-and-merch ideas, and collaboration readiness without public activation.", href: "/brand-feature-studio", color: "#39FF14" },
+  { icon: "⌘", title: "IP and Digital Evidence", detail: "Map public code, work, mark, patent, domain, and source records with dated evidence labels, limitations, and qualified-review handoffs.", href: "/ip-digital-evidence-navigator", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
