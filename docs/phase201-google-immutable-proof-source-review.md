@@ -55,3 +55,9 @@ The only retained lesson is procedural: external synchronization, code generatio
 The latest reference repeats the proposal to generate frontend bindings from named contract endpoints and to use low-level signature and gas-optimization code. It is retained as a duplicate protected intake. ScrollVerse will continue to show only source, readiness, and owner-review states until a separately verified, audited, and explicitly authorized integration exists.
 
 No endpoint was added to the portal, no address was accepted as a verified deployment, no binding/configuration file was generated, and no contract, gas profile, provider connection, wallet, payout, or transaction action occurred.
+
+## Addendum — Final-Binding and Runtime-Build Variant
+
+The latest supplied variant again proposes writing frontend contract bindings, using low-level signature-recovery code, and running a local contract/gas build script against a named remote. It is recorded as protected duplicate material. The current ScrollVerse portal retains its source-labeled readiness views rather than generated network configuration.
+
+No binding file, remote setting, contract artifact, test report, compiler run, gas profile, address verification, provider connection, wallet action, payout, or transaction resulted from the reference.
