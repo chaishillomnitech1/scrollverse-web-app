@@ -3148,3 +3148,6 @@
 ## Phase 266 — Mixed Route and Realtime Reference Intake
 - [x] Classify Pasted_content_34.txt as protected non-executable reference; do not run its WebSocket, API, route, signature, endpoint, broadcast, or deployment material
 - [x] Retain only compatible route-inventory, source-label, test, browser-local planning, and operating-state lessons
+## Phase 267 — Clipboard Reference Intake
+- [x] Review Clipboard_0_125E26D3 and Clipboard_1_6EDA76FA as protected non-executable material; do not run commands, use secrets or addresses, connect wallets, activate providers, or initiate financial, deployment, payout, or transaction activity
+- [x] Record only compatible source-record, release-readiness, and operating-state lessons in protected project documentation
