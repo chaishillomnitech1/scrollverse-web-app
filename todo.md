@@ -3013,11 +3013,11 @@
 - [x] Create a protected batch register for the newly supplied images, screenshots, and media references; retain file-level source, review, rights, and release-state fields without publishing the materials
 - [x] Classify the user-supplied Vydia/catalog, AI-remix, fractionalization, broadcast, and tokenization statements as owner-supplied context; do not represent them as independently verified rights, provider, catalog, payout, or deployment facts
 - [x] Record the owner-supplied birthday/time visual note as a private continuity marker without publishing the image or making technical, legal, statistical, or external causal claims
-- [ ] Define a first-party catalog evidence packet that separates title/source, recording and composition rights, contributor/permission review, audio/visual master status, distribution metadata, accessibility, and release decision
-- [ ] Add only browser-local catalog and asset-intake improvements with explicit no-upload/no-provider/no-distribution/no-mint/no-payment/no-wallet/no-public-release boundaries
+- [x] Define a first-party catalog evidence packet that separates title/source, recording and composition rights, contributor/permission review, audio/visual master status, distribution metadata, accessibility, and release decision
+- [x] Add only browser-local catalog and asset-intake improvements with explicit no-upload/no-provider/no-distribution/no-mint/no-payment/no-wallet/no-public-release boundaries
 - [ ] Validate and publish the protected media-intake work without exposing or transferring the supplied assets
-- [ ] Rebuild and wire the browser-local Creator Media Packet and Master Directory routes lost during the sandbox reset, including their source labels and no-external-action boundaries
-- [ ] Restore focused regression coverage for the Creator Media Packet and Master Directory routes before publication
+- [x] Rebuild and wire the browser-local Creator Media Packet and Master Directory routes lost during the sandbox reset, including their source labels and no-external-action boundaries
+- [x] Restore focused regression coverage for the Creator Media Packet and Master Directory routes before publication
 
 ## Phase 238 — Protected Replay Artifact Review
 - [x] Classify the supplied replay artifact’s media outreach contacts, profile workflow, dashboard, contract, secret-injection, compiler, and automation material as protected non-executable context; do not import contacts, send pitches, run code, configure actions, use tokens, compile contracts, or deploy
