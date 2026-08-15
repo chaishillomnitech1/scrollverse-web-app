@@ -325,6 +325,8 @@ import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
 import DigitalHollywoodStudio from "./pages/DigitalHollywoodStudio";
 import FinancialActivationReadiness from "./pages/FinancialActivationReadiness";
+import Synchronizations from "./pages/Synchronizations";
+import OwnerWorkstation from "./pages/OwnerWorkstation";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -729,6 +731,8 @@ function Router() {
         <Route path="/media-portfolio-readiness" component={MediaPortfolioReadiness} />
         <Route path="/digital-hollywood-studio" component={DigitalHollywoodStudio} />
         <Route path="/financial-activation-readiness" component={FinancialActivationReadiness} />
+        <Route path="/synchronizations" component={Synchronizations} />
+        <Route path="/owner-workstation" component={OwnerWorkstation} />
         <Route path="/creator-media-packet" component={CreatorMediaPacket} />
         <Route path="/master-directory" component={MasterDirectory} />
         <Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />

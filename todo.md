@@ -3068,3 +3068,13 @@
 ## Phase 247 — Contract, Payout, and Orchestration Reference Intake
 - [x] Classify Pasted_content_24.txt as protected non-executable reference; do not compile its contracts, run its configuration generator or shell script, use its addresses/endpoints, route funds, connect wallets, or broadcast a transaction
 - [x] Record only compatible first-party lessons about evidence records, source traceability, review gates, and transaction-specific authorization in the financial-readiness documentation
+## Phase 248 — Owner-Exclusive ScrollVerse Workstation
+- [x] Classify Pasted_content_25.txt as protected non-executable reference; do not execute its terminal commands, use credentials, connect wallets, or activate network, provider, payment, or transaction functions from its contents
+- [x] Build an owner-exclusive creation workstation that combines existing ScrollVerse Legion, team, creator, media, research, documentation, and build workflows in a practical command surface
+- [x] Add a source-labeled AI ecosystem directory that distinguishes portal-available tools, owner-configured integrations, public research references, and unavailable/unconnected services without claiming universal direct access
+- [x] Protect the workstation behind authenticated owner access, with clear no-provider/no-wallet/no-payment/no-transaction boundaries until separately configured and authorized
+- [ ] Add Home/owner discovery only where appropriate, router registration, focused regression coverage, and validated publication
+## Phase 249 — Synchronization Collection and Story Lane
+- [x] Add a source-labeled first-party Synchronizations story page that presents the owner’s account, dated materials, observations, interpretation boundary, visitor reflection prompts, and correction path without asserting unverified external causation
+- [x] Add the Synchronization Collection as a collectible-readiness record on the August 28 birthday route, with metadata/provenance/release checks and no mint, sale, wallet, transfer, price, or investment functionality
+- [x] Link the birthday and story routes, register the route, and add targeted regression coverage for the first-party and fail-closed collectible boundaries

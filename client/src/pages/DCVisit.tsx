@@ -108,6 +108,8 @@ export default function DCVisit() {
         </div>
       </section>
 
+      <section className="py-12" style={{ background: "rgba(185,140,255,0.035)", borderTop: "1px solid rgba(185,140,255,0.13)", borderBottom: "1px solid rgba(185,140,255,0.13)" }}><div className="container max-w-4xl mx-auto px-6"><div className="rounded-3xl border p-6 md:p-8" style={{ borderColor: "rgba(185,140,255,0.3)", background: "rgba(4,14,30,0.62)" }}><div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><div><div className="text-xs font-mono tracking-widest" style={{ color: "#B98CFF" }}>SYNCHRONIZATION COLLECTION · 001</div><h2 className="mt-3 text-3xl font-black text-white">The first thread</h2><p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "#C8D3DC" }}>A first-party story and collectible-readiness record anchored to the owner’s August 28, 1978 birth-date and 7 o’clock time marker. Explore the documented account, visible source boundaries, and a visitor-led study path. No mint, sale, wallet, transfer, or price is active.</p></div><Link href="/synchronizations" className="rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#B98CFF", color: "#050B1A" }}>Explore synchronizations →</Link></div></div></div></section>
+
       {/* Mission Points */}
       <section className="py-14">
         <div className="container max-w-4xl mx-auto">
