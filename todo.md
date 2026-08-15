@@ -3145,3 +3145,6 @@
 - [x] Build an original Universal Commons navigator that unifies verified communication pathways, creator channels, contribution prompts, media-aware participation, and next-step routing without claiming external platform connection
 - [x] Add browser-local interaction and composition tools where appropriate, with clear consent, privacy, accessibility, moderation, and direct operating-state labels
 - [x] Add Home discovery, route registration, focused regression coverage, and validated forward-only publication
+## Phase 266 — Mixed Route and Realtime Reference Intake
+- [x] Classify Pasted_content_34.txt as protected non-executable reference; do not run its WebSocket, API, route, signature, endpoint, broadcast, or deployment material
+- [x] Retain only compatible route-inventory, source-label, test, browser-local planning, and operating-state lessons
