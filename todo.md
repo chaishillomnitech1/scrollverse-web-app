@@ -3035,7 +3035,7 @@
 - [x] Trace and repair the AI Legion Enter-key message submission path that incorrectly navigates to a 404 route while preserving intentional message-box interaction
 - [x] Audit the currently linked visual, book, audio, and accessibility experiences for actual playable, readable, and listenable readiness; label routes accurately where material or provider activation remains incomplete
 - [x] Add regression coverage for the corrected AI Legion submission behavior and updated public-perspective language
-- [ ] Validate TypeScript, Vitest, build, and selected browser routes before publishing the update
+- [x] Validate TypeScript, Vitest, build, and selected browser routes before publishing the update
 ## Phase 241 — ScrollVerse Mesopotamia Knowledge Commons
 - [x] Classify the supplied generational-legacy blueprint as protected planning reference; incorporate only compatible first-party learning, archive, creative-practice, and open-builder patterns without treating its permanence, decentralization, or financial statements as implemented facts
 - [x] Build a free, source-labeled ScrollVerse Mesopotamia route linking open science, historical archives, creative media, practical creator frameworks, books, visual learning, and contribution pathways
@@ -3046,21 +3046,21 @@
 - [x] Classify the supplied public YouTube video and Mansa AI Dreams channel URLs as owner-provided source references; review only publicly visible material and do not infer account ownership, monetization, automation, financial performance, or provider authority beyond observable source context
 - [x] Confirm the repaired AI Legion entity action opens the selected in-page chat rather than navigating to an unregistered route, and that Enter-key transmission handling prevents navigation while sending valid messages
 - [x] Add any compatible source-labeled creator-learning reference without embedding, downloading, reposting, authenticating, uploading, subscribing, messaging, or otherwise acting on the supplied channels
-- [ ] Re-run TypeScript, Vitest, production build where environment resources allow, and selected route checks before checkpointing the unified update
+- [x] Re-run TypeScript, Vitest, production build where environment resources allow, and selected route checks before checkpointing the unified update
 ## Phase 243 — Verified Financial-Service Activation Readiness
 - [x] Classify the supplied orchestration, circuit, signature-validator, gas-profile, and broadcast material as protected non-executable reference; do not run scripts, compile contracts/circuits, use signing data, connect wallets, or broadcast transactions
 - [x] Inventory all first-party card, payment, wallet, exchange, token, checkout, banking-style, and money-outlet surfaces by actual current state: live provider-backed function, test/sandbox function, browser-local interface, or owner/provider activation gate
 - [x] Produce a verified activation roadmap that distinguishes ordinary creator-commerce functions from regulated payment, card-issuing, custody, lending, exchange, investment, money-transmission, and on-chain transaction functions
 - [x] Implement only safe first-party state labeling, product/readiness records, and fail-closed corrections until verified provider approvals, legal/compliance review, secure configuration, cleared offerings, and transaction-specific owner confirmation are present
-- [ ] Preserve the prepared AI Legion, knowledge-commons, perspective-language, and media-readiness work for publication after validation
+- [x] Preserve the prepared AI Legion, knowledge-commons, perspective-language, and media-readiness work for publication after validation
 ## Phase 244 — Clipboard Reference Intake and Release Validation
 - [x] Review the supplied Clipboard_0_68865DA7 and Clipboard_1_9B05B96B files as protected, non-executable reference; do not run commands, use secrets, connect wallets, or activate providers based on their contents
 - [x] Record only compatible first-party lessons in the existing readiness documentation, with source and capability limits visible
-- [ ] Preserve the current knowledge, AI Legion, media, creator-channel, and financial-readiness work for validated publication
+- [x] Preserve the current knowledge, AI Legion, media, creator-channel, and financial-readiness work for validated publication
 ## Phase 245 — Invariant-Engine Reference Intake
 - [x] Classify Pasted_content_23.txt as protected non-executable reference; do not compile contracts, run the binding generator, use embedded endpoints or addresses, send payouts, or broadcast transactions
 - [x] Record only compatible first-party lessons about source records, test evidence, review sequencing, and explicit transaction gates in the financial-readiness documentation
-- [ ] Retain the staged knowledge, AI Legion, media, creator-source, and financial-readiness update for the final validation and checkpoint
+- [x] Retain the staged knowledge, AI Legion, media, creator-source, and financial-readiness update for the final validation and checkpoint
 ## Phase 246 — Production Build Resource Recovery
 - [x] Analyze the current 338-chunk route graph and Vite output configuration after standard and non-minified production builds terminated during chunk rendering under sandbox resource pressure
 - [x] Apply safe, route-preserving lazy-load or dependency-boundary optimizations and add regression coverage for the affected routes
@@ -3073,7 +3073,7 @@
 - [x] Build an owner-exclusive creation workstation that combines existing ScrollVerse Legion, team, creator, media, research, documentation, and build workflows in a practical command surface
 - [x] Add a source-labeled AI ecosystem directory that distinguishes portal-available tools, owner-configured integrations, public research references, and unavailable/unconnected services without claiming universal direct access
 - [x] Protect the workstation behind authenticated owner access, with clear no-provider/no-wallet/no-payment/no-transaction boundaries until separately configured and authorized
-- [ ] Add Home/owner discovery only where appropriate, router registration, focused regression coverage, and validated publication
+- [x] Add Home/owner discovery only where appropriate, router registration, focused regression coverage, and validated publication
 ## Phase 249 — Synchronization Collection and Story Lane
 - [x] Add a source-labeled first-party Synchronizations story page that presents the owner’s account, dated materials, observations, interpretation boundary, visitor reflection prompts, and correction path without asserting unverified external causation
 - [x] Add the Synchronization Collection as a collectible-readiness record on the August 28 birthday route, with metadata/provenance/release checks and no mint, sale, wallet, transfer, price, or investment functionality
