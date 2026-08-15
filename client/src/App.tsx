@@ -326,6 +326,8 @@ import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
 import DigitalHollywoodStudio from "./pages/DigitalHollywoodStudio";
 import FinancialActivationReadiness from "./pages/FinancialActivationReadiness";
 import FutureInfrastructureBlueprint from "./pages/FutureInfrastructureBlueprint";
+import QuantumFrequencyResearchLab from "./pages/QuantumFrequencyResearchLab";
+import AudienceValueLeverage from "./pages/AudienceValueLeverage";
 import Synchronizations from "./pages/Synchronizations";
 import OwnerWorkstation from "./pages/OwnerWorkstation";
 
@@ -733,6 +735,8 @@ function Router() {
         <Route path="/digital-hollywood-studio" component={DigitalHollywoodStudio} />
         <Route path="/financial-activation-readiness" component={FinancialActivationReadiness} />
         <Route path="/future-infrastructure-blueprint" component={FutureInfrastructureBlueprint} />
+        <Route path="/quantum-frequency-research-lab" component={QuantumFrequencyResearchLab} />
+        <Route path="/audience-value-leverage" component={AudienceValueLeverage} />
         <Route path="/synchronizations" component={Synchronizations} />
         <Route path="/owner-workstation" component={OwnerWorkstation} />
         <Route path="/creator-media-packet" component={CreatorMediaPacket} />
