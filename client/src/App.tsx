@@ -328,6 +328,7 @@ import FinancialActivationReadiness from "./pages/FinancialActivationReadiness";
 import FutureInfrastructureBlueprint from "./pages/FutureInfrastructureBlueprint";
 import QuantumFrequencyResearchLab from "./pages/QuantumFrequencyResearchLab";
 import AudienceValueLeverage from "./pages/AudienceValueLeverage";
+import UniversalCommons from "./pages/UniversalCommons";
 import Synchronizations from "./pages/Synchronizations";
 import OwnerWorkstation from "./pages/OwnerWorkstation";
 
@@ -737,6 +738,7 @@ function Router() {
         <Route path="/future-infrastructure-blueprint" component={FutureInfrastructureBlueprint} />
         <Route path="/quantum-frequency-research-lab" component={QuantumFrequencyResearchLab} />
         <Route path="/audience-value-leverage" component={AudienceValueLeverage} />
+        <Route path="/universal-commons" component={UniversalCommons} />
         <Route path="/synchronizations" component={Synchronizations} />
         <Route path="/owner-workstation" component={OwnerWorkstation} />
         <Route path="/creator-media-packet" component={CreatorMediaPacket} />
