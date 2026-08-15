@@ -3089,3 +3089,35 @@
 - [x] Add a simple “next best lane” guide and progressive-disclosure controls so the owner can begin with one clear action and expand into deeper tools only when needed
 - [x] Preserve visible capability states, source labels, owner boundaries, and no-autonomy/no-provider/no-wallet/no-payment/no-transaction controls throughout the extensible map
 - [x] Add focused regression coverage and validate the navigation-oriented Workstation upgrade before forward-only publication
+## Phase 252 — Shared Replay Reference Review
+- [ ] Review the owner-supplied shared replay as protected reference only; do not run its code, follow embedded credentials, activate providers, connect wallets, or initiate payments, payouts, deployments, or transactions
+- [ ] Record only compatible first-party lessons for the Workstation, source records, release readiness, or documentation with explicit capability limits
+- [ ] Validate and publish any safe documentation-only refinement without changing owner-gated financial or on-chain controls
+## Phase 253 — Clipboard Reference Intake
+- [ ] Review Clipboard_0_80BE259D and Clipboard_1_ADEB4A57 as protected non-executable material; do not run commands, use secrets, connect wallets, activate providers, or initiate financial, deployment, or transaction activity
+- [ ] Record only compatible first-party documentation or Workstation lessons with clear source and capability limits
+## Phase 254 — Future Infrastructure Research Blueprint
+- [x] Classify Pasted_content_26.txt and the related biometric, payout, vault, post-quantum, and broadcast material as protected non-executable reference; do not compile contracts, process biometrics, use addresses, route funds, activate providers, connect wallets, or broadcast transactions
+- [x] Research authoritative public sources for post-quantum cryptography, financial-service regulatory categories, intellectual-property pathways, domain registration, and consumer-protection boundaries
+- [x] Build a free source-labeled Future Infrastructure Blueprint that distinguishes research areas from verified product capability, regulatory status, owner-controlled activation, and transaction readiness
+- [x] Add route registration, Home discovery, and regression coverage; preserve no-filing, no-claiming, no-provider, no-wallet, no-payment, no-custody, and no-transaction boundaries
+## Phase 255 — Protected Operating Matrix Intake
+- [x] Classify Pasted_content_27.txt as protected non-executable reference; do not run terminal instructions, use the supplied broadcast statement, compile contracts, process biometric data, activate providers, connect wallets, or initiate any financial or on-chain action
+- [x] Retain only compatible input-classification, documentation isolation, source-record, and explicit rest-state lessons in the Future Infrastructure Blueprint
+## Phase 256 — Invariant System Shield Intake
+- [x] Classify Pasted_content_28.txt as protected non-executable reference; do not run its terminal instructions, use its broadcast statement, compile code, use credentials or addresses, process biometric data, connect wallets, activate providers, or initiate financial or on-chain actions
+- [x] Retain only compatible reference-isolation, source-record, rest-state, and evidence-review lessons in the Future Infrastructure Blueprint
+## Phase 257 — First-Party Editorial and Operating-State Language
+- [x] Refine active ScrollVerse research and evidence pages to lead with the owner’s first-party work, source records, and visitor-led assessment rather than retreat-style disclaimer language
+- [x] Replace generic negation wording with direct operating-state labels where a function is not yet released, while preserving factual information about what is currently available
+- [x] Add regression coverage for the strengthened first-party presentation and direct operating-state language, then validate before forward-only publication
+## Phase 258 — Interactive Media Hub Readiness
+- [x] Classify Pasted_content_29.txt as protected non-executable reference; do not compile its contract, run its build commands, use its address or broadcast statement, connect wallets, route funds, activate providers, or initiate deployment or transaction activity
+- [x] Inventory Scroll TV, music, visual, episode, and channel routes by verified source/play state, rights/release record, accessibility, and interaction capability
+- [x] Add browser-local interactive media controls and source-labeled player pathways only where a cleared playable source exists; label planned or source-missing experiences by direct operating state
+- [x] Add focused regression coverage and validate the media-hub update without activating distribution, upload, licensing, payment, wallet, or transaction functions
+## Phase 259 — Verified Playback and Live Interaction
+- [x] Replace decorative live status, unsupported upload/distribution claims, and nonfunctional player actions with direct source and connection-state labels across Scroll TV and Media Hub
+- [x] Add browser-local watchlist, reactions, programming intent, and discussion prompts that create real on-page interaction without misrepresenting external chat, streaming, upload, or distribution connections
+- [x] Create one source-backed listening handoff from the existing verified artist source and clearly route episode/visual experiences into their current studio, catalog, or release-ready state
+- [x] Add regression coverage and validate the upgraded media interaction surfaces before forward-only publication

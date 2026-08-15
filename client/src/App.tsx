@@ -325,6 +325,7 @@ import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
 import DigitalHollywoodStudio from "./pages/DigitalHollywoodStudio";
 import FinancialActivationReadiness from "./pages/FinancialActivationReadiness";
+import FutureInfrastructureBlueprint from "./pages/FutureInfrastructureBlueprint";
 import Synchronizations from "./pages/Synchronizations";
 import OwnerWorkstation from "./pages/OwnerWorkstation";
 
@@ -731,6 +732,7 @@ function Router() {
         <Route path="/media-portfolio-readiness" component={MediaPortfolioReadiness} />
         <Route path="/digital-hollywood-studio" component={DigitalHollywoodStudio} />
         <Route path="/financial-activation-readiness" component={FinancialActivationReadiness} />
+        <Route path="/future-infrastructure-blueprint" component={FutureInfrastructureBlueprint} />
         <Route path="/synchronizations" component={Synchronizations} />
         <Route path="/owner-workstation" component={OwnerWorkstation} />
         <Route path="/creator-media-packet" component={CreatorMediaPacket} />
