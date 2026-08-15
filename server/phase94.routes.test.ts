@@ -1280,7 +1280,7 @@ describe("Phase 94 route map", () => {
     expect(exchange).toContain("not a live chatroom, public social feed");
     expect(standard).toContain("Portal Trust Standard");
     expect(standard).toContain("every major lane should show what it is");
-    expect(lens).toContain("PORTAL TRUST LENS");
+    expect(lens).toContain("PORTAL PERSPECTIVE LENS");
     expect(designRecord).toContain("does not create public profiles");
     expect(home).toContain('href: "/idea-exchange"');
     expect(home).toContain('href: "/portal-trust-standard"');

@@ -140,14 +140,15 @@ function EntityCard({
         <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
           🌌 {entity.metaverseWorld}
         </span>
-        <Link
-          href={`/ai-entity/${entity.id}`}
-          onClick={(e) => e.stopPropagation()}
+        <button
+          type="button"
+          onClick={(event) => { event.stopPropagation(); onSelect(entity); }}
           className="text-xs font-mono transition-colors hover:opacity-80"
           style={{ color: entity.color }}
+          aria-label={`Open chat with ${entity.name}`}
         >
-          ENTER →
-        </Link>
+          OPEN CHAT →
+        </button>
       </div>
     </div>
   );
@@ -309,7 +310,12 @@ function ChatPanel({ entity }: { entity: Entity }) {
           placeholder={`Ask ${entity.name}...`}
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSend();
+            }
+          }}
           disabled={chatMutation.isPending}
         />
         <button
@@ -387,6 +393,7 @@ function CouncilMode({ entities }: { entities: Entity[] }) {
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey && question.trim() && selectedIds.length > 0) {
+              e.preventDefault();
               councilMutation.mutate({ question, entityIds: selectedIds });
             }
           }}
@@ -469,6 +476,7 @@ function ApexAnalysisMode() {
           onChange={(e) => setTopic(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && topic.trim() && selectedTiers.length > 0) {
+              e.preventDefault();
               analysisMutation.mutate({ topic, tiers: selectedTiers });
             }
           }}

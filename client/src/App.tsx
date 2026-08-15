@@ -334,12 +334,16 @@ import NarrativeSourceTrail from "./pages/NarrativeSourceTrail";
 import OriginalMediaReadiness from "./pages/OriginalMediaReadiness";
 import MediaPortfolioReadiness from "./pages/MediaPortfolioReadiness";
 import NftMonetizationBlueprint from "./pages/NftMonetizationBlueprint";
+import CreatorMediaPacket from "./pages/CreatorMediaPacket";
+import MasterDirectory from "./pages/MasterDirectory";
+import OpenResearchNavigator from "./pages/OpenResearchNavigator";
 import EmpireAssetNavigator from "./pages/EmpireAssetNavigator";
 import BrandFeatureStudio from "./pages/BrandFeatureStudio";
 import IpDigitalEvidenceNavigator from "./pages/IpDigitalEvidenceNavigator";
 import MusicCreatorReleaseReadiness from "./pages/MusicCreatorReleaseReadiness";
 import XLVIIIBlocksMonograph from "./pages/XLVIIIBlocksMonograph";
 import OpenKnowledgeVerse from "./pages/OpenKnowledgeVerse";
+import MesopotamiaCommons from "./pages/MesopotamiaCommons";
 import VoiceLanguageStudio from "./pages/VoiceLanguageStudio";
 import DomainDiscoveryMap from "./pages/DomainDiscoveryMap";
 import ConsortiumNexus from "./pages/ConsortiumNexus";
@@ -349,6 +353,7 @@ import HypotheticalSystemsLab from "./pages/HypotheticalSystemsLab";
 import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
 import DigitalHollywoodStudio from "./pages/DigitalHollywoodStudio";
+import FinancialActivationReadiness from "./pages/FinancialActivationReadiness";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -721,6 +726,9 @@ function Router() {
         <Route path="/original-media-readiness" component={OriginalMediaReadiness} />
         <Route path="/media-portfolio-readiness" component={MediaPortfolioReadiness} />
         <Route path="/digital-hollywood-studio" component={DigitalHollywoodStudio} />
+        <Route path="/financial-activation-readiness" component={FinancialActivationReadiness} />
+        <Route path="/creator-media-packet" component={CreatorMediaPacket} />
+        <Route path="/master-directory" component={MasterDirectory} />
         <Route path="/nft-monetization-blueprint" component={NftMonetizationBlueprint} />
         <Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />
         <Route path="/brand-feature-studio" component={BrandFeatureStudio} />
@@ -728,6 +736,8 @@ function Router() {
         <Route path="/music-creator-release-readiness" component={MusicCreatorReleaseReadiness} />
         <Route path="/xlviii-blocks-monograph" component={XLVIIIBlocksMonograph} />
         <Route path="/open-knowledge-verse" component={OpenKnowledgeVerse} />
+        <Route path="/mesopotamia-commons" component={MesopotamiaCommons} />
+        <Route path="/open-research-navigator" component={OpenResearchNavigator} />
         <Route path="/voice-language-studio" component={VoiceLanguageStudio} />
         <Route path="/domain-discovery-map" component={DomainDiscoveryMap} />
         <Route path="/consortium-nexus" component={ConsortiumNexus} />

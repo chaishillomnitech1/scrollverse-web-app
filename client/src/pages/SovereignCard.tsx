@@ -7,11 +7,6 @@
  */
 import { useState } from "react";
 import { Link } from "wouter";
-import { trpc } from "@/lib/trpc";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
-
-type PaidTierId = "sovereign" | "apex" | "diamond";
 
 const CARD_TIERS = [
   {
@@ -204,44 +199,7 @@ function CardVisual({ tier }: { tier: typeof CARD_TIERS[0] }) {
 
 export default function SovereignCard() {
   const [selectedTier, setSelectedTier] = useState(1); // Sovereign as default
-  const [applying, setApplying] = useState(false);
-  const [applied, setApplied] = useState(false);
-  const { user, isAuthenticated } = useAuth();
-
   const tier = CARD_TIERS[selectedTier];
-
-  const checkoutMutation = trpc.card.createCardCheckout.useMutation({
-    onSuccess: (data) => {
-      if (data.url) window.location.href = data.url;
-      else { setApplying(false); setApplied(true); }
-    },
-    onError: () => { setApplying(false); setApplied(true); },
-  });
-
-  const guardianMutation = trpc.card.applyGuardian.useMutation({
-    onSuccess: () => { setApplying(false); setApplied(true); },
-    onError: () => { setApplying(false); setApplied(true); },
-  });
-
-  const handleApply = () => {
-    if (!isAuthenticated) { window.location.href = getLoginUrl(); return; }
-    setApplying(true);
-    const tierId = tier.id;
-    if (tierId === "guardian") {
-      guardianMutation.mutate();
-    } else if (tierId === "infinity") {
-      setTimeout(() => { setApplying(false); setApplied(true); }, 800);
-    } else if (["sovereign", "apex", "diamond"].includes(tierId)) {
-      checkoutMutation.mutate({
-        tierId: tierId as PaidTierId,
-        successUrl: `${window.location.origin}/sovereign-card`,
-        cancelUrl: `${window.location.origin}/sovereign-card`,
-        customerEmail: user?.email ?? undefined,
-      });
-    } else {
-      setTimeout(() => { setApplying(false); setApplied(true); }, 800);
-    }
-  };
 
   return (
     <div className="min-h-screen" style={{ background: "#030812", color: "#E8EDF2", fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -251,11 +209,11 @@ export default function SovereignCard() {
           <Link href="/"><div className="flex items-center gap-2 cursor-pointer">
             <div className="w-7 h-7 rounded flex items-center justify-center text-xs font-bold" style={{ background: "linear-gradient(135deg, #D4AF37, #00D4FF)", color: "#030812" }}>SV</div>
             <span className="text-sm font-bold text-white">Sovereign Card</span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(212,175,55,0.1)", color: "#D4AF37" }}>EXCEEDS EVERY CARD</span>
+            <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(212,175,55,0.1)", color: "#D4AF37" }}>PROGRAM READINESS</span>
           </div></Link>
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono" style={{ color: "#00FF88" }}>◉ LIVE · {CURRENCY_LIST.length} CURRENCIES</span>
-            <Link href="/sovereign-bank"><span className="text-xs font-mono px-3 py-1.5 rounded border cursor-pointer" style={{ borderColor: "rgba(212,175,55,0.3)", color: "#D4AF37" }}>Sovereign Bank →</span></Link>
+            <span className="text-xs font-mono" style={{ color: "#FFCC4D" }}>◉ READINESS · NO CARD ISSUANCE</span>
+            <Link href="/financial-activation-readiness"><span className="text-xs font-mono px-3 py-1.5 rounded border cursor-pointer" style={{ borderColor: "rgba(212,175,55,0.3)", color: "#D4AF37" }}>Activation map →</span></Link>
           </div>
         </div>
       </header>
@@ -263,13 +221,13 @@ export default function SovereignCard() {
       {/* Hero */}
       <section className="py-16 text-center" style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.06) 0%, #030812 65%)" }}>
         <div className="max-w-3xl mx-auto px-6">
-          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#D4AF37" }}>SOVEREIGN CARD · 5 TIERS · {CURRENCY_LIST.length} CURRENCIES · DIGITAL + PHYSICAL</div>
-          <h1 className="text-5xl font-black text-white mb-4">The Card That <span style={{ color: "#D4AF37" }}>Exceeds</span><br />Every Card</h1>
+          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#D4AF37" }}>SOVEREIGN CARD · PROGRAM CONCEPT · VERIFICATION REQUIRED</div>
+          <h1 className="text-5xl font-black text-white mb-4">Sovereign Card <span style={{ color: "#D4AF37" }}>Program Readiness</span></h1>
           <p className="text-lg mb-6 max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
-            From Cash App to SoFi to Amex Centurion to Wall Street — the Sovereign Card is built beyond all of them. 5 tiers. {CURRENCY_LIST.length} currencies. $LONDC native. Zakat auto-distribution. AI Legion financial advisors. No limits.
+            The tier concepts below express a first-party product direction. They are not proof of an issued card, financial account, cash-back program, exchange, wallet, lending service, transfer service, investment product, or live banking function. Review the provider and owner-controlled requirements before treating any capability as available.
           </p>
           <div className="flex flex-wrap gap-3 justify-center mb-8">
-            {["$LONDC Native", "Zakat 7.77%", "AI Advisors", "Zero Fees", "All Currencies", "Physical + Digital"].map(f => (
+            {["Concept tiers", "Provider capability required", "Owner release required", "No live card issued"].map(f => (
               <span key={f} className="text-xs font-mono px-3 py-1.5 rounded-full" style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.2)", color: "#D4AF37" }}>{f}</span>
             ))}
           </div>
@@ -334,7 +292,7 @@ export default function SovereignCard() {
                 <span className="text-sm" style={{ color: "#8899AA" }}>{tier.priceNote}</span>
               </div>
               <div className="mb-6">
-                <div className="text-xs font-mono mb-3" style={{ color: tier.color }}>CASHBACK: {tier.cashback}</div>
+                <div className="text-xs font-mono mb-3" style={{ color: tier.color }}>PLANNED TIER CONCEPT · {tier.cashback}</div>
                 <ul className="space-y-2">
                   {tier.features.map(f => (
                     <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#C8D3DC" }}>
@@ -346,22 +304,13 @@ export default function SovereignCard() {
               </div>
               {tier.physical && (
                 <div className="flex items-center gap-2 mb-4 text-xs font-mono" style={{ color: "#00FF88" }}>
-                  <span>◉</span> Physical card included — shipped worldwide
+                  <span>◉</span> Physical-card concept only — no physical card is issued from this portal
                 </div>
               )}
-              {applied ? (
-                <div className="rounded-xl p-4 text-center" style={{ background: `${tier.color}10`, border: `1px solid ${tier.color}30` }}>
-                  <div className="text-lg font-black text-white mb-1">✓ Application Received</div>
-                  <div className="text-sm" style={{ color: tier.color }}>You're on the list. We'll reach out within 24 hours. KUN FAYAKŪN × ∞</div>
-                </div>
-              ) : (
-                <button onClick={handleApply} disabled={applying} className="w-full py-4 rounded-2xl font-black text-base transition-all hover:scale-[1.02] disabled:opacity-60" style={{ background: `linear-gradient(135deg, ${tier.color}, ${tier.color}99)`, color: "#030812" }}>
-                  {applying ? "Processing..." : tier.waitlist ? `Join ${tier.name} Waitlist →` : `Apply for ${tier.name} →`}
-                </button>
-              )}
-              {!isAuthenticated && (
-                <div className="mt-3 text-xs text-center" style={{ color: "#8899AA" }}>Sign in required to apply</div>
-              )}
+              <Link href="/financial-activation-readiness" className="block w-full rounded-2xl py-4 text-center font-black text-base transition-all hover:scale-[1.02]" style={{ background: `linear-gradient(135deg, ${tier.color}, ${tier.color}99)`, color: "#030812" }}>
+                Review {tier.name} activation requirements →
+              </Link>
+              <div className="mt-3 text-xs text-center" style={{ color: "#8899AA" }}>No application, payment, account opening, card issuance, wallet connection, or money movement occurs from this page.</div>
             </div>
           </div>
         </div>

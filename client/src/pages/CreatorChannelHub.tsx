@@ -13,6 +13,8 @@ const sourceMode: Record<string, ChannelMode> = {
   "Junior Movies Entertainment": "Creator destination",
   "Creator-provided YouTube video": "Direct source",
   "Nick Ponte — creator learning reference": "Learning reference",
+  "Mansa AI Dreams — creator-learning reference": "Learning reference",
+  "Mansa AI overview — third-party source": "Learning reference",
 };
 
 const sourceStatus: Record<ChannelMode, { color: string; label: string; detail: string }> = {

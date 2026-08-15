@@ -66,4 +66,22 @@ export const CREATOR_CHANNEL_HANDOFFS: CreatorChannelHandoff[] = [
     note: "Public creator-learning reference supplied by the ScrollVerse owner. It is a source-labeled discovery handoff only; YouTube and the publisher retain all channel, rights, monetization, product, and outcome decisions. ScrollVerse does not claim affiliation, endorsement, or income verification.",
     color: "#A78BFA",
   },
+  {
+    title: "Mansa AI Dreams — creator-learning reference",
+    destination: "Public YouTube creator-learning channel",
+    lane: "Video",
+    icon: "◉",
+    url: "https://youtube.com/@mansaaidreams",
+    note: "Public channel review describes AI-video creation using PC-based and otherwise free tools. This is an external learning reference only; YouTube and the publisher retain all access, rights, monetization, publishing, and policy decisions. ScrollVerse does not claim affiliation, endorsement, automation, or outcome verification.",
+    color: "#A78BFA",
+  },
+  {
+    title: "Mansa AI overview — third-party source",
+    destination: "Public YouTube explanatory video",
+    lane: "Video",
+    icon: "↗",
+    url: "https://youtu.be/sZpYbWABeI8",
+    note: "Public third-party video titled “Mansa AI ($MUSA) Explained | AI + Web3 Project Overview and Exchange Listings,” published by Cryptologia on December 26, 2025. It is a source for study only; its descriptions, exchange statements, and promotional claims are not independently adopted as ScrollVerse claims or financial guidance.",
+    color: "#B98CFF",
+  },
 ];

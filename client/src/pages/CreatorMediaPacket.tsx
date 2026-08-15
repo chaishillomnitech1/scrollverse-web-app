@@ -1,0 +1,59 @@
+import { useMemo, useState } from "react";
+import { Link } from "wouter";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+
+type Packet = {
+  title: string;
+  format: string;
+  source: string;
+  contributors: string;
+  rights: string;
+  accessibility: string;
+  youth: string;
+  master: string;
+  release: string;
+  correction: string;
+};
+
+const initialPacket: Packet = {
+  title: "", format: "Short film / episode", source: "", contributors: "",
+  rights: "Needs source and rights review", accessibility: "Not reviewed", youth: "No youth participation identified",
+  master: "Draft / working files only", release: "Owner review not started", correction: "",
+};
+
+const options = {
+  format: ["Short film / episode", "Music video", "Song / audio release", "Visual art / editorial", "Animation / youth project", "Mixed media"],
+  rights: ["Needs source and rights review", "Contributor review in progress", "Owner-reviewed release packet", "Needs specialist review"],
+  accessibility: ["Not reviewed", "Captions / transcript planned", "Captions + visual description planned", "Alternative media plan", "Needs specialist review"],
+  youth: ["No youth participation identified", "Adult-supported private draft", "Adult-supported review needed", "Public sharing not approved", "Needs safeguarding review"],
+  master: ["Draft / working files only", "Local technical check planned", "Local master reviewed", "Provider delivery not approved"],
+  release: ["Owner review not started", "Rights and access review pending", "Provider / destination review pending", "Not approved for public release"],
+};
+
+export default function CreatorMediaPacket() {
+  useSovereignHeartbeat({ page: "creator-media-packet" });
+  const [packet, setPacket] = useState<Packet>(initialPacket);
+  const update = <K extends keyof Packet>(key: K, value: Packet[K]) => setPacket(current => ({ ...current, [key]: value }));
+  const status = useMemo(() => `${packet.format} · ${packet.rights} · ${packet.accessibility} · ${packet.release}`, [packet]);
+  const download = () => {
+    const payload = JSON.stringify({ packet, exportedAt: new Date().toISOString(), boundary: "Browser-local planning record only. Not a release authorization or provider submission." }, null, 2);
+    const url = URL.createObjectURL(new Blob([payload], { type: "application/json" }));
+    const link = document.createElement("a");
+    link.href = url; link.download = `${(packet.title || "creator-media-packet").replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.json`; link.click(); URL.revokeObjectURL(url);
+  };
+  return <main className="min-h-screen bg-[#050B1A] pb-16 text-white">
+    <header className="border-b border-[#00D4FF]/20 bg-[#050B1A]/95"><div className="container flex items-center justify-between py-4"><Link href="/digital-hollywood-studio" className="text-sm font-black hover:text-[#00D4FF]">Digital Hollywood Studio</Link><Link href="/media-readiness-lab" className="text-xs font-mono text-[#00FF88]">MEDIA READINESS LAB →</Link></div></header>
+    <section className="border-b border-[#00D4FF]/20" style={{ background: "radial-gradient(circle at 12% 20%, rgba(0,212,255,0.2), transparent 35%), radial-gradient(circle at 85% 10%, rgba(185,140,255,0.18), transparent 34%), #050B1A" }}><div className="container py-14 md:py-20"><p className="text-xs font-mono tracking-[0.24em] text-[#00D4FF]">CREATOR MEDIA PACKET · BROWSER-LOCAL</p><h1 className="mt-4 max-w-5xl text-4xl font-black leading-tight md:text-6xl">Turn a creative idea into a <span className="text-[#00FF88]">reviewable media record.</span></h1><p className="mt-6 max-w-3xl text-base leading-relaxed text-[#C8D8E7] md:text-lg">Capture concept, source, contributor questions, accessibility, youth support, master readiness, and an owner-reviewed release state in one local packet.</p></div></section>
+    <div className="container py-10"><PortalTrustLens lane="Creator Media Packet" source="Original ScrollVerse creator-media workflow, Digital Hollywood Studio, Media Readiness Lab, and accessibility preparation guidance." readiness="Browser-local planning and local JSON export are available. Rights, providers, release destinations, and public publication remain separate review states." boundary="No upload, provider delivery, contact import, distribution, licensing, sale, wallet, token, mint, payment, payout, or public release is created from this packet." />
+      <section className="mt-10 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]"><div className="space-y-6"><Panel label="01 · CREATIVE IDENTITY AND SOURCE" color="#00D4FF"><div className="grid gap-4 md:grid-cols-2"><Field label="Working title" value={packet.title} onChange={value => update("title", value)} placeholder="A working title for this draft" /><Select label="Format" value={packet.format} onChange={value => update("format", value)} choices={options.format} /></div><Area label="Original concept and source note" value={packet.source} onChange={value => update("source", value)} placeholder="Record original concept, reference context, or source questions. Do not include credentials or private records." /></Panel>
+        <Panel label="02 · CONTRIBUTORS, ACCESS, AND YOUTH" color="#B98CFF"><Area label="Contributor, credit, and permission questions" value={packet.contributors} onChange={value => update("contributors", value)} placeholder="Record contributor roles, credit intent, likeness/music/sample questions, and remaining permission work." /><div className="mt-5 grid gap-4 md:grid-cols-2"><Select label="Rights review state" value={packet.rights} onChange={value => update("rights", value)} choices={options.rights} /><Select label="Accessibility plan" value={packet.accessibility} onChange={value => update("accessibility", value)} choices={options.accessibility} /><Select label="Youth participation decision" value={packet.youth} onChange={value => update("youth", value)} choices={options.youth} /><Select label="Audio / visual master state" value={packet.master} onChange={value => update("master", value)} choices={options.master} /></div></Panel>
+        <Panel label="03 · RELEASE GATE AND CORRECTION PATH" color="#00FF88"><div className="grid gap-4 md:grid-cols-2"><Select label="Release decision" value={packet.release} onChange={value => update("release", value)} choices={options.release} /><div className="rounded-2xl border border-[#FFB800]/30 bg-[#FFB800]/[.05] p-4 text-sm leading-6 text-[#F0E2C8]">Keep the packet with the draft until a separate owner-reviewed decision covers rights, accessibility, provider terms, destination, and release copy.</div></div><Area label="Correction or review path" value={packet.correction} onChange={value => update("correction", value)} placeholder="Where should a source correction, rights question, access issue, or release concern be reviewed?" /><div className="mt-6 flex flex-wrap gap-3"><button type="button" onClick={download} className="rounded-xl bg-[#00D4FF] px-4 py-3 text-sm font-black text-[#050B1A]">Download local packet</button><Link href="/media-readiness-lab" className="rounded-xl border border-[#B98CFF]/45 px-4 py-3 text-sm font-black text-[#DCCBFF]">Inspect a local master</Link></div></Panel></div>
+        <aside className="h-fit rounded-3xl border border-white/10 bg-[#020713]/70 p-6"><p className="text-xs font-mono tracking-widest text-[#FFB800]">PACKET STATE</p><h2 className="mt-3 text-2xl font-black">Local planning only</h2><p className="mt-4 text-sm leading-6 text-[#C8D8E7]">{status}</p><dl className="mt-6 space-y-4 text-sm"><Row label="Source" value={packet.source ? "Draft note recorded" : "Needs note"} /><Row label="Rights" value={packet.rights} /><Row label="Accessibility" value={packet.accessibility} /><Row label="Youth" value={packet.youth} /><Row label="Release" value={packet.release} /></dl><div className="mt-7 rounded-2xl border border-[#FF6B9A]/30 bg-[#FF6B9A]/[.05] p-4 text-xs leading-5 text-[#F2D8E1]">LOCAL EXPORT ONLY. The packet is not a contract, permission release, legal opinion, upload, provider submission, listing, sale, license, collectible, or transaction.</div></aside></section></div>
+  </main>;
+}
+function Panel({ label, color, children }: { label: string; color: string; children: React.ReactNode }) { return <section className="rounded-3xl border p-6 md:p-8" style={{ borderColor: `${color}55`, background: `${color}09` }}><p className="text-xs font-mono tracking-widest" style={{ color }}>{label}</p><div className="mt-5">{children}</div></section>; }
+function Field({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (value: string) => void; placeholder: string }) { return <label className="text-sm text-[#D7E6F1]">{label}<input value={value} onChange={event => onChange(event.target.value)} placeholder={placeholder} className="mt-2 w-full rounded-xl border border-white/15 bg-[#020713]/65 px-3 py-3 text-sm text-white outline-none focus:border-[#00D4FF]" /></label>; }
+function Area({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (value: string) => void; placeholder: string }) { return <label className="mt-5 block text-sm text-[#D7E6F1]">{label}<textarea value={value} onChange={event => onChange(event.target.value)} placeholder={placeholder} rows={4} maxLength={2500} className="mt-2 w-full resize-none rounded-xl border border-white/15 bg-[#020713]/65 px-3 py-3 text-sm leading-6 text-white outline-none focus:border-[#00D4FF]" /></label>; }
+function Select({ label, value, onChange, choices }: { label: string; value: string; onChange: (value: string) => void; choices: string[] }) { return <label className="text-sm text-[#D7E6F1]">{label}<select value={value} onChange={event => onChange(event.target.value)} className="mt-2 w-full rounded-xl border border-white/15 bg-[#020713]/65 px-3 py-3 text-sm text-white outline-none focus:border-[#00D4FF]">{choices.map(choice => <option key={choice} value={choice}>{choice}</option>)}</select></label>; }
+function Row({ label, value }: { label: string; value: string }) { return <div className="border-b border-white/10 pb-3"><dt className="text-[10px] font-mono tracking-widest text-[#7F97A7]">{label.toUpperCase()}</dt><dd className="mt-1 text-[#E1EDF4]">{value}</dd></div>; }

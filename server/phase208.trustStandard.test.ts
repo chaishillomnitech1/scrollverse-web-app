@@ -39,10 +39,11 @@ describe("Phase 208 portal-wide Trust Lens standard", () => {
     const component = read("client/src/components/PortalTrustLens.tsx");
     const audit = read("docs/phase208-portal-wide-trust-audit.md");
 
-    expect(component).toContain("SOURCE & CONTEXT");
-    expect(component).toContain("READINESS");
-    expect(component).toContain("BOUNDARY");
-    expect(component).toContain("Suggest a correction");
+    expect(component).toContain("PERSPECTIVE & SOURCE TRAIL");
+    expect(component).toContain("CURRENT EXPERIENCE STATE");
+    expect(component).toContain("SCOPE & CONTROL");
+    expect(component).toContain("Add a source or correction");
+    expect(component).toContain("make your own assessment");
 
     expect(new Set(trustLensPages).size).toBe(25);
     for (const page of trustLensPages) {
