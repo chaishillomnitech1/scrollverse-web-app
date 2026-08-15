@@ -3015,14 +3015,14 @@
 - [x] Record the owner-supplied birthday/time visual note as a private continuity marker without publishing the image or making technical, legal, statistical, or external causal claims
 - [x] Define a first-party catalog evidence packet that separates title/source, recording and composition rights, contributor/permission review, audio/visual master status, distribution metadata, accessibility, and release decision
 - [x] Add only browser-local catalog and asset-intake improvements with explicit no-upload/no-provider/no-distribution/no-mint/no-payment/no-wallet/no-public-release boundaries
-- [ ] Validate and publish the protected media-intake work without exposing or transferring the supplied assets
+- [x] Validate and publish the protected media-intake work without exposing or transferring the supplied assets
 - [x] Rebuild and wire the browser-local Creator Media Packet and Master Directory routes lost during the sandbox reset, including their source labels and no-external-action boundaries
 - [x] Restore focused regression coverage for the Creator Media Packet and Master Directory routes before publication
 
 ## Phase 238 — Protected Replay Artifact Review
 - [x] Classify the supplied replay artifact’s media outreach contacts, profile workflow, dashboard, contract, secret-injection, compiler, and automation material as protected non-executable context; do not import contacts, send pitches, run code, configure actions, use tokens, compile contracts, or deploy
 - [x] Extract only compatible first-party patterns for empty consent-first campaign templates, browser-local workflow planning, source/version records, test gates, and explicit review states; document limits on autonomy, security, immutable-ledger, financial, and deployment claims
-- [ ] Add bounded regression coverage and publish the protected replay-artifact review without exposing or executing the supplied material
+- [x] Add bounded regression coverage and publish the protected replay-artifact review without exposing or executing the supplied material
 
 ## Phase 239 — Open Research Navigator: Space, Physics, Archives, and UAP Records
 - [x] Define evidence categories that distinguish established science, official public records, historical/archive sources, cultural or religious interpretation, unresolved questions, and speculation
@@ -3078,3 +3078,14 @@
 - [x] Add a source-labeled first-party Synchronizations story page that presents the owner’s account, dated materials, observations, interpretation boundary, visitor reflection prompts, and correction path without asserting unverified external causation
 - [x] Add the Synchronization Collection as a collectible-readiness record on the August 28 birthday route, with metadata/provenance/release checks and no mint, sale, wallet, transfer, price, or investment functionality
 - [x] Link the birthday and story routes, register the route, and add targeted regression coverage for the first-party and fail-closed collectible boundaries
+## Phase 250 — Advanced Owner Workstation
+- [x] Add a browser-local creation brief composer with project type, intended audience, source/evidence notes, required deliverables, accessibility, rights, and owner-release checklists
+- [x] Add visible workflow quality gates and readiness scoring based only on the owner’s browser-local inputs, with no automated approval or external claim
+- [x] Add an owner-only mission queue that routes approved local briefs into existing ScrollVerse Legion, catalog, research, media, learning, and evidence workflows without triggering external services
+- [x] Enhance the AI ecosystem map with connection-state filters, owner-control labels, and explicit active/configured/research-only distinctions
+- [x] Extend protected-route regression coverage and validate the upgraded Workstation before forward-only publication
+## Phase 251 — Extensible Capability Map
+- [x] Add a capability-lane map that organizes repository-informed patterns, Legion roles, research, media, catalog, evidence, learning, and build operations without asserting that every referenced repository or external system is live-connected
+- [x] Add a simple “next best lane” guide and progressive-disclosure controls so the owner can begin with one clear action and expand into deeper tools only when needed
+- [x] Preserve visible capability states, source labels, owner boundaries, and no-autonomy/no-provider/no-wallet/no-payment/no-transaction controls throughout the extensible map
+- [x] Add focused regression coverage and validate the navigation-oriented Workstation upgrade before forward-only publication

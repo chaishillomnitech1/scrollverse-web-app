@@ -25,7 +25,24 @@ describe("Phase 248 — Owner-exclusive ScrollVerse Workstation", () => {
     expect(page).toContain('"CONNECTION REQUIRED"');
     expect(page).toContain('"RESEARCH REFERENCE"');
     expect(page).toContain("Connection status is part of the tool.");
-    expect(page).toContain("No credential display, provider takeover, wallet connection, payment, payout, contract deployment, or transaction");
+    expect(page).toContain("does not share access, credentials, private prompts, provider accounts, or team records");
     expect(page).toContain("This brief stays in the current browser state.");
+  });
+
+  it("provides browser-local brief composition, quality gates, mission staging, and connection-state filtering", () => {
+    expect(page).toContain("CREATION BRIEF COMPOSER · BROWSER LOCAL");
+    expect(page).toContain("QUALITY-GATE BOARD");
+    expect(page).toContain("LOCAL MISSION QUEUE");
+    expect(page).toContain("Add local mission card");
+    expect(page).toContain("ALL CONNECTION STATES");
+    expect(page).toContain("It does not assign people, send messages, invoke an AI provider, create a job, or authorize external action.");
+  });
+
+  it("uses progressive capability lanes to guide repository-informed work without claiming universal live integrations", () => {
+    expect(page).toContain("REPOSITORY-INFORMED CAPABILITY MAP");
+    expect(page).toContain("One clear lane first. Deeper tools when you need them.");
+    expect(page).toContain("NEXT BEST LANE");
+    expect(page).toContain("It is not a live synchronization claim, a repository scanner, or a connection to every external system.");
+    expect(page).toContain("This stays a capability map, not proof of a live external integration or autonomous function.");
   });
 });
