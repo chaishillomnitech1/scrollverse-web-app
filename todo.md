@@ -3151,3 +3151,6 @@
 ## Phase 267 — Clipboard Reference Intake
 - [x] Review Clipboard_0_125E26D3 and Clipboard_1_6EDA76FA as protected non-executable material; do not run commands, use secrets or addresses, connect wallets, activate providers, or initiate financial, deployment, payout, or transaction activity
 - [x] Record only compatible source-record, release-readiness, and operating-state lessons in protected project documentation
+## Phase 268 — Media World Batch Intake
+- [ ] Create individual catalog evidence packets for owner-cleared videos and images before any Media World publishing, embedding, distribution, upload, or external channel handoff
+- [x] Verify the AI Legion Enter-key route remains in-page and add or retain regression coverage preventing unregistered entity navigation

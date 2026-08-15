@@ -11,10 +11,13 @@ The owner supplied an approximately **60-file visual batch** alongside catalog a
 | Music/catalog reference list | Owner-supplied catalog context | Not represented as active availability | Title and version verification, composition/recording rights, contributors, artwork, metadata, provider record, and destination decision |
 | Vydia/dashboard/short-link references | Owner-supplied provider context | No account access or claim of active delivery | Owner session, agreement/provider record, authenticated review, and release-specific owner decision |
 | AI remix/fractionalization/tokenization/broadcast concepts | Protected conceptual material | Inactive | Rights, creator/performer approvals, provider terms, security review, consumer disclosures, technical design, and a separate owner authorization before any activation |
+| August 2026 video and image batch | Protected Media World intake | Not published | Per-asset provenance, creator/subject/brand permissions, title/caption/transcript/alt-text, intended channel, accessibility plan, and owner release record |
 
 ## Batch Handling Rule
 
 No file in this batch is copied into a public route, uploaded to storage, shared with a provider, used in a campaign, associated with a product, attached to a music release, tokenized, minted, licensed, or distributed from this intake. The batch remains local protected context until a specific asset receives its own evidence packet and owner release decision.
+
+The newest intake includes multiple `gemini_generated_video_*.mp4` files and owner-supplied image files in JPG, WEBP, and PNG formats. They are held as protected first-party Media World source material. A file name or upload origin alone is not treated as a public-release authorization, proof of rights for every visible subject or brand, a music synchronization clearance, or a distribution instruction.
 
 ## Catalog Evidence Packet
 

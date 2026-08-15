@@ -24,6 +24,9 @@ describe("Phase 240 — first-party perspective and AI Legion entry", () => {
 
   it("prevents Enter-key navigation while preserving keyboard message submission", () => {
     expect(legion).toContain("e.preventDefault();\n              handleSend();");
+    expect(legion).toContain('onKeyDown={(e) => {\n            if (e.key === "Enter" && !e.shiftKey)');
+    expect(legion).toContain("const handleSend = () => {");
+    expect(legion).not.toContain('window.location.href = "/ai-entity');
     expect(legion).toContain("e.preventDefault();\n              councilMutation.mutate");
     expect(legion).toContain("e.preventDefault();\n              analysisMutation.mutate");
   });
