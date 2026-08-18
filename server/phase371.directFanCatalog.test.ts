@@ -179,7 +179,13 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(premiumStorefrontSource).toContain('href="/product-release-pipeline"');
     expect(productReleasePipelineSource).toContain('useSovereignHeartbeat({ page: "product-release-pipeline" })');
     expect(productReleasePipelineSource).toContain("One source. One complete record. One honest destination.");
-    expect(productReleasePipelineSource).toContain("DURABLE READINESS PATHS");
+    expect(productReleasePipelineSource).toContain("BACKGROUND OPERATION COMPARISON");
+    expect(productReleasePipelineSource).toContain("Project readiness sweep");
+    expect(productReleasePipelineSource).toContain("Agent research review");
+    expect(productReleasePipelineSource).toContain("COST BASIS");
+    expect(productReleasePipelineSource).toContain("SAFEGUARDS");
+    expect(productReleasePipelineSource).toContain("OWNER CONTROL");
+    expect(productReleasePipelineSource).toContain("RELEASE BOUNDARY");
     expect(productReleasePipelineSource).toContain("No recurring job is enabled from this route.");
     expect(productReleasePipelineSource).toContain("Provider-side product, price, inventory, checkout, market, payment, fulfillment, payout, transfer, or schedule actions");
     expect(productReleasePipelineSource).not.toMatch(/publish product now|open checkout now|enable payout now|create inventory now/i);

@@ -121,3 +121,9 @@ The correction changes only the portal-delivery status. All storefront access, p
 The Trading Readiness route now compares three non-recommending control architectures: browser-local paper trading, a future monitored readiness ledger, and conditional live execution. Each path separates cost basis from cost quotes, safeguards from permissions, and owner control from autonomous action. The monitored path makes no schedule or monitor active; the conditional path makes no provider, account, custody, funding, data feed, order, transfer, or live execution active.
 
 The comparison is platform-neutral and records external costs, data, terms, commissions, spread, fees, taxes, and execution conditions as unknown until the exact provider, market, account, and scope are verified. Public browser review confirmed the route renders the three control paths, their cost-basis, safeguards, owner-control fields, and the pre-existing exact live-action register.
+
+## 2026-08-18 update — Durable background-operation comparison
+
+The Product Release Pipeline now compares three durable-operation models: browser-local release preparation, a project readiness sweep, and an agent research review. Each model records a cost basis rather than an unverified cost quote, technical safeguards, owner-controlled parameters, and the specific release boundary that must be crossed before it could operate.
+
+The browser-local path is available for preparation only. The project and agent paths remain design-only: no recurring task, callback endpoint, provider connection, external write, product release, customer message, payment, fund movement, trade, or financial operation is enabled. A public local-browser review confirmed the three paths and their no-schedule gate render correctly.

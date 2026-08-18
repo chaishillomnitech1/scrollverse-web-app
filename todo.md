@@ -4078,7 +4078,7 @@
 ## Full-Production Source and Interface Deepening
 - [ ] Deepen public-source records relevant to original-brand product release, creator distribution, storefront accessibility, and controlled trading readiness
 - [x] Build safe local interfaces for product-pipeline and paper-trading readiness without connecting providers or sending external actions
-- [ ] Compare durable background-operation approaches with their cost, safeguards, control model, and release boundary
+- [x] Compare durable background-operation approaches with their cost, safeguards, control model, and release boundary
 - [ ] Validate deepened routes and source labels before preparing any external activation request
 
 ## Reusable ScrollVerse Release-and-Readiness Skill
