@@ -228,6 +228,12 @@ The owner supplied Shopify-admin guidance that lists five suggested launch areas
 
 No storefront password, product, price, image, inventory, payment method, bank or identity verification, shipping zone, shipping rate, domain, checkout, payout, or customer communication was changed. Each suggested action remains blocked pending its own item or settings record and a current exact owner confirmation.
 
+## 2026-08-18 update — Protected Shopify B2B and fulfillment evidence
+
+Three owner-supplied Shopify mobile-admin screenshots were classified as protected provider-admin evidence. The non-sensitive visible observations are: a B2B-only restriction control displayed as off; a Companies list showing one company record and zero orders in the captured view; and a company detail screen containing approved-ordering, U.S. market, and fulfillment/automatic-submission indicators. These observations are not treated as proof of a public store, customer eligibility, completed transaction, product availability, payment, fulfillment, delivery, payout, or provider-side activation.
+
+Personal and sensitive operational values visible in the screenshots—such as customer contact information, address, and account or company identifiers—are excluded from source, code, tests, and public records. No Shopify B2B, company, customer, market, fulfillment, automatic-order, product, checkout, payment, shipping, payout, domain, or SEO setting was changed.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.

@@ -3931,6 +3931,7 @@
 - [x] Create international-market readiness and staged-launch checklists without changing country, currency, tax, duty, shipping, or merchant-of-record settings
 - [x] Add focused route coverage and validate Shopify readiness, Payment Options Map, and staged-launch boundaries without initiating provider-side actions
 - [x] Record the owner-supplied Shopify-admin launch guidance and map its five suggested actions to exact provider-side confirmation gates without changing the store
+- [x] Record the owner-supplied Shopify B2B, company, market, and fulfillment screenshots as protected evidence without reproducing personal data or changing provider settings
 
 ## Empire Routing and Public Source Inventory
 - [x] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory
@@ -3971,6 +3972,10 @@
 ## Home Service-State Correction
 - [x] Replace home-page booking and live-service labels with direct operating-state language unless an exact active service record and public booking destination are verified
 - [x] Add focused regression coverage and validate the corrected home-page service labels
+
+## Home Membership-State Correction
+- [ ] Replace home-page membership price and active-access implications with release-readiness states unless an exact subscription, checkout, and customer-terms record is verified
+- [ ] Add focused regression coverage and validate the corrected home-page membership labels
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records

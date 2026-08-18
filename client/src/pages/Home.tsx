@@ -2111,16 +2111,16 @@ export default function Home() {
               6 Sovereign <span className="gradient-text-teal">Pillars</span>
             </h2>
             <p className="text-lg max-w-xl" style={{ color: "#8899AA" }}>
-              The complete production infrastructure powering the ScrollVerse Trinity Ecosystem — tested, verified, and deployed.
+              Source-led portal infrastructure, readiness records, and controlled release pathways for the ScrollVerse Trinity Ecosystem.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <PillarCard number="1" icon="⚡" title="Stripe Integration" description="Full live-mode Stripe environment with customer management, subscription handling, and revenue metrics. All 4 credentials secured and validated." delay={0} />
-            <PillarCard number="2" icon="🔗" title="Webhook Configuration" description="All 6 Stripe webhook events handled: payment_intent.succeeded, subscription.created, charge.refunded, dispute.created, and more." delay={100} />
-            <PillarCard number="3" icon="🧪" title="Payment Flow Testing" description="26/26 tests passing across all payment scenarios. Complete test suite with mock Stripe client, idempotency verification, and error handling." delay={200} />
-            <PillarCard number="4" icon="📧" title="Mailchimp Automation" description="9 automated email sequences with frequency-harmonized HTML templates. 21/21 automation tests passing. Welcome, payment, and Guardian onboarding flows." delay={300} />
-            <PillarCard number="5" icon="🐳" title="Production Deployment" description="Docker multi-stage build, 3-replica API cluster, MySQL primary/replica, Redis, Nginx, Prometheus, and Grafana — all configured and ready." delay={400} />
-            <PillarCard number="6" icon="🌐" title="50M+ User Scaling" description="Kubernetes HPA scaling 10→1000 pods, Redis Cluster (6 nodes), MySQL StatefulSet (3 nodes), Cluster Autoscaler, and PodDisruptionBudget." delay={500} />
+            <PillarCard number="1" icon="⚡" title="Payment Release Readiness" description="The current portal uses a test-mode payment environment. Any item, checkout, payout, subscription, or customer action requires its own verified release record and owner confirmation." delay={0} />
+            <PillarCard number="2" icon="🔗" title="Webhook Release Preparation" description="Payment-event handling remains a release design record until an exact provider, endpoint, event scope, verification result, and owner release are documented." delay={100} />
+            <PillarCard number="3" icon="🧪" title="Payment Boundary Testing" description="Portal regression coverage checks fail-closed payment and release controls; it does not process charges, refunds, subscriptions, or external payment events." delay={200} />
+            <PillarCard number="4" icon="📧" title="Sovereign Email Preparation" description="Email pathways are designed for owner-controlled database and delivery review. No campaign, payment notice, or onboarding sequence is represented as active here." delay={300} />
+            <PillarCard number="5" icon="🐳" title="Managed Delivery Record" description="The public portal uses managed deployment checkpoints. Infrastructure, database, caching, monitoring, and replica claims remain evidence-gated rather than asserted from this page." delay={400} />
+            <PillarCard number="6" icon="🌐" title="Scaling Research" description="Capacity planning is a research and design lane. No performance guarantee, cluster configuration, or user-scale outcome is represented as active." delay={500} />
           </div>
         </div>
       </section>
@@ -3102,10 +3102,10 @@ export default function Home() {
             className="rounded-2xl p-8 text-center"
             style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.06), rgba(161,139,250,0.06))", border: "1px solid rgba(255,184,0,0.2)" }}
           >
-            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>JOIN THE EMPIRE</div>
-            <h3 className="text-2xl font-black text-white mb-2">Become a Guardian</h3>
+            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>GUARDIAN RELEASE READINESS</div>
+            <h3 className="text-2xl font-black text-white mb-2">Explore Guardian pathways</h3>
             <p className="text-sm max-w-lg mx-auto mb-6" style={{ color: "#8899AA" }}>
-              Guardian $44 · Sovereign $77 · Flamebearer $144 — Monthly sovereign membership with $LONDC staking rewards, Zakat distribution, and empire access.
+              Guardian participation, any membership tiers, price, customer terms, payment method, and access entitlement remain release-gated. No subscription, staking reward, distribution, or paid access is active from this panel.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <a
@@ -3113,7 +3113,7 @@ export default function Home() {
                 className="px-8 py-3 rounded-xl font-black text-sm transition-all hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
               >
-                👑 Subscribe Now
+                👑 Review Guardian readiness
               </a>
               <a
                 href="https://scrollnexus-fhjsaie6.manus.space"
