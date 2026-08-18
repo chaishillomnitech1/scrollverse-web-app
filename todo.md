@@ -3959,6 +3959,12 @@
 - [ ] Validate the full local route and evidence system before presenting action-specific provider confirmations
 - [ ] Continue owner-authorized safe portal readiness improvements while retaining exact current confirmation gates for any consequential external action
 
+## Full Creator-Owned Catalog and Checkout Readiness
+- [x] Audit existing original-creation catalog records, source evidence, release templates, rights boundaries, support paths, and delivery models
+- [x] Build a unified browser-local catalog workspace covering music, books, fashion, collector concepts, artwork, creator services, research, and free learning paths
+- [x] Add item-level release packet, evidence, price/currency, fulfillment/support, and exact checkout activation controls without creating an external product or checkout
+- [x] Add regression coverage, validate all catalog states, and publish the readiness workspace without provider-side actions
+
 ## Books Discovery Release-State Correction
 - [x] Replace unverified Books route buy, NFT, token, retailer, and price implications with source-labeled reader and release-preparation states
 - [x] Add focused regression coverage and validate that the Books route does not represent a storefront listing, checkout, token sale, or third-party publication as active

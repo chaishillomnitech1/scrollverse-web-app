@@ -244,6 +244,12 @@ Read-only inspection of the owner-supplied `scrollverse-dev.myshopify.com` URL r
 
 The complete source record is maintained in `docs/phase482-public-shopify-storefront-observation.md`. No password entry, login, setting change, product, payment, market, shipping, fulfillment, company, customer, order, or analytics action was attempted.
 
+## 2026-08-18 update — Full creator-owned catalog and checkout readiness
+
+The workspace now includes `/creator-catalog-readiness`, a unified browser-local catalog surface for source-labeled music, books, collector concepts, physical-artwork records, fashion concepts, systems services, and free Knowledge Commons paths. Each lane retains a distinct operating label and delivery limitation; the workspace does not flatten free discovery, display-only collections, research records, and provider-release-ready offers into one commercial claim.
+
+The selected item panel creates a copyable local release-packet draft only after the visitor acknowledges that no external action is authorized. The exact checkout gate requires an item identifier, source and rights/contributor record, accessible description, offer and price/currency/tax basis when paid, delivery/support/refund terms, public destination, provider/payment/payout verification, owner release, correction path, rollback condition, and post-release verification. TypeScript completed without errors and the full regression suite completed with **115 test files / 426 tests passing**. Browser inspection confirmed all catalog lanes, packet fields, and the no-checkout boundary render. No product, collection, catalog, inventory, price, checkout, payment, payout, order, customer, fulfillment, market, tax, shipping, wallet, token, NFT, or provider-side action was created.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.

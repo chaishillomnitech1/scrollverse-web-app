@@ -356,6 +356,7 @@ import SovereignMethodology from "./pages/SovereignMethodology";
 import JourneyCoCreationArchive from "./pages/JourneyCoCreationArchive";
 import BookOfTheJourney from "./pages/BookOfTheJourney";
 import DirectFanCatalog from "./pages/DirectFanCatalog";
+import CreatorCatalogReadiness from "./pages/CreatorCatalogReadiness";
 import CatalogEngagementAttribution from "./pages/CatalogEngagementAttribution";
 import BoundedResearchOperations from "./pages/BoundedResearchOperations";
 import ShopifyStagedLaunchGuidance from "./pages/ShopifyStagedLaunchGuidance";
@@ -570,6 +571,7 @@ function Router() {
       <Route path={"/journey-co-creation-archive"} component={JourneyCoCreationArchive} />
       <Route path={"/book-of-the-journey"} component={BookOfTheJourney} />
       <Route path={"/direct-fan-catalog"} component={DirectFanCatalog} />
+      <Route path={"/creator-catalog-readiness"} component={CreatorCatalogReadiness} />
       <Route path={"/catalog-engagement"} component={CatalogEngagementAttribution} />
       <Route path={"/bounded-research-operations"} component={BoundedResearchOperations} />
       <Route path={"/shopify-staged-launch-guidance"} component={ShopifyStagedLaunchGuidance} />
