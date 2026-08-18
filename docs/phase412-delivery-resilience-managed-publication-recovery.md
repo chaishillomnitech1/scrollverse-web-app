@@ -217,3 +217,9 @@ TypeScript completed without errors and the full regression suite completed with
 The Phase 474 record retains the owner-supplied references to Shopify payment-method notifications, international-market material, and sensitive crawler-signature material as protected source categories only. It records the visible non-sensitive onboarding context from `IMG_4043.PNG` and `IMG_4040.PNG` while excluding raw notification payloads, crawler signatures, payment settings, account details, customer information, and provider configuration.
 
 This evidence boundary does not establish payment acceptance, a completed transaction, payout, settlement, open market, customer catalog, checkout, product publication, or any public Shopify action. Any future correction must attach a public-safe, item- or market-specific source record without exposing protected operational values.
+
+## 2026-08-18 update — Books discovery release-state correction
+
+The Books discovery route now presents paid-title figures as **release record · price unset** and free titles as **free reader path · check route**. Platform cards are labeled as preparation references and include an explicit statement that a platform name or reference link does not establish listing, purchase, delivery, licensing, or availability. The existing collectible controls retain their readiness-only language and route to release preparation rather than a wallet, marketplace, or mint action.
+
+TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.

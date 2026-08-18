@@ -336,12 +336,12 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
         <p className="text-xs italic mb-3" style={{ color: "#8899AA" }}>"{book.tagline}"</p>
         <p className="text-sm leading-relaxed" style={{ color: "#AAB8CC" }}>{book.description}</p>
 
-        {/* Price */}
+        {/* Release state */}
         <div className="mt-3 flex items-center gap-3">
           {book.price ? (
-            <div className="text-xl font-black" style={{ color: book.color }}>${book.price.toFixed(2)}</div>
+            <div className="text-xs font-mono font-black" style={{ color: book.color }}>RELEASE RECORD · PRICE UNSET</div>
           ) : (
-            <div className="text-xl font-black" style={{ color: "#00FF88" }}>FREE</div>
+            <div className="text-xs font-mono font-black" style={{ color: "#00FF88" }}>FREE READER PATH · CHECK ROUTE</div>
           )}
         </div>
       </div>
@@ -406,6 +406,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
         {tab === "platforms" && (
           <div className="space-y-2">
             <p className="text-xs font-mono mb-3" style={{ color: "#8899AA" }}>PLATFORM PREPARATION REFERENCES · NOT LISTING CONFIRMATIONS</p>
+            <p className="mb-3 text-xs leading-5" style={{ color: "#AAB8CC" }}>These are research destinations for possible future distribution review. A platform name or reference link does not establish that this book is listed, purchasable, delivered, licensed, or available there.</p>
             <div className="grid grid-cols-2 gap-2">
               {book.platforms.map((p) => (
                 <a
@@ -422,7 +423,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
                   }}
                 >
                   <span className="text-base">{p.icon}</span>
-                  <span>{p.name}</span>
+                  <span>{p.name} reference</span>
                 </a>
               ))}
             </div>

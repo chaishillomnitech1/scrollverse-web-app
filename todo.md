@@ -3954,6 +3954,10 @@
 - [x] Create a precise irreversible-action register for storefront access, products, checkout, payment methods, payouts, Tap to Pay, markets, shipping, policies, and domain changes
 - [ ] Validate the full local route and evidence system before presenting action-specific provider confirmations
 
+## Books Discovery Release-State Correction
+- [x] Replace unverified Books route buy, NFT, token, retailer, and price implications with source-labeled reader and release-preparation states
+- [x] Add focused regression coverage and validate that the Books route does not represent a storefront listing, checkout, token sale, or third-party publication as active
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state
