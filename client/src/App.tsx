@@ -357,6 +357,7 @@ import JourneyCoCreationArchive from "./pages/JourneyCoCreationArchive";
 import BookOfTheJourney from "./pages/BookOfTheJourney";
 import DirectFanCatalog from "./pages/DirectFanCatalog";
 import CatalogEngagementAttribution from "./pages/CatalogEngagementAttribution";
+import BoundedResearchOperations from "./pages/BoundedResearchOperations";
 import SovereignContributionExchange from "./pages/SovereignContributionExchange";
 import LivingJourneyExperience from "./pages/LivingJourneyExperience";
 import AccomplishmentsArchive from "./pages/AccomplishmentsArchive";
@@ -567,6 +568,7 @@ function Router() {
       <Route path={"/book-of-the-journey"} component={BookOfTheJourney} />
       <Route path={"/direct-fan-catalog"} component={DirectFanCatalog} />
       <Route path={"/catalog-engagement"} component={CatalogEngagementAttribution} />
+      <Route path={"/bounded-research-operations"} component={BoundedResearchOperations} />
       <Route path={"/sovereign-contribution-exchange"} component={SovereignContributionExchange} />
       <Route path={"/living-journey-experience"} component={LivingJourneyExperience} />
       <Route path={"/accomplishments-archive"} component={AccomplishmentsArchive} />

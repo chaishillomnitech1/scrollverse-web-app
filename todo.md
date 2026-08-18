@@ -4051,7 +4051,7 @@
 - [x] Define the user-provided source seed set, public discovery relevance rules, claim-status labels, deduplication, correction, and source-queue record
 - [x] Compare agentic research, project Heartbeat audit, and manual review operations with schedule, cost, data, and safety boundaries
 - [x] Specify the deployed callback, durable task record, idempotency, pause, and stop requirements before any recurring job creation
-- [ ] Present schedule options and request an explicit bounded operation choice before enabling a Manus schedule
+- [x] Present schedule options and request an explicit bounded operation choice before enabling a Manus schedule
 
 ## Newly Supplied Time-Stamped Source
 - [x] Classify the owner-provided YouTube video `_9hsUbs5v6o` as a source-labeled synchronization research record with timing, creator context, claim status, and correction path
