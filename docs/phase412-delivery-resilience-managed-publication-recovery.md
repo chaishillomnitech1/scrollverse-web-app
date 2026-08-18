@@ -238,6 +238,12 @@ Personal and sensitive operational values visible in the screenshots—such as c
 
 The Shopify Staged Launch Guidance route now exposes a **Protected B2B evidence** card in its source-labeled visible foundation. The public card states only that owner-supplied admin captures include B2B restriction, company, market, and fulfillment indicators as source context; it explicitly excludes customer, company, order, and provider workflow availability. Browser inspection confirmed the card appears with the route’s existing no-provider-action boundary and without personal information.
 
+## 2026-08-18 update — Public Shopify storefront observation
+
+Read-only inspection of the owner-supplied `scrollverse-dev.myshopify.com` URL reached the password-protected visitor page. The visible page confirms only a protected store surface, store label, password field, Enter control, and owner-login route. A visitor-visible catalog, product, price, cart, checkout, payment, shipping, B2B, or order state could not be established without entering the protected password.
+
+The complete source record is maintained in `docs/phase482-public-shopify-storefront-observation.md`. No password entry, login, setting change, product, payment, market, shipping, fulfillment, company, customer, order, or analytics action was attempted.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.

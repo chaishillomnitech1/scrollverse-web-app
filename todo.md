@@ -3933,6 +3933,7 @@
 - [x] Record the owner-supplied Shopify-admin launch guidance and map its five suggested actions to exact provider-side confirmation gates without changing the store
 - [x] Record the owner-supplied Shopify B2B, company, market, and fulfillment screenshots as protected evidence without reproducing personal data or changing provider settings
 - [x] Link non-sensitive B2B evidence observations from Shopify staged-launch guidance without exposing personal data or implying an active provider workflow
+- [x] Inspect the supplied public Shopify storefront URL as source evidence and reconcile only visitor-visible operating state without changing Shopify
 
 ## Empire Routing and Public Source Inventory
 - [x] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory
@@ -3956,6 +3957,7 @@
 - [ ] Complete all safe public-source and visitor-routing actions that do not alter provider settings, public availability, payment methods, products, markets, payouts, or domain configuration
 - [x] Create a precise irreversible-action register for storefront access, products, checkout, payment methods, payouts, Tap to Pay, markets, shipping, policies, and domain changes
 - [ ] Validate the full local route and evidence system before presenting action-specific provider confirmations
+- [ ] Continue owner-authorized safe portal readiness improvements while retaining exact current confirmation gates for any consequential external action
 
 ## Books Discovery Release-State Correction
 - [x] Replace unverified Books route buy, NFT, token, retailer, and price implications with source-labeled reader and release-preparation states
@@ -3977,6 +3979,10 @@
 ## Home Membership-State Correction
 - [x] Replace home-page membership price and active-access implications with release-readiness states unless an exact subscription, checkout, and customer-terms record is verified
 - [x] Add focused regression coverage and validate the corrected home-page membership labels
+
+## Subscription and NFT Checkout Release-State Audit
+- [ ] Replace unverified subscription, staking, Zakat distribution, checkout, NFT mint, and pricing implications on visitor-facing subscription surfaces with release-readiness states
+- [ ] Add focused regression coverage and validate that no visitor-facing subscription, NFT, checkout, or reward route represents a real-money or token action as active
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records

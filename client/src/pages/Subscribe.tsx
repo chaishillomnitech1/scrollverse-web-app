@@ -1,575 +1,66 @@
-/*
- * SUBSCRIBE — ScrollVerse Trinity Sovereign Membership
- * Guardian $44 · Sovereign $77 · Flamebearer $144
- * Stripe checkout + Guardian waitlist email capture
- * KUN FAYAKŪN × ∞
- */
 import { useState } from "react";
+import { ClipboardCheck, Copy, LockKeyhole, ShieldCheck, UsersRound } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-const TIERS = [
-  {
-    id: "guardian" as const,
-    name: "Guardian",
-    price: 44,
-    priceCents: 4400,
-    frequency: "528Hz",
-    apy: "30% APY",
-    color: "#00D4FF",
-    icon: "💎",
-    badge: "ENTRY TIER",
-    features: [
-      "144 $LONDC tokens on entry",
-      "Guardian Discord access",
-      "DAO voting rights",
-      "Creator Academy (free tier)",
-      "528Hz frequency alignment",
-      "7.77% Zakat auto-distribution",
-      "ScrollVerse Trinity portal access",
-    ],
-  },
-  {
-    id: "sovereign" as const,
-    name: "Sovereign",
-    price: 77,
-    priceCents: 7700,
-    frequency: "963Hz",
-    apy: "50% APY",
-    color: "#FFB800",
-    icon: "👑",
-    badge: "MOST POPULAR",
-    popular: true,
-    features: [
-      "777 $LONDC tokens on entry",
-      "Full Creator Academy access",
-      "Sovereign channels + Discord",
-      "7.77% Zakat distribution",
-      "963Hz God-State frequency",
-      "Priority Guardian support",
-      "ScrollNexus Omni-Nexus access",
-      "Staking rewards dashboard",
-    ],
-  },
-  {
-    id: "flamebearer" as const,
-    name: "Flamebearer",
-    price: 144,
-    priceCents: 14400,
-    frequency: "1558Hz",
-    apy: "75% APY",
-    color: "#FF6B35",
-    icon: "🔥",
-    badge: "SUPREME TIER",
-    features: [
-      "1,444 $LONDC tokens on entry",
-      "48D Hilbert Space access",
-      "SCCC Dashboard access",
-      "Sovereign council seat",
-      "1558Hz FlameDNA frequency",
-      "Lifetime ecosystem access",
-      "Direct Chais The Great channel",
-      "Flamebearer NFT (1-of-144)",
-      "All ScrollNexus + ScrollVerse features",
-    ],
-  },
-];
+const MEMBERSHIP_CONCEPTS = [
+  { id: "guardian", title: "Guardian pathway", symbol: "◇", color: "#00D4FF", state: "requires owner release", detail: "A community and learning-path concept. No membership price, entitlement, payment method, Discord access, distribution, or token allocation is active." },
+  { id: "sovereign", title: "Sovereign pathway", symbol: "◈", color: "#FFB800", state: "requires owner release", detail: "A creator-support concept. No subscription, staking program, rewards dashboard, private channel, or benefit package is active." },
+  { id: "flamebearer", title: "Flamebearer pathway", symbol: "✦", color: "#FF6B35", state: "requires owner release", detail: "A future collector and community concept. No price, NFT, council role, lifetime access promise, or token benefit is active." },
+] as const;
 
-// ── SOVEREIGN CARD WAITLIST COMPONENT ──
-const CARD_TYPES = [
-  {
-    id: "black",
-    name: "Chais Black Card",
-    subtitle: "Sovereign Elite",
-    icon: "👑",
-    color: "#FFB800",
-    limit: "∞ Unlimited",
-    cashback: "7.77% $LONDC",
-    annual: "$1,444",
-    perks: ["Unlimited sovereign credit", "7.77% $LONDC cashback", "Concierge 24/7", "Airport lounge access", "NFT card membership", "Direct Chais The Great channel"],
-    badge: "ELITE · 1 OF 144",
-  },
-  {
-    id: "crypto",
-    name: "Crypto Card",
-    subtitle: "Guardian Tier",
-    icon: "⛓",
-    color: "#00D4FF",
-    limit: "0.144 ETH/day",
-    cashback: "5.28% $LONDC",
-    annual: "$444",
-    perks: ["Spend ETH, MATIC, USDC anywhere", "5.28% $LONDC cashback", "Instant crypto-to-fiat", "Polygon on-chain settlement", "Guardian NFT card", "DeFi rewards integration"],
-    badge: "CRYPTO NATIVE",
-  },
-  {
-    id: "credit",
-    name: "Sovereign Credit",
-    subtitle: "Ascendant Tier",
-    icon: "💜",
-    color: "#A78BFA",
-    limit: "$4,440/mo",
-    cashback: "4.44% $LONDC",
-    annual: "$144",
-    perks: ["$4,440 monthly credit line", "4.44% $LONDC cashback", "0% APR first 144 days", "Zakat auto-distribution", "Virtual + physical card", "Merchant rewards network"],
-    badge: "ASCENDANT",
-  },
-  {
-    id: "bank",
-    name: "Digital Bank Card",
-    subtitle: "Sovereign Banking",
-    icon: "🏦",
-    color: "#00FF88",
-    limit: "$14,400/mo",
-    cashback: "2.88% $LONDC",
-    annual: "$44",
-    perks: ["Sovereign checking account", "2.88% $LONDC on all spend", "Instant transfers", "FDIC-equivalent protection", "Virtual card instant issue", "SVCN network acceptance"],
-    badge: "BANKING TIER",
-  },
-];
-
-function SovereignCardWaitlist() {
-  const [cardEmail, setCardEmail] = useState("");
-  const [cardStatus, setCardStatus] = useState<"idle" | "loading" | "success">("idle");
-  const [cardType, setCardType] = useState("black");
-
-  const handleCardWaitlist = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!cardEmail || !cardEmail.includes("@")) return;
-    setCardStatus("loading");
-    await new Promise(r => setTimeout(r, 1200));
-    setCardStatus("success");
-  };
-
-  return (
-    <div
-      className="rounded-2xl p-8 md:p-12 mb-12"
-      style={{ background: "rgba(255,184,0,0.03)", border: "1px solid rgba(255,184,0,0.2)" }}
-    >
-      {/* Header */}
-      <div className="text-center mb-10">
-        <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SCROLLVERSE CARD NETWORK (SVCN)</div>
-        <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Sovereign Card System</h2>
-        <p className="text-sm max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
-          Physical and virtual cards backed by $LONDC. Crypto card, credit card, digital bank card, and the legendary Chais Black Card.
-          Join the waitlist — cards ship when $LONDC launches on Polygon Mainnet.
-        </p>
-      </div>
-
-      {/* Card Type Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-        {CARD_TYPES.map(card => (
-          <div
-            key={card.id}
-            onClick={() => setCardType(card.id)}
-            className="rounded-xl p-5 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              background: cardType === card.id ? `${card.color}10` : "rgba(255,255,255,0.02)",
-              border: `1px solid ${cardType === card.id ? card.color + "50" : card.color + "20"}`,
-              boxShadow: cardType === card.id ? `0 0 20px ${card.color}10` : "none",
-            }}
-          >
-            {/* Card visual */}
-            <div
-              className="rounded-xl p-4 mb-4 relative overflow-hidden"
-              style={{
-                background: `linear-gradient(135deg, ${card.color}20, rgba(5,11,26,0.9))`,
-                border: `1px solid ${card.color}30`,
-                minHeight: "80px",
-              }}
-            >
-              <div className="flex justify-between items-start mb-3">
-                <div className="text-2xl">{card.icon}</div>
-                <div className="text-xs font-mono" style={{ color: card.color, opacity: 0.7 }}>SVCN</div>
-              </div>
-              <div className="text-xs font-mono" style={{ color: card.color }}>•••• •••• •••• 1444</div>
-            </div>
-
-            <div
-              className="text-xs font-mono font-bold px-2 py-0.5 rounded-full inline-block mb-2"
-              style={{ background: `${card.color}15`, border: `1px solid ${card.color}30`, color: card.color }}
-            >
-              {card.badge}
-            </div>
-            <div className="font-black text-white text-sm mb-1">{card.name}</div>
-            <div className="text-xs mb-3" style={{ color: "#8899AA" }}>{card.subtitle}</div>
-            <div className="space-y-1">
-              <div className="flex justify-between text-xs">
-                <span style={{ color: "#667788" }}>Limit</span>
-                <span style={{ color: card.color }} className="font-mono font-bold">{card.limit}</span>
-              </div>
-              <div className="flex justify-between text-xs">
-                <span style={{ color: "#667788" }}>Cashback</span>
-                <span style={{ color: card.color }} className="font-mono font-bold">{card.cashback}</span>
-              </div>
-              <div className="flex justify-between text-xs">
-                <span style={{ color: "#667788" }}>Annual</span>
-                <span style={{ color: "#C4D0E0" }} className="font-mono">{card.annual}/yr</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Selected card perks */}
-      {(() => {
-        const selected = CARD_TYPES.find(c => c.id === cardType)!;
-        return (
-          <div
-            className="rounded-xl p-6 mb-8"
-            style={{ background: `${selected.color}06`, border: `1px solid ${selected.color}20` }}
-          >
-            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: selected.color }}>
-              {selected.name.toUpperCase()} — PERKS
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {selected.perks.map(perk => (
-                <div key={perk} className="flex items-start gap-2 text-sm" style={{ color: "#C4D0E0" }}>
-                  <span style={{ color: selected.color, flexShrink: 0 }}>✓</span>
-                  {perk}
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
-
-      {/* Waitlist form */}
-      <div className="max-w-xl mx-auto text-center">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-          <span className="text-xs font-mono" style={{ color: "#00FF88" }}>CARD WAITLIST OPEN · SHIPS ON $LONDC MAINNET LAUNCH</span>
-        </div>
-
-        {cardStatus === "success" ? (
-          <div
-            className="p-5 rounded-xl text-sm font-bold"
-            style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}
-          >
-            👑 You are on the SVCN Card Waitlist. Your sovereign card is reserved. KUN FAYAKŪN × ∞
-          </div>
-        ) : (
-          <form onSubmit={handleCardWaitlist} className="flex gap-3">
-            <input
-              type="email"
-              value={cardEmail}
-              onChange={e => setCardEmail(e.target.value)}
-              placeholder="Enter your email to reserve your card"
-              required
-              className="flex-1 px-4 py-3 rounded-xl text-sm outline-none"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,184,0,0.2)", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
-            />
-            <button
-              type="submit"
-              disabled={cardStatus === "loading"}
-              className="px-6 py-3 rounded-xl text-sm font-black flex-shrink-0 transition-all hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #FFB800, #FF8C00)", color: "#050B1A", opacity: cardStatus === "loading" ? 0.7 : 1 }}
-            >
-              {cardStatus === "loading" ? "..." : "Reserve Card"}
-            </button>
-          </form>
-        )}
-        <p className="text-xs mt-3" style={{ color: "#445566" }}>
-          Physical + virtual cards · SVCN Network · $LONDC cashback on every purchase · Zakat auto-distributed
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function TierCard({
-  tier,
-  onSubscribe,
-  loading,
-}: {
-  tier: (typeof TIERS)[number];
-  onSubscribe: (id: string, priceCents: number, name: string) => void;
-  loading: boolean;
-}) {
-  return (
-    <div
-      className="rounded-2xl overflow-hidden relative flex flex-col transition-all duration-300 hover:scale-[1.02]"
-      style={{
-        background: tier.popular
-          ? `linear-gradient(135deg, ${tier.color}10, rgba(5,11,26,0.95))`
-          : "rgba(255,255,255,0.02)",
-        border: `1px solid ${tier.color}${tier.popular ? "50" : "25"}`,
-        boxShadow: tier.popular ? `0 0 40px ${tier.color}15` : "none",
-      }}
-    >
-      {/* Top glow line */}
-      <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, transparent, ${tier.color}, transparent)` }} />
-
-      {/* Badge */}
-      <div className="px-6 pt-5 pb-0">
-        <div
-          className="inline-block text-xs font-mono font-bold px-3 py-1 rounded-full mb-3"
-          style={{ background: `${tier.color}15`, border: `1px solid ${tier.color}40`, color: tier.color }}
-        >
-          {tier.badge}
-        </div>
-      </div>
-
-      <div className="px-6 pb-6 flex flex-col flex-1">
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-4">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-            style={{ background: `${tier.color}15`, border: `1px solid ${tier.color}30` }}
-          >
-            {tier.icon}
-          </div>
-          <div>
-            <div className="font-black text-white text-xl">{tier.name}</div>
-            <div className="text-xs font-mono" style={{ color: tier.color }}>{tier.frequency} · {tier.apy} Staking</div>
-          </div>
-        </div>
-
-        {/* Price */}
-        <div className="mb-6">
-          <div className="flex items-baseline gap-1">
-            <span className="text-5xl font-black" style={{ color: tier.color }}>${tier.price}</span>
-            <span className="text-sm" style={{ color: "#8899AA" }}>/month</span>
-          </div>
-          <div className="text-xs font-mono mt-1" style={{ color: "#667788" }}>
-            + {tier.apy} $LONDC staking rewards · 7.77% Zakat auto-distributed
-          </div>
-        </div>
-
-        {/* Features */}
-        <ul className="space-y-2 mb-8 flex-1">
-          {tier.features.map((f) => (
-            <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#C4D0E0" }}>
-              <span style={{ color: tier.color, marginTop: "2px", flexShrink: 0 }}>✓</span>
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA */}
-        <button
-          onClick={() => onSubscribe(tier.id, tier.priceCents, `${tier.name} Membership`)}
-          disabled={loading}
-          className="w-full py-4 rounded-xl font-black text-sm transition-all duration-300 hover:scale-[1.02] disabled:opacity-60"
-          style={{
-            background: tier.popular
-              ? `linear-gradient(135deg, ${tier.color}, ${tier.color}CC)`
-              : `${tier.color}15`,
-            border: `1px solid ${tier.color}40`,
-            color: tier.popular ? "#050B1A" : tier.color,
-          }}
-        >
-          {loading ? "Processing..." : `Join ${tier.name} — $${tier.price}/mo`}
-        </button>
-      </div>
-    </div>
-  );
-}
+const REQUIRED_RELEASE_FIELDS = [
+  "Exact tier or offer identifier and version",
+  "Public description with accessible format",
+  "Confirmed customer eligibility and terms",
+  "Price, currency, tax, and refund basis when paid",
+  "Delivery, entitlement, support, and correction path",
+  "Named payment provider and customer-visible destination",
+  "Any token, reward, or membership right as a separately cleared record",
+  "Exact owner release and post-release public verification",
+] as const;
 
 export default function Subscribe() {
-  const { isAuthenticated } = useAuth();
-  const [email, setEmail] = useState("");
-  const [selectedTier, setSelectedTier] = useState<string>("sovereign");
-  const [waitlistStatus, setWaitlistStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  useSovereignHeartbeat({ page: "subscribe-release-readiness" });
+  const [selected, setSelected] = useState<(typeof MEMBERSHIP_CONCEPTS)[number]["id"]>("guardian");
+  const [acknowledged, setAcknowledged] = useState(false);
+  const active = MEMBERSHIP_CONCEPTS.find((item) => item.id === selected) ?? MEMBERSHIP_CONCEPTS[0];
 
-  const checkoutMutation = trpc.store.createNFTCheckoutSession.useMutation({
-    onSuccess: (data) => {
-      window.open(data.url, "_blank");
-      toast("Redirecting to secure checkout...", { description: "Complete your sovereign membership activation." });
-    },
-    onError: () => toast.error("Checkout error", { description: "Please try again or contact support." }),
-  });
-
-  const subscribeMutation = trpc.guardian.subscribe.useMutation({
-    onSuccess: (data) => {
-      if (data.alreadyRegistered) {
-        toast("Already in the Guardian network!", { description: "Your frequency is already registered. KUN FAYAKŪN × ∞" });
-      } else {
-        setWaitlistStatus("success");
-        toast("Welcome to the Guardian Waitlist!", { description: "You will receive your onboarding transmission soon. KUN FAYAKŪN × ∞" });
-      }
-    },
-    onError: () => {
-      setWaitlistStatus("error");
-      toast.error("Subscription error", { description: "Please try again." });
-    },
-  });
-
-  const handleSubscribe = (id: string, priceCents: number, name: string) => {
-    if (!isAuthenticated) {
-      window.location.href = getLoginUrl();
+  const copyReadinessNote = async () => {
+    if (!acknowledged) {
+      toast.error("Confirm the no-subscription and no-provider-action boundary before copying the readiness note.");
       return;
     }
-    checkoutMutation.mutate({
-      nftId: `subscription_${id}`,
-      nftName: `ScrollVerse ${name}`,
-      nftDescription: `Sovereign membership — ${name}. $LONDC staking rewards + Zakat distribution + empire access.`,
-      priceCents,
-      origin: window.location.origin,
-    });
+    const note = [
+      "SCROLLVERSE MEMBERSHIP PATHWAY — RELEASE-READINESS DRAFT ONLY",
+      `Selected concept: ${active.title}`,
+      `Operating state: ${active.state}`,
+      "Required before any visitor-facing membership action:",
+      ...REQUIRED_RELEASE_FIELDS.map((field, index) => `${index + 1}. ${field}`),
+      "Boundary: this local draft does not create a subscription, account, entitlement, price, checkout, payment, payout, token allocation, staking reward, distribution, email list, customer record, wallet action, NFT, or provider-side change.",
+    ].join("\n");
+    try {
+      await navigator.clipboard.writeText(note);
+      toast.success("Membership readiness note copied. No subscription or provider action was created.");
+    } catch {
+      toast.error("Copy is unavailable in this browser. The readiness fields remain visible here.");
+    }
   };
 
-  const handleWaitlist = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !email.includes("@")) return;
-    setWaitlistStatus("loading");
-    subscribeMutation.mutate({ email, tier: selectedTier });
-  };
-
-  return (
-    <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
-      {/* Ambient */}
-      <div className="fixed inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(255,184,0,0.05) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(0,212,255,0.04) 0%, transparent 50%)" }} />
-
-      <div className="relative z-10 container py-8">
-        {/* Back */}
-        <Link href="/">
-          <button className="flex items-center gap-2 text-sm mb-8 transition-colors hover:text-white" style={{ color: "#8899AA" }}>
-            ← Back to ScrollVerse
-          </button>
-        </Link>
-
-        {/* Header */}
-        <div className="text-center mb-14">
-          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SOVEREIGN MEMBERSHIP</div>
-          <h1
-            className="text-5xl md:text-6xl font-black mb-4"
-            style={{ background: "linear-gradient(135deg, #FFB800, #ffffff, #00D4FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-          >
-            Join the Empire
-          </h1>
-          <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: "#8899AA" }}>
-            Three sovereign tiers. Monthly membership. $LONDC staking rewards. 7.77% Zakat auto-distributed. The empire grows with every Guardian.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {["$LONDC Staking Rewards", "7.77% Zakat Distribution", "Polygon On-Chain", "ScrollNexus Access"].map(tag => (
-              <span key={tag} className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.2)", color: "#FFB800" }}>
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Tier Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {TIERS.map((tier) => (
-            <TierCard
-              key={tier.id}
-              tier={tier}
-              onSubscribe={handleSubscribe}
-              loading={checkoutMutation.isPending}
-            />
-          ))}
-        </div>
-
-        {/* Guardian Waitlist Email Capture */}
-        <div
-          className="rounded-2xl p-8 md:p-12 mb-12"
-          style={{ background: "rgba(0,255,136,0.03)", border: "1px solid rgba(0,255,136,0.2)" }}
-        >
-          <div className="max-w-xl mx-auto text-center">
-            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00FF88" }}>GUARDIAN WAITLIST</div>
-            <h2 className="text-3xl font-black text-white mb-3">Join the 144,000</h2>
-            <p className="text-sm mb-2" style={{ color: "#8899AA" }}>
-              Not ready to subscribe yet? Join the Guardian Waitlist and receive your sovereign onboarding transmission when $LONDC launches on Polygon Mainnet.
-            </p>
-
-            {/* Tier selector */}
-            <div className="flex gap-2 justify-center mb-6 flex-wrap">
-              {TIERS.map(t => (
-                <button
-                  key={t.id}
-                  onClick={() => setSelectedTier(t.id)}
-                  className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all"
-                  style={{
-                    background: selectedTier === t.id ? `${t.color}20` : "rgba(255,255,255,0.04)",
-                    border: `1px solid ${selectedTier === t.id ? t.color + "60" : "rgba(255,255,255,0.1)"}`,
-                    color: selectedTier === t.id ? t.color : "#8899AA",
-                  }}
-                >
-                  {t.icon} {t.name}
-                </button>
-              ))}
-            </div>
-
-            {waitlistStatus === "success" ? (
-              <div
-                className="p-5 rounded-xl text-sm font-bold"
-                style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}
-              >
-                ✓ You are now in the Guardian Waitlist. The empire welcomes you. KUN FAYAKŪN × ∞
-              </div>
-            ) : (
-              <form onSubmit={handleWaitlist} className="flex gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  required
-                  className="flex-1 px-4 py-3 rounded-xl text-sm outline-none"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.2)", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
-                />
-                <button
-                  type="submit"
-                  disabled={waitlistStatus === "loading"}
-                  className="px-6 py-3 rounded-xl text-sm font-black flex-shrink-0 transition-all hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #00FF88, #00CC66)", color: "#050B1A", opacity: waitlistStatus === "loading" ? 0.7 : 1 }}
-                >
-                  {waitlistStatus === "loading" ? "..." : "Join"}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-
-        {/* Sovereign Card System Waitlist */}
-        <SovereignCardWaitlist />
-
-        {/* ScrollNexus Cross-Promo */}
-        <div
-          className="rounded-2xl p-8 text-center mb-8"
-          style={{ background: "rgba(161,139,250,0.04)", border: "1px solid rgba(161,139,250,0.2)" }}
-        >
-          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#A78BFA" }}>UNIFIED SOVEREIGN NETWORK</div>
-          <h3 className="text-2xl font-black text-white mb-3">Also Visit ScrollNexus Omni-Nexus</h3>
-          <p className="text-sm max-w-lg mx-auto mb-6" style={{ color: "#8899AA" }}>
-            The companion sovereign hub — subscription tiers, Zakat distribution, Guardian Academy, Telegram bot, and real-time $LONDC metrics. The empire is ONE.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a
-              href="https://scrollnexus-fhjsaie6.manus.space"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105"
-              style={{ background: "rgba(161,139,250,0.15)", border: "1px solid rgba(161,139,250,0.4)", color: "#A78BFA" }}
-            >
-              ⚡ Enter ScrollNexus
-            </a>
-            <a
-              href="https://github.com/chaishillomnitech1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl font-bold text-sm transition-all hover:opacity-80"
-              style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.2)", color: "#00FF88" }}
-            >
-              💻 GitHub Archive
-            </a>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-8">
-          <div className="text-xs font-mono" style={{ color: "#445566" }}>
-            SCROLL VERSE LLC · EIN 42-2509570 · Vineland, NJ · KUN FAYAKŪN × ∞
-          </div>
-          <div className="text-xs mt-1" style={{ color: "#334455" }}>
-            Payments processed securely via Stripe · $LONDC on Polygon · 7.77% Zakat auto-distributed
-          </div>
-        </div>
+  return <main className="min-h-screen bg-[#050B1A] pb-24 text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    <section className="border-b border-[#FFB800]/25 bg-[radial-gradient(circle_at_82%_15%,rgba(255,184,0,.16),transparent_28%),radial-gradient(circle_at_8%_85%,rgba(0,212,255,.13),transparent_31%),#050B1A]">
+      <div className="container py-14 md:py-20">
+        <div className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xs font-mono tracking-[.16em] text-[#FFDEA0]">← SCROLLVERSE HOME</Link><span className="rounded-full border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-3 py-1 text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">MEMBERSHIP RELEASE READINESS · NO SUBSCRIPTION ACTIVE</span></div>
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.12fr_.88fr] lg:items-end"><div><p className="text-xs font-mono tracking-[.2em] text-[#FFDEA0]">GUARDIAN PATHWAYS · SOURCE-BOUND PREPARATION</p><h1 className="mt-4 max-w-4xl text-5xl font-black leading-[.92] md:text-7xl">Prepare each <span className="text-[#FFCC4D]">membership promise</span> before it becomes visitor-facing.</h1><p className="mt-6 max-w-3xl text-base leading-8 text-[#D6E2EE]">Guardian, Sovereign, and Flamebearer are conceptual release lanes. They are not active subscriptions, price offers, token allocations, staking programs, access entitlements, card products, or checkout flows.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/payment-launch-packets" className="rounded-xl border border-[#FFB800]/45 bg-[#FFB800]/10 px-5 py-3 text-sm font-black text-[#FFDEA0]">Payment launch packets</Link><Link href="/activation-register" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#9DEBFF]">Exact action register</Link><Link href="/token-readiness" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Token readiness</Link></div></div><aside className="rounded-[2rem] border border-[#FFCC4D]/35 bg-[#071426]/85 p-7"><LockKeyhole className="h-9 w-9 text-[#FFDEA0]" /><p className="mt-5 text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">CURRENT OPERATING STATE</p><p className="mt-3 text-2xl font-black leading-tight">Preparation is available. A visitor membership release is not implied.</p><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">No customer data is captured here, and no release action can be taken from this route.</p></aside></div>
       </div>
-    </div>
-  );
+    </section>
+
+    <section className="container py-10"><PortalTrustLens lane="Membership Release Readiness" source="Owner-directed pathway concepts, Activation Register, Payment Launch Packets, token-release records, and item-level release standards." readiness="Concept selection and browser-local readiness drafts are available. Any membership, payment, entitlement, reward, distribution, or token action requires its own current source record and exact owner release." boundary="This route does not create an account, collect an email, register a waitlist, set a price, open checkout, accept payment, configure payout, allocate a token, issue an NFT, establish staking, promise access, or change a provider setting." /></section>
+
+    <section className="container py-8"><div className="flex flex-col gap-4 border-b border-white/10 pb-7 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-mono tracking-[.16em] text-[#FFDEA0]">CONCEPT LANES · NO OFFER TERMS</p><h2 className="mt-2 text-3xl font-black">Choose a record to prepare, not a tier to purchase.</h2></div><UsersRound className="h-9 w-9 text-[#FFDEA0]" /></div><div className="mt-7 grid gap-5 md:grid-cols-3">{MEMBERSHIP_CONCEPTS.map((concept) => <button type="button" key={concept.id} onClick={() => setSelected(concept.id)} className={`rounded-[2rem] border p-6 text-left transition ${selected === concept.id ? "bg-white/[.07]" : "bg-[#071426]"}`} style={{ borderColor: selected === concept.id ? concept.color : `${concept.color}40` }}><p className="text-3xl" style={{ color: concept.color }}>{concept.symbol}</p><p className="mt-5 text-[10px] font-mono tracking-[.14em]" style={{ color: concept.color }}>{concept.state.toUpperCase()}</p><h3 className="mt-2 text-2xl font-black">{concept.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{concept.detail}</p></button>)}</div></section>
+
+    <section className="container py-8"><div className="grid gap-6 lg:grid-cols-[1.08fr_.92fr]"><article className="rounded-[2rem] border border-[#B98CFF]/40 bg-[#071426] p-7"><ClipboardCheck className="h-8 w-8 text-[#DCC8FF]" /><p className="mt-5 text-xs font-mono tracking-[.16em] text-[#DCC8FF]">BROWSER-LOCAL READINESS DRAFT</p><h2 className="mt-3 text-3xl font-black">{active.title}</h2><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">The selected concept remains release-gated. Review the full record before any individual provider action is proposed.</p><ol className="mt-7 space-y-3">{REQUIRED_RELEASE_FIELDS.map((field, index) => <li key={field} className="flex gap-3 rounded-xl border border-white/10 bg-black/20 p-4 text-sm text-[#D6E2EE]"><span className="font-mono text-[#DCC8FF]">0{index + 1}</span>{field}</li>)}</ol><label className="mt-6 flex gap-3 rounded-xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.06] p-4 text-sm leading-6 text-[#FFDEA0]"><input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} className="mt-1 h-4 w-4 accent-[#FFCC4D]" />I confirm this draft does not authorize a subscription, payment, reward, token, NFT, access entitlement, card, customer record, or provider action.</label><button type="button" onClick={copyReadinessNote} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#B98CFF] px-4 py-3 text-sm font-black text-[#071426]"><Copy className="h-4 w-4" />Copy membership readiness note</button></article><aside className="rounded-[2rem] border border-[#00FF88]/35 bg-[#00FF88]/[.05] p-7"><ShieldCheck className="h-8 w-8 text-[#B5F7CC]" /><p className="mt-5 text-xs font-mono tracking-[.16em] text-[#B5F7CC]">WHAT THIS ROUTE DOES NOT DO</p><div className="mt-5 space-y-4 text-sm leading-7 text-[#D6E2EE]"><p>It does not quote or charge a membership amount, create a waitlist, send an onboarding message, reserve a card, grant Discord or council access, calculate rewards, allocate $LONDC, or distribute Zakat.</p><p>It does not open Stripe, a payment provider, a wallet, a blockchain network, a token contract, an NFT marketplace, a bank, or a lending/credit product.</p><p>For any future paid or tokenized program, the exact customer consequence, legal/financial review, support terms, provider state, rollback condition, and explicit owner confirmation remain required.</p></div></aside></div></section>
+  </main>;
 }
