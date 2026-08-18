@@ -3900,8 +3900,8 @@
 - [x] Inventory all locally prepared catalog, commerce, contribution, licensing, trade, and future-tokenization lanes with their current operating state and missing activation evidence
 - [x] Build a public Monetization Control Map that differentiates display-only, research, release-ready, and active-destination states without creating checkout or financial actions
 - [x] Prepare a separate Stripe-free Shopify storefront-copy activation packet with item-level rights, contributor, inventory, delivery, price, tax, refund, and owner-release requirements
-- [ ] Map the verified public support and payment destinations separately from lanes that still require public URL and owner-release evidence
-- [ ] Add focused coverage and validate the monetization readiness pathway before requesting any irreversible activation confirmation
+- [x] Map the verified public support and payment destinations separately from lanes that still require public URL and owner-release evidence
+- [x] Add focused coverage and validate the monetization readiness pathway before requesting any irreversible activation confirmation
 
 ## Visitor-Choice Payment Options Map
 - [x] Audit every currently linked public payment destination and every named lane that lacks a public destination URL
