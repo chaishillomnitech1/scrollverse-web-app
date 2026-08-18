@@ -193,3 +193,9 @@ The route is connected to Product Release Pipeline, Payment Options, Trading Rea
 The public `/support` route now identifies **Cash App `$chaisthegreat28` / `#chaisthegreat`** as the owner-provided verified public support handoff. The route also makes the remaining boundary explicit: this handoff does not establish a store support desk, fulfillment channel, refund policy, customer-service SLA, product-order path, or payment confirmation for an unreleased item.
 
 Browser review confirmed the current support card, external Cash App handoff, and product-specific support gate render correctly. Before an individual store item, checkout, fulfillment route, or native-store submission is represented as supported, its release record must name the customer contact, monitoring/escalation process, delivery or refund terms, public destination, and exact owner release.
+
+## 2026-08-18 update — Protected master-instruction intake validation
+
+The focused Phase 357 regression coverage validates the Master Instruction Intake route as a protected, reader-directed, non-executable source record. It confirms the route distinguishes source-stated claims from locally validated and public delivery state, preserves the former delivery conflict as historic evidence, links to Delivery Resilience, and states that supplied material is not run as a deployment command.
+
+The current full validation suite includes this coverage. The intake remains a source and learning record; it does not create a deployment, integration, financial system, rights state, provider action, publishing outcome, or external command.
