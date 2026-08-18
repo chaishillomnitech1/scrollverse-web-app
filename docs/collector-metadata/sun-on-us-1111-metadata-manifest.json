@@ -1,0 +1,88 @@
+{
+  "schema": "scrollverse.collector-readiness.v1",
+  "collection_id": "SV-SUN-1111",
+  "name": "Sun on Us — 11:11",
+  "status": "mint-readiness only; not deployed, listed, priced, transferred, or minted",
+  "time_context": {
+    "owner_stated_time": "11:11 AM",
+    "calendar_date": null,
+    "timezone": null,
+    "note": "The supplied source images do not embed a confirmed calendar date or timezone."
+  },
+  "owner_authored_anchor": "The world gonna walk with me on this journey with my digital intelligence legion reign supreme for the greatest good of all that exist universe stamp me I don’t need approval I’m the proof.",
+  "rights_context": "Owner-provided creation context. Public use, licensing, collector terms, edition, marketplace, and chain-specific metadata require a separate owner release.",
+  "visual_feature_note": "The blue-green orb-like feature near the sun is preserved as an owner-identified visual feature. This manifest assigns no technical cause, scientific explanation, spiritual meaning, or external significance.",
+  "artworks": [
+    {
+      "record_id": "SV-SUN-1111-001",
+      "name": "Sun on Us — 11:11 · Solar Witness",
+      "display_state": "display-ready; requires owner release for public use or mint consideration",
+      "source_context": "Owner-provided portrait photograph; owner-directed Afrofuturist cartoon interpretation.",
+      "media_type": "image/png",
+      "dimensions": "1632x2176",
+      "aspect_ratio": "3:4",
+      "sha256": "922ce04f24e898ec6c930b17b8e338060317d85663e197feb9e0f20b8d1daa17",
+      "local_asset_path": "/home/ubuntu/webdev-static-assets/sun-on-us-1111-cartoon.png",
+      "public_asset_uri": null,
+      "edition": null,
+      "attributes": [
+        { "trait_type": "Moment", "value": "Sun on Us — 11:11" },
+        { "trait_type": "Artwork form", "value": "Afrofuturist cartoon portrait" },
+        { "trait_type": "Blue-green feature", "value": "Owner-identified visual feature" },
+        { "trait_type": "Operating state", "value": "Requires owner release" }
+      ]
+    },
+    {
+      "record_id": "SV-SUN-1111-002",
+      "name": "Sun on Us — 11:11 · Natural Light",
+      "display_state": "display-ready; requires owner release for public use or mint consideration",
+      "source_context": "Owner-provided sun-and-sky photograph; owner-directed professional photographic finish.",
+      "media_type": "image/png",
+      "dimensions": "1632x2176",
+      "aspect_ratio": "3:4",
+      "sha256": "dbdf7a9afcff6c9cd1fb0b87aaa67db0cc764dfdb9528427d091382701651b93",
+      "local_asset_path": "/home/ubuntu/webdev-static-assets/sun-on-us-1111-natural-professional.png",
+      "public_asset_uri": null,
+      "edition": null,
+      "attributes": [
+        { "trait_type": "Moment", "value": "Sun on Us — 11:11" },
+        { "trait_type": "Artwork form", "value": "Professional natural-sky photograph" },
+        { "trait_type": "Blue-green feature", "value": "Owner-identified visual feature" },
+        { "trait_type": "Operating state", "value": "Requires owner release" }
+      ]
+    },
+    {
+      "record_id": "SV-SUN-1111-003",
+      "name": "Sun on Us — 11:11 · Journey Witness",
+      "display_state": "display-ready; requires owner release for public use or mint consideration",
+      "source_context": "Owner-provided sun-and-tree frame; owner-directed professional photographic finish.",
+      "media_type": "image/png",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16",
+      "sha256": "56bcdaad2dc0e24f5c7eb103e6e67e72c2fd731f440c48135932c28a5e6c1e7d",
+      "local_asset_path": "/home/ubuntu/webdev-static-assets/sun-on-us-1111-journey-witness.png",
+      "public_asset_uri": null,
+      "edition": null,
+      "attributes": [
+        { "trait_type": "Moment", "value": "Sun on Us — 11:11" },
+        { "trait_type": "Artwork form", "value": "Professional vertical photograph" },
+        { "trait_type": "Journey anchor", "value": "Owner-authored first-person source statement" },
+        { "trait_type": "Operating state", "value": "Requires owner release" }
+      ]
+    }
+  ],
+  "required_before_mint": {
+    "selected_record_id": null,
+    "chain_and_network": null,
+    "minting_service_or_contract": null,
+    "public_asset_uri": null,
+    "metadata_uri": null,
+    "edition_or_supply": null,
+    "public_collector_license": null,
+    "public_custody_destination": null,
+    "fee_currency_and_maximum": null,
+    "payout_recipient": null,
+    "marketplace_or_destination": null,
+    "owner_confirmation": null
+  }
+}

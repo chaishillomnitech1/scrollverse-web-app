@@ -39,6 +39,7 @@ export default function Music() {
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "#77899C" }}>Public listening and source records are distinct from rights confirmation, distribution status, direct sales, collectible attachments, revenue reporting, and any future commercial activation.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href={SPOTIFY_ARTIST_URL} target="_blank" rel="noopener noreferrer" className="rounded-xl px-6 py-3 text-sm font-bold" style={{ background: "#1DB954", color: "#fff" }}>🎧 Listen on Spotify</a>
+          <Link href="/direct-fan-catalog" className="rounded-xl px-6 py-3 text-sm font-bold" style={{ background: "rgba(255,204,77,0.12)", border: "1px solid rgba(255,204,77,0.42)", color: "#FFDEA0" }}>🛍️ Direct-to-fan catalog</Link>
           <Link href="/music-creator-release-readiness" className="rounded-xl px-6 py-3 text-sm font-bold" style={{ background: "rgba(0,212,255,0.12)", border: "1px solid rgba(0,212,255,0.35)", color: "#00D4FF" }}>🧾 Release readiness</Link>
           <Link href="/creator-operations-intelligence" className="rounded-xl px-6 py-3 text-sm font-bold" style={{ background: "rgba(255,184,0,0.1)", border: "1px solid rgba(255,184,0,0.3)", color: "#FFB800" }}>🎛️ Creator operations</Link>
         </div>

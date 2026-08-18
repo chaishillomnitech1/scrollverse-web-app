@@ -9,11 +9,11 @@ describe("Phase 240 — first-party perspective and AI Legion entry", () => {
   const lens = read("client/src/components/PortalTrustLens.tsx");
   const legion = read("client/src/pages/AILegionApex.tsx");
 
-  it("centers source-led routes on first-party perspective and visitor assessment", () => {
+  it("centers source-led routes on creator-directed first-party presentation", () => {
     expect(lens).toContain("PORTAL PERSPECTIVE LENS");
-    expect(lens).toContain("first-party ScrollVerse perspective");
-    expect(lens).toContain("make your own assessment");
-    expect(lens).toContain("independent due diligence");
+    expect(lens).toContain("creator’s first-party ScrollVerse materials directly");
+    expect(lens).toContain("Visitor controls are optional ways to explore");
+    expect(lens).toContain("do not redefine the creator’s direction");
   });
 
   it("opens a selected entity chat instead of routing to an unregistered ai-entity path", () => {

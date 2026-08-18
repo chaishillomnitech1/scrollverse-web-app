@@ -347,12 +347,14 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b" style={{ borderColor: "rgba(0,212,255,0.1)" }}>
+      <div className="flex border-b" role="tablist" aria-label={`${book.title} options`} style={{ borderColor: "rgba(0,212,255,0.1)" }}>
         {(["read", "platforms", "nft"] as const).map((t) => (
           <button
             key={t}
+            type="button"
+            aria-pressed={tab === t}
             onClick={() => setTab(t)}
-            className="flex-1 py-2.5 text-xs font-mono uppercase tracking-wider transition-all"
+            className="flex-1 py-2.5 text-xs font-mono uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D4FF]"
             style={{
               color: tab === t ? book.color : "#8899AA",
               borderBottom: tab === t ? `2px solid ${book.color}` : "2px solid transparent",
@@ -395,14 +397,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
                   {isPurchasing ? "Opening readiness..." : "View release readiness"}
                 </button>
               ) : (
-                <Link href={book.platforms[0].url}>
-                  <button
-                    className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90"
-                    style={{ background: "linear-gradient(135deg, #00FF88, #00D4FF)", color: "#050B1A" }}
-                  >
-                    Access Free
-                  </button>
-                </Link>
+                <Link href={book.platforms[0].url} className="flex-1 rounded-xl py-2.5 text-center text-sm font-bold transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg, #00FF88, #00D4FF)", color: "#050B1A" }}>Access Free</Link>
               )}
             </div>
           </div>
@@ -583,6 +578,12 @@ export default function Books() {
             Read first-party books now and inspect honest media, translation, direct-reader, collectible, and platform-release readiness before any external action.
           </p>
 
+          <div className="mx-auto mb-8 grid max-w-5xl gap-3 text-left md:grid-cols-3">
+            <Link href="/book-of-the-journey" className="rounded-2xl border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 p-5 transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"><p className="text-[10px] font-mono tracking-[.15em] text-[#FFDEA0]">FREE VISUAL READER</p><p className="mt-2 text-xl font-black text-white">Book of the Journey</p><p className="mt-2 text-xs leading-5 text-[#D6E2EE]">Enter the owner-authored living record and its connected routes.</p></Link>
+            <Link href="/seerah" className="rounded-2xl border border-[#B5F7CC]/45 bg-[#00FF88]/10 p-5 transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"><p className="text-[10px] font-mono tracking-[.15em] text-[#B5F7CC]">ISLAMIC LEARNING</p><p className="mt-2 text-xl font-black text-white">Explore the Seerah</p><p className="mt-2 text-xs leading-5 text-[#D6E2EE]">A direct, free learning direction within the Books experience.</p></Link>
+            <Link href="/99-names" className="rounded-2xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 p-5 transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"><p className="text-[10px] font-mono tracking-[.15em] text-[#DCC8FF]">FOCUS STUDY</p><p className="mt-2 text-xl font-black text-white">The 99 Names</p><p className="mt-2 text-xs leading-5 text-[#D6E2EE]">Continue with a dedicated route for names, meaning, and reflection.</p></Link>
+          </div>
+
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {[
@@ -628,10 +629,44 @@ export default function Books() {
             className="px-6 py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90"
             style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}
           >
-            🪙 Mint $LONDC Coins
+            🪙 Explore $LONDC readiness
           </button>
+          <div className="mx-auto mt-8 grid max-w-5xl gap-3 text-left sm:grid-cols-2 xl:grid-cols-4">
+            <Link href="/storybooks" className="sv-card sovereign-breathe rounded-2xl p-4 transition-transform hover:-translate-y-1">
+              <p className="text-[10px] font-mono tracking-[.16em] text-[#00D4FF]">VISUAL STORY PATH</p>
+              <p className="mt-2 font-black text-white">Enter the Storybook worlds</p>
+              <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Original concepts, reader pathways, and adult-supported creation routes.</p>
+            </Link>
+            <Link href="/junior-movies" className="sv-card gold-breathe rounded-2xl p-4 transition-transform hover:-translate-y-1">
+              <p className="text-[10px] font-mono tracking-[.16em] text-[#FFCC4D]">VISUAL CINEMA PATH</p>
+              <p className="mt-2 font-black text-white">Open Junior Movies</p>
+              <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Family-aware story discovery with direct source and development paths.</p>
+            </Link>
+            <Link href="/media-hub" className="sv-card rounded-2xl p-4 transition-transform hover:-translate-y-1" style={{ borderColor: "rgba(185,140,255,.42)" }}>
+              <p className="text-[10px] font-mono tracking-[.16em] text-[#D6C4FF]">LISTEN + FOLLOW</p>
+              <p className="mt-2 font-black text-white">Choose your next format</p>
+              <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Move between books, music, visual worlds, and source-labeled media records.</p>
+            </Link>
+            <Link href="/digital-ships" className="sv-card rounded-2xl p-4 transition-transform hover:-translate-y-1" style={{ borderColor: "rgba(0,255,136,.42)" }}>
+              <p className="text-[10px] font-mono tracking-[.16em] text-[#00FF88]">CREATE + EXPLORE</p>
+              <p className="mt-2 font-black text-white">Board a Digital Ship</p>
+              <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Turn a reading thought into a browser-local scene brief with original guide lenses.</p>
+            </Link>
+          </div>
+          <p className="mx-auto mt-4 max-w-2xl text-xs leading-5 text-[#94A8BC]">The ambient signal is a visitor-controlled visual language. Choose the Signal control at any time for a quieter presentation.</p>
         </div>
       </div>
+
+      <section className="border-y border-white/10 bg-white/[.018]">
+        <div className="container py-12">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-mono tracking-[.16em] text-[#FFCC4D]">FREE KNOWLEDGE LIBRARY · SOURCE-LABELED DISCOVERY</p><h2 className="mt-2 text-3xl font-black text-white">Books, traditions, methods, philosophy, science, and mathematics—open for discovery.</h2><p className="mt-3 max-w-4xl text-sm leading-7" style={{ color: "#B8C7D6" }}>ScrollVerse books remain distinct from external source shelves. These cards point toward established libraries, universities, and open-learning resources so visitors can build their own reading path across traditions and disciplines.</p></div><Link href="/living-journey-experience" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-4 py-3 text-sm font-black text-[#9DEBFF]">Open the Living Journey</Link></div>
+          <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {[{ label: "Islamic learning", title: "Islamic Studies", href: "https://guides.library.harvard.edu/mideast", color: "#00FF88" }, { label: "Biblical studies", title: "Bible Study", href: "https://guides.library.yale.edu/bible", color: "#FFCC4D" }, { label: "Jewish texts", title: "Jewish Texts", href: "https://www.sefaria.org", color: "#00D4FF" }, { label: "Asian traditions", title: "South & East Asian Traditions", href: "https://guides.loc.gov/religion-collections-libraries-archives/dc-library-congress-asian-division", color: "#FF6B9A" }, { label: "comparative learning", title: "Religious Literacy", href: "https://aarweb.org/religious-studies-matters/teaching-religion-today/", color: "#B98CFF" }, { label: "philosophy and method", title: "Philosophy & Ethics", href: "https://plato.stanford.edu/", color: "#00D4FF" }, { label: "science and mathematics", title: "Science & Math", href: "https://ocw.mit.edu/", color: "#00FF88" }].map((shelf) => <a key={shelf.title} href={shelf.href} target="_blank" rel="noreferrer" className="rounded-2xl border bg-[#071426]/75 p-5 transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" style={{ borderColor: `${shelf.color}55` }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: shelf.color }}>EXTERNAL SOURCE · {shelf.label.toUpperCase()}</p><p className="mt-3 text-lg font-black text-white">{shelf.title}</p><p className="mt-2 text-xs leading-5" style={{ color: "#B8C7D6" }}>Open a source-labeled learning shelf.</p><span className="mt-4 inline-flex text-xs font-bold" style={{ color: shelf.color }}>Open source →</span></a>)}
+          </div>
+          <div className="mt-10 border-t border-white/10 pt-9"><p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">HIGHLIGHTED ARCHIVES &amp; LITERATURE</p><h3 className="mt-2 text-2xl font-black text-white">Ancient texts, manuscript collections, historical science, strategy, finance, cosmic research, and art.</h3><p className="mt-3 max-w-4xl text-sm leading-7" style={{ color: "#B8C7D6" }}>Each card names the record type before it opens. External collections keep their own access conditions, catalogs, translations, and interpretation frameworks.</p><div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{[{ kind: "PRIMARY MANUSCRIPT ARCHIVE", title: "Ethiopian Bible & Geʽez Manuscripts", href: "https://cudl.lib.cam.ac.uk/collections/ethiopianmanuscripts", color: "#B5F7CC" }, { kind: "PRIMARY MANUSCRIPT ARCHIVE", title: "Dead Sea Scrolls", href: "https://www.deadseascrolls.org.il/", color: "#FFCC4D" }, { kind: "MANUSCRIPT RESEARCH", title: "Enoch, Jubilees & Ethiopic Witnesses", href: "https://digital.bodleian.ox.ac.uk/collections/ethiopian-and-eritrean/", color: "#9DEBFF" }, { kind: "CUNEIFORM COLLECTION", title: "Gilgamesh & Sumerian Records", href: "https://cdli.earth/", color: "#FF9CC4" }, { kind: "MUSEUM ARCHIVE", title: "Egyptian Texts", href: "https://www.britishmuseum.org/collection/object/Y_EA10470-3", color: "#FFDEA0" }, { kind: "HISTORICAL TRANSLATIONS", title: "Hermetic & Emerald Tablet Studies", href: "https://sacred-texts.com/alc/emerald.htm", color: "#DCC8FF" }, { kind: "OFFICIAL DIGITAL ARCHIVE", title: "Vatican Library Records", href: "https://digi.vatlib.it/", color: "#00D4FF" }, { kind: "HISTORICAL ARCHIVES", title: "Tesla & Einstein Papers", href: "https://tesla-museum.org/en/legacy/archive/", color: "#00FF88" }, { kind: "PUBLIC-DOMAIN CLASSIC", title: "Strategy Literature", href: "https://www.gutenberg.org/ebooks/132", color: "#FFCC4D" }, { kind: "GOVERNMENT EDUCATION", title: "Financial Literacy", href: "https://www.consumerfinance.gov/consumer-tools/educator-tools/adult-financial-education/", color: "#B5F7CC" }, { kind: "GOVERNMENT RESEARCH", title: "Cosmic Science", href: "https://ntrs.nasa.gov/", color: "#9DEBFF" }, { kind: "MUSEUM COLLECTION", title: "Global Art History", href: "https://www.metmuseum.org/art/collection", color: "#FF6B9A" }].map((shelf) => <a key={shelf.title} href={shelf.href} target="_blank" rel="noreferrer" className="rounded-2xl border bg-[#071426]/75 p-5 transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" style={{ borderColor: `${shelf.color}55` }}><p className="text-[10px] font-mono tracking-[.13em]" style={{ color: shelf.color }}>{shelf.kind}</p><p className="mt-3 text-lg font-black text-white">{shelf.title}</p><p className="mt-2 text-xs leading-5" style={{ color: "#B8C7D6" }}>Open the external record collection.</p><span className="mt-4 inline-flex text-xs font-bold" style={{ color: shelf.color }}>Open collection →</span></a>)}</div></div>
+          <div className="mt-5 rounded-3xl border border-[#FFCC4D]/40 p-6" style={{ background: "linear-gradient(135deg, rgba(255,204,77,.11), rgba(7,20,38,.96))" }}><div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">OWNER-RECOMMENDED SEERAH BOOK · EXTERNAL PURCHASE PATH</p><h3 className="mt-2 text-2xl font-black text-white">The Sealed Nectar (Ar-Raheeq Al-Makhtum)</h3><p className="mt-3 max-w-3xl text-sm leading-7" style={{ color: "#D6E2EE" }}>A featured Seerah reading recommendation by Safiur Rahman al-Mubarakpuri. This external link opens Darussalam’s own product page; ScrollVerse does not sell, fulfill, or claim an affiliate relationship with the publisher.</p></div><a href="https://darussalam.com/sealed-nectar-ar-raheequl-makhtum/" target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" style={{ background: "#FFCC4D", color: "#071426" }}>Open external book path →</a></div></div>
+        </div>
+      </section>
 
       {/* ── ALL 10 BOOKS ── */}
       {activeSection === "books" && (

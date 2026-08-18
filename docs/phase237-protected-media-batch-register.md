@@ -39,3 +39,24 @@ The supplied music reference list, split statements, provider references, AI-rem
 ## Private Continuity Marker
 
 The owner supplied a private visual note connecting a device time display, the owner’s stated birthday, stated birth time, and the artifact archive. It is preserved only as a personal continuity marker. The image is not published or repurposed, and the note is not used to make a technical, legal, statistical, scientific, or external causal claim.
+
+## Phase 274 — Clipboard Pinata and Production Reference Intake
+
+Two owner-supplied clipboard attachments were received on August 15, 2026. `Clipboard_0_A49B51A7` is a text reference containing a collection of Pinata gateway URLs, CIDs, Pinata storage identifiers, Manus share links, a GitHub profile link, and production-package descriptions. `Clipboard_1_8716D9BC` is an Apple binary property-list clipboard representation that duplicates the readable reference pattern; it was inspected only as binary clipboard metadata and not imported, executed, or connected to a service.
+
+| Reference group | Intake state | What was retained | What remains required before any portal use |
+|---|---|---|---|
+| Londyn-linked Pinata CID and gateway | Existing source context | The previously displayed CID and its gateway reference remain a pointer for the Londyn family page | A distinct final title, media type, rights and source confirmation, accessibility record, intended-use scope, and owner release decision |
+| Additional Pinata CIDs and storage IDs | Protected asset-reference batch | A non-public inventory reference only; no asset was fetched, embedded, or interpreted as release-ready | Per-asset identification, creator/subject/brand permissions where relevant, caption/transcript/alt-text, destination, and owner release |
+| Manus share and GitHub links | Protected workflow and continuity references | High-level route, evidence, and production-planning lessons only | A separately scoped review of each accessible source; no implied cross-account access, synchronization, or authorization |
+| Production brief, slate, package, and launch descriptions | Protected planning language | Category and evidence-packet concepts compatible with Media World documentation | Original scripts, contributors, source masters, rights/likeness review, youth-safety review, accessibility, and owner release for every actual publication |
+
+No CID, gateway, share link, repository, contract, account, provider, wallet, payment flow, distribution destination, royalty structure, crypto incentive, or commerce action was activated from these clipboard references. A reference string alone is not treated as a release decision, proof of rights, proof of a live integration, active availability, or a request to auto-publish material.
+
+## Original Production Draft Cross-Reference
+
+The owner-requested original Episode 2 screenplay, composer-ready cue specification, and ScrollStorm Records album pre-production materials are held in `docs/phase275-original-production-bible.md`. That document is a planning draft only and follows the same per-asset source, rights, accessibility, contributor, youth-safety, and owner-release gates defined in this register.
+
+The account-portfolio and DCXBatman reference review is recorded separately in `docs/phase276-dcxbatman-portfolio-review.md`. It preserves the difference between the owner’s portfolio statement, a public GitHub inventory, third-party public references, and unverified attachment content. No public placement, media embedding, technical activation, or account connection occurred from that review.
+
+The project-wide evidence-first workflow adoption record is in `docs/phase277-evidence-production-workflow-adoption.md`, backed by the reusable `scrollverse-evidence-production-workflow` skill. It standardizes per-asset intake, source labeling, original production, accessibility, release evidence, and correction records without changing the release state of any asset.

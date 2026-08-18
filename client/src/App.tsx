@@ -28,6 +28,8 @@ import OmniExpansion from "./pages/OmniExpansion";
 import AiCouncil from "./pages/AiCouncil";
 import Legion from "./pages/Legion";
 import PWAInstallBanner from "./components/PWAInstallBanner";
+import { LivingSignalLayer } from "./components/LivingSignalLayer";
+import { WalkingSolutionBeacon } from "./components/WalkingSolutionBeacon";
 import Frequency from "./pages/Frequency";
 import Staking from "./pages/Staking";
 import Governance from "./pages/Governance";
@@ -61,6 +63,7 @@ import SystemStatus from "./pages/SystemStatus";
 import KYCVerification from "./pages/KYCVerification";
 import Exchange from "./pages/Exchange";
 import ExchangeCrypto from "./pages/ExchangeCrypto";
+import TradingReadiness from "./pages/TradingReadiness";
 import ExchangeStocks from "./pages/ExchangeStocks";
 import ExchangeCurrencies from "./pages/ExchangeCurrencies";
 import ExchangeGovernance from "./pages/ExchangeGovernance";
@@ -113,6 +116,8 @@ import SovereignPartnerships from "./pages/SovereignPartnerships";
 import MikaSolara from "./pages/MikaSolara";
 import SolaraCoin from "./pages/SolaraCoin";
 import Storybooks from "./pages/Storybooks";
+import DigitalShips from "./pages/DigitalShips";
+import ManusHero from "./pages/ManusHero";
 import TikTokShop from "./pages/TikTokShop";
 import StarGate from "./pages/StarGate";
 import RevenueFlywheel from "./pages/RevenueFlywheel";
@@ -228,6 +233,7 @@ import EmpireIndex from "./pages/EmpireIndex";
 import MeinLookbook from "./pages/MeinLookbook";
 import FashionPortfolio from "./pages/FashionPortfolio";
 import BrandStudio from "./pages/BrandStudio";
+import FashionArtifactAtlas from "./pages/FashionArtifactAtlas";
 import PortalNavigator from "./pages/PortalNavigator";
 import ConvergenceCommons from "./pages/ConvergenceCommons";
 import Signalworks from "./pages/Signalworks";
@@ -280,6 +286,8 @@ import OpportunityNavigator from "./pages/OpportunityNavigator";
 import GitHubShowcase from "./pages/GitHubShowcase";
 import DigitalFootprintReport from "./pages/DigitalFootprintReport";
 import CreatorChannelHub from "./pages/CreatorChannelHub";
+import InstagramStoryEngine from "./pages/InstagramStoryEngine";
+import ProductionContinuum from "./pages/ProductionContinuum";
 import ScrollNetworkContext from "./pages/ScrollNetworkContext";
 import CryptoSystemsAtlas from "./pages/CryptoSystemsAtlas";
 import ArtifactEvidenceBlueprint from "./pages/ArtifactEvidenceBlueprint";
@@ -288,6 +296,7 @@ import OperatingPatternNavigator from "./pages/OperatingPatternNavigator";
 import FinancialSystemsCapabilityMap from "./pages/FinancialSystemsCapabilityMap";
 import LawfulOperatingNavigator from "./pages/LawfulOperatingNavigator";
 import OriginalSystemsHub from "./pages/OriginalSystemsHub";
+import EnterpriseSystemsBlueprint from "./pages/EnterpriseSystemsBlueprint";
 import PublicPortfolioGovernance from "./pages/PublicPortfolioGovernance";
 import ManifestoBuildersBook from "./pages/ManifestoBuildersBook";
 import BooksMediaReadiness from "./pages/BooksMediaReadiness";
@@ -330,7 +339,45 @@ import QuantumFrequencyResearchLab from "./pages/QuantumFrequencyResearchLab";
 import AudienceValueLeverage from "./pages/AudienceValueLeverage";
 import UniversalCommons from "./pages/UniversalCommons";
 import Synchronizations from "./pages/Synchronizations";
+import SynchronizationResearchIndex from "./pages/SynchronizationResearchIndex";
+import ChosenOnesExperienceExchange from "./pages/ChosenOnesExperienceExchange";
 import OwnerWorkstation from "./pages/OwnerWorkstation";
+import CapabilityAudit from "./pages/CapabilityAudit";
+import QuantumResearch from "./pages/QuantumResearch";
+import PreRegistrationReadiness from "./pages/PreRegistrationReadiness";
+import OpenRecordContinuum from "./pages/OpenRecordContinuum";
+import ProductionControlDesk from "./pages/ProductionControlDesk";
+import MultiPlatformReleaseDesk from "./pages/MultiPlatformReleaseDesk";
+import CreatorInfrastructureMap from "./pages/CreatorInfrastructureMap";
+import HarlemVinelandLegacy from "./pages/HarlemVinelandLegacy";
+import AssistiveGovernanceDesk from "./pages/AssistiveGovernanceDesk";
+import IPStewardshipMap from "./pages/IPStewardshipMap";
+import SovereignMethodology from "./pages/SovereignMethodology";
+import JourneyCoCreationArchive from "./pages/JourneyCoCreationArchive";
+import BookOfTheJourney from "./pages/BookOfTheJourney";
+import DirectFanCatalog from "./pages/DirectFanCatalog";
+import SovereignContributionExchange from "./pages/SovereignContributionExchange";
+import LivingJourneyExperience from "./pages/LivingJourneyExperience";
+import AccomplishmentsArchive from "./pages/AccomplishmentsArchive";
+import ScrollVerseAtlas from "./pages/ScrollVerseAtlas";
+import TransmissionAlignmentRecord from "./pages/TransmissionAlignmentRecord";
+import CatalogProductionDesk from "./pages/CatalogProductionDesk";
+import SourceStudyLibrary from "./pages/SourceStudyLibrary";
+import DailyStakingEmailRecord from "./pages/DailyStakingEmailRecord";
+import DeliveryResilience from "./pages/DeliveryResilience";
+import ActivationRegister from "./pages/ActivationRegister";
+import MasterInstructionIntake from "./pages/MasterInstructionIntake";
+import PaymentOptionsMap from "./pages/PaymentOptionsMap";
+import ShopifyStorefrontReadiness from "./pages/ShopifyStorefrontReadiness";
+import PremiumStorefrontProgram from "./pages/PremiumStorefrontProgram";
+import ProductReleasePipeline from "./pages/ProductReleasePipeline";
+import MilestoneRoadmap from "./pages/MilestoneRoadmap";
+import ArtMuseum from "./pages/ArtMuseum";
+import ArtLearningStudio from "./pages/ArtLearningStudio";
+import KnowledgeCommons from "./pages/KnowledgeCommons";
+import ScrollVersePerspectives from "./pages/ScrollVersePerspectives";
+import AssetRegistry from "./pages/AssetRegistry";
+import AICompanionHub from "./pages/AICompanionHub";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -464,6 +511,7 @@ function Router() {
       <Route path={"/kyc"} component={KYCVerification} />
       <Route path={"/exchange"} component={Exchange} />
       <Route path={"/exchange/crypto"} component={ExchangeCrypto} />
+      <Route path={"/trading-readiness"} component={TradingReadiness} />
       <Route path={"/exchange/stocks"} component={ExchangeStocks} />
       <Route path={"/exchange/currencies"} component={ExchangeCurrencies} />
       <Route path={"/exchange/governance"} component={ExchangeGovernance} />
@@ -511,7 +559,33 @@ function Router() {
       <Route path={"/sovereign-codex"} component={SovereignCodex} />
       <Route path={"/soul-altar"} component={SoulAltar} />
       <Route path={"/chais-sabir-equation"} component={ChaisSabirEquation} />
-      <Route path={"/scroll-tv"} component={ScrollTV} />
+      <Route path={"/sovereign-methodology"} component={SovereignMethodology} />
+      <Route path={"/journey-co-creation-archive"} component={JourneyCoCreationArchive} />
+      <Route path={"/book-of-the-journey"} component={BookOfTheJourney} />
+      <Route path={"/direct-fan-catalog"} component={DirectFanCatalog} />
+      <Route path={"/sovereign-contribution-exchange"} component={SovereignContributionExchange} />
+      <Route path={"/living-journey-experience"} component={LivingJourneyExperience} />
+      <Route path={"/accomplishments-archive"} component={AccomplishmentsArchive} />
+      <Route path={"/scrollverse-atlas"} component={ScrollVerseAtlas} />
+      <Route path={"/transmission-alignment-record"} component={TransmissionAlignmentRecord} />
+      <Route path={"/catalog-production-desk"} component={CatalogProductionDesk} />
+      <Route path={"/source-study-library"} component={SourceStudyLibrary} />
+      <Route path={"/daily-staking-email-record"} component={DailyStakingEmailRecord} />
+      <Route path={"/delivery-resilience"} component={DeliveryResilience} />
+      <Route path={"/activation-register"} component={ActivationRegister} />
+      <Route path={"/master-instruction-intake"} component={MasterInstructionIntake} />
+      <Route path={"/payment-options"} component={PaymentOptionsMap} />
+      <Route path={"/shopify-storefront-readiness"} component={ShopifyStorefrontReadiness} />
+      <Route path={"/premium-storefront-program"} component={PremiumStorefrontProgram} />
+      <Route path={"/product-release-pipeline"} component={ProductReleasePipeline} />
+      <Route path={"/milestone-roadmap"} component={MilestoneRoadmap} />
+      <Route path={"/art-museum"} component={ArtMuseum} />
+      <Route path={"/art-learning-studio"} component={ArtLearningStudio} />
+	      <Route path={"/knowledge-commons"} component={KnowledgeCommons} />
+	      <Route path={"/scrollverse-perspectives"} component={ScrollVersePerspectives} />
+	      <Route path={"/asset-registry"} component={AssetRegistry} />
+	      <Route path={"/ai-companion-hub"} component={AICompanionHub} />
+	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />
       <Route path={"/site-map"} component={SiteMap} />
@@ -527,6 +601,8 @@ function Router() {
       <Route path={"/mika-solara"} component={MikaSolara} />
       <Route path={"/solara-coin"} component={SolaraCoin} />
       <Route path={"/storybooks"} component={Storybooks} />
+      <Route path={"/digital-ships"} component={DigitalShips} />
+      <Route path={"/manus-hero"} component={ManusHero} />
       <Route path={"/tiktok-shop"} component={TikTokShop} />
       <Route path={"/star-gate"} component={StarGate} />
       <Route path={"/revenue-flywheel"} component={RevenueFlywheel} />
@@ -657,6 +733,7 @@ function Router() {
         <Route path="/mein" component={MeinLookbook} />
         <Route path="/fashion-portfolio" component={FashionPortfolio} />
         <Route path="/fashion-studio" component={BrandStudio} />
+        <Route path="/fashion-artifact-atlas" component={FashionArtifactAtlas} />
         <Route path="/commons" component={ConvergenceCommons} />
         <Route path="/signalworks" component={Signalworks} />
         <Route path="/creator-workspace" component={CreatorWorkspace} />
@@ -687,6 +764,7 @@ function Router() {
         <Route path="/digital-highways" component={DigitalHighways} />
         <Route path="/empire-map" component={EmpireMap} />
         <Route path="/ip-readiness" component={IpReadinessNavigator} />
+        <Route path="/ip-stewardship" component={IPStewardshipMap} />
         <Route path="/chain-intelligence" component={ChainIntelligence} />
         <Route path="/knowledge-context" component={KnowledgeContext} />
         <Route path="/open-exchange-field-guide" component={OpenExchangeFieldGuide} />
@@ -709,6 +787,16 @@ function Router() {
         <Route path="/github-showcase" component={GitHubShowcase} />
         <Route path="/digital-footprint-report" component={DigitalFootprintReport} />
         <Route path="/creator-channel-hub" component={CreatorChannelHub} />
+        <Route path="/instagram-story-engine" component={InstagramStoryEngine} />
+        <Route path="/production-continuum" component={ProductionContinuum} />
+        <Route path="/capability-audit" component={CapabilityAudit} />
+        <Route path="/quantum-research" component={QuantumResearch} />
+        <Route path="/pre-registration-readiness" component={PreRegistrationReadiness} />
+        <Route path="/open-record-continuum" component={OpenRecordContinuum} />
+        <Route path="/production-control" component={ProductionControlDesk} />
+        <Route path="/release-destinations" component={MultiPlatformReleaseDesk} />
+        <Route path="/harlem-vineland-legacy" component={HarlemVinelandLegacy} />
+        <Route path="/assistive-governance" component={AssistiveGovernanceDesk} />
         <Route path="/scroll-network-context" component={ScrollNetworkContext} />
         <Route path="/crypto-systems-atlas" component={CryptoSystemsAtlas} />
         <Route path="/artifact-evidence-blueprint" component={ArtifactEvidenceBlueprint} />
@@ -717,6 +805,7 @@ function Router() {
         <Route path="/financial-systems-capability-map" component={FinancialSystemsCapabilityMap} />
         <Route path="/lawful-operating-navigator" component={LawfulOperatingNavigator} />
         <Route path="/original-systems-hub" component={OriginalSystemsHub} />
+        <Route path="/enterprise-systems-blueprint" component={EnterpriseSystemsBlueprint} />
         <Route path="/public-portfolio-governance" component={PublicPortfolioGovernance} />
         <Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />
         <Route path="/books-media-readiness" component={BooksMediaReadiness} />
@@ -740,6 +829,8 @@ function Router() {
         <Route path="/audience-value-leverage" component={AudienceValueLeverage} />
         <Route path="/universal-commons" component={UniversalCommons} />
         <Route path="/synchronizations" component={Synchronizations} />
+        <Route path="/synchronization-research" component={SynchronizationResearchIndex} />
+        <Route path="/chosen-ones-exchange" component={ChosenOnesExperienceExchange} />
         <Route path="/owner-workstation" component={OwnerWorkstation} />
         <Route path="/creator-media-packet" component={CreatorMediaPacket} />
         <Route path="/master-directory" component={MasterDirectory} />
@@ -753,6 +844,7 @@ function Router() {
         <Route path="/mesopotamia-commons" component={MesopotamiaCommons} />
         <Route path="/open-research-navigator" component={OpenResearchNavigator} />
         <Route path="/voice-language-studio" component={VoiceLanguageStudio} />
+        <Route path="/creator-infrastructure" component={CreatorInfrastructureMap} />
         <Route path="/domain-discovery-map" component={DomainDiscoveryMap} />
         <Route path="/consortium-nexus" component={ConsortiumNexus} />
         <Route path="/standards-evidence-commons" component={StandardsEvidenceCommons} />
@@ -775,6 +867,8 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
+          <LivingSignalLayer />
+          <WalkingSolutionBeacon />
           <Router />
           <PWAInstallBanner />
         </TooltipProvider>

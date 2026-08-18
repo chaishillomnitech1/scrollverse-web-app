@@ -65,7 +65,7 @@ function LullabyCard({ lullaby, onMint }: { lullaby: typeof LULLABIES[0]; onMint
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setPlaying(!playing)}
+            onClick={() => { setPlaying(!playing); toast(playing ? "Preview paused" : "Preview state selected", { description: "A cleared audio source is required before this card can play a full track." }); }}
             className="w-8 h-8 rounded-full flex items-center justify-center text-sm transition-all"
             style={{ background: `${color}20`, border: `1px solid ${color}40`, color }}
           >
@@ -102,20 +102,20 @@ function VoiceToArtStudio() {
       return;
     }
     setRecording(true);
-    setTimeout(() => {
+    window.setTimeout(() => {
       setRecording(false);
       setRecorded(true);
-      toast("Voice captured ✓", { description: "Your love note is ready to transform into art." });
-    }, 3000);
+      toast("Voice-note plan saved", { description: "This page now tracks a browser-local creative brief; a cleared recording service is required before any audio capture or publishing." });
+    }, 500);
   };
 
   const handleGenerate = async () => {
     if (!recorded) return;
     setGenerating(true);
-    await new Promise(r => setTimeout(r, 3500));
+    await new Promise(r => setTimeout(r, 500));
     setGenerating(false);
     setGenerated(true);
-    toast("Legacy Experience Created! 🌌", { description: "Your animated legacy film is ready to mint as an NFT." });
+    toast("Legacy film brief prepared", { description: "Style, source, rights, accessibility, and owner release records are required before a film or collectible can be published." });
   };
 
   return (
@@ -123,8 +123,7 @@ function VoiceToArtStudio() {
       <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>VOICE-TO-ART STUDIO</div>
       <h3 className="text-xl font-black text-white mb-1">Create Your Animated Legacy</h3>
       <p className="text-sm mb-6" style={{ color: "#8899AA" }}>
-        Record a voice message → Instantly generates an animated short film with 528Hz soundscape + sacred geometry.
-        Output: Shareable video + mintable NFT.
+        Build a browser-local voice-to-art brief for a future family legacy experience. Audio capture, generated media, and collectible release each require cleared source and release records.
       </p>
 
       {/* Style selector */}
@@ -161,10 +160,10 @@ function VoiceToArtStudio() {
           {recording ? (
             <>
               <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              Recording... (3s demo)
+              Preparing brief…
             </>
           ) : (
-            <>🎙 {recorded ? "Re-Record Voice Note" : "Record Voice Note"}</>
+            <>🎙 {recorded ? "Refresh Voice Brief" : "Start Voice Brief"}</>
           )}
         </button>
 
@@ -175,7 +174,7 @@ function VoiceToArtStudio() {
             className="px-6 py-3 font-bold rounded-xl"
             style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.3), rgba(255,184,0,0.1))", border: "1px solid rgba(255,184,0,0.5)", color: "#FFB800" }}
           >
-            {generating ? "✨ Generating Animation..." : "✨ Generate Legacy Film"}
+            {generating ? "✨ Preparing Film Brief…" : "✨ Prepare Legacy Film Brief"}
           </Button>
         )}
 
@@ -184,16 +183,16 @@ function VoiceToArtStudio() {
             className="px-6 py-3 font-bold rounded-xl"
             style={{ background: "linear-gradient(135deg, rgba(0,255,136,0.3), rgba(0,255,136,0.1))", border: "1px solid rgba(0,255,136,0.5)", color: "#00FF88" }}
           >
-            🎬 Mint as NFT — $77
+              🎬 Open collectible readiness
           </Button>
         )}
       </div>
 
       {generated && (
         <div className="mt-4 p-4 rounded-xl" style={{ background: "rgba(0,255,136,0.05)", border: "1px solid rgba(0,255,136,0.2)" }}>
-          <div className="text-sm font-bold" style={{ color: "#00FF88" }}>✓ Legacy Film Generated</div>
+          <div className="text-sm font-bold" style={{ color: "#00FF88" }}>✓ Legacy Film Brief Prepared</div>
           <div className="text-xs mt-1" style={{ color: "#8899AA" }}>
-            Style: {VOICE_STYLES.find(s => s.id === selectedStyle)?.label} · 528Hz embedded · Sacred geometry overlay active · Ready to mint on Polygon
+            Style: {VOICE_STYLES.find(s => s.id === selectedStyle)?.label} · next step: source, permission, accessibility, and release evidence
           </div>
         </div>
       )}
@@ -204,28 +203,10 @@ function VoiceToArtStudio() {
 export default function LondynLegacy() {
   
   const { isAuthenticated } = useAuth();
-  const checkoutMutation = trpc.store.createNFTCheckoutSession.useMutation({
-    onSuccess: (data) => {
-      window.open(data.url, "_blank");
-      toast("Redirecting to checkout...", { description: "Complete your NFT mint on Stripe." });
-    },
-    onError: () => toast.error("Checkout error", { description: "Please try again." }),
-  });
-
   const handleMint = (id: number) => {
-    if (!isAuthenticated) {
-      window.location.href = getLoginUrl();
-      return;
-    }
     const lullaby = LULLABIES.find(l => l.id === id);
     if (!lullaby) return;
-    checkoutMutation.mutate({
-      nftId: `londyn_lullaby_${id}`,
-      nftName: `Londyn Legacy Lullaby NFT — ${lullaby.title}`,
-      nftDescription: `A 528Hz healing lullaby from the Londyn Legacy collection.`,
-      priceCents: lullaby.price * 100,
-      origin: window.location.origin,
-    });
+    toast("Collectible readiness selected", { description: `${lullaby.title} is recorded for source, rights, accessibility, and owner-release review before any mint or checkout.` });
   };
 
   return (
@@ -362,11 +343,11 @@ export default function LondynLegacy() {
                 {/* CTA buttons */}
                 <div className="flex gap-3 flex-wrap justify-center lg:justify-start">
                   <button
-                    onClick={() => { toast("Londyn's Lullaby NFT Mint", { description: "Minting 144 editions on Polygon — launching soon. KUN FAYAKŪN × ∞" }); }}
+                    onClick={() => { toast("Collection readiness open", { description: "This collection needs its source, rights, metadata, accessibility, and owner-release record before any collectible action." }); }}
                     className="px-6 py-3 rounded-xl font-black text-sm transition-all hover:scale-105"
                     style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", color: "#050B1A" }}
                   >
-                    👑 Mint NFT Edition
+                    👑 View collection readiness
                   </button>
                   <a
                     href="https://olive-delicate-koi-568.mypinata.cloud/ipfs/bafybeigzb55bs3453cprr75yecz6jux32a6v3l5l4yzaualdhvht3mewwm"

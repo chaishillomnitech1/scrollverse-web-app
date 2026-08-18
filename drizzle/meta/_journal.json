@@ -323,6 +323,20 @@
       "when": 1786603610188,
       "tag": "0045_powerful_firedrake",
       "breakpoints": true
+    },
+    {
+      "idx": 46,
+      "version": "5",
+      "when": 1786887777024,
+      "tag": "0046_familiar_angel",
+      "breakpoints": true
+    },
+    {
+      "idx": 47,
+      "version": "5",
+      "when": 1786900458261,
+      "tag": "0047_small_forge",
+      "breakpoints": true
     }
   ]
 }

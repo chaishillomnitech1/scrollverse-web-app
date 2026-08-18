@@ -58,6 +58,7 @@ export default function ExchangeCrypto() {
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
             <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE · POLYGON MAINNET</span>
+            <Link href="/trading-readiness" className="ml-3 rounded-lg border px-3 py-1 text-xs font-black" style={{ borderColor: "rgba(0,212,255,.35)", color: "#9DEBFF" }}>Trading controls</Link>
           </div>
         </div>
       </nav>

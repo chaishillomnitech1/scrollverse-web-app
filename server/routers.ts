@@ -64,6 +64,9 @@ import { legionCommonsRouter } from "./routers/legionCommons";
 import { creatorOperationsRouter } from "./routers/creatorOperations";
 import { revenueOperationsRouter } from "./routers/revenueOperations";
 import { mediaIntakeRouter } from "./routers/mediaIntake";
+import { experienceExchangeRouter } from "./routers/experienceExchange";
+import { supportHighwaysRouter } from "./routers/supportHighways";
+import { portalRouteRegistryRouter } from "./routers/portalRouteRegistry";
 
 export const appRouter = router({
   system: systemRouter,
@@ -140,6 +143,9 @@ export const appRouter = router({
   creatorOperations: creatorOperationsRouter,
   revenueOperations: revenueOperationsRouter,
   mediaIntake: mediaIntakeRouter,
+  experienceExchange: experienceExchangeRouter,
+  supportHighways: supportHighwaysRouter,
+  portalRouteRegistry: portalRouteRegistryRouter,
 });
 
 export type AppRouter = typeof appRouter;

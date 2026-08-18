@@ -1,0 +1,36 @@
+{
+  "schema_version": "scrollverse.physical-artwork-provenance.v1",
+  "collection_record_id": "SV-PHYS-ART-001",
+  "representation_mode": "physical-object-provenance-only",
+  "physical_object": {
+    "owner_held_statement": "Owner states the physical framed artwork was won and is owned as a physical collection asset.",
+    "title_status": "Visible plaque transcription: Bridge of Faith",
+    "artist_status": "Visible plaque transcription: by Thomas Kinkade",
+    "edition_status": "Visible plaque transcription: Library Edition",
+    "dimensions": null,
+    "medium": null,
+    "condition_record_uri": null
+  },
+  "evidence": [
+    { "evidence_id": "SV-PHYS-ART-001-A", "sha256": "01e6fad622dd3b7d371c10fe2aecb48a63671c013e919e482c3861a98413109d", "context": "Full-object front archive photograph", "public_uri": null },
+    { "evidence_id": "SV-PHYS-ART-001-B", "sha256": "a03025fc46a3140d9d9897c1a3e02ead8fa93f917f5d020beb43a36baa621dd2", "context": "Artwork and plaque detail photograph", "public_uri": null },
+    { "evidence_id": "SV-PHYS-ART-001-C", "sha256": "3f26ba8d67595ff531779b9b36edb740a5b9fcb43e3a613a3b03d5f89afdd265", "context": "Clear visible-plaque transcription photograph", "public_uri": null }
+  ],
+  "rights": {
+    "physical_possession": "owner-held",
+    "public_image_right": "not-established",
+    "artist_recognition_state": "not-configured",
+    "compensation_state": "not-configured",
+    "rights_approval_uri": null
+  },
+  "artist_recognition_band": null,
+  "tokenization": {
+    "chain": null,
+    "network": null,
+    "contract_or_service": null,
+    "edition_or_supply": null,
+    "custody_destination": null,
+    "maximum_fee": null
+  },
+  "release_state": "requires-owner-release"
+}

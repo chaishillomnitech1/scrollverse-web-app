@@ -1803,3 +1803,111 @@ export const continuityReviewRuns = mysqlTable("continuity_review_runs", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 }, table => [index("continuity_review_runs_created_idx").on(table.createdAt)]);
 export type ContinuityReviewRun = typeof continuityReviewRuns.$inferSelect;
+
+// ── Chosen Ones Experience Exchange ─────────────────────────────────────────
+// First-person community records are participant-controlled. These tables hold
+// only the profile, visibility, and discussion choices needed for the exchange;
+// they do not diagnose, verify, or assign an external explanation to an entry.
+export const experienceProfiles = mysqlTable("experience_profiles", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("user_id").notNull().unique().references(() => users.id, { onDelete: "cascade" }),
+  displayName: varchar("display_name", { length: 96 }).notNull(),
+  profileVisibility: mysqlEnum("profile_visibility", ["PUBLIC", "PSEUDONYMOUS", "COMMUNITY"]).notNull().default("PSEUDONYMOUS"),
+  allowReplies: boolean("allow_replies").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [index("experience_profiles_visibility_idx").on(table.profileVisibility, table.updatedAt)]);
+export type ExperienceProfile = typeof experienceProfiles.$inferSelect;
+
+export const experienceEntries = mysqlTable("experience_entries", {
+  id: int("id").autoincrement().primaryKey(),
+  authorUserId: int("author_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  displayName: varchar("display_name", { length: 96 }).notNull(),
+  title: varchar("title", { length: 180 }).notNull(),
+  content: text("content").notNull(),
+  themes: varchar("themes", { length: 512 }).notNull().default("reflection"),
+  visibility: mysqlEnum("visibility", ["PUBLIC", "COMMUNITY"]).notNull().default("PUBLIC"),
+  allowReplies: boolean("allow_replies").notNull().default(true),
+  status: mysqlEnum("status", ["PUBLISHED", "ARCHIVED"]).notNull().default("PUBLISHED"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("experience_entries_visibility_idx").on(table.visibility, table.status, table.createdAt),
+  index("experience_entries_author_idx").on(table.authorUserId, table.updatedAt),
+]);
+export type ExperienceEntry = typeof experienceEntries.$inferSelect;
+
+export const experienceReplies = mysqlTable("experience_replies", {
+  id: int("id").autoincrement().primaryKey(),
+  entryId: int("entry_id").notNull().references(() => experienceEntries.id, { onDelete: "cascade" }),
+  authorUserId: int("author_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  displayName: varchar("display_name", { length: 96 }).notNull(),
+  content: text("content").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [index("experience_replies_entry_idx").on(table.entryId, table.createdAt)]);
+export type ExperienceReply = typeof experienceReplies.$inferSelect;
+
+export const experienceReactions = mysqlTable("experience_reactions", {
+  id: int("id").autoincrement().primaryKey(),
+  entryId: int("entry_id").notNull().references(() => experienceEntries.id, { onDelete: "cascade" }),
+  userId: int("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  reaction: mysqlEnum("reaction", ["REFLECT", "SUPPORT", "CONNECT"]).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [index("experience_reactions_entry_idx").on(table.entryId, table.reaction)]);
+export type ExperienceReaction = typeof experienceReactions.$inferSelect;
+
+export const experienceSaves = mysqlTable("experience_saves", {
+  id: int("id").autoincrement().primaryKey(),
+  entryId: int("entry_id").notNull().references(() => experienceEntries.id, { onDelete: "cascade" }),
+  userId: int("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [index("experience_saves_user_idx").on(table.userId, table.createdAt)]);
+export type ExperienceSave = typeof experienceSaves.$inferSelect;
+
+// ── Portal Route Registry ────────────────────────────────────────────────────
+// A deterministic inventory of public ScrollVerse routes. Refreshes only write
+// portal-owned metadata; they do not publish content, call external services,
+// alter commerce state, or change any asset's release state.
+export const portalRouteRecords = mysqlTable("portal_route_records", {
+  id: int("id").autoincrement().primaryKey(),
+  routePath: varchar("route_path", { length: 255 }).notNull().unique(),
+  label: varchar("label", { length: 180 }).notNull(),
+  category: varchar("category", { length: 96 }).notNull(),
+  operatingState: mysqlEnum("operating_state", ["AVAILABLE_NOW", "RESEARCH", "REQUIRES_OWNER_RELEASE"]).notNull().default("AVAILABLE_NOW"),
+  sourceLabel: varchar("source_label", { length: 255 }).notNull(),
+  isFeatured: boolean("is_featured").notNull().default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("portal_route_records_category_state_idx").on(table.category, table.operatingState),
+  index("portal_route_records_featured_idx").on(table.isFeatured, table.updatedAt),
+]);
+export type PortalRouteRecord = typeof portalRouteRecords.$inferSelect;
+
+export const portalRouteRefreshSettings = mysqlTable("portal_route_refresh_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  settingsKey: varchar("settings_key", { length: 96 }).notNull().unique(),
+  scheduleCronTaskUid: varchar("schedule_cron_task_uid", { length: 65 }),
+  cronExpression: varchar("cron_expression", { length: 64 }),
+  enabled: boolean("enabled").notNull().default(false),
+  lastRefreshAt: timestamp("last_refresh_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [index("portal_route_refresh_task_uid_idx").on(table.scheduleCronTaskUid)]);
+export type PortalRouteRefreshSettings = typeof portalRouteRefreshSettings.$inferSelect;
+
+export const portalRouteRefreshRuns = mysqlTable("portal_route_refresh_runs", {
+  id: int("id").autoincrement().primaryKey(),
+  settingsId: int("settings_id").notNull().references(() => portalRouteRefreshSettings.id, { onDelete: "cascade" }),
+  refreshKey: varchar("refresh_key", { length: 180 }).notNull().unique(),
+  taskUid: varchar("task_uid", { length: 65 }),
+  routeCount: int("route_count").notNull(),
+  insertedCount: int("inserted_count").notNull().default(0),
+  updatedCount: int("updated_count").notNull().default(0),
+  summary: varchar("summary", { length: 1200 }).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, table => [
+  index("portal_route_refresh_runs_settings_created_idx").on(table.settingsId, table.createdAt),
+  index("portal_route_refresh_runs_task_created_idx").on(table.taskUid, table.createdAt),
+]);
+export type PortalRouteRefreshRun = typeof portalRouteRefreshRuns.$inferSelect;

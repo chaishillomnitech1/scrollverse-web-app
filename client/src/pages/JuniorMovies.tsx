@@ -169,6 +169,29 @@ export default function JuniorMovies() {
           Subscribe — {CHANNEL_HANDLE}
         </a>
 
+        <div className="mx-auto mt-7 grid max-w-3xl gap-3 text-left sm:grid-cols-3">
+          <Link href="/books" className="sv-card sovereign-breathe rounded-2xl p-4 transition-transform hover:-translate-y-1">
+            <p className="text-[10px] font-mono tracking-[.16em] text-[#00D4FF]">READ + LISTEN</p>
+            <p className="mt-2 font-black text-white">ScrollVerse Books</p>
+            <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Explore reader, storybook, and media-readiness pathways.</p>
+          </Link>
+          <Link href="/media-hub" className="sv-card rounded-2xl p-4 transition-transform hover:-translate-y-1" style={{ borderColor: "rgba(185,140,255,.42)" }}>
+            <p className="text-[10px] font-mono tracking-[.16em] text-[#D6C4FF]">FOLLOW THE SIGNAL</p>
+            <p className="mt-2 font-black text-white">Media Hub</p>
+            <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Choose a listening, visual, or catalog path in one source-labeled desk.</p>
+          </Link>
+          <Link href="/creator-media-packet" className="sv-card gold-breathe rounded-2xl p-4 transition-transform hover:-translate-y-1">
+            <p className="text-[10px] font-mono tracking-[.16em] text-[#FFCC4D]">CREATE WITH CARE</p>
+            <p className="mt-2 font-black text-white">Production Packet</p>
+            <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Prepare title, source, accessibility, and release evidence before a public player is attached.</p>
+          </Link>
+          <Link href="/digital-ships" className="sv-card rounded-2xl p-4 transition-transform hover:-translate-y-1" style={{ borderColor: "rgba(185,140,255,.48)", background: "linear-gradient(135deg, rgba(185,140,255,.12), rgba(0,212,255,.06))" }}>
+            <p className="text-[10px] font-mono tracking-[.16em] text-[#D6C4FF]">FLOWING COMIC ROOM</p>
+            <p className="mt-2 font-black text-white">Digital Ships</p>
+            <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">Explore a moving story panel, local imagination prompts, and voice-ready original cues.</p>
+          </Link>
+        </div>
+
         <div className="mx-auto mt-7 max-w-3xl rounded-2xl border p-5 text-left" style={{ borderColor: "rgba(167,139,250,0.38)", background: "rgba(167,139,250,0.07)" }}>
           <div className="text-[10px] font-mono tracking-widest" style={{ color: "#C4B5FD" }}>PUBLIC ANIMATION REFERENCE</div>
           <h2 className="mt-2 text-xl font-black text-white">Dragon Ball CyberX · serial-release study route</h2>
@@ -301,8 +324,10 @@ export default function JuniorMovies() {
                 allowFullScreen
               />
             ) : (
-              <div
-                className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+              <button
+                type="button"
+                aria-label="Play THOTH in the Junior Movies player"
+                className="absolute inset-0 flex items-center justify-center cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#FFB800]"
                 style={{ background: "linear-gradient(135deg, #0a0a1a, #1a0a2e)" }}
                 onClick={() => setActiveVideo(THOTH_VIDEO_ID)}
               >
@@ -322,7 +347,7 @@ export default function JuniorMovies() {
                   <div className="text-3xl font-black text-white mb-1">THOTH</div>
                   <div style={{ color: "#FFB800" }}>Junior Movies Entertainment × ScrollVerse</div>
                 </div>
-              </div>
+              </button>
             )}
           </div>
 
@@ -401,8 +426,10 @@ export default function JuniorMovies() {
                 allowFullScreen
               />
             ) : (
-              <div
-                className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+              <button
+                type="button"
+                aria-label="Play RA in the Junior Movies player"
+                className="absolute inset-0 flex items-center justify-center cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#00D4FF]"
                 style={{ background: "linear-gradient(135deg, #0a0a1a, #001a2e)" }}
                 onClick={() => setActiveVideo2("jme-ra")}
               >
@@ -439,7 +466,7 @@ export default function JuniorMovies() {
                   <div className="text-3xl font-black text-white mb-1">RA — THE SUN GOD</div>
                   <div style={{ color: "#00D4FF" }}>Junior Movies Entertainment × ScrollVerse</div>
                 </div>
-              </div>
+              </button>
             )}
           </div>
 
@@ -552,12 +579,8 @@ export default function JuniorMovies() {
           className="rounded-2xl overflow-hidden"
           style={{ border: "1px solid rgba(255,0,0,0.2)", background: "rgba(255,0,0,0.02)" }}
         >
-          <div
-            className="flex items-center justify-between px-6 py-4 cursor-pointer"
-            style={{ borderBottom: channelExpanded ? "1px solid rgba(255,0,0,0.15)" : "none" }}
-            onClick={() => setChannelExpanded(!channelExpanded)}
-          >
-            <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3 px-6 py-4" style={{ borderBottom: channelExpanded ? "1px solid rgba(255,0,0,0.15)" : "none" }}>
+            <button type="button" aria-expanded={channelExpanded} aria-controls="junior-movies-channel-player" onClick={() => setChannelExpanded(!channelExpanded)} className="flex min-w-0 flex-1 items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF0000]">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#FF0000" }}>
                 <svg width="16" height="12" viewBox="0 0 20 14" fill="white">
                   <path d="M19.582 2.186A2.506 2.506 0 0 0 17.818.422C16.254 0 10 0 10 0S3.746 0 2.182.422A2.506 2.506 0 0 0 .418 2.186C0 3.75 0 7 0 7s0 3.25.418 4.814a2.506 2.506 0 0 0 1.764 1.764C3.746 14 10 14 10 14s6.254 0 7.818-.422a2.506 2.506 0 0 0 1.764-1.764C20 10.25 20 7 20 7s0-3.25-.418-4.814zM8 10V4l5.196 3L8 10z"/>
@@ -567,24 +590,24 @@ export default function JuniorMovies() {
                 <div className="font-black text-white">Junior Movies Entertainment</div>
                 <div className="text-xs" style={{ color: "#8899AA" }}>{CHANNEL_HANDLE}</div>
               </div>
-            </div>
+              <span className="ml-auto shrink-0" style={{ color: "#8899AA", fontSize: "18px" }}>{channelExpanded ? "▲" : "▼"}</span>
+            </button>
             <div className="flex items-center gap-3">
               <a
                 href={YOUTUBE_CHANNEL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={e => e.stopPropagation()}
                 className="px-4 py-2 rounded-lg text-sm font-bold"
                 style={{ background: "#FF0000", color: "white" }}
               >
                 Subscribe
               </a>
-              <span style={{ color: "#8899AA", fontSize: "18px" }}>{channelExpanded ? "▲" : "▼"}</span>
             </div>
           </div>
 
           {channelExpanded && (
             <iframe
+              id="junior-movies-channel-player"
               src="https://www.youtube.com/embed?listType=user_uploads&list=juniormoviesentertainment&rel=0&modestbranding=1"
               title="Junior Movies Entertainment Channel"
               width="100%"

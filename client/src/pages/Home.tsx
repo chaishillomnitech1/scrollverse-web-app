@@ -11,6 +11,7 @@ import NotificationBell from "@/components/NotificationBell";
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
 const SUN_XIX_CDN = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663032498436/RPDAVcCZCPkmNyUO.webp"; // The Sun XIX — Young Chais Sabir Allah The Great — Soul Sigil of the Empire
+const PENNY_FOR_YOUR_THOUGHTS_COVER = "/manus-storage/penny-for-your-thoughts-cover_2f3469b7.jpg";
 
 // ── SOVEREIGN THRONE NFT — 1 OF 1 EPIC COMPONENT ──────────────────────────
 function SovereignThroneNFT() {
@@ -411,6 +412,8 @@ const QUICK_ACCESS = [
   { icon: "◈", label: "Revenue Ops", hint: "Owner-controlled readiness workspace", href: "/revenue-ops" },
   { icon: "↗", label: "Highways", hint: "Transparent creator and provider routes", href: "/digital-highways" },
   { icon: "✦", label: "Partner Proposal", hint: "Independent fashion concept brief", href: "/fashion-partnership-proposal" },
+  { icon: "⌕", label: "Pattern Study", hint: "Chais Sabir Equation & Pattern Study", href: "/chais-sabir-equation" },
+  { icon: "◉", label: "Sync Research", hint: "Synchronization Research Index", href: "/synchronization-research" },
 ];
 
 function QuickAccessBar() {
@@ -1095,6 +1098,11 @@ export default function Home() {
   const navLinks = [
     { label: "Mika-Solara", href: "/mika-solara" },
     { label: "$SOLARA", href: "/solara-coin" },
+    { label: "Equation Study", href: "/chais-sabir-equation" },
+    { label: "Sync Research", href: "/synchronization-research" },
+    { label: "Book of the Journey", href: "/book-of-the-journey" },
+    { label: "Direct Catalog", href: "/direct-fan-catalog" },
+    { label: "Penny", href: "#penny-for-your-thoughts" },
     { label: "Pillars", href: "#pillars" },
     { label: "Token", href: "#token" },
     { label: "Frequencies", href: "#frequencies" },
@@ -1527,6 +1535,16 @@ export default function Home() {
               <span style={{ color: "#FFB800" }}>Chais “Sabir Kajir” Hill the Great</span>.
               Original storytelling, free learning, creator readiness, public evidence, and first-party systems navigation—connected with visible boundaries.
             </p>
+            <blockquote className="mb-6 max-w-2xl rounded-2xl border border-[#FFB800]/35 bg-[#FFB800]/[.07] px-5 py-4" aria-label="Owner-authored ethical anchor">
+              <p className="text-lg font-black leading-7 text-[#FFDEA0]">“Influence is currency. Power without principle is poison.”</p>
+              <footer className="mt-2 text-[10px] font-mono tracking-[.16em] text-[#FFCC4D]">OWNER-AUTHORED · ETHICAL ANCHOR</footer>
+            </blockquote>
+            <div className="mb-6 max-w-2xl rounded-2xl border border-[#B5F7CC]/40 bg-[#00FF88]/[.07] px-5 py-4">
+              <p className="text-xs font-mono tracking-[.16em] text-[#B5F7CC]">OWNER-AUTHORED · JOURNEY IDENTITY</p>
+              <p className="mt-2 text-2xl font-black leading-8 text-white">“I’m a Walking Solution.”</p>
+              <p className="mt-2 text-sm leading-6 text-[#D6E2EE]">A first-person anchor for the record, the work, and the free Book of the Journey reading path.</p>
+              <Link href="/book-of-the-journey" className="mt-3 inline-flex items-center gap-2 text-sm font-black text-[#B5F7CC]">Open the Book of the Journey <span aria-hidden="true">→</span></Link>
+            </div>
             {/* Animated frequency badges */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
               {[
@@ -1636,6 +1654,23 @@ export default function Home() {
               >🔗 Copy Link</button>
             </div>
           </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-y border-[#FFCC4D]/20 bg-[radial-gradient(circle_at_88%_12%,rgba(255,204,77,.15),transparent_27%),radial-gradient(circle_at_12%_82%,rgba(0,212,255,.16),transparent_34%),#071426]">
+        <div className="container relative py-14 md:py-20">
+          <div className="absolute -right-20 top-8 h-72 w-72 rounded-full bg-[#00D4FF]/10 blur-3xl" aria-hidden="true" />
+          <div className="relative grid gap-8 xl:grid-cols-[.94fr_1.06fr] xl:items-center">
+            <div className="overflow-hidden rounded-[2rem] border border-[#FFCC4D]/40 bg-[#050B1A] shadow-[0_28px_90px_rgba(0,0,0,.42)]"><img src="/manus-storage/living-journey-hero_4d6e5190.png" alt="Original ScrollVerse Living Journey artwork showing a luminous path from a book toward music, film, learning, Islamic knowledge, and community." className="min-h-[290px] w-full object-cover" /></div>
+            <div>
+              <p className="text-xs font-mono tracking-[.18em] text-[#FFCC4D]">NEW FREE EXPERIENCE · ALL DIRECTIONS OPEN</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight text-white md:text-5xl">Walk the <span className="text-[#FFCC4D]">Living Journey.</span></h2>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-[#D6E2EE]">Start with the Book of the Journey and continue through music, media, Junior Movies, study, Seerah, the 99 Names, community, creator pathways, and the ScrollVerse roadmap—without losing your place.</p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2"><div className="rounded-2xl border border-[#B5F7CC]/35 bg-[#00FF88]/[.07] p-4"><p className="text-[10px] font-mono tracking-[.14em] text-[#B5F7CC]">JOURNEY IDENTITY</p><p className="mt-2 text-xl font-black text-white">“I’m a Walking Solution.”</p></div><div className="rounded-2xl border border-[#FFCC4D]/35 bg-[#FFCC4D]/[.07] p-4"><p className="text-[10px] font-mono tracking-[.14em] text-[#FFDEA0]">ETHICAL ANCHOR</p><p className="mt-2 text-base font-black leading-6 text-[#FFDEA0]">“Influence is currency. Power without principle is poison.”</p></div></div>
+              <div className="mt-6 grid gap-2 sm:grid-cols-2 xl:grid-cols-3"><Link href="/scrollverse-atlas" className="rounded-xl border border-[#00D4FF]/65 bg-[#00D4FF]/15 px-4 py-3 text-sm font-black text-[#A7EEFF] transition hover:-translate-y-0.5 hover:border-[#00D4FF]">ScrollVerse Atlas</Link><Link href="/milestone-roadmap" className="rounded-xl border border-[#FFCC4D]/65 bg-[#FFCC4D]/15 px-4 py-3 text-sm font-black text-[#FFDEA0] transition hover:-translate-y-0.5 hover:border-[#FFCC4D]">Milestone Roadmap</Link><Link href="/book-of-the-journey" className="rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm font-black text-white transition hover:border-[#FFCC4D]/65">Read the Book</Link><Link href="/seerah" className="rounded-xl border border-[#B5F7CC]/45 bg-[#00FF88]/10 px-4 py-3 text-sm font-black text-[#B5F7CC] transition hover:-translate-y-0.5">Explore Seerah</Link><Link href="/99-names" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-4 py-3 text-sm font-black text-[#DCC8FF] transition hover:-translate-y-0.5">99 Names</Link><Link href="/accomplishments-archive" className="rounded-xl border border-[#FFCC4D]/55 bg-[#FFCC4D]/10 px-4 py-3 text-sm font-black text-[#FFDEA0] transition hover:-translate-y-0.5 hover:border-[#FFCC4D]">Accomplishments Archive</Link><a href="https://sovereignhub-mo62pcrx.manus.space/" target="_blank" rel="noreferrer" className="rounded-xl border border-[#00D4FF]/55 bg-[#00D4FF]/10 px-4 py-3 text-sm font-black text-[#A7EEFF] transition hover:-translate-y-0.5 hover:border-[#00D4FF]">Sovereign Hub <span className="ml-1 text-xs" aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a></div>
+              <div className="mt-6 flex flex-wrap gap-3"><Link href="/scrollverse-atlas" className="inline-flex items-center gap-2 rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#071426] transition hover:-translate-y-0.5">Open the ScrollVerse Atlas <span aria-hidden="true">→</span></Link><Link href="/milestone-roadmap" className="inline-flex items-center gap-2 rounded-xl border border-[#FFCC4D]/55 bg-[#FFCC4D]/10 px-5 py-3 text-sm font-black text-[#FFDEA0] transition hover:-translate-y-0.5">Open the Milestone Roadmap <span aria-hidden="true">→</span></Link><Link href="/living-journey-experience" className="inline-flex items-center gap-2 rounded-xl bg-[#FFCC4D] px-5 py-3 text-sm font-black text-[#071426] transition hover:-translate-y-0.5">Enter the Living Journey <span aria-hidden="true">→</span></Link></div>
+            </div>
           </div>
         </div>
       </section>
@@ -2424,10 +2459,10 @@ export default function Home() {
               Explore the <span className="gradient-text-gold">Greatest Ecosystem</span>
             </h2>
             <p className="text-lg max-w-xl mx-auto" style={{ color: "#8899AA" }}>
-              Four sovereign dimensions of the ScrollVerse Trinity — each one a universe unto itself.
+              Five sovereign dimensions of the ScrollVerse Trinity — each one a universe unto itself.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
             {[
               {
                 icon: "📺",
@@ -2464,6 +2499,15 @@ export default function Home() {
                 stat2: "Permanent royalties",
                 color: "#8B5CF6",
                 href: "/token",
+              },
+              {
+                icon: "✦",
+                title: "Fashion & Artifact Atlas",
+                desc: "Original looks, future concepts, brand worlds, books, story artifacts, and companion-site pathways in one visual discovery map.",
+                stat1: "3 direct operating states",
+                stat2: "Source-labeled discovery",
+                color: "#FF8A4C",
+                href: "/fashion-artifact-atlas",
               },
             ].map((item, i) => (
               <a
@@ -2782,6 +2826,95 @@ export default function Home() {
                 View All Social Links & Direct Contact →
               </button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PENNY FOR MY THOUGHTS — SOURCE-LABELED DISCOVERY ── */}
+      <section
+        id="penny-for-your-thoughts"
+        className="py-16 relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, rgba(0,212,255,0.06), rgba(185,140,255,0.06))", borderTop: "1px solid rgba(0,212,255,0.16)", borderBottom: "1px solid rgba(185,140,255,0.16)" }}
+        data-penny-spotlight
+      >
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 35%, rgba(255,184,0,0.12), transparent 33%), radial-gradient(circle at 82% 60%, rgba(0,212,255,0.1), transparent 38%)" }} />
+        <div className="container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.78fr_1.22fr] gap-8 lg:gap-12 items-center">
+            <div className="relative max-w-sm mx-auto w-full">
+              <div className="absolute -inset-4 rounded-[2rem] blur-2xl opacity-60" style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.45), rgba(0,212,255,0.2), rgba(185,140,255,0.38))" }} />
+              <div className="relative rounded-[1.55rem] overflow-hidden" style={{ border: "1px solid rgba(255,184,0,0.56)", boxShadow: "0 24px 64px rgba(0,0,0,0.36), 0 0 38px rgba(255,184,0,0.16)" }}>
+                <img
+                  src={PENNY_FOR_YOUR_THOUGHTS_COVER}
+                  alt="Penny For Your Thoughts cover visual: a small reading robot beside a pencil and a stack of books, credited to Chais The Great and Produced By J Do$A"
+                  className="w-full aspect-[0.867/1] object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-4" style={{ background: "linear-gradient(0deg, rgba(5,11,26,0.94), rgba(5,11,26,0.08))" }}>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-[10px] font-mono tracking-widest px-2 py-1 rounded" style={{ background: "rgba(0,0,0,0.44)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.35)" }}>COVER SOURCE RECEIPT</span>
+                    <span className="text-xs font-mono text-white">3:29</span>
+                  </div>
+                </div>
+              </div>
+              <p className="mt-3 text-center text-[11px] leading-relaxed" style={{ color: "#93A4B8" }}>Owner-supplied visual source. Visible cover credit retained: <span className="text-white">Produced By J Do$A</span>.</p>
+            </div>
+
+            <div>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="inline-flex items-center gap-2 text-xs font-mono tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.26)", color: "#00FF88" }}><span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />AVAILABLE NOW · PUBLIC SOURCE</span>
+                <span className="text-xs font-mono px-3 py-1.5 rounded-full" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.26)", color: "#FFB800" }}>LISTENING PORTAL</span>
+              </div>
+              <div className="text-xs font-mono tracking-[0.2em] mb-3" style={{ color: "#00D4FF" }}>CHAPTER 01 · OWNER-SUPPLIED MUSIC RECORD</div>
+              <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.95] mb-4">
+                Penny for<br /><span style={{ color: "#FFB800" }}>Your Thoughts</span>
+              </h2>
+              <p className="text-lg font-medium mb-2" style={{ color: "#E3ECF7" }}>Chais The Great <span style={{ color: "#60748C" }}>·</span> 3:29</p>
+              <p className="text-base leading-relaxed max-w-2xl mb-6" style={{ color: "#AAB7C8" }}>
+                A focused listening portal for the owner-supplied public release. Enter through the original video, keep the visible credit intact, and follow the source record as the collection grows.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-7">
+                <a
+                  href="https://youtu.be/bZD3SWfzMDU?is=sONmAVZDnSyUe90H"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-black transition-transform hover:scale-[1.02]"
+                  style={{ background: "linear-gradient(135deg, #FF0000, #B90000)", color: "white", boxShadow: "0 0 28px rgba(255,0,0,0.22)" }}
+                >
+                  ▶ Enter the video
+                </a>
+                <a
+                  href="https://www.youtube.com/channel/UCYh1XrtkwYycAnqydDwyjzQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold transition-colors hover:bg-white/10"
+                  style={{ border: "1px solid rgba(0,212,255,0.35)", color: "#00D4FF" }}
+                >
+                  Source channel ↗
+                </a>
+                <Link
+                  href="/pre-registration-readiness"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold transition-colors hover:bg-white/10"
+                  style={{ border: "1px solid rgba(185,140,255,0.4)", color: "#D4BCFF" }}
+                >
+                  Release-readiness path →
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl">
+                {[
+                  { label: "SOURCE", value: "Owner-supplied public video", color: "#00D4FF" },
+                  { label: "COVER CREDIT", value: "Produced By J Do$A", color: "#FFB800" },
+                  { label: "NEXT RECORD", value: "Artist-controlled Spotify URL", color: "#B98CFF" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-xl p-3" style={{ background: "rgba(5,11,26,0.56)", border: `1px solid ${item.color}33` }}>
+                    <div className="text-[10px] font-mono tracking-widest mb-1" style={{ color: item.color }}>{item.label}</div>
+                    <div className="text-xs leading-relaxed" style={{ color: "#C8D5E5" }}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 text-xs leading-relaxed max-w-3xl" style={{ color: "#7F93AA" }}>
+                This is a public discovery and source record, not a token, coin, sale, or NFT offer. Any later collectible or commercial release requires the completed asset-specific rights and contributor record.
+              </p>
+            </div>
           </div>
         </div>
       </section>

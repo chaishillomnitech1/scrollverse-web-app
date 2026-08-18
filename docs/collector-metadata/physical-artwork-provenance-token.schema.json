@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScrollVerse Physical Artwork Provenance Token Metadata",
+  "description": "Readiness schema only. It does not grant reproduction rights, create a token, authorize payment, or connect a blockchain provider.",
+  "type": "object",
+  "required": ["schema_version", "collection_record_id", "representation_mode", "physical_object", "evidence", "rights", "release_state"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "scrollverse.physical-artwork-provenance.v1" },
+    "collection_record_id": { "type": "string", "pattern": "^SV-PHYS-ART-[0-9]{3}$" },
+    "representation_mode": { "enum": ["physical-object-provenance-only", "rights-cleared-public-image", "rights-cleared-derivative"] },
+    "physical_object": {
+      "type": "object",
+      "required": ["owner_held_statement", "title_status", "artist_status"],
+      "properties": {
+        "owner_held_statement": { "type": "string" },
+        "title_status": { "type": "string" },
+        "artist_status": { "type": "string" },
+        "edition_status": { "type": "string" },
+        "dimensions": { "type": ["string", "null"] },
+        "medium": { "type": ["string", "null"] },
+        "condition_record_uri": { "type": ["string", "null"] }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "sha256", "context"],
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "context": { "type": "string" },
+          "public_uri": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "required": ["physical_possession", "public_image_right", "artist_recognition_state", "compensation_state"],
+      "properties": {
+        "physical_possession": { "enum": ["owner-held" ] },
+        "public_image_right": { "enum": ["not-established", "cleared"] },
+        "artist_recognition_state": { "enum": ["not-configured", "approved"] },
+        "compensation_state": { "enum": ["not-configured", "approved"] },
+        "rights_approval_uri": { "type": ["string", "null"] }
+      }
+    },
+    "artist_recognition_band": {
+      "type": ["object", "null"],
+      "properties": {
+        "approved_credit": { "type": "string" },
+        "rights_holder": { "type": "string" },
+        "compensation_model": { "enum": ["fixed-honorarium", "royalty", "donation", "revenue-share", "none"] },
+        "approval_uri": { "type": "string" }
+      }
+    },
+    "tokenization": {
+      "type": "object",
+      "properties": {
+        "chain": { "type": ["string", "null"] },
+        "network": { "type": ["string", "null"] },
+        "contract_or_service": { "type": ["string", "null"] },
+        "edition_or_supply": { "type": ["string", "null"] },
+        "custody_destination": { "type": ["string", "null"] },
+        "maximum_fee": { "type": ["string", "null"] }
+      }
+    },
+    "release_state": { "enum": ["research", "requires-owner-release", "mint-ready", "minted"] }
+  }
+}

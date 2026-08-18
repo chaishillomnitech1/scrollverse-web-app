@@ -16,9 +16,9 @@ describe("Phase 249 — Synchronization Collection", () => {
     expect(page).toContain('href="/dc-visit"');
   });
 
-  it("presents a first-party account with an interpretation and correction boundary", () => {
+  it("presents a first-party account with a source trail and correction path", () => {
     expect(page).toContain("First-party personal account");
-    expect(page).toContain("independently verified external causation");
+    expect(page).toContain("make their own conclusion");
     expect(page).toContain("correction idea");
     expect(page).toContain("August 28 · 1978 · 7 o’clock");
   });

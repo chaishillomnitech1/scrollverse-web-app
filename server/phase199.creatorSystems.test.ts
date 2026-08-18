@@ -16,6 +16,7 @@ const systemsCatalog = [
   ["/empire-asset-navigator", "EmpireAssetNavigator", "EmpireAssetNavigator.tsx"],
   ["/ip-digital-evidence-navigator", "IpDigitalEvidenceNavigator", "IpDigitalEvidenceNavigator.tsx"],
   ["/original-systems-hub", "OriginalSystemsHub", "OriginalSystemsHub.tsx"],
+  ["/enterprise-systems-blueprint", "EnterpriseSystemsBlueprint", "EnterpriseSystemsBlueprint.tsx"],
   ["/public-portfolio-governance", "PublicPortfolioGovernance", "PublicPortfolioGovernance.tsx"],
   ["/open-knowledge-verse", "OpenKnowledgeVerse", "OpenKnowledgeVerse.tsx"],
   ["/standards-studio", "StandardsStudio", "StandardsStudio.tsx"],

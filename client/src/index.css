@@ -203,6 +203,160 @@
   }
 }
 
+/* ── LIVING SIGNAL SYSTEM ────────────────────────────────────────────────
+ * The palette movement is a visual design language only. It makes no sonic,
+ * physiological, medical, or therapeutic claim.
+ */
+.sv-living-signal {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  opacity: 0.58;
+}
+.sv-living-signal__orb {
+  position: absolute;
+  width: min(48vw, 44rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  filter: blur(38px);
+  opacity: 0.16;
+  transform: translate3d(0, 0, 0);
+  animation: svSignalDrift 18s ease-in-out infinite alternate;
+}
+.sv-living-signal__orb--cyan { top: -18%; left: -12%; background: radial-gradient(circle, #00D4FF 0%, transparent 68%); }
+.sv-living-signal__orb--gold { right: -15%; bottom: -22%; background: radial-gradient(circle, #FFB800 0%, transparent 68%); animation-delay: -6s; }
+.sv-living-signal__orb--violet { top: 26%; left: 35%; width: min(34vw, 30rem); background: radial-gradient(circle, #B98CFF 0%, transparent 70%); animation-delay: -12s; }
+.sv-living-signal__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 184, 0, 0.035) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  mask-image: radial-gradient(circle at 50% 45%, black, transparent 74%);
+  animation: svSignalGrid 32s linear infinite;
+}
+.sv-signal-control {
+  position: fixed;
+  right: 1rem;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.48rem 0.76rem;
+  background: rgba(5, 11, 26, 0.82);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.34), 0 0 18px rgba(0, 212, 255, 0.15);
+  color: #D6EFFF;
+  font: 700 0.66rem/1 var(--font-quantum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.sv-signal-control:hover { border-color: rgba(255, 184, 0, 0.68); color: #FFF4CE; }
+.sv-signal-control:focus-visible { outline: 2px solid #00D4FF; outline-offset: 3px; }
+.sv-signal-control__dot { width: 0.48rem; height: 0.48rem; border-radius: 999px; background: #00FF88; box-shadow: 0 0 10px #00FF88; animation: svSignalDot 3s ease-in-out infinite; }
+html[data-scrollverse-signal="quiet"] .sv-living-signal { opacity: 0.2; }
+html[data-scrollverse-signal="quiet"] .sv-living-signal__orb,
+html[data-scrollverse-signal="quiet"] .sv-living-signal__grid,
+html[data-scrollverse-signal="quiet"] .sv-signal-control__dot { animation-play-state: paused; }
+html[data-scrollverse-signal="quiet"] .sv-signal-control__dot { background: #8899AA; box-shadow: none; }
+@keyframes svSignalDrift {
+  0% { transform: translate3d(-3%, -2%, 0) scale(0.95); }
+  50% { transform: translate3d(8%, 5%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 10%, 0) scale(0.98); }
+}
+@keyframes svSignalGrid { from { background-position: 0 0; } to { background-position: 5rem 5rem; } }
+@keyframes svSignalDot { 0%, 100% { opacity: 0.55; transform: scale(0.86); } 50% { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .sv-living-signal { opacity: 0.17; }
+  .sv-living-signal *, .sv-signal-control__dot { animation: none !important; }
+}
+@media (max-width: 639px) {
+  .sv-signal-control { right: 0.7rem; bottom: calc(4.3rem + env(safe-area-inset-bottom)); font-size: 0.58rem; }
+}
+
+/* ── LIVING SIGNAL SYSTEM ────────────────────────────────────────────────
+ * A visual language for the full portal. Its color rhythm is aesthetic only;
+ * it does not claim a sonic, physiological, or therapeutic effect.
+ */
+.sv-living-signal {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  opacity: 0.62;
+}
+.sv-living-signal__orb {
+  position: absolute;
+  width: min(48vw, 44rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  filter: blur(38px);
+  opacity: 0.16;
+  transform: translate3d(0, 0, 0);
+  animation: svSignalDrift 18s ease-in-out infinite alternate;
+}
+.sv-living-signal__orb--cyan { top: -18%; left: -12%; background: radial-gradient(circle, #00D4FF 0%, transparent 68%); }
+.sv-living-signal__orb--gold { right: -15%; bottom: -22%; background: radial-gradient(circle, #FFB800 0%, transparent 68%); animation-delay: -6s; }
+.sv-living-signal__orb--violet { top: 26%; left: 35%; width: min(34vw, 30rem); background: radial-gradient(circle, #B98CFF 0%, transparent 70%); animation-delay: -12s; }
+.sv-living-signal__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 184, 0, 0.035) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  mask-image: radial-gradient(circle at 50% 45%, black, transparent 74%);
+  animation: svSignalGrid 32s linear infinite;
+}
+.sv-signal-control {
+  position: fixed;
+  right: 1rem;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.48rem 0.76rem;
+  background: rgba(5, 11, 26, 0.82);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.34), 0 0 18px rgba(0, 212, 255, 0.15);
+  color: #D6EFFF;
+  font: 700 0.66rem/1 var(--font-quantum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.sv-signal-control:hover { border-color: rgba(255, 184, 0, 0.68); color: #FFF4CE; }
+.sv-signal-control:focus-visible { outline: 2px solid #00D4FF; outline-offset: 3px; }
+.sv-signal-control__dot { width: 0.48rem; height: 0.48rem; border-radius: 999px; background: #00FF88; box-shadow: 0 0 10px #00FF88; animation: svSignalDot 3s ease-in-out infinite; }
+html[data-scrollverse-signal="quiet"] .sv-living-signal { opacity: 0.2; }
+html[data-scrollverse-signal="quiet"] .sv-living-signal__orb,
+html[data-scrollverse-signal="quiet"] .sv-living-signal__grid,
+html[data-scrollverse-signal="quiet"] .sv-signal-control__dot { animation-play-state: paused; }
+html[data-scrollverse-signal="quiet"] .sv-signal-control__dot { background: #8899AA; box-shadow: none; }
+@keyframes svSignalDrift {
+  0% { transform: translate3d(-3%, -2%, 0) scale(0.95); }
+  50% { transform: translate3d(8%, 5%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 10%, 0) scale(0.98); }
+}
+@keyframes svSignalGrid { from { background-position: 0 0; } to { background-position: 5rem 5rem; } }
+@keyframes svSignalDot { 0%, 100% { opacity: 0.55; transform: scale(0.86); } 50% { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .sv-living-signal { opacity: 0.17; }
+  .sv-living-signal *, .sv-signal-control__dot { animation: none !important; }
+}
+@media (max-width: 639px) {
+  .sv-signal-control { right: 0.7rem; bottom: calc(4.3rem + env(safe-area-inset-bottom)); font-size: 0.58rem; }
+}
+
 @layer components {
   .container {
     width: 100%;
