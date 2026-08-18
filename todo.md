@@ -3930,6 +3930,7 @@
 - [x] Create reusable item-level release-packet and payment-method verification templates for music, books, fashion, collector editions, and creator services
 - [x] Create international-market readiness and staged-launch checklists without changing country, currency, tax, duty, shipping, or merchant-of-record settings
 - [x] Add focused route coverage and validate Shopify readiness, Payment Options Map, and staged-launch boundaries without initiating provider-side actions
+- [x] Record the owner-supplied Shopify-admin launch guidance and map its five suggested actions to exact provider-side confirmation gates without changing the store
 
 ## Empire Routing and Public Source Inventory
 - [x] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory
@@ -3957,6 +3958,11 @@
 ## Books Discovery Release-State Correction
 - [x] Replace unverified Books route buy, NFT, token, retailer, and price implications with source-labeled reader and release-preparation states
 - [x] Add focused regression coverage and validate that the Books route does not represent a storefront listing, checkout, token sale, or third-party publication as active
+
+## Fashion Empire Release-State Correction
+- [ ] Replace unverified Fashion Empire product prices, manufacturer relationships, coin/NFT issuance, sales allocation, and mint feedback with source-labeled concept and release-preparation states
+- [ ] Add focused regression coverage and validate that Fashion Empire does not represent a product listing, manufacturing agreement, token issuance, NFT mint, sale, payout, or marketplace activation as current
+- [ ] Register `/fashion` as a direct Fashion Empire alias after visual verification exposed that the expected short route returned a 404
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records

@@ -222,4 +222,10 @@ This evidence boundary does not establish payment acceptance, a completed transa
 
 The Books discovery route now presents paid-title figures as **release record · price unset** and free titles as **free reader path · check route**. Platform cards are labeled as preparation references and include an explicit statement that a platform name or reference link does not establish listing, purchase, delivery, licensing, or availability. The existing collectible controls retain their readiness-only language and route to release preparation rather than a wallet, marketplace, or mint action.
 
+## 2026-08-18 update — Shopify-admin guidance source record
+
+The owner supplied Shopify-admin guidance that lists five suggested launch areas: storefront password, first product, payments, shipping, and custom domain. Phase 477 classifies this as provider-admin guidance and maps each suggestion to the portal’s existing exact-action gates. The record preserves the difference between a recommended next step and a completed provider setting.
+
+No storefront password, product, price, image, inventory, payment method, bank or identity verification, shipping zone, shipping rate, domain, checkout, payout, or customer communication was changed. Each suggested action remains blocked pending its own item or settings record and a current exact owner confirmation.
+
 TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.

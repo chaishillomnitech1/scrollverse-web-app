@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 
 // FASHION EMPIRE — XLVIII BLOCKS × VNLND × Mays Landing
-// Exceeds Off-White. Exceeds Yeezy. First brand to attach crypto incentive + digital coin.
-// Every pair mints a $BLOCKS coin. Every logo tokenized. Every colorway an NFT set.
+// Source-led concept records and release preparation only.
+// Product, partner, coin, token, collectible, and sale claims require separate evidence and owner release.
 
 const COLORWAYS = [
   { name: "Night Drop Black", code: "08360", hex: "#0A0A0A", accent: "#FFB800", desc: "The origin. Vineland midnight. Gold foil zip-tie. The drop that started everything.", coin: "$BLOCKS-BLACK", nft: "Night Drop Collection #001" },
@@ -12,41 +12,41 @@ const COLORWAYS = [
   { name: "Atlantic City Gold", code: "08401", hex: "#B8860B", accent: "#FFD700", desc: "The Bella Complex colorway. Atlantic City energy. The empire's crown jewel.", coin: "$BLOCKS-GOLD", nft: "Atlantic City Collection #004" },
   { name: "Mays Landing Cream", code: "08330", hex: "#F5F0E8", accent: "#8B7355", desc: "Clean. Minimal. The compass center. Cream on cream with tonal embroidery.", coin: "$BLOCKS-CREAM", nft: "Mays Landing Collection #005" },
   { name: "Sovereign Cyan", code: "CYAN", hex: "#003D4D", accent: "#00D4FF", desc: "ScrollVerse frequency color. 963Hz woven into the fabric. The digital-physical bridge.", coin: "$BLOCKS-CYAN", nft: "Sovereign Frequency Collection #006" },
-  { name: "Zakat Green", code: "ZAKAT", hex: "#1A3A2A", accent: "#00FF88", desc: "12% of every sale goes to Zakat. The green that gives back. Agape woven in.", coin: "$BLOCKS-GREEN", nft: "Zakat Collection #007" },
+  { name: "Zakat Green", code: "ZAKAT", hex: "#1A3A2A", accent: "#00FF88", desc: "A proposed AgapeCycle colorway concept. Any contribution allocation requires a separate lawful release record.", coin: "$BLOCKS-GREEN concept", nft: "Zakat Collection concept #007" },
 ];
 
 const SNEAKER_MODELS = [
   {
     name: '"XLVIII FORCE"',
     tagline: "The Sovereign 1",
-    desc: "Low-top silhouette. Deconstructed tongue with exposed stitching. Mays Landing compass on the heel tab. 08360 zip-tie on the lace loop. Every pair mints 48 $BLOCKS coins.",
-    price: "$244",
-    coin: "48 $BLOCKS",
+    desc: "Low-top silhouette concept with a deconstructed tongue, exposed stitching, compass heel tab, and 08360 zip-tie reference. Any collectible mechanism remains unissued.",
+    price: "Price unset",
+    coin: "Collectible concept · no issuance",
     nft: "XLVIII Force #001",
     colorways: ["Night Drop Black", "Sage", "Atlantic City Gold"],
-    manufacturer: "White-label partner: Asia Pacific Footwear Alliance",
+    manufacturer: "Potential production research path · no agreement verified",
     freq: "963Hz",
   },
   {
     name: '"VNLND RUNNER"',
     tagline: "The South Jersey Speed",
-    desc: "Technical runner. 3M reflective panels. VNLND embroidered on the tongue. Pleasantville Purple colorway exclusive. Each pair mints a unique NFT with GPS coordinates of Vineland, NJ.",
-    price: "$188",
-    coin: "44 $BLOCKS",
+    desc: "Technical runner concept with reflective-panel and VNLND tongue references. Any digital collectible or location-related record remains a future rights and privacy review.",
+    price: "Price unset",
+    coin: "Collectible concept · no issuance",
     nft: "VNLND Runner #001",
     colorways: ["Pleasantville Purple", "Sovereign Cyan", "Night Drop Black"],
-    manufacturer: "White-label partner: Guangzhou Sovereign Footwear Co.",
+    manufacturer: "Potential production research path · no agreement verified",
     freq: "741Hz",
   },
   {
     name: '"COMPASS HIGH"',
     tagline: "The Direction Setter",
-    desc: "High-top basketball silhouette. Full Mays Landing compass on the ankle panel. Quilted upper in 485 GSM weight. The sneaker that points home. 88 $BLOCKS per pair — AgapeCycle built in.",
-    price: "$333",
-    coin: "88 $BLOCKS",
+    desc: "High-top concept with a compass ankle panel and quilted upper direction. Any AgapeCycle allocation or collectible relation requires a separate release record.",
+    price: "Price unset",
+    coin: "Collectible concept · no issuance",
     nft: "Compass High #001",
     colorways: ["Mays Landing Cream", "Zakat Green", "Sage"],
-    manufacturer: "White-label partner: Premium Footwear Solutions, Vietnam",
+    manufacturer: "Potential production research path · no agreement verified",
     freq: "528Hz",
   },
 ];
@@ -59,11 +59,11 @@ const LOGOS = [
 ];
 
 const MANUFACTURERS = [
-  { name: "Asia Pacific Footwear Alliance", region: "Vietnam & Indonesia", specialty: "Premium athletic + lifestyle", moq: "500 pairs", lead: "90 days", tier: "TIER 1" },
-  { name: "Guangzhou Sovereign Footwear Co.", region: "Guangzhou, China", specialty: "Technical runners + high-tops", moq: "300 pairs", lead: "75 days", tier: "TIER 1" },
-  { name: "Premium Footwear Solutions", region: "Ho Chi Minh City, Vietnam", specialty: "Basketball + high-performance", moq: "400 pairs", lead: "85 days", tier: "TIER 1" },
-  { name: "Printful Apparel", region: "USA + EU warehouses", specialty: "Print-on-demand hoodies, tees, sweatsuits", moq: "1 unit", lead: "5–7 days", tier: "POD" },
-  { name: "Printify Premium", region: "Global network", specialty: "Embroidery + premium apparel", moq: "1 unit", lead: "7–10 days", tier: "POD" },
+  { name: "Athletic footwear production research", region: "Region unset", specialty: "Concept fit review", moq: "Unset", lead: "Unset", tier: "RESEARCH" },
+  { name: "Technical runner production research", region: "Region unset", specialty: "Concept fit review", moq: "Unset", lead: "Unset", tier: "RESEARCH" },
+  { name: "Performance high-top production research", region: "Region unset", specialty: "Concept fit review", moq: "Unset", lead: "Unset", tier: "RESEARCH" },
+  { name: "Print-on-demand apparel research", region: "Region unset", specialty: "Concept fit review", moq: "Unset", lead: "Unset", tier: "RESEARCH" },
+  { name: "Embroidery and apparel research", region: "Region unset", specialty: "Concept fit review", moq: "Unset", lead: "Unset", tier: "RESEARCH" },
 ];
 
 function StarCanvas() {
@@ -96,11 +96,11 @@ function StarCanvas() {
 
 export default function FashionEmpire() {
   const [activeTab, setActiveTab] = useState<"colorways" | "sneakers" | "logos" | "matrix" | "virgil">("colorways");
-  const [mintedCoin, setMintedCoin] = useState<string | null>(null);
+  const [selectedConcept, setSelectedConcept] = useState<string | null>(null);
 
-  const handleMint = (coin: string) => {
-    setMintedCoin(coin);
-    setTimeout(() => setMintedCoin(null), 3000);
+  const handleConceptReview = (coin: string) => {
+    setSelectedConcept(coin);
+    setTimeout(() => setSelectedConcept(null), 3000);
   };
 
   return (
@@ -116,20 +116,19 @@ export default function FashionEmpire() {
             "FASHION EMPIRE"
           </h1>
           <div className="text-xl font-bold mb-4" style={{ color: "#FFB800" }}>
-            The First Brand to Attach Crypto Incentive to Every Pair
+            FASHION CONCEPTS · RELEASE PREPARATION
           </div>
           <p className="text-sm max-w-2xl mx-auto mb-6" style={{ color: "#8899AA" }}>
-            Every sneaker mints a $BLOCKS coin. Every logo is tokenized. Every colorway is an NFT set.
-            White-label supply chain. Multiple manufacturers. Passive and aggressive income.
-            Virgil's 3% rule applied to the entire fashion-music-entertainment industry.
+            Colorways, sneakers, logos, production paths, and collectible ideas are owner-directed concept records.
+            Manufacturing, prices, allocation, tokenization, licensing, sale, and fulfillment each require separate evidence, terms, and owner release.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {[
               { v: "7", l: "Colorways" },
               { v: "3", l: "Sneaker Models" },
               { v: "4", l: "Logo Coins" },
-              { v: "5", l: "Manufacturers" },
-              { v: "$BLOCKS", l: "Native Coin" },
+              { v: "5", l: "Research Paths" },
+              { v: "$BLOCKS", l: "Concept Label" },
             ].map(s => (
               <div key={s.l} className="text-center px-4 py-2 rounded-lg" style={{ background: "rgba(255,184,0,0.06)", border: "1px solid rgba(255,184,0,0.2)" }}>
                 <div className="text-lg font-black" style={{ color: "#FFB800" }}>{s.v}</div>
@@ -148,7 +147,7 @@ export default function FashionEmpire() {
                 ? { background: "#FFB800", color: "#050B1A" }
                 : { background: "rgba(255,184,0,0.08)", color: "#8899AA", border: "1px solid rgba(255,184,0,0.2)" }
               }>
-              {tab === "matrix" ? "Manufacturer Matrix" : tab.charAt(0).toUpperCase() + tab.slice(1)}
+              {tab === "matrix" ? "Production Research" : tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
         </div>
@@ -168,19 +167,19 @@ export default function FashionEmpire() {
                     <p className="text-xs mb-3" style={{ color: "#8899AA" }}>{cw.desc}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-mono px-2 py-1 rounded" style={{ background: `${cw.accent}15`, color: cw.accent }}>{cw.coin}</span>
-                      <button onClick={() => handleMint(cw.coin)}
+                      <button onClick={() => handleConceptReview(cw.coin)}
                         className="text-xs px-3 py-1 rounded font-bold transition-all hover:opacity-80"
                         style={{ background: cw.accent, color: "#050B1A" }}>
-                        Mint NFT
+                        Review concept
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
-              {mintedCoin && (
+              {selectedConcept && (
                 <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-xl text-sm font-bold z-50"
                   style={{ background: "#FFB800", color: "#050B1A" }}>
-                  ✅ {mintedCoin} minted! NFT incoming. KUN FAYAKŪN × ∞
+                  ✅ {selectedConcept} concept record selected. No mint, sale, wallet, or transfer occurred.
                 </div>
               )}
             </div>
@@ -191,7 +190,7 @@ export default function FashionEmpire() {
             <div>
               <h2 className="text-2xl font-black text-white mb-2 text-center">Sneaker Models</h2>
               <p className="text-sm text-center mb-8" style={{ color: "#8899AA" }}>
-                First sneaker brand to attach crypto incentive. Every pair mints $BLOCKS coins.
+                Sneaker concept records with future production, rights, delivery, price, and collectible gates.
               </p>
               <div className="space-y-6">
                 {SNEAKER_MODELS.map((sneaker, i) => (
@@ -231,9 +230,9 @@ export default function FashionEmpire() {
           {/* Logos */}
           {activeTab === "logos" && (
             <div>
-              <h2 className="text-2xl font-black text-white mb-2 text-center">Logo Coins & NFT Sets</h2>
+              <h2 className="text-2xl font-black text-white mb-2 text-center">Logo & Collectible Concepts</h2>
               <p className="text-sm text-center mb-8" style={{ color: "#8899AA" }}>
-                Every logo is tokenized. Every mascot has a coin. Every design is an NFT set.
+                Each logo concept requires rights, representation, contract, wallet, platform, and owner-release evidence before any collectible action.
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 {LOGOS.map((logo, i) => (
@@ -250,8 +249,7 @@ export default function FashionEmpire() {
               <div className="mt-8 p-6 rounded-2xl text-center" style={{ background: "rgba(255,184,0,0.05)", border: "1px solid rgba(255,184,0,0.2)" }}>
                 <div className="text-lg font-bold text-white mb-2">The $BLOCKS Ecosystem</div>
                 <p className="text-sm" style={{ color: "#8899AA" }}>
-                  $BLOCKS is the native coin of the XLVIII BLOCKS fashion empire. Every purchase mints coins.
-                  Every logo has its own sub-coin. Every colorway is an NFT set.
+                  $BLOCKS is a concept label in this route. No coin, allocation, sale incentive, or collectible issuance is active.
                   The entire fashion-music-entertainment industry unified under one sovereign token economy.
                 </p>
               </div>
@@ -261,9 +259,9 @@ export default function FashionEmpire() {
           {/* Manufacturer Matrix */}
           {activeTab === "matrix" && (
             <div>
-              <h2 className="text-2xl font-black text-white mb-2 text-center">Manufacturer Matrix</h2>
+              <h2 className="text-2xl font-black text-white mb-2 text-center">Production Research Matrix</h2>
               <p className="text-sm text-center mb-8" style={{ color: "#8899AA" }}>
-                Multiple manufacturers handle supply and demand. White-label bleeding seamlessly into culture.
+                These are browser-visible production research categories, not supplier relationships, quotes, agreements, inventory, lead-time commitments, or fulfillment arrangements.
               </p>
               <div className="space-y-4">
                 {MANUFACTURERS.map((mfr, i) => (
