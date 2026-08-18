@@ -11,7 +11,7 @@ The local ScrollVerse workspace now has a managed checkpoint that reconciled the
 | Local workspace | Later ScrollVerse changes are present locally and pass recorded validation runs | A local pass alone remains distinct from a managed delivery record |
 | Managed checkpoint | Checkpoint `6a62b4c2` reports that divergence was resolved, the remote was synchronized, and local changes were force-pushed through the managed workflow | The result does not establish any provider-side commerce, channel, or external-account action |
 | Repository view | The managed workflow reconciled the connected history during checkpoint publication | A branch view remains a repository state, not proof of a product, payment, or provider configuration |
-| Public site | The successful checkpoint is the new managed publication baseline under the project’s enabled auto-publish configuration | A published route does not change its own stated release gates or provider boundaries |
+| Public site | Checkpoint `1d99bdb6` was saved, but its deployment healthcheck failed and the public `scrollverse.co/sun-on-us-1111` route returned a 404 at the recorded verification | A managed checkpoint save alone does not establish that a public replica became healthy |
 
 ## Historical managed recovery decision paths
 
@@ -79,3 +79,9 @@ The local workspace now includes the original `/ai-companion-hub` route, five so
 TypeScript validation completed without errors. The full regression suite completed with **98 test files / 375 tests passing**, including focused coverage for route registration, all five companion roles, local-first and provider boundaries, public-source capability cards, and inbound Art Learning Studio and Atlas routes. Browser inspection confirmed that `/ai-companion-hub` renders from the active local preview without a route error.
 
 This update is local validation only. It does not change the published delivery baseline, resolve the `2ba0cc6a` managed-history conflict, claim that the route is live on `scrollverse.co`, or authorize any external AI integration. The next normal delivery action remains one managed checkpoint attempt; if blocked, the preserved recovery path remains a managed Version History reconciliation or platform-assisted publisher-reference repair.
+
+## 2026-08-18 update — production healthcheck incident and startup recovery
+
+The checkpoint for the Sun on Us route completed its managed save, but the subsequent deployment report showed that the built replica did not become healthy: the `/api/trpc/system.health` healthcheck repeatedly returned service unavailable. The production-log command could not provide container logs because the deployment identifier was empty. Direct public-route verification then returned a 404 for `/sun-on-us-1111`. Therefore, the saved checkpoint is preserved, but the public deployment is not represented as current.
+
+The local startup path was corrected so production binds directly to the platform-provided `PORT` on `0.0.0.0`, while available-port fallback remains a development-only behavior. This correction targets the observed risk that a production process could select a port not monitored by the deployment healthcheck. It is a bounded server-startup repair, not a provider, payment, wallet, token, or content-release action. Local TypeScript and regression validation must complete before the recovery checkpoint is retried.

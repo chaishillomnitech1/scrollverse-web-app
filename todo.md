@@ -4122,3 +4122,7 @@
 ## Mind of the Mystics Source Expansion
 - [x] Add the owner-supplied Mind of the Mystics channel and two videos as source-labeled, independently unresolved Synchronization Research records
 - [x] Preserve direct source and correction paths without automated engagement, redistribution, or external account actions
+
+## Managed Production Healthcheck Recovery
+- [ ] Correct the production server startup behavior so the managed healthcheck binds to the platform-provided port and host without falling back to an unmonitored port
+- [ ] Add focused regression coverage, revalidate the portal, and verify the public route after a managed recovery checkpoint
