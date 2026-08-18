@@ -187,3 +187,9 @@ TypeScript completed without errors and the full regression suite completed with
 The public Activation Register already provides the required source-bound correction path: when a copied status message differs from a current checkpoint, visitor test, or direct provider record, both are preserved but the current direct result controls the operating label and the affected lane returns to review. Its exact-confirmation format requires the action ID, exact target, visitor or financial consequence, and all required item-specific fields before any irreversible step is considered.
 
 The route is connected to Product Release Pipeline, Payment Options, Trading Readiness, Premium Storefront, Delivery Resilience, and the public Omni Manifesto reference. Its stated boundary excludes provider actions: it does not publish a product, remove storefront access controls, change payment methods or markets, connect a broker, custody assets, send an order, move funds, or create a recurring operation.
+
+## 2026-08-18 update — Verified Support Path correction
+
+The public `/support` route now identifies **Cash App `$chaisthegreat28` / `#chaisthegreat`** as the owner-provided verified public support handoff. The route also makes the remaining boundary explicit: this handoff does not establish a store support desk, fulfillment channel, refund policy, customer-service SLA, product-order path, or payment confirmation for an unreleased item.
+
+Browser review confirmed the current support card, external Cash App handoff, and product-specific support gate render correctly. Before an individual store item, checkout, fulfillment route, or native-store submission is represented as supported, its release record must name the customer contact, monitoring/escalation process, delivery or refund terms, public destination, and exact owner release.

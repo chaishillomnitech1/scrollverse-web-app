@@ -659,7 +659,8 @@ describe("Phase 94 route map", () => {
     expect(readiness).toContain("Native-store distribution is a separate delivery path");
     expect(readiness).toContain("not a legal opinion or store-submission service");
     expect(privacy).toContain("not a substitute for a completed store-specific privacy questionnaire");
-    expect(support).toContain("Publisher contact designation pending");
+    expect(support).toContain("Cash App · $chaisthegreat28 / #chaisthegreat");
+    expect(support).toContain("PRODUCT-SPECIFIC SUPPORT GATE");
     expect(worker).toContain("'/release-readiness'");
     expect(worker).toContain("scrollverse-trinity-v25");
   });

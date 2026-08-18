@@ -4046,6 +4046,7 @@
 - [ ] Validate live-path readiness and request exact confirmation for each provider-side activation
 - [x] Correct the Activation Register’s stale managed-publication state after the verified successful checkpoint and public-route recovery
 - [x] Correct the Multi-Platform Release Desk’s stale managed-history wording while retaining each destination’s individual account and publication gates
+- [x] Correct the Support Path to show the owner-provided Cash App handoff as the only verified public support destination while retaining product-specific support release gates
 
 ## Bounded Synchronization Research Discovery Pipeline
 - [x] Define the user-provided source seed set, public discovery relevance rules, claim-status labels, deduplication, correction, and source-queue record
