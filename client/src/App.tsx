@@ -741,6 +741,7 @@ function Router() {
         <Route path="/ai-chat-upload" component={AIChatUpload} />
         <Route path="/virgil-abloh" component={VirgilAbloh} />
         <Route path="/fashion-empire" component={FashionEmpire} />
+        <Route path="/fashion" component={FashionEmpire} />
         <Route path="/atlantis-collection" component={AtlantisCollection} />
         <Route path="/empire-index" component={EmpireIndex} />
         <Route path="/journey" component={PortalNavigator} />

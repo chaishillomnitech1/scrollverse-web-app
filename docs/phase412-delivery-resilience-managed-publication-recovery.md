@@ -228,4 +228,10 @@ The owner supplied Shopify-admin guidance that lists five suggested launch areas
 
 No storefront password, product, price, image, inventory, payment method, bank or identity verification, shipping zone, shipping rate, domain, checkout, payout, or customer communication was changed. Each suggested action remains blocked pending its own item or settings record and a current exact owner confirmation.
 
+## 2026-08-18 update — Fashion Empire release-state correction
+
+The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.
+
+TypeScript completed without errors and the full regression suite completed with **109 test files / 412 tests passing**. Browser checks confirmed both `/fashion-empire` and the repaired `/fashion` alias show the corrected release-preparation page rather than a route error. No product listing, manufacturing agreement, coin issuance, NFT mint, sale, payout, marketplace activation, wallet operation, or transfer was created or claimed.
+
 TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.
