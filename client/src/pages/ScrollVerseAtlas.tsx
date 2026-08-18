@@ -78,6 +78,7 @@ const ATLAS_LANES: AtlasLane[] = [
     routes: [
       { label: "Media Hub", href: "/media-hub" },
       { label: "Direct-to-Fan Catalog", href: "/direct-fan-catalog" },
+      { label: "Catalog Engagement", href: "/catalog-engagement" },
       { label: "Catalog Production Desk", href: "/catalog-production-desk" },
       { label: "Story Studio", href: "/living-journey-experience#story-studio" },
     ],

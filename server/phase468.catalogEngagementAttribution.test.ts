@@ -5,6 +5,8 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const app = fs.readFileSync(path.join(root, "client/src/App.tsx"), "utf8");
 const page = fs.readFileSync(path.join(root, "client/src/pages/CatalogEngagementAttribution.tsx"), "utf8");
+const directFan = fs.readFileSync(path.join(root, "client/src/pages/DirectFanCatalog.tsx"), "utf8");
+const atlas = fs.readFileSync(path.join(root, "client/src/pages/ScrollVerseAtlas.tsx"), "utf8");
 
 describe("Phase 468 — Catalog Engagement & Attribution Foundation", () => {
   it("registers the browser-local catalog engagement route", () => {
@@ -20,6 +22,12 @@ describe("Phase 468 — Catalog Engagement & Attribution Foundation", () => {
     expect(page).toContain("Browser-local attribution brief");
     expect(page).toContain("ATTRIBUTION LAYERS");
     expect(page).toContain("Future result gate");
+  });
+
+  it("connects the local foundation from catalog and central discovery routes", () => {
+    expect(directFan).toContain('href="/catalog-engagement"');
+    expect(directFan).toContain("Catalog engagement brief");
+    expect(atlas).toContain('{ label: "Catalog Engagement", href: "/catalog-engagement" }');
   });
 
   it("fails closed on audience data, provider connections, financial claims, and campaign actions", () => {

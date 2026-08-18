@@ -149,3 +149,7 @@ The Multi-Platform ScrollVerse destination previously retained an outdated manag
 The workspace now includes `/catalog-engagement`, a browser-local creator-control route that joins a named catalog record, visitor pathway, intended review purpose, owner/correction note, and future-result gate in one copied brief. Its four visible attribution layers distinguish source/release records and visitor pathways from research-only audience signals and separately owner-released provider result records.
 
 TypeScript completed without errors and the full regression suite completed with **102 test files / 388 tests passing**. Browser inspection confirmed the named asset selection, attribution layers, local brief fields, and no-metrics/no-provider boundary render correctly. The route does not set a pixel, read analytics, collect visitor data, create a segment, send a campaign, connect a provider, process payment, make a sale, or make a financial claim.
+
+### Discovery-path update
+
+The Direct-to-Fan Catalog now exposes a **Catalog engagement brief** handoff beside its catalog and free-reader actions, and the ScrollVerse Atlas adds the same route within the Music, Media & Story Studio lane. Regression coverage confirms both internal links, and local browser inspection confirms the Direct-to-Fan link renders while the catalog retains its no-price/no-checkout/no-payment/no-token/no-wallet/no-delivery boundary.
