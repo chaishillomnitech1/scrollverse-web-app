@@ -3925,7 +3925,7 @@
 - [x] Add focused coverage and validate public destination routing without publishing products, changing checkout, or making a provider action
 
 ## Approved Shopify Staged Launch Plan
-- [ ] Record owner-supplied Shopify payment-method notifications, international-market screen, and sensitive crawler-signature boundary without reproducing protected values
+- [x] Record owner-supplied Shopify payment-method notifications, international-market screen, and sensitive crawler-signature boundary without reproducing protected values
 - [x] Add staged-launch guidance that separates visible notification text, direct provider verification, and visitor-visible availability
 - [x] Create reusable item-level release-packet and payment-method verification templates for music, books, fashion, collector editions, and creator services
 - [x] Create international-market readiness and staged-launch checklists without changing country, currency, tax, duty, shipping, or merchant-of-record settings

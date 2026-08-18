@@ -211,3 +211,9 @@ Focused Support Highways coverage validates that the Cash App public route is re
 The workspace now includes `/payment-launch-packets`, a browser-local preparation surface for one current portal Stripe offer packet and one separate Shopify storefront-copy packet. The templates preserve item identifier/version, source, creator, rights/contributors, accessible description, format, price/currency/tax basis where paid, delivery or inventory scope, refunds or returns where applicable, support path, exact provider destination, owner release, correction/rollback condition, and post-release publication fields.
 
 TypeScript completed without errors and the full regression suite completed with **107 test files / 405 tests passing**. Browser review confirmed both packet paths, their item-level fields, the copyable browser-local draft, internal control-record handoffs, and the visible no-provider-action boundary. No checkout, payment link, product, price, inventory, transfer, payout, token, provider setting, customer communication, or external submission was created.
+
+## 2026-08-18 update — Protected Shopify notification and market evidence
+
+The Phase 474 record retains the owner-supplied references to Shopify payment-method notifications, international-market material, and sensitive crawler-signature material as protected source categories only. It records the visible non-sensitive onboarding context from `IMG_4043.PNG` and `IMG_4040.PNG` while excluding raw notification payloads, crawler signatures, payment settings, account details, customer information, and provider configuration.
+
+This evidence boundary does not establish payment acceptance, a completed transaction, payout, settlement, open market, customer catalog, checkout, product publication, or any public Shopify action. Any future correction must attach a public-safe, item- or market-specific source record without exposing protected operational values.
