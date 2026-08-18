@@ -252,4 +252,10 @@ The home-page SaferWay panel now uses **service readiness** rather than “accep
 
 TypeScript completed without errors and the full regression suite completed with **111 test files / 416 tests passing**. Browser review confirmed the revised SaferWay panel and gateway labels are visible. No service booking, appointment, payment, fulfillment, customer intake, metrics connection, provider configuration, or live service action was created.
 
+## 2026-08-18 update — Home payment and membership-state correction
+
+The home-page foundation now presents payment release readiness, webhook release preparation, payment-boundary testing, sovereign email preparation, managed delivery records, and scaling research rather than active Stripe, webhook, campaign, infrastructure, or user-scale claims. The Guardian panel now states that any membership tier, price, customer terms, payment method, entitlement, staking reward, or distribution remains release-gated and provides a Guardian readiness review path rather than an active subscription representation.
+
+TypeScript completed without errors and the full regression suite completed with **112 test files / 418 tests passing**. Browser inspection confirmed the updated foundation pillars render with their source-bound operating states. No payment, subscription, customer, campaign, checkout, payout, access entitlement, staking reward, distribution, infrastructure configuration, or external service action was created.
+
 TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.

@@ -3974,8 +3974,8 @@
 - [x] Add focused regression coverage and validate the corrected home-page service labels
 
 ## Home Membership-State Correction
-- [ ] Replace home-page membership price and active-access implications with release-readiness states unless an exact subscription, checkout, and customer-terms record is verified
-- [ ] Add focused regression coverage and validate the corrected home-page membership labels
+- [x] Replace home-page membership price and active-access implications with release-readiness states unless an exact subscription, checkout, and customer-terms record is verified
+- [x] Add focused regression coverage and validate the corrected home-page membership labels
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
