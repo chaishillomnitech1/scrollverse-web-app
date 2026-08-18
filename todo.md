@@ -4040,9 +4040,10 @@
 
 ## Verified Live Visitor-Choice Pathways
 - [x] Define the item, destination, delivery or custody, customer-term, and owner-release requirements for live buy, sell, trade, contribution, and display choices
-- [ ] Build source-bound visitor-choice and Activation Register routes with direct correction paths and no fake checkout or unverified trade claim
+- [x] Build source-bound visitor-choice and Activation Register routes with direct correction paths and no fake checkout or unverified trade claim
 - [ ] Prepare named launch packets for original items and public destinations before any provider-side activation
 - [ ] Validate live-path readiness and request exact confirmation for each provider-side activation
+- [x] Correct the Activation Register’s stale managed-publication state after the verified successful checkpoint and public-route recovery
 
 ## Bounded Synchronization Research Discovery Pipeline
 - [x] Define the user-provided source seed set, public discovery relevance rules, claim-status labels, deduplication, correction, and source-queue record

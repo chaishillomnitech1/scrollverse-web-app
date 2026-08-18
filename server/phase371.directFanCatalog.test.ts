@@ -187,6 +187,8 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(activationRegisterSource).toContain('useSovereignHeartbeat({ page: "activation-register" })');
     expect(activationRegisterSource).toContain("Every live choice needs a");
     expect(activationRegisterSource).toContain("PUBLISH-PORTAL-001");
+    expect(activationRegisterSource).toContain('state: "Verified public route"');
+    expect(activationRegisterSource).toContain("The managed recovery checkpoint now serves verified public ScrollVerse routes.");
     expect(activationRegisterSource).toContain("SHOPIFY-PRODUCT-001");
     expect(activationRegisterSource).toContain("TRADE-ORDER-001");
     expect(activationRegisterSource).toContain("A copied status message is a source, not a switch.");
