@@ -359,6 +359,7 @@ import DirectFanCatalog from "./pages/DirectFanCatalog";
 import CatalogEngagementAttribution from "./pages/CatalogEngagementAttribution";
 import BoundedResearchOperations from "./pages/BoundedResearchOperations";
 import ShopifyStagedLaunchGuidance from "./pages/ShopifyStagedLaunchGuidance";
+import EmpireRoutingMap from "./pages/EmpireRoutingMap";
 import SovereignContributionExchange from "./pages/SovereignContributionExchange";
 import LivingJourneyExperience from "./pages/LivingJourneyExperience";
 import AccomplishmentsArchive from "./pages/AccomplishmentsArchive";
@@ -571,6 +572,7 @@ function Router() {
       <Route path={"/catalog-engagement"} component={CatalogEngagementAttribution} />
       <Route path={"/bounded-research-operations"} component={BoundedResearchOperations} />
       <Route path={"/shopify-staged-launch-guidance"} component={ShopifyStagedLaunchGuidance} />
+      <Route path={"/empire-routing-map"} component={EmpireRoutingMap} />
       <Route path={"/sovereign-contribution-exchange"} component={SovereignContributionExchange} />
       <Route path={"/living-journey-experience"} component={LivingJourneyExperience} />
       <Route path={"/accomplishments-archive"} component={AccomplishmentsArchive} />

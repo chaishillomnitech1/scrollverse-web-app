@@ -3932,11 +3932,11 @@
 - [x] Add focused route coverage and validate Shopify readiness, Payment Options Map, and staged-launch boundaries without initiating provider-side actions
 
 ## Empire Routing and Public Source Inventory
-- [ ] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory
-- [ ] Inventory the owner-authorized public GitHub account and compatible public repositories without changing repository state or reproducing credentials
-- [ ] Build a unified Empire Routing Map with verified public destinations, free discovery paths, source records, and release-required lanes
-- [ ] Cross-link compatible public repository records to portal evidence, learning, and production routes without importing external claims as local project state
-- [ ] Add focused coverage and validate the unified route map and source boundaries without provider, storefront, payment, or repository actions
+- [x] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory
+- [x] Inventory the owner-authorized public GitHub account and compatible public repositories without changing repository state or reproducing credentials
+- [x] Build a unified Empire Routing Map with verified public destinations, free discovery paths, source records, and release-required lanes
+- [x] Cross-link compatible public repository records to portal evidence, learning, and production routes without importing external claims as local project state
+- [x] Add focused coverage and validate the unified route map and source boundaries without provider, storefront, payment, or repository actions
 
 ## Managed Publication Compatibility
 - [x] Record the publisher-visible history conflict as a delivery-state boundary rather than a content, route, or storefront compatibility defect

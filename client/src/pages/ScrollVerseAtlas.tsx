@@ -98,6 +98,7 @@ const ATLAS_LANES: AtlasLane[] = [
       { label: "Chais Sabir Equation", href: "/chais-sabir-equation" },
       { label: "Source Study Library", href: "/source-study-library" },
       { label: "Delivery Resilience", href: "/delivery-resilience" },
+      { label: "Empire Routing Map", href: "/empire-routing-map" },
     ],
   },
   {
