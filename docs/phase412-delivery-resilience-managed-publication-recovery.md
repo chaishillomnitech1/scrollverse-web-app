@@ -262,6 +262,10 @@ The former active ScrollSoul NFT marketplace is now a source-labeled collector r
 
 The exact collector gate now requires an original asset record, representation mode, public-media decision, chain/network and service/contract choice, custody, edition, fee cap, collector terms, correction/rollback path, and exact current owner release before one named irreversible action. TypeScript completed without errors and the full regression suite completed with **116 test files / 429 tests passing**. Browser inspection confirmed the repaired `/nft-marketplace` alias routes to this collector readiness content rather than a 404. No contract, mint, listing, wallet, token, NFT, price, checkout, payment, transfer, payout, or provider action was created.
 
+### Full catalog discovery handoffs
+
+The complete creator-owned catalog readiness workspace is now discoverable through the ScrollVerse Atlas Music, Media & Story Studio lane and the Empire Routing Map release-required lanes, in addition to the Direct-to-Fan Catalog. The central links retain the readiness description and do not represent an active Shopify catalog, product, price, cart, checkout, payment, inventory, fulfillment, or customer flow. TypeScript and the full **116-file / 429-test** suite remain clean after adding the handoffs.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.

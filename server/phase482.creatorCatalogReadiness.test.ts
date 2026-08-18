@@ -6,12 +6,16 @@ const root = resolve(import.meta.dirname, "..");
 const routeSource = readFileSync(resolve(root, "client/src/pages/CreatorCatalogReadiness.tsx"), "utf8");
 const appSource = readFileSync(resolve(root, "client/src/App.tsx"), "utf8");
 const directFanSource = readFileSync(resolve(root, "client/src/pages/DirectFanCatalog.tsx"), "utf8");
+const atlasSource = readFileSync(resolve(root, "client/src/pages/ScrollVerseAtlas.tsx"), "utf8");
+const routingMapSource = readFileSync(resolve(root, "client/src/pages/EmpireRoutingMap.tsx"), "utf8");
 
 describe("Phase 482 — creator-owned catalog readiness", () => {
   it("registers the unified full-catalog readiness route and Direct-to-Fan handoff", () => {
     expect(appSource).toContain('import CreatorCatalogReadiness from "./pages/CreatorCatalogReadiness"');
     expect(appSource).toContain('<Route path={"/creator-catalog-readiness"} component={CreatorCatalogReadiness} />');
     expect(directFanSource).toContain('href="/creator-catalog-readiness"');
+    expect(atlasSource).toContain('href: "/creator-catalog-readiness"');
+    expect(routingMapSource).toContain('href: "/creator-catalog-readiness"');
   });
 
   it("keeps catalog categories source-labeled and item-level", () => {

@@ -20,6 +20,7 @@ const FREE_PATHS = [
 ] as const;
 
 const RELEASE_LANES = [
+  { title: "Full creator-owned catalog", href: "/creator-catalog-readiness", status: "Browser-local catalog readiness", detail: "Music, books, collector concepts, artwork, fashion, services, and knowledge records remain source-labeled; no Shopify catalog or checkout is implied." },
   { title: "Item release controls", href: "/product-release-pipeline", status: "Release-ready preparation", detail: "Every named item requires its own source, rights, accessibility, delivery, support, price/currency where paid, and owner-release record." },
   { title: "Direct-to-Fan packet desk", href: "/direct-fan-catalog", status: "Browser-local packet preparation", detail: "Named catalog briefs and free-reader routes are available; no checkout, payment, wallet, token, or delivery activation is implied." },
   { title: "Shopify staged launch", href: "/shopify-staged-launch-guidance", status: "Requires exact provider action", detail: "Item templates and market-readiness checks are available without binding Shopify, publishing a product, or changing any commerce setting." },
