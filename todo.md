@@ -4004,6 +4004,10 @@
 - [x] Replace CryptoHub direct wallet transfer, live treasury, guardian tier price, asset, mint, royalty, and chain-action controls with source-labeled crypto and collector release-readiness records
 - [x] Add focused regression coverage and validate that CryptoHub does not call wallet APIs, fetch chain balances, display wallet or contract addresses, create transfer/mint interactions, or represent a crypto payment path as current
 
+## ExchangeCrypto Release-State Correction
+- [x] Replace ExchangeCrypto wallet, swap, price, asset, transfer, and exchange controls with source-labeled conversion and delivery release-readiness records
+- [x] Add focused regression coverage and validate that ExchangeCrypto does not call wallet APIs, display active prices or assets, create a swap/transfer interaction, or represent an exchange action as current
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state

@@ -278,6 +278,12 @@ The `/crypto` route now serves as a source-labeled crypto and collector readines
 
 TypeScript completed without errors and the full regression suite completed with **118 test files / 435 tests passing**. Browser inspection confirmed the readiness records, browser-local crypto packet, and exact action gate render visibly. No wallet, payment, chain, asset, price, balance, contract, token, NFT, mint, transfer, custody, sale, payout, customer, or provider action was created or represented as current.
 
+## 2026-08-18 update — ExchangeCrypto release-state correction
+
+The `/exchange/crypto` route now serves as a source-labeled market-research and conversion-readiness surface. It separates market observation, future `$LONDC` conversion, and paper-trading controls without displaying prices, volume, trade pairs, assets, exchange listings, confidence scores, signals, recommendations, wallets, custody, funding, buy/sell forms, orders, transfers, settlement, or financial outcomes.
+
+TypeScript completed without errors and the full regression suite completed with **119 test files / 438 tests passing**. Browser inspection confirmed the market research, conversion, and simulation records along with the browser-local market packet and exact action gate. No price feed, exchange, broker, wallet, custody, funding, order, stop, transfer, settlement, token, payment, or provider action was created or represented as current.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.
