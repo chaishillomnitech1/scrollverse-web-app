@@ -115,3 +115,9 @@ The public Knowledge Commons and Perspectives routes now provide the linked rese
 The public `/activation-register` route was verified as reachable and retains its source-bound action IDs, correction path, exact-confirmation format, and handoffs to the product release, payment-options, storefront, delivery-resilience, and trading-readiness records. Its `PUBLISH-PORTAL-001` card previously retained the historical publisher-conflict wording after the recovery had succeeded. The card now states **Verified public route** and requires each future route to complete registration, local validation, a successful managed checkpoint, public-domain verification, and a correction path.
 
 The correction changes only the portal-delivery status. All storefront access, product, checkout, market, payment-destination, broker, live-order, wallet, custody, and schedule cards remain individually release-gated and do not represent a provider-side action as active.
+
+## 2026-08-18 update — Trading architecture comparison
+
+The Trading Readiness route now compares three non-recommending control architectures: browser-local paper trading, a future monitored readiness ledger, and conditional live execution. Each path separates cost basis from cost quotes, safeguards from permissions, and owner control from autonomous action. The monitored path makes no schedule or monitor active; the conditional path makes no provider, account, custody, funding, data feed, order, transfer, or live execution active.
+
+The comparison is platform-neutral and records external costs, data, terms, commissions, spread, fees, taxes, and execution conditions as unknown until the exact provider, market, account, and scope are verified. Public browser review confirmed the route renders the three control paths, their cost-basis, safeguards, owner-control fields, and the pre-existing exact live-action register.

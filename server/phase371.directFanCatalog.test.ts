@@ -164,6 +164,11 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(tradingReadinessSource).toContain('useSovereignHeartbeat({ page: "trading-readiness" })');
     expect(tradingReadinessSource).toContain("PAPER-TRADING READINESS · NO LIVE ORDER");
     expect(tradingReadinessSource).toContain("Build the controls");
+    expect(tradingReadinessSource).toContain("OPERATION ARCHITECTURE COMPARISON");
+    expect(tradingReadinessSource).toContain("Monitored readiness ledger");
+    expect(tradingReadinessSource).toContain("COST BASIS");
+    expect(tradingReadinessSource).toContain("SAFEGUARDS");
+    expect(tradingReadinessSource).toContain("OWNER CONTROL");
     expect(tradingReadinessSource).toContain("A broad instruction never substitutes for an order-specific confirmation.");
     expect(tradingReadinessSource).not.toMatch(/fetch\(|walletconnect|exchange api key|place order/i);
   });

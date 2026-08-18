@@ -4072,7 +4072,7 @@
 ## Trading Readiness and Controlled Execution
 - [x] Define trading-readiness scope for crypto and general markets, including custody, provider, strategy, market, legal/tax record, and risk prerequisites
 - [x] Build a paper-trading and risk-control architecture with strategy versioning, limits, stop conditions, audit logs, and no live-order capability
-- [ ] Compare viable simulation, monitoring, and conditional-execution operation architectures with cost, safeguards, and owner control
+- [x] Compare viable simulation, monitoring, and conditional-execution operation architectures with cost, safeguards, and owner control
 - [x] Prepare an exact live-trading activation register that requires named provider, asset, strategy, funding, position limits, loss limits, stop conditions, and explicit confirmation before any order
 
 ## Full-Production Source and Interface Deepening
