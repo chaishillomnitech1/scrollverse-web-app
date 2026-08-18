@@ -3968,9 +3968,9 @@
 ## Managed Publication Recovery — Non-Destructive Path
 - [x] Record the current publisher-visible merge conflict and preserve the locally validated Milestone Roadmap work
 - [x] Assess only supported managed recovery options that preserve both remote history and local portal changes
-- [ ] Apply any available compatible recovery path, revalidate the portal, and retry the managed checkpoint
-- [ ] Use only legitimate, non-destructive, platform-supported recovery methods; do not force, erase, or misrepresent history
-- [ ] Use Version History or an equivalent managed conflict-resolution control to create a compatible checkpoint tree from the current local work and remote baseline
+- [x] Apply any available compatible recovery path, revalidate the portal, and retry the managed checkpoint
+- [x] Use only legitimate, non-destructive, platform-supported recovery methods; do not force, erase, or misrepresent history
+- [x] Use Version History or an equivalent managed conflict-resolution control to create a compatible checkpoint tree from the current local work and remote baseline
 
 ## ScrollVerse Systems Blueprint — B2B Productization
 - [x] Audit reusable ScrollVerse methods, publicly usable sources, rights boundaries, and evidence limitations for a B2B systems offering

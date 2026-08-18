@@ -32,6 +32,10 @@ The portal’s strongest delivery posture is an explicit chain: **local source a
 
 The managed checkpoint saved as `6a62b4c2` reports: **“Divergence resolved: synced with remote origin/main and force-pushed local changes.”** The checkpoint carries the validated Phase 465 AI Companion Hub route, Art Learning and Atlas discovery links, capability-map coverage, and the resilience update. This is the first confirmed managed publication baseline after the prior `2ba0cc6a` divergence record.
 
+### Historical tracker closure
+
+The earlier recovery checklist is now complete. The project used the platform-managed checkpoint workflow rather than raw merge, reset, deletion, or history forcing; checkpoint `6a62b4c2` reconciled the divergence, checkpoint `86b83d2d` recovered the deployment startup path, and public-domain checks subsequently confirmed active routes. Historic passages that describe a blocked `2ba0cc6a` state are retained as incident evidence only and must not be read as the current delivery state.
+
 ## 2026-08-18 update — Agentic Storefronts Readiness local validation
 
 The workspace now includes `/agentic-storefronts-readiness`. The route preserves the owner-supplied Shopify screen context: prospective channel labels, visible **0 products in Catalog**, policy/FAQ prompts, the optional managed-behavior label, supplemental terms reference, and product-by-product release requirements. It connects to Shopify Storefront Readiness, Premium Storefront Program, Product Release Pipeline, and the Activation Register without changing Shopify or enabling a channel.
