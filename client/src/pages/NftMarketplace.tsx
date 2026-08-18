@@ -1,178 +1,219 @@
-/*
- * SCROLLSOUL NFT MARKETPLACE — ScrollVerse v3.0
- * 144,000 Pioneer Legion + 3 Ascendant Tiers
- * LIVE: Stripe NFT checkout active on all tiers
- */
-import { useState } from "react";
-import { trpc } from "@/lib/trpc";
-import { Button } from "@/components/ui/button";
+import { useMemo, useState } from "react";
 import { Link } from "wouter";
+import { Archive, BadgeCheck, ClipboardCheck, Copy, Gem, ShieldCheck, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-const TIER_CONFIG = {
-  pioneer: { label: "Pioneer Legion", supply: 144000, color: "#00D4FF", price: "$144", priceUsd: 144, priceLondc: "10,000 $LONDC", icon: "🌊", description: "The founding 144,000 Guardians of the ScrollVerse empire." },
-  guardian: { label: "Guardian Council", supply: 14400, color: "#00FF88", price: "$444", priceUsd: 444, priceLondc: "30,000 $LONDC", icon: "🛡️", description: "Elite Guardians protecting the sovereign frequency." },
-  sovereign: { label: "Sovereign Order", supply: 1444, color: "#FFB800", price: "$1,444", priceUsd: 1444, priceLondc: "100,000 $LONDC", icon: "👑", description: "The Sovereign Order — rulers of the ScrollVerse realm." },
-  ascendant: { label: "Ascendant Supreme", supply: 144, color: "#FF6B35", price: "$14,444", priceUsd: 14444, priceLondc: "1,000,000 $LONDC", icon: "⚡", description: "144 Supreme Ascendants — the highest tier of the empire." },
-};
+type CollectorLane = "Sun on Us — 11:11" | "ScrollSoul identity concept" | "Guardian collector concept" | "Future original collection";
 
-type Tier = keyof typeof TIER_CONFIG;
+const LANES: Array<{
+  lane: CollectorLane;
+  state: string;
+  source: string;
+  limitation: string;
+  color: string;
+}> = [
+  {
+    lane: "Sun on Us — 11:11",
+    state: "display-ready · collector readiness",
+    source: "Three owner-directed artwork records with prepared metadata and hashes",
+    limitation: "No collector license, mint, listing, wallet, delivery, or sale is active.",
+    color: "#FFCC4D",
+  },
+  {
+    lane: "ScrollSoul identity concept",
+    state: "concept record · requires owner release",
+    source: "Original ScrollVerse collector identity concept",
+    limitation: "No contract, supply, price, $LONDC amount, checkout, or token issuance is set.",
+    color: "#00D4FF",
+  },
+  {
+    lane: "Guardian collector concept",
+    state: "concept record · requires owner release",
+    source: "Guardian pathway and creator-owned ecosystem materials",
+    limitation: "No membership, reward, allocation, staking, sale, entitlement, or distribution is active.",
+    color: "#00FF88",
+  },
+  {
+    lane: "Future original collection",
+    state: "research · item evidence required",
+    source: "Future owner-directed original creation lane",
+    limitation: "Source, rights, public media, edition, chain, custody, terms, and release record remain required.",
+    color: "#B98CFF",
+  },
+];
+
+const REQUIRED_GATES = [
+  "Exact original asset, version, source trail, and creator/rights record",
+  "Public-media decision and accessibility description",
+  "Representation mode: provenance-only, rights-cleared media, or another named mode",
+  "Chain, network, contract/service, custody, edition, fee cap, and marketplace state",
+  "Collector terms, delivery/support process, correction path, and rollback condition",
+  "Exact current owner release and post-release public verification",
+];
 
 export default function NftMarketplace() {
-  const [mintingTier, setMintingTier] = useState<Tier | null>(null);
+  useSovereignHeartbeat({ page: "nft-marketplace" });
+  const [selectedLane, setSelectedLane] = useState<CollectorLane>(LANES[0].lane);
+  const [releaseNote, setReleaseNote] = useState("");
+  const [acknowledged, setAcknowledged] = useState(false);
 
-  const { data: mintProgress } = trpc.nft.getMintProgress.useQuery(undefined, { refetchInterval: 15000 });
-  const { data: collection } = trpc.nft.getCollection.useQuery({ tier: "all", limit: 12 });
-  const { data: recentMints } = trpc.nft.getRecentMints.useQuery({ limit: 8 });
+  const selected = useMemo(
+    () => LANES.find((entry) => entry.lane === selectedLane) ?? LANES[0],
+    [selectedLane],
+  );
 
-  const totalSupply = 144000 + 14400 + 1444 + 144;
+  const copyCollectorPacket = async () => {
+    const packet = [
+      "SCROLLVERSE · COLLECTOR RELEASE-READINESS PACKET",
+      `Lane: ${selected.lane}`,
+      `State: ${selected.state}`,
+      `Source: ${selected.source}`,
+      `Owner note: ${releaseNote || "Not supplied"}`,
+      "Boundary: This packet does not authorize a contract, chain, mint, wallet, token, NFT, price, supply, checkout, payment, transfer, listing, delivery, payout, or provider action.",
+      "Required next step: Supply every exact release gate and provide a current owner confirmation for one named irreversible action.",
+    ].join("\n");
 
-  const nftCheckout = trpc.store.createNFTCheckoutSession.useMutation({
-    onSuccess: (data) => {
-      if (data?.url) window.location.href = data.url;
-      setMintingTier(null);
-    },
-    onError: (err) => {
-      toast.error(err.message || "Checkout failed. Please try again.");
-      setMintingTier(null);
-    },
-  });
-
-  const handleMint = (tier: Tier) => {
-    const tc = TIER_CONFIG[tier];
-    setMintingTier(tier);
-    nftCheckout.mutate({
-      nftId: `scrollsoul-${tier}-${Date.now()}`,
-      nftName: `ScrollSoul ${tc.label}`,
-      nftDescription: tc.description,
-      priceCents: tc.priceUsd * 100,
-      origin: window.location.origin,
-    });
+    try {
+      await navigator.clipboard.writeText(packet);
+      toast.success("Collector readiness packet copied. No external action was created.");
+    } catch {
+      toast.error("Copy was unavailable in this browser. No external action was created.");
+    }
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
-      {/* Nav */}
-      <nav className="border-b px-6 py-4 flex items-center justify-between" style={{ borderColor: "rgba(0,212,255,0.1)", background: "rgba(5,11,26,0.95)" }}>
-        <Link href="/"><div className="flex items-center gap-2 cursor-pointer">
-          <div className="w-7 h-7 rounded-sm flex items-center justify-center text-xs font-bold" style={{ background: "linear-gradient(135deg, #00D4FF, #FFB800)", color: "#050B1A" }}>SV</div>
-          <span className="font-bold text-white">ScrollVerse</span>
-        </div></Link>
-        <div className="flex items-center gap-4">
-          <Link href="/staking"><span className="text-sm cursor-pointer" style={{ color: "#8899AA" }}>Staking</span></Link>
-          <Link href="/token"><span className="text-sm cursor-pointer" style={{ color: "#8899AA" }}>Buy $LONDC</span></Link>
-        </div>
-      </nav>
-
-      <div className="container py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-            <span className="text-xs font-mono tracking-widest" style={{ color: "#00FF88" }}>LIVE — MINTING ACTIVE</span>
+    <main className="min-h-screen bg-[#050B1A] pb-20 text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+      <section className="border-b border-white/10 bg-[radial-gradient(circle_at_70%_20%,rgba(185,140,255,.16),transparent_35%),radial-gradient(circle_at_20%_80%,rgba(0,212,255,.14),transparent_34%)]">
+        <div className="container py-12">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-4xl">
+              <p className="text-xs font-mono tracking-[.18em] text-[#DCC8FF]">SCROLLSOUL · COLLECTOR RELEASE READINESS</p>
+              <h1 className="mt-3 text-4xl font-black sm:text-5xl">Original collector records. No mint or checkout active.</h1>
+              <p className="mt-5 max-w-3xl text-base leading-8 text-[#D6E2EE]">
+                This route presents the creator’s collector concepts and prepared artwork records directly. It is a source-labeled preparation surface, not a marketplace, wallet, token sale, reward program, or minting service.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/sun-on-us-1111" className="rounded-xl border border-[#FFCC4D]/50 bg-[#FFCC4D]/10 px-4 py-3 text-sm font-black text-[#FFE7A2]">Sun on Us record</Link>
+              <Link href="/creator-catalog-readiness" className="rounded-xl border border-[#00D4FF]/50 bg-[#00D4FF]/10 px-4 py-3 text-sm font-black text-[#9DEBFF]">Full catalog readiness</Link>
+              <Link href="/activation-register" className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm font-black text-white">Exact action register</Link>
+            </div>
           </div>
-          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FF6B35" }}>SCROLLSOUL NFT COLLECTION</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Own Your <span style={{ color: "#FF6B35" }}>Sovereign Soul</span>
-          </h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
-            {totalSupply.toLocaleString()} total ScrollSoul NFTs across 4 tiers. Each NFT is a permanent identity in the ScrollVerse empire.
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              ["Current state", "Collector records available · external action unavailable", "#DCC8FF"],
+              ["Price and supply", "Unset until exact item-level release record", "#FFDEA0"],
+              ["Chain and wallet", "No network, contract, wallet, custody, or transfer active", "#B5F7CC"],
+            ].map(([label, value, color]) => (
+              <div key={label} className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                <p className="text-xs font-mono tracking-[.13em]" style={{ color }}>{label}</p>
+                <p className="mt-3 text-sm leading-6 text-[#E7EDF5]">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-10">
+        <PortalTrustLens
+          lane="Creator-owned collector readiness"
+          source="Sun on Us collector record, Asset Registry, Art Museum evidence, original catalog records, and activation controls."
+          readiness="Collector concepts and browser-local release packets are available. A marketplace, mint, wallet, price, supply, sale, transfer, or reward is not represented as active."
+          boundary="The cards below present owner-directed source records and release gates. They do not confirm a blockchain deployment, rights clearance, collector license, financial offer, or external provider state."
+          correctionHref="/co-creation-navigator"
+        />
+      </section>
+
+      <section className="container py-8">
+        <div className="flex flex-col gap-4 border-b border-white/10 pb-7 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">COLLECTOR LANES · SOURCE-LABELED</p>
+            <h2 className="mt-2 text-3xl font-black">Prepare one original collector record at a time.</h2>
+          </div>
+          <Gem className="h-9 w-9 text-[#DCC8FF]" />
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {LANES.map((entry) => (
+            <button
+              type="button"
+              key={entry.lane}
+              onClick={() => setSelectedLane(entry.lane)}
+              className="rounded-3xl border p-6 text-left transition-colors"
+              style={{ borderColor: selected.lane === entry.lane ? entry.color : "rgba(255,255,255,.12)", background: selected.lane === entry.lane ? `${entry.color}14` : "#071426" }}
+            >
+              <p className="text-xs font-mono tracking-[.12em]" style={{ color: entry.color }}>{entry.state.toUpperCase()}</p>
+              <h3 className="mt-3 text-xl font-black">{entry.lane}</h3>
+              <p className="mt-4 text-sm leading-6 text-[#D6E2EE]">{entry.limitation}</p>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="container py-8">
+        <div className="grid gap-6 lg:grid-cols-[1.05fr_.95fr]">
+          <article className="rounded-[2rem] border border-[#B98CFF]/40 bg-[#071426] p-7">
+            <ClipboardCheck className="h-8 w-8 text-[#DCC8FF]" />
+            <p className="mt-5 text-xs font-mono tracking-[.16em] text-[#DCC8FF]">COLLECTOR PACKET · BROWSER-LOCAL</p>
+            <h2 className="mt-3 text-3xl font-black">{selected.lane}</h2>
+            <p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{selected.source} · {selected.state}</p>
+            <label htmlFor="collector-note" className="mt-6 block text-xs font-mono text-[#B8C7D6]">Owner release note or public-safe source reference</label>
+            <textarea
+              id="collector-note"
+              value={releaseNote}
+              onChange={(event) => setReleaseNote(event.target.value)}
+              rows={5}
+              placeholder="Record only public-safe source, rights, custody, terms, and release context. Do not enter credentials, wallet addresses, private customer data, or keys."
+              className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-[#061226] px-3 py-3 text-sm leading-6 text-white"
+            />
+            <label className="mt-6 flex gap-3 rounded-xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.06] p-4 text-sm leading-6 text-[#FFDEA0]">
+              <input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} className="mt-1 h-4 w-4 accent-[#FFCC4D]" />
+              I confirm this packet does not authorize a contract, chain, mint, wallet, token, NFT, price, supply, checkout, payment, transfer, listing, delivery, payout, or provider action.
+            </label>
+            <button type="button" onClick={copyCollectorPacket} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#B98CFF] px-4 py-3 text-sm font-black text-[#071426]">
+              <Copy className="h-4 w-4" />Copy collector release packet
+            </button>
+          </article>
+
+          <aside className="rounded-[2rem] border border-[#00FF88]/35 bg-[#00FF88]/[.05] p-7">
+            <ShieldCheck className="h-8 w-8 text-[#B5F7CC]" />
+            <p className="mt-5 text-xs font-mono tracking-[.16em] text-[#B5F7CC]">REQUIRED BEFORE ANY MINT OR LISTING</p>
+            <h2 className="mt-3 text-3xl font-black">One record. Every irreversible choice named.</h2>
+            <div className="mt-6 space-y-3">
+              {REQUIRED_GATES.map((gate, index) => (
+                <div key={gate} className="flex gap-3 rounded-xl border border-[#00FF88]/20 bg-black/20 p-4">
+                  <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#B5F7CC]" />
+                  <div>
+                    <p className="text-xs font-mono text-[#B5F7CC]">{String(index + 1).padStart(2, "0")}</p>
+                    <p className="mt-1 text-sm font-bold text-white">{gate}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="container py-8">
+        <div className="rounded-[2rem] border border-[#FF6B9A]/35 bg-[#FF6B9A]/[.05] p-7">
+          <Archive className="h-8 w-8 text-[#FF9EB9]" />
+          <p className="mt-5 text-xs font-mono tracking-[.16em] text-[#FF9EB9]">EXACT ACTION GATE</p>
+          <h2 className="mt-3 text-3xl font-black">Collector readiness is not an automatic mint authority.</h2>
+          <p className="mt-4 max-w-5xl text-sm leading-7 text-[#D6E2EE]">
+            Before any provider-side contract, mint, transfer, listing, marketplace, wallet, custody, payment, payout, or collector-license action, the active request must name the exact original asset, representation mode, chain/network, service or contract, supply, public-media decision, custody destination, fee cap, collector terms, marketplace/price decision, visitor effect, and rollback condition. One exact current owner confirmation is required for that one action.
           </p>
         </div>
+      </section>
 
-        {/* Mint Progress */}
-        <div className="rounded-2xl p-8 mb-12" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(0,212,255,0.1)" }}>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-white">Mint Progress</h2>
-            <div className="text-sm font-mono" style={{ color: "#8899AA" }}>
-              {(mintProgress?.totalMinted ?? 0).toLocaleString()} / {totalSupply.toLocaleString()} minted
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            {(Object.keys(TIER_CONFIG) as Tier[]).map(tier => {
-              const tc = TIER_CONFIG[tier];
-              const minted = mintProgress?.progress[tier] ?? 0;
-              const pct = Math.round((minted / tc.supply) * 100);
-              return (
-                <div key={tier}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="flex items-center gap-2">
-                      <span>{tc.icon}</span>
-                      <span className="text-white font-medium">{tc.label}</span>
-                    </span>
-                    <span style={{ color: tc.color }}>{minted.toLocaleString()} / {tc.supply.toLocaleString()} ({pct}%)</span>
-                  </div>
-                  <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.05)" }}>
-                    <div className="h-full rounded-full transition-all duration-700" style={{ width: `${Math.max(pct, 0.5)}%`, background: tc.color }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+      <section className="container pt-4">
+        <div className="flex flex-wrap gap-3 text-sm font-bold">
+          <Link href="/asset-registry" className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">Asset Registry</Link>
+          <Link href="/art-museum" className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">Art Museum</Link>
+          <Link href="/delivery-resilience" className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">Delivery record</Link>
+          <Link href="/creator-catalog-readiness" className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">Catalog readiness</Link>
         </div>
-
-        {/* Tier Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {(Object.keys(TIER_CONFIG) as Tier[]).map(tier => {
-            const tc = TIER_CONFIG[tier];
-            const isMinting = mintingTier === tier && nftCheckout.isPending;
-            return (
-              <div key={tier} className="rounded-xl p-6 flex flex-col" style={{ background: `${tc.color}08`, border: `1px solid ${tc.color}30` }}>
-                <div className="text-4xl mb-3">{tc.icon}</div>
-                <div className="font-bold text-white text-lg mb-1">{tc.label}</div>
-                <div className="text-xs mb-3" style={{ color: "#8899AA" }}>{tc.description}</div>
-                <div className="mt-auto">
-                  <div className="text-2xl font-black mb-1" style={{ color: tc.color }}>{tc.price}</div>
-                  <div className="text-xs mb-3" style={{ color: "#8899AA" }}>or {tc.priceLondc}</div>
-                  <div className="text-xs mb-4" style={{ color: "#8899AA" }}>Supply: {tc.supply.toLocaleString()}</div>
-                  <Button
-                    className="w-full py-2 text-sm font-bold rounded-xl"
-                    style={{ background: isMinting ? `${tc.color}10` : `${tc.color}20`, color: tc.color, border: `1px solid ${tc.color}40` }}
-                    disabled={nftCheckout.isPending}
-                    onClick={() => handleMint(tier)}
-                  >
-                    {isMinting ? "Opening Checkout..." : `Mint Now — ${tc.price}`}
-                  </Button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Recent Mints */}
-        {recentMints?.mints?.length ? (
-          <div>
-            <h2 className="text-xl font-bold text-white mb-6">Recent Mints</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {recentMints.mints.map((nft: any) => {
-                const tc = TIER_CONFIG[nft.tier as Tier];
-                return (
-                  <div key={nft.id} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${tc?.color ?? "#00D4FF"}30` }}>
-                    <div className="text-2xl mb-2">{tc?.icon}</div>
-                    <div className="font-medium text-white text-sm">{nft.name}</div>
-                    <div className="text-xs mt-1" style={{ color: tc?.color ?? "#00D4FF" }}>#{nft.tokenId} · {tc?.label}</div>
-                    {nft.ownerName && <div className="text-xs mt-1" style={{ color: "#8899AA" }}>Owner: {nft.ownerName}</div>}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : (
-          <div className="text-center py-12 rounded-2xl" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(0,212,255,0.1)" }}>
-            <div className="text-4xl mb-4">🌊</div>
-            <h3 className="text-xl font-bold text-white mb-2">Be the First Pioneer</h3>
-            <p className="text-sm mb-6" style={{ color: "#8899AA" }}>No ScrollSoul NFTs minted yet. Mint yours now and claim your sovereign identity.</p>
-            <Button
-              onClick={() => handleMint("pioneer")}
-              disabled={nftCheckout.isPending}
-              style={{ background: "linear-gradient(135deg, #FF6B35, #FFB800)", color: "#050B1A" }}
-            >
-              {nftCheckout.isPending ? "Opening Checkout..." : "Mint Pioneer NFT — $144"}
-            </Button>
-          </div>
-        )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

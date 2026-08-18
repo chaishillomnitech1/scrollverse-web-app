@@ -3990,6 +3990,11 @@
 - [x] Replace unverified subscription, staking, Zakat distribution, checkout, NFT mint, and pricing implications on visitor-facing subscription surfaces with release-readiness states
 - [x] Add focused regression coverage and validate that no visitor-facing subscription, NFT, checkout, or reward route represents a real-money or token action as active
 
+## ScrollSoul NFT Marketplace Release-State Correction
+- [x] Replace active ScrollSoul NFT marketplace checkout, minting, supply, price, $LONDC, recent-mint, and wallet implications with source-labeled collector release-readiness records
+- [x] Add focused regression coverage and validate that the ScrollSoul route does not call a checkout mutation, display active prices/supply/mints, or represent a wallet, token, NFT, or marketplace action as current
+- [x] Register `/nft-marketplace` as a direct alias to the corrected `/nft` collector route after visual verification exposed the expected marketplace path as a 404
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state

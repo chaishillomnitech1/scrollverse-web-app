@@ -484,6 +484,7 @@ function Router() {
       <Route path={"/staking"} component={Staking} />
       <Route path={"/governance"} component={Governance} />
       <Route path={"/nft"} component={NftMarketplace} />
+      <Route path={"/nft-marketplace"} component={NftMarketplace} />
       <Route path={"/guardian-protocol"} component={GuardianProtocol} />
       <Route path={"/consciousness-mirror"} component={ConsciousnessMirror} />
       <Route path={"/celestine-starforge"} component={CelestineStarforge} />

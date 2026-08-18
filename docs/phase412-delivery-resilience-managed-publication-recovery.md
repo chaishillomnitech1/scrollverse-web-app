@@ -256,6 +256,12 @@ The visitor-facing Subscribe route now presents a browser-local membership relea
 
 The focused Phase 481 regression file validates that the route excludes Stripe, checkout, recurring billing, wallet, token, NFT, stake, reward, and customer-data actions. The current project suite passed with **115 test files / 426 tests**. The prior temporary browser preview expired before a separate Subscribe visual pass could complete; current service health, TypeScript, and the route regression are clean, and no subscription, payment, reward, token, NFT, wallet, customer, or provider action was created.
 
+## 2026-08-18 update — ScrollSoul collector release-state correction
+
+The former active ScrollSoul NFT marketplace is now a source-labeled collector release-readiness route. It presents the prepared Sun on Us collector record, ScrollSoul identity concept, Guardian collector concept, and a future-original-collection lane without a contract, chain, supply, price, `$LONDC` amount, checkout, mint, wallet, custody, sale, transfer, reward, recent-mint, or marketplace claim. A browser-local packet supports public-safe source and owner-note preparation only.
+
+The exact collector gate now requires an original asset record, representation mode, public-media decision, chain/network and service/contract choice, custody, edition, fee cap, collector terms, correction/rollback path, and exact current owner release before one named irreversible action. TypeScript completed without errors and the full regression suite completed with **116 test files / 429 tests passing**. Browser inspection confirmed the repaired `/nft-marketplace` alias routes to this collector readiness content rather than a 404. No contract, mint, listing, wallet, token, NFT, price, checkout, payment, transfer, payout, or provider action was created.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.
