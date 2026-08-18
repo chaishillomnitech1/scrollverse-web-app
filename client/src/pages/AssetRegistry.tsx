@@ -12,7 +12,8 @@ const assets = [
   { id: "SV-BOOK-001", title: "ScrollVerse Perspectives", type: "BOOKS & LESSONS", state: "Requires owner release", note: "Original readers and paid editions each need their own manuscript, rights, accessibility, terms, and destination record.", color: "#9DEBFF", href: "/scrollverse-perspectives", icon: BookOpen },
   { id: "SV-RESEARCH-001", title: "Knowledge Commons", type: "SOURCE & RESEARCH", state: "Free exploration", note: "Source-labeled primary, archive, translation, and historical research pathways with correction routes.", color: "#FF6B9A", href: "/knowledge-commons", icon: LibraryBig },
   { id: "SV-SYS-001", title: "ScrollVerse Systems Blueprint", type: "SOFTWARE & METHODS", state: "Source-led B2B blueprint", note: "Implementation proposals remain scoped, evidence-led, and separately approved by each organization.", color: "#B5F7CC", href: "/enterprise-systems-blueprint", icon: Code2 },
-  { id: "SV-COLLECTOR-001", title: "Collector Readiness", type: "COLLECTOR CONCEPTS", state: "Requires owner release", note: "Provenance and metadata can be prepared without implying a mint, listing, token, or sale.", color: "#FFDEA0", href: "/product-release-pipeline", icon: Layers3 },
+  { id: "SV-SUN-1111", title: "Sun on Us — 11:11", type: "COLLECTOR VISUAL SET", state: "Display-ready · requires owner release", note: "Three owner-directed artworks with prepared file hashes and non-deployable collector gates; no mint, listing, token, or sale is active.", color: "#FFDEA0", href: "/sun-on-us-1111", icon: Layers3 },
+  { id: "SV-COLLECTOR-001", title: "Collector Readiness", type: "COLLECTOR CONCEPTS", state: "Requires owner release", note: "Provenance and metadata can be prepared without implying a mint, listing, token, or sale.", color: "#FFB7CE", href: "/product-release-pipeline", icon: Layers3 },
 ];
 
 export default function AssetRegistry() {

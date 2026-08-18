@@ -38,6 +38,12 @@ The workspace now includes `/agentic-storefronts-readiness`. The route preserves
 
 TypeScript completed without errors. The full regression suite completed with **99 test files / 379 tests passing**, and browser inspection confirmed the local route renders without a route error. This remains route and evidence work only: no supplemental terms acceptance, product creation, policy update, managed-setting change, channel binding, catalog publication, checkout activation, payment, or sale occurred.
 
+## 2026-08-18 update — Sun on Us collector route local validation
+
+The workspace now includes `/sun-on-us-1111`, a display-ready collector route for the three owner-directed derivatives recorded as `SV-SUN-1111-001` Solar Witness, `SV-SUN-1111-002` Natural Light, and `SV-SUN-1111-003` Journey Witness. It presents the prepared dimensions and SHA-256 file identifiers, preserves the owner-authored journey anchor, keeps the blue-green feature owner-identified without assigning a cause or significance, and links back to the Asset Registry and Product Release Pipeline.
+
+TypeScript completed without errors. The full regression suite completed with **100 test files / 383 tests passing**, and browser inspection confirmed all three managed display assets load on the local route. The route is a collection record and readiness surface only: no wallet, key, chain, contract, metadata publication, mint, transfer, listing, price, sale, payout, or collector license was created or represented as active.
+
 ## Preservation and correction path
 
 The local working tree remains the active preparation record while managed publication is blocked. The route introduced for this phase will show the same separation to visitors: what is locally validated, what the managed publisher currently blocks, and what the next managed action is. It will not reveal raw merge commands, private repository data, credentials, or unsupported deployment instructions.

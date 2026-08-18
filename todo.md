@@ -3993,6 +3993,7 @@
 - [x] Deliver the visual and release record without minting, transferring, listing, pricing, or deploying any blockchain asset
 - [x] Correct the collector record to preserve the owner-identified blue-green visual feature without assigning it a technical cause or external meaning
 - [x] Prepare complete three-artwork collector metadata and a transaction-confirmation record without a wallet, key, provider, mint, listing, or transfer action
+- [x] Build and validate the `/sun-on-us-1111` collector route with all three artworks, source/hashes, owner-authored journey anchor, Asset Registry handoff, and non-deployable mint gates
 
 ## ScrollVerse Knowledge Commons
 - [x] Define the source, translation, access, rights, and correction standards for gnostic, comparative religious, lost-text, historical, inventor, and financial-history library records
