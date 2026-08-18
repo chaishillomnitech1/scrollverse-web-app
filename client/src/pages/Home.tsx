@@ -1686,15 +1686,15 @@ export default function Home() {
               <div>
                 <div className="flex items-center gap-2 mb-0.5">
                   <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-                  <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>SAFERWAY AUTO DETAIL · VINELAND, NJ · ACCEPTING BOOKINGS</span>
+                  <span className="text-xs font-mono" style={{ color: "#00D4FF" }}>SAFERWAY AUTO DETAIL · VINELAND, NJ · SERVICE READINESS</span>
                 </div>
-                <h3 className="text-base font-black text-white">Book a Sovereign Detail</h3>
-                <p className="text-xs" style={{ color: "#8899AA" }}>Premium mobile auto detailing — interior, exterior, ceramic coating & more.</p>
+                <h3 className="text-base font-black text-white">Review SaferWay service readiness</h3>
+                <p className="text-xs" style={{ color: "#8899AA" }}>Service concept, intake, delivery, support, and public-booking requirements remain source- and release-gated.</p>
               </div>
             </div>
             <div className="flex items-center gap-3 flex-shrink-0">
               <a href="/saferway#book" className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 inline-block" style={{ background: "linear-gradient(135deg, #00D4FF, #0099CC)", color: "#050B1A" }}>
-                Book Now →
+                Open readiness →
               </a>
               <a href="/saferway" className="px-5 py-2.5 rounded-xl text-sm font-bold border transition-all hover:scale-105 inline-block" style={{ borderColor: "rgba(0,212,255,0.4)", color: "#00D4FF" }}>
                 View Services
@@ -1722,8 +1722,8 @@ export default function Home() {
               { href: "/nexus", icon: "⚡", label: "Nexus Vault", desc: "Dual Blister Hero · 528Hz · Genesis NFT", color: "#00D4FF", badge: "PHASE 65" },
               { href: "/junior-movies", icon: "🎬", label: "Junior Movies", desc: "Sovereign Cinema · Ancient Wisdom", color: "#EC4899", badge: "LIVE" },
               { href: "/red-diamond-fleet", icon: "💎", label: "Red Diamond Fleet", desc: "Sovereign Vehicles · Legion Network", color: "#FF4444", badge: "LEGION" },
-              { href: "/saferway", icon: "🚗", label: "SaferWay Detail", desc: "Premium Auto Detailing · Book Now", color: "#00FF88", badge: "BOOKING" },
-              { href: "/metrics", icon: "📊", label: "Omni Metrics", desc: "Live Telemetry · 44:OMNI Frequency", color: "#FFB800", badge: "LIVE" },
+              { href: "/saferway", icon: "🚗", label: "SaferWay Detail", desc: "Premium Auto Detailing · Service readiness", color: "#00FF88", badge: "READINESS" },
+              { href: "/metrics", icon: "📊", label: "Omni Metrics", desc: "Metrics research · 44:OMNI Frequency", color: "#FFB800", badge: "RESEARCH" },
               { href: "/guardians", icon: "🛡️", label: "Guardians", desc: "144,000 Sovereign Nodes · Rising", color: "#00D4FF", badge: "144K" },
             ].map(portal => (
               <a key={portal.href} href={portal.href} className="rounded-2xl p-5 block transition-all duration-300 hover:scale-[1.03] group" style={{ background: `${portal.color}06`, border: `1px solid ${portal.color}20`, textDecoration: "none" }}>

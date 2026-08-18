@@ -3968,6 +3968,10 @@
 - [x] Replace any home-page language implying a live Polygon deployment with a verified token-release readiness state and no-chain-action boundary
 - [x] Add focused regression coverage and validate the corrected home-page chain state
 
+## Home Service-State Correction
+- [x] Replace home-page booking and live-service labels with direct operating-state language unless an exact active service record and public booking destination are verified
+- [x] Add focused regression coverage and validate the corrected home-page service labels
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state

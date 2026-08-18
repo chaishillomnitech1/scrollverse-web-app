@@ -240,4 +240,10 @@ The home-page visual status now reads **Polygon release-ready · no chain action
 
 TypeScript completed without errors and the full regression suite completed with **110 test files / 414 tests passing**. Browser review confirmed the corrected status is visible on the public landing route. No blockchain provider, wallet, contract, network, token supply, transaction, or marketplace action was used.
 
+## 2026-08-18 update — Home service-state correction
+
+The home-page SaferWay panel now uses **service readiness** rather than “accepting bookings,” routes visitors to readiness review rather than a booking representation, and states that intake, delivery, support, and public-booking requirements remain source- and release-gated. The Empire Gateway card now labels SaferWay as **readiness** and Omni Metrics as **research** rather than booking or live telemetry.
+
+TypeScript completed without errors and the full regression suite completed with **111 test files / 416 tests passing**. Browser review confirmed the revised SaferWay panel and gateway labels are visible. No service booking, appointment, payment, fulfillment, customer intake, metrics connection, provider configuration, or live service action was created.
+
 TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.
