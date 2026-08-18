@@ -4017,9 +4017,9 @@
 ## Bridge of Faith Rights-Aware Tokenization Blueprint
 - [x] Define the owner-held physical-object, artist-recognition, public-reproduction, and optional compensation boundaries
 - [x] Prepare a non-deployable tokenization blueprint, metadata manifest, and smart-contract interface specification for the physical artwork record
-- [ ] Extend the Knowledge Commons index with gnostic and lost-manuscript research pathways and define the original-book publication strategy
-- [ ] Create and validate a reusable evidence-to-archive and release-readiness skill
-- [ ] Deliver the complete blueprint without minting, paying, listing, publishing, scheduling, or integrating an external service
+- [x] Extend the Knowledge Commons index with gnostic and lost-manuscript research pathways and define the original-book publication strategy
+- [x] Create and validate a reusable evidence-to-archive and release-readiness skill
+- [x] Deliver the complete blueprint without minting, paying, listing, publishing, scheduling, or integrating an external service
 
 ## Cosmic Knowledge Physical Artwork Archive
 - [x] Create a source-labeled archive record for the second owner-held framed artwork using the full-object and close-up attribution photographs
