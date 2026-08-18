@@ -27,6 +27,8 @@ describe("Phase 317 — Multi-Platform Production and Episode 8 Intake", () => {
   });
 
   it("keeps publishing and platform connections as verified external-result gates", () => {
+    expect(desk).toContain("The public ScrollVerse domain and release route are verified.");
+    expect(desk).toContain("result record, and correction path");
     expect(desk).toContain("No YouTube connector or authorized account was established");
     expect(desk).toContain("Instagram connector is disabled and has no active authorized account");
     expect(desk).toContain("does not post, upload, schedule a platform action, create a channel");

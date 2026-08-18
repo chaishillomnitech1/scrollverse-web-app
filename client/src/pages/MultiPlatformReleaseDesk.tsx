@@ -32,7 +32,7 @@ const destinations: Array<{
     state: "Local route prepared",
     summary: "Use a registered ScrollVerse route for the asset’s source, accessibility, and release record after managed publication synchronization.",
     assetNeeds: ["Final title/version", "Source and rights record", "Accessible text/captions/alt text", "Destination route", "Owner release decision"],
-    externalGate: "The public domain update is blocked by managed history synchronization; local route preparation is available now.",
+    externalGate: "The public ScrollVerse domain and release route are verified. This exact asset still requires its final source, rights, accessibility record, owner release, public destination, result record, and correction path before it is represented as published.",
   },
   {
     id: "youtube",
