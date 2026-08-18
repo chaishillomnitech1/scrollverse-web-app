@@ -3987,8 +3987,8 @@
 - [x] Add focused regression coverage and validate the corrected home-page membership labels
 
 ## Subscription and NFT Checkout Release-State Audit
-- [ ] Replace unverified subscription, staking, Zakat distribution, checkout, NFT mint, and pricing implications on visitor-facing subscription surfaces with release-readiness states
-- [ ] Add focused regression coverage and validate that no visitor-facing subscription, NFT, checkout, or reward route represents a real-money or token action as active
+- [x] Replace unverified subscription, staking, Zakat distribution, checkout, NFT mint, and pricing implications on visitor-facing subscription surfaces with release-readiness states
+- [x] Add focused regression coverage and validate that no visitor-facing subscription, NFT, checkout, or reward route represents a real-money or token action as active
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
