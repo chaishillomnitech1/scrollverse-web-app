@@ -372,6 +372,7 @@ import DeliveryResilience from "./pages/DeliveryResilience";
 import ActivationRegister from "./pages/ActivationRegister";
 import MasterInstructionIntake from "./pages/MasterInstructionIntake";
 import PaymentOptionsMap from "./pages/PaymentOptionsMap";
+import PaymentLaunchPackets from "./pages/PaymentLaunchPackets";
 import ShopifyStorefrontReadiness from "./pages/ShopifyStorefrontReadiness";
 import PremiumStorefrontProgram from "./pages/PremiumStorefrontProgram";
 import ProductReleasePipeline from "./pages/ProductReleasePipeline";
@@ -585,6 +586,7 @@ function Router() {
       <Route path={"/activation-register"} component={ActivationRegister} />
       <Route path={"/master-instruction-intake"} component={MasterInstructionIntake} />
       <Route path={"/payment-options"} component={PaymentOptionsMap} />
+      <Route path={"/payment-launch-packets"} component={PaymentLaunchPackets} />
       <Route path={"/shopify-storefront-readiness"} component={ShopifyStorefrontReadiness} />
       <Route path={"/premium-storefront-program"} component={PremiumStorefrontProgram} />
       <Route path={"/product-release-pipeline"} component={ProductReleasePipeline} />

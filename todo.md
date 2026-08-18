@@ -3906,8 +3906,8 @@
 ## Visitor-Choice Payment Options Map
 - [x] Audit every currently linked public payment destination and every named lane that lacks a public destination URL
 - [x] Build a visitor-choice Payment Options Map that keeps verified external destinations open and labels unreleased lanes by the exact public detail still needed
-- [ ] Prepare action-specific launch packets for the current Stripe route and a separate Shopify storefront copy without activating any checkout, payout, token, transfer, or provider setting
-- [ ] Add focused coverage and validate all public payment-option labels and boundaries before any activation confirmation request
+- [x] Prepare action-specific launch packets for the current Stripe route and a separate Shopify storefront copy without activating any checkout, payout, token, transfer, or provider setting
+- [x] Add focused coverage and validate all public payment-option labels and boundaries before any activation confirmation request
 
 ## Shopify Storefront-Copy Activation Context
 - [x] Record the owner-provided Shopify activation context while keeping protected configuration values out of source, public records, and messages

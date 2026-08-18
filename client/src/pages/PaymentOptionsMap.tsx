@@ -52,6 +52,7 @@ export default function PaymentOptionsMap() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#public-destinations" className="rounded-xl bg-[#00FF88] px-5 py-3 text-sm font-black text-[#071426]">Open public destinations</a>
                 <Link href="/catalog-production-desk" className="rounded-xl border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-5 py-3 text-sm font-black text-[#FFDEA0]">Open release records</Link>
+                <Link href="/payment-launch-packets" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Prepare launch packet</Link>
               </div>
             </div>
             <aside className="rounded-[2rem] border border-[#00FF88]/40 bg-[linear-gradient(145deg,rgba(0,255,136,.13),rgba(7,20,38,.95)_58%)] p-7">
