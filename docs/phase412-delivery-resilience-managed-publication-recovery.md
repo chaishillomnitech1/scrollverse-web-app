@@ -97,3 +97,9 @@ The managed deployment subsequently reported success for the same recovery line.
 Fresh public checks confirm that `/knowledge-commons` now serves its source-labeled initial index, including the linked research shelves, source context, operating states, correction path, and the internal Perspectives handoff. `/scrollverse-perspectives` now serves the original-writing and lesson-imprint route, with free-reader preparation, paid-edition readiness, controlled editorial desk language, and the explicit no-manuscript/no-listing/no-payment/no-schedule boundary. The local Phase 456 regression coverage remains part of the current validation suite.
 
 These routes provide reader-directed research and preparation. They do not copy restricted source material in full, publish a manuscript, set a price, create a storefront listing, process payment, schedule promotion, or assert a provider-side release.
+
+## 2026-08-18 update — Art Museum and Art Learning operations verification
+
+Fresh public checks confirm that `/art-museum` serves the two stable, source-labeled physical-object records: `SV-PHYS-ART-001` Bridge of Faith and `SV-PHYS-ART-002` Cosmic Knowledge Artwork. The route distinguishes physical ownership from authenticity, appraisal, copyright, reproduction permission, licensing, compensation, sale, payment, and tokenization; it also provides a browser-local accession draft and correction route.
+
+`/art-learning-studio` is publicly reachable with source-labeled discovery paths, browser-local creation and artist-support preparation, the AI Companion Hub handoff, and adult-supported youth guidance. It states that it does not collect youth data, require purchases, create external accounts, promise funding or rewards, accept public submissions, or activate tokens, payments, or provider actions. The local Art Museum and Art Learning regression coverage remains in the validated suite.
