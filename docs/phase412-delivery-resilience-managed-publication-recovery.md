@@ -234,4 +234,10 @@ The Fashion Empire route now presents colorways, sneaker models, logos, producti
 
 TypeScript completed without errors and the full regression suite completed with **109 test files / 412 tests passing**. Browser checks confirmed both `/fashion-empire` and the repaired `/fashion` alias show the corrected release-preparation page rather than a route error. No product listing, manufacturing agreement, coin issuance, NFT mint, sale, payout, marketplace activation, wallet operation, or transfer was created or claimed.
 
+## 2026-08-18 update — Home chain-state correction
+
+The home-page visual status now reads **Polygon release-ready · no chain action** rather than implying a current live Polygon deployment. Existing `$LONDC` release-preparation language and the unset contract-address record remain visible as planning context, while the status pill no longer represents a mint, deployment, wallet, contract, transfer, sale, price, or chain action as current.
+
+TypeScript completed without errors and the full regression suite completed with **110 test files / 414 tests passing**. Browser review confirmed the corrected status is visible on the public landing route. No blockchain provider, wallet, contract, network, token supply, transaction, or marketplace action was used.
+
 TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.

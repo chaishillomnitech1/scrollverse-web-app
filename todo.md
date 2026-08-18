@@ -3964,6 +3964,10 @@
 - [x] Add focused regression coverage and validate that Fashion Empire does not represent a product listing, manufacturing agreement, token issuance, NFT mint, sale, payout, or marketplace activation as current
 - [x] Register `/fashion` as a direct Fashion Empire alias after visual verification exposed that the expected short route returned a 404
 
+## Home Chain-State Correction
+- [x] Replace any home-page language implying a live Polygon deployment with a verified token-release readiness state and no-chain-action boundary
+- [x] Add focused regression coverage and validate the corrected home-page chain state
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state

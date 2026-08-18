@@ -329,7 +329,7 @@ function SovereignThroneNFT() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-              <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE ON POLYGON</span>
+              <span className="text-xs font-mono" style={{ color: "#00FF88" }}>POLYGON RELEASE-READY · NO CHAIN ACTION</span>
             </div>
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#FFB800", animation: "pulse 2s ease-in-out infinite" }} />
