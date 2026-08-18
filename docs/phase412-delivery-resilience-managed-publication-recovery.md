@@ -11,7 +11,7 @@ The local ScrollVerse workspace now has a managed checkpoint that reconciled the
 | Local workspace | Later ScrollVerse changes are present locally and pass recorded validation runs | A local pass alone remains distinct from a managed delivery record |
 | Managed checkpoint | Checkpoint `6a62b4c2` reports that divergence was resolved, the remote was synchronized, and local changes were force-pushed through the managed workflow | The result does not establish any provider-side commerce, channel, or external-account action |
 | Repository view | The managed workflow reconciled the connected history during checkpoint publication | A branch view remains a repository state, not proof of a product, payment, or provider configuration |
-| Public site | Checkpoint `1d99bdb6` was saved, but its deployment healthcheck failed and the public `scrollverse.co/sun-on-us-1111` route returned a 404 at the recorded verification | A managed checkpoint save alone does not establish that a public replica became healthy |
+| Public site | Recovery checkpoint `86b83d2d` reached a successful managed deployment, and `scrollverse.co/sun-on-us-1111` now renders the public collector route | A public route does not change its own stated release gates or provider boundaries |
 
 ## Historical managed recovery decision paths
 
@@ -85,3 +85,15 @@ This update is local validation only. It does not change the published delivery 
 The checkpoint for the Sun on Us route completed its managed save, but the subsequent deployment report showed that the built replica did not become healthy: the `/api/trpc/system.health` healthcheck repeatedly returned service unavailable. The production-log command could not provide container logs because the deployment identifier was empty. Direct public-route verification then returned a 404 for `/sun-on-us-1111`. Therefore, the saved checkpoint is preserved, but the public deployment is not represented as current.
 
 The local startup path was corrected so production binds directly to the platform-provided `PORT` on `0.0.0.0`, while available-port fallback remains a development-only behavior. This correction targets the observed risk that a production process could select a port not monitored by the deployment healthcheck. It is a bounded server-startup repair, not a provider, payment, wallet, token, or content-release action. Local TypeScript and regression validation must complete before the recovery checkpoint is retried.
+
+The recovery checkpoint `86b83d2d` was saved after local validation reported **101 test files / 385 tests passing**. A subsequent public-route check still returned a 404, and production-log retrieval still reported that the deployment identifier was empty. This establishes the present boundary: the local server and validation record are healthy, but the managed production deployment has not become observable or route-ready. Preserve the saved checkpoints and use the managed deployment or support channel to repair the missing deployment record; do not claim the new routes are public until the healthcheck and route verification succeed.
+
+### Resolution verification
+
+The managed deployment subsequently reported success for the same recovery line. A fresh browser check of `https://scrollverse.co/sun-on-us-1111` returned the complete collector route, including the three artwork records, evidence identifiers, owner-authored journey anchor, and non-deployable mint-readiness gates. The earlier 404 and empty deployment identifier remain retained as incident context; the current public-route state is verified as reachable. The route’s collector, rights, wallet, mint, listing, payment, and sale boundaries remain unchanged.
+
+## 2026-08-18 update — Knowledge Commons and Perspectives public-route reconciliation
+
+Fresh public checks confirm that `/knowledge-commons` now serves its source-labeled initial index, including the linked research shelves, source context, operating states, correction path, and the internal Perspectives handoff. `/scrollverse-perspectives` now serves the original-writing and lesson-imprint route, with free-reader preparation, paid-edition readiness, controlled editorial desk language, and the explicit no-manuscript/no-listing/no-payment/no-schedule boundary. The local Phase 456 regression coverage remains part of the current validation suite.
+
+These routes provide reader-directed research and preparation. They do not copy restricted source material in full, publish a manuscript, set a price, create a storefront listing, process payment, schedule promotion, or assert a provider-side release.

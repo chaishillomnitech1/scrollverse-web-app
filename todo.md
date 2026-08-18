@@ -3998,15 +3998,15 @@
 ## ScrollVerse Knowledge Commons
 - [x] Define the source, translation, access, rights, and correction standards for gnostic, comparative religious, lost-text, historical, inventor, and financial-history library records
 - [x] Research and curate an initial authoritative public-source index for the Knowledge Commons
-- [ ] Build a reader-directed Knowledge Commons route that connects the new index to existing Open Knowledge, Islamic, source-study, and systems-library pathways
-- [ ] Add focused regression coverage and validate the Knowledge Commons without copying restricted texts or presenting any source as a universal or unexamined conclusion
+- [x] Build a reader-directed Knowledge Commons route that connects the new index to existing Open Knowledge, Islamic, source-study, and systems-library pathways
+- [x] Add focused regression coverage and validate the Knowledge Commons without copying restricted texts or presenting any source as a universal or unexamined conclusion
 
 ## ScrollVerse Perspectives Imprint
 - [x] Define an original-book and lesson production standard that separates source records, original commentary, access rights, accessibility, and revision history
 - [x] Define free-reader and release-gated paid-edition pathways without setting a price, creating a listing, or claiming a purchase destination
 - [x] Compare controlled recurring drafting and readiness-report architectures without creating a schedule, publishing manuscript content, or sending promotions
-- [ ] Build a reader-directed Perspectives Imprint route connected to the Knowledge Commons and existing books/media pathways
-- [ ] Add focused regression coverage and validate the imprint route without claiming a published book, active storefront listing, recurring job, revenue, or external promotion
+- [x] Build a reader-directed Perspectives Imprint route connected to the Knowledge Commons and existing books/media pathways
+- [x] Add focused regression coverage and validate the imprint route without claiming a published book, active storefront listing, recurring job, revenue, or external promotion
 
 ## Owner-Held Physical Artwork Archive
 - [x] Create a source-labeled archive record for the owner-held framed painting using the full-object and close-up label photographs
@@ -4124,5 +4124,5 @@
 - [x] Preserve direct source and correction paths without automated engagement, redistribution, or external account actions
 
 ## Managed Production Healthcheck Recovery
-- [ ] Correct the production server startup behavior so the managed healthcheck binds to the platform-provided port and host without falling back to an unmonitored port
-- [ ] Add focused regression coverage, revalidate the portal, and verify the public route after a managed recovery checkpoint
+- [x] Correct the production server startup behavior so the managed healthcheck binds to the platform-provided port and host without falling back to an unmonitored port
+- [x] Add focused regression coverage, revalidate the portal, and verify the public route after a managed recovery checkpoint
