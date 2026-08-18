@@ -4000,6 +4000,10 @@
 - [x] Replace active $LONDC sale, Stripe checkout, direct-wallet, supply, price, token-delivery, and paid-book purchase claims with source-labeled release-readiness records
 - [x] Add focused regression coverage and validate that the Token Store does not call checkout mutations, display wallet addresses, or represent token, payment, or book-sale actions as current
 
+## CryptoHub Release-State Correction
+- [x] Replace CryptoHub direct wallet transfer, live treasury, guardian tier price, asset, mint, royalty, and chain-action controls with source-labeled crypto and collector release-readiness records
+- [x] Add focused regression coverage and validate that CryptoHub does not call wallet APIs, fetch chain balances, display wallet or contract addresses, create transfer/mint interactions, or represent a crypto payment path as current
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state

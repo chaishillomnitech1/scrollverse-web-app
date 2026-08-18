@@ -1,372 +1,95 @@
-/**
- * SCROLLVERSE CRYPTOHUB
- * Direct sovereign crypto payment interface — no OpenSea, no MetaMask required
- * Send MATIC or USDC directly to the ScrollVerse sovereign wallet from any browser
- * Wallet: 0x377956c1471d9ce142df6932895839243da23a2c
- */
-
-import { useState, useEffect, useCallback } from "react";
+import { useMemo, useState } from "react";
+import { ArrowRight, Coins, Copy, Landmark, LockKeyhole, ShieldCheck, Sparkles, WalletCards } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-const SOVEREIGN_WALLET = "0x377956c1471d9ce142df6932895839243da23a2c";
-const POLYGON_RPC = "https://polygon-rpc.com";
-const POLYGON_CHAIN_ID = "0x89"; // 137 in hex
-const USDC_CONTRACT = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // USDC on Polygon
+type CryptoReadinessRecord = {
+  id: string;
+  state: string;
+  title: string;
+  source: string;
+  detail: string;
+  gate: string;
+  accent: string;
+  icon: typeof Coins;
+};
 
-// Guardian tier amounts in MATIC (approximate at $0.50/MATIC)
-const TIERS = [
-  { name: "Guardian", usd: 144, matic: "288", color: "#00D4FF", icon: "🛡️", perks: ["$LONDC tokens", "Academy access", "DAO voting"] },
-  { name: "Sovereign", usd: 444, matic: "888", color: "#FFB800", icon: "👑", perks: ["All Guardian perks", "Priority NFT minting", "Revenue share"] },
-  { name: "Ascendant", usd: 1444, matic: "2888", color: "#8B5CF6", icon: "⚡", perks: ["All Sovereign perks", "Direct founder access", "48D Hilbert allocation"] },
+const CRYPTO_RECORDS: CryptoReadinessRecord[] = [
+  {
+    id: "contribution-path",
+    state: "PAYMENT PATH · REQUIRES EXACT RELEASE",
+    title: "Crypto contribution or payment path",
+    source: "Payment Options Map, Support Path, Payment Launch Packets, and Activation Register",
+    detail: "No wallet address, supported asset, exact amount, payment request, treasury balance, chain receipt, contribution receipt, or customer entitlement is active on this route.",
+    gate: "Name the item or purpose, verified public destination, provider/network, accepted asset, amount and currency basis, visitor and financial effect, delivery/support/refund terms, destination verification, owner release, correction path, rollback condition, and post-release check.",
+    accent: "#00D4FF",
+    icon: WalletCards,
+  },
+  {
+    id: "guardian-path",
+    state: "MEMBERSHIP CONCEPT · PRICE UNSET",
+    title: "Guardian access concept",
+    source: "Subscribe readiness, Token Store readiness, and Creator Catalog Readiness",
+    detail: "No tier price, token amount, chain conversion, membership access, reward, voting right, revenue share, allocation, or delivery is active.",
+    gate: "One named membership record must specify eligibility, terms, price/currency/tax if paid, payment destination, access/delivery, support/refund path, any disclosed token relationship, owner release, and public verification.",
+    accent: "#FFCC4D",
+    icon: ShieldCheck,
+  },
+  {
+    id: "collector-path",
+    state: "COLLECTOR CONCEPT · NO MINT ACTIVE",
+    title: "ScrollSoul collector pathway",
+    source: "ScrollSoul collector readiness, Sun on Us record, Asset Registry, and Art Museum evidence",
+    detail: "No contract, royalty, asset support list, mint, wallet, custody, transfer, market, or chain verification is active here.",
+    gate: "One original-asset record must name representation mode, public media, rights/contributors, chain/network, service or contract, custody, edition, fee cap, terms, marketplace/price decision, owner release, correction, rollback, and post-release verification.",
+    accent: "#B98CFF",
+    icon: Sparkles,
+  },
 ];
 
-function QRCode({ address }: { address: string }) {
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${address}&bgcolor=050B1A&color=00D4FF&margin=10`;
-  return (
-    <div className="flex flex-col items-center gap-3">
-      <img src={qrUrl} alt="Wallet QR Code" className="rounded-xl" style={{ border: "2px solid rgba(0,212,255,0.3)" }} />
-      <div className="text-xs font-mono text-center" style={{ color: "#8899AA" }}>Scan to send directly</div>
-    </div>
-  );
-}
-
-function LiveBalance() {
-  const [balance, setBalance] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  const fetchBalance = useCallback(async () => {
-    try {
-      const res = await fetch(POLYGON_RPC, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          method: "eth_getBalance",
-          params: [SOVEREIGN_WALLET, "latest"],
-          id: 1,
-        }),
-      });
-      const data = await res.json();
-      if (data.result) {
-        const wei = BigInt(data.result);
-        const matic = Number(wei) / 1e18;
-        setBalance(matic.toFixed(4));
-      }
-    } catch {
-      setBalance("—");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchBalance();
-    const interval = setInterval(fetchBalance, 30000);
-    return () => clearInterval(interval);
-  }, [fetchBalance]);
-
-  return (
-    <div className="flex items-center gap-2 px-4 py-2 rounded-xl" style={{ background: "rgba(0,255,136,0.06)", border: "1px solid rgba(0,255,136,0.2)" }}>
-      <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: loading ? "#8899AA" : "#00FF88" }} />
-      <span className="text-xs font-mono" style={{ color: "#8899AA" }}>TREASURY:</span>
-      <span className="text-sm font-bold font-mono" style={{ color: "#00FF88" }}>
-        {loading ? "···" : `${balance} MATIC`}
-      </span>
-      <span className="text-xs font-mono" style={{ color: "#8899AA" }}>LIVE · POLYGON</span>
-    </div>
-  );
-}
-
-function DirectSendPanel() {
-  const [amount, setAmount] = useState("");
-  const [sending, setSending] = useState(false);
-  const [txHash, setTxHash] = useState<string | null>(null);
-
-  const sendMatic = async () => {
-    if (!amount || parseFloat(amount) <= 0) {
-      toast.error("Enter a valid MATIC amount");
-      return;
-    }
-
-    // Check if MetaMask / injected wallet is available
-    const eth = (window as unknown as { ethereum?: { request: (args: { method: string; params?: unknown[] }) => Promise<unknown> } }).ethereum;
-    if (!eth) {
-      toast.error("No Web3 wallet detected. Install MetaMask or use the QR code to send directly.");
-      return;
-    }
-
-    setSending(true);
-    try {
-      // Request account access
-      const accounts = await eth.request({ method: "eth_requestAccounts" }) as string[];
-      if (!accounts || accounts.length === 0) throw new Error("No accounts found");
-
-      // Switch to Polygon
-      try {
-        await eth.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: POLYGON_CHAIN_ID }],
-        });
-      } catch {
-        // Add Polygon if not present
-        await eth.request({
-          method: "wallet_addEthereumChain",
-          params: [{
-            chainId: POLYGON_CHAIN_ID,
-            chainName: "Polygon Mainnet",
-            nativeCurrency: { name: "MATIC", symbol: "MATIC", decimals: 18 },
-            rpcUrls: ["https://polygon-rpc.com"],
-            blockExplorerUrls: ["https://polygonscan.com"],
-          }],
-        });
-      }
-
-      // Convert MATIC to wei
-      const weiAmount = "0x" + (BigInt(Math.floor(parseFloat(amount) * 1e18))).toString(16);
-
-      const hash = await eth.request({
-        method: "eth_sendTransaction",
-        params: [{
-          from: accounts[0],
-          to: SOVEREIGN_WALLET,
-          value: weiAmount,
-          gas: "0x5208", // 21000
-        }],
-      }) as string;
-
-      setTxHash(hash);
-      toast.success("Transaction submitted! Guardian status activating...");
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Transaction failed";
-      toast.error(message.includes("rejected") ? "Transaction cancelled" : message);
-    } finally {
-      setSending(false);
-    }
-  };
-
-  return (
-    <div className="space-y-4">
-      <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#00D4FF" }}>DIRECT MATIC TRANSFER</div>
-      <div className="flex gap-3">
-        <input
-          type="number"
-          value={amount}
-          onChange={e => setAmount(e.target.value)}
-          placeholder="Amount in MATIC"
-          className="flex-1 px-4 py-3 rounded-xl text-sm outline-none font-mono"
-          style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.2)", color: "white" }}
-        />
-        <button
-          onClick={sendMatic}
-          disabled={sending}
-          className="px-6 py-3 rounded-xl text-sm font-bold transition-all"
-          style={{
-            background: sending ? "rgba(0,212,255,0.2)" : "linear-gradient(135deg, #00D4FF, #0088FF)",
-            color: sending ? "#8899AA" : "#050B1A",
-            opacity: sending ? 0.7 : 1,
-          }}
-        >
-          {sending ? "Sending..." : "Send MATIC"}
-        </button>
-      </div>
-      {txHash && (
-        <div className="p-3 rounded-xl text-xs font-mono" style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.2)", color: "#00FF88" }}>
-          ✓ TX: <a href={`https://polygonscan.com/tx/${txHash}`} target="_blank" rel="noopener noreferrer" className="underline">{txHash.slice(0, 20)}...</a>
-        </div>
-      )}
-      <div className="text-xs" style={{ color: "#8899AA" }}>
-        No wallet? Use the QR code or send directly to: <span className="font-mono" style={{ color: "#00D4FF" }}>{SOVEREIGN_WALLET.slice(0, 10)}...{SOVEREIGN_WALLET.slice(-6)}</span>
-      </div>
-    </div>
-  );
-}
-
-function NFTMintPanel() {
-  const [mintName, setMintName] = useState("");
-  const [minting, setMinting] = useState(false);
-
-  const handleMint = async () => {
-    if (!mintName.trim()) { toast.error("Enter a Guardian name for your NFT"); return; }
-    setMinting(true);
-    await new Promise(r => setTimeout(r, 2000));
-    setMinting(false);
-    toast.success("NFT mint queued — activates when ScrollSovereignty48DG.sol deploys to Polygon Mainnet");
-  };
-
-  return (
-    <div className="space-y-4">
-      <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#8B5CF6" }}>SCROLLSOUL NFT MINT</div>
-      <div className="p-4 rounded-xl text-sm" style={{ background: "rgba(139,92,246,0.06)", border: "1px solid rgba(139,92,246,0.2)", color: "#8899AA" }}>
-        ScrollSoul NFTs are ERC-721 tokens on Polygon Mainnet with permanent ERC-2981 royalties. Contract deployment activates full minting.
-      </div>
-      <input
-        type="text"
-        value={mintName}
-        onChange={e => setMintName(e.target.value)}
-        placeholder="Your Guardian name (e.g. Guardian #0001)"
-        className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-        style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(139,92,246,0.3)", color: "white" }}
-      />
-      <button
-        onClick={handleMint}
-        disabled={minting}
-        className="w-full py-3 rounded-xl text-sm font-bold transition-all"
-        style={{
-          background: "linear-gradient(135deg, #8B5CF6, #6D28D9)",
-          color: "white",
-          opacity: minting ? 0.7 : 1,
-        }}
-      >
-        {minting ? "Queuing Mint..." : "⚡ Queue ScrollSoul NFT Mint"}
-      </button>
-    </div>
-  );
-}
-
 export default function CryptoHub() {
-  const copyAddress = () => {
-    navigator.clipboard.writeText(SOVEREIGN_WALLET);
-    toast.success("Wallet address copied!");
+  useSovereignHeartbeat({ page: "crypto-release-readiness" });
+  const [selectedId, setSelectedId] = useState(CRYPTO_RECORDS[0].id);
+  const [note, setNote] = useState("");
+  const [acknowledged, setAcknowledged] = useState(false);
+  const selected = useMemo(() => CRYPTO_RECORDS.find((record) => record.id === selectedId) ?? CRYPTO_RECORDS[0], [selectedId]);
+
+  const copyPacket = async () => {
+    if (!acknowledged) {
+      toast.error("Confirm the release boundary first", { description: "This browser-local draft cannot authorize a wallet, payment, chain, asset, mint, transfer, or provider action." });
+      return;
+    }
+    const packet = [
+      "SCROLLVERSE CRYPTO / COLLECTOR RELEASE PACKET · BROWSER-LOCAL DRAFT",
+      `Record: ${selected.title}`,
+      `State: ${selected.state}`,
+      `Source: ${selected.source}`,
+      `Current boundary: ${selected.detail}`,
+      `Required before any external action: ${selected.gate}`,
+      `Owner note: ${note.trim() || "Not supplied"}`,
+      "No wallet, address, chain, token, asset, payment, price, balance, contract, NFT, mint, transfer, custody, sale, payout, customer, or provider action is authorized by this draft.",
+    ].join("\n\n");
+    try {
+      await navigator.clipboard.writeText(packet);
+      toast.success("Crypto release packet copied", { description: "This is a browser-local preparation record only." });
+    } catch {
+      toast.error("Copy unavailable", { description: "Select the text manually; no external action was taken." });
+    }
   };
 
-  return (
-    <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
-      {/* Header */}
-      <div style={{ background: "rgba(0,212,255,0.04)", borderBottom: "1px solid rgba(0,212,255,0.1)" }}>
-        <div className="container py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-sm" style={{ color: "#8899AA" }}>
-            ← Back to Portal
-          </Link>
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded flex items-center justify-center text-xs font-bold" style={{ background: "linear-gradient(135deg, #00D4FF, #FFB800)", color: "#050B1A" }}>SV</div>
-            <span className="font-bold text-white text-sm">CryptoHub</span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(0,212,255,0.1)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>SOVEREIGN</span>
-          </div>
-          <LiveBalance />
-        </div>
-      </div>
+  return <main className="min-h-screen bg-[#050B1A] pb-24 text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    <section className="border-b border-[#00D4FF]/25 bg-[radial-gradient(circle_at_84%_10%,rgba(0,212,255,.16),transparent_28%),radial-gradient(circle_at_10%_82%,rgba(185,140,255,.13),transparent_28%),#050B1A]"><div className="container py-14 md:py-20"><div className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">← SCROLLVERSE FRONT DOOR</Link><span className="rounded-full border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-3 py-1 text-[10px] font-mono tracking-[.16em] text-[#9DEBFF]">CRYPTO + COLLECTOR READINESS · NO WALLET OR PAYMENT ACTIVE</span></div><div className="mt-10 grid gap-8 lg:grid-cols-[1.13fr_.87fr] lg:items-end"><div><p className="text-xs font-mono tracking-[.2em] text-[#9DEBFF]">SCROLLVERSE · CRYPTO RELEASE PREPARATION</p><h1 className="mt-4 max-w-5xl text-5xl font-black leading-[.92] md:text-7xl">Source before chain. <span className="text-[#00D4FF]">No crypto payment or mint active.</span></h1><p className="mt-6 max-w-3xl text-base leading-8 text-[#D6E2EE]">This route prepares one payment, membership, or collector record at a time. It does not expose a wallet, fetch a balance, name accepted assets, connect a provider, request an account, send a transfer, verify a transaction, or queue a mint.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/payment-launch-packets" className="rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#071426]">Payment launch packets</Link><Link href="/token" className="rounded-xl border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-5 py-3 text-sm font-black text-[#FFDEA0]">Token readiness</Link><Link href="/nft-marketplace" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Collector readiness</Link></div></div><aside className="rounded-[2rem] border border-[#00D4FF]/35 bg-[#071426]/90 p-7"><LockKeyhole className="h-9 w-9 text-[#9DEBFF]" /><p className="mt-5 text-[10px] font-mono tracking-[.16em] text-[#9DEBFF]">CURRENT OPERATING STATE</p><p className="mt-3 text-2xl font-black leading-tight">Release-ready preparation. External action unavailable.</p><div className="mt-6 grid gap-3 text-xs leading-6 text-[#D6E2EE]"><p><span className="font-mono text-[#9DEBFF]">WALLET + CUSTODY · </span>No active route</p><p><span className="font-mono text-[#9DEBFF]">ASSET + AMOUNT · </span>Unset</p><p><span className="font-mono text-[#9DEBFF]">CHAIN + CONTRACT · </span>Unset</p></div></aside></div></div></section>
 
-      <div className="container py-12">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00D4FF" }}>DIRECT SOVEREIGN CRYPTO HUB</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-            No Middlemen.<br />
-            <span style={{ background: "linear-gradient(135deg, #00D4FF, #FFB800)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Pure Sovereign Flow.</span>
-          </h1>
-          <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: "#8899AA" }}>
-            Send MATIC or USDC directly to the ScrollVerse treasury. No OpenSea. No third-party fees. No intermediaries. Built by Chais Kenyatta Hill — Sabir Allah The Great.
-          </p>
-          {/* Wallet address display */}
-          <div
-            className="inline-flex items-center gap-3 px-5 py-3 rounded-xl cursor-pointer transition-all hover:scale-105"
-            style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.25)" }}
-            onClick={copyAddress}
-          >
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-            <span className="font-mono text-sm" style={{ color: "#00D4FF" }}>{SOVEREIGN_WALLET}</span>
-            <span className="text-xs" style={{ color: "#8899AA" }}>📋 Copy</span>
-          </div>
-        </div>
+    <section className="container py-10"><PortalTrustLens lane="Crypto and collector readiness" source="Payment Options Map, Support Path, Payment Launch Packets, Token Store readiness, ScrollSoul collector readiness, Sun on Us record, Asset Registry, Art Museum evidence, and Activation Register." readiness="Source-labeled release records and browser-local packet preparation are available. No wallet, payment, balance, asset, chain, mint, transfer, custody, or provider action is active." boundary="This page does not display a wallet or contract address, call a wallet API, fetch a treasury balance, name accepted assets, set a price, create a payment request, validate a transaction, issue a token, mint an NFT, move funds, connect custody, or publish a marketplace listing." /></section>
 
-        {/* Guardian Tiers */}
-        <div className="mb-12">
-          <div className="text-center mb-6">
-            <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>GUARDIAN TIERS — SEND EXACT AMOUNT</div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TIERS.map((tier) => (
-              <div
-                key={tier.name}
-                className="rounded-2xl p-6 relative overflow-hidden"
-                style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${tier.color}30` }}
-              >
-                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, ${tier.color}, transparent)` }} />
-                <div className="text-3xl mb-3">{tier.icon}</div>
-                <div className="text-xs font-mono mb-1" style={{ color: tier.color }}>{tier.name.toUpperCase()} TIER</div>
-                <div className="text-2xl font-black text-white mb-1">${tier.usd} USD</div>
-                <div className="text-sm font-mono mb-4" style={{ color: tier.color }}>≈ {tier.matic} MATIC</div>
-                <ul className="space-y-1 mb-4">
-                  {tier.perks.map((p, i) => (
-                    <li key={i} className="text-xs flex items-center gap-2" style={{ color: "#8899AA" }}>
-                      <span style={{ color: tier.color }}>›</span> {p}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(tier.matic);
-                    toast.success(`${tier.matic} MATIC copied — paste into the send panel`);
-                  }}
-                  className="w-full py-2 rounded-xl text-xs font-bold transition-all hover:scale-105"
-                  style={{ background: `${tier.color}15`, border: `1px solid ${tier.color}40`, color: tier.color }}
-                >
-                  Copy {tier.matic} MATIC Amount
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section className="container py-6"><div className="flex flex-col gap-4 border-b border-white/10 pb-7 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">SOURCE-LABELED RELEASE LANES</p><h2 className="mt-2 text-3xl font-black">One named record before one irreversible crypto choice.</h2></div><Landmark className="h-9 w-9 text-[#9DEBFF]" /></div><div className="mt-7 grid gap-5 lg:grid-cols-[.82fr_1.18fr]"><div className="grid gap-3 self-start">{CRYPTO_RECORDS.map((record) => { const Icon = record.icon; const active = record.id === selected.id; return <button type="button" key={record.id} onClick={() => { setSelectedId(record.id); setAcknowledged(false); }} className="rounded-2xl border p-5 text-left transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" style={{ borderColor: active ? record.accent : "rgba(255,255,255,.12)", background: active ? `${record.accent}14` : "rgba(255,255,255,.02)" }}><div className="flex gap-3"><span className="mt-0.5 rounded-xl p-2" style={{ background: `${record.accent}18`, color: record.accent }}><Icon className="h-5 w-5" /></span><span><span className="block text-[10px] font-mono tracking-[.14em]" style={{ color: record.accent }}>{record.state}</span><span className="mt-1 block text-lg font-black text-white">{record.title}</span></span></div></button>; })}</div><article className="rounded-[2rem] border p-7 sm:p-10" style={{ borderColor: `${selected.accent}55`, background: `radial-gradient(circle at 90% 10%, ${selected.accent}16, transparent 28%), #071426` }}><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: selected.accent }}>{selected.state}</p><h3 className="mt-3 text-3xl font-black">{selected.title}</h3><p className="mt-5 text-xs font-mono tracking-[.12em] text-[#B8C7D6]">SOURCE · {selected.source}</p><p className="mt-5 text-sm leading-7 text-[#D6E2EE]">{selected.detail}</p><div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5"><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: selected.accent }}>REQUIRED BEFORE ANY EXTERNAL ACTION</p><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{selected.gate}</p></div></article></div></section>
 
-        {/* Main Hub Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Direct Send */}
-          <div className="lg:col-span-2 rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(0,212,255,0.15)" }}>
-            <h2 className="text-xl font-bold text-white mb-6">Direct Payment</h2>
-            <DirectSendPanel />
-            <div className="mt-6 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <NFTMintPanel />
-            </div>
-          </div>
+    <section className="container py-8"><div className="rounded-[2rem] border border-[#00D4FF]/35 bg-[radial-gradient(circle_at_88%_10%,rgba(0,212,255,.12),transparent_25%),#071426] p-7 sm:p-10"><p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">BROWSER-LOCAL RELEASE PACKET</p><h2 className="mt-3 text-3xl font-black">Prepare evidence without creating a transaction.</h2><p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">A note can organize public-safe source, terms, delivery, and release context. It stays in this browser until copied and is not sent to a wallet, chain, provider, account, customer, or payment service.</p><textarea value={note} onChange={(event) => setNote(event.target.value)} placeholder="Record only public-safe source, rights, terms, delivery, and release context. Do not enter wallet addresses, credentials, private keys, recovery codes, bank details, or customer data." className="mt-6 min-h-32 w-full rounded-2xl border border-[#00D4FF]/25 bg-black/20 p-4 text-sm text-white outline-none placeholder:text-[#7F93A5] focus:border-[#00D4FF]/70" /><label className="mt-5 flex items-start gap-3 rounded-2xl border border-[#00D4FF]/30 bg-[#00D4FF]/[.06] p-4 text-sm leading-6 text-[#9DEBFF]"><input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} className="mt-1 h-4 w-4 accent-[#00D4FF]" />I confirm this draft does not authorize a wallet, address, chain, asset, price, balance, payment, contract, token, NFT, mint, transfer, custody, sale, payout, customer, or provider action.</label><button type="button" onClick={copyPacket} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#071426] transition hover:-translate-y-0.5"><Copy className="h-4 w-4" />Copy crypto release packet</button></div></section>
 
-          {/* QR + Info */}
-          <div className="space-y-6">
-            <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(0,212,255,0.15)" }}>
-              <h3 className="text-sm font-bold text-white mb-4">Scan & Send</h3>
-              <QRCode address={SOVEREIGN_WALLET} />
-            </div>
-            <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(0,212,255,0.15)" }}>
-              <h3 className="text-sm font-bold text-white mb-4">Supported Assets</h3>
-              <div className="space-y-3">
-                {[
-                  { symbol: "MATIC", name: "Polygon Native", color: "#8B5CF6", note: "Recommended" },
-                  { symbol: "USDC", name: "USD Coin (Polygon)", color: "#00D4FF", note: "Stable" },
-                  { symbol: "ETH", name: "Bridged via Polygon", color: "#FFB800", note: "Via bridge" },
-                ].map(asset => (
-                  <div key={asset.symbol} className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: `${asset.color}20`, color: asset.color }}>{asset.symbol[0]}</div>
-                      <div>
-                        <div className="text-xs font-bold text-white">{asset.symbol}</div>
-                        <div className="text-xs" style={{ color: "#8899AA" }}>{asset.name}</div>
-                      </div>
-                    </div>
-                    <span className="text-xs px-2 py-0.5 rounded" style={{ background: `${asset.color}15`, color: asset.color }}>{asset.note}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-2xl p-6" style={{ background: "rgba(0,255,136,0.03)", border: "1px solid rgba(0,255,136,0.15)" }}>
-              <h3 className="text-sm font-bold text-white mb-2">Verify on Polygonscan</h3>
-              <a
-                href={`https://polygonscan.com/address/${SOVEREIGN_WALLET}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-mono underline"
-                style={{ color: "#00FF88" }}
-              >
-                View treasury on-chain →
-              </a>
-            </div>
-          </div>
-        </div>
+    <section className="container py-8"><div className="rounded-[2rem] border border-[#FF6B9A]/35 bg-[#FF6B9A]/[.05] p-7 sm:p-10"><Sparkles className="h-8 w-8 text-[#FF9EB9]" /><p className="mt-5 text-xs font-mono tracking-[.16em] text-[#FF9EB9]">EXACT ACTION GATE</p><h2 className="mt-3 text-3xl font-black">A release packet is not a transfer, payment, or mint authority.</h2><p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Before any provider-side wallet, payment, asset, chain, contract, mint, transfer, custody, listing, payout, or delivery action, the active request must name the exact record, provider or destination, asset or setting, amount/currency basis if applicable, visitor and financial consequence, public terms, and rollback condition. One exact current owner confirmation is required for that one action.</p><div className="mt-7 flex flex-wrap gap-3"><Link href="/activation-register" className="rounded-xl bg-[#FF6B9A] px-5 py-3 text-sm font-black text-[#071426]">Open Activation Register</Link><Link href="/payment-launch-packets" className="rounded-xl border border-[#FF6B9A]/45 bg-[#FF6B9A]/10 px-5 py-3 text-sm font-black text-[#FF9EB9]">Payment launch packets</Link><Link href="/creator-catalog-readiness" className="rounded-xl border border-white/15 bg-white/[.04] px-5 py-3 text-sm font-black text-white">Full catalog readiness</Link></div></div></section>
 
-        {/* USDC note */}
-        <div className="mt-8 p-4 rounded-xl text-sm text-center" style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.1)", color: "#8899AA" }}>
-          USDC contract on Polygon: <span className="font-mono text-xs" style={{ color: "#00D4FF" }}>{USDC_CONTRACT}</span> · All transactions are immutable on Polygon Mainnet · Chain ID: 137
-        </div>
-      </div>
-    </div>
-  );
+    <footer className="container py-8 text-center text-xs font-mono text-[#8FA3B5]">SCROLLVERSE · CRYPTO + COLLECTOR READINESS · SOURCE, TERMS, OWNER RELEASE, THEN ONE EXACT ACTION</footer>
+  </main>;
 }

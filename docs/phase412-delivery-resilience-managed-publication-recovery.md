@@ -272,6 +272,12 @@ The `/token` route is now a source-labeled token and edition release-readiness s
 
 TypeScript completed without errors and the full regression suite completed with **117 test files / 432 tests passing**. Browser inspection confirmed the route displays source records, browser-local packet controls, and the exact action gate. No Stripe checkout, direct wallet, price, token supply, exchange, customer account, book sale, subscription, token delivery, payout, transfer, or provider-side action was created or represented as current.
 
+## 2026-08-18 update — CryptoHub release-state correction
+
+The `/crypto` route now serves as a source-labeled crypto and collector readiness surface. It prepares a future payment/contribution path, Guardian access concept, and ScrollSoul collector pathway without displaying a wallet or contract address, fetching a balance, naming accepted assets, setting amounts or tier prices, connecting an account, sending a transfer, verifying a chain transaction, exposing royalties, or queuing a mint.
+
+TypeScript completed without errors and the full regression suite completed with **118 test files / 435 tests passing**. Browser inspection confirmed the readiness records, browser-local crypto packet, and exact action gate render visibly. No wallet, payment, chain, asset, price, balance, contract, token, NFT, mint, transfer, custody, sale, payout, customer, or provider action was created or represented as current.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.
