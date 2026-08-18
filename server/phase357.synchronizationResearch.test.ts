@@ -90,15 +90,16 @@ describe("Phase 357 — Synchronization Research Index", () => {
     expect(stakingIntake).toContain("external notification delivery relative to the portal interface");
   });
 
-  it("makes publisher-visible delivery state and managed recovery paths legible without claiming publication", () => {
+  it("makes historic publisher-visible delivery state and verified recovery paths legible with current public delivery", () => {
     expect(routerSource).toContain('path={"/delivery-resilience"}');
     expect(deliveryResilienceSource).toContain('useSovereignHeartbeat({ page: "delivery-resilience" })');
     expect(deliveryResilienceSource).toContain("A strong record has");
-    expect(deliveryResilienceSource).toContain("publisher-visible merge conflict");
-    expect(deliveryResilienceSource).toContain("Requires successful checkpoint");
+    expect(deliveryResilienceSource).toContain("MANAGED RECOVERY VERIFIED · PUBLIC ROUTES AVAILABLE");
+    expect(deliveryResilienceSource).toContain("Verified recovery");
+    expect(deliveryResilienceSource).toContain("Available now · public routes verified");
     expect(deliveryResilienceSource).toContain("MANAGED IF–THEN RECOVERY PLAYBOOK");
     expect(deliveryResilienceSource).toContain("Do not force repository history from this local workspace.");
-    expect(deliveryResilienceSource).toContain("does not expose raw repository commands");
+    expect(deliveryResilienceSource).toContain("does not claim provider-side commerce, account configuration, payment, trade, rights clearance");
     expect(deliveryRecoveryRecord).toContain("publisher identifies at checkpoint `2ba0cc6a`");
     expect(deliveryRecoveryRecord).toContain("managed checkpoint is the delivery authority");
     expect(atlasSource).toContain('{ label: "Delivery Resilience", href: "/delivery-resilience" }');
@@ -111,7 +112,7 @@ describe("Phase 357 — Synchronization Research Index", () => {
     expect(masterInstructionSource).toContain("Keep the blueprint.");
     expect(masterInstructionSource).toContain("SOURCE CLAIM AND CURRENT RECORD COMPARISON");
     expect(masterInstructionSource).toContain("Conflict resolved; checkpoint retried; deployment ready");
-    expect(masterInstructionSource).toContain("publisher-visible conflict at `2ba0cc6a`");
+    expect(masterInstructionSource).toContain("former conflict remains an incident record, not the active state");
     expect(masterInstructionSource).toContain("does not run source text as a deployment command");
     expect(deliveryResilienceSource).toContain('href="/master-instruction-intake"');
     expect(masterInstructionIntake).toContain("Protected, non-executable reference material");

@@ -153,3 +153,9 @@ TypeScript completed without errors and the full regression suite completed with
 ### Discovery-path update
 
 The Direct-to-Fan Catalog now exposes a **Catalog engagement brief** handoff beside its catalog and free-reader actions, and the ScrollVerse Atlas adds the same route within the Music, Media & Story Studio lane. Regression coverage confirms both internal links, and local browser inspection confirms the Direct-to-Fan link renders while the catalog retains its no-price/no-checkout/no-payment/no-token/no-wallet/no-delivery boundary.
+
+## 2026-08-18 update — Public delivery-state label reconciliation
+
+The public Delivery Resilience, Capability Audit, and Master Instruction Intake routes have been reconciled to the current managed recovery record. They now present `6a62b4c2` as the managed divergence-recovery checkpoint and `86b83d2d` as the deployment-recovery checkpoint, with public-route availability as the current portal-delivery state. The earlier `2ba0cc6a` conflict remains visible only as historic incident evidence and a resilience lesson.
+
+TypeScript completed without errors and the full regression suite completed with **103 test files / 392 tests passing**. Local browser review confirmed that Delivery Resilience shows a verified recovery banner, verified managed-checkpoint layer, available public-route layer, and an explicit separation from provider-side commerce, account configuration, payments, trades, rights clearance, or other external actions.

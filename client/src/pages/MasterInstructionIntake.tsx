@@ -11,7 +11,7 @@ const RETAINED_PATTERNS = [
 ] as const;
 
 const SOURCE_STATE_COMPARISONS = [
-  { sourceClaim: "Conflict resolved; checkpoint retried; deployment ready", localState: "The managed checkpoint still reports a publisher-visible conflict at `2ba0cc6a`.", tone: "#FFDEA0" },
+  { sourceClaim: "Conflict resolved; checkpoint retried; deployment ready", localState: "The managed workflow reconciled the historic `2ba0cc6a` divergence, and current public-route checks verify the published delivery path. The former conflict remains an incident record, not the active state.", tone: "#B5F7CC" },
   { sourceClaim: "All repositories, AI integrations, webhooks, and continuous synchronization connected", localState: "No local connector audit establishes those blanket external connection states.", tone: "#DCC8FF" },
   { sourceClaim: "Media, commerce, token, publishing, and financial flows active", localState: "ScrollVerse retains release-gated preparation records; no blanket external financial or release outcome is established here.", tone: "#FF9CC4" },
   { sourceClaim: "All listed validation totals and preview states complete", localState: "This workspace’s current recorded run is TypeScript clean with 93 test files and 347 tests passing.", tone: "#B5F7CC" },

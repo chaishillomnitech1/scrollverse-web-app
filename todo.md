@@ -4129,3 +4129,4 @@
 ## Managed Production Healthcheck Recovery
 - [x] Correct the production server startup behavior so the managed healthcheck binds to the platform-provided port and host without falling back to an unmonitored port
 - [x] Add focused regression coverage, revalidate the portal, and verify the public route after a managed recovery checkpoint
+- [x] Reconcile remaining public delivery-state pages so historic conflict records remain visible without being presented as the current publication state

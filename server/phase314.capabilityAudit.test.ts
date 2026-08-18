@@ -15,13 +15,14 @@ describe("Phase 314 — Concrete ScrollVerse Capability Audit", () => {
     expect(continuum).toContain('href="/capability-audit"');
   });
 
-  it("separates demonstrated local capabilities from research, external gates, and managed publication status", () => {
+  it("separates demonstrated local capabilities from research, external gates, and historic managed-publication incident status", () => {
     expect(audit).toContain('"Local now"');
     expect(audit).toContain('"Research"');
     expect(audit).toContain('"External gate"');
-    expect(audit).toContain('"Publication blocker"');
+    expect(audit).toContain('"Historic incident"');
     expect(audit).toContain("No connector account is currently active");
-    expect(audit).toContain("Remote checkpoint 2ba0cc6a is retained");
+    expect(audit).toContain("Historic checkpoint 2ba0cc6a is retained as incident evidence");
+    expect(audit).toContain("Managed recovery and public delivery verified");
     expect(audit).toContain("does not activate a product, payment, wallet, token, contract");
   });
 
