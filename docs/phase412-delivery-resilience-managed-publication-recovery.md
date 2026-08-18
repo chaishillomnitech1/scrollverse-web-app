@@ -169,3 +169,9 @@ TypeScript completed without errors and the full regression suite completed with
 ### Discovery-path update
 
 Synchronization Research now exposes the Bounded Research Operations route in both its access-pathway and continuation-route sections. The public card describes the route as a decision draft with no schedule enabled, and a rendered-link inspection confirmed both handoffs target the internal `/bounded-research-operations` route. No task, cron expression, callback, provider action, or recurring research run was introduced by the navigation update.
+
+## 2026-08-18 update — Shopify staged-launch guidance
+
+The workspace now includes `/shopify-staged-launch-guidance`, a source-labeled preparation route linked from Shopify Storefront Readiness. It separates owner-supplied visible setup context from direct provider verification and visitor-visible availability, then provides browser-local item templates for music/digital editions, books/readers, fashion/artifacts, collector editions, and creator services. The route also presents an international-market checklist and a payment-method verification format without configuring any market or provider setting.
+
+TypeScript completed without errors and the full regression suite completed with **105 test files / 399 tests passing**. Browser review confirmed the staged source cards, four-step control path, five item-template options, market-readiness fields, exact-action gate, and visible no-provider-action label. The route does not bind Shopify, create a product or collection, set price/inventory/currency, remove storefront protection, open checkout, accept payment, configure payout, change tax/duty/shipping/domain/market settings, or send customer communication. The owner-supplied notification and international-market visual evidence remains a separate outstanding source-record task because its protected details are not duplicated here.

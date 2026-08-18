@@ -3926,10 +3926,10 @@
 
 ## Approved Shopify Staged Launch Plan
 - [ ] Record owner-supplied Shopify payment-method notifications, international-market screen, and sensitive crawler-signature boundary without reproducing protected values
-- [ ] Add staged-launch guidance that separates visible notification text, direct provider verification, and visitor-visible availability
-- [ ] Create reusable item-level release-packet and payment-method verification templates for music, books, fashion, collector editions, and creator services
-- [ ] Create international-market readiness and staged-launch checklists without changing country, currency, tax, duty, shipping, or merchant-of-record settings
-- [ ] Add focused route coverage and validate Shopify readiness, Payment Options Map, and staged-launch boundaries without initiating provider-side actions
+- [x] Add staged-launch guidance that separates visible notification text, direct provider verification, and visitor-visible availability
+- [x] Create reusable item-level release-packet and payment-method verification templates for music, books, fashion, collector editions, and creator services
+- [x] Create international-market readiness and staged-launch checklists without changing country, currency, tax, duty, shipping, or merchant-of-record settings
+- [x] Add focused route coverage and validate Shopify readiness, Payment Options Map, and staged-launch boundaries without initiating provider-side actions
 
 ## Empire Routing and Public Source Inventory
 - [ ] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory
