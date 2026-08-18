@@ -3956,9 +3956,9 @@
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
-- [ ] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state
-- [ ] Validate the activation-register boundary without executing any provider-side action
-- [ ] Build a source-bound Activation Register route that makes the exact confirmation and correction format reachable from live readiness routes
+- [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state
+- [x] Validate the activation-register boundary without executing any provider-side action
+- [x] Build a source-bound Activation Register route that makes the exact confirmation and correction format reachable from live readiness routes
 
 ## Next Release Milestone and Emerging Definitions
 - [x] Reconcile owner-provided milestone narratives with the current local, public-source, provider-visible, and managed-publisher records
