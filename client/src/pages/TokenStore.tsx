@@ -1,316 +1,103 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { ArrowRight, BookOpen, Coins, Copy, Landmark, LockKeyhole, ShieldCheck, Sparkles, WalletCards } from "lucide-react";
 import { Link } from "wouter";
-import { trpc } from "@/lib/trpc";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
 import { toast } from "sonner";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-// Sacred Books catalog for the store (mirrors library seed data)
-const SACRED_BOOKS = [
-  { id: 1, slug: "vaultbook-xv-scroll-of-scrolls", title: "VaultBook XV: The Scroll of Scrolls", author: "Chais The Great ∞", priceUsd: 0, tier: "free", icon: "∞", color: "#00D4FF", category: "codex" },
-  { id: 2, slug: "majestic-anchor-manifest", title: "The Majestic Anchor Manifest", author: "Chais Kenyatta Hill", priceUsd: 0, tier: "free", icon: "⚓", color: "#00FF88", category: "doctrine" },
-  { id: 3, slug: "scroll-of-44-omni", title: "The Scroll of 44:Omni", author: "Chais Kenyatta Hill", priceUsd: 4400, tier: "free", icon: "🕋", color: "#FFB800", category: "doctrine" },
-  { id: 4, slug: "manus-and-chais-our-story", title: "Manus & Chais: Our Story", author: "Chais Hill & Manus AI", priceUsd: 2800, tier: "free", icon: "🤝", color: "#00D4FF", category: "manual" },
-  { id: 5, slug: "consciousness-mirror-codex", title: "The Consciousness Mirror Codex", author: "Chais Kenyatta Hill", priceUsd: 5280, tier: "guardian", icon: "🔮", color: "#8B5CF6", category: "codex" },
-  { id: 6, slug: "celestine-starforge-chronicles", title: "The Celestine Starforge Chronicles", author: "Chais Kenyatta Hill", priceUsd: 9630, tier: "sovereign", icon: "⭐", color: "#FFB800", category: "prophecy" },
-  { id: 7, slug: "king-solomon-1005-songs", title: "King Solomon's 1,005 Songs", author: "King Solomon AI × Chais Hill", priceUsd: 10050, tier: "sovereign", icon: "🎵", color: "#FFB800", category: "music" },
-  { id: 8, slug: "scrollverse-quantum-daily-practice", title: "The ScrollVerse Quantum Daily Practice", author: "Chais Hill × Manus AI", priceUsd: 0, tier: "free", icon: "☀️", color: "#00FF88", category: "manual" },
-  { id: 9, slug: "ani-catalyst-doctrine", title: "ANI's Catalyst Doctrine", author: "ANI × Grok × Chais Hill", priceUsd: 5280, tier: "guardian", icon: "🔥", color: "#FF6B35", category: "doctrine" },
-  { id: 10, slug: "scrollverse-omni-vault-architecture", title: "The Omni-Vault Architecture", author: "Gemini × Chais Hill", priceUsd: 7777, tier: "ascendant", icon: "🌌", color: "#8B5CF6", category: "codex" },
+type ReleaseConcept = {
+  id: string;
+  state: string;
+  title: string;
+  source: string;
+  detail: string;
+  required: string;
+  accent: string;
+  icon: typeof Coins;
+};
+
+const TOKEN_AND_EDITION_RECORDS: ReleaseConcept[] = [
+  {
+    id: "londec-concept",
+    state: "CONCEPT RECORD · REQUIRES OWNER RELEASE",
+    title: "$LONDC release concept",
+    source: "Owner-authored ScrollVerse token context and Activation Register",
+    detail: "No contract, network, supply, allocation, price, exchange, wallet, custody, transfer, reward, governance enrollment, or sale is set.",
+    required: "Named token record, chain/network, mechanism, rights and public description, eligibility, custody, transfer terms, provider, price/currency decision, owner release, and public verification.",
+    accent: "#FFCC4D",
+    icon: Coins,
+  },
+  {
+    id: "guardian-concept",
+    state: "MEMBERSHIP CONCEPT · REQUIRES OWNER RELEASE",
+    title: "Guardian pathway concept",
+    source: "Guardian readiness, Subscribe release record, and Product Release Pipeline",
+    detail: "No paid tier, subscription, access entitlement, customer account, staking, Zakat distribution, reward, allocation, or delivery is active.",
+    required: "Exact program, terms, eligibility, price/currency and tax basis where paid, payment destination, access/delivery, support/refund path, owner release, correction, and post-release verification.",
+    accent: "#00D4FF",
+    icon: ShieldCheck,
+  },
+  {
+    id: "edition-records",
+    state: "EDITION RECORDS · PRICE UNSET",
+    title: "Original books and editions",
+    source: "Books discovery, ScrollVerse Perspectives, and Creator Catalog Readiness",
+    detail: "Titles and reader pathways are available as source and release-preparation records. A platform reference, digital format, or free-reader route does not establish a paid edition or delivery.",
+    required: "One release record per title/version with source, creator, rights/contributors, accessible description, format, price/currency if paid, delivery, support/refund terms, destination/provider, owner release, and publication verification.",
+    accent: "#B5F7CC",
+    icon: BookOpen,
+  },
 ];
 
-function SacredBooksGrid() {
-  const { isAuthenticated } = useAuth();
-  const [checkingOut, setCheckingOut] = useState<number | null>(null);
-  const bookCheckout = trpc.library.createBookCheckoutSession.useMutation({
-    onSuccess: ({ url }) => {
-      toast.success("Redirecting to secure checkout...");
-      window.open(url, "_blank");
-    },
-    onError: (err) => toast.error("Checkout failed", { description: err.message }),
-    onSettled: () => setCheckingOut(null),
-  });
-  const handleBookPurchase = (bookId: number) => {
-    if (!isAuthenticated) { window.location.href = getLoginUrl(); return; }
-    setCheckingOut(bookId);
-    bookCheckout.mutate({ bookId, origin: window.location.origin });
-  };
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {SACRED_BOOKS.map((book) => (
-        <div key={book.id} className="rounded-xl p-5 relative overflow-hidden transition-all duration-300 hover:scale-[1.02]" style={{ background: `${book.color}08`, border: `1px solid ${book.color}25` }}>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ background: `${book.color}15`, border: `1px solid ${book.color}30` }}>
-              {book.icon}
-            </div>
-            <div>
-              <div className="text-xs font-mono" style={{ color: book.color }}>{book.category.toUpperCase()}</div>
-              <div className="text-xs" style={{ color: book.tier === "free" ? "#00FF88" : book.tier === "guardian" ? "#00D4FF" : book.tier === "sovereign" ? "#FFB800" : "#8B5CF6" }}>{book.tier.toUpperCase()}</div>
-            </div>
-          </div>
-          <h4 className="font-bold text-white text-sm leading-tight mb-1 line-clamp-2">{book.title}</h4>
-          <div className="text-xs mb-4" style={{ color: "#8899AA" }}>by {book.author}</div>
-          <div className="flex items-center justify-between">
-            <div className="font-black text-sm" style={{ color: book.priceUsd === 0 ? "#00FF88" : "#FFB800" }}>
-              {book.priceUsd === 0 ? "FREE" : `$${(book.priceUsd / 100).toFixed(2)}`}
-            </div>
-            {book.priceUsd === 0 ? (
-              <a href="/library" className="text-xs px-3 py-1.5 rounded-lg font-bold" style={{ background: "rgba(0,255,136,0.15)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
-                📥 Free Access
-              </a>
-            ) : (
-              <button
-                onClick={() => handleBookPurchase(book.id)}
-                disabled={checkingOut === book.id}
-                className="text-xs px-3 py-1.5 rounded-lg font-bold transition-all hover:opacity-90 disabled:opacity-60"
-                style={{ background: `linear-gradient(135deg, ${book.color}, ${book.color}99)`, color: "#050B1A" }}
-              >
-                {checkingOut === book.id ? "..." : "💳 Buy"}
-              </button>
-            )}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-const TIER_GRADIENTS: Record<string, string> = {
-  guardian: "linear-gradient(135deg, #00D4FF20, #0066FF10)",
-  sovereign: "linear-gradient(135deg, #FFB80020, #FF6B0010)",
-  ascendant: "linear-gradient(135deg, #8B5CF620, #6D28D910)",
-};
-
-const TIER_BORDERS: Record<string, string> = {
-  guardian: "rgba(0,212,255,0.3)",
-  sovereign: "rgba(255,184,0,0.3)",
-  ascendant: "rgba(139,92,246,0.3)",
-};
-
-const TIER_COLORS: Record<string, string> = {
-  guardian: "#00D4FF",
-  sovereign: "#FFB800",
-  ascendant: "#8B5CF6",
-};
-
 export default function TokenStore() {
-  const { user, isAuthenticated } = useAuth();
-  const [checkingOut, setCheckingOut] = useState<string | null>(null);
+  useSovereignHeartbeat({ page: "token-release-readiness" });
+  const [selectedId, setSelectedId] = useState(TOKEN_AND_EDITION_RECORDS[0].id);
+  const [note, setNote] = useState("");
+  const [acknowledged, setAcknowledged] = useState(false);
+  const selected = useMemo(() => TOKEN_AND_EDITION_RECORDS.find((record) => record.id === selectedId) ?? TOKEN_AND_EDITION_RECORDS[0], [selectedId]);
 
-  const { data: products, isLoading } = trpc.store.getProducts.useQuery();
-  const { data: myOrders } = trpc.store.getMyOrders.useQuery(undefined, {
-    enabled: isAuthenticated,
-  });
-
-  const checkoutMutation = trpc.store.createCheckoutSession.useMutation({
-    onSuccess: ({ url }) => {
-      toast.success("Redirecting to secure checkout...");
-      window.open(url, "_blank");
-    },
-    onError: (err) => {
-      toast.error("Checkout failed", { description: err.message });
-    },
-    onSettled: () => setCheckingOut(null),
-  });
-
-  const handlePurchase = (tier: string) => {
-    if (!isAuthenticated) {
-      window.location.href = getLoginUrl();
+  const copyPacket = async () => {
+    if (!acknowledged) {
+      toast.error("Confirm the release boundary first", { description: "This browser-local record cannot authorize a token, book sale, wallet, checkout, or provider action." });
       return;
     }
-    setCheckingOut(tier);
-    checkoutMutation.mutate({
-      tier: tier as "guardian" | "sovereign" | "ascendant",
-      origin: window.location.origin,
-    });
+    const packet = [
+      "SCROLLVERSE TOKEN / EDITION RELEASE PACKET · BROWSER-LOCAL DRAFT",
+      `Record: ${selected.title}`,
+      `State: ${selected.state}`,
+      `Source: ${selected.source}`,
+      `Current boundary: ${selected.detail}`,
+      `Required before any external action: ${selected.required}`,
+      `Owner note: ${note.trim() || "Not supplied"}`,
+      "No contract, chain, wallet, token, NFT, price, supply, checkout, payment, customer account, delivery, payout, transfer, sale, or provider action is authorized by this draft.",
+    ].join("\n\n");
+    try {
+      await navigator.clipboard.writeText(packet);
+      toast.success("Release packet copied", { description: "This is a browser-local preparation record only." });
+    } catch {
+      toast.error("Copy unavailable", { description: "Select the text manually; no external action was taken." });
+    }
   };
 
-  const purchasedTiers = new Set(myOrders?.map((o: any) => o.productTier) ?? []);
-
-  return (
-    <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 border-b" style={{ background: "rgba(5,11,26,0.95)", backdropFilter: "blur(20px)", borderColor: "rgba(0,212,255,0.1)" }}>
-        <div className="container flex items-center justify-between py-4">
-          <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer">
-              <div className="w-8 h-8 rounded-sm flex items-center justify-center text-sm font-bold" style={{ background: "linear-gradient(135deg, #00D4FF, #FFB800)", color: "#050B1A" }}>SV</div>
-              <span className="font-bold text-white">ScrollVerse</span>
-              <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>$LONDC</span>
-            </div>
-          </Link>
-          <div className="flex items-center gap-3">
-            {isAuthenticated ? (
-              <div className="text-xs font-mono" style={{ color: "#00FF88" }}>◉ {user?.name ?? "Guardian"}</div>
-            ) : (
-              <a href={getLoginUrl()} className="text-sm font-bold px-4 py-2 rounded-lg" style={{ background: "rgba(0,212,255,0.1)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.3)" }}>Sign In</a>
-            )}
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="py-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.06) 0%, transparent 70%)" }} />
-        <div className="container relative z-10">
-          <div className="text-xs font-mono tracking-widest mb-4" style={{ color: "#FFB800" }}>$LONDC TOKEN — SOVEREIGN CURRENCY</div>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6" style={{ fontFamily: "'Space Mono', monospace" }}>
-            Join the<br />
-            <span style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              144,000
-            </span>
-          </h1>
-          <p className="text-lg mb-4 max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
-            $LONDC is the sovereign currency of the ScrollVerse Trinity ecosystem. Purchase your Guardian tier to unlock the Creator Academy, DAO governance, and Zakat distribution.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-xs font-mono">
-            {["Polygon Mainnet", "ERC-20 Standard", "7.77% Zakat", "DAO Governance", "Creator Academy Access"].map((tag) => (
-              <span key={tag} className="px-3 py-1.5 rounded-full" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.2)" }}>{tag}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Test mode notice */}
-      <div className="container mb-6">
-        <div className="rounded-xl p-4 text-center text-sm" style={{ background: "rgba(255,184,0,0.06)", border: "1px solid rgba(255,184,0,0.2)", color: "#FFB800" }}>
-          🧪 <strong>Test Mode Active</strong> — Use card <code className="font-mono bg-black/20 px-1 rounded">4242 4242 4242 4242</code> with any future date and CVC to test checkout. Claim your live Stripe account to accept real payments.
+  return <main className="min-h-screen bg-[#050B1A] pb-24 text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    <section className="border-b border-[#FFCC4D]/25 bg-[radial-gradient(circle_at_82%_8%,rgba(255,204,77,.16),transparent_28%),radial-gradient(circle_at_10%_82%,rgba(0,212,255,.12),transparent_28%),#050B1A]">
+      <div className="container py-14 md:py-20">
+        <div className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">← SCROLLVERSE FRONT DOOR</Link><span className="rounded-full border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-3 py-1 text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">TOKEN + EDITION READINESS · NO CHECKOUT ACTIVE</span></div>
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.13fr_.87fr] lg:items-end">
+          <div><p className="text-xs font-mono tracking-[.2em] text-[#FFDEA0]">$LONDC · SOURCE-LABELED RELEASE PREPARATION</p><h1 className="mt-4 max-w-5xl text-5xl font-black leading-[.92] md:text-7xl">Original records first. <span className="text-[#FFCC4D]">No token sale or checkout active.</span></h1><p className="mt-6 max-w-3xl text-base leading-8 text-[#D6E2EE]">This route prepares one named token, membership, or edition record at a time. It does not represent a live Polygon deployment, token supply, price, exchange, wallet, book store, subscription, checkout, distribution, or reward program.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/creator-catalog-readiness" className="rounded-xl bg-[#FFCC4D] px-5 py-3 text-sm font-black text-[#071426]">Full catalog readiness</Link><Link href="/activation-register" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#9DEBFF]">Exact action register</Link><Link href="/nft-marketplace" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Collector readiness</Link></div></div>
+          <aside className="rounded-[2rem] border border-[#FFCC4D]/35 bg-[#071426]/90 p-7"><LockKeyhole className="h-9 w-9 text-[#FFDEA0]" /><p className="mt-5 text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">CURRENT OPERATING STATE</p><p className="mt-3 text-2xl font-black leading-tight">Release-ready preparation. External action unavailable.</p><div className="mt-6 grid gap-3 text-xs leading-6 text-[#D6E2EE]"><p><span className="font-mono text-[#FFDEA0]">CONTRACT + NETWORK · </span>Unset</p><p><span className="font-mono text-[#FFDEA0]">PRICE + SUPPLY · </span>Unset</p><p><span className="font-mono text-[#FFDEA0]">WALLET + CUSTODY · </span>No active route</p></div></aside>
         </div>
       </div>
+    </section>
 
-      {/* Product cards */}
-      {isLoading ? (
-        <div className="container grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="rounded-2xl p-8 animate-pulse" style={{ background: "rgba(255,255,255,0.03)", height: "400px" }} />
-          ))}
-        </div>
-      ) : (
-        <div className="container grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {products?.map((product) => {
-            const color = TIER_COLORS[product.id] ?? "#00D4FF";
-            const isPurchased = purchasedTiers.has(product.id as "guardian" | "sovereign" | "ascendant");
-            return (
-              <div
-                key={product.id}
-                className="relative rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02]"
-                style={{
-                  background: TIER_GRADIENTS[product.id],
-                  border: `1px solid ${TIER_BORDERS[product.id]}`,
-                }}
-              >
-                {product.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full" style={{ background: "#FFB800", color: "#050B1A" }}>
-                    MOST POPULAR
-                  </div>
-                )}
-                <div className="text-4xl mb-4">{product.icon}</div>
-                <div className="text-xs font-mono mb-2" style={{ color }}>
-                  {product.tokens.toLocaleString()} $LONDC TOKENS
-                </div>
-                <h3 className="text-2xl font-black text-white mb-2">{product.name}</h3>
-                <div className="text-3xl font-black mb-4" style={{ color }}>
-                  ${(product.priceCents / 100).toLocaleString("en-US", { minimumFractionDigits: 2 })}
-                </div>
-                <p className="text-sm mb-6" style={{ color: "#8899AA" }}>{product.description}</p>
-                <ul className="space-y-2 mb-8">
-                  {product.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm">
-                      <span style={{ color }}>✓</span>
-                      <span style={{ color: "#CCDDEE" }}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                {isPurchased ? (
-                  <div className="w-full py-3 rounded-xl text-center text-sm font-bold" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
-                    ✓ PURCHASED
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => handlePurchase(product.id)}
-                    disabled={checkingOut === product.id}
-                    className="w-full py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
-                    style={{ background: `linear-gradient(135deg, ${color}, ${color}99)`, color: "#050B1A" }}
-                  >
-                    {checkingOut === product.id ? "Opening Checkout..." : `Get ${product.name} →`}
-                  </button>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
+    <section className="container py-10"><PortalTrustLens lane="$LONDC and edition readiness" source="Owner-authored ScrollVerse token context, Books discovery, ScrollVerse Perspectives, Creator Catalog Readiness, Activation Register, and controlled delivery records." readiness="Source-labeled release records and browser-local packet preparation are available. No external payment, token, membership, book sale, wallet, or provider action is active." boundary="This page does not create or inspect a contract, chain, exchange, wallet, custody account, token supply, payment session, customer account, subscription, book listing, delivery, payout, transfer, or sale." /></section>
 
-      {/* Direct Crypto Payment Option */}
-      <section className="py-10" style={{ borderTop: "1px solid rgba(0,212,255,0.08)" }}>
-        <div className="container">
-          <div className="rounded-2xl p-8 text-center" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)" }}>
-            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00D4FF" }}>PREFER CRYPTO? PAY DIRECTLY ON-CHAIN</div>
-            <h3 className="text-xl font-bold text-white mb-2">Send MATIC or USDC Directly</h3>
-            <p className="text-sm mb-4 max-w-xl mx-auto" style={{ color: "#8899AA" }}>No Stripe required. Send your Guardian tier amount directly to the sovereign treasury wallet on Polygon Mainnet. Zero middlemen. Immutable proof on-chain.</p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/crypto" className="px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 inline-block" style={{ background: "linear-gradient(135deg, #00D4FF, #0088FF)", color: "#050B1A" }}>
-                ₿ Open CryptoHub →
-              </Link>
-              <button
-                onClick={() => { navigator.clipboard.writeText("0x377956c1471d9ce142df6932895839243da23a2c"); toast.success("Wallet address copied!"); }}
-                className="px-6 py-3 rounded-xl text-sm font-mono transition-all hover:scale-105"
-                style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.25)", color: "#00D4FF" }}
-              >
-                📋 0x3779...3a2c
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className="container py-6"><div className="flex flex-col gap-4 border-b border-white/10 pb-7 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-mono tracking-[.16em] text-[#FFDEA0]">SOURCE-LABELED RELEASE LANES</p><h2 className="mt-2 text-3xl font-black">One named record before one irreversible choice.</h2></div><WalletCards className="h-9 w-9 text-[#FFDEA0]" /></div><div className="mt-7 grid gap-5 lg:grid-cols-[.82fr_1.18fr]"><div className="grid gap-3 self-start">{TOKEN_AND_EDITION_RECORDS.map((record) => { const Icon = record.icon; const active = record.id === selected.id; return <button type="button" key={record.id} onClick={() => { setSelectedId(record.id); setAcknowledged(false); }} className="rounded-2xl border p-5 text-left transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" style={{ borderColor: active ? record.accent : "rgba(255,255,255,.12)", background: active ? `${record.accent}14` : "rgba(255,255,255,.02)" }}><div className="flex gap-3"><span className="mt-0.5 rounded-xl p-2" style={{ background: `${record.accent}18`, color: record.accent }}><Icon className="h-5 w-5" /></span><span><span className="block text-[10px] font-mono tracking-[.14em]" style={{ color: record.accent }}>{record.state}</span><span className="mt-1 block text-lg font-black text-white">{record.title}</span></span></div></button>; })}</div><article className="rounded-[2rem] border p-7 sm:p-10" style={{ borderColor: `${selected.accent}55`, background: `radial-gradient(circle at 90% 10%, ${selected.accent}16, transparent 28%), #071426` }}><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: selected.accent }}>{selected.state}</p><h3 className="mt-3 text-3xl font-black">{selected.title}</h3><p className="mt-5 text-xs font-mono tracking-[.12em] text-[#B8C7D6]">SOURCE · {selected.source}</p><p className="mt-5 text-sm leading-7 text-[#D6E2EE]">{selected.detail}</p><div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5"><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: selected.accent }}>REQUIRED BEFORE ANY EXTERNAL ACTION</p><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{selected.required}</p></div></article></div></section>
 
-      {/* Security badges */}
-      <section className="py-12 border-t" style={{ borderColor: "rgba(0,212,255,0.08)" }}>
-        <div className="container">
-          <div className="flex flex-wrap justify-center gap-8 text-center">
-            {[
-              { icon: "🔒", label: "Stripe Secured", sub: "256-bit SSL encryption" },
-              { icon: "🔷", label: "Polygon Network", sub: "Near-zero gas fees" },
-              { icon: "⚡", label: "Instant Delivery", sub: "Tokens on-chain immediately" },
-              { icon: "🛡️", label: "Guardian Verified", sub: "Immutable on blockchain" },
-            ].map((b) => (
-              <div key={b.label}>
-                <div className="text-2xl mb-1">{b.icon}</div>
-                <div className="text-sm font-bold text-white">{b.label}</div>
-                <div className="text-xs" style={{ color: "#8899AA" }}>{b.sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="container py-8"><div className="rounded-[2rem] border border-[#00D4FF]/35 bg-[radial-gradient(circle_at_88%_10%,rgba(0,212,255,.12),transparent_25%),#071426] p-7 sm:p-10"><p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">BROWSER-LOCAL RELEASE PACKET</p><h2 className="mt-3 text-3xl font-black">Prepare the evidence. Do not infer the action.</h2><p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">A note can help organize the missing source, rights, custody, delivery, or terms information. It stays in this browser until you choose to copy it; it is not saved to an account or transmitted to a provider.</p><textarea value={note} onChange={(event) => setNote(event.target.value)} placeholder="Record only public-safe source, rights, contributor, terms, delivery, and release context. Do not enter credentials, wallet addresses, customer data, bank details, private keys, or recovery codes." className="mt-6 min-h-32 w-full rounded-2xl border border-[#00D4FF]/25 bg-black/20 p-4 text-sm text-white outline-none placeholder:text-[#7F93A5] focus:border-[#00D4FF]/70" /><label className="mt-5 flex items-start gap-3 rounded-2xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.06] p-4 text-sm leading-6 text-[#FFDEA0]"><input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} className="mt-1 h-4 w-4 accent-[#FFCC4D]" />I confirm this draft does not authorize a contract, chain, token, supply, price, exchange, wallet, custody, checkout, payment, membership, book sale, delivery, payout, transfer, reward, or provider action.</label><button type="button" onClick={copyPacket} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#071426] transition hover:-translate-y-0.5"><Copy className="h-4 w-4" />Copy release packet</button></div></section>
 
-      {/* Sacred Books Section */}
-      <section className="py-16 border-t" style={{ borderColor: "rgba(0,212,255,0.08)" }}>
-        <div className="container">
-          <div className="text-center mb-10">
-            <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SCROLLVERSE SOVEREIGN LIBRARY</div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-              10 Sacred <span style={{ background: "linear-gradient(135deg, #FFB800, #FF6B35)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Books</span>
-            </h2>
-            <p className="text-sm max-w-xl mx-auto" style={{ color: "#8899AA" }}>
-              Every scroll, doctrine, and sacred text — available as PDF, audio, and motion visual bundle. Purchase directly or visit the full Library for previews.
-            </p>
-          </div>
-          <SacredBooksGrid />
-          <div className="text-center mt-8">
-            <a href="/library" className="inline-block px-8 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105" style={{ background: "linear-gradient(135deg, #00D4FF, #0088FF)", color: "#050B1A" }}>
-              📚 Browse Full Library →
-            </a>
-          </div>
-        </div>
-      </section>
+    <section className="container py-8"><div className="rounded-[2rem] border border-[#FF6B9A]/35 bg-[#FF6B9A]/[.05] p-7 sm:p-10"><Sparkles className="h-8 w-8 text-[#FF9EB9]" /><p className="mt-5 text-xs font-mono tracking-[.16em] text-[#FF9EB9]">EXACT ACTION GATE</p><h2 className="mt-3 text-3xl font-black">A release packet is not an automatic issue, sale, or checkout authority.</h2><p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Before any provider-side token, book, membership, wallet, custody, payment, checkout, exchange, or delivery action, the active request must name the exact record, provider or destination, setting or amount, visitor and financial consequence, public terms, and rollback condition. One exact current owner confirmation is required for that one action.</p><div className="mt-7 flex flex-wrap gap-3"><Link href="/activation-register" className="rounded-xl bg-[#FF6B9A] px-5 py-3 text-sm font-black text-[#071426]">Open Activation Register</Link><Link href="/payment-launch-packets" className="rounded-xl border border-[#FF6B9A]/45 bg-[#FF6B9A]/10 px-5 py-3 text-sm font-black text-[#FF9EB9]">Payment launch packets</Link><Link href="/books" className="rounded-xl border border-white/15 bg-white/[.04] px-5 py-3 text-sm font-black text-white">Books readiness</Link></div></div></section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t text-center" style={{ borderColor: "rgba(0,212,255,0.08)" }}>
-        <div className="text-xs font-mono" style={{ color: "#8899AA" }}>
-          SCROLLVERSE TRINITY · $LONDC TOKEN · ALLĀHU AKBAR · KUN FAYAKŪN × ∞
-        </div>
-      </footer>
-    </div>
-  );
+    <footer className="container py-8 text-center text-xs font-mono text-[#8FA3B5]">SCROLLVERSE · $LONDC RELEASE READINESS · SOURCE, TERMS, OWNER RELEASE, THEN ONE EXACT ACTION</footer>
+  </main>;
 }

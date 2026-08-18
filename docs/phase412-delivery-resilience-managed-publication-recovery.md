@@ -266,6 +266,12 @@ The exact collector gate now requires an original asset record, representation m
 
 The complete creator-owned catalog readiness workspace is now discoverable through the ScrollVerse Atlas Music, Media & Story Studio lane and the Empire Routing Map release-required lanes, in addition to the Direct-to-Fan Catalog. The central links retain the readiness description and do not represent an active Shopify catalog, product, price, cart, checkout, payment, inventory, fulfillment, or customer flow. TypeScript and the full **116-file / 429-test** suite remain clean after adding the handoffs.
 
+## 2026-08-18 update — $LONDC Token Store release-state correction
+
+The `/token` route is now a source-labeled token and edition release-readiness surface rather than a live sale or token store. Its three records cover the `$LONDC` concept, Guardian pathway concept, and original books/editions, with contract/network, price/supply, wallet/custody, paid-edition, customer, and delivery fields visibly unset until one item-level release record is complete.
+
+TypeScript completed without errors and the full regression suite completed with **117 test files / 432 tests passing**. Browser inspection confirmed the route displays source records, browser-local packet controls, and the exact action gate. No Stripe checkout, direct wallet, price, token supply, exchange, customer account, book sale, subscription, token delivery, payout, transfer, or provider-side action was created or represented as current.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.

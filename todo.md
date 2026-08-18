@@ -3996,6 +3996,10 @@
 - [x] Add focused regression coverage and validate that the ScrollSoul route does not call a checkout mutation, display active prices/supply/mints, or represent a wallet, token, NFT, or marketplace action as current
 - [x] Register `/nft-marketplace` as a direct alias to the corrected `/nft` collector route after visual verification exposed the expected marketplace path as a 404
 
+## $LONDC Token Store Release-State Correction
+- [x] Replace active $LONDC sale, Stripe checkout, direct-wallet, supply, price, token-delivery, and paid-book purchase claims with source-labeled release-readiness records
+- [x] Add focused regression coverage and validate that the Token Store does not call checkout mutations, display wallet addresses, or represent token, payment, or book-sale actions as current
+
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records
 - [x] Add a correction path to the Activation Register so copied status text cannot substitute for a current direct confirmation or provider-visible state
