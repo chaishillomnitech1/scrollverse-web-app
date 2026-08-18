@@ -234,6 +234,10 @@ Three owner-supplied Shopify mobile-admin screenshots were classified as protect
 
 Personal and sensitive operational values visible in the screenshots—such as customer contact information, address, and account or company identifiers—are excluded from source, code, tests, and public records. No Shopify B2B, company, customer, market, fulfillment, automatic-order, product, checkout, payment, shipping, payout, domain, or SEO setting was changed.
 
+### Public staged-launch handoff
+
+The Shopify Staged Launch Guidance route now exposes a **Protected B2B evidence** card in its source-labeled visible foundation. The public card states only that owner-supplied admin captures include B2B restriction, company, market, and fulfillment indicators as source context; it explicitly excludes customer, company, order, and provider workflow availability. Browser inspection confirmed the card appears with the route’s existing no-provider-action boundary and without personal information.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.

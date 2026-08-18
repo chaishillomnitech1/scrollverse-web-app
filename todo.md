@@ -3932,6 +3932,7 @@
 - [x] Add focused route coverage and validate Shopify readiness, Payment Options Map, and staged-launch boundaries without initiating provider-side actions
 - [x] Record the owner-supplied Shopify-admin launch guidance and map its five suggested actions to exact provider-side confirmation gates without changing the store
 - [x] Record the owner-supplied Shopify B2B, company, market, and fulfillment screenshots as protected evidence without reproducing personal data or changing provider settings
+- [x] Link non-sensitive B2B evidence observations from Shopify staged-launch guidance without exposing personal data or implying an active provider workflow
 
 ## Empire Routing and Public Source Inventory
 - [x] Record the current local portal, public Shopify address, verified support destination, catalog release records, and managed-publication operating states in one source-labeled inventory

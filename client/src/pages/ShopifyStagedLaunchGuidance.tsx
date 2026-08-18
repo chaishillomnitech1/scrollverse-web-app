@@ -10,6 +10,7 @@ const VISIBLE_EVIDENCE = [
   { label: "Onboarding capture", detail: "The supplied mobile interface showed setup labels for plan selection, Shopify Payments, Tap to Pay on iPhone, quick sale, first product, and store name with completion indicators.", state: "source record" },
   { label: "Customer-facing work", detail: "Online store design, customer-domain choice, and shipping or delivery configuration remained visibly unfinished in the supplied setup list.", state: "requires owner release" },
   { label: "Payment-method notifications", detail: "No private payment-method notification values, secret signatures, provider credentials, payout records, or transaction outcomes are reproduced in this route.", state: "protected boundary" },
+  { label: "Protected B2B evidence", detail: "Owner-supplied admin captures show B2B restriction, company, market, and fulfillment indicators as source context only. No customer, company, order, or provider workflow is made public or active from this route.", state: "protected evidence" },
 ] as const;
 
 const STAGES = [
