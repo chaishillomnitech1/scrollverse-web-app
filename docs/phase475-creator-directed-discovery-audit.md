@@ -9,7 +9,7 @@
 | Surface | Current presentation control | Operating-state result |
 | --- | --- | --- |
 | Music | Source-labeled listening and creator-controlled release planning; public listening separated from commercial and chain decisions. | Listening/source route available; commercial functions remain release-gated. |
-| Media Hub | Existing creator-controlled or source-bound route language was retained in the selected audit scan. | No action required in this scoped pass. |
+| Media Hub | The hub names a first-party media desk, direct operating states, a public Spotify source, browser-local audience controls, and source/release gates before player or communication attachment. | No action required in this scoped pass. |
 | Books | Price figures were replaced by release-record state; retailer and platform cards now carry research-reference context. | Corrected in the Books route and covered by Phase 475 regression coverage. |
 | Fashion Empire | Existing route copy did not match the selected unverified commercial call-to-action scan. | No action required in this scoped pass. |
 | Creator Platform | Existing route copy did not match the selected unverified commercial call-to-action scan. | No action required in this scoped pass. |
