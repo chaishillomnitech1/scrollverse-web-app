@@ -127,3 +127,9 @@ The comparison is platform-neutral and records external costs, data, terms, comm
 The Product Release Pipeline now compares three durable-operation models: browser-local release preparation, a project readiness sweep, and an agent research review. Each model records a cost basis rather than an unverified cost quote, technical safeguards, owner-controlled parameters, and the specific release boundary that must be crossed before it could operate.
 
 The browser-local path is available for preparation only. The project and agent paths remain design-only: no recurring task, callback endpoint, provider connection, external write, product release, customer message, payment, fund movement, trade, or financial operation is enabled. A public local-browser review confirmed the three paths and their no-schedule gate render correctly.
+
+## 2026-08-18 update — Source-indexed release and trading readiness
+
+The new Phase 468 source index preserves the public W3C accessibility, Shopify accessibility, CFTC learning, and SEC Investor.gov research pathways with source-specific application limits. The Product Release Pipeline now makes the W3C and Shopify references available beside accessibility-release prompts, while Trading Readiness makes the CFTC and SEC references available beside its risk-control record.
+
+Local browser checks confirmed all four public source cards render with their research-only labels. The source cards do not certify accessibility, configure a provider, validate a strategy, provide personalized financial advice, create a product, enable checkout, connect an account, custody assets, or authorize an order. The exact cited source details and limits remain in `docs/phase468-release-accessibility-and-trading-readiness-source-index.md`.

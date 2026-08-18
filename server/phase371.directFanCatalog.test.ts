@@ -169,6 +169,10 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(tradingReadinessSource).toContain("COST BASIS");
     expect(tradingReadinessSource).toContain("SAFEGUARDS");
     expect(tradingReadinessSource).toContain("OWNER CONTROL");
+    expect(tradingReadinessSource).toContain("PUBLIC RISK-EDUCATION SOURCES");
+    expect(tradingReadinessSource).toContain("https://www.cftc.gov/learnandprotect/learningresources");
+    expect(tradingReadinessSource).toContain("https://www.investor.gov/introduction-investing");
+    expect(tradingReadinessSource).toContain("not personalized financial advice");
     expect(tradingReadinessSource).toContain("A broad instruction never substitutes for an order-specific confirmation.");
     expect(tradingReadinessSource).not.toMatch(/fetch\(|walletconnect|exchange api key|place order/i);
   });
@@ -186,6 +190,10 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(productReleasePipelineSource).toContain("SAFEGUARDS");
     expect(productReleasePipelineSource).toContain("OWNER CONTROL");
     expect(productReleasePipelineSource).toContain("RELEASE BOUNDARY");
+    expect(productReleasePipelineSource).toContain("PUBLIC ACCESSIBILITY RESEARCH");
+    expect(productReleasePipelineSource).toContain("https://www.w3.org/WAI/fundamentals/accessibility-intro/");
+    expect(productReleasePipelineSource).toContain("https://shopify.dev/docs/apps/build/accessibility");
+    expect(productReleasePipelineSource).toContain("not an accessibility certification");
     expect(productReleasePipelineSource).toContain("No recurring job is enabled from this route.");
     expect(productReleasePipelineSource).toContain("Provider-side product, price, inventory, checkout, market, payment, fulfillment, payout, transfer, or schedule actions");
     expect(productReleasePipelineSource).not.toMatch(/publish product now|open checkout now|enable payout now|create inventory now/i);

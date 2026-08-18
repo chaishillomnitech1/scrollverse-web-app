@@ -4076,10 +4076,10 @@
 - [x] Prepare an exact live-trading activation register that requires named provider, asset, strategy, funding, position limits, loss limits, stop conditions, and explicit confirmation before any order
 
 ## Full-Production Source and Interface Deepening
-- [ ] Deepen public-source records relevant to original-brand product release, creator distribution, storefront accessibility, and controlled trading readiness
+- [x] Deepen public-source records relevant to original-brand product release, creator distribution, storefront accessibility, and controlled trading readiness
 - [x] Build safe local interfaces for product-pipeline and paper-trading readiness without connecting providers or sending external actions
 - [x] Compare durable background-operation approaches with their cost, safeguards, control model, and release boundary
-- [ ] Validate deepened routes and source labels before preparing any external activation request
+- [x] Validate deepened routes and source labels before preparing any external activation request
 
 ## Reusable ScrollVerse Release-and-Readiness Skill
 - [x] Define reusable examples, boundaries, and reference resources for source-labeled evidence, visitor routing, premium storefront readiness, public-source indexing, controlled operations, trading readiness, and managed publication recovery
