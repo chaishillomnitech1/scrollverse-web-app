@@ -378,6 +378,7 @@ import KnowledgeCommons from "./pages/KnowledgeCommons";
 import ScrollVersePerspectives from "./pages/ScrollVersePerspectives";
 import AssetRegistry from "./pages/AssetRegistry";
 import AICompanionHub from "./pages/AICompanionHub";
+import AgenticStorefrontsReadiness from "./pages/AgenticStorefrontsReadiness";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -585,6 +586,7 @@ function Router() {
 	      <Route path={"/scrollverse-perspectives"} component={ScrollVersePerspectives} />
 	      <Route path={"/asset-registry"} component={AssetRegistry} />
 	      <Route path={"/ai-companion-hub"} component={AICompanionHub} />
+	      <Route path={"/agentic-storefronts-readiness"} component={AgenticStorefrontsReadiness} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />

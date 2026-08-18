@@ -3980,9 +3980,9 @@
 
 ## Shopify Agentic Storefronts Readiness
 - [x] Preserve the owner-supplied Agentic Storefronts screenshots as a source-labeled evidence record with visible state, unknowns, and correction path
-- [ ] Build an Agentic Storefronts Readiness route with product-by-product release requirements, policy and terms review boundaries, channel cards, and named action gates
-- [ ] Connect the readiness route to existing Shopify and release-control pathways without implying a live AI-agent channel, product, checkout, sale, or Shopify-managed setting
-- [ ] Add focused regression coverage and validate the local route with no provider-side Shopify action
+- [x] Build an Agentic Storefronts Readiness route with product-by-product release requirements, policy and terms review boundaries, channel cards, and named action gates
+- [x] Connect the readiness route to existing Shopify and release-control pathways without implying a live AI-agent channel, product, checkout, sale, or Shopify-managed setting
+- [x] Add focused regression coverage and validate the local route with no provider-side Shopify action
 
 ## Sun on Us — 11:11 Collector Readiness
 - [x] Create an original cartoon artwork from the owner-provided Sun on Us photograph while preserving the visible person, sun, sky, trees, and vertical composition

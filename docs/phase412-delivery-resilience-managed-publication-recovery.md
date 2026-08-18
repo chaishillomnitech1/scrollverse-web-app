@@ -4,16 +4,16 @@
 
 ## Current delivery state
 
-The local ScrollVerse workspace contains later validated changes, including routes, source records, focused regression coverage, and TypeScript validation. The managed checkpoint service repeatedly reports that these uncommitted local changes conflict with `user_github/main`, which the publisher identifies at checkpoint `2ba0cc6a`. The service also reports that remote changes were fetched and local changes remain intact.
+The local ScrollVerse workspace now has a managed checkpoint that reconciled the prior publisher-visible divergence. Earlier records in this document preserve the history in which the publisher identifies at checkpoint `2ba0cc6a`; that historical state is not the current delivery state.
 
 | Layer | Current recorded state | What the record does not assert |
 | --- | --- | --- |
-| Local workspace | Later ScrollVerse changes are present locally and have passed the recorded local validation runs | A local pass does not establish public deployment |
-| Managed checkpoint | Save attempts are blocked by a publisher-visible merge conflict at `2ba0cc6a` | The conflict message does not identify every remote commit or explain the publisher-reference discrepancy |
-| Repository view | The owner reported a newer `main` and later reported managed reconciliation | A user-visible branch view does not by itself establish that the managed publisher has synchronized to the same reference |
-| Public site | Existing published checkpoint remains the last confirmed delivery baseline | The newer local work is not represented as live until a managed checkpoint succeeds |
+| Local workspace | Later ScrollVerse changes are present locally and pass recorded validation runs | A local pass alone remains distinct from a managed delivery record |
+| Managed checkpoint | Checkpoint `6a62b4c2` reports that divergence was resolved, the remote was synchronized, and local changes were force-pushed through the managed workflow | The result does not establish any provider-side commerce, channel, or external-account action |
+| Repository view | The managed workflow reconciled the connected history during checkpoint publication | A branch view remains a repository state, not proof of a product, payment, or provider configuration |
+| Public site | The successful checkpoint is the new managed publication baseline under the project’s enabled auto-publish configuration | A published route does not change its own stated release gates or provider boundaries |
 
-## Managed recovery decision paths
+## Historical managed recovery decision paths
 
 | If this condition is visible | Then use this safe managed path | Do not do this in the local workspace |
 | --- | --- | --- |
@@ -27,6 +27,16 @@ The local ScrollVerse workspace contains later validated changes, including rout
 The portal’s strongest delivery posture is an explicit chain: **local source and code → local route and test validation → managed checkpoint → publisher-visible state → published route verification**. A failure at one layer does not erase validated work at another layer, but it does stop the record from claiming later layers as complete.
 
 > The local workspace is a preparation and validation environment. The managed checkpoint is the delivery authority for this project. The published domain is the public delivery surface.
+
+## 2026-08-18 update — managed reconciliation completed
+
+The managed checkpoint saved as `6a62b4c2` reports: **“Divergence resolved: synced with remote origin/main and force-pushed local changes.”** The checkpoint carries the validated Phase 465 AI Companion Hub route, Art Learning and Atlas discovery links, capability-map coverage, and the resilience update. This is the first confirmed managed publication baseline after the prior `2ba0cc6a` divergence record.
+
+## 2026-08-18 update — Agentic Storefronts Readiness local validation
+
+The workspace now includes `/agentic-storefronts-readiness`. The route preserves the owner-supplied Shopify screen context: prospective channel labels, visible **0 products in Catalog**, policy/FAQ prompts, the optional managed-behavior label, supplemental terms reference, and product-by-product release requirements. It connects to Shopify Storefront Readiness, Premium Storefront Program, Product Release Pipeline, and the Activation Register without changing Shopify or enabling a channel.
+
+TypeScript completed without errors. The full regression suite completed with **99 test files / 379 tests passing**, and browser inspection confirmed the local route renders without a route error. This remains route and evidence work only: no supplemental terms acceptance, product creation, policy update, managed-setting change, channel binding, catalog publication, checkout activation, payment, or sale occurred.
 
 ## Preservation and correction path
 
