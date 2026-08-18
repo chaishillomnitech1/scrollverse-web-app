@@ -132,6 +132,7 @@ const ACCESS_PATHWAYS = [
   { title: "Live Chat", href: "/chat", icon: "💬", description: "Lightweight channel conversations and community presence." },
   { title: "Sovereign Methodology", href: "/sovereign-methodology", icon: "📖", description: "Creator-authored language study, source trails, and reader-led assessment methods." },
   { title: "Journey & Co-Creation Archive", href: "/journey-co-creation-archive", icon: "🗂️", description: "Connect first-person journey, original creation, research, and protected exchange records." },
+  { title: "Bounded Research Operations", href: "/bounded-research-operations", icon: "⏱️", description: "Choose a bounded research-review option and copy an owner decision draft; no schedule is enabled here." },
 ] as const;
 
 const SUPPLIED_SOURCE_EXPANSION = [
@@ -283,6 +284,7 @@ export default function SynchronizationResearchIndex() {
         ["Quantum Research", "/quantum-research", "Evidence-led hardware, security, and networking learning path"],
         ["Open Record Continuum", "/open-record-continuum", "Creator-directed source, perspective, and correction record"],
         ["Chosen Ones Experience Exchange", "/chosen-ones-exchange", "First-person reflection, participant privacy, and community exchange"],
+        ["Bounded Research Operations", "/bounded-research-operations", "Schedule options and owner decision draft; no recurring task is active"],
       ].map(([title, href, description]) => <Link key={href} href={href} className="rounded-2xl border p-5 transition hover:-translate-y-0.5" style={{ borderColor: "rgba(0,255,136,0.2)", background: "rgba(0,255,136,0.025)" }}><p className="font-black" style={{ color: "#D8F8E7" }}>{title} →</p><p className="mt-2 text-xs leading-relaxed" style={{ color: "#AFC0CF" }}>{description}</p></Link>)}</div></section>
     </main>
   );

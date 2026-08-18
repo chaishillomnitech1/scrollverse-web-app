@@ -5,6 +5,7 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const app = fs.readFileSync(path.join(root, "client/src/App.tsx"), "utf8");
 const page = fs.readFileSync(path.join(root, "client/src/pages/BoundedResearchOperations.tsx"), "utf8");
+const research = fs.readFileSync(path.join(root, "client/src/pages/SynchronizationResearchIndex.tsx"), "utf8");
 
 describe("Phase 470 — Bounded Research Operations", () => {
   it("registers a browser-local schedule-options route", () => {
@@ -31,5 +32,12 @@ describe("Phase 470 — Bounded Research Operations", () => {
     expect(page).not.toContain("createHeartbeatJob");
     expect(page).not.toContain("node-cron");
     expect(page).not.toContain("setInterval");
+  });
+
+  it("connects the decision route from Synchronization Research without implying an enabled task", () => {
+    expect(research).toContain('href: "/bounded-research-operations"');
+    expect(research).toContain("Bounded Research Operations");
+    expect(research).toContain("no schedule is enabled here");
+    expect(research).toContain("no recurring task is active");
   });
 });
