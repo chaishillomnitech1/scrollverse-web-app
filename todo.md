@@ -3353,8 +3353,8 @@
 - [x] Align reusable source, rights, accessibility, destination, operating-state, correction-path, and owner-release fields with the local production controls
 - [x] Map an original Episode 9 structural planning framework with human-forward voice, accessibility, evidence, and owner-release gates
 ## Phase 319 — Per-Asset Full Production Verification
-- [ ] Map the first production packets across original media, books/media, fashion/artifacts, creator channels, and crypto education with their destination-specific requirements
-- [ ] Prepare only source, rights, accessibility, destination, and owner-release records supported by current local evidence
+- [x] Map the first production packets across original media, books/media, fashion/artifacts, creator channels, and crypto education with their destination-specific requirements
+- [x] Prepare only source, rights, accessibility, destination, and owner-release records supported by current local evidence
 - [ ] Record verified external outcomes only after the corresponding account/provider/network action has actually completed; request exact confirmation immediately before any external submission
 ## Phase 320 — Immediate Free Public Publication Request
 - [ ] Preserve the currently published Media World release while preparing the validated local routes for free public publication
