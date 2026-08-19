@@ -123,6 +123,8 @@ export default function FashionEmpire() {
             Manufacturing, prices, allocation, tokenization, licensing, sale, and fulfillment each require separate evidence, terms, and owner release.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Link href="/fashion-lookbook-experience"><button className="rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#FFB800", color: "#050B1A" }}>✦ Enter immersive lookbook</button></Link>
+            <Link href="/meta-ai-artifacts-lookbooks"><button className="rounded-xl px-5 py-3 text-sm font-black" style={{ background: "rgba(185,140,255,.12)", color: "#E8DFFF", border: "1px solid rgba(185,140,255,.4)" }}>◈ Visual artifact room</button></Link>
             {[
               { v: "7", l: "Colorways" },
               { v: "3", l: "Sneaker Models" },
@@ -327,6 +329,9 @@ export default function FashionEmpire() {
               XLVIII BLOCKS LLC · SCROLL VERSE LLC · "08360" · KUN FAYAKŪN × ∞
             </p>
             <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/fashion-lookbook-experience">
+                <button className="px-5 py-2 rounded-lg text-sm font-bold" style={{ background: "rgba(255,138,76,0.12)", color: "#FFB26F", border: "1px solid rgba(255,138,76,0.3)" }}>✦ Immersive Lookbook</button>
+              </Link>
               <Link href="/virgil-abloh">
                 <button className="px-5 py-2 rounded-lg text-sm font-bold" style={{ background: "#FFB800", color: "#050B1A" }}>🎨 Virgil Legacy</button>
               </Link>

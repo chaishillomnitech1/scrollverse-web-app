@@ -406,6 +406,7 @@ const QUICK_ACCESS = [
   { icon: "👗", label: "Fashion", hint: "Original concept portfolio", href: "/fashion-portfolio" },
   { icon: "🌊", label: "Atlantis", hint: "XLVblocks seven-set collection", href: "/atlantis-collection" },
   { icon: "🧵", label: "Fashion Empire", hint: "XLVIII BLOCKS × VNLND", href: "/fashion-empire" },
+  { icon: "✦", label: "Lookbook", hint: "Immersive fashion visual experience", href: "/fashion-lookbook-experience" },
   { icon: "🗺️", label: "Empire Index", hint: "Search every ScrollVerse artifact", href: "/empire-index" },
   { icon: "🧭", label: "Start Here", hint: "Curated ScrollVerse journey map", href: "/journey" },
   { icon: "⚙️", label: "GitHub Ops", hint: "Source-to-review operating engine", href: "/github-ops" },
@@ -964,6 +965,7 @@ function MainPageActionWheel() {
 
 const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "✦", title: "Official fashion worlds", detail: "Original ScrollVerse, XLVIII BLOCKS, and MEIN concept paths—independent, expandable, and first-party.", href: "/fashion-portfolio", color: "#FFB800" },
+  { icon: "✦", title: "Immersive fashion lookbook", detail: "Move through original MEIN, XLVIII BLOCKS, and Atlantis visual worlds with source and release state visible.", href: "/fashion-lookbook-experience", color: "#FF8A4C" },
   { icon: "◈", title: "Revenue readiness", detail: "Owner-controlled evidence, dependencies, and next actions without invented financial results.", href: "/revenue-ops", color: "#00FF88" },
   { icon: "⚙", title: "GitHub operations", detail: "A source-to-review map for first-party repositories, test evidence, and safe adaptation.", href: "/github-ops", color: "#00D4FF" },
   { icon: "⌬", title: "Identity and Spiral", detail: "Creator-owned identity concepts, original marks, QR record, and clear IP-readiness boundaries.", href: "/spiral-signature", color: "#B98CFF" },
@@ -1364,6 +1366,7 @@ export default function Home() {
                     { href: "/fashion-studio", icon: "🎛️", label: "Brand Studio", sub: "Independent houses · colorway lab" },
                     { href: "/commons", icon: "🧭", label: "Convergence Commons", sub: "Creators · ideas · IP discovery" },
                     { href: "/fashion-portfolio", icon: "🧩", label: "Fashion Portfolio", sub: "Build original concept looks" },
+                    { href: "/fashion-lookbook-experience", icon: "✦", label: "Immersive Lookbook", sub: "Motion-led visual worlds" },
                     { href: "/admin/fashion-review", icon: "🛡️", label: "Asset Review", sub: "Protected review console" },
                     { href: "/virgil-abloh", icon: "🎨", label: "Virgil Abloh Legacy", sub: "3% Rule · Quotation Marks" },
                     { href: "/atlantis-collection", icon: "🌊", label: "#XLVblocks Atlantis", sub: "7-Set · Temple of Poseidon" },
