@@ -3391,7 +3391,7 @@
 - [x] Classify the supplied Episode 10 screenplay, audio metadata, inventory catalog, local test, and execution-state assertions as protected non-executable source material
 - [x] Preserve reusable original-production, accessibility, source/version, evidence, release, and correction-path lessons without treating named scripts, frequency effects, catalog SKUs, release readiness, test metrics, or isolated-runtime claims as verified
 ## Phase 329 — Evidence-First Intellectual Property Stewardship
-- [ ] Research copyright, trademark, patent, trade-secret, licensing, and evidence practices from authoritative primary sources
+- [x] Research copyright, trademark, patent, trade-secret, licensing, and evidence practices from authoritative primary sources
 - [x] Classify the supplied local-staging reference as protected non-executable material without treating its test metrics, routes, or workflow claims as verified project state
 - [x] Build an original local IP stewardship and filing-readiness map for created works, names/logos, inventions, confidential methods, education, and licenses without claiming ownership or registration before eligibility review and actual filing/registration
 ## Phase 330 — Transparent Teaching and Creator Protection Standard
