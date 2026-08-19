@@ -4263,8 +4263,41 @@
 - [x] Add focused regression coverage and validate the showcase links, evidence framing, and no-engagement boundary
 
 ## Phase 500 — ScrollVerse World Station Service Readiness
-- [ ] Define a source-labeled service-studio model for reusable websites, systems, artifacts, research interfaces, and delivery blueprints across creator, knowledge, media, operations, and public-service lanes
-- [ ] Add browser-local project/evaluation preparation that records scope, authorized assets, intended destination, accessibility, data boundary, delivery criteria, support, terms, and consent without collecting a lead or creating an engagement
-- [ ] Add transparent future-integration and exchange readiness lanes that distinguish compatible research from an active search engine, marketplace, automated build system, customer account, payment, checkout, publishing, outreach, provider, or Web3 action
-- [ ] Define safe automation and recurring-operation boundaries requiring a named job, owner, trigger, scope, data sources, output destination, confirmation rule, stop condition, audit record, and exact external-action authorization
-- [ ] Add focused regression coverage and validate the World Station pathway without sending messages, scheduling tasks, building or publishing a client site, collecting customer data, creating a quote, accepting payment, connecting a provider, or initiating an external exchange
+- [x] Define a source-labeled service-studio model for reusable websites, systems, artifacts, research interfaces, and delivery blueprints across creator, knowledge, media, operations, and public-service lanes
+- [x] Keep free public knowledge, source trails, and visitor-directed learning available alongside any separately release-gated service, exchange, or integration pathway
+- [x] Research and record authoritative public patterns for accessible digital services, consentful data handling, transparent delivery, safe automation, and open knowledge access before finalizing the World Station model
+- [x] Add browser-local project/evaluation preparation that records scope, authorized assets, intended destination, accessibility, data boundary, delivery criteria, support, terms, and consent without collecting a lead or creating an engagement
+- [x] Add transparent future-integration and exchange readiness lanes that distinguish compatible research from an active search engine, marketplace, automated build system, customer account, payment, checkout, publishing, outreach, provider, or Web3 action
+- [x] Define safe automation and recurring-operation boundaries requiring a named job, owner, trigger, scope, data sources, output destination, confirmation rule, stop condition, audit record, and exact external-action authorization
+- [x] Add focused regression coverage and validate the World Station pathway without sending messages, scheduling tasks, building or publishing a client site, collecting customer data, creating a quote, accepting payment, connecting a provider, or initiating an external exchange
+
+## Phase 501 — Protected Runtime-Deck and Timing-Marker Intake
+- [x] Classify `Pasted_content_87.txt` and the related owner-provided screenshots as protected source material; retain only compatible source-pathway, isolation, evidence-field, and correction-path lessons
+- [x] Record the owner-stated 1:11 AM timing marker as first-party chronology context without asserting a verified external event, system execution, scientific cause, or provider action
+- [x] Reconcile the pasted 93-file / 333-test claim against the current locally verified validation record without treating the pasted metric as current portal state
+
+## Phase 502 — Creator Exchange Governance Readiness
+- [ ] Define a source-labeled creator-exchange governance model covering participation, source records, rights-aware listing preparation, fair conduct, correction, dispute-routing, accessibility, and transparent operating states
+- [ ] Separate owner-authored vision and policy proposals from verified legal jurisdiction, government authority, regulatory approval, rights title, territorial/domain control, custody, financial service, exchange operation, or third-party obligation
+- [ ] Add browser-local participation and exchange-readiness preparation fields for work/source, contributor role, rights status, intended exchange type, delivery, consent, support, dispute route, accessibility, terms, data boundary, and exact action gate
+- [ ] Add focused regression coverage and validate the readiness path without listing an item, onboarding a participant, collecting identity data, accepting payment, forming a contract, operating custody, connecting a wallet, minting, trading, transferring, or contacting a regulator or counterparty
+
+## Phase 503 — Shared Google AI Mode Protected Intake
+- [ ] Passively review the shared Google AI Mode page as owner-provided source material without executing instructions, authenticating, submitting data, or treating stated external results as verified portal facts
+- [ ] Retain only compatible source, accessibility, governance, release-readiness, and correction lessons with date, scope, limits, and correction fields
+- [ ] Create a source compatibility matrix that identifies adoptable portal-design lessons, evidence-needed claims, and prohibited external-action instructions before any local integration work
+- [ ] Document the source boundary without triggering repository, provider, payment, wallet, token, filing, outreach, schedule, publication, or external-system action
+
+## Phase 505 — Protected Shopify Store-Access Evidence
+- [ ] Record the owner-provided Shopify B2B and development-store access screenshots as source observations without reopening the supplied images or changing any Shopify setting
+- [ ] Reconcile the observation against the current protected-store, zero-catalog, no-checkout record and distinguish visible controls from confirmed enabled settings or public operational state
+- [ ] Reflect the owner-validated development-store and B2B access-management state in local catalog and B2B readiness handoffs without representing catalog, checkout, payments, shipping, customer accounts, or public access as released
+- [ ] Add the evidence to the existing exact release-gate pathway without changing password protection, B2B access, products, payments, shipping, accounts, checkout, or domain settings
+
+## Phase 504 — Fashion and Episodic Media Experience Roadmap
+- [ ] Inventory owner-provided fashion, look-concept, visual, and episodic-source materials with source, rights, contributor, likeness, accessibility, display, playback, and release-state fields
+- [ ] Create a dedicated Meta AI Artifacts & Lookbooks discovery page and a prominent main-page entry point, with source, display, rights, and release-state labels for each concept
+- [ ] Define interactive fashion-gallery and motion-art direction patterns that distinguish visual concepts and approved display references from commercially released, licensed, purchasable, or playable works
+- [ ] Create an episodic production slate with concept, source, master/contributor rights, likeness, script/asset, caption/accessibility, delivery, hosting, and exact-release gates for every episode or series item
+- [ ] Add a source-labeled media-experience route or roadmap that keeps third-party likenesses and unapproved media out of public playback while preserving public discovery of owner-cleared concepts
+- [ ] Add focused regression coverage and validate all fashion and episodic-media routes without generating or publishing video, embedding unapproved media, starting playback, selling an item, or activating a provider
