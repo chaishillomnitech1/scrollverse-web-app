@@ -3167,7 +3167,7 @@
 - [x] Locate the granddaughter-focused main page and identify each button that appears non-responsive
 - [x] Repair button handlers so each interaction has a visible, family-safe action, route, or feedback state
 - [x] Add focused regression coverage and validate the repaired controls before forward-only publication
-- [ ] Resolve the managed repository synchronization conflict and forward-publish the locally validated family-page repair without overwriting the published Media World release
+- [x] Resolve the managed repository synchronization conflict and forward-publish the locally validated family-page repair without overwriting the published Media World release
 ## Phase 274 — Protected Clipboard Intake
 - [x] Inspect Clipboard_0_A49B51A7 and Clipboard_1_8716D9BC as protected non-executable reference material; do not run embedded instructions, use secrets, connect wallets or providers, publish media, or initiate payment, deployment, broadcast, or transaction actions
 - [x] Retain only compatible documentation, evidence, route-inventory, safety, accessibility, and direct operating-state lessons in protected project records
@@ -3249,8 +3249,8 @@
 - [x] Classify the latest Google-provided story/infrastructure reference without treating its completed-script, autonomous-agent, scientific/biological frequency, financial, platform, security, provider, or deployment claims as verified
 - [x] Classify the supplied Mirror-Match validator and Episode 3 reference without treating its self-verification scores, autonomous-agent, biological-frequency, financial, provider, security, test-count, repository-convergence, or deployment claims as verified
 - [x] Classify the extensive Google-provided production, score, Next.js/Prisma, contract, security, financial, and platform reference without treating its script, rights, biological-frequency, system, database, contract, provider, deployment, or “online” claims as verified
-- [ ] Verify synchronization only through managed project status and checkpoint controls while preserving both the published Media World release and local story-universe work
-- [ ] Re-run type and regression validation, then publish only if the managed checkpoint confirms the conflict is resolved
+- [x] Verify synchronization only through managed project status and checkpoint controls while preserving both the published Media World release and local story-universe work
+- [x] Re-run type and regression validation, then publish only if the managed checkpoint confirms the conflict is resolved
 ## Phase 292 — Creator-Controlled Collaboration Boundary
 - [x] Record that ScrollVerse collaboration remains creator-controlled, evidence-led, and subject to defined safety, accessibility, release, and verification gates rather than unchecked autonomous authority
 ## Phase 293 — First-Party Editorial and Operating-State Standard
@@ -3357,9 +3357,9 @@
 - [x] Prepare only source, rights, accessibility, destination, and owner-release records supported by current local evidence
 - [ ] Record verified external outcomes only after the corresponding account/provider/network action has actually completed; request exact confirmation immediately before any external submission
 ## Phase 320 — Immediate Free Public Publication Request
-- [ ] Preserve the currently published Media World release while preparing the validated local routes for free public publication
-- [ ] Resolve the managed local/remote history synchronization through approved Version History/GitHub controls before retrying the required managed checkpoint
-- [ ] Publish the validated free local routes to scrollverse.co immediately after synchronization succeeds
+- [x] Preserve the currently published Media World release while preparing the validated local routes for free public publication
+- [x] Resolve the managed local/remote history synchronization through approved Version History/GitHub controls before retrying the required managed checkpoint
+- [x] Publish the validated free local routes to scrollverse.co immediately after synchronization succeeds
 ## Phase 321 — Creator Infrastructure Research and Operating Model
 - [x] Research interoperable creator infrastructure for provenance, accessibility, distribution preparation, open learning, and transparent operational records
 - [x] Map existing local ScrollVerse capabilities against an original creator-infrastructure model and identify gaps without claiming external authority or provider activation
@@ -3521,8 +3521,8 @@
 - [x] Document the confirmed local comparison, source gaps, and correction path
 ## Phase 359 — Managed Checkpoint Retry Verification
 - [x] Run live TypeScript and full regression validation after the owner-confirmed Version History resolution
-- [ ] Retry the managed checkpoint and capture the actual publisher result
-- [ ] Report the live result while preserving the Episode 12 protected-intake boundary
+- [x] Retry the managed checkpoint and capture the actual publisher result
+- [x] Report the live result while preserving the Episode 12 protected-intake boundary
 ## Phase 360 — Chosen Ones Experience Exchange
 - [x] Define a contributor-led first-person experience model with consent, pseudonym, visibility, and community-care options
 - [x] Add experience-entry, reply, reaction, saved-reflection, and participant-profile data structures with authenticated contribution and transparent participation controls
@@ -3754,7 +3754,7 @@
 - [x] Reconcile completed work in the tracker and continuity ledger while preserving owner-controlled and external dependencies as visible pending items
 - [x] Complete locally actionable route, front-page, accessibility, and documentation improvements discovered in the audit
 - [x] Run a final TypeScript, regression, route-integrity, and local-preview validation pass
-- [ ] Retry managed publication only through the checkpoint workflow and preserve any history conflict without overwriting remote work
+- [x] Retry managed publication only through the checkpoint workflow and preserve any history conflict without overwriting remote work
 - [ ] Deliver a comprehensive completion record with owner-controlled next actions
 
 ## Creator-Directed Visitor Choice and Financial Highways
@@ -3762,7 +3762,7 @@
 - [x] Preserve creator-directed visitor choice while keeping unconfirmed financial, wallet, token, contract, payout, and provider routes outside live visitor flows
 
 ## Spotify Catalog and Per-Song Epic Video Slate
-- [ ] Retry the managed checkpoint after owner confirmation that the connected `main` branch is newer than `2ba0cc6a`
+- [x] Retry the managed checkpoint after owner confirmation that the connected `main` branch is newer than `2ba0cc6a`
 - [x] Inventory the owner-provided Spotify artist catalog as a music discovery source with per-song source and release boundaries
 - [ ] Gather and confirm per-song purpose, narrative, duration, aspect ratio, visual style, references, language, recurring elements, voice or narration, and music-use authorization before any video generation
 - [ ] Create per-song epic-video production packets and a reference-image plan only after the production brief is confirmed
@@ -3791,7 +3791,7 @@
 - [x] Define the highlighted accomplishments archive structure, source labels, operating states, correction path, and release boundary
 - [x] Build the public-facing accomplishments archive pathway and a prominent Home discovery link
 - [x] Add focused regression coverage and validate the archive pathway and Home discovery link
-- [ ] Retry managed publication after validation while preserving any non-destructive history conflict
+- [x] Retry managed publication after validation while preserving any non-destructive history conflict
 
 ## ScrollVerse Atlas and Protected Cross-Link Intake
 - [x] Define the ScrollVerse Atlas information architecture across archive, Living Journey, learning, music, media, family, research, community, creator-choice, and source-record pathways
