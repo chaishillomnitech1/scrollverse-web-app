@@ -3645,8 +3645,8 @@
 ## Systemwide Source and Choice Standard
 - [x] Define a Source, Choice, Privacy, Release, and Correction Standard for all ScrollVerse pathway types
 - [x] Map the standard to existing learning, community, catalog, contribution, and support routes
-- [ ] Add the standard and cross-route navigation to the portal with item-level financial activation boundaries
-- [ ] Add regression coverage, run TypeScript and full-test validation, and document publication state
+- [x] Add the standard and cross-route navigation to the portal with item-level financial activation boundaries
+- [x] Add regression coverage, run TypeScript and full-test validation, and document publication state
 
 ## Walking Solution Identity and Book Collection Readiness
 - [x] Define the owner-authored “I’m a Walking Solution” source record, cross-route placement, interactive book scope, and future collection boundary
