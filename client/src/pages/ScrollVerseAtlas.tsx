@@ -97,6 +97,7 @@ const ATLAS_LANES: AtlasLane[] = [
       { label: "Synchronization Research", href: "/synchronization-research" },
       { label: "Sovereign Methodology", href: "/sovereign-methodology" },
       { label: "Chais Sabir Equation", href: "/chais-sabir-equation" },
+      { label: "First-Party Co-Creation Record", href: "/first-party-co-creation" },
       { label: "Source Study Library", href: "/source-study-library" },
       { label: "Delivery Resilience", href: "/delivery-resilience" },
       { label: "Empire Routing Map", href: "/empire-routing-map" },
@@ -155,6 +156,7 @@ export default function ScrollVerseAtlas() {
                 <Link href="/living-journey-experience" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#9DEBFF]">Walk the Living Journey</Link>
                 <Link href="/milestone-roadmap" className="rounded-xl border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-5 py-3 text-sm font-black text-[#FFDEA0]">Open Milestone Roadmap</Link>
                 <Link href="/ai-companion-hub" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Enter AI Companion Hub</Link>
+                <Link href="/first-party-co-creation" className="rounded-xl border border-[#00FF88]/45 bg-[#00FF88]/10 px-5 py-3 text-sm font-black text-[#B5F7CC]">Read First-Party Co-Creation Record</Link>
                 <a href="https://sovereignhub-mo62pcrx.manus.space/" target="_blank" rel="noreferrer" className="rounded-xl border border-[#B98CFF]/45 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Visit Sovereign Hub <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
                 <a href="https://github.com/chaishillomnitech1/scrollverse-omni-manifesto" target="_blank" rel="noreferrer" className="rounded-xl border border-[#00FF88]/45 bg-[#00FF88]/10 px-5 py-3 text-sm font-black text-[#B5F7CC]">Public Omni Manifesto <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
               </div>

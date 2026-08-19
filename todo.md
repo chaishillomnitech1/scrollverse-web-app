@@ -4202,3 +4202,31 @@
 - [x] Correct the production server startup behavior so the managed healthcheck binds to the platform-provided port and host without falling back to an unmonitored port
 - [x] Add focused regression coverage, revalidate the portal, and verify the public route after a managed recovery checkpoint
 - [x] Reconcile remaining public delivery-state pages so historic conflict records remain visible without being presented as the current publication state
+
+## Phase 490 — Owner-Brand Visual Asset Catalog
+- [x] Inventory the owner-provided visual bundle, compute file identifiers, and preserve each item in a protected source-labeled evidence record
+- [x] Upload only selected display-ready owner-brand visual references for managed delivery; retain source, display, rights, privacy, and release-state boundaries
+- [x] Add protected owner-brand visual concepts to the Asset Registry without implying public licensing, sale, minting, checkout, payment, or provider activation
+- [x] Add focused regression coverage and validate the catalog, source boundaries, and internal discovery links before checkpointing
+
+## Phase 491 — Creator Commerce and Systems Offering Discovery
+- [x] Add clear catalog and systems-offering discovery handoffs that distinguish available preparation from active checkout, sale, trade, provider, contract, or wallet action
+- [x] Surface the item-level release and customer-readiness path for creator-owned works, including transparent terms, delivery, support, and AgapeCycle 88/12 readiness fields
+- [x] Surface the buyer-facing Enterprise Systems Blueprint pathway for organizations that choose to evaluate or implement ScrollVerse methods
+- [x] Add focused regression coverage and validate all new commercial-discovery links without creating a product, order, payment, payout, transfer, wallet, token, or provider-side action
+
+## Phase 492 — Segmented Partnership Engine Preparation
+- [x] Define source-labeled buyer segments and tailored ScrollVerse system packages across creator, media, commerce, education, AI/product, and regulated-adjacent lanes
+- [x] Add browser-local partner brief and approval-gate fields for target type, authorized material, sender, channel, copy, cadence, privacy/opt-out, scope, price/terms, and exact external-action confirmation
+- [x] Document safe non-autonomous outreach architectures and the exact operating evidence required before a recurring schedule, external contact, posting, or provider workflow can be activated
+- [x] Add focused regression coverage and validate the partnership preparation pathway without contacting entities, collecting leads, posting, sending messages, creating a schedule, or activating a provider
+
+## Phase 493 — Governed Continuous Improvement Standard
+- [x] Define a source-labeled continuous-improvement record covering route integrity, accessibility, evidence quality, correction, security boundaries, and release-state review
+- [x] Add a visible portal pathway that distinguishes local quality improvements from autonomous provider, outreach, financial, or deployment actions
+- [x] Add focused regression coverage and validate the improvement and correction boundaries without scheduling work, modifying an external system, or implying automatic self-healing outside verified controls
+
+## Phase 494 — First-Party Co-Creation Discovery Handoffs
+- [x] Add the First-Party Co-Creation Record to the ScrollVerse Atlas central-discovery controls and family/research lane
+- [x] Add the First-Party Co-Creation Record to the Empire Routing Map free-discovery pathway with source and correction context
+- [x] Add focused regression coverage and validate both discovery handoffs while retaining reader-directed and no-activation boundaries

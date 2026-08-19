@@ -16,6 +16,7 @@ const FREE_PATHS = [
   { title: "Art Museum", href: "/art-museum", description: "Evidence-led physical-object records with separate ownership, rights, and representation fields." },
   { title: "Art Learning Studio", href: "/art-learning-studio", description: "Free study and browser-local creation preparation with adult-supported youth guidance." },
   { title: "AI Companion Hub", href: "/ai-companion-hub", description: "Browser-local companion preparation roles and source pathways; no external AI account is connected." },
+  { title: "First-Party Co-Creation Record", href: "/first-party-co-creation", description: "Owner-authored co-creation account with source trail, operating-state labels, visitor interpretation path, and correction route." },
   { title: "Synchronization Research", href: "/synchronization-research", description: "First-party source trail and public research reference layers." },
 ] as const;
 

@@ -297,6 +297,7 @@ import FinancialSystemsCapabilityMap from "./pages/FinancialSystemsCapabilityMap
 import LawfulOperatingNavigator from "./pages/LawfulOperatingNavigator";
 import OriginalSystemsHub from "./pages/OriginalSystemsHub";
 import EnterpriseSystemsBlueprint from "./pages/EnterpriseSystemsBlueprint";
+import PartnershipEngine from "./pages/PartnershipEngine";
 import PublicPortfolioGovernance from "./pages/PublicPortfolioGovernance";
 import ManifestoBuildersBook from "./pages/ManifestoBuildersBook";
 import BooksMediaReadiness from "./pages/BooksMediaReadiness";
@@ -304,6 +305,7 @@ import RecoveryMaterials from "./pages/RecoveryMaterials";
 import CoCreationNavigator from "./pages/CoCreationNavigator";
 import IdeaExchange from "./pages/IdeaExchange";
 import PortalTrustStandard from "./pages/PortalTrustStandard";
+import ContinuousImprovementStandard from "./pages/ContinuousImprovementStandard";
 import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator";
 import CreatorStudioNavigator from "./pages/CreatorStudioNavigator";
 import CreatorOperationsIntelligence from "./pages/CreatorOperationsIntelligence";
@@ -826,6 +828,7 @@ function Router() {
         <Route path="/lawful-operating-navigator" component={LawfulOperatingNavigator} />
         <Route path="/original-systems-hub" component={OriginalSystemsHub} />
         <Route path="/enterprise-systems-blueprint" component={EnterpriseSystemsBlueprint} />
+        <Route path="/partnership-engine" component={PartnershipEngine} />
         <Route path="/public-portfolio-governance" component={PublicPortfolioGovernance} />
         <Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />
         <Route path="/books-media-readiness" component={BooksMediaReadiness} />
@@ -833,6 +836,7 @@ function Router() {
         <Route path="/co-creation-navigator" component={CoCreationNavigator} />
         <Route path="/idea-exchange" component={IdeaExchange} />
         <Route path="/portal-trust-standard" component={PortalTrustStandard} />
+        <Route path="/continuous-improvement-standard" component={ContinuousImprovementStandard} />
         <Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />
         <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
         <Route path="/creator-operations-intelligence" component={CreatorOperationsIntelligence} />
