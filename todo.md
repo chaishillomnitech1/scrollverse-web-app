@@ -3966,6 +3966,18 @@
 - [x] Add regression coverage, validate all catalog states, and publish the readiness workspace without provider-side actions
 - [x] Link the full catalog readiness workspace from central Atlas and Empire Routing Map discovery paths without implying an active Shopify catalog or checkout
 
+## Google and Collective Material Intake
+- [x] Inventory the supplied Google/collective text records and visual assets by source, type, sensitivity, and claimed operating state
+- [x] Create protected source records that distinguish owner-provided expression from external claims, unverified code, personal data, and possible third-party rights
+- [x] Add browser-local asset-registry intake pathways for visual concepts without publishing, minting, listing, selling, or asserting rights
+- [x] Validate the intake boundary and publish the source-labeled record without running embedded scripts or taking external actions
+- [x] Reconcile updated collective claims about tests, repositories, crypto, escrow, infrastructure, external services, and releases against the verified local project state without adopting unsupported claims
+
+## First-Party Co-Creation Record
+- [x] Map existing first-party and collective-source presentation surfaces for the owner’s stated co-creation account
+- [x] Add a source-labeled first-party co-creation record with date, operating state, evidence boundary, and visitor interpretation pathway
+- [x] Add focused regression coverage and validate that external claims remain attributed source material rather than verified portal fact
+
 ## Books Discovery Release-State Correction
 - [x] Replace unverified Books route buy, NFT, token, retailer, and price implications with source-labeled reader and release-preparation states
 - [x] Add focused regression coverage and validate that the Books route does not represent a storefront listing, checkout, token sale, or third-party publication as active
@@ -4007,6 +4019,10 @@
 ## ExchangeCrypto Release-State Correction
 - [x] Replace ExchangeCrypto wallet, swap, price, asset, transfer, and exchange controls with source-labeled conversion and delivery release-readiness records
 - [x] Add focused regression coverage and validate that ExchangeCrypto does not call wallet APIs, display active prices or assets, create a swap/transfer interaction, or represent an exchange action as current
+
+## WalletConnect Release-State Correction
+- [x] Replace WalletConnect account, balance, asset, and transaction controls with source-labeled wallet-access release-readiness records
+- [x] Add focused regression coverage and validate that WalletConnect does not invoke provider APIs, connect an account, display balances/assets, or create a transaction as current
 
 ## Pasted Activation-Status Reconciliation
 - [x] Classify the supplied activation-status block as owner-provided reference material and distinguish its claims from actual managed checkpoint and provider records

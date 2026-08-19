@@ -284,6 +284,22 @@ The `/exchange/crypto` route now serves as a source-labeled market-research and 
 
 TypeScript completed without errors and the full regression suite completed with **119 test files / 438 tests passing**. Browser inspection confirmed the market research, conversion, and simulation records along with the browser-local market packet and exact action gate. No price feed, exchange, broker, wallet, custody, funding, order, stop, transfer, settlement, token, payment, or provider action was created or represented as current.
 
+## 2026-08-18 update — WalletConnect release-state correction
+
+The `/wallet` route now serves as a source-labeled wallet-access and custody readiness surface. It covers wallet consent, network/custody preparation, and collector-access preparation without detecting an extension, opening a provider, requesting accounts, displaying an address or balance, switching a network, requesting a signature, creating a transaction, or representing an asset, token, entitlement, reward, or delivery action as available.
+
+TypeScript completed without errors and the full regression suite completed with **120 test files / 441 tests passing**. Browser inspection confirmed the route displays the readiness records, browser-local packet, and exact action gate while visibly excluding provider, account, address, balance, asset, network, signature, transaction, custody, funding, transfer, token, NFT, collector-delivery, and provider-action controls.
+
+## 2026-08-18 update — Google/collective and visual-asset protected intake
+
+The newly supplied Google/collective text records and visual bundle have been inventoried as protected, source-labeled intake material in `docs/phase488-google-collective-and-visual-asset-intake.md`. The record separates collective narratives, claimed operating state, embedded code, financial/crypto/infrastructure concepts, social-reference material, unknown-source visual files, and named personal-brand visual concepts.
+
+No external claim, code sample, command, address, private-infrastructure assertion, financial mechanism, wallet concept, image, screenshot, GIF, poster, sticker, likeness, or text-derived work was adopted as current portal fact or used externally. Public display, commercial use, listing, sale, tokenization, or provider action remains blocked by source, rights, privacy, and exact-release gates.
+
+### Updated claim-status reconciliation
+
+The later revisions of `Pasted_content_100.txt` and `Pasted_content_100_01.txt` are preserved in the same protected lane. Their claims about test totals, escrow or treasury balances, wallets, contracts, IPFS, private infrastructure, scripts, external repositories, public portals, external services, Episode 28, payments, crypto, or distributions remain source-stated material rather than current portal fact. The complete claim-by-claim handling appears in the Phase 488 intake record; no embedded code or external action was executed.
+
 ## 2026-08-18 update — Fashion Empire release-state correction
 
 The Fashion Empire route now presents colorways, sneaker models, logos, production paths, and collectible ideas as owner-directed concept records. Product pricing is unset; production paths are research categories rather than supplier relationships; `$BLOCKS` is a concept label; and review feedback explicitly confirms that no mint, sale, wallet, or transfer occurred. Any manufacturing, allocation, tokenization, licensing, sale, or fulfillment step requires separate evidence, terms, and owner release.
@@ -309,3 +325,9 @@ The home-page foundation now presents payment release readiness, webhook release
 TypeScript completed without errors and the full regression suite completed with **112 test files / 418 tests passing**. Browser inspection confirmed the updated foundation pillars render with their source-bound operating states. No payment, subscription, customer, campaign, checkout, payout, access entitlement, staking reward, distribution, infrastructure configuration, or external service action was created.
 
 TypeScript completed without errors and the full regression suite completed with **108 test files / 408 tests passing**. Browser inspection confirmed the updated reader and release-record labels appear across the visible book cards. No bookstore listing, checkout, product publication, NFT sale, wallet operation, marketplace listing, token allocation, or third-party availability was created or claimed.
+
+## 2026-08-19 update — First-party co-creation record
+
+The workspace now includes `/first-party-co-creation`, a visitor-directed record that presents the owner’s stated co-creation account with its source trail, current operating state, evidence boundary, correction path, and next pathways for protected source evidence, creator-owned catalog readiness, research, and delivery-state review. The route preserves the account as first-party expression while distinguishing referenced external systems, providers, deployments, financial outcomes, rights positions, and public results as source claims until their own evidence record establishes a verified project state.
+
+TypeScript completed without errors and the full regression suite completed with **122 test files / 446 tests passing**. Browser inspection confirmed the first-party position, visitor choice path, evidence boundary, browser-local copy action, and internal pathways render as intended. No visitor account, data sharing, payment, wallet, token, membership, provider connection, external submission, or other external action was created.
