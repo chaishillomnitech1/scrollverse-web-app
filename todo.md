@@ -3528,7 +3528,7 @@
 - [ ] Add experience-entry, reply, reaction, saved-reflection, and participant-profile data structures with authenticated contribution and transparent participation controls
 - [ ] Build and register a public discovery page with theme filters, source distinctions, related research links, accessible contribution flow, calm discussion surfaces, and profile privacy controls
 - [x] Add focused regression coverage, validate the exchange, and document moderation, privacy, and correction-path boundaries
-- [ ] Reuse compatible guardian identity patterns while keeping contributor pseudonyms, public visibility, post ownership, replies, reactions, and saved reflections participant-controlled
+- [x] Reuse compatible guardian identity patterns while keeping contributor pseudonyms, public visibility, post ownership, replies, reactions, and saved reflections participant-controlled
 ## Phase 361 — Synchronization Research Media and Community Hub
 - [x] Map owner-supplied public channel records into source-labeled research, tarot, spiritual, cosmic, music, and community categories
 - [x] Add accessible media, music, social, existing Legion, and participant-community handoffs without republishing third-party source material
