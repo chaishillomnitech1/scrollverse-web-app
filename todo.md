@@ -3291,9 +3291,9 @@
 - [x] Replace conflicting language with creator-directed first-party presentation, voluntary exploration controls, and factual operating-state records
 - [x] Add regression coverage for the corrected presentation boundary and validate the changed routes
 ## Phase 303 — ScrollVerse-Wide Creator-Directed Presentation
-- [ ] Audit merch, books, media, artifacts, and crypto-related discovery pages for creator-directed presentation and factual operating-state language
-- [ ] Update the key cross-lane discovery surfaces to present creator-owned works directly without implying that visitors must determine the creator’s intent
-- [ ] Add regression coverage for the ScrollVerse-wide presentation standard and validate the updated routes
+- [x] Audit merch, books, media, artifacts, and crypto-related discovery pages for creator-directed presentation and factual operating-state language
+- [x] Update the key cross-lane discovery surfaces to present creator-owned works directly without implying that visitors must determine the creator’s intent
+- [x] Add regression coverage for the ScrollVerse-wide presentation standard and validate the updated routes
 ## Phase 304 — Durable ScrollVerse World-Flow Standard
 - [x] Add the creator-directed presentation standard across merch, books, media, artifacts, community, and crypto-related discovery to the reusable ScrollVerse evidence-first workflow
 - [ ] Update the existing recurring Story Engine schedule so all future content preparation follows the same creator-directed presentation and factual-state standard without altering external publishing authority; blocked because this collaboration session cannot modify the owning task’s schedule
