@@ -751,91 +751,7 @@ function GuardianWaitlist() {
   );
 }
 
-// Live $LONDC price ticker — Polygon RPC primary, CoinGecko fallback
-// Once $LONDC contract is deployed, replace LONDC_CONTRACT_ADDRESS below
-const LONDC_CONTRACT_ADDRESS = null; // Set to deployed $LONDC contract address on Polygon Mainnet
-const POLYGON_RPC = "https://polygon-rpc.com";
-
-async function fetchLONDCFromPolygon(): Promise<{ price: string; change: number } | null> {
-  if (!LONDC_CONTRACT_ADDRESS) return null;
-  try {
-    // ERC-20 totalSupply call (0x18160ddd)
-    const supplyRes = await fetch(POLYGON_RPC, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        jsonrpc: "2.0", id: 1, method: "eth_call",
-        params: [{ to: LONDC_CONTRACT_ADDRESS, data: "0x18160ddd" }, "latest"],
-      }),
-    });
-    const supplyData = await supplyRes.json();
-    const supply = parseInt(supplyData.result, 16) / 1e18;
-    // Placeholder: derive price from supply (replace with DEX pair query when live)
-    const price = (1 / supply * 1e9).toFixed(6);
-    return { price, change: 7.77 };
-  } catch {
-    return null;
-  }
-}
-
-async function fetchMATICFromCoinGecko(): Promise<{ price: string; change: number } | null> {
-  try {
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd&include_24hr_change=true",
-      { headers: { Accept: "application/json" } }
-    );
-    if (!res.ok) return null;
-    const data = await res.json();
-    const p = data["matic-network"]?.usd;
-    const c = data["matic-network"]?.usd_24h_change;
-    if (!p) return null;
-    return {
-      price: p < 0.01 ? p.toFixed(6) : p.toFixed(4),
-      change: parseFloat((c ?? 0).toFixed(2)),
-    };
-  } catch {
-    return null;
-  }
-}
-
 function LONDCTicker() {
-  const [price, setPrice] = useState<string | null>(null);
-  const [change, setChange] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [source, setSource] = useState<"polygon" | "coingecko" | "fallback">("fallback");
-
-  useEffect(() => {
-    const fetchPrice = async () => {
-      // 1. Try Polygon RPC (live $LONDC once deployed)
-      const onChain = await fetchLONDCFromPolygon();
-      if (onChain) {
-        setPrice(onChain.price);
-        setChange(onChain.change);
-        setSource("polygon");
-        setLoading(false);
-        return;
-      }
-      // 2. Fallback to CoinGecko MATIC price (same chain proxy)
-      const cg = await fetchMATICFromCoinGecko();
-      if (cg) {
-        setPrice(cg.price);
-        setChange(cg.change);
-        setSource("coingecko");
-        setLoading(false);
-        return;
-      }
-      // 3. Final fallback: sovereign simulated price
-      setPrice("0.0144");
-      setChange(7.77);
-      setSource("fallback");
-      setLoading(false);
-    };
-    fetchPrice();
-    const interval = setInterval(fetchPrice, 30000); // refresh every 30s
-    return () => clearInterval(interval);
-  }, []);
-
-  const isPositive = change !== null && change >= 0;
   return (
     <div
       className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono"
@@ -844,18 +760,9 @@ function LONDCTicker() {
         border: "1px solid rgba(0,212,255,0.2)",
       }}
     >
-      <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: loading ? "#8899AA" : source === "polygon" ? "#00FF88" : source === "coingecko" ? "#FFB800" : "#8899AA" }} />
+      <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#FFB800" }} />
       <span style={{ color: "#8899AA" }}>$LONDC</span>
-      {loading ? (
-        <span style={{ color: "#8899AA" }}>···</span>
-      ) : (
-        <>
-          <span className="font-bold" style={{ color: "#00D4FF" }}>${price}</span>
-          <span style={{ color: isPositive ? "#00FF88" : "#FF4444" }}>
-            {isPositive ? "▲" : "▼"} {Math.abs(change ?? 0)}%
-          </span>
-        </>
-      )}
+      <span className="font-bold" style={{ color: "#FFB800" }}>listing evidence pending</span>
     </div>
   );
 }

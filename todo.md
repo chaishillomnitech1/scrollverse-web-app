@@ -4114,6 +4114,10 @@
 - [x] Build source-bound visitor-choice and Activation Register routes with direct correction paths and no fake checkout or unverified trade claim
 - [x] Prepare named launch packets for original items and public destinations before any provider-side activation
 - [ ] Validate live-path readiness and request exact confirmation for each provider-side activation
+
+## Phase 533 — Homepage Token-Status Correction
+- [x] Replace the homepage’s proxy/simulated $LONDC market quote with a transparent listing-evidence-pending status
+- [x] Add focused regression coverage and validate the homepage status correction without changing any token, wallet, contract, or financial state
 - [x] Correct the Activation Register’s stale managed-publication state after the verified successful checkpoint and public-route recovery
 - [x] Correct the Multi-Platform Release Desk’s stale managed-history wording while retaining each destination’s individual account and publication gates
 - [x] Correct the Support Path to show the owner-provided Cash App handoff as the only verified public support destination while retaining product-specific support release gates

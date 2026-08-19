@@ -13,6 +13,7 @@ describe("Phase 477 — Home chain-state correction", () => {
 
   it("retains the existing token release preparation language", () => {
     expect(home).toContain("$LONDC launches on Polygon Mainnet");
-    expect(home).toContain("LONDC_CONTRACT_ADDRESS = null");
+    expect(home).toContain("listing evidence pending");
+    expect(home).not.toContain("api.coingecko.com/api/v3/simple/price");
   });
 });
