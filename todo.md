@@ -4371,3 +4371,8 @@
 - [x] Build a browser-local first-SKU readiness packet that joins the creator catalog, Shopify readiness, Financial Highways, and exact-action record without creating a product, price, inventory, checkout, payment, or provider action
 - [x] Make separate password, product, payment, shipping, domain, delivery, support, refund, privacy, and exact-current-owner-confirmation gates visible for a future first approved item
 - [x] Add focused regression coverage, validate TypeScript and the full suite, then checkpoint the activation-preparation milestone
+
+## Phase 519 — Learning Pathways Discovery
+- [x] Build a source-labeled browser-local learning pathways route spanning philosophy, mathematics, physics, historical-source research, and first-party remembrance context
+- [x] Add clear source, date, learning-use, limitation, correction, and operating-state labels without reproducing protected texts or treating a source as an endorsement, credential, or required conclusion
+- [x] Connect the route from the existing knowledge and research discovery surfaces, add focused regression coverage, validate the route, and checkpoint the milestone
