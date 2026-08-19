@@ -408,6 +408,7 @@ import FirstPartyCoCreationRecord from "./pages/FirstPartyCoCreationRecord";
 import LearningPathways from "./pages/LearningPathways";
 import ContinuationReadinessRegister from "./pages/ContinuationReadinessRegister";
 import VibeCanvasRoadmap from "./pages/VibeCanvasRoadmap";
+import August28LaunchCommandCenter from "./pages/August28LaunchCommandCenter";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -635,6 +636,7 @@ function Router() {
       <Route path={"/learning-pathways"} component={LearningPathways} />
       <Route path={"/continuation-readiness-register"} component={ContinuationReadinessRegister} />
       <Route path={"/vibe-canvas"} component={VibeCanvasRoadmap} />
+      <Route path={"/august-28-launch"} component={August28LaunchCommandCenter} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />

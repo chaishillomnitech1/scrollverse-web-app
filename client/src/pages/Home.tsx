@@ -1042,6 +1042,7 @@ export default function Home() {
     { label: "Mika-Solara", href: "/mika-solara" },
     { label: "$SOLARA", href: "/solara-coin" },
     { label: "Vibe Canvas", href: "/vibe-canvas" },
+    { label: "August 28 Launch", href: "/august-28-launch" },
     { label: "Equation Study", href: "/chais-sabir-equation" },
     { label: "Sync Research", href: "/synchronization-research" },
     { label: "Book of the Journey", href: "/book-of-the-journey" },
