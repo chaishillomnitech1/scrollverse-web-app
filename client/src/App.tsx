@@ -237,6 +237,7 @@ import BrandStudio from "./pages/BrandStudio";
 import FashionArtifactAtlas from "./pages/FashionArtifactAtlas";
 import FashionLookbookExperience from "./pages/FashionLookbookExperience";
 import EpisodeExperience from "./pages/EpisodeExperience";
+import LegionSpecialistProfiles from "./pages/LegionSpecialistProfiles";
 import PortalNavigator from "./pages/PortalNavigator";
 import ConvergenceCommons from "./pages/ConvergenceCommons";
 import Signalworks from "./pages/Signalworks";
@@ -780,6 +781,7 @@ function Router() {
         <Route path="/fashion-artifact-atlas" component={FashionArtifactAtlas} />
         <Route path="/fashion-lookbook-experience" component={FashionLookbookExperience} />
         <Route path="/episode-experience" component={EpisodeExperience} />
+        <Route path="/legion-specialist-profiles" component={LegionSpecialistProfiles} />
         <Route path="/commons" component={ConvergenceCommons} />
         <Route path="/signalworks" component={Signalworks} />
         <Route path="/creator-workspace" component={CreatorWorkspace} />

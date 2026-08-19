@@ -4360,3 +4360,9 @@
 - [x] Connect the episode experience from Episodic Production Slate and Sovereign Cinema without embedding unapproved media, claiming playback, using a third-party likeness, or synthesizing narration
 - [x] Add individual production and release gates for title/character, script, master/contributors, accessibility, delivery, host, and exact owner release
 - [x] Add focused regression coverage, validate TypeScript and the full suite, then checkpoint the episodic-readiness milestone
+
+## Phase 517 — Legion Specialist Profile Expansion
+- [x] Build browser-local specialist profile cards for high-impact and cross-discipline roles with clear purpose, evidence needs, safeguards, and correction pathways
+- [x] Add interactive profile selection and public-improvement proposal preparation without submission, personal professional instruction, autonomous decision-making, provider actions, or account access
+- [x] Connect the profile experience from the Legion Specialist Atlas and preserve visible medical, legal, financial, and governance safeguards
+- [x] Add focused regression coverage, validate TypeScript and the full suite, then checkpoint the Legion expansion milestone
