@@ -3326,9 +3326,9 @@
 - [x] Classify the supplied content-policy intake and project-baseline assertions as protected non-executable source material
 - [x] Preserve reusable per-asset release-record and evidence-boundary lessons without replacing the current verified test count, project state, or managed publication-conflict record with pasted claims
 ## Phase 313 — Full Local ScrollVerse Experience Update
-- [ ] Audit the local preview across production, fashion, voice, books, media, community, creator tools, and crypto-related discovery for high-impact creator-directed improvements
-- [ ] Integrate reusable preview-reference lessons without creating unverified SKUs, pricing, audio-capture metrics, tokenomics, social publishing, provider connections, contracts, payments, or deployments
-- [ ] Add regression coverage, validate the local preview, and preserve the managed synchronization conflict as the explicit live-publication blocker
+- [x] Audit the local preview across production, fashion, voice, books, media, community, creator tools, and crypto-related discovery for high-impact creator-directed improvements
+- [x] Integrate reusable preview-reference lessons without creating unverified SKUs, pricing, audio-capture metrics, tokenomics, social publishing, provider connections, contracts, payments, or deployments
+- [x] Add regression coverage, validate the local preview, and preserve the managed synchronization conflict as the explicit live-publication blocker
 ## Phase 314 — Concrete ScrollVerse Capability Audit
 - [x] Inspect local routes, regression coverage, preview health, current schedule configuration, and published-versus-local state
 - [x] Map demonstrated portal capabilities, research lanes, individual owner-release requirements, external account/provider gates, and the managed synchronization blocker
@@ -4383,3 +4383,8 @@
 - [x] Repair confirmed local presentation or accessibility issues, add focused regression coverage, and checkpoint the completed audit pass
 - [x] Repair the detected Chosen Ones Experience Exchange 404 with a compatibility route alias and focused coverage
 - [x] Repair the detected Production Control Desk 404 with a compatibility route alias and focused coverage
+
+## Phase 521 — Continuation Readiness Register
+- [x] Build a browser-local continuation register that groups remaining source, asset, production-brief, authenticated access, repository, provider, and project-context gates by current operating state
+- [x] Present each gate with its next required input, no-action boundary, correction path, and linked readiness route without creating an account action, publication, checkout, transaction, schedule, or provider configuration
+- [x] Register the route, add focused regression coverage, validate the operating-state labels, and checkpoint the continuation milestone

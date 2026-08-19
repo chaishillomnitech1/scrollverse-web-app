@@ -406,6 +406,7 @@ import AgenticStorefrontsReadiness from "./pages/AgenticStorefrontsReadiness";
 import SunOnUs1111 from "./pages/SunOnUs1111";
 import FirstPartyCoCreationRecord from "./pages/FirstPartyCoCreationRecord";
 import LearningPathways from "./pages/LearningPathways";
+import ContinuationReadinessRegister from "./pages/ContinuationReadinessRegister";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -631,6 +632,7 @@ function Router() {
       <Route path={"/sun-on-us-1111"} component={SunOnUs1111} />
       <Route path={"/first-party-co-creation"} component={FirstPartyCoCreationRecord} />
       <Route path={"/learning-pathways"} component={LearningPathways} />
+      <Route path={"/continuation-readiness-register"} component={ContinuationReadinessRegister} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />
