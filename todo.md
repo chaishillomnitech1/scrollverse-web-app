@@ -3252,7 +3252,7 @@
 - [ ] Verify synchronization only through managed project status and checkpoint controls while preserving both the published Media World release and local story-universe work
 - [ ] Re-run type and regression validation, then publish only if the managed checkpoint confirms the conflict is resolved
 ## Phase 292 — Creator-Controlled Collaboration Boundary
-- [ ] Record that ScrollVerse collaboration remains creator-controlled, evidence-led, and subject to defined safety, accessibility, release, and verification gates rather than unchecked autonomous authority
+- [x] Record that ScrollVerse collaboration remains creator-controlled, evidence-led, and subject to defined safety, accessibility, release, and verification gates rather than unchecked autonomous authority
 ## Phase 293 — First-Party Editorial and Operating-State Standard
 - [x] Record the confident first-party editorial standard for creator intent, original work, source, version, accessibility, contributor, correction, and release records
 - [x] Align active story-universe and creative documentation to use direct states—available now, research, and requires owner release—without retreat-style presentation language
