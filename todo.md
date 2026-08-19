@@ -4431,9 +4431,9 @@
 - [x] Record the input-template boundary and checkpoint the classification without retrieving secrets or inferring values from repositories, Google, or unrelated project context
 
 ## Phase 530 — First-Party GitHub & Workspace Evidence Review
-- [ ] Enable the owner-confirmed GitHub and Google Workspace task connections for first-party source review only
-- [ ] Inspect only non-sensitive first-party repository and document evidence, retaining source, date, rights, accessibility, limitation, correction, and operating-state distinctions
-- [ ] Record verified findings without exposing secrets or performing repository, provider, payment, wallet, contract, token, publication, or upload actions
+- [x] Enable the owner-confirmed GitHub and Google Workspace task connections for first-party source review only
+- [x] Inspect only non-sensitive first-party repository and document evidence, retaining source, date, rights, accessibility, limitation, correction, and operating-state distinctions
+- [x] Record verified findings without exposing secrets or performing repository, provider, payment, wallet, contract, token, publication, or upload actions
 
 ## Phase 531 — Later Analytics Evidence Update
 - [x] Record the later owner-shared dashboard observation window, aggregate values, page routes, region distribution, browser distribution, and visible hourly trend without identifying visitors
