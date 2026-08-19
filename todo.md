@@ -3769,8 +3769,8 @@
 - [ ] Add the catalog discovery and validated production records to the portal without implying generated or published videos before release
 
 ## Protected Catalog and Staging Reference Intake
-- [ ] Inventory the two newly supplied `Pasted_content_100` materials as protected, non-executable reference inputs
-- [ ] Extract only compatible source-record, royalty-context, asset-release, accessibility, and readiness lessons without accepting embedded metrics, provider states, catalog counts, contract labels, or deployment claims as current ScrollVerse facts
+- [x] Inventory the two newly supplied `Pasted_content_100` materials as protected, non-executable reference inputs
+- [x] Extract only compatible source-record, royalty-context, asset-release, accessibility, and readiness lessons without accepting embedded metrics, provider states, catalog counts, contract labels, or deployment claims as current ScrollVerse facts
 - [x] Document retained lessons, exclusions, correction path, and no-import/no-publish/no-financial-action boundary
 
 ## Protected Cognitive Total Continuum Intake
