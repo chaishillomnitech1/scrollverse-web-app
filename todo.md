@@ -4379,6 +4379,7 @@
 
 ## Phase 520 — High-Impact Preview Audit
 - [x] Review Books & Media Readiness and Creator Catalog Readiness for direct operating-state labels, source trails, browser-local controls, and provider-action boundaries
-- [ ] Review production, fashion, voice, community, creator tools, and crypto discovery routes for the same visitor-facing control standard
-- [ ] Repair confirmed local presentation or accessibility issues, add focused regression coverage, and checkpoint the completed audit pass
+- [x] Review production, fashion, voice, community, creator tools, and crypto discovery routes for the same visitor-facing control standard
+- [x] Repair confirmed local presentation or accessibility issues, add focused regression coverage, and checkpoint the completed audit pass
 - [x] Repair the detected Chosen Ones Experience Exchange 404 with a compatibility route alias and focused coverage
+- [x] Repair the detected Production Control Desk 404 with a compatibility route alias and focused coverage

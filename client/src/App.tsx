@@ -846,6 +846,7 @@ function Router() {
         <Route path="/pre-registration-readiness" component={PreRegistrationReadiness} />
         <Route path="/open-record-continuum" component={OpenRecordContinuum} />
         <Route path="/production-control" component={ProductionControlDesk} />
+        <Route path="/production-control-desk" component={ProductionControlDesk} />
         <Route path="/release-destinations" component={MultiPlatformReleaseDesk} />
         <Route path="/harlem-vineland-legacy" component={HarlemVinelandLegacy} />
         <Route path="/assistive-governance" component={AssistiveGovernanceDesk} />
