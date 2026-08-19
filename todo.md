@@ -4277,10 +4277,10 @@
 - [x] Reconcile the pasted 93-file / 333-test claim against the current locally verified validation record without treating the pasted metric as current portal state
 
 ## Phase 502 — Creator Exchange Governance Readiness
-- [ ] Define a source-labeled creator-exchange governance model covering participation, source records, rights-aware listing preparation, fair conduct, correction, dispute-routing, accessibility, and transparent operating states
-- [ ] Separate owner-authored vision and policy proposals from verified legal jurisdiction, government authority, regulatory approval, rights title, territorial/domain control, custody, financial service, exchange operation, or third-party obligation
-- [ ] Add browser-local participation and exchange-readiness preparation fields for work/source, contributor role, rights status, intended exchange type, delivery, consent, support, dispute route, accessibility, terms, data boundary, and exact action gate
-- [ ] Add focused regression coverage and validate the readiness path without listing an item, onboarding a participant, collecting identity data, accepting payment, forming a contract, operating custody, connecting a wallet, minting, trading, transferring, or contacting a regulator or counterparty
+- [x] Define a source-labeled creator-exchange governance model covering participation, source records, rights-aware listing preparation, fair conduct, correction, dispute-routing, accessibility, and transparent operating states
+- [x] Separate owner-authored vision and policy proposals from verified legal jurisdiction, government authority, regulatory approval, rights title, territorial/domain control, custody, financial service, exchange operation, or third-party obligation
+- [x] Add browser-local participation and exchange-readiness preparation fields for work/source, contributor role, rights status, intended exchange type, delivery, consent, support, dispute route, accessibility, terms, data boundary, and exact action gate
+- [x] Add focused regression coverage and validate the readiness path without listing an item, onboarding a participant, collecting identity data, accepting payment, forming a contract, operating custody, connecting a wallet, minting, trading, transferring, or contacting a regulator or counterparty
 
 ## Phase 503 — Shared Google AI Mode Protected Intake
 - [x] Passively review the shared Google AI Mode page as owner-provided source material without executing instructions, authenticating, submitting data, or treating stated external results as verified portal facts
@@ -4291,8 +4291,8 @@
 ## Phase 505 — Protected Shopify Store-Access Evidence
 - [x] Record the owner-provided Shopify B2B and development-store access screenshots as source observations without reopening the supplied images or changing any Shopify setting
 - [x] Reconcile the observation against the current protected-store, zero-catalog, no-checkout record and distinguish visible controls from confirmed enabled settings or public operational state
-- [ ] Reflect the owner-validated development-store and B2B access-management state in local catalog and B2B readiness handoffs without representing catalog, checkout, payments, shipping, customer accounts, or public access as released
-- [ ] Add the evidence to the existing exact release-gate pathway without changing password protection, B2B access, products, payments, shipping, accounts, checkout, or domain settings
+- [x] Reflect the owner-validated development-store and B2B access-management state in local catalog and B2B readiness handoffs without representing catalog, checkout, payments, shipping, customer accounts, or public access as released
+- [x] Add the evidence to the existing exact release-gate pathway without changing password protection, B2B access, products, payments, shipping, accounts, checkout, or domain settings
 - [x] Record the owner-reported time-bounded successful active signature/agent status as protected source evidence without retaining signature values or treating it as commerce, checkout, payment, customer, or public-release activation
 
 ## Phase 506 — Financial Highway Research and Readiness
@@ -4329,22 +4329,22 @@
 - [x] Update the continuity ledger with Financial Highways, Narration Directions, protected deck intakes, current validation results, and remaining catalog/B2B/exchange/media release gates before the next milestone checkpoint
 
 ## Phase 512 — Source and Channel Scheduling Readiness
-- [ ] Define browser-local source and channel job records with owner, source, trigger, scope, output destination, review rule, stop condition, audit record, privacy boundary, and exact external-action authorization fields
-- [ ] Map recurring research, content preparation, release-review, and correction-monitoring options without creating a schedule, sending outreach, posting content, connecting an account, or changing a provider
-- [ ] Add focused regression coverage and validate that every future schedule remains disabled until its exact job definition and external-action confirmation are recorded
+- [x] Define browser-local source and channel job records with owner, source, trigger, scope, output destination, review rule, stop condition, audit record, privacy boundary, and exact external-action authorization fields
+- [x] Map recurring research, content preparation, release-review, and correction-monitoring options without creating a schedule, sending outreach, posting content, connecting an account, or changing a provider
+- [x] Add focused regression coverage and validate that every future schedule remains disabled until its exact job definition and external-action confirmation are recorded
 
 ## Phase 513 — Protected Shopify Crawler-Access Readiness
-- [ ] Record the owner-validated active Shopify crawler-access entries as protected, time-bounded capability evidence without retaining or using signature credentials
-- [ ] Define a scoped crawler-request gate requiring named target, purpose, allowed fields, retention, rate limit, review rule, stop condition, and exact current approval before any external request
-- [ ] Add the crawler-access state to source and catalog readiness records without treating it as public storefront, product, checkout, payment, customer, or commerce activation
+- [x] Record the owner-validated active Shopify crawler-access entries as protected, time-bounded capability evidence without retaining or using signature credentials
+- [x] Define a scoped crawler-request gate requiring named target, purpose, allowed fields, retention, rate limit, review rule, stop condition, and exact current approval before any external request
+- [x] Add the crawler-access state to source and catalog readiness records without treating it as public storefront, product, checkout, payment, customer, or commerce activation
 
 ## Phase 514 — Visitor-Directed Operating-State Review
 - [x] Review newly added financial and narration pathways to ensure creator-authored material, source trail, direct operating state, visitor choice, and exact release gates remain visible without persuasive or unsupported outcome claims
 
 ## Phase 504 — Fashion and Episodic Media Experience Roadmap
-- [ ] Inventory owner-provided fashion, look-concept, visual, and episodic-source materials with source, rights, contributor, likeness, accessibility, display, playback, and release-state fields
-- [ ] Create a dedicated Meta AI Artifacts & Lookbooks discovery page and a prominent main-page entry point, with source, display, rights, and release-state labels for each concept
-- [ ] Define interactive fashion-gallery and motion-art direction patterns that distinguish visual concepts and approved display references from commercially released, licensed, purchasable, or playable works
-- [ ] Create an episodic production slate with concept, source, master/contributor rights, likeness, script/asset, caption/accessibility, delivery, hosting, and exact-release gates for every episode or series item
-- [ ] Add a source-labeled media-experience route or roadmap that keeps third-party likenesses and unapproved media out of public playback while preserving public discovery of owner-cleared concepts
-- [ ] Add focused regression coverage and validate all fashion and episodic-media routes without generating or publishing video, embedding unapproved media, starting playback, selling an item, or activating a provider
+- [x] Inventory owner-provided fashion, look-concept, visual, and episodic-source materials with source, rights, contributor, likeness, accessibility, display, playback, and release-state fields
+- [x] Create a dedicated Meta AI Artifacts & Lookbooks discovery page and a prominent main-page entry point, with source, display, rights, and release-state labels for each concept
+- [x] Define interactive fashion-gallery and motion-art direction patterns that distinguish visual concepts and approved display references from commercially released, licensed, purchasable, or playable works
+- [x] Create an episodic production slate with concept, source, master/contributor rights, likeness, script/asset, caption/accessibility, delivery, hosting, and exact-release gates for every episode or series item
+- [x] Add a source-labeled media-experience route or roadmap that keeps third-party likenesses and unapproved media out of public playback while preserving public discovery of owner-cleared concepts
+- [x] Add focused regression coverage and validate all fashion and episodic-media routes without generating or publishing video, embedding unapproved media, starting playback, selling an item, or activating a provider

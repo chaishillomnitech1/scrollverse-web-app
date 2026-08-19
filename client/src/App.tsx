@@ -312,6 +312,7 @@ import IdeaExchange from "./pages/IdeaExchange";
 import PortalTrustStandard from "./pages/PortalTrustStandard";
 import ContinuousImprovementStandard from "./pages/ContinuousImprovementStandard";
 import CreatorExchangeNavigator from "./pages/CreatorExchangeNavigator";
+import CreatorExchangeGovernanceReadiness from "./pages/CreatorExchangeGovernanceReadiness";
 import CreatorStudioNavigator from "./pages/CreatorStudioNavigator";
 import CreatorOperationsIntelligence from "./pages/CreatorOperationsIntelligence";
 import ReleasePackageChecklist from "./pages/ReleasePackageChecklist";
@@ -367,7 +368,9 @@ import DirectFanCatalog from "./pages/DirectFanCatalog";
 import CreatorCatalogReadiness from "./pages/CreatorCatalogReadiness";
 import CatalogEngagementAttribution from "./pages/CatalogEngagementAttribution";
 import BoundedResearchOperations from "./pages/BoundedResearchOperations";
+import SourceChannelSchedulingReadiness from "./pages/SourceChannelSchedulingReadiness";
 import ShopifyStagedLaunchGuidance from "./pages/ShopifyStagedLaunchGuidance";
+import ShopifyCrawlerAccessReadiness from "./pages/ShopifyCrawlerAccessReadiness";
 import EmpireRoutingMap from "./pages/EmpireRoutingMap";
 import SovereignContributionExchange from "./pages/SovereignContributionExchange";
 import LivingJourneyExperience from "./pages/LivingJourneyExperience";
@@ -391,6 +394,8 @@ import ArtLearningStudio from "./pages/ArtLearningStudio";
 import KnowledgeCommons from "./pages/KnowledgeCommons";
 import ScrollVersePerspectives from "./pages/ScrollVersePerspectives";
 import AssetRegistry from "./pages/AssetRegistry";
+import MetaAIArtifactsLookbooks from "./pages/MetaAIArtifactsLookbooks";
+import EpisodicProductionSlate from "./pages/EpisodicProductionSlate";
 import AICompanionHub from "./pages/AICompanionHub";
 import LegionSpecialistAtlas from "./pages/LegionSpecialistAtlas";
 import AgenticStorefrontsReadiness from "./pages/AgenticStorefrontsReadiness";
@@ -586,7 +591,9 @@ function Router() {
       <Route path={"/creator-catalog-readiness"} component={CreatorCatalogReadiness} />
       <Route path={"/catalog-engagement"} component={CatalogEngagementAttribution} />
       <Route path={"/bounded-research-operations"} component={BoundedResearchOperations} />
+      <Route path={"/source-channel-scheduling-readiness"} component={SourceChannelSchedulingReadiness} />
       <Route path={"/shopify-staged-launch-guidance"} component={ShopifyStagedLaunchGuidance} />
+      <Route path={"/shopify-crawler-access-readiness"} component={ShopifyCrawlerAccessReadiness} />
       <Route path={"/empire-routing-map"} component={EmpireRoutingMap} />
       <Route path={"/sovereign-contribution-exchange"} component={SovereignContributionExchange} />
       <Route path={"/living-journey-experience"} component={LivingJourneyExperience} />
@@ -610,6 +617,8 @@ function Router() {
 	      <Route path={"/knowledge-commons"} component={KnowledgeCommons} />
 	      <Route path={"/scrollverse-perspectives"} component={ScrollVersePerspectives} />
 	      <Route path={"/asset-registry"} component={AssetRegistry} />
+	      <Route path={"/meta-ai-artifacts-lookbooks"} component={MetaAIArtifactsLookbooks} />
+	      <Route path={"/episodic-production-slate"} component={EpisodicProductionSlate} />
 	      <Route path={"/ai-companion-hub"} component={AICompanionHub} />
 	      <Route path={"/legion-specialist-atlas"} component={LegionSpecialistAtlas} />
 	      <Route path={"/agentic-storefronts-readiness"} component={AgenticStorefrontsReadiness} />
@@ -852,8 +861,9 @@ function Router() {
         <Route path="/idea-exchange" component={IdeaExchange} />
         <Route path="/portal-trust-standard" component={PortalTrustStandard} />
         <Route path="/continuous-improvement-standard" component={ContinuousImprovementStandard} />
-        <Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />
-        <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
+      <Route path="/creator-exchange-navigator" component={CreatorExchangeNavigator} />
+      <Route path="/creator-exchange-governance-readiness" component={CreatorExchangeGovernanceReadiness} />
+      <Route path="/creator-studio-navigator" component={CreatorStudioNavigator} />
         <Route path="/creator-operations-intelligence" component={CreatorOperationsIntelligence} />
         <Route path="/release-package-checklist" component={ReleasePackageChecklist} />
         <Route path="/creator-services-navigator" component={CreatorServicesNavigator} />
