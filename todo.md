@@ -3400,7 +3400,7 @@
 - [ ] Add regression coverage and validate the transparent-teaching and creator-protection standard across affected routes
 ## Phase 331 — Proactive IP-Lock Protected Reference Review
 - [ ] Classify the supplied hashing, decentralized-registry, automatic-enforcement, test-matrix, and universal-protection assertions as protected non-executable source material
-- [ ] Map lawful provenance, source-timeline, access-control, filing-readiness, and correction-path controls for created works without claiming rights over uncreated ideas, automatic enforcement, registration, or perpetual protection
+- [x] Map lawful provenance, source-timeline, access-control, filing-readiness, and correction-path controls for created works without claiming rights over uncreated ideas, automatic enforcement, registration, or perpetual protection
 ## Phase 332 — Media, Visual, Audio, and Story Quality Pass
 - [x] Audit local media routes, Batman-related story entries, visual-asset references, voice/audio controls, and playable-media pathways
 - [x] Repair concrete local route, interaction, accessibility, or playback-control issues while preserving asset rights, source, and release evidence boundaries
