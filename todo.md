@@ -4388,3 +4388,8 @@
 - [x] Build a browser-local continuation register that groups remaining source, asset, production-brief, authenticated access, repository, provider, and project-context gates by current operating state
 - [x] Present each gate with its next required input, no-action boundary, correction path, and linked readiness route without creating an account action, publication, checkout, transaction, schedule, or provider configuration
 - [x] Register the route, add focused regression coverage, validate the operating-state labels, and checkpoint the continuation milestone
+
+## Phase 522 — Omnithrone Protected Intake Boundary
+- [x] Classify Pasted_content_100 and Pasted_content_100_01 as protected non-executable reference material, excluding embedded code, vector identifiers, provider statements, payment-routing data, deployment claims, and asserted execution outcomes
+- [x] Retain only compatible Episode 29 structural-planning, first-SKU gate, source, rights, accessibility, release, correction, and exact-action readiness lessons
+- [x] Record the protected-intake boundary, update the continuation register if useful, and checkpoint the classification without executing or exposing sensitive routing data
