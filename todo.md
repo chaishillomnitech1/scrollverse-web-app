@@ -4409,3 +4409,18 @@
 - [x] Document aggregate engagement observations, privacy boundaries, and non-identifying visitor-experience priorities from the owner-shared dashboard evidence
 - [x] Identify browser-local route, accessibility, source clarity, and continuation-path improvements without collecting personal visitor data or asserting revenue, conversion, or external provider outcomes
 - [x] Validate the analytics-guided readiness record and checkpoint the privacy-aware visitor-experience milestone
+
+## Phase 526 — Rights-Aware Sports Reference Route
+- [ ] Replace unsupported Knicks-related prediction, minting, price, payout, oracle, contract, and third-party media claims with a source-labeled sports-reference review route
+- [ ] Make third-party athlete, team, league, brand, franchise, and likeness reference gates visible without presenting affiliation, authorization, a product, NFT, wager, wallet, checkout, or financial outcome
+- [ ] Add focused route coverage, validate TypeScript and the full suite, then checkpoint the corrected sports-reference milestone
+
+## Phase 527 — Privacy-Aware Live Activity Indicator
+- [ ] Add an anonymous short-lived server presence signal that stores no visitor name, account, IP address, or device identifier and returns aggregate active-session count only
+- [ ] Add a homepage live activity indicator with loading, refresh, and privacy-boundary states; do not fabricate counts or claim unique users, revenue, conversion, or external analytics verification
+- [ ] Add focused tRPC and homepage regression coverage, validate TypeScript and the full suite, then checkpoint the engagement milestone
+
+## Phase 528 — Beyond Sovereign Engine Protected Reference
+- [x] Classify the Beyond Sovereign Engine text, asserted runtime state, embedded Python code, Shopify gate, payment-routing, and deployment proposals as protected non-executable material
+- [x] Retain only compatible production-planning, source, rights, accessibility, correction, and exact-action readiness lessons without adopting claimed execution outcomes
+- [x] Update the protected-intake boundary record and checkpoint the classification without running code, attaching payment routing, configuring providers, or exposing sensitive data
