@@ -3539,7 +3539,7 @@
 - [x] Document actual local comparison, source gaps, and correction path
 ## Phase 363 — Hill Family Remembrance and Pattern Research
 - [ ] Record the owner-supplied Hill family chronology and Aug 16 / 8:28 phone screenshot as first-party family and visual source context
-- [ ] Research credible gematria, mathematics, physics, philosophy, and methods learning sources; distinguish scholarly, historical, and first-party interpretive materials
+- [x] Research credible gematria, mathematics, physics, philosophy, and methods learning sources; distinguish scholarly, historical, and first-party interpretive materials
 - [ ] Add the remembrance and learning expansion to the Synchronization Research Index with source labels and rights-aware digital-asset readiness boundaries
 - [ ] Add focused regression coverage and validate the public route and research links
 ## Phase 364 — Episode 14 Chronology and Gematria Protected Intake
