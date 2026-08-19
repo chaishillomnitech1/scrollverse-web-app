@@ -3335,7 +3335,7 @@
 - [x] Publish an evidence-based capability audit record without treating planned, pasted, or unverified external claims as current capability
 ## Phase 315 — Capability Baseline and Episode 8 Framework
 - [x] Run TypeScript compilation and the complete project unit-test suite to confirm the current local capability baseline
-- [ ] Classify the supplied capability-topology JSON and test example as protected non-executable reference material
+- [x] Classify the supplied capability-topology JSON and test example as protected non-executable reference material
 - [x] Map an original Episode 8 structural screenplay framework with human-forward voice, accessibility, evidence, and owner-release gates
 ## Phase 316 — Verified ScrollVerse Production Workflow
 - [x] Inspect actual connector, schedule, account, and production-control state without inferring external authorization or result completion
