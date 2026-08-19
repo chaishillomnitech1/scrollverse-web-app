@@ -4597,8 +4597,9 @@
 - [x] Validate the analytics evidence update and checkpoint the later-observation record
 
 ## Phase 580 — Dated First-Party Chronology Boundary
-- [ ] Record the owner-supplied raw-transmission dates as first-party chronology evidence for sustained development, while distinguishing source chronology from verification of external outcomes
-- [ ] Classify `Clipboard_0_40F3461A` and `Clipboard_1_8FA429F3` as dated owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+- [x] Record the owner-supplied raw-transmission dates as first-party chronology evidence for sustained development, while distinguishing source chronology from verification of external outcomes
+- [x] Classify `Clipboard_0_40F3461A` and `Clipboard_1_8FA429F3` as dated owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+- [x] Add a source-date ledger, explicit operating labels, limitations, correction path, and no-action statement to the durable chronology record
 
 ## Phase 581 — Creator Books Publishing Desk
 - [x] Define the browser-local book publishing operating model, including manuscript/source, authorship/rights, accessibility, cover/format, distribution destination, and exact owner-release gates
