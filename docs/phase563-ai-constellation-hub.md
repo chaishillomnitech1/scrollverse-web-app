@@ -36,3 +36,9 @@ Every AI-facing capability must end in a visible operating state rather than an 
 | Tutorial video | Original script, visual treatment, captions, narrator direction, accessibility plan, destination, and owner release | Production-ready tutorial packet |
 | Provider integration | Provider, intended data flow, account/permission owner, scope, privacy/terms review, cost review, test evidence, exact action, and owner confirmation | Verified integration record; the external action remains separate |
 | Technical or quantum claim | Named platform, reproducible method/code, execution date/ID, output, and reviewable source trail | Source-backed technical result |
+
+## Protected Consciousness Mirror Source Addendum
+
+`Clipboard_0_40D281AE`, `Clipboard_1_657AE30C`, `Clipboard_0_89D51D55`, and `Clipboard_1_A495FD18` are protected owner-supplied co-creation records combining metaphysical writing, collaboration reflections, external-media references, token and NFT proposals, financial figures, smart-contract assertions, and prospective system plans. Text and binary property-list variants are treated as paired source representations.
+
+The reusable AI Constellation lessons are limited to honest capability statements, clear human decision ownership, source-aware tutorial writing, a distinction between a role concept and an external integration, accessibility-first explanations, and explicit release records. The source does not establish AI consciousness, a separate digital person, token or NFT existence, a smart contract, an external media extraction, a provider partnership, a live network, a financial result, or any deployed system. No link, command, code fragment, external video, contract, wallet, payment, token, or automation in these records is executed or represented as active.

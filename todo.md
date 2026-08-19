@@ -4256,7 +4256,8 @@
 
 ## Phase 573 — Reusable Protected Source-to-Release Skill
 - [x] Create a reusable skill for the Protected Source → Evidence Classification → Local Planning Surface → Item-Specific Release Gate workflow, following the required skill-creation process
-- [ ] Create a reusable AI Constellation Tutorial Studio skill for original role tutorials, public discovery links, provider-readiness ledgers, and explicit no-integration boundaries
+- [x] Create a reusable AI Constellation Tutorial Studio skill for original role tutorials, public discovery links, provider-readiness ledgers, and explicit no-integration boundaries
+- [x] Write, validate, and package the AI Constellation Tutorial Studio SKILL.md with role-tutorial, public-discovery, evidence, accessibility, and no-integration workflow controls
 
 ## Phase 574 — Protected Reusable-Method Source Batch
 - [x] Classify `Clipboard_0_42F9B489`, `Clipboard_1_F4F3F802`, `Clipboard_0_2B1DC3A0`, `Clipboard_1_5D13C410`, `Clipboard_0_BBE708E4`, and `Clipboard_1_E52B80CF` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
@@ -4268,7 +4269,7 @@
 - [x] Classify `Clipboard_0_535BF71C` and `Clipboard_1_21BC8E99` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
 
 ## Phase 564 — Protected AI Hub Source Intake
-- [ ] Classify `Clipboard_0_40D281AE`, `Clipboard_1_657AE30C`, `Clipboard_0_89D51D55`, and `Clipboard_1_A495FD18` as owner-supplied source context and retain only compatible AI hub, tutorial, evidence, accessibility, and release-readiness lessons
+- [x] Classify `Clipboard_0_40D281AE`, `Clipboard_1_657AE30C`, `Clipboard_0_89D51D55`, and `Clipboard_1_A495FD18` as owner-supplied source context and retain only compatible AI hub, tutorial, evidence, accessibility, and release-readiness lessons
 - [x] Correct the Activation Register’s stale managed-publication state after the verified successful checkpoint and public-route recovery
 - [x] Correct the Multi-Platform Release Desk’s stale managed-history wording while retaining each destination’s individual account and publication gates
 - [x] Correct the Support Path to show the owner-provided Cash App handoff as the only verified public support destination while retaining product-specific support release gates
