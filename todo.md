@@ -3813,7 +3813,7 @@
 - [ ] Document the reusable source, accessibility, rights, release, correction, and original-media workflow standard for future ScrollVerse additions
 
 ## Research-to-Application Standard
-- [ ] Add a source-to-method-to-route standard that turns useful research findings into documented portal, community, or assistant-facing improvements without treating unverified material as operational fact
+- [x] Add a source-to-method-to-route standard that turns useful research findings into documented portal, community, or assistant-facing improvements without treating unverified material as operational fact
 
 ## Autonomous Contribution Engine and Episode 22 Protected Intake
 - [x] Classify the supplied contribution-engine registry, test script, status claims, and Episode 22 screenplay as protected non-executable reference material
