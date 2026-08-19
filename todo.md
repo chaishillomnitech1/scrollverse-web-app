@@ -3197,9 +3197,9 @@
 - [x] Create reusable first-party operating templates for work intake, production, accessibility, credits, release decisions, and corrections without assuming a public release or integration
 - [x] Validate the roadmap and preserve all current owner-controlled provider, financial, deployment, and publication gates
 ## Phase 281 — AC Batman Cross-Surface Program Path
-- [ ] Inspect Junior Movies, media-hub, and homepage discovery components for the appropriate source-labeled AC Batman program entry points
-- [ ] Add browser-local navigation and an evidence-first program card without embedding un-cleared third-party visuals or representing a source reference as an available release
-- [ ] Add regression coverage, validate the cross-surface links, and preserve the managed publication conflict as a non-destructive blocker
+- [x] Inspect Junior Movies, media-hub, and homepage discovery components for the appropriate source-labeled AC Batman program entry points
+- [x] Add browser-local navigation and an evidence-first program card without embedding un-cleared third-party visuals or representing a source reference as an available release
+- [x] Add regression coverage, validate the cross-surface links, and preserve the managed publication conflict as a non-destructive blocker
 ## Phase 282 — Visual and Book Priority Experience
 - [x] Audit current book, reader, audio, visual, and media-hub routes for visible link resolution, user-facing action feedback, accessibility, and direct operating states
 - [x] Improve the highest-impact browser-local book and visual discovery surfaces without embedding un-cleared assets or claiming unavailable playback

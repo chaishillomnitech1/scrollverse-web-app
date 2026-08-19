@@ -198,6 +198,12 @@ export default function JuniorMovies() {
           <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C4D0E0" }}>A public creator channel supplied by the ScrollVerse owner for animation and episodic-release discovery. It is a reference only: Dragon Ball and related rights remain with their respective rights holders, while YouTube and the channel publisher control all account, access, publication, and monetization decisions.</p>
           <a href={DRAGON_BALL_CYBERX_CHANNEL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex rounded-lg border px-4 py-2 text-sm font-bold" style={{ borderColor: "rgba(196,181,253,0.5)", color: "#C4B5FD" }}>Open Dragon Ball CyberX public channel ↗</a>
         </div>
+        <div className="mx-auto mt-5 max-w-3xl rounded-2xl border p-5 text-left" style={{ borderColor: "rgba(0,212,255,0.38)", background: "rgba(0,212,255,0.06)" }}>
+          <div className="text-[10px] font-mono tracking-widest" style={{ color: "#00D4FF" }}>SOURCE-LABELED PROGRAM PATH</div>
+          <h2 className="mt-2 text-xl font-black text-white">AC Batman · protected-context production pathway</h2>
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C4D0E0" }}>A protected owner-provided planning context is indexed for production readiness and evidence review. This card does not embed character imagery, claim an available episode, use a third-party likeness, or open a player. Any future original release needs title and character review, script/source records, contributor rights, accessibility, hosting, and exact owner release.</p>
+          <Link href="/media-world-evidence-packets" className="mt-4 inline-flex rounded-lg border px-4 py-2 text-sm font-bold" style={{ borderColor: "rgba(0,212,255,0.5)", color: "#00D4FF" }}>Open evidence packets →</Link>
+        </div>
       </div>
 
       <section className="relative z-10 mx-auto max-w-6xl px-4 pb-12">
