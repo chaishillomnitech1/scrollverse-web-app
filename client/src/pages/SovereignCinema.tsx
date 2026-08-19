@@ -851,6 +851,9 @@ export default function SovereignCinema() {
               <br />
               <strong style={{ color: "#FFB800" }}>Chais Kenyatta Hill — Sabir Allah The Great</strong> — Director, Producer, Sovereign.
             </p>
+            <Link href="/episode-experience">
+              <button className="mb-8 rounded-xl border border-[#DCC8FF]/45 bg-[#DCC8FF]/10 px-5 py-3 text-sm font-black text-[#E8DFFF]">Open episode experience · records, scenes, and release gates →</button>
+            </Link>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mb-8">

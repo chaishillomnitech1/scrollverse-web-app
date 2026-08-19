@@ -4354,3 +4354,9 @@
 - [x] Add interactive look selection, visual mood controls, accessibility-aware visual labels, and concept records without presenting a visual as a product, sample, price, license, listing, checkout, or approved public campaign
 - [x] Connect the experience prominently from the homepage, Fashion Empire, Meta AI Artifacts & Lookbooks, and the established fashion discovery routes
 - [x] Add focused route and boundary regression coverage, validate TypeScript and the full suite, then checkpoint the visual-fashion milestone
+
+## Phase 516 — Episodic Experience & Playback Readiness
+- [x] Build a browser-local episodic experience with individual source-labeled episode records, scene navigation, accessibility planning, and direct operating-state labels
+- [x] Connect the episode experience from Episodic Production Slate and Sovereign Cinema without embedding unapproved media, claiming playback, using a third-party likeness, or synthesizing narration
+- [x] Add individual production and release gates for title/character, script, master/contributors, accessibility, delivery, host, and exact owner release
+- [x] Add focused regression coverage, validate TypeScript and the full suite, then checkpoint the episodic-readiness milestone
