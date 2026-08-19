@@ -4283,16 +4283,63 @@
 - [ ] Add focused regression coverage and validate the readiness path without listing an item, onboarding a participant, collecting identity data, accepting payment, forming a contract, operating custody, connecting a wallet, minting, trading, transferring, or contacting a regulator or counterparty
 
 ## Phase 503 — Shared Google AI Mode Protected Intake
-- [ ] Passively review the shared Google AI Mode page as owner-provided source material without executing instructions, authenticating, submitting data, or treating stated external results as verified portal facts
-- [ ] Retain only compatible source, accessibility, governance, release-readiness, and correction lessons with date, scope, limits, and correction fields
-- [ ] Create a source compatibility matrix that identifies adoptable portal-design lessons, evidence-needed claims, and prohibited external-action instructions before any local integration work
-- [ ] Document the source boundary without triggering repository, provider, payment, wallet, token, filing, outreach, schedule, publication, or external-system action
+- [x] Passively review the shared Google AI Mode page as owner-provided source material without executing instructions, authenticating, submitting data, or treating stated external results as verified portal facts
+- [x] Retain only compatible source, accessibility, governance, release-readiness, and correction lessons with date, scope, limits, and correction fields
+- [x] Create a source compatibility matrix that identifies adoptable portal-design lessons, evidence-needed claims, and prohibited external-action instructions before any local integration work
+- [x] Document the source boundary without triggering repository, provider, payment, wallet, token, filing, outreach, schedule, publication, or external-system action
 
 ## Phase 505 — Protected Shopify Store-Access Evidence
-- [ ] Record the owner-provided Shopify B2B and development-store access screenshots as source observations without reopening the supplied images or changing any Shopify setting
-- [ ] Reconcile the observation against the current protected-store, zero-catalog, no-checkout record and distinguish visible controls from confirmed enabled settings or public operational state
+- [x] Record the owner-provided Shopify B2B and development-store access screenshots as source observations without reopening the supplied images or changing any Shopify setting
+- [x] Reconcile the observation against the current protected-store, zero-catalog, no-checkout record and distinguish visible controls from confirmed enabled settings or public operational state
 - [ ] Reflect the owner-validated development-store and B2B access-management state in local catalog and B2B readiness handoffs without representing catalog, checkout, payments, shipping, customer accounts, or public access as released
 - [ ] Add the evidence to the existing exact release-gate pathway without changing password protection, B2B access, products, payments, shipping, accounts, checkout, or domain settings
+- [x] Record the owner-reported time-bounded successful active signature/agent status as protected source evidence without retaining signature values or treating it as commerce, checkout, payment, customer, or public-release activation
+
+## Phase 506 — Financial Highway Research and Readiness
+- [x] Research source-labeled, lawful creator-commerce, direct-support, B2B, catalog-delivery, and exchange-readiness patterns without recommending or activating a personal financial product, provider, wallet, custody service, investment, or transaction
+- [x] Map discovered pathways into available-now, research, requires-owner-release, and exact-provider-action states with source, terms, delivery, privacy, accessibility, support, refund, tax, and correction fields
+- [x] Build a browser-local financial-highway readiness dashboard that brings together catalog delivery, public support, B2B service, Shopify development-store context, and exact provider-action records without enabling commerce
+- [x] Add browser-local financial-highway planning records and focused regression coverage without creating a product, quote, payment, payout, transfer, trade, wallet connection, token issuance, provider account, or external agreement
+
+## Phase 507 — ScrollVerse Narration Direction
+- [x] Passively review the owner-referenced channel and video for non-identifying narration qualities such as pacing, clarity, warmth, energy, language, and mix without cloning, extracting, or presenting the exact voice of a real person
+- [x] Define distinct original ScrollVerse narrator directions, including a smooth and clear feminine lead profile, with script, accessibility, rights, source, and release-state fields
+- [x] Keep every narrator direction tied to source, script, rights, performer or synthesis authority, accessibility, delivery destination, correction, and item-specific release evidence
+- [x] Add a browser-local narration profile and media-release readiness pathway without synthesizing speech, using a third-party likeness, publishing audio, or enabling playback
+- [x] Add focused regression coverage and validate narrator route boundaries, source attribution, and no-voice-clone language
+
+## Phase 508 — Protected Repository-Intake Deck and Episode Source
+- [x] Classify `Pasted_content_88.txt` as protected, non-executable source material and retain only compatible repository-intake, evidence-field, isolation, and correction-path lessons
+- [x] Preserve the Black Batman Chronicles Episode 16 script material as source-labeled development context without claiming completed episode production, real person portrayal, third-party rights, narration ownership, or release state
+- [x] Reconcile the pasted 93-file / 333-assertion baseline against the current locally verified validation record without executing its HTML, JSON, workflow, shell, or CI content
+
+## Phase 509 — Protected Live-Execution Deck Intake
+- [x] Classify `Pasted_content_89.txt` as protected, non-executable source material and retain only compatible operating-state, evidence-gate, audit, and correction lessons
+- [x] Preserve the Black Batman Chronicles Episode 17 script as source-labeled development context without claiming a completed episode, active voice synthesis, real-person portrayal, third-party rights, or released media
+- [x] Reconcile pasted claims about wallets, payments, Stripe, Mercury, zkEVM, tokens, filings, media broadcast, credentials, outreach, and active deployments against current verified project and provider records without executing its HTML, script, manifest, workflow, shell, or CI content
+- [x] Reconcile the pasted 112-file / 412-assertion baseline against the current local validation record without representing it as current portal state
+
+## Phase 510 — Protected Runtime-Continuum Deck Intake
+- [x] Classify `Pasted_content_90.txt` as protected, non-executable source material and retain only compatible route-separation, evidence-field, isolation, and correction-path lessons
+- [x] Preserve the Black Batman Chronicles Episode 17 Act II script as source-labeled development context without claiming a completed episode, real-person portrayal, third-party rights, active runtime, or released media
+- [x] Reconcile pasted claims about replay registration, metadata synchronization, routes, webhook requirements, and automated pipelines against current verified project records without executing its HTML, manifest, workflow, shell, or CI content
+- [x] Reconcile the pasted 112-file / 412-assertion baseline against the current local validation record without representing it as current portal state
+
+## Phase 511 — Cross-Worktree Continuity Record
+- [x] Update the continuity ledger with Financial Highways, Narration Directions, protected deck intakes, current validation results, and remaining catalog/B2B/exchange/media release gates before the next milestone checkpoint
+
+## Phase 512 — Source and Channel Scheduling Readiness
+- [ ] Define browser-local source and channel job records with owner, source, trigger, scope, output destination, review rule, stop condition, audit record, privacy boundary, and exact external-action authorization fields
+- [ ] Map recurring research, content preparation, release-review, and correction-monitoring options without creating a schedule, sending outreach, posting content, connecting an account, or changing a provider
+- [ ] Add focused regression coverage and validate that every future schedule remains disabled until its exact job definition and external-action confirmation are recorded
+
+## Phase 513 — Protected Shopify Crawler-Access Readiness
+- [ ] Record the owner-validated active Shopify crawler-access entries as protected, time-bounded capability evidence without retaining or using signature credentials
+- [ ] Define a scoped crawler-request gate requiring named target, purpose, allowed fields, retention, rate limit, review rule, stop condition, and exact current approval before any external request
+- [ ] Add the crawler-access state to source and catalog readiness records without treating it as public storefront, product, checkout, payment, customer, or commerce activation
+
+## Phase 514 — Visitor-Directed Operating-State Review
+- [x] Review newly added financial and narration pathways to ensure creator-authored material, source trail, direct operating state, visitor choice, and exact release gates remain visible without persuasive or unsupported outcome claims
 
 ## Phase 504 — Fashion and Episodic Media Experience Roadmap
 - [ ] Inventory owner-provided fashion, look-concept, visual, and episodic-source materials with source, rights, contributor, likeness, accessibility, display, playback, and release-state fields

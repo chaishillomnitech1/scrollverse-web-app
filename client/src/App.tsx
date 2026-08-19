@@ -301,6 +301,8 @@ import EnterpriseSystemsBlueprint from "./pages/EnterpriseSystemsBlueprint";
 import PartnershipEngine from "./pages/PartnershipEngine";
 import ProofOfPractice from "./pages/ProofOfPractice";
 import WorldStation from "./pages/WorldStation";
+import FinancialHighways from "./pages/FinancialHighways";
+import NarrationDirections from "./pages/NarrationDirections";
 import PublicPortfolioGovernance from "./pages/PublicPortfolioGovernance";
 import ManifestoBuildersBook from "./pages/ManifestoBuildersBook";
 import BooksMediaReadiness from "./pages/BooksMediaReadiness";
@@ -839,6 +841,8 @@ function Router() {
         <Route path="/enterprise-systems-blueprint" component={EnterpriseSystemsBlueprint} />
         <Route path="/proof-of-practice" component={ProofOfPractice} />
         <Route path="/world-station" component={WorldStation} />
+        <Route path="/financial-highways" component={FinancialHighways} />
+        <Route path="/narration-directions" component={NarrationDirections} />
         <Route path="/partnership-engine" component={PartnershipEngine} />
         <Route path="/public-portfolio-governance" component={PublicPortfolioGovernance} />
         <Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />
