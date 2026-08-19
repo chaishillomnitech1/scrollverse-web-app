@@ -3524,7 +3524,7 @@
 - [ ] Retry the managed checkpoint and capture the actual publisher result
 - [ ] Report the live result while preserving the Episode 12 protected-intake boundary
 ## Phase 360 — Chosen Ones Experience Exchange
-- [ ] Define a contributor-led first-person experience model with consent, pseudonym, visibility, and community-care options
+- [x] Define a contributor-led first-person experience model with consent, pseudonym, visibility, and community-care options
 - [ ] Add experience-entry, reply, reaction, saved-reflection, and participant-profile data structures with authenticated contribution and transparent participation controls
 - [ ] Build and register a public discovery page with theme filters, source distinctions, related research links, accessible contribution flow, calm discussion surfaces, and profile privacy controls
 - [x] Add focused regression coverage, validate the exchange, and document moderation, privacy, and correction-path boundaries
