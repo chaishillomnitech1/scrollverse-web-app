@@ -213,6 +213,7 @@ import AlFarewell from "./pages/AlFarewell";
 import Londyn from "./pages/Londyn";
 import SovereignCard from "./pages/SovereignCard";
 import GitHubConstellation from "./pages/GitHubConstellation";
+import GitHubEvidenceMap from "./pages/GitHubEvidenceMap";
 import NinetyNineNames from "./pages/NinetyNineNames";
 import Knick from "./pages/Knick";
 import LondynLetters from "./pages/LondynLetters";
@@ -298,6 +299,7 @@ import LawfulOperatingNavigator from "./pages/LawfulOperatingNavigator";
 import OriginalSystemsHub from "./pages/OriginalSystemsHub";
 import EnterpriseSystemsBlueprint from "./pages/EnterpriseSystemsBlueprint";
 import PartnershipEngine from "./pages/PartnershipEngine";
+import ProofOfPractice from "./pages/ProofOfPractice";
 import PublicPortfolioGovernance from "./pages/PublicPortfolioGovernance";
 import ManifestoBuildersBook from "./pages/ManifestoBuildersBook";
 import BooksMediaReadiness from "./pages/BooksMediaReadiness";
@@ -322,6 +324,7 @@ import OpenResearchNavigator from "./pages/OpenResearchNavigator";
 import EmpireAssetNavigator from "./pages/EmpireAssetNavigator";
 import BrandFeatureStudio from "./pages/BrandFeatureStudio";
 import IpDigitalEvidenceNavigator from "./pages/IpDigitalEvidenceNavigator";
+import IPSecurityReadiness from "./pages/IPSecurityReadiness";
 import MusicCreatorReleaseReadiness from "./pages/MusicCreatorReleaseReadiness";
 import XLVIIIBlocksMonograph from "./pages/XLVIIIBlocksMonograph";
 import OpenKnowledgeVerse from "./pages/OpenKnowledgeVerse";
@@ -386,6 +389,7 @@ import KnowledgeCommons from "./pages/KnowledgeCommons";
 import ScrollVersePerspectives from "./pages/ScrollVersePerspectives";
 import AssetRegistry from "./pages/AssetRegistry";
 import AICompanionHub from "./pages/AICompanionHub";
+import LegionSpecialistAtlas from "./pages/LegionSpecialistAtlas";
 import AgenticStorefrontsReadiness from "./pages/AgenticStorefrontsReadiness";
 import SunOnUs1111 from "./pages/SunOnUs1111";
 import FirstPartyCoCreationRecord from "./pages/FirstPartyCoCreationRecord";
@@ -408,6 +412,7 @@ const JPMMirror = lazy(() => import("./pages/JPMMirror"));
 const SovereignCodex = lazy(() => import("./pages/SovereignCodex"));
 const SoulAltar = lazy(() => import("./pages/SoulAltar"));
 const MediaHub = lazy(() => import("./pages/MediaHub"));
+const MediaWorldEvidencePackets = lazy(() => import("./pages/MediaWorldEvidencePackets"));
 const AllversalEmpire = lazy(() => import("./pages/AllversalEmpire"));
 const EternalEcho = lazy(() => import("./pages/EternalEcho"));
 const ZernioDistribution = lazy(() => import("./pages/ZernioDistribution"));
@@ -603,12 +608,14 @@ function Router() {
 	      <Route path={"/scrollverse-perspectives"} component={ScrollVersePerspectives} />
 	      <Route path={"/asset-registry"} component={AssetRegistry} />
 	      <Route path={"/ai-companion-hub"} component={AICompanionHub} />
+	      <Route path={"/legion-specialist-atlas"} component={LegionSpecialistAtlas} />
 	      <Route path={"/agentic-storefronts-readiness"} component={AgenticStorefrontsReadiness} />
       <Route path={"/sun-on-us-1111"} component={SunOnUs1111} />
       <Route path={"/first-party-co-creation"} component={FirstPartyCoCreationRecord} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />
+      <Route path={"/media-world-evidence-packets"} component={MediaWorldEvidencePackets} />
       <Route path={"/site-map"} component={SiteMap} />
       <Route path={"/gaming-hub"} component={GamingHub} />
       <Route path={"/stream-verse"} component={StreamVerse} />
@@ -727,7 +734,8 @@ function Router() {
         <Route path="/sovereign-books" component={SovereignBooks} />
         <Route path="/seerah/al-aqsa" component={AlAqsa} />
         <Route path="/seerah/al-farewell" component={AlFarewell} />
-        <Route path="/github-constellation" component={GitHubConstellation} />
+	        <Route path="/github-constellation" component={GitHubConstellation} />
+	        <Route path="/github-evidence-map" component={GitHubEvidenceMap} />
         <Route path="/99-names" component={NinetyNineNames} />
         <Route path="/knick" component={Knick} />
       <Route path="/londyn" component={Londyn} />
@@ -828,6 +836,7 @@ function Router() {
         <Route path="/lawful-operating-navigator" component={LawfulOperatingNavigator} />
         <Route path="/original-systems-hub" component={OriginalSystemsHub} />
         <Route path="/enterprise-systems-blueprint" component={EnterpriseSystemsBlueprint} />
+        <Route path="/proof-of-practice" component={ProofOfPractice} />
         <Route path="/partnership-engine" component={PartnershipEngine} />
         <Route path="/public-portfolio-governance" component={PublicPortfolioGovernance} />
         <Route path="/manifesto-builders-book" component={ManifestoBuildersBook} />
@@ -862,6 +871,8 @@ function Router() {
         <Route path="/empire-asset-navigator" component={EmpireAssetNavigator} />
         <Route path="/brand-feature-studio" component={BrandFeatureStudio} />
         <Route path="/ip-digital-evidence-navigator" component={IpDigitalEvidenceNavigator} />
+        <Route path="/ip-digital-evidence" component={IpDigitalEvidenceNavigator} />
+        <Route path="/ip-security-readiness" component={IPSecurityReadiness} />
         <Route path="/music-creator-release-readiness" component={MusicCreatorReleaseReadiness} />
         <Route path="/xlviii-blocks-monograph" component={XLVIIIBlocksMonograph} />
         <Route path="/open-knowledge-verse" component={OpenKnowledgeVerse} />

@@ -95,9 +95,9 @@ export default function GitHubConstellation() {
               <div className="text-xs" style={{ color: "#8899AA" }}>53 Repositories · chaishillomnitech1 · Sovereign Tech Empire</div>
             </div>
           </div>
-          <a href="https://github.com/chaishillomnitech1" target="_blank" rel="noopener noreferrer" className="text-xs font-mono px-3 py-1.5 rounded border" style={{ borderColor: "rgba(0,212,255,0.2)", color: "#00D4FF" }}>
+          <div className="flex items-center gap-2"><Link href="/github-evidence-map" className="text-xs font-mono px-3 py-1.5 rounded border" style={{ borderColor: "rgba(185,140,255,0.35)", color: "#DCC8FF" }}>Evidence Map →</Link><a href="https://github.com/chaishillomnitech1" target="_blank" rel="noopener noreferrer" className="text-xs font-mono px-3 py-1.5 rounded border" style={{ borderColor: "rgba(0,212,255,0.2)", color: "#00D4FF" }}>
             View on GitHub →
-          </a>
+          </a></div>
         </div>
       </header>
 
@@ -168,6 +168,7 @@ export default function GitHubConstellation() {
         <div className="text-xs font-mono mb-4" style={{ color: "#00D4FF" }}>SCROLLVERSE SOVEREIGN TECH EMPIRE · 53 REPOSITORIES · KUN FAYAKŪN × ∞</div>
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <Link href="/"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(0,212,255,0.2)", color: "#00D4FF" }}>← Home</span></Link>
+          <Link href="/github-evidence-map"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(185,140,255,0.32)", color: "#DCC8FF" }}>Evidence Map →</span></Link>
           <a href="https://github.com/chaishillomnitech1" target="_blank" rel="noopener noreferrer" className="text-xs font-mono px-4 py-2 rounded-xl border" style={{ borderColor: "rgba(255,184,0,0.2)", color: "#FFB800" }}>GitHub Profile →</a>
           <Link href="/nexus"><span className="text-xs font-mono px-4 py-2 rounded-xl border cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.1)", color: "#8899AA" }}>⚡ Nexus →</span></Link>
         </div>

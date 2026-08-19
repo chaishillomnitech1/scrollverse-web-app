@@ -3152,7 +3152,7 @@
 - [x] Review Clipboard_0_125E26D3 and Clipboard_1_6EDA76FA as protected non-executable material; do not run commands, use secrets or addresses, connect wallets, activate providers, or initiate financial, deployment, payout, or transaction activity
 - [x] Record only compatible source-record, release-readiness, and operating-state lessons in protected project documentation
 ## Phase 268 — Media World Batch Intake
-- [ ] Create individual catalog evidence packets for owner-cleared videos and images before any Media World publishing, embedding, distribution, upload, or external channel handoff
+- [x] Create individual catalog evidence packets for owner-cleared videos and images before any Media World publishing, embedding, distribution, upload, or external channel handoff
 - [x] Verify the AI Legion Enter-key route remains in-page and add or retain regression coverage preventing unregistered entity navigation
 ## Phase 269 — Autonomous Media World Blueprint Review
 - [x] Classify the supplied autonomous-media architecture and Google search reference as protected design input; do not run scripts, execute terminal instructions, activate third-party media streams, or represent external content as cleared
@@ -4230,3 +4230,41 @@
 - [x] Add the First-Party Co-Creation Record to the ScrollVerse Atlas central-discovery controls and family/research lane
 - [x] Add the First-Party Co-Creation Record to the Empire Routing Map free-discovery pathway with source and correction context
 - [x] Add focused regression coverage and validate both discovery handoffs while retaining reader-directed and no-activation boundaries
+
+## Phase 495 — Media World Individual Evidence Packets
+- [x] Create individual source and release-readiness packets for the selected owner-brand visual references before any Media World embedding, upload, distribution, campaign, or external-channel handoff
+- [x] Add a browser-local Media World evidence-packet pathway that distinguishes managed display reference from item-specific public release, licensing, sale, mint, checkout, or provider state
+- [x] Add focused regression coverage and validate the packet pathway without publishing, embedding, uploading, selling, licensing, minting, scheduling, or contacting an external destination
+
+## Phase 496 — Legion Specialist Atlas
+- [x] Define a source-labeled specialist taxonomy spanning creative practice, science, technology, media, business, education, sport, food, agriculture, architecture, archaeology, philosophy, governance, mathematics, and other practical disciplines
+- [x] Define each role as a transparent co-creation and research interface without claims of consciousness, sentience, independent personhood, autonomous authority, or external-system control
+- [x] Add browser-local public-input, source, correction, and improvement-proposal pathways without collecting personal data or making external submissions
+- [x] Add regulated-domain boundaries for medicine, law, finance, governance, and other high-impact fields so roles support education and research rather than diagnosis, representation, advice for a personal case, execution, or authoritative decision-making
+- [x] Add focused regression coverage and validate all new paths without connecting providers, contacting experts, operating accounts, taking regulated action, or making a financial, legal, medical, or external governance decision
+
+## Phase 497 — Intellectual Property and Digital Security Readiness
+- [x] Define a source-labeled asset-protection inventory for names, logos, written works, visual works, music, software, methods, likenesses, and proposed inventions, with separate ownership, contributor, clearance, jurisdiction, and filing-status fields
+- [x] Add browser-local copyright, trademark, patent, trade-secret, and tokenization-readiness checklists that distinguish evidence preparation from a legal filing, registration, license, enforcement claim, wallet action, mint, or transfer
+- [x] Add purpose-specific likeness and brand-use controls, including source, depicted-person or mark review, intended context, and release/correction requirements
+- [x] Define verifiable security-control expectations for secret isolation, access controls, encryption-in-transit, encryption-at-rest, audit records, incident handling, and key rotation without making unsupported military, cryptographic-strength, or active-control claims
+- [x] Add focused regression coverage and validate the readiness pathway without transmitting secrets, filing a registration, contacting an authority, issuing a token, connecting a wallet, or changing an external security or provider configuration
+
+## Phase 498 — Authorized GitHub Source-Evidence Map
+- [x] Inventory publicly visible owner-authorized GitHub repositories as source records without running repository code, extracting credentials, or treating repository presence as an ownership, clearance, deployment, or operating-state guarantee
+- [x] Map selected repository evidence to ScrollVerse asset, capability, Legion, and release-readiness routes with source, date, scope, attribution, limitations, and correction fields
+- [x] Add browser-local GitHub evidence-review preparation without repository edits, public posts, provider actions, automated synchronization, or external submissions
+- [x] Add focused regression coverage and validate the source-evidence pathway without modifying a repository, invoking GitHub APIs, creating issues, opening pull requests, or publishing content
+
+## Phase 499 — ScrollVerse Proof-of-Practice Showcase
+- [x] Build a source-labeled showcase that lets prospective partners inspect ScrollVerse.co’s demonstrated creator-catalog, media-evidence, specialist-method, accessibility, continuous-improvement, source-correction, and partnership-preparation capabilities
+- [x] Distinguish observed portal capabilities and local validation from external customer outcomes, revenue, performance, provider activation, checkout, regulated service, or deployment claims
+- [x] Add a browser-local evaluation brief that supports partner review without collecting leads, sending messages, publishing a proposal, scheduling outreach, or creating a commercial engagement
+- [x] Add focused regression coverage and validate the showcase links, evidence framing, and no-engagement boundary
+
+## Phase 500 — ScrollVerse World Station Service Readiness
+- [ ] Define a source-labeled service-studio model for reusable websites, systems, artifacts, research interfaces, and delivery blueprints across creator, knowledge, media, operations, and public-service lanes
+- [ ] Add browser-local project/evaluation preparation that records scope, authorized assets, intended destination, accessibility, data boundary, delivery criteria, support, terms, and consent without collecting a lead or creating an engagement
+- [ ] Add transparent future-integration and exchange readiness lanes that distinguish compatible research from an active search engine, marketplace, automated build system, customer account, payment, checkout, publishing, outreach, provider, or Web3 action
+- [ ] Define safe automation and recurring-operation boundaries requiring a named job, owner, trigger, scope, data sources, output destination, confirmation rule, stop condition, audit record, and exact external-action authorization
+- [ ] Add focused regression coverage and validate the World Station pathway without sending messages, scheduling tasks, building or publishing a client site, collecting customer data, creating a quote, accepting payment, connecting a provider, or initiating an external exchange
