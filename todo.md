@@ -4376,3 +4376,9 @@
 - [x] Build a source-labeled browser-local learning pathways route spanning philosophy, mathematics, physics, historical-source research, and first-party remembrance context
 - [x] Add clear source, date, learning-use, limitation, correction, and operating-state labels without reproducing protected texts or treating a source as an endorsement, credential, or required conclusion
 - [x] Connect the route from the existing knowledge and research discovery surfaces, add focused regression coverage, validate the route, and checkpoint the milestone
+
+## Phase 520 — High-Impact Preview Audit
+- [x] Review Books & Media Readiness and Creator Catalog Readiness for direct operating-state labels, source trails, browser-local controls, and provider-action boundaries
+- [ ] Review production, fashion, voice, community, creator tools, and crypto discovery routes for the same visitor-facing control standard
+- [ ] Repair confirmed local presentation or accessibility issues, add focused regression coverage, and checkpoint the completed audit pass
+- [x] Repair the detected Chosen Ones Experience Exchange 404 with a compatibility route alias and focused coverage

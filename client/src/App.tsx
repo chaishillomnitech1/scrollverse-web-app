@@ -890,6 +890,7 @@ function Router() {
         <Route path="/synchronizations" component={Synchronizations} />
         <Route path="/synchronization-research" component={SynchronizationResearchIndex} />
         <Route path="/chosen-ones-exchange" component={ChosenOnesExperienceExchange} />
+        <Route path="/chosen-ones-experience-exchange" component={ChosenOnesExperienceExchange} />
         <Route path="/owner-workstation" component={OwnerWorkstation} />
         <Route path="/creator-media-packet" component={CreatorMediaPacket} />
         <Route path="/master-directory" component={MasterDirectory} />
