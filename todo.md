@@ -4429,3 +4429,13 @@
 - [x] Classify Pasted_content_91 as a protected input template whose repository, cadence, storefront, music, on-chain, campaign, and icon fields are blank and unresolved
 - [x] Retain only the item-specific evidence requirements while excluding supplied status metrics and all unstated provider, repository, payment, wallet, contract, token, or publication actions
 - [x] Record the input-template boundary and checkpoint the classification without retrieving secrets or inferring values from repositories, Google, or unrelated project context
+
+## Phase 530 — First-Party GitHub & Workspace Evidence Review
+- [ ] Enable the owner-confirmed GitHub and Google Workspace task connections for first-party source review only
+- [ ] Inspect only non-sensitive first-party repository and document evidence, retaining source, date, rights, accessibility, limitation, correction, and operating-state distinctions
+- [ ] Record verified findings without exposing secrets or performing repository, provider, payment, wallet, contract, token, publication, or upload actions
+
+## Phase 531 — Later Analytics Evidence Update
+- [x] Record the later owner-shared dashboard observation window, aggregate values, page routes, region distribution, browser distribution, and visible hourly trend without identifying visitors
+- [x] Update privacy-aware route-priority notes without treating analytics as evidence of identity, financial outcome, conversion, provider action, or GitHub repository health
+- [x] Validate the analytics evidence update and checkpoint the later-observation record
