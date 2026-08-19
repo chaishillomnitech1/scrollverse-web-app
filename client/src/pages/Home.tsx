@@ -1231,7 +1231,7 @@ export default function Home() {
             </span>
           </div>
           <LONDCTicker />
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden 2xl:flex items-center gap-8">
             {navLinks.slice(0, 8).map(l => (
               <a
                 key={l.label}
@@ -1445,8 +1445,10 @@ export default function Home() {
             </button>
           </div>
           <button
-            className="md:hidden text-white"
+            className="2xl:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close primary navigation" : "Open primary navigation"}
+            aria-expanded={mobileMenuOpen}
           >
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
               {mobileMenuOpen
@@ -1457,7 +1459,7 @@ export default function Home() {
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden px-4 pb-4 space-y-3" style={{ background: "rgba(5,11,26,0.98)" }}>
+          <div className="2xl:hidden px-4 pb-4 space-y-3" style={{ background: "rgba(5,11,26,0.98)" }}>
             {navLinks.map(l => (
               <a key={l.label} href={l.href} className="block text-sm py-2" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
                 {l.label}

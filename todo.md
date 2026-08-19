@@ -3406,9 +3406,9 @@
 - [x] Repair concrete local route, interaction, accessibility, or playback-control issues while preserving asset rights, source, and release evidence boundaries
 - [x] Run focused regression coverage and complete TypeScript/unit-test validation for the media quality pass
 ## Phase 333 — Full Visitor Interaction and Control Audit
-- [ ] Inventory navigation links, buttons, forms, filters, keyboard flows, feedback states, story/media controls, and browser-local tools across priority public routes
-- [ ] Repair verified local interaction, accessibility, navigation, and feedback issues without representing external account, payment, wallet, provider, or publication actions as available
-- [ ] Add focused regression coverage and validate the visitor interaction system through the local preview and complete test suite
+- [x] Inventory navigation links, buttons, forms, filters, keyboard flows, feedback states, story/media controls, and browser-local tools across priority public routes
+- [x] Repair verified local interaction, accessibility, navigation, and feedback issues without representing external account, payment, wallet, provider, or publication actions as available
+- [x] Add focused regression coverage and validate the visitor interaction system through the local preview and complete test suite
 ## Phase 334 — Full Local Research and Verification Rerun
 - [ ] Rerun TypeScript compilation, complete unit tests, and local preview health checks
 - [ ] Reconcile current research, route, media, visual, audio, and interaction findings with active project files and test coverage
