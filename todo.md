@@ -3538,7 +3538,7 @@
 - [x] Retain compatible screenplay, source/version, asset-record, local-validation, contributor-rights, and owner-release lessons without accepting supplied metrics, merge status, release-ready states, or tokenization parameters as verified
 - [x] Document actual local comparison, source gaps, and correction path
 ## Phase 363 — Hill Family Remembrance and Pattern Research
-- [ ] Record the owner-supplied Hill family chronology and Aug 16 / 8:28 phone screenshot as first-party family and visual source context
+- [x] Record the owner-supplied Hill family chronology and Aug 16 / 8:28 phone screenshot as first-party family and visual source context
 - [x] Research credible gematria, mathematics, physics, philosophy, and methods learning sources; distinguish scholarly, historical, and first-party interpretive materials
 - [x] Add the remembrance and learning expansion to the Synchronization Research Index with source labels and rights-aware digital-asset readiness boundaries
 - [x] Add focused regression coverage and validate the public route and research links
@@ -3640,7 +3640,7 @@
 - [x] Connect the free framework from Open Record Continuum and Sovereign Contribution Exchange so visitors can carry the learning pathway across ScrollVerse
 
 ## Ultimate Choice Framework — Perspective Shelf
-- [ ] Add the reviewed public source perspectives as distinct, attributed learning materials without imposing a single conclusion
+- [x] Add the reviewed public source perspectives as distinct, attributed learning materials without imposing a single conclusion
 
 ## Systemwide Source and Choice Standard
 - [x] Define a Source, Choice, Privacy, Release, and Correction Standard for all ScrollVerse pathway types
