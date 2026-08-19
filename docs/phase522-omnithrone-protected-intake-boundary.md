@@ -13,3 +13,7 @@
 | Trading, contract, deployment, telemetry, and execution assertions | Non-executable claims | Keep research, paper simulation, explorer evidence, and exact-action confirmation distinct from any on-chain or financial outcome |
 
 The only retained pattern is a clear separation between production planning, commerce preparation, financial readiness, and independent review. It does not justify a provider activation, direct payment flow, account connection, code execution, public release, contract deployment, wallet action, transaction, schedule, or publication.
+
+## Revised Pasted_content_100 reference
+
+The subsequently supplied revision presents a passive-reference isolation narrative and additional embedded controller code. Its statements about a stable portal baseline, clean deployment vectors, static access gates, accessibility status, and mapped rights/correction matrices remain unverified source assertions. The code was not run, copied into the portal, or treated as an active guardrail. The retained lesson is limited to the existing portal standard: classify incoming material by source and state, prohibit credential injection and unreviewed external actions, preserve correction paths, and require exact item-specific confirmation before a consequential provider action.

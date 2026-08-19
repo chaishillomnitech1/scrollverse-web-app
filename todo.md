@@ -4393,3 +4393,14 @@
 - [x] Classify Pasted_content_100 and Pasted_content_100_01 as protected non-executable reference material, excluding embedded code, vector identifiers, provider statements, payment-routing data, deployment claims, and asserted execution outcomes
 - [x] Retain only compatible Episode 29 structural-planning, first-SKU gate, source, rights, accessibility, release, correction, and exact-action readiness lessons
 - [x] Record the protected-intake boundary, update the continuation register if useful, and checkpoint the classification without executing or exposing sensitive routing data
+- [x] Classify the revised Pasted_content_100 passive-reference text and update the protected-intake record without executing embedded code or adopting asserted operating states
+
+## Phase 523 — Episode 29 Rights-Aware Readiness
+- [x] Document an Episode 29 production readiness record that separates original ScrollVerse characters and settings from unapproved third-party character, franchise, athlete, team, league, or brand references
+- [x] Define source, title/character, contributor, likeness, accessibility, destination, and exact owner-release gates without drafting or publishing a script or media asset
+- [x] Record the no-generation/no-playback/no-distribution boundary and checkpoint the rights-aware readiness milestone
+
+## Phase 524 — Owner-Shared Analytics Evidence Intake
+- [x] Record the two owner-shared ScrollVerse analytics dashboard screenshots with their displayed observation window, values, and source limitation
+- [x] Integrate a bounded analytics observation into the continuation readiness record without treating dashboard values as evidence of a provider action, revenue, conversion, identity, or external outcome
+- [x] Add focused regression coverage or documentation validation and checkpoint the analytics evidence milestone
