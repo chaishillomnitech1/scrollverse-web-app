@@ -1041,6 +1041,7 @@ export default function Home() {
   const navLinks = [
     { label: "Mika-Solara", href: "/mika-solara" },
     { label: "$SOLARA", href: "/solara-coin" },
+    { label: "Vibe Canvas", href: "/vibe-canvas" },
     { label: "Equation Study", href: "/chais-sabir-equation" },
     { label: "Sync Research", href: "/synchronization-research" },
     { label: "Book of the Journey", href: "/book-of-the-journey" },
