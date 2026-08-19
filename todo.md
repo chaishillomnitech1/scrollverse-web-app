@@ -4218,6 +4218,57 @@
 - [x] Define the browser-local August 28 milestone operating model, including source-led evidence, first-SKU, original-media, Vibe Canvas, and exact provider-release gates
 - [x] Build the active `/august-28-launch` route and visible homepage discovery link with accessible, mobile-responsive creator launch controls
 - [x] Add focused regression coverage, validate TypeScript and the full test suite, and publish the browser-local milestone without creating external financial, provider, contract, token, wallet, media, repository, or publishing state
+
+## Phase 563 — AI Constellation Hub
+- [x] Review the existing AI Legion Apex and original ScrollVerse AI surfaces, then define a source-led taxonomy for original roles, public discovery links, and verified provider-integration readiness
+- [x] Build the active `/ai-constellation` route and homepage discovery link with browser-local AI roles, compatible public AI handoffs, and explicit provider-connection gates
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the discovery experience without creating provider accounts, API integrations, external system control, data sharing, or automated actions
+- [x] Create role-specific tutorial production packets with original scripts, visual direction, captions, narrator guidance, and exact release gates before any public video generation or upload
+- [x] Apply a state-of-the-art interaction standard: accessible filters, clear role purpose, transparent provider boundaries, mobile-responsive controls, and direct handoffs to related ScrollVerse routes
+- [x] Add an evidence-completion ledger that shows whether each AI capability is available now, research, or requires a specific verified integration record
+
+## Phase 564 — Additional Protected AI Hub Source Intake
+- [x] Classify `Clipboard_0_62C17C31` and `Clipboard_1_F9E1B98F` as owner-supplied source context and retain only compatible AI hub, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 565 — Additional Protected AI Hub Source Intake
+- [x] Classify `Clipboard_0_86E17CE1` and `Clipboard_1_42FE07F6` as owner-supplied source context and retain only compatible AI hub, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 566 — Protected Reusable-Method Source Intake
+- [x] Classify `Clipboard_0_7508A37C`, `Clipboard_1_8FAB5263`, `Clipboard_0_471FA5F1`, and `Clipboard_1_FD3F7FB3` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 567 — Protected Reusable-Method Source Batch
+- [x] Classify `Clipboard_0_9A234080`, `Clipboard_1_B194AD11`, `Clipboard_0_52DCDD0B`, `Clipboard_1_F619CA79`, `Clipboard_0_1D0C657F`, and `Clipboard_1_5CDDCE15` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 568 — Protected Reusable-Method Source Batch
+- [x] Classify `Clipboard_0_DF176F54`, `Clipboard_1_D889DD73`, `Clipboard_0_E50FAD36`, and `Clipboard_1_E684FE4B` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 569 — Protected Reusable-Method Source Intake
+- [x] Classify `Clipboard_0_92C7F85F` and `Clipboard_1_B1EB07D6` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 570 — Protected Reusable-Method Source Batch
+- [x] Classify `Clipboard_0_8F3668E9`, `Clipboard_1_6EBEE773`, `Clipboard_0_259A22D5`, `Clipboard_1_8BAA8049`, `Clipboard_0_25DBA753`, and `Clipboard_1_349213AE` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 571 — Protected Reusable-Method Source Intake
+- [x] Classify `Clipboard_0_13B04A50` and `Clipboard_1_60848EC6` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 572 — Protected Reusable-Method Source Intake
+- [x] Classify `Clipboard_0_BE79C6F6` and `Clipboard_1_92BD77CC` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 573 — Reusable Protected Source-to-Release Skill
+- [x] Create a reusable skill for the Protected Source → Evidence Classification → Local Planning Surface → Item-Specific Release Gate workflow, following the required skill-creation process
+- [ ] Create a reusable AI Constellation Tutorial Studio skill for original role tutorials, public discovery links, provider-readiness ledgers, and explicit no-integration boundaries
+
+## Phase 574 — Protected Reusable-Method Source Batch
+- [x] Classify `Clipboard_0_42F9B489`, `Clipboard_1_F4F3F802`, `Clipboard_0_2B1DC3A0`, `Clipboard_1_5D13C410`, `Clipboard_0_BBE708E4`, and `Clipboard_1_E52B80CF` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 575 — Protected Reusable-Method Source Intake
+- [x] Classify `Clipboard_0_FCC0DCB7` and `Clipboard_1_AE821F82` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 576 — Protected Reusable-Method Source Intake
+- [x] Classify `Clipboard_0_535BF71C` and `Clipboard_1_21BC8E99` as owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 564 — Protected AI Hub Source Intake
+- [ ] Classify `Clipboard_0_40D281AE`, `Clipboard_1_657AE30C`, `Clipboard_0_89D51D55`, and `Clipboard_1_A495FD18` as owner-supplied source context and retain only compatible AI hub, tutorial, evidence, accessibility, and release-readiness lessons
 - [x] Correct the Activation Register’s stale managed-publication state after the verified successful checkpoint and public-route recovery
 - [x] Correct the Multi-Platform Release Desk’s stale managed-history wording while retaining each destination’s individual account and publication gates
 - [x] Correct the Support Path to show the owner-provided Cash App handoff as the only verified public support destination while retaining product-specific support release gates
@@ -4543,3 +4594,36 @@
 - [x] Record the later owner-shared dashboard observation window, aggregate values, page routes, region distribution, browser distribution, and visible hourly trend without identifying visitors
 - [x] Update privacy-aware route-priority notes without treating analytics as evidence of identity, financial outcome, conversion, provider action, or GitHub repository health
 - [x] Validate the analytics evidence update and checkpoint the later-observation record
+
+## Phase 580 — Dated First-Party Chronology Boundary
+- [ ] Record the owner-supplied raw-transmission dates as first-party chronology evidence for sustained development, while distinguishing source chronology from verification of external outcomes
+- [ ] Classify `Clipboard_0_40F3461A` and `Clipboard_1_8FA429F3` as dated owner-supplied source context and retain only supported reusable-method, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 581 — Creator Books Publishing Desk
+- [x] Define the browser-local book publishing operating model, including manuscript/source, authorship/rights, accessibility, cover/format, distribution destination, and exact owner-release gates
+- [ ] Build the active `/creator-books-publishing-desk` route and homepage discovery link with a creator book catalog, visual/voice edition planning, and per-title release controls
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the browser-local desk without uploading manuscripts, generating covers, creating products, activating distribution, or making financial claims
+- [x] Classify `Clipboard_0_F92DE37B` and `Clipboard_1_5DA37EC9` as owner-supplied book/publishing source context and retain only supported book, tutorial, evidence, accessibility, and release-readiness lessons
+- [ ] Classify `Clipboard_0_8EA0C5F4`, `Clipboard_1_0C177A6C`, `Clipboard_0_742C1951`, and `Clipboard_1_A94390CB` as owner-supplied book/publishing source context and retain only supported book, tutorial, evidence, accessibility, and release-readiness lessons
+- [ ] Classify `Clipboard_0_C24E72F7` and `Clipboard_1_3C7B54C7` as owner-supplied book/publishing source context and retain only supported book, tutorial, evidence, accessibility, and release-readiness lessons
+- [ ] Classify `Clipboard_0_40C01A8F` and `Clipboard_1_B011302D` as owner-supplied book/publishing source context and retain only supported book, tutorial, evidence, accessibility, and release-readiness lessons
+- [ ] Implement the browser-local creator book catalog and per-title production ledger with no external publication action
+
+## Phase 582 — Protected Creator Books Source Batch
+- [ ] Classify `Clipboard_0_33D77E40`, `Clipboard_1_12B4D2A8`, `Clipboard_0_D7EBED0B`, `Clipboard_1_20E8A8D4`, `Clipboard_0_CCFB1A03`, `Clipboard_1_5B1ACCF4`, `Clipboard_0_C37678D4`, `Clipboard_1_5624FB16`, `Clipboard_0_8FDC7BC0`, `Clipboard_1_CCC59AB6`, `Clipboard_0_74D4E4F8`, `Clipboard_1_BD6858AE`, `Clipboard_0_EEA85353`, `Clipboard_1_0F961055`, `Clipboard_0_EE2596CF`, `Clipboard_1_02ABFD4D`, `Clipboard_0_3823E5E8`, `Clipboard_1_E6EE6A99`, `Clipboard_0_B77AF5B5`, and `Clipboard_1_2FAB5BE5` as protected owner-supplied book/publishing source context, retaining only supported manuscript, tutorial, evidence, accessibility, and release-readiness lessons
+
+## Phase 583 — Protected Financial-System Source Intake
+- [x] Classify `Clipboard_0_F8B30ADA` and `Clipboard_1_8BF2121F` as protected owner-supplied financial-system source context and retain only supported systems-design, evidence, transparency, safety, accessibility, and exchange-readiness lessons
+- [x] Classify `Clipboard_0_31EFB28E` and `Clipboard_1_796D81AA` as protected owner-supplied financial-system co-creation context and retain only supported key-hygiene, evidence, security-review, release-gate, and accessibility lessons
+- [ ] Maintain the exchange, custody, payment, token, wallet, trading, and automated-operation boundary as fail-closed pending independently verified evidence, legal review, security controls, and exact owner release
+
+## Phase 584 — ScrollVerse Chess Initiative Enhancement
+- [x] Classify `Clipboard_0_01D58805`, `Clipboard_1_573E81C3`, `Clipboard_0_E1F6C5CA`, `Clipboard_1_79501DA9`, `Clipboard_0_624E8C80`, `Clipboard_1_480470EF`, `Clipboard_0_776DEA3F`, `Clipboard_1_CEFA8194`, `Clipboard_0_2B644495`, and `Clipboard_1_CDAEFB2B` as protected owner-supplied chess-initiative source context, retaining only supported instructional, evidence, accessibility, youth-safety, and partnership-readiness lessons
+- [x] Reclassify `Clipboard_0_31EFB28E` and `Clipboard_1_796D81AA` from the late chess-intake queue as protected financial-system context; do not use their unverified financial or external-system assertions as Chess Initiative evidence
+- [x] Classify `Clipboard_0_1EE44A8D` and `Clipboard_1_AE6E36B9` as protected owner-supplied source context and route only their supported instructional, evidence, accessibility, youth-safety, and release-readiness lessons to the appropriate portal record
+- [x] Classify `Clipboard_0_2DC4875C` and `Clipboard_1_3E3F3294` as protected owner-supplied source context and route only their supported instructional, evidence, accessibility, youth-safety, and release-readiness lessons to the appropriate portal record
+- [x] Classify `Clipboard_0_B592CC4F`, `Clipboard_1_8F84673F`, `Clipboard_0_90905C59`, and `Clipboard_1_CB1E6364` as protected owner-supplied source context and route only their supported instructional, evidence, accessibility, youth-safety, and release-readiness lessons to the appropriate portal record
+- [x] Classify `Clipboard_0_E8166CAA` and `Clipboard_1_370D60F8` as protected owner-supplied source context and route only their supported instructional, evidence, accessibility, youth-safety, and release-readiness lessons to the appropriate portal record
+- [x] Classify `Pasted_content_93.txt` as protected non-executable production-manifest advisory context; retain only isolation, source, and local-validation lessons while rejecting historical metrics and asserted live credential, payment, wallet, token, media, filing, and scheduling state
+- [x] Audit the existing chess route and build a browser-local learning pathway with beginner, intermediate, and advanced study flows; guided AI-practice prompts; adult-supported youth participation guidance; and source/release controls
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the enhanced chess route without creating external accounts, competitions, payments, provider integrations, player tracking, or automated decisions

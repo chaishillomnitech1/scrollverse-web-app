@@ -955,7 +955,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◈", title: "Standards Studio", detail: "Plan a transparent first-party evidence review with scope, source trail, conflict disclosure, limitations, correction states, and qualified-review boundaries.", href: "/standards-studio", color: "#D6C4FF" },
   { icon: "⊛", title: "Systems Sparring Lab", detail: "Compare public frameworks and ScrollVerse design patterns under your own scenario with source coverage, trade-offs, and evidence limits—without a winner ranking.", href: "/hypothetical-systems-lab", color: "#FFB800" },
   { icon: "◌", title: "Ecosystem Outcomes Scorecard", detail: "Set local public-interest priorities and compare evidence coverage across profiles without reducing people or systems to a universal winner.", href: "/ecosystem-outcomes-scorecard", color: "#00FF88" },
-  { icon: "♞", title: "ScrollVerse Chess Arena", detail: "Play an original browser-local strategy table with legal-move validation, a bounded local guide, move history, and visitor-controlled device voice readiness.", href: "/scrollverse-chess-arena", color: "#00D4FF" },
+  { icon: "♞", title: "ScrollVerse Chess Initiative", detail: "Play an original browser-local strategy table, follow beginner-to-advanced study paths, use local AI-practice prompts, and explore youth-supported participation guidance.", href: "/scrollverse-chess-arena", color: "#00D4FF" },
   { icon: "⌘", title: "IP and Digital Evidence", detail: "Map public code, work, mark, patent, domain, and source records with dated evidence labels, limitations, and qualified-review handoffs.", href: "/ip-digital-evidence-navigator", color: "#00D4FF" },
   { icon: "♫", title: "Music and Creator Release Readiness", detail: "Prepare original music, visuals, publishing, distribution, merchandise, direct-to-fan bundle, and collectible questions with specialist guides and evidence gates.", href: "/music-creator-release-readiness", color: "#00FF88" },
 ] as const;
@@ -1043,6 +1043,7 @@ export default function Home() {
     { label: "$SOLARA", href: "/solara-coin" },
     { label: "Vibe Canvas", href: "/vibe-canvas" },
     { label: "August 28 Launch", href: "/august-28-launch" },
+    { label: "AI Constellation", href: "/ai-constellation" },
     { label: "Equation Study", href: "/chais-sabir-equation" },
     { label: "Sync Research", href: "/synchronization-research" },
     { label: "Book of the Journey", href: "/book-of-the-journey" },
@@ -1075,7 +1076,7 @@ export default function Home() {
     { label: "Sacred Freq", href: "/sacred-frequencies" },
     { label: "Zernio", href: "/zernio-distribution" },
     { label: "Fleet", href: "/red-diamond-fleet" },
-    { label: "♟️ OmniChess", href: "/omni-chess" },
+    { label: "♟️ Chess Initiative", href: "/scrollverse-chess-arena" },
     { label: "Staking", href: "/staking" },
     { label: "Governance", href: "/governance" },
     { label: "NFT Market", href: "/nft" },
@@ -2097,7 +2098,7 @@ export default function Home() {
               { icon: "🏛️", title: "DAO Governance", desc: "Snapshot and Aragon-based governance for 144,000 Guardians with transparent on-chain decision-making and proposal voting.", color: "#8B5CF6", stat: "144K Guardians" },
               { icon: "🌐", title: "Portal Interface", desc: "React-based sovereign portal with wallet integration, cosmic animations, and Liquid Sovereignty Afrofuturism aesthetics.", color: "#00FF88", stat: "33 Pages Live" },
               { icon: "📡", title: "SCCC Dashboard", desc: "Supreme Commander Control Core for real-time treasury visualization, royalty tracking, and empire-wide analytics.", color: "#EC4899", stat: "Real-Time" },
-              { icon: "♟️", title: "OmniChess™", desc: "Sovereign chess engine with gamified legacy learning, $LONDC wagering, AI opponents, and the Scroll Chess Sovereignty Protocol.", color: "#FFB800", stat: "Scroll Chess", href: "/omni-chess" },
+              { icon: "♟️", title: "Chess Initiative", desc: "Browser-local chess learning with legal-move validation, a bounded guide, level-based practice, device voice, and youth-supported participation guidance.", color: "#FFB800", stat: "Local learning", href: "/scrollverse-chess-arena" },
               { icon: "🌸", title: "VibeCanvas Frequency Forge", desc: "Living Geometry visualization with Flower of Life, Metatron's Cube, and Sri Yantra patterns — sacred geometry made digital.", color: "#FFB800", stat: "528Hz–963Hz" },
             ].map((f, i) => (
               <div

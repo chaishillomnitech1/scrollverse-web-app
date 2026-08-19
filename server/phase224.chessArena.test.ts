@@ -18,7 +18,7 @@ describe("Phase 224 ScrollVerse Chess Arena", () => {
     expect(arena).toContain("LOCAL RULES ACTIVE");
     expect(arena).toContain("The local guide uses a bounded local heuristic");
     expect(arena).toContain("Enable device voice");
-    expect(arena).toContain("No account, rating, wager, prize, token, payment");
+    expect(arena).toContain("No account, profile, matchmaking, public chat, player rating, prize, wager, token, payment");
     expect(backdrop).toContain('getContext("2d")');
     expect(backdrop).toContain("prefers-reduced-motion");
     expect(backdrop).toContain("ResizeObserver");
