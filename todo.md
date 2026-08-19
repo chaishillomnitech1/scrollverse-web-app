@@ -3540,8 +3540,8 @@
 ## Phase 363 — Hill Family Remembrance and Pattern Research
 - [ ] Record the owner-supplied Hill family chronology and Aug 16 / 8:28 phone screenshot as first-party family and visual source context
 - [x] Research credible gematria, mathematics, physics, philosophy, and methods learning sources; distinguish scholarly, historical, and first-party interpretive materials
-- [ ] Add the remembrance and learning expansion to the Synchronization Research Index with source labels and rights-aware digital-asset readiness boundaries
-- [ ] Add focused regression coverage and validate the public route and research links
+- [x] Add the remembrance and learning expansion to the Synchronization Research Index with source labels and rights-aware digital-asset readiness boundaries
+- [x] Add focused regression coverage and validate the public route and research links
 ## Phase 364 — Episode 14 Chronology and Gematria Protected Intake
 - [x] Classify the supplied chronology-anchor, gematria, metric, merge-state, and Episode 14 screenplay material as protected non-executable reference content
 - [x] Retain compatible historical, interpretive, source/version, screenplay, local-validation, contributor-rights, and owner-release lessons without accepting supplied metrics, merge status, deployed file claims, or release states as verified
