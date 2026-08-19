@@ -3064,7 +3064,7 @@
 ## Phase 246 — Production Build Resource Recovery
 - [x] Analyze the current 338-chunk route graph and Vite output configuration after standard and non-minified production builds terminated during chunk rendering under sandbox resource pressure
 - [x] Apply safe, route-preserving lazy-load or dependency-boundary optimizations and add regression coverage for the affected routes
-- [ ] Validate a full production build, TypeScript, Vitest, and key route responses before publishing the build-reliability follow-up
+- [x] Validate a full production build, TypeScript, Vitest, and key route responses before publishing the build-reliability follow-up
 ## Phase 247 — Contract, Payout, and Orchestration Reference Intake
 - [x] Classify Pasted_content_24.txt as protected non-executable reference; do not compile its contracts, run its configuration generator or shell script, use its addresses/endpoints, route funds, connect wallets, or broadcast a transaction
 - [x] Record only compatible first-party lessons about evidence records, source traceability, review gates, and transaction-specific authorization in the financial-readiness documentation
