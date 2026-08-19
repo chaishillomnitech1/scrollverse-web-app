@@ -4633,3 +4633,8 @@
 - [x] Classify `Pasted_content_93.txt` as protected non-executable production-manifest advisory context; retain only isolation, source, and local-validation lessons while rejecting historical metrics and asserted live credential, payment, wallet, token, media, filing, and scheduling state
 - [x] Audit the existing chess route and build a browser-local learning pathway with beginner, intermediate, and advanced study flows; guided AI-practice prompts; adult-supported youth participation guidance; and source/release controls
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the enhanced chess route without creating external accounts, competitions, payments, provider integrations, player tracking, or automated decisions
+
+## Phase 585 — Aggregate Portal Analytics Evidence
+- [x] Record the owner-shared dashboard capture for `scrollport-xkjtdnvi.manus.space` as aggregate first-party evidence, preserving page views, visits, visitors, duration, bounce rate, visible percentage trends, source time, privacy limits, and correction path without inferring identity, revenue, conversion, or external state
+- [x] Classify `Clipboard_0_7A20BD23` and `Clipboard_1_BD577B04` as protected owner-supplied source context and route only supported publishing, accessibility, reader-path, analytics, and release-readiness lessons to the appropriate private or public-safe record
+- [x] Add the owner-directed public-choice presentation principle to the publishing evidence record, preserving source labels, operating states, accessibility, privacy, and exact release controls

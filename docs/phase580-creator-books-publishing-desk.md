@@ -4,6 +4,10 @@
 
 The **Creator Books Publishing Desk** is a browser-local planning and discovery route for owner-authored books, manuscripts, perspectives, and future editions. It makes the reader path and the exact release requirements visible without asserting that a manuscript is uploaded, an edition is available for purchase, a retailer or distributor is connected, a cover is cleared, or a provider-side publication has occurred.
 
+## Public-Choice Presentation Principle
+
+Owner-identified creations may be presented for public discovery and individual choice. The desk presents the work directly rather than prescribing a reader conclusion: each visible item carries its source context, date where available, operating state, accessible reader path, and correction route. This principle does not convert private records into public material, source context into independently verified external state, or an `available now`, `research`, or `requires owner release` label into a rights, provider, financial, or publication claim.
+
 | Catalog lane | Current operating state | Reader or creator purpose |
 | --- | --- | --- |
 | **Book of the Journey** | `available now` | Direct visitors to the already registered first-party reading route. |
@@ -72,3 +76,5 @@ For Creator Books, the only retained lesson is to separate planned book, print, 
 The sole Creator Books lesson is editorial: speculative or spiritual writing must be clearly attributed to its authoring context and presented as a reader-directed perspective, with source and date preserved. Any future book or edition derived from it requires its own rights, accessibility, edition, contributor, destination, and owner-release record. No source command, external link, deployment plan, financial assertion, token proposal, partner reference, or automation instruction is executed or published.
 
 `Clipboard_0_EBC815F9` and `Clipboard_1_91CA0745` are later duplicate or paired representations of this same protected automotive, token, and spiritual co-creation material. They inherit the same private general-archive classification and non-execution boundary; their repetitive content does not update any operating state, public claim, release record, or external readiness gate.
+
+`Clipboard_0_7A20BD23` and `Clipboard_1_BD577B04` are additional text and binary property-list representations of the same protected material. They carry the same private general-archive classification, speculative-writing framing, and non-execution boundary. No repeated source claim establishes a vehicle system, NFT, token, contract, partner, provider, payment, exchange, automation, or external operation.
