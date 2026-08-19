@@ -3284,8 +3284,8 @@
 - [ ] Preserve reusable original-work, evidence, accessibility, release, and correction-path requirements without treating external operational claims as verified
 ## Phase 301 — Londyn Polygon Contract Verification
 - [ ] Locate the owner-supplied public Londyn Polygon contract and transaction evidence; verify network, contract address, transaction status, bytecode, and ownership or administration record from a public explorer
-- [ ] Record the exact requested on-chain action, target contract/function, wallet role, gas/funding consequence, and fresh secure signer requirement before any live mutation
-- [ ] Keep mainnet activation fail-closed: do not use credentials previously exposed in chat or trigger a contract deployment, mint, transfer, configuration change, or other irreversible transaction without explicit same-conversation confirmation
+- [x] Record the exact requested on-chain action, target contract/function, wallet role, gas/funding consequence, and fresh secure signer requirement before any live mutation
+- [x] Keep mainnet activation fail-closed: do not use credentials previously exposed in chat or trigger a contract deployment, mint, transfer, configuration change, or other irreversible transaction without explicit same-conversation confirmation
 ## Phase 302 — Creator-Directed Presentation Correction
 - [x] Audit recently added source-labeled pages and documents for wording that suggests the portal decides the creator’s intent or asks visitors to resolve the creator’s work
 - [x] Replace conflicting language with creator-directed first-party presentation, voluntary exploration controls, and factual operating-state records
