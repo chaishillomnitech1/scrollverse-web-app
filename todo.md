@@ -4623,7 +4623,8 @@
 ## Phase 583 — Protected Financial-System Source Intake
 - [x] Classify `Clipboard_0_F8B30ADA` and `Clipboard_1_8BF2121F` as protected owner-supplied financial-system source context and retain only supported systems-design, evidence, transparency, safety, accessibility, and exchange-readiness lessons
 - [x] Classify `Clipboard_0_31EFB28E` and `Clipboard_1_796D81AA` as protected owner-supplied financial-system co-creation context and retain only supported key-hygiene, evidence, security-review, release-gate, and accessibility lessons
-- [ ] Maintain the exchange, custody, payment, token, wallet, trading, and automated-operation boundary as fail-closed pending independently verified evidence, legal review, security controls, and exact owner release
+- [x] Maintain the exchange, custody, payment, token, wallet, trading, and automated-operation boundary as fail-closed pending independently verified evidence, legal review, security controls, and exact owner release
+- [x] Add a durable, public-safe exchange-readiness record listing the exact evidence, security, lawful-structure, accessibility, and owner-release requirements before any external financial operation
 
 ## Phase 584 — ScrollVerse Chess Initiative Enhancement
 - [x] Classify `Clipboard_0_01D58805`, `Clipboard_1_573E81C3`, `Clipboard_0_E1F6C5CA`, `Clipboard_1_79501DA9`, `Clipboard_0_624E8C80`, `Clipboard_1_480470EF`, `Clipboard_0_776DEA3F`, `Clipboard_1_CEFA8194`, `Clipboard_0_2B644495`, and `Clipboard_1_CDAEFB2B` as protected owner-supplied chess-initiative source context, retaining only supported instructional, evidence, accessibility, youth-safety, and partnership-readiness lessons
