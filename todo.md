@@ -3527,12 +3527,12 @@
 - [ ] Define a contributor-led first-person experience model with consent, pseudonym, visibility, and community-care options
 - [ ] Add experience-entry, reply, reaction, saved-reflection, and participant-profile data structures with authenticated contribution and transparent participation controls
 - [ ] Build and register a public discovery page with theme filters, source distinctions, related research links, accessible contribution flow, calm discussion surfaces, and profile privacy controls
-- [ ] Add focused regression coverage, validate the exchange, and document moderation, privacy, and correction-path boundaries
+- [x] Add focused regression coverage, validate the exchange, and document moderation, privacy, and correction-path boundaries
 - [ ] Reuse compatible guardian identity patterns while keeping contributor pseudonyms, public visibility, post ownership, replies, reactions, and saved reflections participant-controlled
 ## Phase 361 — Synchronization Research Media and Community Hub
-- [ ] Map owner-supplied public channel records into source-labeled research, tarot, spiritual, cosmic, music, and community categories
-- [ ] Add accessible media, music, social, existing Legion, and participant-community handoffs without republishing third-party source material
-- [ ] Add focused regression coverage and validate source attribution, filters, access routes, and correction-path boundaries
+- [x] Map owner-supplied public channel records into source-labeled research, tarot, spiritual, cosmic, music, and community categories
+- [x] Add accessible media, music, social, existing Legion, and participant-community handoffs without republishing third-party source material
+- [x] Add focused regression coverage and validate source attribution, filters, access routes, and correction-path boundaries
 ## Phase 362 — Episode 13 Telemetry and Asset-Catalog Protected Intake
 - [x] Classify the supplied telemetry, merge-state, test-metric, Episode 13 screenplay, and asset-catalog material as protected non-executable reference content
 - [x] Retain compatible screenplay, source/version, asset-record, local-validation, contributor-rights, and owner-release lessons without accepting supplied metrics, merge status, release-ready states, or tokenization parameters as verified
