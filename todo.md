@@ -4366,3 +4366,8 @@
 - [x] Add interactive profile selection and public-improvement proposal preparation without submission, personal professional instruction, autonomous decision-making, provider actions, or account access
 - [x] Connect the profile experience from the Legion Specialist Atlas and preserve visible medical, legal, financial, and governance safeguards
 - [x] Add focused regression coverage, validate TypeScript and the full suite, then checkpoint the Legion expansion milestone
+
+## Phase 518 — First-SKU Activation Packet
+- [x] Build a browser-local first-SKU readiness packet that joins the creator catalog, Shopify readiness, Financial Highways, and exact-action record without creating a product, price, inventory, checkout, payment, or provider action
+- [x] Make separate password, product, payment, shipping, domain, delivery, support, refund, privacy, and exact-current-owner-confirmation gates visible for a future first approved item
+- [x] Add focused regression coverage, validate TypeScript and the full suite, then checkpoint the activation-preparation milestone

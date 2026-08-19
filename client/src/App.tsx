@@ -369,6 +369,7 @@ import JourneyCoCreationArchive from "./pages/JourneyCoCreationArchive";
 import BookOfTheJourney from "./pages/BookOfTheJourney";
 import DirectFanCatalog from "./pages/DirectFanCatalog";
 import CreatorCatalogReadiness from "./pages/CreatorCatalogReadiness";
+import FirstSkuActivationPacket from "./pages/FirstSkuActivationPacket";
 import CatalogEngagementAttribution from "./pages/CatalogEngagementAttribution";
 import BoundedResearchOperations from "./pages/BoundedResearchOperations";
 import SourceChannelSchedulingReadiness from "./pages/SourceChannelSchedulingReadiness";
@@ -592,6 +593,7 @@ function Router() {
       <Route path={"/book-of-the-journey"} component={BookOfTheJourney} />
       <Route path={"/direct-fan-catalog"} component={DirectFanCatalog} />
       <Route path={"/creator-catalog-readiness"} component={CreatorCatalogReadiness} />
+      <Route path={"/first-sku-activation-packet"} component={FirstSkuActivationPacket} />
       <Route path={"/catalog-engagement"} component={CatalogEngagementAttribution} />
       <Route path={"/bounded-research-operations"} component={BoundedResearchOperations} />
       <Route path={"/source-channel-scheduling-readiness"} component={SourceChannelSchedulingReadiness} />
