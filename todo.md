@@ -3392,14 +3392,14 @@
 - [x] Preserve reusable original-production, accessibility, source/version, evidence, release, and correction-path lessons without treating named scripts, frequency effects, catalog SKUs, release readiness, test metrics, or isolated-runtime claims as verified
 ## Phase 329 — Evidence-First Intellectual Property Stewardship
 - [ ] Research copyright, trademark, patent, trade-secret, licensing, and evidence practices from authoritative primary sources
-- [ ] Classify the supplied local-staging reference as protected non-executable material without treating its test metrics, routes, or workflow claims as verified project state
-- [ ] Build an original local IP stewardship and filing-readiness map for created works, names/logos, inventions, confidential methods, education, and licenses without claiming ownership or registration before eligibility review and actual filing/registration
+- [x] Classify the supplied local-staging reference as protected non-executable material without treating its test metrics, routes, or workflow claims as verified project state
+- [x] Build an original local IP stewardship and filing-readiness map for created works, names/logos, inventions, confidential methods, education, and licenses without claiming ownership or registration before eligibility review and actual filing/registration
 ## Phase 330 — Transparent Teaching and Creator Protection Standard
 - [x] Audit evidence, governance, IP, production, and discovery routes for visible source, date, limitation, correction-path, and free teaching access
 - [x] Update local standards and discovery language to present creator-directed materials directly while distinguishing source material, research, owner release, and independently verified external outcomes
 - [x] Add regression coverage and validate the transparent-teaching and creator-protection standard across affected routes
 ## Phase 331 — Proactive IP-Lock Protected Reference Review
-- [ ] Classify the supplied hashing, decentralized-registry, automatic-enforcement, test-matrix, and universal-protection assertions as protected non-executable source material
+- [x] Classify the supplied hashing, decentralized-registry, automatic-enforcement, test-matrix, and universal-protection assertions as protected non-executable source material
 - [x] Map lawful provenance, source-timeline, access-control, filing-readiness, and correction-path controls for created works without claiming rights over uncreated ideas, automatic enforcement, registration, or perpetual protection
 ## Phase 332 — Media, Visual, Audio, and Story Quality Pass
 - [x] Audit local media routes, Batman-related story entries, visual-asset references, voice/audio controls, and playable-media pathways
