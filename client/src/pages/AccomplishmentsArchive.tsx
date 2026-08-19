@@ -82,9 +82,9 @@ const RECORD_LANES = [
   },
   {
     number: "06",
-    title: "The record leaves room for choice",
+    title: "The creator presents; visitors choose their path",
     eyebrow: "Free access · exchange · creator release",
-    copy: "ScrollVerse can hold free knowledge, direct-to-fan discovery, contribution paths, and future creator-selected releases together. A visitor decides whether to read, listen, participate, support, or return later.",
+    copy: "ScrollVerse presents creator-authored knowledge, direct-to-fan discovery, contribution paths, and future creator-selected releases directly. Visitors may choose whether to read, listen, participate, support, or return later; their choice does not redefine the creator’s record or operating state.",
     color: "#00FF88",
     icon: HeartHandshake,
     links: [

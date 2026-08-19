@@ -3287,9 +3287,9 @@
 - [ ] Record the exact requested on-chain action, target contract/function, wallet role, gas/funding consequence, and fresh secure signer requirement before any live mutation
 - [ ] Keep mainnet activation fail-closed: do not use credentials previously exposed in chat or trigger a contract deployment, mint, transfer, configuration change, or other irreversible transaction without explicit same-conversation confirmation
 ## Phase 302 — Creator-Directed Presentation Correction
-- [ ] Audit recently added source-labeled pages and documents for wording that suggests the portal decides the creator’s intent or asks visitors to resolve the creator’s work
-- [ ] Replace conflicting language with creator-directed first-party presentation, voluntary exploration controls, and factual operating-state records
-- [ ] Add regression coverage for the corrected presentation boundary and validate the changed routes
+- [x] Audit recently added source-labeled pages and documents for wording that suggests the portal decides the creator’s intent or asks visitors to resolve the creator’s work
+- [x] Replace conflicting language with creator-directed first-party presentation, voluntary exploration controls, and factual operating-state records
+- [x] Add regression coverage for the corrected presentation boundary and validate the changed routes
 ## Phase 303 — ScrollVerse-Wide Creator-Directed Presentation
 - [ ] Audit merch, books, media, artifacts, and crypto-related discovery pages for creator-directed presentation and factual operating-state language
 - [ ] Update the key cross-lane discovery surfaces to present creator-owned works directly without implying that visitors must determine the creator’s intent

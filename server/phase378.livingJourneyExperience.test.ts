@@ -104,7 +104,7 @@ describe("Reader-directed accomplishments archive", () => {
     expect(archive).toContain("The journey is written into the work");
     expect(archive).toContain("Faith, learning, and study stay in the center");
     expect(archive).toContain("The sound, the image, and the story move together");
-    expect(archive).toContain("The record leaves room for choice");
+    expect(archive).toContain("The creator presents; visitors choose their path");
     expect(archive).toContain("External or future state");
     expect(archive).not.toMatch(/mint now|buy now|connect wallet/i);
   });
