@@ -3161,8 +3161,8 @@
 ## Phase 272 — Knicks Campaign Asset Reference
 - [x] Inspect the supplied non-image clipboard metadata for a complete Pinata/CID or public asset-reference URL without exposing the owner’s personal address
 - [ ] Add a verified campaign asset-reference record only if the full public URL, provenance, and intended-use scope are clear; preserve no-mint, no-sale, no-wallet, no-transfer, and no investment behavior
-- [ ] Keep third-party athlete, team, league, and brand likeness/affiliation statements in a rights-aware review lane with direct operating-state labels
-- [ ] Add focused regression coverage and validate before forward-only publication
+- [x] Keep third-party athlete, team, league, and brand likeness/affiliation statements in a rights-aware review lane with direct operating-state labels
+- [x] Add focused regression coverage and validate before forward-only publication
 ## Phase 273 — Granddaughter Main Page Interaction Repair
 - [x] Locate the granddaughter-focused main page and identify each button that appears non-responsive
 - [x] Repair button handlers so each interaction has a visible, family-safe action, route, or feedback state
@@ -4411,9 +4411,9 @@
 - [x] Validate the analytics-guided readiness record and checkpoint the privacy-aware visitor-experience milestone
 
 ## Phase 526 — Rights-Aware Sports Reference Route
-- [ ] Replace unsupported Knicks-related prediction, minting, price, payout, oracle, contract, and third-party media claims with a source-labeled sports-reference review route
-- [ ] Make third-party athlete, team, league, brand, franchise, and likeness reference gates visible without presenting affiliation, authorization, a product, NFT, wager, wallet, checkout, or financial outcome
-- [ ] Add focused route coverage, validate TypeScript and the full suite, then checkpoint the corrected sports-reference milestone
+- [x] Replace unsupported Knicks-related prediction, minting, price, payout, oracle, contract, and third-party media claims with a source-labeled sports-reference review route
+- [x] Make third-party athlete, team, league, brand, franchise, and likeness reference gates visible without presenting affiliation, authorization, a product, NFT, wager, wallet, checkout, or financial outcome
+- [x] Add focused route coverage, validate TypeScript and the full suite, then checkpoint the corrected sports-reference milestone
 
 ## Phase 527 — Privacy-Aware Live Activity Indicator
 - [x] Add an anonymous short-lived server presence signal that stores no visitor name, account, IP address, or device identifier and returns aggregate active-session count only
@@ -4424,3 +4424,8 @@
 - [x] Classify the Beyond Sovereign Engine text, asserted runtime state, embedded Python code, Shopify gate, payment-routing, and deployment proposals as protected non-executable material
 - [x] Retain only compatible production-planning, source, rights, accessibility, correction, and exact-action readiness lessons without adopting claimed execution outcomes
 - [x] Update the protected-intake boundary record and checkpoint the classification without running code, attaching payment routing, configuring providers, or exposing sensitive data
+
+## Phase 529 — Pasted_content_91 Input-Template Boundary
+- [x] Classify Pasted_content_91 as a protected input template whose repository, cadence, storefront, music, on-chain, campaign, and icon fields are blank and unresolved
+- [x] Retain only the item-specific evidence requirements while excluding supplied status metrics and all unstated provider, repository, payment, wallet, contract, token, or publication actions
+- [x] Record the input-template boundary and checkpoint the classification without retrieving secrets or inferring values from repositories, Google, or unrelated project context
