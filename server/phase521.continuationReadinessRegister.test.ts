@@ -9,6 +9,11 @@ describe("Phase 521 continuation readiness register", () => {
     expect(page).toContain("NEXT REQUIRED INPUT");
     expect(page).toContain("No provider request, transaction, schedule, payout, or configuration.");
     expect(page).toContain("No repository write or public upload.");
+    expect(page).toContain("Private app-icon archive record");
+    expect(page).toContain("Londyn Polygon evidence");
+    expect(page).toContain("On-chain broadcast decision");
+    expect(page).toContain("Campaign asset reference");
+    expect(page).toContain("Story Studio preparation cadence");
     expect(page).toContain("Copy local record");
     expect(router).toContain('path={"/continuation-readiness-register"} component={ContinuationReadinessRegister}');
   });
