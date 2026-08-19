@@ -3215,9 +3215,9 @@
 - [x] Retain compatible lessons for managed-safe preservation, direct route integrity, fallback design, test verification, and explicit state reporting
 - [x] Validate the local living-signal work and report the existing managed checkpoint conflict without overwriting remote Media World files
 ## Phase 285 — Transparent Evidence and Correction Capability Blueprint
-- [ ] Classify the supplied protected-reference lane, audit-feed, and architectural-layout examples without copying simulated events or treating security, provider, telemetry, financial, or deployment claims as active
-- [ ] Design an original visitor-facing evidence, operating-state, correction, and source-record capability map for ScrollVerse media, knowledge, and contributor workflows
-- [ ] Validate the blueprint and retain the managed publication conflict as an explicit unresolved state
+- [x] Classify the supplied protected-reference lane, audit-feed, and architectural-layout examples without copying simulated events or treating security, provider, telemetry, financial, or deployment claims as active
+- [x] Design an original visitor-facing evidence, operating-state, correction, and source-record capability map for ScrollVerse media, knowledge, and contributor workflows
+- [x] Validate the blueprint and retain the managed publication conflict as an explicit unresolved state
 ## Phase 286 — Protected Apparel, Story-Art, Research-Visual, and Video Intake
 - [x] Register the supplied Mein North apparel concepts, Pharaoh’s Wheel story art, scientific-concept visual, and two video files as protected creative intake without reopening the supplied images or embedding/releasing assets
 - [x] Register the supplied 44:OMNI graphic and associated video files as protected creative intake without reopening supplied images or representing the graphic text as a scientific, medical, or active-system claim
