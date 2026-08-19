@@ -3954,10 +3954,10 @@
 
 ## End-to-End ScrollVerse Activation-Readiness Review
 - [x] Record the current portal, GitHub, Shopify, payment-options, catalog-release, learning-route, and managed-publication operating states in a unified launch register
-- [ ] Complete all safe public-source and visitor-routing actions that do not alter provider settings, public availability, payment methods, products, markets, payouts, or domain configuration
+- [x] Complete all safe public-source and visitor-routing actions that do not alter provider settings, public availability, payment methods, products, markets, payouts, or domain configuration
 - [x] Create a precise irreversible-action register for storefront access, products, checkout, payment methods, payouts, Tap to Pay, markets, shipping, policies, and domain changes
-- [ ] Validate the full local route and evidence system before presenting action-specific provider confirmations
-- [ ] Continue owner-authorized safe portal readiness improvements while retaining exact current confirmation gates for any consequential external action
+- [x] Validate the full local route and evidence system before presenting action-specific provider confirmations
+- [x] Continue owner-authorized safe portal readiness improvements while retaining exact current confirmation gates for any consequential external action
 
 ## Full Creator-Owned Catalog and Checkout Readiness
 - [x] Audit existing original-creation catalog records, source evidence, release templates, rights boundaries, support paths, and delivery models
