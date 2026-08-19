@@ -1073,6 +1073,39 @@ function ArtifactAndSpecialistNavigator() {
   );
 }
 
+function LiveActivityIndicator() {
+  const [sessionId] = useState(() => {
+    const key = "scrollverse_presence_session";
+    const current = window.sessionStorage.getItem(key);
+    if (current) return current;
+    const next = crypto.randomUUID().replaceAll("-", "");
+    window.sessionStorage.setItem(key, next);
+    return next;
+  });
+  const presence = trpc.presence.active.useQuery(undefined, { refetchInterval: 15_000, staleTime: 10_000 });
+  const ping = trpc.presence.ping.useMutation();
+
+  useEffect(() => {
+    const sendPresence = () => {
+      if (document.visibilityState === "visible") ping.mutate({ sessionId });
+    };
+    sendPresence();
+    const interval = window.setInterval(sendPresence, 25_000);
+    document.addEventListener("visibilitychange", sendPresence);
+    return () => {
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", sendPresence);
+    };
+  }, [ping, sessionId]);
+
+  const active = presence.data?.active ?? ping.data?.active;
+  return <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-mono" style={{ background: "rgba(0,255,136,0.09)", border: "1px solid rgba(0,255,136,0.28)", color: "#B8FFD8" }} aria-live="polite">
+    <span className="h-2 w-2 rounded-full bg-[#00FF88]" style={{ boxShadow: "0 0 12px #00FF88" }} />
+    {active === undefined ? "Checking live activity…" : `${active} active now`}
+    <span className="text-[#91A4B6]">· anonymous 75s window</span>
+  </div>;
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1530,6 +1563,7 @@ export default function Home() {
                 SOVEREIGN ECOSYSTEM v3.0.0
               </span>
             </div>
+            <div className="mb-5"><LiveActivityIndicator /></div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6 text-white">
               The{" "}
               <span className="gradient-text-sovereign">ScrollVerse</span>

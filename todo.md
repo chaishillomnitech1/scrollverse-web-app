@@ -4416,9 +4416,9 @@
 - [ ] Add focused route coverage, validate TypeScript and the full suite, then checkpoint the corrected sports-reference milestone
 
 ## Phase 527 — Privacy-Aware Live Activity Indicator
-- [ ] Add an anonymous short-lived server presence signal that stores no visitor name, account, IP address, or device identifier and returns aggregate active-session count only
-- [ ] Add a homepage live activity indicator with loading, refresh, and privacy-boundary states; do not fabricate counts or claim unique users, revenue, conversion, or external analytics verification
-- [ ] Add focused tRPC and homepage regression coverage, validate TypeScript and the full suite, then checkpoint the engagement milestone
+- [x] Add an anonymous short-lived server presence signal that stores no visitor name, account, IP address, or device identifier and returns aggregate active-session count only
+- [x] Add a homepage live activity indicator with loading, refresh, and privacy-boundary states; do not fabricate counts or claim unique users, revenue, conversion, or external analytics verification
+- [x] Add focused tRPC and homepage regression coverage, validate TypeScript and the full suite, then checkpoint the engagement milestone
 
 ## Phase 528 — Beyond Sovereign Engine Protected Reference
 - [x] Classify the Beyond Sovereign Engine text, asserted runtime state, embedded Python code, Shopify gate, payment-routing, and deployment proposals as protected non-executable material

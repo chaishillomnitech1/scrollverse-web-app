@@ -67,6 +67,7 @@ import { mediaIntakeRouter } from "./routers/mediaIntake";
 import { experienceExchangeRouter } from "./routers/experienceExchange";
 import { supportHighwaysRouter } from "./routers/supportHighways";
 import { portalRouteRegistryRouter } from "./routers/portalRouteRegistry";
+import { presenceRouter } from "./routers/presence";
 
 export const appRouter = router({
   system: systemRouter,
@@ -146,6 +147,7 @@ export const appRouter = router({
   experienceExchange: experienceExchangeRouter,
   supportHighways: supportHighwaysRouter,
   portalRouteRegistry: portalRouteRegistryRouter,
+  presence: presenceRouter,
 });
 
 export type AppRouter = typeof appRouter;
