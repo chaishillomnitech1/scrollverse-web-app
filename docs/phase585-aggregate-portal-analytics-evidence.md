@@ -25,3 +25,9 @@ No visitor identity, IP address, account, message, exact route-level session det
 ## Correction Path
 
 The owner may replace or supplement this record with a new capture containing the dashboard date range, timezone, source definitions, route breakdown, or other aggregate data. New evidence appends to this record and does not silently overwrite the prior observation.
+
+## Protected Project-Evidence Manifest Addendum
+
+`Pasted_content_96.txt` is a protected, non-executable advisory record referencing a shared-workspace replay and a historical local registry. It contains historical file and test counts, asserted isolation and completion status, a metadata example, an invariant-test code fragment, and a release-boundary ledger.
+
+The compatible lessons are limited to source-version fields, accessibility standards, rights-context boundaries, explicit release gates, outcome-correction records, and a separation between advisory intake and current portal validation. Its historical test counts, timestamp, project identifiers, claimed status, and code fragment do not replace the active project record. No metadata file, test, code, account, provider, wallet, payment, token, media, filing, schedule, upload, or external process in the submitted text was opened, executed, created, configured, or published.
