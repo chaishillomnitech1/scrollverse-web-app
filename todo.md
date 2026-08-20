@@ -4695,3 +4695,12 @@
 - [x] Design a browser-local visual-storytelling framework with concise visual, narration, accessibility, and visitor-instruction blocks for each connected world
 - [x] Add connected discovery and instruction pathways that present owner-authored visual work directly while separating future NFT, art, and coin display concepts from any external release action
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the cross-world visual storytelling milestone
+
+## Phase 593 — Full Conversation-to-Portal Evidence Audit
+- [x] Inventory the available conversation, protected-source, and current portal records from the earliest retained material through the latest checkpoint
+- [x] Classify reusable creator material by source, destination, accessibility state, and concise operating label without inferring external completion
+- [x] Build the highest-value unblocked discovery and instruction connections identified by the audit
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the consolidated evidence milestone
+- [x] Include both owner-held physical works and digital art pieces in the source inventory, with distinct accession, custody, public-display, and future-release instruction states
+- [x] Include Knick fashion sets, $LONDC visual material, and Meta-supplied source records in the audit with separate source-family, accessibility, destination, and operating-state labels
+- [x] Represent the broader creator-provided collection as source context with scalable archive pathways while preserving count, currency, market, and external-release claims as individual evidence states
