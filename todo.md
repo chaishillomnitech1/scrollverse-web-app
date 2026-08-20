@@ -3449,7 +3449,7 @@
 - [x] Identify publicly discoverable Joker, Chosen, Cosmic, and AI-themed YouTube candidates and record available title, channel, URL, relative publication indicator, and visible description
 - [x] Classify each video’s documented first-party statements and themes without treating them as proof of unverified observer, government, or external-party claims
 - [x] Assemble a source-labeled archive record with accessible transcript/source gaps and a correction path
-- [ ] Receive an exact owner-identified video URL or channel list to complete a video-by-video archive for any sources not publicly identifiable from the supplied references
+- [x] Receive an exact owner-identified video URL or channel list to complete a video-by-video archive for any sources not publicly identifiable from the supplied references
 ## Phase 343 — Public Record and Account-Evidence Review
 - [x] Review public YouTube and GitHub records associated with the owner-supplied channel, account, and repository references
 - [x] Inspect available Google connector authorization state without accessing unapproved Gmail or YouTube subscription data
@@ -4759,3 +4759,9 @@
 - [x] Build browser-local replay filtering, audit-export preparation, and staged release-checklist pathways
 - [x] Preserve DNS binding, contract deployment, and master-media ingestion as exact owner-controlled release records with their required inputs
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the replay-readiness milestone
+
+## Phase 603 — Evidence-Led Capability Comparison
+- [x] Define measurable public comparison dimensions and source standards for creator systems, portal functionality, accessibility, evidence, and release controls
+- [x] Collect current portal capability records and public benchmark evidence without assuming a global rank, authority, or outcome
+- [x] Publish a browser-local capability scorecard with citations, limits, and a correction pathway
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the evidence-led comparison

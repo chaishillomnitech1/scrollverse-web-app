@@ -1,0 +1,60 @@
+import { useMemo, useState } from "react";
+import { Link } from "wouter";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+
+type CapabilityState = "DEMONSTRATED LOCALLY" | "PREPARED FOR OWNER RELEASE" | "RESEARCH / CORRECTION PATH" | "NOT ASSESSED";
+
+const STANDARDS = [
+  { label: "WCAG 2.2", href: "https://www.w3.org/TR/WCAG22/", note: "Accessibility evaluation anchor" },
+  { label: "OWASP ASVS", href: "https://owasp.org/www-project-application-security-verification-standard/", note: "Application-security verification anchor" },
+  { label: "NIST SSDF", href: "https://csrc.nist.gov/projects/ssdf", note: "Secure-development and release-readiness anchor" },
+] as const;
+
+const DIMENSIONS: Array<{ title: string; state: CapabilityState; standard: string; evidence: string; limit: string; color: string }> = [
+  { title: "Accessible creator presentation", state: "DEMONSTRATED LOCALLY", standard: "WCAG 2.2", evidence: "Visual accessions include descriptive alt text; creator media and tutorial routes include caption, transcript, and narration planning paths.", limit: "This is not a full WCAG audit or a conformance claim.", color: "#00D4FF" },
+  { title: "Reproducible build evidence", state: "DEMONSTRATED LOCALLY", standard: "Project-local verification", evidence: "The current portal uses TypeScript checks and focused Vitest regression coverage before each published milestone.", limit: "Local validation does not substitute for an independent security, accessibility, or performance assessment.", color: "#00FF88" },
+  { title: "Creator archive continuity", state: "DEMONSTRATED LOCALLY", standard: "First-party source record", evidence: "The portal connects visual accessions, physical-art and apparel records, media references, books, learning routes, and a creator atlas through source labels.", limit: "Source records do not establish external market reach, valuation, partnership, or commercial availability.", color: "#B98CFF" },
+  { title: "Security and release discipline", state: "PREPARED FOR OWNER RELEASE", standard: "OWASP ASVS · NIST SSDF", evidence: "Replay-readiness checklists, source records, local audit export, explicit release gates, and correction paths are implemented in-browser.", limit: "No security certification, DNS mutation, contract broadcast, wallet action, or provider deployment is implied.", color: "#FFB800" },
+  { title: "External outcome comparison", state: "NOT ASSESSED", standard: "Comparable public outcomes", evidence: "No consistent public dataset has been supplied for a fair platform-wide comparison of adoption, revenue, uptime, safety, or user outcomes.", limit: "This page does not assign a global rank, authority, or superiority claim.", color: "#FF6B9A" },
+];
+
+const STATE_STYLE: Record<CapabilityState, { bg: string; border: string; text: string }> = {
+  "DEMONSTRATED LOCALLY": { bg: "rgba(0,255,136,0.08)", border: "rgba(0,255,136,0.32)", text: "#B5F7CC" },
+  "PREPARED FOR OWNER RELEASE": { bg: "rgba(255,184,0,0.08)", border: "rgba(255,184,0,0.32)", text: "#FFE09A" },
+  "RESEARCH / CORRECTION PATH": { bg: "rgba(185,140,255,0.08)", border: "rgba(185,140,255,0.32)", text: "#DCC8FF" },
+  "NOT ASSESSED": { bg: "rgba(255,107,154,0.08)", border: "rgba(255,107,154,0.32)", text: "#FFC4D5" },
+};
+
+export default function CapabilityComparison() {
+  useSovereignHeartbeat({ page: "capability-comparison" });
+  const [stateFilter, setStateFilter] = useState<CapabilityState | "ALL">("ALL");
+  const visible = useMemo(() => stateFilter === "ALL" ? DIMENSIONS : DIMENSIONS.filter((item) => item.state === stateFilter), [stateFilter]);
+
+  const exportScorecard = () => {
+    const payload = JSON.stringify({
+      title: "ScrollVerse Evidence-Led Capability Comparison",
+      generatedAt: new Date().toISOString(),
+      method: "Browser-local comparison of demonstrated portal evidence against cited standards; no global rank or certification.",
+      standards: STANDARDS,
+      dimensions: DIMENSIONS,
+      correctionPath: "Correct an entry with a reproducible URL, versioned repository reference, accessible output, command result, source file, or documented external outcome.",
+    }, null, 2);
+    const url = URL.createObjectURL(new Blob([payload], { type: "application/json" }));
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "scrollverse-capability-comparison.json";
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const filterOptions: Array<CapabilityState | "ALL"> = ["ALL", "DEMONSTRATED LOCALLY", "PREPARED FOR OWNER RELEASE", "NOT ASSESSED"];
+
+  return <main className="min-h-screen pb-20 text-white" style={{ background: "radial-gradient(circle at 84% 3%, rgba(0,212,255,0.13), transparent 28%), radial-gradient(circle at 10% 28%, rgba(185,140,255,0.12), transparent 35%), #050B1A" }}>
+    <header className="border-b border-white/10 bg-[#050B1A]/85 backdrop-blur-xl"><div className="container flex flex-wrap items-center justify-between gap-3 py-4"><Link href="/" className="font-black tracking-wide">ScrollVerse</Link><div className="flex gap-3 text-xs font-mono"><Link href="/creator-atlas" className="text-[#9DEBFF]">CREATOR ATLAS</Link><Link href="/replay-readiness" className="text-[#DCC8FF]">REPLAY READINESS</Link></div></div></header>
+    <section className="container py-12 md:py-18"><p className="text-xs font-mono tracking-[.22em] text-[#00D4FF]">EVIDENCE-LED CAPABILITY COMPARISON</p><h1 className="mt-4 max-w-5xl text-4xl font-black leading-[.96] md:text-6xl">Compare what is <span className="text-[#00D4FF]">demonstrated</span>.<br />Keep what is <span className="text-[#B98CFF]">still becoming</span> visible.</h1><p className="mt-6 max-w-3xl text-base leading-7 text-[#C7D4E0]">This scorecard maps browser-local ScrollVerse evidence against public accessibility, application-security, and secure-development standards. It shows source-backed portal behavior, not a claim of universal rank, authority, certification, or completed external outcome.</p>
+      <div className="mt-8 grid gap-4 md:grid-cols-3">{STANDARDS.map((standard) => <a key={standard.label} href={standard.href} target="_blank" rel="noreferrer" className="rounded-2xl border border-white/10 bg-white/[.035] p-5 transition hover:border-[#00D4FF]/55"><p className="text-lg font-black text-[#9DEBFF]">{standard.label}</p><p className="mt-2 text-sm text-[#C7D4E0]">{standard.note}</p><p className="mt-4 text-xs font-mono text-[#AFC0CF]">OPEN PUBLIC STANDARD ↗</p></a>)}</div>
+    </section>
+    <section className="container pb-10"><div className="rounded-[2rem] border border-white/10 bg-white/[.025] p-5 md:p-7"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.18em] text-[#AFC0CF]">COMPARISON MATRIX</p><h2 className="mt-2 text-3xl font-black">Observable system evidence</h2></div><button onClick={exportScorecard} className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-4 py-3 text-sm font-black text-[#9DEBFF]">Download local scorecard</button></div><div className="mt-6 flex flex-wrap gap-2">{filterOptions.map((option) => <button key={option} onClick={() => setStateFilter(option)} className="rounded-full border px-3 py-2 text-[10px] font-mono tracking-[.08em] transition" style={stateFilter === option ? { color: "#050B1A", background: "#00D4FF", borderColor: "#00D4FF" } : { color: "#C7D4E0", borderColor: "rgba(255,255,255,0.16)" }}>{option}</button>)}</div><div className="mt-6 grid gap-4 lg:grid-cols-2">{visible.map((dimension) => { const style = STATE_STYLE[dimension.state]; return <article key={dimension.title} className="rounded-2xl border p-6" style={{ borderColor: `${dimension.color}55`, background: `${dimension.color}08` }}><div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: dimension.color }}>{dimension.standard}</p><h3 className="mt-2 text-2xl font-black">{dimension.title}</h3></div><span className="rounded-full border px-3 py-1 text-[9px] font-mono" style={{ background: style.bg, borderColor: style.border, color: style.text }}>{dimension.state}</span></div><p className="mt-5 text-sm leading-6 text-[#D6E2EE]">{dimension.evidence}</p><p className="mt-4 border-l-2 pl-3 text-xs leading-5" style={{ borderColor: dimension.color, color: "#AFC0CF" }}>Limit: {dimension.limit}</p></article>; })}</div></div></section>
+    <section className="container"><div className="rounded-[2rem] border border-[#B98CFF]/30 bg-[#B98CFF]/[.05] p-7"><p className="text-xs font-mono tracking-[.18em] text-[#DCC8FF]">CORRECTION PATH</p><h2 className="mt-3 text-3xl font-black">Bring reproducible evidence. Update the record.</h2><p className="mt-4 max-w-3xl leading-7 text-[#C7D4E0]">A correction can cite a current URL, versioned repository reference, accessible output, test command result, source file, or documented external outcome. The update changes the cited entry; it does not retroactively create an external action or turn a source record into a global-ranking claim.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/evidence-standards" className="rounded-xl bg-[#B98CFF] px-4 py-3 text-sm font-black text-[#050B1A]">Open evidence standards</Link><Link href="/creator-atlas" className="rounded-xl border border-[#B98CFF]/50 px-4 py-3 text-sm font-black text-[#DCC8FF]">Explore creator evidence</Link></div></div></section>
+  </main>;
+}

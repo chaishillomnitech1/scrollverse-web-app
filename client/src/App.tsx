@@ -416,6 +416,7 @@ import EvolutionLookbook from "./pages/EvolutionLookbook";
 import CreatorAtlas from "./pages/CreatorAtlas";
 import VisualStoryWorlds from "./pages/VisualStoryWorlds";
 import ReplayReadinessDesk from "./pages/ReplayReadinessDesk";
+import CapabilityComparison from "./pages/CapabilityComparison";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -651,6 +652,7 @@ function Router() {
       <Route path={"/creator-atlas"} component={CreatorAtlas} />
       <Route path={"/visual-story-worlds"} component={VisualStoryWorlds} />
       <Route path={"/replay-readiness"} component={ReplayReadinessDesk} />
+      <Route path={"/capability-comparison"} component={CapabilityComparison} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />
