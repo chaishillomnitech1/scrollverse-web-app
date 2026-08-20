@@ -1,7 +1,7 @@
-import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql2 from "mysql2/promise";
-import { InsertUser, users } from "../drizzle/schema";
+import { desc, eq } from "drizzle-orm";
+import { InsertLocalRoyaltyRecord, InsertUser, localRoyaltyRecords, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -91,6 +91,24 @@ export async function getUserByOpenId(openId: string) {
   const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
 
   return result.length > 0 ? result[0] : undefined;
+}
+
+export async function listLocalRoyaltyRecords(ownerUserId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(localRoyaltyRecords)
+    .where(eq(localRoyaltyRecords.ownerUserId, ownerUserId))
+    .orderBy(desc(localRoyaltyRecords.updatedAt));
+}
+
+export async function createLocalRoyaltyRecord(record: InsertLocalRoyaltyRecord) {
+  const db = await getDb();
+  if (!db) return undefined;
+  await db.insert(localRoyaltyRecords).values(record);
+  const rows = await db.select().from(localRoyaltyRecords)
+    .where(eq(localRoyaltyRecords.recordReference, record.recordReference))
+    .limit(1);
+  return rows[0];
 }
 
 // TODO: add feature queries here as your schema grows.

@@ -4878,3 +4878,37 @@
 - [x] Create and validate a reusable ScrollVerse visual-story archive skill
 - [x] Record the reusable method in a browser-local evidence route with focused regression coverage
 - [x] Validate TypeScript and the full suite, then publish the reusable-method milestone
+
+## Phase 623 — Next Visual Catalog Selection
+- [ ] Screen additional protected source files for distinct accession-ready visual material and preserve selection decisions
+- [ ] Directly review selected source visuals, source hashes, accessibility descriptions, and browser-local display states
+- [ ] Add selected browser-local accessions and synchronize collection lenses, discovery counts, manifests, and regression coverage
+- [ ] Validate TypeScript and the full suite, then publish the expanded visual catalog
+
+## Phase 624 — Gemini Storybook Collection
+- [x] Inventory six supplied Gemini storybook shares and thirteen owner-supplied screenshots as individual source records
+- [x] Deep-review each visible story for title, narrative elements, visual treatment, accessibility description, source context, and operating state
+- [x] Build a prominent browser-local Storybook Collection route with individual story records and connected portal handoffs
+- [x] Index any visible public token reference beside its source without representing an unverified token, contract, marketplace, or transaction as active
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the Storybook Collection milestone
+
+## Phase 625 — Omnithrone Episode 36 + Trinity Records
+- [x] Preserve the supplied Google document and two Omnithrone text attachments as source-labeled production and system reference records
+- [x] Create the Episode 36 narrative package for “The Autonomous Broadcast” with a source-led operating state and connected portal handoff
+- [x] Add a non-custodial local royalty-record database schema, migration, and browser-local record interface without wallet, blockchain, provider, or transfer activation
+- [x] Build a zero-dependency static Trinity portal layout and a corresponding browser-local route
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the Omnithrone milestone
+
+## Phase 626 — ScrollVerse Story Worlds
+- [x] Map every current Storybook Collection record into source-led age pathways and original transmedia preparation lanes
+- [x] Organize Story Worlds as a creator-controlled digital-universe map with connected districts, visitor-choice routes, and source-labeled operating states
+- [x] Build a browser-local Story Worlds route connecting film, comics, animation, learning, collectible-concept, visual, and media preparation records
+- [x] Add clear adult-supported participation guidance for any future child-facing story pathway
+- [x] Link Story Worlds across Storybook Collection, Visual Story Worlds, Creator Books, media, and Creator Atlas routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the Story Worlds expansion
+
+## Phase 627 — Immersive Story Worlds + Creator Highways
+- [x] Add high-sensory but accessible interactive motion, district atmosphere, exploration controls, and reduced-motion support to Story Worlds
+- [x] Add creator and Legion contribution highways that point visitors to existing creation, collaboration, learning, and community routes without representing autonomous activity as active
+- [x] Prepare a deploy-gated recurring-evolution control record with a defined, idempotent local callback scope; do not enable a schedule before deployment and an exact owner activation decision
+- [x] Extend focused regression coverage, validate TypeScript and the full suite, and publish the immersive Story Worlds update

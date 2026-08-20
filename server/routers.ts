@@ -68,6 +68,7 @@ import { experienceExchangeRouter } from "./routers/experienceExchange";
 import { supportHighwaysRouter } from "./routers/supportHighways";
 import { portalRouteRegistryRouter } from "./routers/portalRouteRegistry";
 import { presenceRouter } from "./routers/presence";
+import { royaltyRecordsRouter } from "./routers/royaltyRecords";
 
 export const appRouter = router({
   system: systemRouter,
@@ -148,6 +149,7 @@ export const appRouter = router({
   supportHighways: supportHighwaysRouter,
   portalRouteRegistry: portalRouteRegistryRouter,
   presence: presenceRouter,
+  royaltyRecords: royaltyRecordsRouter,
 });
 
 export type AppRouter = typeof appRouter;

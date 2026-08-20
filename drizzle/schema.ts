@@ -1683,6 +1683,35 @@ export const creatorSupportRequestEvents = mysqlTable("creator_support_request_e
 ]);
 export type CreatorSupportRequestEvent = typeof creatorSupportRequestEvents.$inferSelect;
 
+// ── Local royalty record desk ───────────────────────────────────────────────
+// This is an owner-scoped, non-custodial source ledger. It records submitted
+// references for later review and never connects to a wallet, RPC provider,
+// blockchain indexer, payment processor, or transfer mechanism.
+export const localRoyaltyRecords = mysqlTable("local_royalty_records", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerUserId: int("owner_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  recordReference: varchar("record_reference", { length: 160 }).notNull().unique(),
+  assetLabel: varchar("asset_label", { length: 32 }).notNull().default("LONDC"),
+  networkLabel: varchar("network_label", { length: 64 }),
+  submittedTransactionReference: varchar("submitted_transaction_reference", { length: 160 }),
+  counterpartyReference: varchar("counterparty_reference", { length: 160 }),
+  declaredAmount: varchar("declared_amount", { length: 80 }),
+  declaredUnit: varchar("declared_unit", { length: 32 }).notNull().default("LONDC"),
+  sourceReference: varchar("source_reference", { length: 2048 }),
+  sourceNote: varchar("source_note", { length: 2000 }).notNull(),
+  reviewStatus: mysqlEnum("review_status", ["DRAFT", "REPORTED", "REFERENCE_REVIEWED", "NEEDS_INFO", "CLOSED"]).notNull().default("DRAFT"),
+  observedAt: timestamp("observed_at"),
+  reviewedByUserId: int("reviewed_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  reviewedAt: timestamp("reviewed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("local_royalty_records_owner_status_idx").on(table.ownerUserId, table.reviewStatus, table.updatedAt),
+  index("local_royalty_records_reference_idx").on(table.submittedTransactionReference, table.observedAt),
+]);
+export type LocalRoyaltyRecord = typeof localRoyaltyRecords.$inferSelect;
+export type InsertLocalRoyaltyRecord = typeof localRoyaltyRecords.$inferInsert;
+
 export const creatorReleaseAssets = mysqlTable("creator_release_assets", {
   id: int("id").autoincrement().primaryKey(),
   ownerUserId: int("owner_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),

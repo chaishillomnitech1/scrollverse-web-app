@@ -423,6 +423,10 @@ import CreatorActivationDossier from "./pages/CreatorActivationDossier";
 import CreatorBroadcastPreparation from "./pages/CreatorBroadcastPreparation";
 import CryptoArtifactLookbook from "./pages/CryptoArtifactLookbook";
 import CreatorNetwork from "./pages/CreatorNetwork";
+import GeminiStorybookCollection from "./pages/GeminiStorybookCollection";
+import TrinitySovereignPortal from "./pages/TrinitySovereignPortal";
+import AdminRoyaltyRecords from "./pages/AdminRoyaltyRecords";
+import ScrollVerseStoryWorlds from "./pages/ScrollVerseStoryWorlds";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -653,6 +657,10 @@ function Router() {
       <Route path={"/august-28-launch"} component={August28LaunchCommandCenter} />
       <Route path={"/ai-constellation"} component={AIConstellationHub} />
       <Route path={"/creator-books"} component={CreatorBooksPublishingDesk} />
+      <Route path={"/gemini-storybook-collection"} component={GeminiStorybookCollection} />
+      <Route path={"/scrollverse-story-worlds"} component={ScrollVerseStoryWorlds} />
+      <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
+      <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
       <Route path={"/evolution-lookbook"} component={EvolutionLookbook} />
       <Route path={"/creator-atlas"} component={CreatorAtlas} />
