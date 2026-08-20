@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Thirty-three visual accessions");
+    expect(page).toContain("Thirty-five visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -38,6 +38,8 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-031");
     expect(page).toContain("SV-EVO-032");
     expect(page).toContain("SV-EVO-033");
+    expect(page).toContain("SV-EVO-034");
+    expect(page).toContain("SV-EVO-035");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
@@ -56,6 +58,8 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("XLVIII Blocks DNA Apparel Record");
     expect(page).toContain("Monumental Self-Portrait: Stone Signal I");
     expect(page).toContain("Monumental Self-Portrait: Stone Signal II");
+    expect(page).toContain("Pharaoh’s Wheel: The Golden Zodiac Awakens");
+    expect(page).toContain("Monumental Self-Portrait: Gilded Signal");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -176,6 +180,18 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("SV-EVO-033");
     expect(review).toContain("1d4033b5168090911e9c0193c3f7d6c7877ad9461ab2ba0532c42300efb42ddf");
     expect(review).toContain("d0e45fe8e627a059214b9602da4fe30059b7b3ef04a2aaaa55502cc4479fd1a4");
-    expect(manifest).toContain("Thirty-three named `SV-EVO` accessions");
+    expect(manifest).toContain("Thirty-five named `SV-EVO` accessions");
+  });
+
+  it("documents two distinct Phase 623 visual accessions while preserving duplicate and third-party-marked source decisions", () => {
+    const review = read("docs/phase623-direct-visual-accession-review.md");
+    const screen = read("docs/phase623-candidate-screen.md");
+
+    expect(review).toContain("SV-EVO-034");
+    expect(review).toContain("SV-EVO-035");
+    expect(review).toContain("7681a4f6251d7bffee5828b766c37155d2de5736fc15cb9392703f02c2038d62");
+    expect(review).toContain("aa6f16bb1a11cb38823764861f8ba10148432ff4670e16ede95a9a1dc4067da5");
+    expect(screen).toContain("is a duplicate of the already exhibited `SV-EVO-020`");
+    expect(screen).toContain("Prominent third-party sports branding");
   });
 });

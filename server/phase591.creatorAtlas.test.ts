@@ -13,7 +13,7 @@ describe("Phase 591 Connected Creator Atlas", () => {
 
     expect(page).toContain("SCROLLVERSE CREATOR ATLAS");
     expect(page).toContain("Visual Worlds");
-    expect(page).toContain("33 browser-local visual accessions");
+    expect(page).toContain("35 browser-local visual accessions");
     expect(page).toContain("Learn the System");
     expect(page).toContain("Read the Work");
     expect(page).toContain("Source and Continuity");

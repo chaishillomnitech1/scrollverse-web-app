@@ -4880,10 +4880,10 @@
 - [x] Validate TypeScript and the full suite, then publish the reusable-method milestone
 
 ## Phase 623 — Next Visual Catalog Selection
-- [ ] Screen additional protected source files for distinct accession-ready visual material and preserve selection decisions
-- [ ] Directly review selected source visuals, source hashes, accessibility descriptions, and browser-local display states
-- [ ] Add selected browser-local accessions and synchronize collection lenses, discovery counts, manifests, and regression coverage
-- [ ] Validate TypeScript and the full suite, then publish the expanded visual catalog
+- [x] Screen additional protected source files for distinct accession-ready visual material and preserve selection decisions
+- [x] Directly review selected source visuals, source hashes, accessibility descriptions, and browser-local display states
+- [x] Add selected browser-local accessions and synchronize collection lenses, discovery counts, manifests, and regression coverage
+- [x] Validate TypeScript and the full suite, then publish the expanded visual catalog
 
 ## Phase 624 — Gemini Storybook Collection
 - [x] Inventory six supplied Gemini storybook shares and thirteen owner-supplied screenshots as individual source records
