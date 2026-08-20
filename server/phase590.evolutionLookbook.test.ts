@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Twenty-two visual accessions");
+    expect(page).toContain("Twenty-four visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -27,6 +27,8 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-020");
     expect(page).toContain("SV-EVO-021");
     expect(page).toContain("SV-EVO-022");
+    expect(page).toContain("SV-EVO-023");
+    expect(page).toContain("SV-EVO-024");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
@@ -34,6 +36,8 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("ChaisTheGreat: Visual Empire Protector");
     expect(page).toContain("Chais: Holographic Identity Pack");
     expect(page).toContain("Chais: Black-and-Gold Sovereign Poster");
+    expect(page).toContain("STR8 DROP: Chest Crest Apparel Record");
+    expect(page).toContain("STR8 DROP: Front Crest Apparel Record");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -102,5 +106,14 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("SV-EVO-022");
     expect(review).toContain("7b46ca25db1f07078afc9ed9de6d0708c7677c7d5ea94beeed5ce3fe5a1fc6d0");
     expect(review).toContain("f94005fea366ad953e3ce20b1f89f6e796863180d190e98d87aa5bf69a0f2a56");
+  });
+
+  it("documents physical apparel photographs as display-only archive accessions", () => {
+    const review = read("docs/phase601-unrepresented-visual-archive-review.md");
+
+    expect(review).toContain("SV-PHYS-APP-001");
+    expect(review).toContain("SV-PHYS-APP-002");
+    expect(review).toContain("f36759c13421aaecf45c38f4dc330f1b9fcd5241a635e6e3acc24807b6508157");
+    expect(review).toContain("c8e05fb9f6ee2d13f39d7e46deaf65fd67dec2b54eb1484986df132bc369d939");
   });
 });

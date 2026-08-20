@@ -4748,10 +4748,10 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next catalog update
 
 ## Phase 601 — Unrepresented Visual Archive Review
-- [ ] Identify the next unrepresented visual candidates and their review constraints
-- [ ] Record direct visual-review evidence, hashes, accessibility drafts, and exhibit decisions
-- [ ] Add selected source-labeled artwork records to the browser-local Evolution Lookbook
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual archive milestone
+- [x] Identify the next unrepresented visual candidates and their review constraints
+- [x] Record direct visual-review evidence, hashes, accessibility drafts, and exhibit decisions
+- [x] Add selected source-labeled artwork records to the browser-local Evolution Lookbook
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual archive milestone
 
 ## Phase 602 — Replay-Readiness Portal Update
 - [x] Inspect the three owner-supplied replay records and current related portal routes for replay filtering, audit, release-gate, DNS, contract, and media-vault requirements
