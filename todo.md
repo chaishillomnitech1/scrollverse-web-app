@@ -4820,3 +4820,9 @@
 - [x] Define one unified activation dossier that maps each exact required record to a single release-preparation path
 - [x] Publish browser-local external-lane readiness and source handoffs without initiating external provider, wallet, contract, registrar, commerce, publication, or upload actions
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the creator-controlled activation dossier
+
+## Phase 613 — Multi-Vector Replay Consolidation
+- [x] Inspect and deduplicate the six supplied replay records and the protected broadcast source material
+- [x] Classify reusable portal, content, narrative, YouTube, royalty-readiness, and identity concepts without adopting automation, transfer, or external-distribution assertions as active state
+- [x] Publish browser-local broadcast and content-preparation pathways with source handoffs and clear operating labels
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the replay-consolidation milestone
