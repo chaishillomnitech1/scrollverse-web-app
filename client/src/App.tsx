@@ -421,6 +421,7 @@ import CollaborationInvitation from "./pages/CollaborationInvitation";
 import ConnectedSystemsMap from "./pages/ConnectedSystemsMap";
 import CreatorActivationDossier from "./pages/CreatorActivationDossier";
 import CreatorBroadcastPreparation from "./pages/CreatorBroadcastPreparation";
+import CryptoArtifactLookbook from "./pages/CryptoArtifactLookbook";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -661,6 +662,7 @@ function Router() {
       <Route path={"/connected-systems"} component={ConnectedSystemsMap} />
       <Route path={"/activation-dossier"} component={CreatorActivationDossier} />
       <Route path={"/creator-broadcast-preparation"} component={CreatorBroadcastPreparation} />
+      <Route path={"/crypto-artifact-lookbook"} component={CryptoArtifactLookbook} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />

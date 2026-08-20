@@ -4826,3 +4826,9 @@
 - [x] Classify reusable portal, content, narrative, YouTube, royalty-readiness, and identity concepts without adopting automation, transfer, or external-distribution assertions as active state
 - [x] Publish browser-local broadcast and content-preparation pathways with source handoffs and clear operating labels
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the replay-consolidation milestone
+
+## Phase 614 — Crypto Artifact Lookbook and Cross-Promotion
+- [x] Map current artifacts, apps, sites, visual worlds, and discovery routes that can cross-promote one another
+- [x] Define a source-labeled Crypto Artifact Lookbook structure with clear artwork, concept, preparation, and operating-state labels
+- [x] Publish browser-local crypto artifact discovery and connected handoffs without presenting live listings, token, exchange, contract, yield, or transaction activity
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the cross-promotion lookbook milestone
