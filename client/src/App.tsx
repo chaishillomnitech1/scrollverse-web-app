@@ -444,6 +444,8 @@ import EpisodicOperationsArchive from "./pages/EpisodicOperationsArchive";
 import Episode38ExchangeMatrix from "./pages/Episode38ExchangeMatrix";
 import Episode39ExchangePerimeter from "./pages/Episode39ExchangePerimeter";
 import Episode40InfrastructureScaling from "./pages/Episode40InfrastructureScaling";
+import YouTubeEpisodeReleaseDesk from "./pages/YouTubeEpisodeReleaseDesk";
+import FilmAnimationStudio from "./pages/FilmAnimationStudio";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -693,6 +695,8 @@ function Router() {
       <Route path={"/episode-38-exchange-matrix"} component={Episode38ExchangeMatrix} />
       <Route path={"/episode-39-exchange-perimeter"} component={Episode39ExchangePerimeter} />
       <Route path={"/episode-40-infrastructure-scaling"} component={Episode40InfrastructureScaling} />
+      <Route path={"/youtube-episode-release-desk"} component={YouTubeEpisodeReleaseDesk} />
+      <Route path={"/film-animation-studio"} component={FilmAnimationStudio} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />

@@ -5010,22 +5010,22 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected Omnitotality reference milestone
 
 ## Phase 642 — Episode 38 Exchange Matrix Protected Reference
-- [ ] Classify the supplied Episode 38 narrative, exchange harness, environment layout, and catalog-map material as protected source records
-- [ ] Build a browser-local Episode 38 narrative and local-validation readiness record with reusable concepts and visible banking, allocation, wallet, RPC, market, and listener boundaries
-- [ ] Connect the Episode 38 record to local royalty records, Catalog Stewardship, Isolation Terminal, Continuity Index, and Story Worlds routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+- [x] Classify the supplied Episode 38 narrative, exchange harness, environment layout, and catalog-map material as protected source records
+- [x] Build a browser-local Episode 38 narrative and local-validation readiness record with reusable concepts and visible banking, allocation, wallet, RPC, market, and listener boundaries
+- [x] Connect the Episode 38 record to local royalty records, Catalog Stewardship, Isolation Terminal, Continuity Index, and Story Worlds routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
 
 ## Phase 643 — Episode 39 Exchange Perimeter Protected Reference
-- [ ] Classify the supplied Episode 39 narrative, shell validator, blockchain listener, and catalog-map material as protected source records
-- [ ] Build a browser-local Episode 39 narrative and local-validation readiness record with reusable concepts and visible firewall, wallet, RPC, blockchain-daemon, exchange, and deployment boundaries
-- [ ] Connect the Episode 39 record to local royalty records, Catalog Stewardship, Isolation Terminal, Continuity Index, and Story Worlds routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+- [x] Classify the supplied Episode 39 narrative, shell validator, blockchain listener, and catalog-map material as protected source records
+- [x] Build a browser-local Episode 39 narrative and local-validation readiness record with reusable concepts and visible firewall, wallet, RPC, blockchain-daemon, exchange, and deployment boundaries
+- [x] Connect the Episode 39 record to local royalty records, Catalog Stewardship, Isolation Terminal, Continuity Index, and Story Worlds routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
 
 ## Phase 644 — Episode 40 Infrastructure Scaling Protected Reference
-- [ ] Classify the supplied Episode 40 narrative, benchmark harness, Nginx ingress configuration, and catalog-map material as protected source records
-- [ ] Build a browser-local Episode 40 narrative and local-readiness record with reusable benchmark and security concepts and visible host, Nginx, WebSocket, cron, firewall, wallet, and deployment boundaries
-- [ ] Connect the Episode 40 record to Episode Experience, Isolation Terminal, Continuity Index, Research Atlas, and Story Worlds routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+- [x] Classify the supplied Episode 40 narrative, benchmark harness, Nginx ingress configuration, and catalog-map material as protected source records
+- [x] Build a browser-local Episode 40 narrative and local-readiness record with reusable benchmark and security concepts and visible host, Nginx, WebSocket, cron, firewall, wallet, and deployment boundaries
+- [x] Connect the Episode 40 record to Episode Experience, Isolation Terminal, Continuity Index, Research Atlas, and Story Worlds routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
 
 ## Phase 645 — Episodic Operations Archive
 - [x] Consolidate protected source classifications for Episode 24 and Episodes 37–40, including narrative, interface, local-validation, readiness concepts, and Google-rendered screenshot evidence
@@ -5049,3 +5049,15 @@
 - [x] Build and validate dedicated browser-local protected-reference routes for Episodes 38, 39, and 40, including archive handoffs and local review controls
 - [ ] Check the temporary upstream publication pause, preserve an accurate release-state record, and retry only when the service is available
 - [ ] Publish the verified route milestone and report the confirmed production operating state
+
+## Phase 648 — Public YouTube Episode Release Readiness
+- [x] Define source-led public-version release records for the completed ScrollVerse episode references, including title, description, audience, visual specification, source, and correction paths
+- [x] Build a browser-local YouTube Episode Release Desk with local metadata copy/export, public-version presentation, connected episode routes, and clear release-state labels
+- [x] Preserve video master, contributor/rightsholder, narrator, music-use, channel destination, upload, visibility, and publication requirements as exact owner-release gates
+- [x] Add focused regression coverage, validate the pathway, and preserve accurate managed-publication status
+
+## Phase 649 — Creator-Owned Film + Animation Production Studio
+- [x] Define original production packs for source-led episodic film, animation, sound, editing, accessibility, and public-release preparation lanes
+- [x] Build a browser-local Film and Animation Studio with creator-controlled specialist workflows, local production-note export, and connected episode / release routes
+- [x] Preserve final master, rights/contributor, character, voice, music-use, caption, platform-destination, and publication requirements as exact owner-release gates
+- [x] Add focused regression coverage, validate the studio, and preserve accurate production and managed-publication states
