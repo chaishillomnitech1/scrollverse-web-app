@@ -18,13 +18,22 @@ describe("Phase 631–634 — Catalog Storyworlds and creator-first stewardship"
     expect(home).toContain('href: "/catalog-stewardship"');
   });
 
-  it("preserves the Pnb Rock Vibes cover source and does not mark distribution or minting as active", () => {
+  it("preserves source-led cover storyworlds for every current catalog record without marking distribution or minting as active", () => {
     const covers = read("client/src/pages/CoverArtStoryworlds.tsx");
     const records = read("docs/phase631-cover-storyworlds-records.md");
+    const completion = read("docs/phase631-cover-catalog-completion.md");
     expect(covers).toContain("Pnb Rock Vibes");
     expect(covers).toContain("The Golden Frequency Overlook");
+    expect(covers).toContain("The Goat You Just Met");
+    expect(covers).toContain("Londyn's Lullaby Lifetime Instruction");
+    expect(covers).toContain("CHAIS X LETTER");
+    expect(covers).toContain("Throwing Stones");
+    expect(covers).toContain("EXACT RELEASE GATE");
+    expect(covers).toContain("/scrollverse-story-worlds");
+    expect(covers).toContain("/creator-broadcast-preparation");
     expect(covers).toContain("does not distribute music");
     expect(records).toContain("Ripple Constellation");
+    expect(completion).toContain("COVER-005");
     expect(records).toContain("does not generate, publish, distribute, list, mint");
   });
 

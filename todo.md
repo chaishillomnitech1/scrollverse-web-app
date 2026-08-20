@@ -4935,11 +4935,11 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the local audit-control milestone
 
 ## Phase 631 — Cover Art Storyworlds
-- [ ] Inventory the supplied Spotify artist catalog and current catalog cover-art records, preserving each source, title, available visual context, and owner-provided publishing/distribution context
-- [ ] Create a source-led storyworld, cartoon, motion-art, legacy, and per-cover release-preparation record for each catalog cover
-- [ ] Build a browser-local Cover Art Storyworlds experience connected to catalog, Story Worlds, media, and visual routes
-- [ ] Preserve NFT, mint, marketplace, token, product, and distribution work as per-cover future release records without representing external activation as active
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the cover-art storyworlds milestone
+- [x] Inventory the supplied Spotify artist catalog and current catalog cover-art records, preserving each source, title, available visual context, and owner-provided publishing/distribution context
+- [x] Create a source-led storyworld, cartoon, motion-art, legacy, and per-cover release-preparation record for each catalog cover
+- [x] Build a browser-local Cover Art Storyworlds experience connected to catalog, Story Worlds, media, and visual routes
+- [x] Preserve NFT, mint, marketplace, token, product, and distribution work as per-cover future release records without representing external activation as active
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the cover-art storyworlds milestone
 
 ## Phase 632 — Public Music + Media Footprint
 - [x] Define source-labeled public research tracks for Spotify, Apple Music, YouTube, Vyd.co, public web results, and owner-supplied artist identifiers
