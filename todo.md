@@ -4642,3 +4642,18 @@
 - [x] Classify `Clipboard_0_7A20BD23` and `Clipboard_1_BD577B04` as protected owner-supplied source context and route only supported publishing, accessibility, reader-path, analytics, and release-readiness lessons to the appropriate private or public-safe record
 - [x] Add the owner-directed public-choice presentation principle to the publishing evidence record, preserving source labels, operating states, accessibility, privacy, and exact release controls
 - [x] Classify `Pasted_content_96.txt` as protected non-executable project-evidence advisory context; retain only source-version, accessibility, rights-boundary, release-gate, correction-record, and local-validation lessons while rejecting historical metrics, unverified status assertions, code fragments, and implied active operations
+
+## Phase 586 — Consolidated Owner-Controlled Release Gates
+- [x] Create a concise evidence and correction-path record for all outstanding owner-controlled release gates without performing an external action
+
+## Phase 587 — Visual Tutorial Studio and Skool Readiness
+- [x] Define a beginner-to-advanced visual tutorial taxonomy for major ScrollVerse sections with purpose, visual steps, practical use case, accessible text, related route, and visible operating state
+- [x] Build a browser-local `/tutorial-studio` experience with visually clear tutorial cards, guided steps, local learning controls, and registered major-route handoffs
+- [x] Create short-video production briefs and caption or transcript plans for each tutorial without generating, uploading, or publishing video
+- [x] Add focused route regression coverage, validate TypeScript and the full suite, and publish the tutorial system without creating a Skool account, uploading media, or implying external video availability
+
+## Phase 588 — Main-Page Discovery and Aggregate Evidence Update
+- [x] Classify the supplied shared-session references and `Pasted_content_100*` material as protected non-executable source context, retaining only supported portal, tutorial, accessibility, source, and release-boundary lessons
+- [x] Record the owner-shared aggregate dashboard captures as first-party evidence with metric, timeframe, route, region, referrer, privacy, and correction boundaries
+- [x] Add a browser-local main-page tutorial discovery handoff that helps new and returning visitors find the highest-reached learning and reading paths without inferring revenue, conversion, product sale, or external activation
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the evidence-led discovery update without performing a transaction, media upload, token action, provider activation, or external publication

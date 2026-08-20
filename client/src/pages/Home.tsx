@@ -920,6 +920,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "▤", title: "Manifesto & Builder’s Book", detail: "Read the free ScrollVerse philosophy, practical systems patterns, blueprint vocabulary, and protected-material boundaries.", href: "/manifesto-builders-book", color: "#FFB800" },
   { icon: "◫", title: "Books & Media Readiness", detail: "See what is readable now, what media is actually available, and which book-release steps remain owner or provider controlled.", href: "/books-media-readiness", color: "#00FF88" },
   { icon: "📚", title: "Creator Books Publishing Desk", detail: "Explore owner-authored reading paths, manuscript and edition planning, accessibility controls, and title-specific owner-release gates without implied publication.", href: "/creator-books", color: "#D6C4FF" },
+  { icon: "✦", title: "Visual Tutorial Studio", detail: "Start with short, clear visual learning paths for the portal, ideas, AI, books, chess, and launch readiness; copy a release-aware short-video brief without implying an external upload.", href: "/tutorial-studio", color: "#9DEBFF" },
   { icon: "⟐", title: "Recovery Materials", detail: "Inspect the source-labeled classification of newly supplied recovery exports and open only public-safe concept pathways.", href: "/recovery-materials", color: "#B98CFF" },
   { icon: "✦", title: "Co-Creation Navigator", detail: "Offer original work, sources, corrections, access improvements, or route ideas through a transparent, review-labeled contribution path.", href: "/co-creation-navigator", color: "#00D4FF" },
   { icon: "🧩", title: "Idea Exchange", detail: "Name what you offer, what you seek, and draft a respectful collaboration brief without creating a public profile or social feed.", href: "/idea-exchange", color: "#B98CFF" },
@@ -976,6 +977,33 @@ function ArtifactAndSpecialistNavigator() {
         <div className="flex flex-wrap items-end justify-between gap-6"><div><div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#FFB800" }}>SCROLLVERSE ARTIFACT ATLAS</div><h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white sm:text-4xl">Official first-party work, easy to find.</h2><p className="mt-4 max-w-3xl text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>Every card below leads to a ScrollVerse-owned route or a clearly labeled submitted-reference path. Your original brands lead the world; inspiration and potential partnerships remain separate conversations.</p></div><a href="https://meta.ai/share/c/mbBzmkQcJH?utm_source=ios_cl" target="_blank" rel="noreferrer" className="rounded-xl border px-4 py-3 text-xs font-black transition-transform hover:-translate-y-0.5" style={{ borderColor: "rgba(217,155,107,0.45)", color: "#E7C3A3" }}>OPEN SUBMITTED META REFERENCE ↗</a></div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{OFFICIAL_ARTIFACT_PATHS.map(item => <Link key={item.href} href={item.href} className="group rounded-3xl border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${item.color}40`, background: "rgba(255,255,255,0.025)" }}><div className="flex items-start justify-between gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl" style={{ background: `${item.color}17`, color: item.color }}>{item.icon}</span><span className="text-xs font-mono opacity-0 transition-opacity group-hover:opacity-100" style={{ color: item.color }}>OPEN →</span></div><h3 className="mt-5 text-lg font-black text-white">{item.title}</h3><p className="mt-2 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>{item.detail}</p></Link>)}</div>
         <div className="mt-12 grid gap-7 lg:grid-cols-[0.8fr_1.2fr]"><article className="rounded-[2rem] border p-6" style={{ borderColor: "rgba(0,255,136,0.28)", background: "rgba(0,255,136,0.04)" }}><div className="text-xs font-mono tracking-[0.18em]" style={{ color: "#00FF88" }}>SPECIALIST GUIDE ROLES</div><h3 className="mt-3 text-3xl font-black text-white">A clear guide for every kind of visit.</h3><p className="mt-4 text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>These are transparent portal roles and navigation patterns—not claims of independent consciousness, private-system access, legal authority, or autonomous control. They help the Legion and every visitor find a useful next step.</p></article><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{SPECIALIST_GUIDE_ROLES.map(guide => <Link key={guide.role} href={guide.href} className="rounded-2xl border p-4 transition-transform hover:-translate-y-0.5" style={{ borderColor: `${guide.color}38`, background: "rgba(4,14,30,0.7)" }}><div className="text-[10px] font-mono tracking-widest" style={{ color: guide.color }}>{guide.focus.toUpperCase()}</div><h3 className="mt-2 font-black text-white">{guide.role}</h3><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{guide.detail}</p></Link>)}</div></div>
+      </div>
+    </section>
+  );
+}
+
+const VISITOR_DISCOVERY_PATHS = [
+  { kicker: "START HERE", title: "Visual Tutorial Studio", detail: "Open six short, clear learning paths for the portal, ideas, AI, books, chess, and release preparation.", href: "/tutorial-studio", icon: "✦", color: "#9DEBFF" },
+  { kicker: "READ", title: "Books & Perspectives", detail: "Follow reader paths for owner-authored books, source-led perspectives, and edition planning.", href: "/books", icon: "▤", color: "#D6C4FF" },
+  { kicker: "WATCH", title: "Original Visual Worlds", detail: "Explore browser-local original media, youth-supported viewing pathways, and visual-story readiness.", href: "/junior-movies", icon: "◉", color: "#FFB800" },
+  { kicker: "BUILD", title: "Creator Operations", detail: "See how source records, rights, audience evidence, and specialist pathways support creator work.", href: "/creator-operations-intelligence", icon: "⌘", color: "#FF8A4C" },
+  { kicker: "LEARN WITH AI", title: "AI Constellation", detail: "Meet original guide roles, use clear tutorials, and discover public AI options without implied integration.", href: "/ai-constellation", icon: "◌", color: "#00FF88" },
+] as const;
+
+function VisitorDiscoveryRail() {
+  return (
+    <section className="relative overflow-hidden border-y" style={{ background: "radial-gradient(circle at 8% 14%, rgba(0,212,255,.15), transparent 23%), radial-gradient(circle at 91% 87%, rgba(185,140,255,.17), transparent 30%), #071124", borderColor: "rgba(0,212,255,.18)" }}>
+      <div className="container py-14">
+        <div className="grid gap-7 xl:grid-cols-[.78fr_1.22fr] xl:items-end">
+          <div>
+            <div className="text-xs font-mono tracking-[.18em]" style={{ color: "#9DEBFF" }}>CHOOSE YOUR NEXT CLEAR PATH</div>
+            <h2 className="mt-3 max-w-xl text-3xl font-black leading-tight text-white sm:text-4xl">The first minute should make the next route obvious.</h2>
+            <p className="mt-4 max-w-xl text-sm leading-7" style={{ color: "#C8D8E7" }}>Start with a visual tutorial or move directly to reading, original visual worlds, creator operations, or AI-guided learning. Every route stays source-led and visitor-directed.</p>
+            <div className="mt-6 rounded-2xl border p-4" style={{ borderColor: "rgba(0,255,136,.28)", background: "rgba(0,255,136,.05)" }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#B5F7CC" }}>AGGREGATE DISCOVERY NOTE</p><p className="mt-2 text-xs leading-6" style={{ color: "#C8D8E7" }}>Owner-shared aggregate portal observations guide this local discovery rail; individual identity, attribution, conversion, and revenue are not inferred.</p></div>
+            <Link href="/tutorial-studio" className="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#00D4FF", color: "#071426" }}>Open Visual Tutorial Studio <span>→</span></Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{VISITOR_DISCOVERY_PATHS.map(path => <Link key={path.href} href={path.href} className="group rounded-3xl border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${path.color}42`, background: "rgba(255,255,255,.028)" }}><div className="flex items-start justify-between gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl" style={{ background: `${path.color}16`, color: path.color }}>{path.icon}</span><span className="text-[10px] font-mono opacity-0 transition-opacity group-hover:opacity-100" style={{ color: path.color }}>OPEN →</span></div><p className="mt-5 text-[10px] font-mono tracking-[.14em]" style={{ color: path.color }}>{path.kicker}</p><h3 className="mt-2 text-lg font-black text-white">{path.title}</h3><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{path.detail}</p></Link>)}</div>
+        </div>
       </div>
     </section>
   );
@@ -1045,6 +1073,7 @@ export default function Home() {
     { label: "Vibe Canvas", href: "/vibe-canvas" },
     { label: "August 28 Launch", href: "/august-28-launch" },
     { label: "AI Constellation", href: "/ai-constellation" },
+    { label: "Tutorial Studio", href: "/tutorial-studio" },
     { label: "Equation Study", href: "/chais-sabir-equation" },
     { label: "Sync Research", href: "/synchronization-research" },
     { label: "Creator Books", href: "/creator-books" },
@@ -1955,6 +1984,7 @@ export default function Home() {
       </section>
       <ManusHeroWelcome />
       <ArtifactAndSpecialistNavigator />
+      <VisitorDiscoveryRail />
       <section
         style={{
           background: "linear-gradient(135deg, rgba(255,0,80,0.08) 0%, rgba(255,184,0,0.06) 50%, rgba(0,212,255,0.06) 100%)",
