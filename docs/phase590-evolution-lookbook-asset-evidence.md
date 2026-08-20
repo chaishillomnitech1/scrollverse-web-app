@@ -30,3 +30,5 @@ The submitted description of a four-look collection, IPFS uploads, metadata patc
 ## Expanded Set Grouping
 
 The later owner-supplied visual sequence is recorded as an **expanded original visual set** pending per-file neutral descriptions and accessibility drafts. The repeated dashboard-image captures are retained separately as **aggregate analytics evidence** under Phase 588, not as lookbook product, market, or audience-conversion evidence. This separation keeps the visual exhibit focused on the work itself while preserving the aggregate discovery record and its privacy limits.
+
+The first reviewed extension group adds `SV-EVO-003` (`780238741_1068001089113769_7778904387333172771_n.webp`, SHA-256 `1c39cb087693a996fc5e1989b91ec48d3dce41502745f347109e005a91224081`) and `SV-EVO-004` (`780201782_1261951042647206_330645861557828272_n.webp`, SHA-256 `e64a3a3c2af4e714313051837b04a5d683500150afc335404ad629335d906a45`). Both are browser-local public-choice exhibits with provisional concise alt text pending the owner’s preferred descriptive wording or a completed neutral visual review.
