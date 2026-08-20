@@ -17,6 +17,10 @@ describe("Phase 592 — Cross-World Visual Storytelling", () => {
     expect(page).toContain("TWELVE CONNECTED WORLDS");
     expect(page).toContain("NARRATION CUE · 8–15 SECOND STARTER");
     expect(page).toContain("Future Asset Display");
+    expect(page).toContain("CROSS-WORLD HANDOFFS");
+    expect(page).toContain("Crypto Artifact Lookbook");
+    expect(page).toContain("Creator Broadcast Preparation");
+    expect(page).toContain("NARRATION BRIDGE · 8–15 SECONDS");
   });
 
   it("keeps visual narration and future asset concepts separate from external execution", () => {
@@ -26,6 +30,7 @@ describe("Phase 592 — Cross-World Visual Storytelling", () => {
     expect(page).toContain("not generated audio");
     expect(page).toContain("does not generate or publish media");
     expect(page).toContain("mint an NFT");
+    expect(page).toContain("it does not create, post, or distribute media");
     expect(design).toContain("Future Digital-Asset Display Boundary");
     expect(design).toContain("does not generate a video");
   });
