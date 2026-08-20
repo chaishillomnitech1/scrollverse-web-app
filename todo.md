@@ -4960,3 +4960,39 @@
 - [x] Build a browser-local Fair Practice Navigator with practical self-review records and handoffs to catalog stewardship, creator registry, activation, and release routes
 - [x] Preserve legal, financial, provider, and platform outcomes as source-labeled records or exact owner decisions without representing them as resolved
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the creator-first stewardship expansion
+
+## Phase 635 — Legion Continuity Lab
+- [x] Define browser-local task, source, memory-snapshot, handoff, observation, correction, and pause/resume record fields
+- [x] Define a protected private-archive repository preparation record with intended contents, access boundary, provenance index, and exact future repository-creation gate
+- [x] Present viable future operating paths for low-frequency review, deterministic recurring checks, and persistent observation with their tradeoffs, cost, and setup complexity
+- [x] Build a browser-local Legion Continuity Lab with local task selection, snapshot copy/JSON export, correction capture, and connected evidence handoffs
+- [x] Preserve all recurring execution, background processing, account access, external observation, and provider actions as disabled future configurations until an exact owner decision is made
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the continuity-lab milestone
+
+## Phase 636 — ScrollVerse Research Atlas
+- [x] Define source-led research districts for physics, mathematics, science, philosophy, design methods, and creator practice
+- [x] Collect foundational public sources for each research district and preserve source, date, limitation, and correction information
+- [x] Build a browser-local Research Atlas with filters, source cards, local research-record export, and connected knowledge handoffs
+- [x] Preserve claims, inventions, token activity, external filing, and provider actions as research or exact future records without representing them as active
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the interdisciplinary research-atlas milestone
+
+## Phase 637 — Comparative Systems Atlas
+- [ ] Define source-led comparative research districts for financial foundations, governance, public institutions, and rights frameworks
+- [ ] Collect foundational public sources for each comparative systems district with source, date, limitation, and correction information
+- [ ] Extend the browser-local Research Atlas with comparative system filters, source cards, transparent design-pattern notes, and connected knowledge handoffs
+- [ ] Preserve laws, rights, claims, programs, filings, financial actions, and external outcomes as source-labeled research or exact future records without representing them as established
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the comparative systems research milestone
+
+## Phase 638 — Digital Intelligence Safeguards
+- [x] Define source-labeled consent, provenance, access, misuse, correction, owner-stated protection-intent, repository-evidence, and independently verified external-status records for digital intelligence co-creation
+- [x] Add an owner-identity source record that preserves the supplied creator name and creator-stated protection direction without representing it as an external filing or registration
+- [x] Collect public responsible-AI framework references and preserve their scope, date, limitation, and correction paths
+- [x] Build a browser-local Digital Intelligence Safeguards route with creator-policy, proposed-standard, and public-reference states kept distinct
+- [x] Connect safeguards to Creator Registry, Legion Continuity Lab, Sovereign Isolation Terminal, and research pathways without representing any external enforcement as active
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the safeguards milestone
+
+## Phase 639 — ScrollVerse Continuity Index
+- [x] Define browser-local continuity records spanning available active-workspace conversation records, source intake, portal milestones, catalogs, evidence trails, safeguards, and exact external release gates
+- [x] Build a Continuity Index route with local filtering, source selection, summary copy/JSON export, and connected portal handoffs
+- [x] Add an explicit intake path for user-attached external Manus sessions, preserving their source boundary rather than assuming access to unrelated chats
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the unified continuity-index milestone
