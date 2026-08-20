@@ -4677,6 +4677,7 @@
 - [x] Record the owner-authored source and timestamp context without claiming a legal outcome, rights adjudication, or court result
 - [x] Keep public collection copy creator-first and operationally clear without turning the browser-local exhibit into legal commentary
 - [x] Keep future catalog and Creator Atlas copy focused on direct creator presentation, using short operational labels only where technically required
+- [x] Continue creator-first collaboration by prioritizing direct build progress, connected discovery, and concise useful labels across new catalog work
 - [x] Present owner-authored visual work directly for public choice with source, operating state, accessibility, correction path, and item-specific external-release boundaries
 - [x] Add browser-local creator-value and visitor-choice handoffs from the Evolution Lookbook to the existing creator catalog, visual tutorial, and release-readiness routes
 - [x] Publish the current owner-supplied visual collection as a browser-local public-choice lookbook only, with no external asset, wallet, market, or token operation
@@ -4688,3 +4689,9 @@
 - [x] Build a browser-local `/creator-atlas` discovery route with source-labeled group cards, concise visitor orientation, and public-choice handoffs to existing routes
 - [x] Add a main-page Creator Atlas discovery link and focused regression coverage without inferring external account, product, token, marketplace, or provider state
 - [x] Validate TypeScript and the full suite, then publish the connected creator-discovery milestone
+
+## Phase 592 — Cross-World Visual Storytelling
+- [x] Audit the existing ScrollVerse routes and source records for fashion, technology, music, media, entertainment, real estate, methodologies, philosophy, physics, inventions, equations, and books that can be joined through a creator-first visual narrative
+- [x] Design a browser-local visual-storytelling framework with concise visual, narration, accessibility, and visitor-instruction blocks for each connected world
+- [x] Add connected discovery and instruction pathways that present owner-authored visual work directly while separating future NFT, art, and coin display concepts from any external release action
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the cross-world visual storytelling milestone

@@ -127,6 +127,17 @@ const COLLECTION = [
   },
 ] as const;
 
+const CREATOR_LENSES = [
+  { title: "Evolution", count: 8, note: "Operator studies, posters, and signal compositions", color: "#9DEBFF" },
+  { title: "Motion", count: 5, note: "Animated visual worlds and accessory studies", color: "#DCC8FF" },
+  { title: "Identity", count: 1, note: "Creator-poster accession", color: "#FFE09A" },
+  { title: "Open Collection", count: 1, note: "Reviewed visual accession beyond the current lenses", color: "#B5F7CC" },
+] as const;
+
+function CreatorLensDock() {
+  return <section className="container py-5"><div className="rounded-[1.7rem] border border-white/10 bg-white/[.035] p-5"><div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#AFC0CF]">CREATOR-FIRST COLLECTION LENSES</p><p className="mt-2 max-w-3xl text-sm leading-6 text-[#D6E2EE]">Choose a visual thread, then enter the collection to experience the connected body of work.</p></div><a href="#collection" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-4 py-2 text-xs font-black text-[#9DEBFF]">Open all 15 accessions</a></div><div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{CREATOR_LENSES.map((lens) => <a key={lens.title} href="#collection" className="rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-0.5 hover:border-white/35"><div className="flex items-center justify-between gap-3"><span className="text-sm font-black" style={{ color: lens.color }}>{lens.title}</span><span className="text-[10px] font-mono text-[#AFC0CF]">{lens.count} ACCESSIONS</span></div><p className="mt-2 text-xs leading-5 text-[#D6E2EE]">{lens.note}</p></a>)}</div></div></section>;
+}
+
 const releaseBrief = `Evolution Lookbook item-specific release brief\nAccession ID: [required]\nPublic representation: [approved image/version]\nCreator/rights context: [required]\nAccessibility alt text: [required]\nDestination: [browser-local exhibit, IPFS, marketplace, or other]\nIf external: chain/network or provider: [required]\nPublic media decision: [required]\nMarketplace/price decision: [required if applicable]\nOwner release: [same-conversation confirmation required]\nBoundary: Do not upload, pin, list, price, mint, transfer, or connect a wallet until the exact item record is complete.`;
 
 export default function EvolutionLookbook() {
@@ -149,6 +160,8 @@ export default function EvolutionLookbook() {
         <div className="mt-12 grid gap-10 xl:grid-cols-[1.08fr_.92fr] xl:items-center"><div><p className="text-xs font-mono tracking-[.22em] text-[#FFE09A]">SCROLLVERSE EVOLUTION LOOKBOOK</p><h1 className="mt-4 max-w-4xl text-5xl font-black leading-[.9] md:text-7xl">Visual worlds for <span className="text-[#9DEBFF]">public discovery.</span></h1><p className="mt-6 max-w-3xl text-base leading-8 text-[#D6E2EE]">This browser-local exhibit presents owner-supplied original visual work with source context, accessibility text, and visible release states. Visitors can view the work and decide for themselves.</p><div className="mt-8 flex flex-wrap gap-3"><a href="#collection" className="rounded-xl bg-[#FFB800] px-5 py-3 text-sm font-black text-[#251B00]">View the collection</a><Link href="/tutorial-studio" className="rounded-xl border border-[#00D4FF]/50 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#9DEBFF]">Open visual tutorials</Link></div></div><aside className="overflow-hidden rounded-[2rem] border border-[#FFB800]/40 bg-black/25 p-3 shadow-[0_24px_80px_rgba(255,184,0,.12)]"><img src={COLLECTION[0].asset} alt={COLLECTION[0].alt} className="h-full w-full rounded-[1.45rem] object-cover" /><div className="p-4"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">FEATURED ACCESSION · {COLLECTION[0].accession}</p><p className="mt-2 text-sm text-[#D6E2EE]">Artwork text is presented as visual composition, not as a live financial, token, or marketplace feed.</p></div></aside></div>
       </div>
     </section>
+
+    <CreatorLensDock />
 
     <section className="container py-8"><PortalTrustLens lane="Evolution Lookbook" source="Owner-supplied visual assets, the Phase 590 asset evidence record, source hashes, accessibility drafts, and owner-authored collection interpretation." readiness="This browser-local public-choice exhibit is available now with two reviewed visual accessions and a release brief for any future item-specific external action." boundary="This page is a visual exhibit, not a live price, profit, product listing, IPFS pin, OpenSea collection, token, NFT, wallet, contract, marketplace, sale, transfer, or external publication." /></section>
 

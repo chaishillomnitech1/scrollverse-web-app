@@ -414,6 +414,7 @@ import CreatorBooksPublishingDesk from "./pages/CreatorBooksPublishingDesk";
 import VisualTutorialStudio from "./pages/VisualTutorialStudio";
 import EvolutionLookbook from "./pages/EvolutionLookbook";
 import CreatorAtlas from "./pages/CreatorAtlas";
+import VisualStoryWorlds from "./pages/VisualStoryWorlds";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -647,6 +648,7 @@ function Router() {
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
       <Route path={"/evolution-lookbook"} component={EvolutionLookbook} />
       <Route path={"/creator-atlas"} component={CreatorAtlas} />
+      <Route path={"/visual-story-worlds"} component={VisualStoryWorlds} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />

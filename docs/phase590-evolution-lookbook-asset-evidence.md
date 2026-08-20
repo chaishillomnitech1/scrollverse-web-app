@@ -101,3 +101,7 @@ The text does not establish any real pin, collection file, contract, royalty con
 `IMG_1748.PNG`, `IMG_1749.PNG`, and `IMG_1750.PNG` are owner-shared workflow screenshots. Per the owner’s direction, their images were not re-opened after receipt. The visible text supplied with the screenshots references mock or potential IPFS identifiers, deploy instructions, a six-look banner concept, ticker values, a future Pinata credential, and a prospective mint action.
 
 The screenshots are retained as first-party workflow context for collection organization and visual-release planning. They do not change the browser-local exhibit or establish any active pin, contract, price, oracle, marketplace, token, wallet, deployment, or mint state. No external link, file, credential, script, chain, or wallet action was performed from this record.
+
+## Creator-First Collection Lenses
+
+The reviewed browser-local accessions can be encountered through concise lenses rather than a single undifferentiated feed. **Evolution** groups the operator, poster, and signal compositions (`SV-EVO-001` through `SV-EVO-006`). **Motion** groups the animated visual works (`SV-EVO-007`, `SV-EVO-010`, `SV-EVO-012`, `SV-EVO-014`, and `SV-EVO-015`). **Identity** groups the named creator poster (`SV-EVO-013`). These are navigation lenses for visitors, not categories of external products, tokens, prices, or listings.
