@@ -921,6 +921,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "◫", title: "Books & Media Readiness", detail: "See what is readable now, what media is actually available, and which book-release steps remain owner or provider controlled.", href: "/books-media-readiness", color: "#00FF88" },
   { icon: "📚", title: "Creator Books Publishing Desk", detail: "Explore owner-authored reading paths, manuscript and edition planning, accessibility controls, and title-specific owner-release gates without implied publication.", href: "/creator-books", color: "#D6C4FF" },
   { icon: "✦", title: "Visual Tutorial Studio", detail: "Start with short, clear visual learning paths for the portal, ideas, AI, books, chess, and launch readiness; copy a release-aware short-video brief without implying an external upload.", href: "/tutorial-studio", color: "#9DEBFF" },
+  { icon: "◉", title: "Connected Creator Atlas", detail: "Move through owner-authored visual worlds, learning, books, creator systems, and archive routes as one connected body of work.", href: "/creator-atlas", color: "#FFE09A" },
   { icon: "⟐", title: "Recovery Materials", detail: "Inspect the source-labeled classification of newly supplied recovery exports and open only public-safe concept pathways.", href: "/recovery-materials", color: "#B98CFF" },
   { icon: "✦", title: "Co-Creation Navigator", detail: "Offer original work, sources, corrections, access improvements, or route ideas through a transparent, review-labeled contribution path.", href: "/co-creation-navigator", color: "#00D4FF" },
   { icon: "🧩", title: "Idea Exchange", detail: "Name what you offer, what you seek, and draft a respectful collaboration brief without creating a public profile or social feed.", href: "/idea-exchange", color: "#B98CFF" },
@@ -989,6 +990,7 @@ const VISITOR_DISCOVERY_PATHS = [
   { kicker: "BUILD", title: "Creator Operations", detail: "See how source records, rights, audience evidence, and specialist pathways support creator work.", href: "/creator-operations-intelligence", icon: "⌘", color: "#FF8A4C" },
   { kicker: "LEARN WITH AI", title: "AI Constellation", detail: "Meet original guide roles, use clear tutorials, and discover public AI options without implied integration.", href: "/ai-constellation", icon: "◌", color: "#00FF88" },
   { kicker: "VISUAL EXHIBIT", title: "Evolution Lookbook", detail: "View owner-supplied visual compositions with accessibility text and clear external-release boundaries.", href: "/evolution-lookbook", icon: "✧", color: "#FFE09A" },
+  { kicker: "CONNECTED WORK", title: "Creator Atlas", detail: "Choose a doorway into visual worlds, learning, books, creator systems, or the source record.", href: "/creator-atlas", icon: "◉", color: "#FFE09A" },
 ] as const;
 
 function VisitorDiscoveryRail() {

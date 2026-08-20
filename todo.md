@@ -4678,3 +4678,9 @@
 - [x] Publish the current owner-supplied visual collection as a browser-local public-choice lookbook only, with no external asset, wallet, market, or token operation
 - [x] Build a browser-local Evolution Lookbook readiness route with source-labeled visual cards, original creator interpretation, accessibility descriptions, and exact item-specific public-display, IPFS, marketplace, or token release gates
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the lookbook readiness experience without uploading, pinning, listing, pricing, selling, tokenizing, or connecting a wallet
+
+## Phase 591 — Connected Creator Atlas
+- [x] Audit and map the existing browser-local visual artifact, app, learning, book, AI, archive, and creator-readiness routes into connected creator-work groups
+- [x] Build a browser-local `/creator-atlas` discovery route with source-labeled group cards, concise visitor orientation, and public-choice handoffs to existing routes
+- [x] Add a main-page Creator Atlas discovery link and focused regression coverage without inferring external account, product, token, marketplace, or provider state
+- [x] Validate TypeScript and the full suite, then publish the connected creator-discovery milestone
