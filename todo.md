@@ -4662,11 +4662,11 @@
 - [ ] Receive one complete owner-provided input for a held external lane and use it only for the corresponding item-specific release preparation or action
 
 ## Phase 590 — Evolution Lookbook Asset Evidence and Readiness
-- [ ] Inventory the supplied visual collection and paired source records with filenames, format, SHA-256 evidence hashes, visible-content notes, accessibility alt-text drafts, and private/public-display boundaries
-- [ ] Create a full direct-source manifest with duplicate clusters, source-family counts, provisional group labels, and accession review state for every selected visual file
+- [x] Inventory the supplied visual collection and paired source records with filenames, format, SHA-256 evidence hashes, visible-content notes, accessibility alt-text drafts, and private/public-display boundaries
+- [x] Create a full direct-source manifest with duplicate clusters, source-family counts, provisional group labels, and accession review state for every selected visual file
 - [x] Complete the expanded visual inventory through direct local source manifests and collection-group records after the parallel batch review path failed
 - [x] Re-run the full expanded visual research through direct local inventory after the interrupted parallel review pass
-- [ ] Organize the expanded original visual sets into source-labeled collection groups with neutral descriptions, accessibility drafts, and individual public-display review states
+- [x] Organize the expanded original visual sets into source-labeled collection groups with neutral descriptions, accessibility drafts, and individual public-display review states
 - [x] Select and add the next reviewed original visual collection group to the browser-local lookbook with source, accessibility, and visitor-path labels
 - [x] Group the newly supplied image sequence and repeated aggregate dashboard captures into separate creative-source and analytics-evidence records without exposing private data or inferring external outcomes
 - [x] Classify the quoted IPFS, price-ticker, OpenSea, token, and profit statements as non-executable external workflow proposals and retain only supported visual, metadata, accessibility, and release-readiness lessons

@@ -105,3 +105,9 @@ The screenshots are retained as first-party workflow context for collection orga
 ## Creator-First Collection Lenses
 
 The reviewed browser-local accessions can be encountered through concise lenses rather than a single undifferentiated feed. **Evolution** groups the operator, poster, and signal compositions (`SV-EVO-001` through `SV-EVO-006`). **Motion** groups the animated visual works (`SV-EVO-007`, `SV-EVO-010`, `SV-EVO-012`, `SV-EVO-014`, and `SV-EVO-015`). **Identity** groups the named creator poster (`SV-EVO-013`). These are navigation lenses for visitors, not categories of external products, tokens, prices, or listings.
+
+## Full Direct-Source Manifest
+
+`docs/phase590-direct-source-manifest.md` is the current deterministic local record for every visual file detected in the owner-supplied intake directory. The latest scan records **450 visual files**, **337 unique content hashes**, **100 duplicate-hash clusters**, and **113 repeated file instances beyond the first**. Each row carries its filename, local format summary, SHA-256 identifier, source-family label, duplicate-cluster state, provisional accession state, visible-content note, accessibility draft, and public-display boundary.
+
+The manifest separates fifteen browser-local `SV-EVO` accessions from the remaining source-intake material and retains the identified sports-likeness screenshot in private review. The grouped intake labels are **numbered visual and motion works**, **IMG sequence**, **attachment JPEG sequence**, and **other visual source**. Duplicate filenames never create a separate exhibit accession automatically. All selection, detailed visual description, accessibility refinement, and public-display decisions remain append-only per file record.

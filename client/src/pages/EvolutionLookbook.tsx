@@ -143,6 +143,16 @@ const releaseBrief = `Evolution Lookbook item-specific release brief\nAccession 
 export default function EvolutionLookbook() {
   useSovereignHeartbeat({ page: "evolution-lookbook" });
 
+  const sourceGroups = [
+    { title: "Browser-local exhibit", count: "15 accessions", state: "AVAILABLE NOW", detail: "Named Evolution Lookbook cards with source labels and accessibility text.", color: "#B5F7CC" },
+    { title: "Numbered visual + motion works", count: "44 files", state: "SOURCE INTAKE", detail: "WEBP and GIF source files; select a record for the next direct visual review.", color: "#9DEBFF" },
+    { title: "IMG visual archive", count: "220 files", state: "SOURCE INTAKE", detail: "PNG source sequence, including one separately held private-review candidate.", color: "#DCC8FF" },
+    { title: "Attached image archive", count: "148 files", state: "SOURCE INTAKE", detail: "JPEG source sequence grouped by duplicate-aware source records.", color: "#FFE09A" },
+    { title: "Other visual source", count: "38 files", state: "SOURCE INTAKE", detail: "Additional JPEG and PNG material retained for later selection and review.", color: "#FFB48C" },
+  ] as const;
+
+  const SourceCollectionGroups = () => <section className="container py-5"><div className="rounded-[1.7rem] border border-[#B98CFF]/30 bg-[#B98CFF]/[.045] p-5"><div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#DCC8FF]">SOURCE-LABELED COLLECTION GROUPS</p><p className="mt-2 max-w-3xl text-sm leading-6 text-[#D6E2EE]">The local visual intake is organized by source family. Each group stays distinct until a selected file receives its own direct description and display decision.</p></div><Link href="/creator-collection-records" className="rounded-xl border border-[#B98CFF]/50 bg-[#B98CFF]/10 px-4 py-2 text-xs font-black text-[#DCC8FF]">Open collection records</Link></div><div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">{sourceGroups.map((group) => <article key={group.title} className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-[10px] font-mono tracking-[.13em]" style={{ color: group.color }}>{group.state}</p><h3 className="mt-3 text-base font-black">{group.title}</h3><p className="mt-2 text-xs font-mono" style={{ color: group.color }}>{group.count}</p><p className="mt-3 text-xs leading-5 text-[#D6E2EE]">{group.detail}</p></article>)}</div></div></section>;
+
   const copyReleaseBrief = async () => {
     try {
       await navigator.clipboard.writeText(releaseBrief);
@@ -162,6 +172,8 @@ export default function EvolutionLookbook() {
     </section>
 
     <CreatorLensDock />
+
+    <SourceCollectionGroups />
 
     <section className="container py-8"><PortalTrustLens lane="Evolution Lookbook" source="Owner-supplied visual assets, the Phase 590 asset evidence record, source hashes, accessibility drafts, and owner-authored collection interpretation." readiness="This browser-local public-choice exhibit is available now with two reviewed visual accessions and a release brief for any future item-specific external action." boundary="This page is a visual exhibit, not a live price, profit, product listing, IPFS pin, OpenSea collection, token, NFT, wallet, contract, marketplace, sale, transfer, or external publication." /></section>
 

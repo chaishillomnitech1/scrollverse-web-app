@@ -17,6 +17,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
     expect(page).toContain("Fifteen visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
+    expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
     expect(page).toContain("SV-EVO-015");
     expect(page).toContain('href="/creator-books"');
@@ -31,5 +32,16 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("not as a live financial, token, or marketplace feed");
     expect(evidence).toContain("artwork content");
     expect(evidence).toContain("No price, profit, token, contract");
+  });
+
+  it("keeps a complete source and duplicate-cluster record for the visual intake", () => {
+    const evidence = read("docs/phase590-evolution-lookbook-asset-evidence.md");
+    const manifest = read("docs/phase590-direct-source-manifest.md");
+
+    expect(evidence).toContain("Full Direct-Source Manifest");
+    expect(manifest).toContain("Per-File Source Record");
+    expect(manifest).toContain("Duplicate-Hash Clusters");
+    expect(manifest).toContain("SV-EVO-015");
+    expect(manifest).toContain("requires owner display review");
   });
 });
