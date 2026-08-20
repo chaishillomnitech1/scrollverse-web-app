@@ -4765,3 +4765,9 @@
 - [x] Collect current portal capability records and public benchmark evidence without assuming a global rank, authority, or outcome
 - [x] Publish a browser-local capability scorecard with citations, limits, and a correction pathway
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the evidence-led comparison
+
+## Phase 604 — Continued Physical-and-Digital Archive Review
+- [x] Select the next owner-supplied visual or object candidates for direct archive review
+- [x] Create neutral accession evidence, source hashes, accessibility drafts, and public-display decisions
+- [x] Add only clear source-labeled records to connected browser-local archive routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the continued archive milestone

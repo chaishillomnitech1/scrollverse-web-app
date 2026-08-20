@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Twenty-four visual accessions");
+    expect(page).toContain("Twenty-five visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -29,6 +29,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-022");
     expect(page).toContain("SV-EVO-023");
     expect(page).toContain("SV-EVO-024");
+    expect(page).toContain("SV-EVO-025");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
@@ -38,6 +39,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("Chais: Black-and-Gold Sovereign Poster");
     expect(page).toContain("STR8 DROP: Chest Crest Apparel Record");
     expect(page).toContain("STR8 DROP: Front Crest Apparel Record");
+    expect(page).toContain("STR8 DROP: Purity Brand Apparel Record");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -115,5 +117,14 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("SV-PHYS-APP-002");
     expect(review).toContain("f36759c13421aaecf45c38f4dc330f1b9fcd5241a635e6e3acc24807b6508157");
     expect(review).toContain("c8e05fb9f6ee2d13f39d7e46deaf65fd67dec2b54eb1484986df132bc369d939");
+  });
+
+  it("documents the Purity Brand apparel image while retaining the third-party-marked fashion board as a protected reference", () => {
+    const review = read("docs/phase604-continued-archive-review.md");
+
+    expect(review).toContain("SV-PHYS-APP-003");
+    expect(review).toContain("SV-REF-FASH-004");
+    expect(review).toContain("not selected for browser-local exhibit");
+    expect(review).toContain("c2bf7852723018d12ace40a7bc5b9ee1d98dfed9c0548cd413358ef3260b8312");
   });
 });
