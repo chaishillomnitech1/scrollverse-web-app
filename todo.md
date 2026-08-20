@@ -4665,7 +4665,7 @@
 - [ ] Inventory the supplied visual collection and paired source records with filenames, format, SHA-256 evidence hashes, visible-content notes, accessibility alt-text drafts, and private/public-display boundaries
 - [ ] Organize the expanded original visual sets into source-labeled collection groups with neutral descriptions, accessibility drafts, and individual public-display review states
 - [x] Select and add the next reviewed original visual collection group to the browser-local lookbook with source, accessibility, and visitor-path labels
-- [ ] Group the newly supplied image sequence and repeated aggregate dashboard captures into separate creative-source and analytics-evidence records without exposing private data or inferring external outcomes
+- [x] Group the newly supplied image sequence and repeated aggregate dashboard captures into separate creative-source and analytics-evidence records without exposing private data or inferring external outcomes
 - [x] Classify the quoted IPFS, price-ticker, OpenSea, token, and profit statements as non-executable external workflow proposals and retain only supported visual, metadata, accessibility, and release-readiness lessons
 - [x] Record the repeated four-look, IPFS, OpenSea, and price-ticker text as duplicate non-executable workflow context without creating a credential, script execution, live feed, asset pin, listing, or token action
 - [x] Record the owner-authored source and timestamp context without claiming a legal outcome, rights adjudication, or court result

@@ -43,3 +43,7 @@ The rail will carry a concise evidence label: **“Owner-shared aggregate portal
 ## Correction Path
 
 The owner may append a new dashboard capture with a clear date range, timezone, aggregate source definitions, or updated visible route list. A new capture supplements rather than silently overwrites this record.
+
+## Repeated Capture Grouping
+
+The later `IMG_1718.png` through `IMG_1721.png` captures and the repeated `att.*(1).jpeg` dashboard-image sequence are grouped as additional owner-shared aggregate dashboard evidence. They preserve the same source limitation: values shown in dashboard images are aggregate observations, not identity, sales, revenue, conversion, wallet, token, or provider-performance evidence. New captures append to the evidence record rather than replace its earlier observations.
