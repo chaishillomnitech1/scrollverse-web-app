@@ -4928,11 +4928,11 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protection-research milestone
 
 ## Phase 630 — Sovereign Isolation Terminal
-- [ ] Define browser-local audit record fields and staged release-checklist verification requirements
-- [ ] Build the Sovereign Isolation Terminal with browser-local filtering, record selection, JSON/text export, and no external transmission
-- [ ] Bind local release checklists to verified source, build, tests, accessibility, owner-release, and deployment-state gates
-- [ ] Connect the terminal to replay readiness, activation records, Creator Registry, and Story Worlds routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the local audit-control milestone
+- [x] Define browser-local audit record fields and staged release-checklist verification requirements
+- [x] Build the Sovereign Isolation Terminal with browser-local filtering, record selection, JSON/text export, and no external transmission
+- [x] Bind local release checklists to verified source, build, tests, accessibility, owner-release, and deployment-state gates
+- [x] Connect the terminal to replay readiness, activation records, Creator Registry, and Story Worlds routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the local audit-control milestone
 
 ## Phase 631 — Cover Art Storyworlds
 - [ ] Inventory the supplied Spotify artist catalog and current catalog cover-art records, preserving each source, title, available visual context, and owner-provided publishing/distribution context

@@ -433,6 +433,7 @@ import CoverArtStoryworlds from "./pages/CoverArtStoryworlds";
 import PublicFootprint from "./pages/PublicFootprint";
 import CatalogStewardship from "./pages/CatalogStewardship";
 import FairPracticeNavigator from "./pages/FairPracticeNavigator";
+import SovereignIsolationTerminal from "./pages/SovereignIsolationTerminal";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -671,6 +672,7 @@ function Router() {
       <Route path={"/public-footprint"} component={PublicFootprint} />
       <Route path={"/catalog-stewardship"} component={CatalogStewardship} />
       <Route path={"/fair-practice"} component={FairPracticeNavigator} />
+      <Route path={"/sovereign-isolation-terminal"} component={SovereignIsolationTerminal} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
