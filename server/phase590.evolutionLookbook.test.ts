@@ -15,11 +15,15 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Fifteen visual accessions");
+    expect(page).toContain("Seventeen visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
     expect(page).toContain("SV-EVO-015");
+    expect(page).toContain("SV-EVO-016");
+    expect(page).toContain("SV-EVO-017");
+    expect(page).toContain("Vineland Signal Studio");
+    expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -43,5 +47,14 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(manifest).toContain("Duplicate-Hash Clusters");
     expect(manifest).toContain("SV-EVO-015");
     expect(manifest).toContain("requires owner display review");
+  });
+
+  it("adds direct-review evidence for the newest browser-local visual accessions", () => {
+    const review = read("docs/phase596-evolution-lookbook-visual-review.md");
+
+    expect(review).toContain("SV-EVO-016");
+    expect(review).toContain("SV-EVO-017");
+    expect(review).toContain("9f0a66b3996d687231fd44f6d11827ffaacdf83e00aae07f1ba328dc4000db48");
+    expect(review).toContain("0b0acfa24ee9e44a759db7d261ff77b9ed0c1e0cdc8c5212e00b21846aecb966");
   });
 });

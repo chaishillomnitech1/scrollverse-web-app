@@ -4716,3 +4716,9 @@
 - [x] Record concise source labels, accessible original-production directions, and non-reproduction boundaries for the reference index
 - [x] Connect the indexed media references to browser-local creator, tutorial, and media-preparation routes without embedding, downloading, or republishing source media
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the media reference index
+
+## Phase 596 — Evolution Lookbook Visual Catalog Expansion
+- [x] Identify the next distinct owner-supplied visual source candidates not already represented as browser-local Evolution Lookbook accessions
+- [x] Review selected visual works directly and create source-hash, accessibility, and public-display evidence entries
+- [x] Add the reviewed accessions to the browser-local lookbook and connected creator discovery pathways
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the visual catalog expansion
