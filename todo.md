@@ -4734,3 +4734,9 @@
 - [x] Create source-labeled accession evidence, accessibility drafts, and clear public-display decisions
 - [x] Add reviewed visual accessions to the connected browser-local Evolution Lookbook catalog
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the continued catalog milestone
+
+## Phase 599 — Creator-First Visual Source-Set Review
+- [x] Identify the next distinct visual source candidates from the owner-supplied intake
+- [x] Document direct visual-review evidence, accessibility drafts, and display decisions for the selected set
+- [x] Add only clearly display-ready reviewed records to the browser-local Evolution Lookbook catalog
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the updated catalog

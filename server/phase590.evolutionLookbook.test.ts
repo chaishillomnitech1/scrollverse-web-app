@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Nineteen visual accessions");
+    expect(page).toContain("Twenty visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -24,10 +24,12 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-017");
     expect(page).toContain("SV-EVO-018");
     expect(page).toContain("SV-EVO-019");
+    expect(page).toContain("SV-EVO-020");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
     expect(page).toContain("AI Legion: Apex Knowledge Visual");
+    expect(page).toContain("ChaisTheGreat: Visual Empire Protector");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -78,5 +80,14 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("requires an item-specific public-display decision");
     expect(review).toContain("SV-EVO-019");
     expect(review).toContain("b0b7f16d8fe9a1643930ee0cb70c9eaf748d5f415225758fbc896622c009459a");
+  });
+
+  it("preserves third-party-marked fashion concepts while documenting the owner-branded character visual", () => {
+    const review = read("docs/phase599-creator-first-visual-source-set-review.md");
+
+    expect(review).toContain("SV-EVO-020-CANDIDATE");
+    expect(review).toContain("requires an item-specific public-display decision");
+    expect(review).toContain("SV-EVO-020");
+    expect(review).toContain("36ef0ce10030346c4cbe530f08c3d99303bfd08706bacb3394402f877107c935");
   });
 });
