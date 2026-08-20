@@ -4808,3 +4808,9 @@
 - [x] Refine collaboration and narrative source language so owner-supplied records are presented as meaningful creator evidence with their demonstrated scope visible
 - [x] Finalize the voluntary collaboration invitation and Episode 35 handoff without minimizing source material or inferring external actions
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the creator-first collaboration milestone
+
+## Phase 611 — Connected Systems Source Map
+- [x] Classify the supplied connected-system source record and preserve its topology, script, metric, and infrastructure assertions as source material
+- [x] Map verified current portal modules into a creator-first systems overview with source handoffs and concise operating labels
+- [x] Publish browser-local connected-systems navigation without adopting unverified deployment, hardware, metric, or execution claims
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the connected-systems overview milestone
