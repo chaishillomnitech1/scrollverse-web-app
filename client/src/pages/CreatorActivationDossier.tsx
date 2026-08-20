@@ -34,7 +34,22 @@ const STATES: Array<State | "All"> = ["All", "Needs access", "Needs source", "Ne
 export default function CreatorActivationDossier() {
   useSovereignHeartbeat({ page: "creator-activation-dossier" });
   const [filter, setFilter] = useState<State | "All">("All");
+  const [draftLaneId, setDraftLaneId] = useState(LANES[0].id);
+  const [sourceReference, setSourceReference] = useState("");
+  const [ownerConfirmation, setOwnerConfirmation] = useState("");
+  const [preparationNotes, setPreparationNotes] = useState("");
   const visible = useMemo(() => filter === "All" ? LANES : LANES.filter(lane => lane.state === filter), [filter]);
+  const draftLane = useMemo(() => LANES.find(lane => lane.id === draftLaneId) ?? LANES[0], [draftLaneId]);
+  const releaseDraft = useMemo(() => [
+    "SCROLLVERSE — CREATOR-CONTROLLED RELEASE RECORD",
+    `Lane: ${draftLane.lane}`,
+    `Current state: ${draftLane.state}`,
+    `Exact required record: ${draftLane.record}`,
+    `Source or file reference: ${sourceReference || "Not yet supplied"}`,
+    `Current owner confirmation: ${ownerConfirmation || "Not yet supplied"}`,
+    `Preparation notes: ${preparationNotes || "None"}`,
+    "Boundary: Browser-local draft only. No external action is authorized by this draft.",
+  ].join("\n"), [draftLane, ownerConfirmation, preparationNotes, sourceReference]);
 
   const exportDossier = () => {
     const content = [
@@ -65,6 +80,21 @@ export default function CreatorActivationDossier() {
     navigator.clipboard?.writeText(record).then(() => toast.success("Local lane record copied.")).catch(() => toast.message("Copy is available in a browser with clipboard permission."));
   };
 
+  const copyReleaseDraft = () => {
+    navigator.clipboard?.writeText(releaseDraft).then(() => toast.success("Local release record copied.")).catch(() => toast.message("Copy is available in a browser with clipboard permission."));
+  };
+
+  const exportReleaseDraft = () => {
+    const blob = new Blob([releaseDraft], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `scrollverse-release-record-${draftLane.id}.txt`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+    toast.success("Local release record exported.");
+  };
+
   return <main className="min-h-screen bg-[#050B1A] pb-20 text-white">
     <section className="border-b border-cyan-300/15 bg-[radial-gradient(circle_at_12%_5%,rgba(0,212,255,.16),transparent_28%),radial-gradient(circle_at_86%_12%,rgba(255,184,0,.15),transparent_26%)]">
       <div className="container py-16 md:py-24">
@@ -82,6 +112,33 @@ export default function CreatorActivationDossier() {
         <Filter className="mr-1 h-4 w-4 text-[#00D4FF]" />
         {STATES.map(state => <button key={state} onClick={() => setFilter(state)} aria-pressed={filter === state} className={`rounded-full px-3 py-2 text-xs font-bold transition ${filter === state ? "bg-[#00D4FF] text-[#050B1A]" : "bg-white/5 text-slate-300 hover:bg-white/10"}`}>{state}</button>)}
       </div>
+
+      <section className="mt-8 rounded-3xl border border-[#FFB800]/30 bg-[#FFB800]/[.04] p-6" aria-labelledby="release-record-builder-title">
+        <p className="font-mono text-[10px] tracking-widest text-[#FFCC5C]">LOCAL PREPARATION</p>
+        <h2 id="release-record-builder-title" className="mt-1 text-2xl font-black">Build a local release record</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">Select one held lane and prepare the matching source record. This draft remains in your browser until you copy or export it; it does not send, upload, publish, or activate anything.</p>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <label className="text-sm font-bold">Activation lane
+            <select value={draftLaneId} onChange={event => setDraftLaneId(event.target.value)} className="mt-2 w-full rounded-xl border border-white/15 bg-[#050B1A] px-3 py-3 text-sm text-white">
+              {LANES.map(lane => <option key={lane.id} value={lane.id}>{lane.lane} — {lane.state}</option>)}
+            </select>
+          </label>
+          <div className="rounded-xl border border-white/10 bg-[#050B1A] p-4"><p className="text-[10px] font-bold tracking-widest text-[#B5F7CC]">EXACT REQUIRED RECORD</p><p className="mt-2 text-sm leading-6 text-slate-300">{draftLane.record}</p></div>
+          <label className="text-sm font-bold">Source or file reference
+            <input value={sourceReference} onChange={event => setSourceReference(event.target.value)} placeholder="Public URL, local path, or supplied record label" className="mt-2 w-full rounded-xl border border-white/15 bg-[#050B1A] px-3 py-3 text-sm text-white placeholder:text-slate-500" />
+          </label>
+          <label className="text-sm font-bold">Current owner confirmation
+            <input value={ownerConfirmation} onChange={event => setOwnerConfirmation(event.target.value)} placeholder="Exact lane-specific confirmation" className="mt-2 w-full rounded-xl border border-white/15 bg-[#050B1A] px-3 py-3 text-sm text-white placeholder:text-slate-500" />
+          </label>
+        </div>
+        <label className="mt-4 block text-sm font-bold">Preparation notes
+          <textarea value={preparationNotes} onChange={event => setPreparationNotes(event.target.value)} placeholder="Optional context for the matching preparation route" className="mt-2 min-h-24 w-full rounded-xl border border-white/15 bg-[#050B1A] px-3 py-3 text-sm text-white placeholder:text-slate-500" />
+        </label>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <button onClick={copyReleaseDraft} className="inline-flex items-center gap-2 rounded-xl bg-[#FFB800] px-4 py-2 text-xs font-black text-[#050B1A]"><ClipboardCheck className="h-4 w-4" />Copy local release record</button>
+          <button onClick={exportReleaseDraft} className="inline-flex items-center gap-2 rounded-xl border border-[#FFB800]/40 px-4 py-2 text-xs font-black text-[#FFCC5C]"><FileText className="h-4 w-4" />Export local release record</button>
+        </div>
+      </section>
 
       <div className="mt-7 grid gap-4 lg:grid-cols-2">
         {visible.map(lane => <article key={lane.id} className="rounded-3xl border border-white/10 bg-white/[.025] p-6">

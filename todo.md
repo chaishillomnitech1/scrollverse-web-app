@@ -4838,3 +4838,8 @@
 - [x] Create and validate the reusable activation-dossier skill specification
 - [x] Record the reusable skill in the browser-local evidence and readiness system
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the reusable-method milestone
+
+## Phase 616 — Browser-Local Release-Record Builder
+- [x] Define a browser-local release-record builder schema for each held activation lane
+- [x] Add local drafting, copying, and export controls to the activation dossier without transmitting inputs externally
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the release-record builder enhancement

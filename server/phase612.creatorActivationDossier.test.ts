@@ -26,6 +26,14 @@ describe("Phase 612 creator-controlled activation dossier", () => {
     expect(page).toContain("Creator-controlled activation dossier workflow");
   });
 
+  it("provides a local-only release-record builder for each held lane", () => {
+    expect(page).toContain("Build a local release record");
+    expect(page).toContain("Source or file reference");
+    expect(page).toContain("Copy local release record");
+    expect(page).toContain("Export local release record");
+    expect(page).toContain("it does not send, upload, publish, or activate anything");
+  });
+
   it("registers the activation dossier route", () => {
     expect(app).toContain('import CreatorActivationDossier from "./pages/CreatorActivationDossier"');
     expect(app).toContain('<Route path={"/activation-dossier"} component={CreatorActivationDossier} />');
