@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Thirty visual accessions");
+    expect(page).toContain("Thirty-one visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -35,6 +35,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-028");
     expect(page).toContain("SV-EVO-029");
     expect(page).toContain("SV-EVO-030");
+    expect(page).toContain("SV-EVO-031");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
@@ -50,6 +51,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("Four-Stage Evolution Signal");
     expect(page).toContain("Evolution Method Visual #001");
     expect(page).toContain("XLVIII Blocks: New Jersey Unified Map");
+    expect(page).toContain("XLVIII Blocks DNA Apparel Record");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -152,5 +154,13 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("XLVIII Blocks: New Jersey Unified Map");
     expect(review).toContain("1acecec54873eec08f919e4fc5932f596df389f935949256ea79fc4c03884941");
     expect(review).toContain("does not demonstrate a live service, geographic network, or operation");
+  });
+
+  it("documents the XLVIII Blocks DNA shirt as a display-only physical-apparel record", () => {
+    const review = read("docs/phase607-continued-direct-visual-archive-review.md");
+
+    expect(review).toContain("SV-PHYS-APP-004");
+    expect(review).toContain("7a9724974ee2e735c66a77ff4925b73d83c517f5c8c07486b182cce40d614591");
+    expect(review).toContain("does not establish production, inventory, product availability");
   });
 });

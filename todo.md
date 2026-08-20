@@ -4785,10 +4785,10 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the exchange-and-evolution visual archive update
 
 ## Phase 607 — Continued Direct Visual Archive Review
-- [ ] Identify the next distinct owner-supplied visual candidates for direct review
-- [ ] Create source-hash, accessibility, and public-display decision records for the selected visual set
-- [ ] Add selected neutral visual records to connected browser-local archive routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual archive milestone
+- [x] Identify the next distinct owner-supplied visual candidates for direct review
+- [x] Create source-hash, accessibility, and public-display decision records for the selected visual set
+- [x] Add selected neutral visual records to connected browser-local archive routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual archive milestone
 
 ## Phase 608 — Creator-First Collaboration Invitation
 - [x] Review current partnership, capability-comparison, and creator-system material for the public collaboration pathway
