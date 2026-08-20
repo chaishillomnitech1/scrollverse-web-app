@@ -21,6 +21,11 @@ describe("Phase 612 creator-controlled activation dossier", () => {
     expect(page).toContain("No filter, copy, export, or route link creates provider access");
   });
 
+  it("records the activation process as a reusable creator-controlled method", () => {
+    expect(page).toContain("REUSABLE METHOD RECORD");
+    expect(page).toContain("Creator-controlled activation dossier workflow");
+  });
+
   it("registers the activation dossier route", () => {
     expect(app).toContain('import CreatorActivationDossier from "./pages/CreatorActivationDossier"');
     expect(app).toContain('<Route path={"/activation-dossier"} component={CreatorActivationDossier} />');

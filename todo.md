@@ -4832,3 +4832,9 @@
 - [x] Define a source-labeled Crypto Artifact Lookbook structure with clear artwork, concept, preparation, and operating-state labels
 - [x] Publish browser-local crypto artifact discovery and connected handoffs without presenting live listings, token, exchange, contract, yield, or transaction activity
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the cross-promotion lookbook milestone
+
+## Phase 615 — Creator-Controlled Activation Dossier Skill
+- [x] Define the reusable creator-controlled activation-dossier workflow, record schema, operating states, and correction path
+- [x] Create and validate the reusable activation-dossier skill specification
+- [x] Record the reusable skill in the browser-local evidence and readiness system
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the reusable-method milestone

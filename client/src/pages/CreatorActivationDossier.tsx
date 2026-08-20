@@ -101,6 +101,10 @@ export default function CreatorActivationDossier() {
       <aside className="mt-8 rounded-3xl border border-[#00FF88]/25 bg-[#00FF88]/[.04] p-6">
         <div className="flex gap-3"><ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#00FF88]" /><div><h2 className="font-black">Every lane stays independent</h2><p className="mt-2 text-sm leading-6 text-slate-300">A source record helps the matching lane move forward; it does not automatically authorize another lane. This preserves choice, keeps evidence legible, and gives every external release its own exact preparation path.</p></div></div>
       </aside>
+
+      <aside className="mt-5 rounded-3xl border border-[#B98CFF]/30 bg-[#B98CFF]/[.055] p-6">
+        <div className="flex gap-3"><FileText className="mt-1 h-5 w-5 shrink-0 text-[#D6C4FF]" /><div><p className="font-mono text-[10px] tracking-widest text-[#D6C4FF]">REUSABLE METHOD RECORD</p><h2 className="mt-1 font-black">Creator-controlled activation dossier workflow</h2><p className="mt-2 text-sm leading-6 text-slate-300">The exact-record, independent-lane, correction-path method behind this page is preserved as a validated reusable skill for future source-led readiness work. The reusable method documents preparation; it does not grant access or perform an external release.</p></div></div>
+      </aside>
     </section>
   </main>;
 }
