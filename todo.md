@@ -4746,3 +4746,16 @@
 - [x] Create direct-review evidence records, source hashes, accessibility drafts, and display decisions
 - [x] Add only clear artwork-only display-ready accessions to the browser-local Evolution Lookbook catalog
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next catalog update
+
+## Phase 601 — Unrepresented Visual Archive Review
+- [ ] Identify the next unrepresented visual candidates and their review constraints
+- [ ] Record direct visual-review evidence, hashes, accessibility drafts, and exhibit decisions
+- [ ] Add selected source-labeled artwork records to the browser-local Evolution Lookbook
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual archive milestone
+
+## Phase 602 — Replay-Readiness Portal Update
+- [x] Inspect the three owner-supplied replay records and current related portal routes for replay filtering, audit, release-gate, DNS, contract, and media-vault requirements
+- [x] Define source-labeled requirements for multi-vector replay filtering, exportable audit-log preparation, and staging-checklist verification without inferring external release completion
+- [x] Build browser-local replay filtering, audit-export preparation, and staged release-checklist pathways
+- [x] Preserve DNS binding, contract deployment, and master-media ingestion as exact owner-controlled release records with their required inputs
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the replay-readiness milestone
