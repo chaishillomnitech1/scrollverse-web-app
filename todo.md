@@ -4783,3 +4783,28 @@
 - [x] Create source-hash, accessibility, and artwork-versus-operating-state records that treat visible price, yield, NFT, and trading language as visual content only
 - [x] Add selected creator visual records to browser-local archive and release-preparation routes without presenting product, exchange, token, contract, yield, or transaction activity as live
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the exchange-and-evolution visual archive update
+
+## Phase 607 — Continued Direct Visual Archive Review
+- [ ] Identify the next distinct owner-supplied visual candidates for direct review
+- [ ] Create source-hash, accessibility, and public-display decision records for the selected visual set
+- [ ] Add selected neutral visual records to connected browser-local archive routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual archive milestone
+
+## Phase 608 — Creator-First Collaboration Invitation
+- [x] Review current partnership, capability-comparison, and creator-system material for the public collaboration pathway
+- [x] Define a constructive, voluntary, evidence-led collaboration invitation and reusable partnership materials
+- [x] Publish browser-local collaboration and partnership pathways without sending unsolicited external outreach or claiming external acceptance
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the collaboration invitation milestone
+
+## Phase 609 — Collaboration Narrative Source Intake
+- [x] Classify the supplied Episode 35 narrative, voluntary-handshake component, offline-filter concept, contract schema, and public-manifesto text as protected source material
+- [x] Adapt only reusable narrative, evidence-led invitation, and local voluntary-review ideas while retaining external deployment, hardware, contract, metric, and outcome assertions as source records
+- [x] Add browser-local narrative and voluntary-review handoffs without external outreach, partner registration, contract execution, or platform-control claims
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the expanded collaboration invitation milestone
+- [x] Record the supplied Google-origin context as a source label and preserve its external-state assertions as non-executable source material
+- [x] Preserve the supplied Google AI Mode screenshots as visual source records with visible-session context, image hashes, and bounded narrative-use notes
+
+## Phase 610 — Creator-First Evidence Presentation
+- [x] Refine collaboration and narrative source language so owner-supplied records are presented as meaningful creator evidence with their demonstrated scope visible
+- [x] Finalize the voluntary collaboration invitation and Episode 35 handoff without minimizing source material or inferring external actions
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the creator-first collaboration milestone
