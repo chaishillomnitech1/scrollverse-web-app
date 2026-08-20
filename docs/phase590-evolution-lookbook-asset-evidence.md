@@ -37,6 +37,8 @@ The first reviewed extension group adds `SV-EVO-003` (`780238741_106800108911376
 
 The second reviewed extension group adds `SV-EVO-005` (`780266751_3403471169831225_9156535511846114359_n.webp`, SHA-256 `f337332ce2477111b1175c19f208e13ce2440a15d711ba9adb02daf5ba41adca`) and `SV-EVO-006` (`774883606_1397465725865338_178016350610670731_n.webp`, SHA-256 `15a3c5b6210742d084349c0abd49763608d3739a70056800468ea666e32ca30f`). Both use provisional concise alt text pending a more detailed neutral visual review or owner-supplied preferred description.
 
+The third reviewed extension group adds `SV-EVO-007` (`780161176_1728226311724866_3775251990020906851_n.gif`, SHA-256 `ac3fd2d9dfa84f519c9b6f01a26f2f53f008eb8807490dc37abec22e1ec9fcb8`) and `SV-EVO-008` (`779728956_2039147510038990_7345657296617547530_n.webp`, SHA-256 `ce0b36288dab21828ed1d7992525b83d0fbeb5e0d445ff9d57b0c60314a304af`). The GIF is an owner-supplied motion asset. Both remain browser-local public-choice accessions with provisional concise alt text; no external video, social, or marketplace activity is established.
+
 ## Expanded Creative Image Sequence
 
 The later files beginning with `780374539_`, `780380847_`, `780140124_`, `779004579_`, `779816514_`, `780503607_`, `780074803_`, `778852850_`, the `att.*(2).jpeg` sequence, and the `IMG_16*.png` sequence are grouped as **owner-supplied expanded creative image sets**. They remain source-labeled collection material pending accession-level neutral descriptions, detailed alt text, and review of intended public representation. The group is separate from any dashboard screenshot or external service record.
