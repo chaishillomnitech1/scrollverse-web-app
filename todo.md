@@ -4843,3 +4843,9 @@
 - [x] Define a browser-local release-record builder schema for each held activation lane
 - [x] Add local drafting, copying, and export controls to the activation dossier without transmitting inputs externally
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the release-record builder enhancement
+
+## Phase 617 — Creator Network Cross-Promotion
+- [x] Map current artifact, app, site, lookbook, learning, media, and readiness destinations plus their discovery gaps
+- [x] Define a creator network taxonomy and cross-promotion rules with concise operating labels
+- [x] Publish the browser-local Creator Network and connected route handoffs without claiming external service integration
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the Creator Network milestone

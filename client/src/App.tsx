@@ -422,6 +422,7 @@ import ConnectedSystemsMap from "./pages/ConnectedSystemsMap";
 import CreatorActivationDossier from "./pages/CreatorActivationDossier";
 import CreatorBroadcastPreparation from "./pages/CreatorBroadcastPreparation";
 import CryptoArtifactLookbook from "./pages/CryptoArtifactLookbook";
+import CreatorNetwork from "./pages/CreatorNetwork";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -948,6 +949,7 @@ function Router() {
         <Route path="/ecosystem-outcomes-scorecard" component={EcosystemOutcomesScorecard} />
         <Route path="/scrollverse-chess-arena" component={ScrollVerseChessArena} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
+        <Route path="/creator-network" component={CreatorNetwork} />
         <Route component={NotFound} />
     </Switch>
     </Suspense>
