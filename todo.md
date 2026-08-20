@@ -4704,3 +4704,9 @@
 - [x] Include both owner-held physical works and digital art pieces in the source inventory, with distinct accession, custody, public-display, and future-release instruction states
 - [x] Include Knick fashion sets, $LONDC visual material, and Meta-supplied source records in the audit with separate source-family, accessibility, destination, and operating-state labels
 - [x] Represent the broader creator-provided collection as source context with scalable archive pathways while preserving count, currency, market, and external-release claims as individual evidence states
+
+## Phase 594 — Owner-Supplied Video Reference Archive
+- [x] Verify the owner-supplied video reference retained in conversation and identify its appropriate browser-local media, tutorial, and narration-preparation destinations
+- [x] Create a concise source-labeled archive record with accessibility, narration, and exact external-release boundaries
+- [x] Connect the browser-local media record to relevant discovery and production-instruction routes without embedding, downloading, republishing, or claiming a partnership
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the video-reference archive connection
