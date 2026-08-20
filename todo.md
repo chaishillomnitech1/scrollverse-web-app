@@ -4860,3 +4860,9 @@
 - [x] Collect clearly named public reference evidence and current portal capability records without assuming a global rank or outcome
 - [x] Publish a source-labeled comparison update with reproducible evidence, limits, and correction pathways
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the enhanced evidence comparison
+
+## Phase 620 — Monumental Self-Portrait Accessions
+- [x] Complete direct review and evidence records for two distinct owner-supplied monumental self-portrait visual files
+- [x] Add the selected visuals as browser-local Evolution Lookbook accessions and synchronize collection lens and intake counts
+- [x] Update Creator Atlas visual-world discovery copy to the current exhibit count
+- [x] Extend focused regression coverage, validate TypeScript and the full suite, and publish the expanded visual catalog
