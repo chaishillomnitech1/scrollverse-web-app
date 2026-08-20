@@ -4926,3 +4926,37 @@
 - [x] Extend the Creator Source + Brand Registry with claim-candidate status, official resource links, evidence fields, and correction pathways
 - [x] Preserve filings, registrations, domain actions, token actions, and provider operations as exact future action records without representing any as completed
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protection-research milestone
+
+## Phase 630 — Sovereign Isolation Terminal
+- [ ] Define browser-local audit record fields and staged release-checklist verification requirements
+- [ ] Build the Sovereign Isolation Terminal with browser-local filtering, record selection, JSON/text export, and no external transmission
+- [ ] Bind local release checklists to verified source, build, tests, accessibility, owner-release, and deployment-state gates
+- [ ] Connect the terminal to replay readiness, activation records, Creator Registry, and Story Worlds routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the local audit-control milestone
+
+## Phase 631 — Cover Art Storyworlds
+- [ ] Inventory the supplied Spotify artist catalog and current catalog cover-art records, preserving each source, title, available visual context, and owner-provided publishing/distribution context
+- [ ] Create a source-led storyworld, cartoon, motion-art, legacy, and per-cover release-preparation record for each catalog cover
+- [ ] Build a browser-local Cover Art Storyworlds experience connected to catalog, Story Worlds, media, and visual routes
+- [ ] Preserve NFT, mint, marketplace, token, product, and distribution work as per-cover future release records without representing external activation as active
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the cover-art storyworlds milestone
+
+## Phase 632 — Public Music + Media Footprint
+- [x] Define source-labeled public research tracks for Spotify, Apple Music, YouTube, Vyd.co, public web results, and owner-supplied artist identifiers
+- [x] Collect and classify publicly indexed profiles, releases, catalog links, cover images, and hashtag references for Chais the Great, #chaisthegreat, #XLVIIIblocks, and ScrollVerse.co
+- [x] Publish confirmed public-footprint records with evidence, date, platform, source URL, and correction paths
+- [x] Connect confirmed catalog records to Cover Art Storyworlds without representing an unverified profile, release, or account as the creator’s active operating state
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the public-footprint milestone
+
+## Phase 633 — Catalog Stewardship Record
+- [x] Define source-led catalog stewardship fields for release, cover, platform, distributor reference, reconciliation record, and exact owner-review state
+- [x] Search public DistroKid and UnitedMasters footprint references and classify only directly attributable catalog records
+- [x] Build a browser-local Catalog Stewardship Record with release filtering, local JSON/text export, and Cover Art Storyworlds handoffs
+- [x] Preserve royalties, payout amounts, dashboard exports, distribution uploads, account access, and collection actions as owner-provided verification inputs or exact future actions
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the catalog stewardship milestone
+
+## Phase 634 — Fair Practice Navigator
+- [x] Define creator-first fair-practice principles for source clarity, release records, dispute/correction routing, readable terms, and independent review
+- [x] Build a browser-local Fair Practice Navigator with practical self-review records and handoffs to catalog stewardship, creator registry, activation, and release routes
+- [x] Preserve legal, financial, provider, and platform outcomes as source-labeled records or exact owner decisions without representing them as resolved
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the creator-first stewardship expansion

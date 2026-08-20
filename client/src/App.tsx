@@ -429,6 +429,10 @@ import AdminRoyaltyRecords from "./pages/AdminRoyaltyRecords";
 import ScrollVerseStoryWorlds from "./pages/ScrollVerseStoryWorlds";
 import RealmsAmenities from "./pages/RealmsAmenities";
 import CreatorBrandRegistry from "./pages/CreatorBrandRegistry";
+import CoverArtStoryworlds from "./pages/CoverArtStoryworlds";
+import PublicFootprint from "./pages/PublicFootprint";
+import CatalogStewardship from "./pages/CatalogStewardship";
+import FairPracticeNavigator from "./pages/FairPracticeNavigator";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -663,6 +667,10 @@ function Router() {
       <Route path={"/scrollverse-story-worlds"} component={ScrollVerseStoryWorlds} />
       <Route path={"/realms-amenities"} component={RealmsAmenities} />
       <Route path={"/creator-brand-registry"} component={CreatorBrandRegistry} />
+      <Route path={"/cover-art-storyworlds"} component={CoverArtStoryworlds} />
+      <Route path={"/public-footprint"} component={PublicFootprint} />
+      <Route path={"/catalog-stewardship"} component={CatalogStewardship} />
+      <Route path={"/fair-practice"} component={FairPracticeNavigator} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
