@@ -4771,3 +4771,15 @@
 - [x] Create neutral accession evidence, source hashes, accessibility drafts, and public-display decisions
 - [x] Add only clear source-labeled records to connected browser-local archive routes
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the continued archive milestone
+
+## Phase 605 — Next Source-Labeled Archive Review
+- [ ] Identify the next distinct owner-supplied visual candidates for direct review
+- [ ] Create direct-review source records, hashes, accessibility drafts, and display decisions
+- [ ] Add selected neutral records to connected browser-local archive routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the next archive milestone
+
+## Phase 606 — Exchange-and-Evolution Visual Archive
+- [x] Classify the supplied blue operator portraits, $LONDC/CHX symbolic coin visuals, four-stage evolution composition, and associated protected reference text
+- [x] Create source-hash, accessibility, and artwork-versus-operating-state records that treat visible price, yield, NFT, and trading language as visual content only
+- [x] Add selected creator visual records to browser-local archive and release-preparation routes without presenting product, exchange, token, contract, yield, or transaction activity as live
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the exchange-and-evolution visual archive update

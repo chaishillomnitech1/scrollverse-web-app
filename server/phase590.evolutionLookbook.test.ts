@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Twenty-five visual accessions");
+    expect(page).toContain("Twenty-nine visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -30,6 +30,10 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-023");
     expect(page).toContain("SV-EVO-024");
     expect(page).toContain("SV-EVO-025");
+    expect(page).toContain("SV-EVO-026");
+    expect(page).toContain("SV-EVO-027");
+    expect(page).toContain("SV-EVO-028");
+    expect(page).toContain("SV-EVO-029");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
@@ -40,6 +44,10 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("STR8 DROP: Chest Crest Apparel Record");
     expect(page).toContain("STR8 DROP: Front Crest Apparel Record");
     expect(page).toContain("STR8 DROP: Purity Brand Apparel Record");
+    expect(page).toContain("Neural Operator: Price Optimization Study");
+    expect(page).toContain("AI-Powered Operator: Vertical Study");
+    expect(page).toContain("Four-Stage Evolution Signal");
+    expect(page).toContain("Evolution Method Visual #001");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -126,5 +134,13 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("SV-REF-FASH-004");
     expect(review).toContain("not selected for browser-local exhibit");
     expect(review).toContain("c2bf7852723018d12ace40a7bc5b9ee1d98dfed9c0548cd413358ef3260b8312");
+  });
+
+  it("documents the exchange-and-evolution visual set as artwork-only source material", () => {
+    const review = read("docs/phase606-exchange-evolution-visual-archive.md");
+
+    expect(review).toContain("SV-EVO-606-D01");
+    expect(review).toContain("981c084b3d7c6add19be70de9b9550231e86f4a0544c9e31ff530ec05da5db04");
+    expect(review).toContain("not establish that any depicted percentage, price, yield, NFT, token, exchange, product, contract, wallet, or transaction is active");
   });
 });

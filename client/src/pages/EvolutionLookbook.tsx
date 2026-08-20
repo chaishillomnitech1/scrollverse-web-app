@@ -205,17 +205,49 @@ const COLLECTION = [
     format: "JPEG · 1080 × 776",
     note: "An owner-supplied physical-apparel archive photograph for browser-local viewing. It records visible design and presentation only; no product availability, size, material, inventory, price, sale, or fulfillment state is shown.",
   },
+  {
+    accession: "SV-EVO-026",
+    title: "Neural Operator: Price Optimization Study",
+    asset: "/manus-storage/778902449_1312218247651319_917225483648398045_n_5328dc0c.webp",
+    alt: "A blue-lit futuristic operator in a technical suit stands before an illuminated brain with gold and silver symbolic coins and stylized analytics panels.",
+    format: "WEBP · 1600 × 1600",
+    note: "An owner-supplied exchange-and-evolution artwork. The visible $LONDC, CHX, percentage, chart, and price-optimization language is part of the image composition only; it is not a live price, yield, token, exchange, or transaction display.",
+  },
+  {
+    accession: "SV-EVO-027",
+    title: "AI-Powered Operator: Vertical Study",
+    asset: "/manus-storage/779728956_2039147510038990_7345657296617547530_n_19e68b70.webp",
+    alt: "A close blue-lit portrait of a futuristic operator beneath a luminous brain, surrounded by symbolic coins and interface panels.",
+    format: "WEBP · 1152 × 2048",
+    note: "An owner-supplied vertical operator artwork. Visible AI-powered, NFT, coin, percentage, and yield terminology is artwork text only and does not establish a live product, collectible, marketplace, exchange, or financial outcome.",
+  },
+  {
+    accession: "SV-EVO-028",
+    title: "Four-Stage Evolution Signal",
+    asset: "/manus-storage/780748644_1048871260883560_7194639821646281306_n_133d7bec.gif",
+    alt: "A looping vertical operator portrait with four labels describing a progression from intuition to AI-supported work.",
+    format: "GIF · 576 × 1024 · motion asset",
+    note: "An owner-supplied motion artwork presenting a visual progression from gut feel through calculator and spreadsheet work to AI-supported work. It is a creative methodology image, not a recommendation, prediction, trading signal, or automated financial tool.",
+  },
+  {
+    accession: "SV-EVO-029",
+    title: "Evolution Method Visual #001",
+    asset: "/manus-storage/780520972_965509582615698_5540620332686900924_n_e94e1dd4.webp",
+    alt: "A comic-style four-panel graphic showing a visual progression from gut feeling through calculator and spreadsheet work to an AI-supported operator.",
+    format: "WEBP · 1792 × 1152",
+    note: "An owner-supplied four-panel evolution artwork. The visible AI trading, collectible, coin, price, and percentage text is visual composition only; it does not indicate a live exchange, product, market result, yield, contract, or transaction.",
+  },
 ] as const;
 
 const CREATOR_LENSES = [
-  { title: "Evolution", count: 13, note: "Operator studies, posters, signal compositions, comic worlds, AI, and character visuals", color: "#9DEBFF" },
-  { title: "Motion", count: 5, note: "Animated visual worlds and accessory studies", color: "#DCC8FF" },
-  { title: "Identity", count: 3, note: "Creator posters and identity visual studies", color: "#FFE09A" },
+  { title: "Evolution", count: 14, note: "Operator studies, posters, signal compositions, comic worlds, AI, and character visuals", color: "#9DEBFF" },
+  { title: "Motion", count: 6, note: "Animated visual worlds, evolution signals, and accessory studies", color: "#DCC8FF" },
+  { title: "Identity", count: 5, note: "Creator posters and identity-driven operator studies", color: "#FFE09A" },
   { title: "Open Collection", count: 4, note: "Reviewed visual and physical-apparel accessions beyond the current lenses", color: "#B5F7CC" },
 ] as const;
 
 function CreatorLensDock() {
-  return <section className="container py-5"><div className="rounded-[1.7rem] border border-white/10 bg-white/[.035] p-5"><div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#AFC0CF]">CREATOR-FIRST COLLECTION LENSES</p><p className="mt-2 max-w-3xl text-sm leading-6 text-[#D6E2EE]">Choose a visual thread, then enter the collection to experience the connected body of work.</p></div><a href="#collection" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-4 py-2 text-xs font-black text-[#9DEBFF]">Open all 25 accessions</a></div><div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{CREATOR_LENSES.map((lens) => <a key={lens.title} href="#collection" className="rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-0.5 hover:border-white/35"><div className="flex items-center justify-between gap-3"><span className="text-sm font-black" style={{ color: lens.color }}>{lens.title}</span><span className="text-[10px] font-mono text-[#AFC0CF]">{lens.count} ACCESSIONS</span></div><p className="mt-2 text-xs leading-5 text-[#D6E2EE]">{lens.note}</p></a>)}</div></div></section>;
+  return <section className="container py-5"><div className="rounded-[1.7rem] border border-white/10 bg-white/[.035] p-5"><div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#AFC0CF]">CREATOR-FIRST COLLECTION LENSES</p><p className="mt-2 max-w-3xl text-sm leading-6 text-[#D6E2EE]">Choose a visual thread, then enter the collection to experience the connected body of work.</p></div><a href="#collection" className="rounded-xl border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-4 py-2 text-xs font-black text-[#9DEBFF]">Open all 29 accessions</a></div><div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{CREATOR_LENSES.map((lens) => <a key={lens.title} href="#collection" className="rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-0.5 hover:border-white/35"><div className="flex items-center justify-between gap-3"><span className="text-sm font-black" style={{ color: lens.color }}>{lens.title}</span><span className="text-[10px] font-mono text-[#AFC0CF]">{lens.count} ACCESSIONS</span></div><p className="mt-2 text-xs leading-5 text-[#D6E2EE]">{lens.note}</p></a>)}</div></div></section>;
 }
 
 const releaseBrief = `Evolution Lookbook item-specific release brief\nAccession ID: [required]\nPublic representation: [approved image/version]\nCreator/rights context: [required]\nAccessibility alt text: [required]\nDestination: [browser-local exhibit, IPFS, marketplace, or other]\nIf external: chain/network or provider: [required]\nPublic media decision: [required]\nMarketplace/price decision: [required if applicable]\nOwner release: [same-conversation confirmation required]\nBoundary: Do not upload, pin, list, price, mint, transfer, or connect a wallet until the exact item record is complete.`;
@@ -224,7 +256,7 @@ export default function EvolutionLookbook() {
   useSovereignHeartbeat({ page: "evolution-lookbook" });
 
   const sourceGroups = [
-    { title: "Browser-local exhibit", count: "25 accessions", state: "AVAILABLE NOW", detail: "Named Evolution Lookbook cards with source labels and accessibility text.", color: "#B5F7CC" },
+    { title: "Browser-local exhibit", count: "29 accessions", state: "AVAILABLE NOW", detail: "Named Evolution Lookbook cards with source labels and accessibility text.", color: "#B5F7CC" },
     { title: "Numbered visual + motion works", count: "44 files", state: "SOURCE INTAKE", detail: "WEBP and GIF source files; select a record for the next direct visual review.", color: "#9DEBFF" },
     { title: "IMG visual archive", count: "220 files", state: "SOURCE INTAKE", detail: "PNG source sequence, including one separately held private-review candidate.", color: "#DCC8FF" },
     { title: "Attached image archive", count: "148 files", state: "SOURCE INTAKE", detail: "JPEG source sequence grouped by duplicate-aware source records.", color: "#FFE09A" },
@@ -255,9 +287,9 @@ export default function EvolutionLookbook() {
 
     <SourceCollectionGroups />
 
-    <section className="container py-8"><PortalTrustLens lane="Evolution Lookbook" source="Owner-supplied visual assets, the Phase 590 asset evidence record, source hashes, accessibility drafts, and owner-authored collection interpretation." readiness="This browser-local public-choice exhibit is available now with two reviewed visual accessions and a release brief for any future item-specific external action." boundary="This page is a visual exhibit, not a live price, profit, product listing, IPFS pin, OpenSea collection, token, NFT, wallet, contract, marketplace, sale, transfer, or external publication." /></section>
+    <section className="container py-8"><PortalTrustLens lane="Evolution Lookbook" source="Owner-supplied visual assets, direct-review records, source hashes, accessibility drafts, and owner-authored collection interpretation." readiness="This browser-local public-choice exhibit is available now with direct-reviewed accessions and a release brief for any future item-specific external action." boundary="This page is a visual exhibit, not a live price, profit, product listing, IPFS pin, OpenSea collection, token, NFT, wallet, contract, marketplace, sale, transfer, or external publication." /></section>
 
-    <section id="collection" className="container py-9"><div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-mono tracking-[.17em] text-[#9DEBFF]">COLLECTION RECORD · AVAILABLE NOW</p><h2 className="mt-3 text-4xl font-black">Twenty-five visual accessions. More source sets in intake.</h2></div><span className="rounded-full border border-[#B98CFF]/50 bg-[#B98CFF]/10 px-3 py-2 text-[10px] font-mono tracking-[.13em] text-[#DCC8FF]">IMAGE REVIEW CONTINUES</span></div><div className="mt-7 grid gap-6 lg:grid-cols-2">{COLLECTION.map((item) => <article key={item.accession} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.03]"><img src={item.asset} alt={item.alt} className="aspect-[1.45/1] w-full object-cover" /><div className="p-6"><div className="flex flex-wrap items-center justify-between gap-3"><span className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">{item.accession} · {item.format}</span><span className="rounded-full border border-[#00FF88]/40 bg-[#00FF88]/10 px-3 py-1 text-[9px] font-mono text-[#B5F7CC]">PUBLIC BROWSER EXHIBIT</span></div><h3 className="mt-4 text-3xl font-black">{item.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{item.note}</p><div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-[10px] font-mono tracking-[.15em] text-[#AFC0CF]">ACCESSIBILITY DESCRIPTION</p><p className="mt-2 text-sm leading-6 text-[#D6E2EE]">{item.alt}</p></div></div></article>)}</div></section>
+    <section id="collection" className="container py-9"><div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-mono tracking-[.17em] text-[#9DEBFF]">COLLECTION RECORD · AVAILABLE NOW</p><h2 className="mt-3 text-4xl font-black">Twenty-nine visual accessions. More source sets in intake.</h2></div><span className="rounded-full border border-[#B98CFF]/50 bg-[#B98CFF]/10 px-3 py-2 text-[10px] font-mono tracking-[.13em] text-[#DCC8FF]">IMAGE REVIEW CONTINUES</span></div><div className="mt-7 grid gap-6 lg:grid-cols-2">{COLLECTION.map((item) => <article key={item.accession} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.03]"><img src={item.asset} alt={item.alt} className="aspect-[1.45/1] w-full object-cover" /><div className="p-6"><div className="flex flex-wrap items-center justify-between gap-3"><span className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">{item.accession} · {item.format}</span><span className="rounded-full border border-[#00FF88]/40 bg-[#00FF88]/10 px-3 py-1 text-[9px] font-mono text-[#B5F7CC]">PUBLIC BROWSER EXHIBIT</span></div><h3 className="mt-4 text-3xl font-black">{item.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{item.note}</p><div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-[10px] font-mono tracking-[.15em] text-[#AFC0CF]">ACCESSIBILITY DESCRIPTION</p><p className="mt-2 text-sm leading-6 text-[#D6E2EE]">{item.alt}</p></div></div></article>)}</div></section>
 
     <section className="container py-8"><div className="grid gap-5 lg:grid-cols-3"><article className="rounded-[1.8rem] border border-[#00D4FF]/35 bg-[#00D4FF]/[.06] p-6"><Eye className="h-7 w-7 text-[#9DEBFF]" /><h2 className="mt-5 text-2xl font-black">View the work directly</h2><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">The exhibit carries source labels, visual context, and accessibility descriptions so visitors can approach the work without an implied transaction.</p></article><article className="rounded-[1.8rem] border border-[#B98CFF]/35 bg-[#B98CFF]/[.06] p-6"><ImageIcon className="h-7 w-7 text-[#DCC8FF]" /><h2 className="mt-5 text-2xl font-black">More sets, separate records</h2><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">The broader owner-supplied image sequence remains in collection intake until each item receives a neutral description, accessibility text, and display decision.</p></article><article className="rounded-[1.8rem] border border-[#FFCC4D]/35 bg-[#FFCC4D]/[.06] p-6"><ShieldCheck className="h-7 w-7 text-[#FFDEA0]" /><h2 className="mt-5 text-2xl font-black">External steps stay exact</h2><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">IPFS, marketplaces, tokens, pricing, and contracts require a separate accession-level release record and current confirmation.</p></article></div></section>
 
