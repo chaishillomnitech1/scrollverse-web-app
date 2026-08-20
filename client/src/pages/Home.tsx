@@ -988,6 +988,7 @@ const VISITOR_DISCOVERY_PATHS = [
   { kicker: "WATCH", title: "Original Visual Worlds", detail: "Explore browser-local original media, youth-supported viewing pathways, and visual-story readiness.", href: "/junior-movies", icon: "◉", color: "#FFB800" },
   { kicker: "BUILD", title: "Creator Operations", detail: "See how source records, rights, audience evidence, and specialist pathways support creator work.", href: "/creator-operations-intelligence", icon: "⌘", color: "#FF8A4C" },
   { kicker: "LEARN WITH AI", title: "AI Constellation", detail: "Meet original guide roles, use clear tutorials, and discover public AI options without implied integration.", href: "/ai-constellation", icon: "◌", color: "#00FF88" },
+  { kicker: "VISUAL EXHIBIT", title: "Evolution Lookbook", detail: "View owner-supplied visual compositions with accessibility text and clear external-release boundaries.", href: "/evolution-lookbook", icon: "✧", color: "#FFE09A" },
 ] as const;
 
 function VisitorDiscoveryRail() {

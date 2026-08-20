@@ -4657,3 +4657,19 @@
 - [x] Record the owner-shared aggregate dashboard captures as first-party evidence with metric, timeframe, route, region, referrer, privacy, and correction boundaries
 - [x] Add a browser-local main-page tutorial discovery handoff that helps new and returning visitors find the highest-reached learning and reading paths without inferring revenue, conversion, product sale, or external activation
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the evidence-led discovery update without performing a transaction, media upload, token action, provider activation, or external publication
+
+## Phase 589 — Exact Owner-Input Release Coordination
+- [ ] Receive one complete owner-provided input for a held external lane and use it only for the corresponding item-specific release preparation or action
+
+## Phase 590 — Evolution Lookbook Asset Evidence and Readiness
+- [ ] Inventory the supplied visual collection and paired source records with filenames, format, SHA-256 evidence hashes, visible-content notes, accessibility alt-text drafts, and private/public-display boundaries
+- [ ] Organize the expanded original visual sets into source-labeled collection groups with neutral descriptions, accessibility drafts, and individual public-display review states
+- [ ] Group the newly supplied image sequence and repeated aggregate dashboard captures into separate creative-source and analytics-evidence records without exposing private data or inferring external outcomes
+- [x] Classify the quoted IPFS, price-ticker, OpenSea, token, and profit statements as non-executable external workflow proposals and retain only supported visual, metadata, accessibility, and release-readiness lessons
+- [x] Record the owner-authored source and timestamp context without claiming a legal outcome, rights adjudication, or court result
+- [x] Keep public collection copy creator-first and operationally clear without turning the browser-local exhibit into legal commentary
+- [x] Present owner-authored visual work directly for public choice with source, operating state, accessibility, correction path, and item-specific external-release boundaries
+- [x] Add browser-local creator-value and visitor-choice handoffs from the Evolution Lookbook to the existing creator catalog, visual tutorial, and release-readiness routes
+- [x] Publish the current owner-supplied visual collection as a browser-local public-choice lookbook only, with no external asset, wallet, market, or token operation
+- [x] Build a browser-local Evolution Lookbook readiness route with source-labeled visual cards, original creator interpretation, accessibility descriptions, and exact item-specific public-display, IPFS, marketplace, or token release gates
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the lookbook readiness experience without uploading, pinning, listing, pricing, selling, tokenizing, or connecting a wallet

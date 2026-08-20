@@ -1,0 +1,57 @@
+import { Copy, ExternalLink, Eye, Image as ImageIcon, ShieldCheck, Sparkles } from "lucide-react";
+import { Link } from "wouter";
+import { toast } from "sonner";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+
+const COLLECTION = [
+  {
+    accession: "SV-EVO-001",
+    title: "Evolution: From Instinct to Intelligence",
+    asset: "/manus-storage/evolution-poster_8bac7f5e.webp",
+    alt: "Four-panel illustrated Evolution poster showing stages from instinct and office calculation to a blue futuristic figure; token and profit text appears as artwork.",
+    format: "WEBP · 1920 × 1280",
+    note: "A source-labeled visual composition about intuition, analysis, and original-world evolution. Price and profit-style text are artwork elements, not portal market data.",
+  },
+  {
+    accession: "SV-EVO-002",
+    title: "Future Operator Composition",
+    asset: "/manus-storage/evolution-future-scene_68b4707a.webp",
+    alt: "Blue futuristic illustration of an armored character amid code panels, drones, tokens, and decorative price-style screens.",
+    format: "WEBP · 2096 × 1184",
+    note: "An owner-supplied future-facing visual world. Decorative token, code, and dashboard imagery is not an exchange, provider, wallet, or price-feed claim.",
+  },
+] as const;
+
+const releaseBrief = `Evolution Lookbook item-specific release brief\nAccession ID: [required]\nPublic representation: [approved image/version]\nCreator/rights context: [required]\nAccessibility alt text: [required]\nDestination: [browser-local exhibit, IPFS, marketplace, or other]\nIf external: chain/network or provider: [required]\nPublic media decision: [required]\nMarketplace/price decision: [required if applicable]\nOwner release: [same-conversation confirmation required]\nBoundary: Do not upload, pin, list, price, mint, transfer, or connect a wallet until the exact item record is complete.`;
+
+export default function EvolutionLookbook() {
+  useSovereignHeartbeat({ page: "evolution-lookbook" });
+
+  const copyReleaseBrief = async () => {
+    try {
+      await navigator.clipboard.writeText(releaseBrief);
+      toast.success("Item-specific Evolution Lookbook release brief copied.");
+    } catch {
+      toast.error("Copy is unavailable in this browser.");
+    }
+  };
+
+  return <main className="min-h-screen overflow-hidden bg-[#050B1A] pb-24 text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    <section className="relative border-b border-[#FFB800]/35 bg-[radial-gradient(circle_at_10%_10%,rgba(255,184,0,.19),transparent_26%),radial-gradient(circle_at_90%_12%,rgba(0,212,255,.18),transparent_28%),radial-gradient(circle_at_55%_95%,rgba(185,140,255,.14),transparent_32%),#050B1A]">
+      <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:50px_50px]" aria-hidden="true" />
+      <div className="container relative py-14 md:py-20">
+        <div className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xs font-mono tracking-[.16em] text-[#FFE09A]">← SCROLLVERSE FRONT DOOR</Link><span className="rounded-full border border-[#00FF88]/40 bg-[#00FF88]/10 px-3 py-1 text-[10px] font-mono tracking-[.16em] text-[#B5F7CC]">OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE</span></div>
+        <div className="mt-12 grid gap-10 xl:grid-cols-[1.08fr_.92fr] xl:items-center"><div><p className="text-xs font-mono tracking-[.22em] text-[#FFE09A]">SCROLLVERSE EVOLUTION LOOKBOOK</p><h1 className="mt-4 max-w-4xl text-5xl font-black leading-[.9] md:text-7xl">Visual worlds for <span className="text-[#9DEBFF]">public discovery.</span></h1><p className="mt-6 max-w-3xl text-base leading-8 text-[#D6E2EE]">This browser-local exhibit presents owner-supplied original visual work with source context, accessibility text, and visible release states. Visitors can view the work and decide for themselves.</p><div className="mt-8 flex flex-wrap gap-3"><a href="#collection" className="rounded-xl bg-[#FFB800] px-5 py-3 text-sm font-black text-[#251B00]">View the collection</a><Link href="/tutorial-studio" className="rounded-xl border border-[#00D4FF]/50 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#9DEBFF]">Open visual tutorials</Link></div></div><aside className="overflow-hidden rounded-[2rem] border border-[#FFB800]/40 bg-black/25 p-3 shadow-[0_24px_80px_rgba(255,184,0,.12)]"><img src={COLLECTION[0].asset} alt={COLLECTION[0].alt} className="h-full w-full rounded-[1.45rem] object-cover" /><div className="p-4"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">FEATURED ACCESSION · {COLLECTION[0].accession}</p><p className="mt-2 text-sm text-[#D6E2EE]">Artwork text is presented as visual composition, not as a live financial, token, or marketplace feed.</p></div></aside></div>
+      </div>
+    </section>
+
+    <section className="container py-8"><PortalTrustLens lane="Evolution Lookbook" source="Owner-supplied visual assets, the Phase 590 asset evidence record, source hashes, accessibility drafts, and owner-authored collection interpretation." readiness="This browser-local public-choice exhibit is available now with two reviewed visual accessions and a release brief for any future item-specific external action." boundary="This page is a visual exhibit, not a live price, profit, product listing, IPFS pin, OpenSea collection, token, NFT, wallet, contract, marketplace, sale, transfer, or external publication." /></section>
+
+    <section id="collection" className="container py-9"><div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-mono tracking-[.17em] text-[#9DEBFF]">COLLECTION RECORD · AVAILABLE NOW</p><h2 className="mt-3 text-4xl font-black">Two reviewed visual accessions. More source sets in intake.</h2></div><span className="rounded-full border border-[#B98CFF]/50 bg-[#B98CFF]/10 px-3 py-2 text-[10px] font-mono tracking-[.13em] text-[#DCC8FF]">IMAGE REVIEW CONTINUES</span></div><div className="mt-7 grid gap-6 lg:grid-cols-2">{COLLECTION.map((item) => <article key={item.accession} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.03]"><img src={item.asset} alt={item.alt} className="aspect-[1.45/1] w-full object-cover" /><div className="p-6"><div className="flex flex-wrap items-center justify-between gap-3"><span className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">{item.accession} · {item.format}</span><span className="rounded-full border border-[#00FF88]/40 bg-[#00FF88]/10 px-3 py-1 text-[9px] font-mono text-[#B5F7CC]">PUBLIC BROWSER EXHIBIT</span></div><h3 className="mt-4 text-3xl font-black">{item.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{item.note}</p><div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-[10px] font-mono tracking-[.15em] text-[#AFC0CF]">ACCESSIBILITY DESCRIPTION</p><p className="mt-2 text-sm leading-6 text-[#D6E2EE]">{item.alt}</p></div></div></article>)}</div></section>
+
+    <section className="container py-8"><div className="grid gap-5 lg:grid-cols-3"><article className="rounded-[1.8rem] border border-[#00D4FF]/35 bg-[#00D4FF]/[.06] p-6"><Eye className="h-7 w-7 text-[#9DEBFF]" /><h2 className="mt-5 text-2xl font-black">View the work directly</h2><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">The exhibit carries source labels, visual context, and accessibility descriptions so visitors can approach the work without an implied transaction.</p></article><article className="rounded-[1.8rem] border border-[#B98CFF]/35 bg-[#B98CFF]/[.06] p-6"><ImageIcon className="h-7 w-7 text-[#DCC8FF]" /><h2 className="mt-5 text-2xl font-black">More sets, separate records</h2><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">The broader owner-supplied image sequence remains in collection intake until each item receives a neutral description, accessibility text, and display decision.</p></article><article className="rounded-[1.8rem] border border-[#FFCC4D]/35 bg-[#FFCC4D]/[.06] p-6"><ShieldCheck className="h-7 w-7 text-[#FFDEA0]" /><h2 className="mt-5 text-2xl font-black">External steps stay exact</h2><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">IPFS, marketplaces, tokens, pricing, and contracts require a separate accession-level release record and current confirmation.</p></article></div></section>
+
+    <section className="container py-8"><div className="rounded-[2rem] border border-[#FFB800]/40 bg-[radial-gradient(circle_at_94%_0%,rgba(255,184,0,.19),transparent_30%),#071426] p-7 sm:p-9"><Sparkles className="h-8 w-8 text-[#FFE09A]" /><p className="mt-5 text-xs font-mono tracking-[.16em] text-[#FFE09A]">CREATOR VALUE · VISITOR CHOICE</p><h2 className="mt-3 text-3xl font-black">Take the next useful path from the work itself.</h2><p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Explore the visual tutorial system, follow owner-authored books and perspectives, or prepare one item-specific release record. The lookbook remains a direct exhibit; external release choices are kept separate and clear.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/tutorial-studio" className="inline-flex items-center gap-2 rounded-xl border border-[#B98CFF]/50 bg-[#B98CFF]/10 px-5 py-3 text-sm font-black text-[#DCC8FF]">Learn the visual system</Link><Link href="/creator-books" className="inline-flex items-center gap-2 rounded-xl border border-[#00FF88]/50 bg-[#00FF88]/10 px-5 py-3 text-sm font-black text-[#B5F7CC]">Explore creator catalog</Link><Link href="/continuation-readiness-register" className="inline-flex items-center gap-2 rounded-xl border border-[#00D4FF]/50 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#9DEBFF]">Prepare a release record <ExternalLink className="h-4 w-4" /></Link></div><button type="button" onClick={copyReleaseBrief} className="mt-5 inline-flex items-center gap-2 rounded-xl border border-[#FFB800]/55 bg-[#FFB800]/10 px-5 py-3 text-sm font-black text-[#FFE09A]"><Copy className="h-4 w-4" />Copy item release brief</button></div></section>
+  </main>;
+}

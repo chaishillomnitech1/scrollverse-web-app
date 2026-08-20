@@ -412,6 +412,7 @@ import August28LaunchCommandCenter from "./pages/August28LaunchCommandCenter";
 import AIConstellationHub from "./pages/AIConstellationHub";
 import CreatorBooksPublishingDesk from "./pages/CreatorBooksPublishingDesk";
 import VisualTutorialStudio from "./pages/VisualTutorialStudio";
+import EvolutionLookbook from "./pages/EvolutionLookbook";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -643,6 +644,7 @@ function Router() {
       <Route path={"/ai-constellation"} component={AIConstellationHub} />
       <Route path={"/creator-books"} component={CreatorBooksPublishingDesk} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
+      <Route path={"/evolution-lookbook"} component={EvolutionLookbook} />
 	      <Route path={"/scroll-tv"} component={ScrollTV} />
       <Route path={"/nft-unlock"} component={NFTUnlock} />
       <Route path={"/media-hub"} component={MediaHub} />
