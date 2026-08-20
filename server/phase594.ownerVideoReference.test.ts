@@ -13,7 +13,7 @@ describe("Phase 594 — Owner-supplied video reference archive", () => {
     expect(archive).toContain("Gv_3sj5qsb4");
     expect(archive).toContain("calm, smooth, clear");
     expect(archive).toContain("not replication of a person");
-    expect(packet).toContain("OWNER-SUPPLIED VIDEO REFERENCE · RESEARCH");
+    expect(packet).toContain("OWNER-SUPPLIED VIDEO REFERENCE INDEX · RESEARCH");
     expect(packet).toContain("Narration direction retained for original ScrollVerse productions.");
   });
 

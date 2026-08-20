@@ -4710,3 +4710,9 @@
 - [x] Create a concise source-labeled archive record with accessibility, narration, and exact external-release boundaries
 - [x] Connect the browser-local media record to relevant discovery and production-instruction routes without embedding, downloading, republishing, or claiming a partnership
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the video-reference archive connection
+
+## Phase 595 — Owner-Supplied Media Reference Index
+- [x] Locate the remaining direct media references retained in conversation and preserve each as a separate source record
+- [x] Record concise source labels, accessible original-production directions, and non-reproduction boundaries for the reference index
+- [x] Connect the indexed media references to browser-local creator, tutorial, and media-preparation routes without embedding, downloading, or republishing source media
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the media reference index
