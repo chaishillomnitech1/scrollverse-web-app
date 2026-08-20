@@ -4912,3 +4912,17 @@
 - [x] Add creator and Legion contribution highways that point visitors to existing creation, collaboration, learning, and community routes without representing autonomous activity as active
 - [x] Prepare a deploy-gated recurring-evolution control record with a defined, idempotent local callback scope; do not enable a schedule before deployment and an exact owner activation decision
 - [x] Extend focused regression coverage, validate TypeScript and the full suite, and publish the immersive Story Worlds update
+
+## Phase 628 — Realms + Amenities and Creator Registry
+- [x] Define browser-local home, culture, learning, studio, wellness, commerce-preparation, and community amenities as visitor-choice world districts
+- [x] Build a Realms + Amenities digital-world route and connect it across Story Worlds, Creator Atlas, learning, creation, and collaboration pathways
+- [x] Build a source-and-brand registry page for names, marks, characters, visual identity, repositories, timestamps, and exact external-action records
+- [x] Preserve exact future purchase, filing, domain, and provider gates without representing them as active
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the digital realms and registry expansion
+
+## Phase 629 — Public-Source Protection Research Campaign
+- [x] Define official public-source research tracks for U.S. trademarks, copyrights, patents, domains, source-code/repository evidence, and creator documentation
+- [x] Collect official public-resource records and map the creator’s names, marks, works, characters, repositories, and domains as source-labeled claim candidates
+- [x] Extend the Creator Source + Brand Registry with claim-candidate status, official resource links, evidence fields, and correction pathways
+- [x] Preserve filings, registrations, domain actions, token actions, and provider operations as exact future action records without representing any as completed
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protection-research milestone

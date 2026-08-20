@@ -45,6 +45,7 @@ const CREATOR_HIGHWAYS = [
   { title: "Build a creator pathway", detail: "Bring an original idea, material, or release-preparation question into the creator workspace.", href: "/creator-operations", icon: WandSparkles, color: "#9DEBFF" },
   { title: "Find a co-creation route", detail: "Use the collaboration invitation to connect a story world to a clear review question and source-led handoff.", href: "/collaborate", icon: Orbit, color: "#DCC8FF" },
   { title: "Meet the Legion constellation", detail: "Explore original digital-intelligence roles, guides, and connected creative routes within ScrollVerse.", href: "/ai-constellation", icon: RadioTower, color: "#B5F7CC" },
+  { title: "Enter Realms + Amenities", detail: "Choose a digital-world district for home, studio, learning, culture, wellness, community, or future exchange preparation.", href: "/realms-amenities", icon: Compass, color: "#FFE09A" },
 ] as const;
 
 type PulseMode = "STILL" | "BALANCED" | "RADIANT";

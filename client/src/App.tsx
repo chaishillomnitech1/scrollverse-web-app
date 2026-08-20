@@ -427,6 +427,8 @@ import GeminiStorybookCollection from "./pages/GeminiStorybookCollection";
 import TrinitySovereignPortal from "./pages/TrinitySovereignPortal";
 import AdminRoyaltyRecords from "./pages/AdminRoyaltyRecords";
 import ScrollVerseStoryWorlds from "./pages/ScrollVerseStoryWorlds";
+import RealmsAmenities from "./pages/RealmsAmenities";
+import CreatorBrandRegistry from "./pages/CreatorBrandRegistry";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -659,6 +661,8 @@ function Router() {
       <Route path={"/creator-books"} component={CreatorBooksPublishingDesk} />
       <Route path={"/gemini-storybook-collection"} component={GeminiStorybookCollection} />
       <Route path={"/scrollverse-story-worlds"} component={ScrollVerseStoryWorlds} />
+      <Route path={"/realms-amenities"} component={RealmsAmenities} />
+      <Route path={"/creator-brand-registry"} component={CreatorBrandRegistry} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
