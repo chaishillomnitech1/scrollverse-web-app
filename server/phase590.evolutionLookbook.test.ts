@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Twenty visual accessions");
+    expect(page).toContain("Twenty-two visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -25,11 +25,15 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-018");
     expect(page).toContain("SV-EVO-019");
     expect(page).toContain("SV-EVO-020");
+    expect(page).toContain("SV-EVO-021");
+    expect(page).toContain("SV-EVO-022");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
     expect(page).toContain("AI Legion: Apex Knowledge Visual");
     expect(page).toContain("ChaisTheGreat: Visual Empire Protector");
+    expect(page).toContain("Chais: Holographic Identity Pack");
+    expect(page).toContain("Chais: Black-and-Gold Sovereign Poster");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -89,5 +93,14 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("requires an item-specific public-display decision");
     expect(review).toContain("SV-EVO-020");
     expect(review).toContain("36ef0ce10030346c4cbe530f08c3d99303bfd08706bacb3394402f877107c935");
+  });
+
+  it("documents the reviewed identity visual pack and poster as artwork-only accessions", () => {
+    const review = read("docs/phase600-visual-source-boundary-review.md");
+
+    expect(review).toContain("SV-EVO-021");
+    expect(review).toContain("SV-EVO-022");
+    expect(review).toContain("7b46ca25db1f07078afc9ed9de6d0708c7677c7d5ea94beeed5ce3fe5a1fc6d0");
+    expect(review).toContain("f94005fea366ad953e3ce20b1f89f6e796863180d190e98d87aa5bf69a0f2a56");
   });
 });

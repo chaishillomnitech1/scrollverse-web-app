@@ -4740,3 +4740,9 @@
 - [x] Document direct visual-review evidence, accessibility drafts, and display decisions for the selected set
 - [x] Add only clearly display-ready reviewed records to the browser-local Evolution Lookbook catalog
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the updated catalog
+
+## Phase 600 — Visual Source-Boundary Review
+- [x] Identify distinct remaining visual candidates and evaluate visible source-boundary risks
+- [x] Create direct-review evidence records, source hashes, accessibility drafts, and display decisions
+- [x] Add only clear artwork-only display-ready accessions to the browser-local Evolution Lookbook catalog
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next catalog update
