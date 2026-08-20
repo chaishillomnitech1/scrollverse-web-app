@@ -4849,3 +4849,14 @@
 - [x] Define a creator network taxonomy and cross-promotion rules with concise operating labels
 - [x] Publish the browser-local Creator Network and connected route handoffs without claiming external service integration
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the Creator Network milestone
+
+## Phase 618 — Homepage Creator Network Handoff
+- [x] Locate the homepage discovery rail and select a stable Creator Network handoff position
+- [x] Add the Creator Network front-door discovery entry and focused regression coverage
+- [x] Validate TypeScript and the full suite, then publish the homepage discovery enhancement
+
+## Phase 619 — Deeper Evidence-Led Capability Review
+- [x] Define comparison questions and a source hierarchy for a deeper review of documented portal capabilities
+- [x] Collect clearly named public reference evidence and current portal capability records without assuming a global rank or outcome
+- [x] Publish a source-labeled comparison update with reproducible evidence, limits, and correction pathways
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the enhanced evidence comparison

@@ -22,6 +22,15 @@ describe("Phase 603 — Evidence-led capability comparison", () => {
     expect(page).toContain("Download local scorecard");
   });
 
+  it("adds cited public reference profiles without turning them into a superiority claim", () => {
+    const page = read("client/src/pages/CapabilityComparison.tsx");
+    expect(page).toContain("PUBLIC REFERENCE PROFILES");
+    expect(page).toContain("Patreon");
+    expect(page).toContain("Shopify");
+    expect(page).toContain("OpenSea Learn");
+    expect(page).toContain("Comparable capabilities, not a borrowed conclusion.");
+  });
+
   it("preserves the public-anchor source record and correction path", () => {
     const record = read("docs/phase603-evidence-led-capability-comparison.md");
     expect(record).toContain("Web Content Accessibility Guidelines (WCAG) 2.2");

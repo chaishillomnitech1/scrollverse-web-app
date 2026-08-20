@@ -991,6 +991,7 @@ const VISITOR_DISCOVERY_PATHS = [
   { kicker: "LEARN WITH AI", title: "AI Constellation", detail: "Meet original guide roles, use clear tutorials, and discover public AI options without implied integration.", href: "/ai-constellation", icon: "◌", color: "#00FF88" },
   { kicker: "VISUAL EXHIBIT", title: "Evolution Lookbook", detail: "View owner-supplied visual compositions with accessibility text and clear external-release boundaries.", href: "/evolution-lookbook", icon: "✧", color: "#FFE09A" },
   { kicker: "CONNECTED WORK", title: "Creator Atlas", detail: "Choose a doorway into visual worlds, learning, books, creator systems, or the source record.", href: "/creator-atlas", icon: "◉", color: "#FFE09A" },
+  { kicker: "CROSS-PROMOTION", title: "Creator Network", detail: "Move across artifacts, apps, sites, lookbooks, learning, media, and readiness paths as one connected creator system.", href: "/creator-network", icon: "◈", color: "#B98CFF" },
 ] as const;
 
 function VisitorDiscoveryRail() {
