@@ -21,6 +21,8 @@ describe("Phase 592 — Cross-World Visual Storytelling", () => {
     expect(page).toContain("Crypto Artifact Lookbook");
     expect(page).toContain("Creator Broadcast Preparation");
     expect(page).toContain("NARRATION BRIDGE · 8–15 SECONDS");
+    expect(page).toContain("Visual-Story Archive Method");
+    expect(page).toContain("scrollverse-visual-story-archive");
   });
 
   it("keeps visual narration and future asset concepts separate from external execution", () => {

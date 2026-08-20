@@ -4872,3 +4872,9 @@
 - [x] Define concise visual focus, narration cue, and source-backed next-step handoffs for the connected creator worlds
 - [x] Publish browser-local cross-world pathways linking visual art, fashion, music, media, study, books, and creator discovery without external activation
 - [x] Extend focused regression coverage, validate TypeScript and the full suite, and publish the cross-world storytelling update
+
+## Phase 622 — Visual-Story Archive Skill
+- [x] Extract the reusable direct-review, evidence, source-hash, accessibility, managed-asset, collection-count, and cross-world-handoff method
+- [x] Create and validate a reusable ScrollVerse visual-story archive skill
+- [x] Record the reusable method in a browser-local evidence route with focused regression coverage
+- [x] Validate TypeScript and the full suite, then publish the reusable-method milestone

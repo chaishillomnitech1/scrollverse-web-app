@@ -23,6 +23,10 @@ All handoffs are **available now** as browser-local discovery links. The visual 
 
 The browser-local `/visual-story-worlds` route was reviewed after implementation. The page rendered all six handoff cards, their 8–15 second narration bridges, and direct links to the Crypto Artifact Lookbook, Evolution Lookbook, Creator Broadcast Preparation, Visual Tutorial Studio, Creator Books, and Creator Atlas routes. The selected story-world stage remained intact above the new section.
 
+## Reusable method record
+
+The validated `scrollverse-visual-story-archive` skill packages the direct-review, SHA-256, accessibility, managed-asset, browser-local accession, synchronized-count, and cross-world-handoff method. Its browser-local method card appears on `/visual-story-worlds`; the skill includes an accession-and-handoff template for repeat use.
+
 ## Correction path
 
 A correction can name the origin world, destination route, visual wording, narration bridge, or source context that needs revision. If a future short is produced, its narration, language, captions, visual reference, duration, music-use authorization, and destination remain item-specific production inputs.
