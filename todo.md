@@ -4667,6 +4667,7 @@
 - [x] Select and add the next reviewed original visual collection group to the browser-local lookbook with source, accessibility, and visitor-path labels
 - [ ] Group the newly supplied image sequence and repeated aggregate dashboard captures into separate creative-source and analytics-evidence records without exposing private data or inferring external outcomes
 - [x] Classify the quoted IPFS, price-ticker, OpenSea, token, and profit statements as non-executable external workflow proposals and retain only supported visual, metadata, accessibility, and release-readiness lessons
+- [x] Record the repeated four-look, IPFS, OpenSea, and price-ticker text as duplicate non-executable workflow context without creating a credential, script execution, live feed, asset pin, listing, or token action
 - [x] Record the owner-authored source and timestamp context without claiming a legal outcome, rights adjudication, or court result
 - [x] Keep public collection copy creator-first and operationally clear without turning the browser-local exhibit into legal commentary
 - [x] Present owner-authored visual work directly for public choice with source, operating state, accessibility, correction path, and item-specific external-release boundaries
