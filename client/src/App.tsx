@@ -441,6 +441,9 @@ import ScrollVerseContinuityIndex from "./pages/ScrollVerseContinuityIndex";
 import Episode37LedgerSync from "./pages/Episode37LedgerSync";
 import OmnitotalityCoreDeck from "./pages/OmnitotalityCoreDeck";
 import EpisodicOperationsArchive from "./pages/EpisodicOperationsArchive";
+import Episode38ExchangeMatrix from "./pages/Episode38ExchangeMatrix";
+import Episode39ExchangePerimeter from "./pages/Episode39ExchangePerimeter";
+import Episode40InfrastructureScaling from "./pages/Episode40InfrastructureScaling";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -687,6 +690,9 @@ function Router() {
       <Route path={"/episode-37-ledger-sync"} component={Episode37LedgerSync} />
       <Route path={"/omnitotality-core-deck"} component={OmnitotalityCoreDeck} />
       <Route path={"/episodic-operations-archive"} component={EpisodicOperationsArchive} />
+      <Route path={"/episode-38-exchange-matrix"} component={Episode38ExchangeMatrix} />
+      <Route path={"/episode-39-exchange-perimeter"} component={Episode39ExchangePerimeter} />
+      <Route path={"/episode-40-infrastructure-scaling"} component={Episode40InfrastructureScaling} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />

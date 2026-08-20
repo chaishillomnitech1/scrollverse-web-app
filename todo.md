@@ -4998,16 +4998,16 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the unified continuity-index milestone
 
 ## Phase 640 — Episode 37 Protected Reference
-- [ ] Classify the owner-supplied Episode 37 narrative, schema-validator, server-configuration, and asset-catalog reference material
-- [ ] Build a browser-local Episode 37 narrative and architecture-readiness record with reusable concepts and visible unverified-operating-state boundaries
-- [ ] Connect the Episode 37 record to production, local royalty records, the Isolation Terminal, Continuity Index, and Story Worlds routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+- [x] Classify the owner-supplied Episode 37 narrative, schema-validator, server-configuration, and asset-catalog reference material
+- [x] Build a browser-local Episode 37 narrative and architecture-readiness record with reusable concepts and visible unverified-operating-state boundaries
+- [x] Connect the Episode 37 record to production, local royalty records, the Isolation Terminal, Continuity Index, and Story Worlds routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
 
 ## Phase 641 — Omnitotality Core Deck Protected Reference
-- [ ] Classify the supplied Omnitotality interface code, Episode 24 scene material, asset concepts, runtime log, and governance assertions as protected source records
-- [ ] Build a browser-local production and interface-readiness record that carries reusable visual-system concepts while showing checkout, mint, media, ledger, and runtime boundaries
-- [ ] Connect the Omnitotality record to Episode Experience, Cover Art Storyworlds, Creator Registry, Isolation Terminal, and Continuity Index routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected Omnitotality reference milestone
+- [x] Classify the supplied Omnitotality interface code, Episode 24 scene material, asset concepts, runtime log, and governance assertions as protected source records
+- [x] Build a browser-local production and interface-readiness record that carries reusable visual-system concepts while showing checkout, mint, media, ledger, and runtime boundaries
+- [x] Connect the Omnitotality record to Episode Experience, Cover Art Storyworlds, Creator Registry, Isolation Terminal, and Continuity Index routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected Omnitotality reference milestone
 
 ## Phase 642 — Episode 38 Exchange Matrix Protected Reference
 - [ ] Classify the supplied Episode 38 narrative, exchange harness, environment layout, and catalog-map material as protected source records
@@ -5040,7 +5040,12 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the expanded protected-reference milestone
 
 ## Phase 646 — Google Conversation Fragment + Episode 41 Protected Reference
-- [ ] Classify the supplied Google conversation fragment, including its Episode 41 narrative, infrastructure diagrams, source claims, visible screenshot evidence, and unsupplied-context limitation
-- [ ] Extend the browser-local Episodic Operations Archive with an Episode 41 source record, explicit screenshot register, and local narrative/readiness controls
-- [ ] Preserve embedded token, treasury, wallet, RPC, IPFS, contract, payment, host, Nginx, WebSocket, daemon, cron, firewall, benchmark, and deployment language as protected non-executable reference material
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the expanded protected-reference milestone
+- [x] Classify the supplied Google conversation fragment, including its Episode 41 narrative, infrastructure diagrams, source claims, visible screenshot evidence, and unsupplied-context limitation
+- [x] Extend the browser-local Episodic Operations Archive with an Episode 41 source record, explicit screenshot register, and local narrative/readiness controls
+- [x] Preserve embedded token, treasury, wallet, RPC, IPFS, contract, payment, host, Nginx, WebSocket, daemon, cron, firewall, benchmark, and deployment language as protected non-executable reference material
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the expanded protected-reference milestone
+
+## Phase 647 — Individual Episode Records + Publication Status Correction
+- [x] Build and validate dedicated browser-local protected-reference routes for Episodes 38, 39, and 40, including archive handoffs and local review controls
+- [ ] Check the temporary upstream publication pause, preserve an accurate release-state record, and retry only when the service is available
+- [ ] Publish the verified route milestone and report the confirmed production operating state
