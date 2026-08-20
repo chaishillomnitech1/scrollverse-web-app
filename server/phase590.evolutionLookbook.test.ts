@@ -15,7 +15,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Twenty-nine visual accessions");
+    expect(page).toContain("Thirty visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
@@ -34,6 +34,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("SV-EVO-027");
     expect(page).toContain("SV-EVO-028");
     expect(page).toContain("SV-EVO-029");
+    expect(page).toContain("SV-EVO-030");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
     expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
@@ -48,6 +49,7 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain("AI-Powered Operator: Vertical Study");
     expect(page).toContain("Four-Stage Evolution Signal");
     expect(page).toContain("Evolution Method Visual #001");
+    expect(page).toContain("XLVIII Blocks: New Jersey Unified Map");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -142,5 +144,13 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("SV-EVO-606-D01");
     expect(review).toContain("981c084b3d7c6add19be70de9b9550231e86f4a0544c9e31ff530ec05da5db04");
     expect(review).toContain("not establish that any depicted percentage, price, yield, NFT, token, exchange, product, contract, wallet, or transaction is active");
+  });
+
+  it("keeps the reviewed New Jersey corridor map as artwork-only source material", () => {
+    const review = read("docs/phase605-next-source-labeled-archive-review.md");
+
+    expect(review).toContain("XLVIII Blocks: New Jersey Unified Map");
+    expect(review).toContain("1acecec54873eec08f919e4fc5932f596df389f935949256ea79fc4c03884941");
+    expect(review).toContain("does not demonstrate a live service, geographic network, or operation");
   });
 });

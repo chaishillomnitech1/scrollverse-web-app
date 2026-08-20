@@ -4773,10 +4773,10 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the continued archive milestone
 
 ## Phase 605 — Next Source-Labeled Archive Review
-- [ ] Identify the next distinct owner-supplied visual candidates for direct review
-- [ ] Create direct-review source records, hashes, accessibility drafts, and display decisions
-- [ ] Add selected neutral records to connected browser-local archive routes
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the next archive milestone
+- [x] Identify the next distinct owner-supplied visual candidates for direct review
+- [x] Create direct-review source records, hashes, accessibility drafts, and display decisions
+- [x] Add selected neutral records to connected browser-local archive routes
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next archive milestone
 
 ## Phase 606 — Exchange-and-Evolution Visual Archive
 - [x] Classify the supplied blue operator portraits, $LONDC/CHX symbolic coin visuals, four-stage evolution composition, and associated protected reference text
