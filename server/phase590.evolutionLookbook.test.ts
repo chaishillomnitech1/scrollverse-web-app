@@ -15,15 +15,17 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Seventeen visual accessions");
+    expect(page).toContain("Eighteen visual accessions");
     expect(page).toContain("CREATOR-FIRST COLLECTION LENSES");
     expect(page).toContain("SOURCE-LABELED COLLECTION GROUPS");
     expect(page).toContain("Motion");
     expect(page).toContain("SV-EVO-015");
     expect(page).toContain("SV-EVO-016");
     expect(page).toContain("SV-EVO-017");
+    expect(page).toContain("SV-EVO-018");
     expect(page).toContain("Vineland Signal Studio");
     expect(page).toContain("Threefold Signal Diagram");
+    expect(page).toContain("XLVIII Blocks Chronicles: The Sovereign Grid Awakens");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });
@@ -56,5 +58,14 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(review).toContain("SV-EVO-017");
     expect(review).toContain("9f0a66b3996d687231fd44f6d11827ffaacdf83e00aae07f1ba328dc4000db48");
     expect(review).toContain("0b0acfa24ee9e44a759db7d261ff77b9ed0c1e0cdc8c5212e00b21846aecb966");
+  });
+
+  it("keeps third-party music references separate while documenting the selected comic-cover accession", () => {
+    const review = read("docs/phase597-evolution-lookbook-visual-review.md");
+
+    expect(review).toContain("SV-EVO-018-CANDIDATE");
+    expect(review).toContain("requires an item-specific public display decision");
+    expect(review).toContain("SV-EVO-018");
+    expect(review).toContain("dcdf8d93bd0765515d506eb8c82ec05bb22c0759762e01ef7d9918bf9535edef");
   });
 });

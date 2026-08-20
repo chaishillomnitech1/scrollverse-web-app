@@ -4722,3 +4722,9 @@
 - [x] Review selected visual works directly and create source-hash, accessibility, and public-display evidence entries
 - [x] Add the reviewed accessions to the browser-local lookbook and connected creator discovery pathways
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the visual catalog expansion
+
+## Phase 597 — Next Evolution Lookbook Visual Review
+- [x] Identify the next distinct source candidates from the remaining owner-supplied visual intake
+- [x] Directly review selected candidates and create accession evidence with source hashes and accessibility descriptions
+- [x] Add reviewed accessions to the browser-local Evolution Lookbook and connected creator discovery pathways
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the next visual catalog milestone
