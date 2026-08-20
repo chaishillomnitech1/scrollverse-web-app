@@ -4814,3 +4814,9 @@
 - [x] Map verified current portal modules into a creator-first systems overview with source handoffs and concise operating labels
 - [x] Publish browser-local connected-systems navigation without adopting unverified deployment, hardware, metric, or execution claims
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the connected-systems overview milestone
+
+## Phase 612 — Creator-Controlled Activation Dossier
+- [x] Review the remaining owner-controlled external lanes and their current browser-local readiness routes
+- [x] Define one unified activation dossier that maps each exact required record to a single release-preparation path
+- [x] Publish browser-local external-lane readiness and source handoffs without initiating external provider, wallet, contract, registrar, commerce, publication, or upload actions
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the creator-controlled activation dossier
