@@ -15,7 +15,8 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(home).toContain('href: "/evolution-lookbook"');
     expect(page).toContain("OWNER-AUTHORED VISUAL EXHIBIT · PUBLIC CHOICE");
     expect(page).toContain("PUBLIC BROWSER EXHIBIT");
-    expect(page).toContain("Fourteen visual accessions");
+    expect(page).toContain("Fifteen visual accessions");
+    expect(page).toContain("SV-EVO-015");
     expect(page).toContain('href="/creator-books"');
     expect(page).toContain('href="/tutorial-studio"');
   });

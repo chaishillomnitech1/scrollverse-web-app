@@ -49,9 +49,20 @@ The later files beginning with `780374539_`, `780380847_`, `780140124_`, `779004
 
 ## Direct Local Inventory Audit
 
-After the interrupted parallel-review attempt, a direct local inventory counted **276** selected visual source files totaling **210,044,331 bytes**. The local families include **38** numbered WEBP/GIF assets, **113** `IMG_*.png` files, and **125** `att.*.jpeg` files. This is a source-manifest observation, not an assertion that every file is public, reviewed, approved for display, unique, rights-cleared, or represented in the current lookbook. The active browser-local exhibit presently contains the first twelve reviewed accessions; the remaining files stay in grouped source intake pending their own descriptions, hashes, accessibility text, and public-display decisions.
+After the latest visual uploads, a direct local inventory counted **281** selected visual source files totaling **214,557,409 bytes**. The local families include **43** numbered WEBP/GIF assets, **113** `IMG_*.png` files, and **125** `att.*.jpeg` files. This is a source-manifest observation, not an assertion that every file is public, reviewed, approved for display, unique, rights-cleared, or represented in the current lookbook. The active browser-local exhibit presently contains fourteen reviewed accessions; the remaining files stay in grouped source intake pending their own descriptions, hashes, accessibility text, and public-display decisions.
 
 The direct hash audit identified **98 duplicate-hash groups** and **102 repeated file instances beyond the first**. The catalog therefore treats upload filename variations and repeated attachments as source-cluster candidates rather than automatically creating a separate public exhibit item for each file. Unique-source selection, neutral description, accessibility drafting, and individual public-display review remain the next accession-level steps.
+
+### Direct Source-Family Manifest Snapshot
+
+| Source family | Files | Unique content hashes | Bytes | Ordered filename-list SHA-256 |
+|---|---:|---:|---:|---|
+| Numbered WEBP/GIF visual files | 43 | 43 | 72,785,926 | `082da4499bc813ab8cb19f3a2cfd66f7127931e1cddb77aa777a5037e14877d8` |
+| `IMG_*.png` sequence | 113 | 70 | 119,977,557 | `b7a31b8daf044b9c25850b63dffad604a6433fcfa1bdd1186daa581c92c84526` |
+| `att.*.jpeg` sequence | 125 | 66 | 21,793,926 | `2441aca12f0dafe2877c563fb6ec35a595df1981405b09dd9da7ba1a0b566844` |
+| Combined ordered source list | 281 | 179 | 214,557,409 | `73e501724465b1d92a610e2fc177af082ab3345802f0b0ea8acea2c9e207525f` |
+
+The source families are provisionally organized as **numbered visual and motion works**, **image-sequence materials**, and **attached reference or poster materials**. The active browser-local exhibit uses only directly reviewed accessions. The rest remains source intake until each selected item receives a neutral description, accessibility text, and display-state decision.
 
 ## Direct Candidate Review: Next Source Group
 
@@ -64,3 +75,29 @@ The direct candidate review became `SV-EVO-013` (`780374539_1797329517934236_570
 ## Private Review: Third-Party Sports Likeness Candidate
 
 `IMG_1637(2).png` is a phone screenshot showing a cybernetic sports-poster depiction of **Jalen Brunson**, a **KNICKS** wordmark and jersey number, a QR-code-like graphic, and a Pinata-download screen header. The screenshot is retained as owner-supplied private source context only. It is not included in the public browser-local lookbook because it appears to contain a third-party likeness and sports-brand identifiers. Any public use would require a documented purpose-specific rights and representation review; no QR destination was opened or treated as evidence of an external asset, marketplace, or provider state.
+
+## Direct Candidate Review: Monumental Poster Variants
+
+`780140124_1034322962572296_4519657521923077516_n.webp` and `779004579_37662216043424705_6380562118634137213_n.webp` are closely related owner-supplied monumental-poster variants. Each depicts a carved mountain monument with the words **“Who you got?”**, figures labeled **Sage**, **Titan**, **Guardian**, and **Chais**, a landscape background, and a human portrait adjacent to stylized sculptural figures. The first uses a sunset-toned sky; the second uses a daytime sky.
+
+Draft alt text for the sunset variant: “Monumental mountain illustration at sunset, with carved figures labeled Sage, Titan, Guardian, and Chais below the words ‘Who you got?’.” Draft alt text for the daytime variant: “Monumental mountain illustration in daylight, with carved figures labeled Sage, Titan, Guardian, and Chais below the words ‘Who you got?’.” Both remain owner-supplied source context pending a named-person likeness and intended public-representation decision before any browser-local display selection.
+
+## Direct Candidate Review: Motion Studies
+
+`779816514_989639117430218_1549228157025845074_n.gif` is a vertical, dark-blue motion study showing the monumental group as a low-light moving composition. Draft alt text: “Vertical dark-blue motion artwork showing a monument-like group of figures in a shadowed landscape.” It inherits the monument group’s named-person and public-representation review state.
+
+`780503607_1565108678740937_7120597408417150464_n.gif` is a vertical motion study centered on a gold-toned chain with a large faceted clear pendant. Draft alt text: “Vertical motion artwork showing a gold-toned chain and a large clear faceted pendant against a dark background.” It is retained as an owner-supplied accessory visual concept; no material, price, product inventory, seller, or marketplace claim is established.
+
+The direct candidate review becomes `SV-EVO-015` (`780503607_1565108678740937_7120597408417150464_n.gif`, SHA-256 `0ff60f63b1a382e63e9c8518a801395a73ffea3abd5279935b6ea28c338712db`). It is a browser-local public-choice accession with the direct-review alt text retained in the exhibit.
+
+## Repeated Six-Look External Workflow Proposal
+
+The submitted six-look text references mock and potential IPFS identifiers, a collection file at an external URL, a Base-chain contract and royalty address, price-ticker values, a real Pinata credential, a mint instruction, and a media-export request. This record retains only the reusable catalog lessons: a six-look concept can be represented as an internal collection plan, each visual can carry a source and accessibility record, and a future external release must be prepared item by item.
+
+The text does not establish any real pin, collection file, contract, royalty configuration, token, token identifier, wallet, price, oracle, listing, media export, or completed deployment. The external link was not fetched; no credential was accepted or configured; no IPFS, marketplace, chain, wallet, or token action was performed.
+
+## Owner-Shared Workflow Screenshot Record
+
+`IMG_1748.PNG`, `IMG_1749.PNG`, and `IMG_1750.PNG` are owner-shared workflow screenshots. Per the owner’s direction, their images were not re-opened after receipt. The visible text supplied with the screenshots references mock or potential IPFS identifiers, deploy instructions, a six-look banner concept, ticker values, a future Pinata credential, and a prospective mint action.
+
+The screenshots are retained as first-party workflow context for collection organization and visual-release planning. They do not change the browser-local exhibit or establish any active pin, contract, price, oracle, marketplace, token, wallet, deployment, or mint state. No external link, file, credential, script, chain, or wallet action was performed from this record.

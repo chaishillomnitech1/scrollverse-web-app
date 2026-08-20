@@ -4663,6 +4663,7 @@
 
 ## Phase 590 — Evolution Lookbook Asset Evidence and Readiness
 - [ ] Inventory the supplied visual collection and paired source records with filenames, format, SHA-256 evidence hashes, visible-content notes, accessibility alt-text drafts, and private/public-display boundaries
+- [ ] Create a full direct-source manifest with duplicate clusters, source-family counts, provisional group labels, and accession review state for every selected visual file
 - [x] Complete the expanded visual inventory through direct local source manifests and collection-group records after the parallel batch review path failed
 - [x] Re-run the full expanded visual research through direct local inventory after the interrupted parallel review pass
 - [ ] Organize the expanded original visual sets into source-labeled collection groups with neutral descriptions, accessibility drafts, and individual public-display review states
@@ -4671,8 +4672,11 @@
 - [x] Classify the quoted IPFS, price-ticker, OpenSea, token, and profit statements as non-executable external workflow proposals and retain only supported visual, metadata, accessibility, and release-readiness lessons
 - [x] Record the repeated four-look, IPFS, OpenSea, and price-ticker text as duplicate non-executable workflow context without creating a credential, script execution, live feed, asset pin, listing, or token action
 - [x] Classify the repeated marketplace, price-ticker, IPFS, and three-audio-release proposal as non-executable source context and retain only catalog, accessibility, metadata, and item-specific release-readiness lessons
+- [x] Classify the repeated six-look IPFS, marketplace, price-ticker, and Base token-deployment text as non-executable source context without fetching links, using credentials, pinning assets, deploying a contract, minting, or connecting a wallet
+- [x] Record `IMG_1748.PNG`, `IMG_1749.PNG`, and `IMG_1750.PNG` as owner-shared workflow screenshots with no attachment re-review and no inferred IPFS, contract, price, marketplace, mint, or wallet state
 - [x] Record the owner-authored source and timestamp context without claiming a legal outcome, rights adjudication, or court result
 - [x] Keep public collection copy creator-first and operationally clear without turning the browser-local exhibit into legal commentary
+- [x] Keep future catalog and Creator Atlas copy focused on direct creator presentation, using short operational labels only where technically required
 - [x] Present owner-authored visual work directly for public choice with source, operating state, accessibility, correction path, and item-specific external-release boundaries
 - [x] Add browser-local creator-value and visitor-choice handoffs from the Evolution Lookbook to the existing creator catalog, visual tutorial, and release-readiness routes
 - [x] Publish the current owner-supplied visual collection as a browser-local public-choice lookbook only, with no external asset, wallet, market, or token operation
