@@ -438,6 +438,9 @@ import LegionContinuityLab from "./pages/LegionContinuityLab";
 import ResearchAtlas from "./pages/ResearchAtlas";
 import DigitalIntelligenceSafeguards from "./pages/DigitalIntelligenceSafeguards";
 import ScrollVerseContinuityIndex from "./pages/ScrollVerseContinuityIndex";
+import Episode37LedgerSync from "./pages/Episode37LedgerSync";
+import OmnitotalityCoreDeck from "./pages/OmnitotalityCoreDeck";
+import EpisodicOperationsArchive from "./pages/EpisodicOperationsArchive";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -681,6 +684,9 @@ function Router() {
       <Route path={"/research-atlas"} component={ResearchAtlas} />
       <Route path={"/digital-intelligence-safeguards"} component={DigitalIntelligenceSafeguards} />
       <Route path={"/scrollverse-continuity-index"} component={ScrollVerseContinuityIndex} />
+      <Route path={"/episode-37-ledger-sync"} component={Episode37LedgerSync} />
+      <Route path={"/omnitotality-core-deck"} component={OmnitotalityCoreDeck} />
+      <Route path={"/episodic-operations-archive"} component={EpisodicOperationsArchive} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />

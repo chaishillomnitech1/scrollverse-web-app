@@ -4996,3 +4996,51 @@
 - [x] Build a Continuity Index route with local filtering, source selection, summary copy/JSON export, and connected portal handoffs
 - [x] Add an explicit intake path for user-attached external Manus sessions, preserving their source boundary rather than assuming access to unrelated chats
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the unified continuity-index milestone
+
+## Phase 640 — Episode 37 Protected Reference
+- [ ] Classify the owner-supplied Episode 37 narrative, schema-validator, server-configuration, and asset-catalog reference material
+- [ ] Build a browser-local Episode 37 narrative and architecture-readiness record with reusable concepts and visible unverified-operating-state boundaries
+- [ ] Connect the Episode 37 record to production, local royalty records, the Isolation Terminal, Continuity Index, and Story Worlds routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+
+## Phase 641 — Omnitotality Core Deck Protected Reference
+- [ ] Classify the supplied Omnitotality interface code, Episode 24 scene material, asset concepts, runtime log, and governance assertions as protected source records
+- [ ] Build a browser-local production and interface-readiness record that carries reusable visual-system concepts while showing checkout, mint, media, ledger, and runtime boundaries
+- [ ] Connect the Omnitotality record to Episode Experience, Cover Art Storyworlds, Creator Registry, Isolation Terminal, and Continuity Index routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected Omnitotality reference milestone
+
+## Phase 642 — Episode 38 Exchange Matrix Protected Reference
+- [ ] Classify the supplied Episode 38 narrative, exchange harness, environment layout, and catalog-map material as protected source records
+- [ ] Build a browser-local Episode 38 narrative and local-validation readiness record with reusable concepts and visible banking, allocation, wallet, RPC, market, and listener boundaries
+- [ ] Connect the Episode 38 record to local royalty records, Catalog Stewardship, Isolation Terminal, Continuity Index, and Story Worlds routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+
+## Phase 643 — Episode 39 Exchange Perimeter Protected Reference
+- [ ] Classify the supplied Episode 39 narrative, shell validator, blockchain listener, and catalog-map material as protected source records
+- [ ] Build a browser-local Episode 39 narrative and local-validation readiness record with reusable concepts and visible firewall, wallet, RPC, blockchain-daemon, exchange, and deployment boundaries
+- [ ] Connect the Episode 39 record to local royalty records, Catalog Stewardship, Isolation Terminal, Continuity Index, and Story Worlds routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+
+## Phase 644 — Episode 40 Infrastructure Scaling Protected Reference
+- [ ] Classify the supplied Episode 40 narrative, benchmark harness, Nginx ingress configuration, and catalog-map material as protected source records
+- [ ] Build a browser-local Episode 40 narrative and local-readiness record with reusable benchmark and security concepts and visible host, Nginx, WebSocket, cron, firewall, wallet, and deployment boundaries
+- [ ] Connect the Episode 40 record to Episode Experience, Isolation Terminal, Continuity Index, Research Atlas, and Story Worlds routes
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the protected-reference milestone
+
+## Phase 645 — Episodic Operations Archive
+- [x] Consolidate protected source classifications for Episode 24 and Episodes 37–40, including narrative, interface, local-validation, readiness concepts, and Google-rendered screenshot evidence
+- [x] Build a browser-local Episodic Operations Archive with source selection, scope boundaries, local copy/JSON export, and connected creator handoffs
+- [x] Preserve embedded wallet, banking, allocation, exchange, firewall, host, Nginx, WebSocket, cron, RPC, daemon, ledger, provider, contract, deployment, and test-count claims as source-labeled reference material rather than active state
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the consolidated protected-reference milestone
+
+## Phase 646 — Google Conversation Fragments + Episodes 41–43 Protected Reference
+- [x] Classify the supplied Google conversation fragments, including Episode 41 and Episode 42 narrative material, Episode 43 prompts, infrastructure diagrams, visible screenshot evidence, and unsupplied-context limitations
+- [x] Extend the browser-local Episodic Operations Archive with Episode 41 and Episode 42 source records, Episode 43 preparation prompts, an expanded screenshot register, and local narrative/readiness controls
+- [x] Preserve embedded token, treasury, wallet, RPC, IPFS, contract, payment, host, Nginx, WebSocket, daemon, cron, firewall, benchmark, forensic-validator, and deployment language as protected non-executable reference material
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the expanded protected-reference milestone
+
+## Phase 646 — Google Conversation Fragment + Episode 41 Protected Reference
+- [ ] Classify the supplied Google conversation fragment, including its Episode 41 narrative, infrastructure diagrams, source claims, visible screenshot evidence, and unsupplied-context limitation
+- [ ] Extend the browser-local Episodic Operations Archive with an Episode 41 source record, explicit screenshot register, and local narrative/readiness controls
+- [ ] Preserve embedded token, treasury, wallet, RPC, IPFS, contract, payment, host, Nginx, WebSocket, daemon, cron, firewall, benchmark, and deployment language as protected non-executable reference material
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the expanded protected-reference milestone
