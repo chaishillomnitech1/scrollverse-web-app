@@ -4977,11 +4977,11 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the interdisciplinary research-atlas milestone
 
 ## Phase 637 — Comparative Systems Atlas
-- [ ] Define source-led comparative research districts for financial foundations, governance, public institutions, and rights frameworks
-- [ ] Collect foundational public sources for each comparative systems district with source, date, limitation, and correction information
-- [ ] Extend the browser-local Research Atlas with comparative system filters, source cards, transparent design-pattern notes, and connected knowledge handoffs
-- [ ] Preserve laws, rights, claims, programs, filings, financial actions, and external outcomes as source-labeled research or exact future records without representing them as established
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and publish the comparative systems research milestone
+- [x] Define source-led comparative research districts for financial foundations, governance, public institutions, and rights frameworks
+- [x] Collect foundational public sources for each comparative systems district with source, date, limitation, and correction information
+- [x] Extend the browser-local Research Atlas with comparative system filters, source cards, transparent design-pattern notes, and connected knowledge handoffs
+- [x] Preserve laws, rights, claims, programs, filings, financial actions, and external outcomes as source-labeled research or exact future records without representing them as established
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and publish the comparative systems research milestone
 
 ## Phase 638 — Digital Intelligence Safeguards
 - [x] Define source-labeled consent, provenance, access, misuse, correction, owner-stated protection-intent, repository-evidence, and independently verified external-status records for digital intelligence co-creation
