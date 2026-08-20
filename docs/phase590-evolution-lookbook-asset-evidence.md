@@ -50,3 +50,13 @@ The later files beginning with `780374539_`, `780380847_`, `780140124_`, `779004
 ## Direct Local Inventory Audit
 
 After the interrupted parallel-review attempt, a direct local inventory counted **276** selected visual source files totaling **210,044,331 bytes**. The local families include **38** numbered WEBP/GIF assets, **113** `IMG_*.png` files, and **125** `att.*.jpeg` files. This is a source-manifest observation, not an assertion that every file is public, reviewed, approved for display, unique, rights-cleared, or represented in the current lookbook. The active browser-local exhibit presently contains the first twelve reviewed accessions; the remaining files stay in grouped source intake pending their own descriptions, hashes, accessibility text, and public-display decisions.
+
+The direct hash audit identified **98 duplicate-hash groups** and **102 repeated file instances beyond the first**. The catalog therefore treats upload filename variations and repeated attachments as source-cluster candidates rather than automatically creating a separate public exhibit item for each file. Unique-source selection, neutral description, accessibility drafting, and individual public-display review remain the next accession-level steps.
+
+## Direct Candidate Review: Next Source Group
+
+`780374539_1797329517934236_5705747323956403387_n.webp` is a vertical black leather-textured poster with ornate gold framing. It visibly reads **“Who you got?”** above a gold nameplate reading **“CHAIS”** and a circular ScrollVerse/“963Hz Sovereign” emblem. Draft alt text: “Vertical black leather-textured poster with ornate gold framing, the words ‘Who you got?’, a gold nameplate reading ‘Chais’, and a circular ScrollVerse 963Hz Sovereign emblem.”
+
+`780380847_1056691323510302_4517851240306848686_n.gif` is a vertical motion asset. Its visible frame shows three dark stylized armored or historical faces above a misty landscape under a dark sky and warm horizon light. Draft alt text: “Vertical motion artwork showing three dark stylized faces above a misty landscape under a cloudy sky and warm horizon light.” The depiction is retained as owner-supplied artistic source context; no identification of a real person or external affiliation is asserted.
+
+The direct candidate review became `SV-EVO-013` (`780374539_1797329517934236_5705747323956403387_n.webp`, SHA-256 `6ae8237c3baf727305e834e5450690776572e42d8bd5b4664bb19e385f6b9e56`) and `SV-EVO-014` (`780380847_1056691323510302_4517851240306848686_n.gif`, SHA-256 `6f34f5f81e5183842064f507402a9113ea6540691619dfab8e54a5fbc38ff547`). Both are browser-local public-choice accessions with their direct-review alt text retained in the exhibit.

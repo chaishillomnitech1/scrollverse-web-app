@@ -4663,7 +4663,7 @@
 
 ## Phase 590 — Evolution Lookbook Asset Evidence and Readiness
 - [ ] Inventory the supplied visual collection and paired source records with filenames, format, SHA-256 evidence hashes, visible-content notes, accessibility alt-text drafts, and private/public-display boundaries
-- [ ] Complete the expanded visual inventory through direct local source manifests and collection-group records after the parallel batch review path failed
+- [x] Complete the expanded visual inventory through direct local source manifests and collection-group records after the parallel batch review path failed
 - [x] Re-run the full expanded visual research through direct local inventory after the interrupted parallel review pass
 - [ ] Organize the expanded original visual sets into source-labeled collection groups with neutral descriptions, accessibility drafts, and individual public-display review states
 - [x] Select and add the next reviewed original visual collection group to the browser-local lookbook with source, accessibility, and visitor-path labels
