@@ -5196,3 +5196,14 @@
 - [x] Classify the recovered Omniverse Manifesto, owner-described lived-account themes, Omnitech-to-Omnitech1 evolution point, visible conversation constellation, and explicit unseen-content limitation
 - [x] Build a browser-local Codex record with source sections, local copy/export, correction path, and connected archive handoffs
 - [x] Add focused regression coverage, validate the source record, and preserve evidence-first boundaries
+
+## Phase 676 — First-Party Pull Request 213 Source Record
+- [x] Inspect the owner-supplied chaishillomnitech1/Chaishillomnitech1 pull request 213 without merging, modifying, or executing repository content
+- [x] Classify visible pull-request chronology, artifacts, source limitations, and archival connections to the recovered Omniverse Manifesto
+- [x] Assess whether the documented change advances the maintained work and merge only if the repository evidence supports that owner-authorized decision
+- [x] Add a browser-local source record with direct Codex and continuity handoffs, regression coverage, and no-merge boundary
+
+## Phase 677 — Shared ChatGPT Source Intake
+- [x] Inspect the owner-supplied shared ChatGPT record at share ID 6a33a5db-d004-83ea-b787-62f71dd0f7ff and preserve only visible source material
+- [x] Classify visible chronology, themes, evidence, and explicit limitations for Codex connection
+- [x] Add a source-labeled Codex handoff only after the visible record is validated

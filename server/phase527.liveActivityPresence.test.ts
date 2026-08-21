@@ -11,11 +11,14 @@ describe("Phase 527 privacy-aware live activity indicator", () => {
     expect(__presenceTest.activeSessions.size).toBe(0);
   });
 
-  it("wires aggregate presence to the homepage without visitor identity claims", () => {
+  it("keeps the homepage indicator browser-local without a visitor-total claim", () => {
     const home = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/Home.tsx"), "utf8");
     const router = fs.readFileSync(path.resolve(import.meta.dirname, "./routers.ts"), "utf8");
-    expect(home).toContain("scrollverse_presence_session");
-    expect(home).toContain("anonymous 75s window");
+    const indicator = home.slice(home.indexOf("function LiveActivityIndicator"), home.indexOf("export default function Home"));
+    expect(indicator).toContain("scrollverse_browser_session_started_at");
+    expect(indicator).toContain("BROWSER-LOCAL SESSION");
+    expect(indicator).toContain("no visitor count");
+    expect(indicator).not.toContain("presence.active");
     expect(home).toContain("<LiveActivityIndicator />");
     expect(router).toContain("presence: presenceRouter");
   });

@@ -461,6 +461,7 @@ import CampaignAssetRegistry from "./pages/CampaignAssetRegistry";
 import RouteIntegrityIndex from "./pages/RouteIntegrityIndex";
 import CampaignActivationCenter from "./pages/CampaignActivationCenter";
 import OmniverseManifestoCodex from "./pages/OmniverseManifestoCodex";
+import CodexSourceChronology from "./pages/CodexSourceChronology";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1026,6 +1027,7 @@ function Router() {
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route path="/creator-network" component={CreatorNetwork} />
         <Route path="/omniverse-manifesto-codex" component={OmniverseManifestoCodex} />
+        <Route path="/codex-source-chronology" component={CodexSourceChronology} />
         <Route component={NotFound} />
     </Switch>
     </Suspense>

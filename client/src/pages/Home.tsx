@@ -1033,35 +1033,31 @@ function VisitorDiscoveryRail() {
 }
 
 function LiveActivityIndicator() {
-  const [sessionId] = useState(() => {
-    const key = "scrollverse_presence_session";
+  const [startedAt] = useState(() => {
+    const key = "scrollverse_browser_session_started_at";
     const current = window.sessionStorage.getItem(key);
-    if (current) return current;
-    const next = crypto.randomUUID().replaceAll("-", "");
-    window.sessionStorage.setItem(key, next);
+    if (current && Number.isFinite(Number(current))) return Number(current);
+    const next = Date.now();
+    window.sessionStorage.setItem(key, String(next));
     return next;
   });
-  const presence = trpc.presence.active.useQuery(undefined, { refetchInterval: 15_000, staleTime: 10_000 });
-  const ping = trpc.presence.ping.useMutation();
+  const [elapsedMinutes, setElapsedMinutes] = useState(0);
 
   useEffect(() => {
-    const sendPresence = () => {
-      if (document.visibilityState === "visible") ping.mutate({ sessionId });
+    const refreshElapsed = () => {
+      setElapsedMinutes(Math.max(0, Math.floor((Date.now() - startedAt) / 60_000)));
     };
-    sendPresence();
-    const interval = window.setInterval(sendPresence, 25_000);
-    document.addEventListener("visibilitychange", sendPresence);
+    refreshElapsed();
+    const interval = window.setInterval(refreshElapsed, 60_000);
     return () => {
       window.clearInterval(interval);
-      document.removeEventListener("visibilitychange", sendPresence);
     };
-  }, [ping, sessionId]);
+  }, [startedAt]);
 
-  const active = presence.data?.active ?? ping.data?.active;
   return <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-mono" style={{ background: "rgba(0,255,136,0.09)", border: "1px solid rgba(0,255,136,0.28)", color: "#B8FFD8" }} aria-live="polite">
     <span className="h-2 w-2 rounded-full bg-[#00FF88]" style={{ boxShadow: "0 0 12px #00FF88" }} />
-    {active === undefined ? "Checking live activity…" : `${active} active now`}
-    <span className="text-[#91A4B6]">· anonymous 75s window</span>
+    <span>BROWSER-LOCAL SESSION</span>
+    <span className="text-[#91A4B6]">· {elapsedMinutes === 0 ? "just opened" : `${elapsedMinutes}m open`} · no visitor count</span>
   </div>;
 }
 
