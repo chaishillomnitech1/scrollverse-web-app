@@ -5166,3 +5166,8 @@
 - [x] Inventory verified ScrollVerse brand, game, and app-icon visuals with managed URL, source record, and public-use limitation
 - [x] Build a browser-local Campaign Asset Registry with local copy/export controls and connected creator routes
 - [x] Add focused regression coverage, validate the asset record, and preserve intended-use, destination, and public-release gates
+
+## Phase 670 — Route Integrity Index
+- [x] Audit key creator, release, asset, and evidence routes against registered router paths
+- [x] Build a browser-local Route Integrity Index with route purpose, source state, direct links, and recovery paths
+- [x] Add focused regression coverage, validate direct handoffs, and publish the route-integrity record
