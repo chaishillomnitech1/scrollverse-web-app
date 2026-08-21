@@ -5114,3 +5114,9 @@
 - [x] Build a browser-local Game Worlds Studio with concept cards, local design-note export, creator input, youth-safe contribution, and connected Story Worlds / Film Studio routes
 - [x] Preserve hiring, compensation, incentives, youth participation, safeguarding, funding, rewards, stores, payments, age ratings, and external game publication as exact program-level release gates
 - [x] Add focused regression coverage, validate the studio, and preserve accurate external program state
+
+## Phase 659 — ScrollVerse Central Hub First-Party Source Integration
+- [x] Classify the Central Hub’s audio catalog, fiction preview records, source locations, and release-governance method as a local first-party production source
+- [x] Add browser-local Central Hub source cards and public-version planning handoffs without treating its three audio works or fiction previews as published releases
+- [x] Preserve title/character representation, contributors, media masters, destination, visibility, upload, schedule, monetization, and public release as exact owner-release records
+- [x] Add focused regression coverage, validate connected discovery routes, and preserve accurate source and operating states
