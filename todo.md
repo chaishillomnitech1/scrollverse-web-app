@@ -5161,3 +5161,8 @@
 - [x] Locate the stale Polygon release wording in the homepage hero
 - [x] Replace it with an accurate source-led no-chain-action label
 - [x] Add focused regression coverage, validate the corrected homepage state, and publish the repair
+
+## Phase 669 — Campaign Asset Registry
+- [x] Inventory verified ScrollVerse brand, game, and app-icon visuals with managed URL, source record, and public-use limitation
+- [x] Build a browser-local Campaign Asset Registry with local copy/export controls and connected creator routes
+- [x] Add focused regression coverage, validate the asset record, and preserve intended-use, destination, and public-release gates
