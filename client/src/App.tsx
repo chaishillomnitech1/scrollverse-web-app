@@ -454,6 +454,7 @@ import SpecialRepository from "./pages/SpecialRepository";
 import GameWorldsStudio from "./pages/GameWorldsStudio";
 import OriginalEpisodeSlate from "./pages/OriginalEpisodeSlate";
 import CentralHubSourceRecord from "./pages/CentralHubSourceRecord";
+import ThreeLaneReleaseRegister from "./pages/ThreeLaneReleaseRegister";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -713,6 +714,7 @@ function Router() {
       <Route path={"/game-worlds-studio"} component={GameWorldsStudio} />
       <Route path={"/original-episode-slate"} component={OriginalEpisodeSlate} />
       <Route path={"/central-hub-source-record"} component={CentralHubSourceRecord} />
+      <Route path={"/three-lane-release-register"} component={ThreeLaneReleaseRegister} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />

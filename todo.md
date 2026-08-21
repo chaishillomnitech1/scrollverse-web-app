@@ -5120,3 +5120,14 @@
 - [x] Add browser-local Central Hub source cards and public-version planning handoffs without treating its three audio works or fiction previews as published releases
 - [x] Preserve title/character representation, contributors, media masters, destination, visibility, upload, schedule, monetization, and public release as exact owner-release records
 - [x] Add focused regression coverage, validate connected discovery routes, and preserve accurate source and operating states
+
+## Phase 660 — Homepage Creator Worlds Discovery
+- [x] Map the Central Hub source record, Original Episode Slate, Game Worlds Studio, Film and Animation Studio, Brand Identity Record, and Special Repository into a concise homepage discovery section
+- [x] Build the homepage route cards with direct operating-state labels and accessible route handoffs
+- [x] Add focused regression coverage, validate the homepage discovery section, and publish the connected creator-worlds milestone
+
+## Phase 661 — DNS, Star Dust Contract + Master Media Three-Lane Release Register
+- [x] Inspect supplied Omnitech and ScrollHub first-party source URLs and define the exact DNS, testnet/mainnet contract, and master-media evidence records
+- [x] Build a browser-local Three-Lane Release Register with local copy/export controls, verified-current-state labels, and explicit release consequences
+- [x] Preserve registrar account, DNS record, contract source/ABI, network, deployer, gas wallet, transaction, metadata URI, masters, contributors, caption, and storage destination as exact owner-release inputs
+- [ ] Add focused regression coverage, validate the register, and request only the exact inputs or confirmations needed before each external action

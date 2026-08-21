@@ -1004,6 +1004,12 @@ const VISITOR_DISCOVERY_PATHS = [
   { kicker: "VISUAL EXHIBIT", title: "Evolution Lookbook", detail: "View owner-supplied visual compositions with accessibility text and clear external-release boundaries.", href: "/evolution-lookbook", icon: "✧", color: "#FFE09A" },
   { kicker: "CONNECTED WORK", title: "Creator Atlas", detail: "Choose a doorway into visual worlds, learning, books, creator systems, or the source record.", href: "/creator-atlas", icon: "◉", color: "#FFE09A" },
   { kicker: "CROSS-PROMOTION", title: "Creator Network", detail: "Move across artifacts, apps, sites, lookbooks, learning, media, and readiness paths as one connected creator system.", href: "/creator-network", icon: "◈", color: "#B98CFF" },
+  { kicker: "SOURCE ROOM", title: "Central Hub Source Record", detail: "Inspect the first-party local catalog, fiction preview records, and seven-step release-governance method without implying a public release.", href: "/central-hub-source-record", icon: "◫", color: "#B5F7CC" },
+  { kicker: "PUBLIC VERSION", title: "Original Episode Slate", detail: "Choose a source-led original public episode record, review production and accessibility fields, and plan a local creative sequence without posting media.", href: "/original-episode-slate", icon: "▤", color: "#FF8DB5" },
+  { kicker: "PLAY", title: "Game Worlds Studio", detail: "Explore original hero, sport, action, history, and financial-literacy game concepts with learning and youth-safe participation readiness.", href: "/game-worlds-studio", icon: "◇", color: "#9DEBFF" },
+  { kicker: "MAKE", title: "Film + Animation Studio", detail: "Open original production packs, specialist lanes, sound and edit direction, accessibility preparation, and controlled public-release planning.", href: "/film-animation-studio", icon: "✦", color: "#FFE09A" },
+  { kicker: "IDENTITY", title: "Origin Ark Studios", detail: "Meet the working authenticity-frequency brand system, the Open Ark Seal, Auri mascot concept, and browser-local identity record.", href: "/brand-identity-record", icon: "◉", color: "#B5F7CC" },
+  { kicker: "PRESERVE", title: "Special Repository", detail: "Review source, hash, accession, public-display, and non-deployable collector-readiness records for the current ScrollVerse originals.", href: "/special-repository", icon: "⌘", color: "#DCC8FF" },
 ] as const;
 
 function VisitorDiscoveryRail() {
