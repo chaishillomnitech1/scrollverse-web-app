@@ -29,6 +29,9 @@ describe("Phase 661 — Three-Lane Release Register", () => {
     expect(register).toContain('href: "/show-the-work-knowledge-base"');
     expect(register).toContain("PantheonNFT Scroll-testnet guide");
     expect(register).toContain("Vibranium ERC-1155 Sepolia metadata record");
+    expect(register).toContain("LOCAL INTAKE INVENTORY");
+    expect(register).toContain("IMG_3687.MOV");
+    expect(register).toContain("METADATA ONLY · NO UPLOAD");
     expect(observations).toContain("This site has been blocked");
     expect(observations).toContain("a contract source, ABI, target network");
     expect(skill).toContain("Keep Three Lanes Separate");

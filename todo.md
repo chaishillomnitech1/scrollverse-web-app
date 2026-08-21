@@ -5141,3 +5141,8 @@
 - [x] Inspect owner-connected GitHub sources for verifiable Star Dust contract, ABI, metadata, and approved media evidence without executing any external release
 - [x] Add only verified source evidence to the browser-local release register with current-state and limitation labels
 - [x] Add focused regression coverage, validate the evidence record, and preserve exact deployment and master-media action gates
+
+## Phase 664 — Local Master-Media Candidate Inventory
+- [x] Inventory owner-supplied local audio and video candidates with filename, media type, size, source hash, and visible intake location
+- [x] Add verified candidate records to the browser-local release register without copying, uploading, publishing, or asserting use authorization
+- [x] Add focused regression coverage, validate the candidate records, and preserve contributor, caption, storage, and publication release gates
