@@ -5108,3 +5108,9 @@
 - [x] Build a browser-local First-Party Sites and Shopify Activation Register with local notes, export, and connected discovery routes
 - [x] Preserve store destination, account session, store theme, product, inventory, checkout, payment, publication, connector, and provider actions as exact owner-release gates
 - [x] Add focused regression coverage, validate the register, and preserve accurate provider activation state
+
+## Phase 658 — Creator-Owned Game Worlds Studio
+- [x] Define original hero, sport, action, history, and financial-literacy game concepts with visual, gameplay, learning, accessibility, and source-record fields
+- [x] Build a browser-local Game Worlds Studio with concept cards, local design-note export, creator input, youth-safe contribution, and connected Story Worlds / Film Studio routes
+- [x] Preserve hiring, compensation, incentives, youth participation, safeguarding, funding, rewards, stores, payments, age ratings, and external game publication as exact program-level release gates
+- [x] Add focused regression coverage, validate the studio, and preserve accurate external program state
