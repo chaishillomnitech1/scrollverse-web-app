@@ -5102,3 +5102,9 @@
 - [x] Add a browser-local observability and integration-readiness source record with local notes, export, and connected safeguards handoff
 - [x] Preserve notification destination, database, contract, RPC, wallet, transaction, blockchain listener, provider, credential, push, and deployment requirements as exact external-action gates
 - [x] Add focused regression coverage, validate the reference record, and preserve accurate integration state
+
+## Phase 657 — First-Party Sites + Shopify Activation Register
+- [x] Define a source-led register for owner-identified Manus, Chais, Meta, and Shopify properties with verified discovery links and clear current-state labels
+- [x] Build a browser-local First-Party Sites and Shopify Activation Register with local notes, export, and connected discovery routes
+- [x] Preserve store destination, account session, store theme, product, inventory, checkout, payment, publication, connector, and provider actions as exact owner-release gates
+- [x] Add focused regression coverage, validate the register, and preserve accurate provider activation state
