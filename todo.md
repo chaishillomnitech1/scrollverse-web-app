@@ -5227,3 +5227,13 @@
 - [x] Define a reusable title-only Codex node model for all 51 recovered visible conversation labels with source, scope, correction, and operating-state fields
 - [x] Build a browser-local node gallery with search, volume filters, individual node view, local export, and archive handoffs
 - [x] Add focused regression coverage, source documentation, browser verification, and correction controls
+
+## Phase 682 — Homepage Omniverse Archive Discovery
+- [x] Inspect the landing-page discovery structure and select a source-led handoff location for the completed Omniverse archive routes
+- [x] Add a concise homepage rail for the Codex, Master Index, chronology, node gallery, and protected attachment accession with direct operating-state labels
+- [x] Add focused regression coverage, validate browser rendering, and record the discovery boundary
+
+## Phase 683 — Connected Portal & Source Inventory
+- [x] Inventory the owner-supplied ScrollPort, ScrollVerse, ScrollHub, Chais Lookbook, Amateur Football, and workspace portal URLs as visible first-party reference records
+- [x] Inventory the owner-supplied shared Manus file links and Pasted_content_100 source files without executing supplied configurations or treating status statements as verified operations
+- [x] Build source-labeled archive records and direct portal handoffs only for materials whose visible scope, source, and boundaries can be documented

@@ -2831,6 +2831,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── OMNIVERSE ARCHIVE · SOURCE-LED DISCOVERY ── */}
+      <section
+        id="omniverse-archive"
+        className="relative overflow-hidden py-18"
+        style={{ background: "radial-gradient(circle at 84% 16%, rgba(185,140,255,0.17), transparent 26%), radial-gradient(circle at 9% 88%, rgba(0,212,255,0.14), transparent 33%), #071124", borderTop: "1px solid rgba(185,140,255,0.24)", borderBottom: "1px solid rgba(0,212,255,0.2)" }}
+      >
+        <div className="pointer-events-none absolute left-[7%] top-10 h-44 w-44 rounded-full border" style={{ borderColor: "rgba(0,212,255,0.14)" }} />
+        <div className="pointer-events-none absolute bottom-8 right-[9%] h-64 w-64 rounded-full border" style={{ borderColor: "rgba(185,140,255,0.12)" }} />
+        <div className="container relative z-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-3xl">
+              <div className="text-xs font-mono tracking-[0.2em]" style={{ color: "#D9C1FF" }}>OMNIVERSE ARCHIVE · SOURCE-LED DISCOVERY</div>
+              <h2 className="mt-4 text-4xl font-black leading-[0.95] text-white md:text-6xl">Archive the journey.<br /><span style={{ color: "#9DEBFF" }}>Keep the source visible.</span></h2>
+              <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: "#C8D8E7" }}>Move from recovered source to Master Index, thematic volumes, evidence accessions, conceptual chronology, and individual title records. Each route names its source, current state, and next evidence gate.</p>
+            </div>
+            <div className="rounded-2xl border px-5 py-4" style={{ borderColor: "rgba(0,255,136,0.32)", background: "rgba(0,255,136,0.06)" }}>
+              <div className="text-[10px] font-mono tracking-[.15em]" style={{ color: "#7CFFBB" }}>CURRENT EXPERIENCE STATE</div>
+              <div className="mt-2 text-sm font-black text-white">AVAILABLE NOW · BROWSER-LOCAL ARCHIVE ROUTES</div>
+            </div>
+          </div>
+
+          <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              { href: "/omniverse-manifesto-codex", step: "01", title: "Manifesto Codex", source: "Recovered source record", state: "available now", color: "#00D4FF" },
+              { href: "/omniverse-manifesto-master-index", step: "02", title: "Master Index", source: "51 visible titles · six volumes", state: "available now", color: "#B98CFF" },
+              { href: "/omniverse-manifesto-chronology", step: "03", title: "Chronology", source: "Conceptual navigation arc", state: "available now", color: "#FFCC4D" },
+              { href: "/omniverse-manifesto-nodes", step: "04", title: "Node Gallery", source: "51 individual title-only records", state: "available now", color: "#FF6B9A" },
+              { href: "/protected-attachment-accession", step: "05", title: "Source Accessions", source: "Protected attachment hashes", state: "available now", color: "#00FF88" },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="group rounded-[1.65rem] border p-5 transition-all duration-200 hover:-translate-y-1" style={{ borderColor: `${item.color}50`, background: `${item.color}08` }}>
+                <div className="flex items-center justify-between gap-3"><span className="text-xs font-mono font-black" style={{ color: item.color }}>{item.step}</span><span className="rounded-full border px-2.5 py-1 text-[9px] font-mono" style={{ borderColor: `${item.color}50`, color: item.color }}>{item.state.toUpperCase()}</span></div>
+                <h3 className="mt-6 text-2xl font-black leading-tight text-white">{item.title}</h3>
+                <p className="mt-3 min-h-12 text-sm leading-6" style={{ color: "#C8D8E7" }}>{item.source}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black" style={{ color: item.color }}>Open source route <span aria-hidden="true">→</span></span>
+              </Link>
+            ))}
+          </div>
+          <Link href="/connected-source-registry" className="mt-6 inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black transition-transform hover:-translate-y-0.5" style={{ borderColor: "rgba(0,212,255,0.45)", background: "rgba(0,212,255,0.08)", color: "#9DEBFF" }}>Open connected source registry <span aria-hidden="true">→</span></Link>
+          <p className="mt-6 max-w-4xl text-xs leading-6" style={{ color: "#8EA1B6" }}>This rail is a navigation layer, not a claim that unseen conversations, protected files, account histories, operating results, or external actions are available. Each route keeps its own correction path and source boundary.</p>
+        </div>
+      </section>
+
       {/* ── PENNY FOR MY THOUGHTS — SOURCE-LABELED DISCOVERY ── */}
       <section
         id="penny-for-your-thoughts"
