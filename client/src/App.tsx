@@ -452,6 +452,7 @@ import FirstPartySitesRegister from "./pages/FirstPartySitesRegister";
 import BrandIdentityRecord from "./pages/BrandIdentityRecord";
 import SpecialRepository from "./pages/SpecialRepository";
 import GameWorldsStudio from "./pages/GameWorldsStudio";
+import OriginalEpisodeSlate from "./pages/OriginalEpisodeSlate";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -709,6 +710,7 @@ function Router() {
       <Route path={"/brand-identity-record"} component={BrandIdentityRecord} />
       <Route path={"/special-repository"} component={SpecialRepository} />
       <Route path={"/game-worlds-studio"} component={GameWorldsStudio} />
+      <Route path={"/original-episode-slate"} component={OriginalEpisodeSlate} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />

@@ -5069,15 +5069,15 @@
 - [x] Add focused regression coverage, validate the brand route, and preserve exact external filing, platform, and publication gates
 
 ## Phase 651 — Special Repository + Artifact Readiness
-- [ ] Define accession, evidence, source-hash, custody, public-display, non-deployable metadata, and exact mint-release fields for ScrollVerse originals
-- [ ] Build a browser-local Special Repository with local artifact records, copy/export controls, and connected brand / creator routes
-- [ ] Preserve repository visibility, rights records, representation choices, chain, service, edition, fee, custody, marketplace, price, and transaction as exact owner-release fields
-- [ ] Add focused regression coverage, validate the repository route, and preserve accurate external-repository and minting status
+- [x] Define accession, evidence, source-hash, custody, public-display, non-deployable metadata, and exact mint-release fields for ScrollVerse originals
+- [x] Build a browser-local Special Repository with local artifact records, copy/export controls, and connected brand / creator routes
+- [x] Preserve repository visibility, rights records, representation choices, chain, service, edition, fee, custody, marketplace, price, and transaction as exact owner-release fields
+- [x] Add focused regression coverage, validate the repository route, and preserve accurate external-repository and minting status
 
 ## Phase 652 — Original Public Episode Slate + Maximum-Impact Calendar
-- [ ] Define distinct original hero-guardian episode identities, complete public-version production requirements, caption and thumbnail planning, and per-episode release records
-- [ ] Build a browser-local episode slate and maximum-impact calendar planner with copy/export controls, source handoffs, and no provider posting action
-- [ ] Document two creator-controlled cadence options and preserve final video master, channel destination, visibility, premiere, and publication as exact owner-release gates
+- [x] Define distinct original hero-guardian episode identities, complete public-version production requirements, caption and thumbnail planning, and per-episode release records
+- [x] Build a browser-local episode slate and maximum-impact calendar planner with copy/export controls, source handoffs, and no provider posting action
+- [x] Document two creator-controlled cadence options and preserve final video master, channel destination, visibility, premiere, and publication as exact owner-release gates
 - [ ] Add focused regression coverage, validate the planning route, and request the minimum approved inputs before generating or scheduling full episode media
 
 ## Phase 653 — Show-the-Work Knowledge Base + Reusable Method

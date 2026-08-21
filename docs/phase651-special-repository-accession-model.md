@@ -28,3 +28,7 @@ No secret, private key, seed phrase, recovery code, private repository location,
 ## Correction Path
 
 New evidence is appended with its source date, visible state, and new identifier. Existing accessions remain readable as their original intake record.
+
+## Browser Verification
+
+The browser-local `/special-repository` route was opened after implementation. It visibly renders the four accession records, the generated Origin Ark Studios concept asset, its recorded SHA-256 file identifier, source and display states, non-deployable collector-metadata state, local copy/export controls, and connected brand, registry, and activation-dossier routes. The rendered scope states that external repository visibility, representation, chain, service, edition, fee, custody, marketplace, price, transaction, and sale remain separate owner-release actions.
