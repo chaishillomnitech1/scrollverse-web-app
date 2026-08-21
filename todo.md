@@ -5188,9 +5188,9 @@
 - [x] Add focused regression coverage, validate campaign route access, and publish the connected discovery update
 
 ## Phase 674 — Homepage Presence Indicator Accuracy
-- [ ] Inspect the homepage visitor-presence indicator and its current data source
-- [ ] Replace unverified active-user wording with a browser-local session indicator
-- [ ] Add focused regression coverage, validate the corrected home state, and publish the accuracy repair
+- [x] Inspect the homepage visitor-presence indicator and its current data source
+- [x] Replace unverified active-user wording with a browser-local session indicator
+- [x] Add focused regression coverage, validate the corrected home state, and publish the accuracy repair
 
 ## Phase 675 — Recovered ChatGPT Omniverse Manifesto Codex
 - [x] Classify the recovered Omniverse Manifesto, owner-described lived-account themes, Omnitech-to-Omnitech1 evolution point, visible conversation constellation, and explicit unseen-content limitation
@@ -5237,3 +5237,8 @@
 - [x] Inventory the owner-supplied ScrollPort, ScrollVerse, ScrollHub, Chais Lookbook, Amateur Football, and workspace portal URLs as visible first-party reference records
 - [x] Inventory the owner-supplied shared Manus file links and Pasted_content_100 source files without executing supplied configurations or treating status statements as verified operations
 - [x] Build source-labeled archive records and direct portal handoffs only for materials whose visible scope, source, and boundaries can be documented
+
+## Phase 684 — Episode 41–43 Protected Reference Routes
+- [x] Classify existing Episode 41–43 source labels, current states, and exact expansion/release gates without inferring completed media
+- [x] Build individual browser-local reference routes for Episodes 41, 42, and 43 with source, accessibility, correction, and archive handoffs
+- [x] Add focused regression coverage, browser verification, and source-boundary documentation
