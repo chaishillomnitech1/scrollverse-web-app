@@ -5181,3 +5181,8 @@
 - [x] Define browser-local Story and Event cadence options without creating recurring jobs or provider actions
 - [x] Build campaign cadence controls, local export, and exact destination release records into the Campaign Activation Center
 - [x] Add focused regression coverage, validate the planner, and preserve the external provider launch gate
+
+## Phase 673 — Campaign Discovery Handoffs
+- [x] Audit homepage and Route Integrity Index coverage for the Campaign Activation Center and cadence planner
+- [x] Add direct campaign discovery and recovery handoffs to browser-local visitor routes
+- [x] Add focused regression coverage, validate campaign route access, and publish the connected discovery update

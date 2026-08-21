@@ -20,6 +20,7 @@ const ROUTES: RouteRecord[] = [
   { path: "/film-animation-studio", title: "Film + Animation Studio", purpose: "Creator-controlled production packs and specialist lanes.", state: "available now", group: "Create" },
   { path: "/game-worlds-studio", title: "Game Worlds Studio", purpose: "Original game concepts, learning lenses, and youth-safe readiness.", state: "available now", group: "Create" },
   { path: "/campaign-asset-registry", title: "Campaign Asset Registry", purpose: "Managed visual assets with source and placement records.", state: "available now", group: "Release" },
+  { path: "/campaign-activation-center", title: "Campaign Activation Center", purpose: "First-party campaign briefs and browser-local Story or Event planning.", state: "available now", group: "Release" },
   { path: "/three-lane-release-register", title: "Three-Lane Release Register", purpose: "DNS, contract, and master-media exact-action preparation.", state: "requires owner release", group: "Release" },
   { path: "/londyn-ledger-evidence", title: "Londyn Ledger Evidence", purpose: "Public explorer evidence fields with no chain action.", state: "research", group: "Evidence" },
   { path: "/brand-identity-record", title: "Brand Identity Record", purpose: "Origin Ark Studios mark, mascot, and release boundary.", state: "available now", group: "Discover" },
