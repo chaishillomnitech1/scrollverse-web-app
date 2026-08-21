@@ -5047,8 +5047,8 @@
 
 ## Phase 647 — Individual Episode Records + Publication Status Correction
 - [x] Build and validate dedicated browser-local protected-reference routes for Episodes 38, 39, and 40, including archive handoffs and local review controls
-- [ ] Check the temporary upstream publication pause, preserve an accurate release-state record, and retry only when the service is available
-- [ ] Publish the verified route milestone and report the confirmed production operating state
+- [x] Check the temporary upstream publication pause, preserve an accurate release-state record, and retry only when the service is available
+- [x] Publish the verified route milestone and report the confirmed production operating state
 
 ## Phase 648 — Public YouTube Episode Release Readiness
 - [x] Define source-led public-version release records for the completed ScrollVerse episode references, including title, description, audience, visual specification, source, and correction paths
@@ -5061,3 +5061,44 @@
 - [x] Build a browser-local Film and Animation Studio with creator-controlled specialist workflows, local production-note export, and connected episode / release routes
 - [x] Preserve final master, rights/contributor, character, voice, music-use, caption, platform-destination, and publication requirements as exact owner-release gates
 - [x] Add focused regression coverage, validate the studio, and preserve accurate production and managed-publication states
+
+## Phase 650 — Company Name, Logo, Mascot + Authenticity Frequency Brand System
+- [ ] Define an original company-name, brand promise, simple scalable logo concept, mascot identity, palette, and authenticity-frequency system
+- [ ] Generate the core logo-and-mascot visual asset and stage it for managed portal delivery
+- [ ] Build a browser-local Brand Identity Record with original concept, visual use guidance, local export, and connected creator routes
+- [ ] Add focused regression coverage, validate the brand route, and preserve exact external filing, platform, and publication gates
+
+## Phase 651 — Special Repository + Artifact Readiness
+- [ ] Define accession, evidence, source-hash, custody, public-display, non-deployable metadata, and exact mint-release fields for ScrollVerse originals
+- [ ] Build a browser-local Special Repository with local artifact records, copy/export controls, and connected brand / creator routes
+- [ ] Preserve repository visibility, rights records, representation choices, chain, service, edition, fee, custody, marketplace, price, and transaction as exact owner-release fields
+- [ ] Add focused regression coverage, validate the repository route, and preserve accurate external-repository and minting status
+
+## Phase 652 — Original Public Episode Slate + Maximum-Impact Calendar
+- [ ] Define distinct original hero-guardian episode identities, complete public-version production requirements, caption and thumbnail planning, and per-episode release records
+- [ ] Build a browser-local episode slate and maximum-impact calendar planner with copy/export controls, source handoffs, and no provider posting action
+- [ ] Document two creator-controlled cadence options and preserve final video master, channel destination, visibility, premiere, and publication as exact owner-release gates
+- [ ] Add focused regression coverage, validate the planning route, and request the minimum approved inputs before generating or scheduling full episode media
+
+## Phase 653 — Show-the-Work Knowledge Base + Reusable Method
+- [x] Define the source-led show-the-work pattern: evidence, outcome, one-to-two-step method, reusable boundary, and correction path
+- [x] Build a browser-local knowledge-base route that links ScrollVerse studio, archive, brand, and release-readiness examples
+- [x] Package the repeatable method as a concise reusable skill without protected source material or external-action claims
+- [x] Add focused regression coverage, validate creator discovery, and preserve accurate operating states
+
+## Phase 654 — Portal Runtime Error Repair
+- [x] Locate the non-JSON tRPC rate-limit response and duplicate `/recovery-materials` list key reported on the home route
+- [x] Return JSON-safe rate-limit errors and render recovery-material entries with stable unique React keys
+- [x] Add focused regression coverage, validate the home route in the browser, and confirm the production deployment state
+
+## Phase 655 — Meta AI Solar System + Episode 46 Protected Reference
+- [x] Classify the owner-supplied Solar System transmission, Episode 46 narrative, node-scale, geo-map, IPFS, daemon, and assertion-sweep concepts as protected source material
+- [x] Extend the browser-local Episodic Operations Archive with an Episode 46 source record and source-led operating-state boundaries
+- [x] Preserve host, firewall, WebSocket, IPFS, systemd, IPNS, node, benchmark, and deployment statements as non-executable reference concepts
+- [x] Add focused regression coverage, validate the archive record, and preserve accurate portal operating state
+
+## Phase 656 — Google Webhook + On-Chain Sync Protected Reference
+- [x] Classify the owner-supplied webhook dispatcher, database-sync, contract listener, and deployment claims as protected source material
+- [x] Add a browser-local observability and integration-readiness source record with local notes, export, and connected safeguards handoff
+- [x] Preserve notification destination, database, contract, RPC, wallet, transaction, blockchain listener, provider, credential, push, and deployment requirements as exact external-action gates
+- [x] Add focused regression coverage, validate the reference record, and preserve accurate integration state

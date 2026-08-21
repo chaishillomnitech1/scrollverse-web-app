@@ -21,10 +21,49 @@ const redirectToLoginIfUnauthorized = (error: unknown) => {
   window.location.href = getLoginUrl();
 };
 
+const isRateLimitError = (error: unknown) =>
+  error instanceof TRPCClientError && /request limit reached|too many requests/i.test(error.message);
+
+const jsonSafeTrpcFetch: typeof globalThis.fetch = async (input, init) => {
+  const response = await globalThis.fetch(input, {
+    ...(init ?? {}),
+    credentials: "include",
+  });
+
+  const contentType = response.headers.get("content-type") ?? "";
+  if (contentType.includes("application/json")) return response;
+
+  const text = await response.text();
+  const message = response.status === 429
+    ? "Request limit reached. Please wait a moment and try again."
+    : text || `Request failed with status ${response.status}.`;
+
+  return new Response(JSON.stringify([{
+    error: {
+      json: {
+        message,
+        code: response.status === 429 ? -32029 : -32603,
+        data: {
+          code: response.status === 429 ? "TOO_MANY_REQUESTS" : "INTERNAL_SERVER_ERROR",
+          httpStatus: response.status,
+        },
+      },
+    },
+  }]), {
+    status: response.status,
+    statusText: response.statusText,
+    headers: { "content-type": "application/json" },
+  });
+};
+
 queryClient.getQueryCache().subscribe(event => {
   if (event.type === "updated" && event.action.type === "error") {
     const error = event.query.state.error;
     redirectToLoginIfUnauthorized(error);
+    if (isRateLimitError(error)) {
+      console.warn("[API Query Rate Limit] Request limit reached; retry after a short pause.");
+      return;
+    }
     console.error("[API Query Error]", error);
   }
 });
@@ -33,6 +72,10 @@ queryClient.getMutationCache().subscribe(event => {
   if (event.type === "updated" && event.action.type === "error") {
     const error = event.mutation.state.error;
     redirectToLoginIfUnauthorized(error);
+    if (isRateLimitError(error)) {
+      console.warn("[API Mutation Rate Limit] Request limit reached; retry after a short pause.");
+      return;
+    }
     console.error("[API Mutation Error]", error);
   }
 });
@@ -42,12 +85,7 @@ const trpcClient = trpc.createClient({
     httpBatchLink({
       url: "/api/trpc",
       transformer: superjson,
-      fetch(input, init) {
-        return globalThis.fetch(input, {
-          ...(init ?? {}),
-          credentials: "include",
-        });
-      },
+      fetch: jsonSafeTrpcFetch,
     }),
   ],
 });
