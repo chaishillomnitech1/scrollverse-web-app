@@ -5146,3 +5146,8 @@
 - [x] Inventory owner-supplied local audio and video candidates with filename, media type, size, source hash, and visible intake location
 - [x] Add verified candidate records to the browser-local release register without copying, uploading, publishing, or asserting use authorization
 - [x] Add focused regression coverage, validate the candidate records, and preserve contributor, caption, storage, and publication release gates
+
+## Phase 666 — Londyn Polygon Ledger Evidence Record
+- [x] Inspect first-party sources for a public Londyn contract, transaction, or explorer reference without initiating any chain action
+- [x] Build a browser-local ledger-evidence record that shows evidence states, required fields, local controls, and source limits
+- [x] Add focused regression coverage, validate the evidence route, and preserve the exact explorer, contract, and portal-connection gates
