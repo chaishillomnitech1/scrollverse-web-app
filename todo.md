@@ -5151,3 +5151,8 @@
 - [x] Inspect first-party sources for a public Londyn contract, transaction, or explorer reference without initiating any chain action
 - [x] Build a browser-local ledger-evidence record that shows evidence states, required fields, local controls, and source limits
 - [x] Add focused regression coverage, validate the evidence route, and preserve the exact explorer, contract, and portal-connection gates
+
+## Phase 667 — ScrollVerse App-Icon Candidate
+- [x] Inspect the completed Origin Ark Studios brand asset and current manifest configuration for a manifest-ready icon candidate
+- [x] Create a browser-local icon-candidate record with source identity, accessibility label, and required export references
+- [x] Add focused regression coverage, validate the candidate, and preserve the final authenticated application-icon activation gate
