@@ -5078,7 +5078,7 @@
 - [x] Define distinct original hero-guardian episode identities, complete public-version production requirements, caption and thumbnail planning, and per-episode release records
 - [x] Build a browser-local episode slate and maximum-impact calendar planner with copy/export controls, source handoffs, and no provider posting action
 - [x] Document two creator-controlled cadence options and preserve final video master, channel destination, visibility, premiere, and publication as exact owner-release gates
-- [ ] Add focused regression coverage, validate the planning route, and request the minimum approved inputs before generating or scheduling full episode media
+- [x] Add focused regression coverage, validate the planning route, and request the minimum approved inputs before generating or scheduling full episode media
 
 ## Phase 653 — Show-the-Work Knowledge Base + Reusable Method
 - [x] Define the source-led show-the-work pattern: evidence, outcome, one-to-two-step method, reusable boundary, and correction path
@@ -5130,4 +5130,9 @@
 - [x] Inspect supplied Omnitech and ScrollHub first-party source URLs and define the exact DNS, testnet/mainnet contract, and master-media evidence records
 - [x] Build a browser-local Three-Lane Release Register with local copy/export controls, verified-current-state labels, and explicit release consequences
 - [x] Preserve registrar account, DNS record, contract source/ABI, network, deployer, gas wallet, transaction, metadata URI, masters, contributors, caption, and storage destination as exact owner-release inputs
-- [ ] Add focused regression coverage, validate the register, and request only the exact inputs or confirmations needed before each external action
+- [x] Add focused regression coverage, validate the register, and request only the exact inputs or confirmations needed before each external action
+
+## Phase 662 — Reusable Three-Lane Release Readiness Skill
+- [x] Define reusable DNS, contract, and master-media input records, consequences, no-action boundaries, and handoff outputs
+- [x] Create and validate a concise reusable skill for the three-lane release readiness workflow
+- [x] Link the skill to the portal release register and preserve exact action gates
