@@ -5171,3 +5171,8 @@
 - [x] Audit key creator, release, asset, and evidence routes against registered router paths
 - [x] Build a browser-local Route Integrity Index with route purpose, source state, direct links, and recovery paths
 - [x] Add focused regression coverage, validate direct handoffs, and publish the route-integrity record
+
+## Phase 671 — GitHub Campaign Activation Center
+- [x] Inspect owner-first-party GitHub sources for verifiable campaign, launch, brand, media, and learning materials
+- [x] Build a browser-local Campaign Activation Center with source-led campaign briefs, asset routing, local export, and creator handoffs
+- [x] Add focused regression coverage, validate campaign readiness, and preserve destination-specific public-launch gates

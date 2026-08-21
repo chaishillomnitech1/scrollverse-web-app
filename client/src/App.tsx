@@ -459,6 +459,7 @@ import LondynLedgerEvidence from "./pages/LondynLedgerEvidence";
 import AppIconCandidate from "./pages/AppIconCandidate";
 import CampaignAssetRegistry from "./pages/CampaignAssetRegistry";
 import RouteIntegrityIndex from "./pages/RouteIntegrityIndex";
+import CampaignActivationCenter from "./pages/CampaignActivationCenter";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -723,6 +724,7 @@ function Router() {
       <Route path={"/app-icon-candidate"} component={AppIconCandidate} />
       <Route path={"/campaign-asset-registry"} component={CampaignAssetRegistry} />
       <Route path={"/route-integrity-index"} component={RouteIntegrityIndex} />
+      <Route path={"/campaign-activation-center"} component={CampaignActivationCenter} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
