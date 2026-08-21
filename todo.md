@@ -5222,3 +5222,8 @@
 - [x] Design a source-labeled chronology from the 51 visible recovered titles, the Codex record, and verified archive milestones without inventing dates or unseen source content
 - [x] Build a browser-local chronology route with chapter filters, local export, and direct Master Index, Codex, accession, and repository handoffs
 - [x] Add focused regression coverage, source documentation, browser verification, and correction controls
+
+## Phase 681 — Omniverse Manifesto Node Gallery
+- [x] Define a reusable title-only Codex node model for all 51 recovered visible conversation labels with source, scope, correction, and operating-state fields
+- [x] Build a browser-local node gallery with search, volume filters, individual node view, local export, and archive handoffs
+- [x] Add focused regression coverage, source documentation, browser verification, and correction controls

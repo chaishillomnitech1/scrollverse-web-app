@@ -465,6 +465,7 @@ import CodexSourceChronology from "./pages/CodexSourceChronology";
 import OmniverseManifestoMasterIndex from "./pages/OmniverseManifestoMasterIndex";
 import ProtectedAttachmentAccession from "./pages/ProtectedAttachmentAccession";
 import OmniverseManifestoChronology from "./pages/OmniverseManifestoChronology";
+import OmniverseManifestoNodes, { OmniverseManifestoNode } from "./pages/OmniverseManifestoNodes";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1034,6 +1035,8 @@ function Router() {
         <Route path="/omniverse-manifesto-master-index" component={OmniverseManifestoMasterIndex} />
         <Route path="/protected-attachment-accession" component={ProtectedAttachmentAccession} />
         <Route path="/omniverse-manifesto-chronology" component={OmniverseManifestoChronology} />
+        <Route path="/omniverse-manifesto-nodes" component={OmniverseManifestoNodes} />
+        <Route path="/omniverse-node/:id" component={OmniverseManifestoNode} />
         <Route component={NotFound} />
     </Switch>
     </Suspense>
