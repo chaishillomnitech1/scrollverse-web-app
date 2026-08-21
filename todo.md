@@ -5186,3 +5186,13 @@
 - [x] Audit homepage and Route Integrity Index coverage for the Campaign Activation Center and cadence planner
 - [x] Add direct campaign discovery and recovery handoffs to browser-local visitor routes
 - [x] Add focused regression coverage, validate campaign route access, and publish the connected discovery update
+
+## Phase 674 — Homepage Presence Indicator Accuracy
+- [ ] Inspect the homepage visitor-presence indicator and its current data source
+- [ ] Replace unverified active-user wording with a browser-local session indicator
+- [ ] Add focused regression coverage, validate the corrected home state, and publish the accuracy repair
+
+## Phase 675 — Recovered ChatGPT Omniverse Manifesto Codex
+- [x] Classify the recovered Omniverse Manifesto, owner-described lived-account themes, Omnitech-to-Omnitech1 evolution point, visible conversation constellation, and explicit unseen-content limitation
+- [x] Build a browser-local Codex record with source sections, local copy/export, correction path, and connected archive handoffs
+- [x] Add focused regression coverage, validate the source record, and preserve evidence-first boundaries

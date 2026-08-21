@@ -460,6 +460,7 @@ import AppIconCandidate from "./pages/AppIconCandidate";
 import CampaignAssetRegistry from "./pages/CampaignAssetRegistry";
 import RouteIntegrityIndex from "./pages/RouteIntegrityIndex";
 import CampaignActivationCenter from "./pages/CampaignActivationCenter";
+import OmniverseManifestoCodex from "./pages/OmniverseManifestoCodex";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1024,6 +1025,7 @@ function Router() {
         <Route path="/scrollverse-chess-arena" component={ScrollVerseChessArena} />
         <Route path="/admin/provenance-review" component={AdminProvenanceReview} />
         <Route path="/creator-network" component={CreatorNetwork} />
+        <Route path="/omniverse-manifesto-codex" component={OmniverseManifestoCodex} />
         <Route component={NotFound} />
     </Switch>
     </Suspense>
