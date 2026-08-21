@@ -4,13 +4,16 @@ import { Link } from "wouter";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-type District = "Infinite Archive" | "Lumen Trails" | "Civic Horizon";
-type StoryRecord = { id: string; title: string; district: District; pathway: string; audience: "ALL-AGES DISCOVERY" | "FAMILY + ADULT-SUPPORTED" | "ALL-AGES + REFLECTION"; source: "IMG_4208.PNG" | "IMG_4209.PNG" };
+type District = "Infinite Archive" | "Lumen Trails" | "Civic Horizon" | "Citadel Signal" | "Evidence Commons" | "Maker's Passage";
+type StoryRecord = { id: string; title: string; district: District; pathway: string; audience: "ALL-AGES DISCOVERY" | "FAMILY + ADULT-SUPPORTED" | "ALL-AGES + REFLECTION"; source: string };
 
-const DISTRICTS: Record<District, { number: string; color: string; description: string; invitation: string }> = {
-  "Infinite Archive": { number: "01", color: "#9DEBFF", description: "Cosmic, reflective, and ScrollVerse-scale title records arranged as an open archive district.", invitation: "Enter the archive of big questions, recurring signals, and world-scale imagination." },
-  "Lumen Trails": { number: "02", color: "#FFE09A", description: "Adventure, wonder, and family discovery title records prepared for age-pathway development.", invitation: "Follow a gentle trail through adventure, care, curiosity, and shared reading." },
-  "Civic Horizon": { number: "03", color: "#DCC8FF", description: "City, lineage, and identity title records connected to place, memory, and creator perspective.", invitation: "Walk through titles that hold people, places, and the stories carried forward." },
+const DISTRICTS: Record<District, { number: string; color: string; description: string; invitation: string; state: "AVAILABLE NOW" | "REQUIRES OWNER RELEASE" }> = {
+  "Infinite Archive": { number: "01", color: "#9DEBFF", description: "Cosmic, reflective, and ScrollVerse-scale title records arranged as an open archive district.", invitation: "Enter the archive of big questions, recurring signals, and world-scale imagination.", state: "AVAILABLE NOW" },
+  "Lumen Trails": { number: "02", color: "#FFE09A", description: "Adventure, wonder, and family discovery title records prepared for age-pathway development.", invitation: "Follow a gentle trail through adventure, care, curiosity, and shared reading.", state: "AVAILABLE NOW" },
+  "Civic Horizon": { number: "03", color: "#DCC8FF", description: "City, lineage, and identity title records connected to place, memory, and creator perspective.", invitation: "Walk through titles that hold people, places, and the stories carried forward.", state: "AVAILABLE NOW" },
+  "Citadel Signal": { number: "04", color: "#FFA3A3", description: "Protected episode-reference records for the Core Control Citadel, Mainboard Chamber, and future-node prompt.", invitation: "Trace a source-led path through episode evidence, planning language, and exact release gates.", state: "AVAILABLE NOW" },
+  "Evidence Commons": { number: "05", color: "#B5F7CC", description: "Master Index, title-node, source-chronology, and protected-accession records for the journey itself.", invitation: "Follow visible titles, source checks, and correction pathways through the archive.", state: "AVAILABLE NOW" },
+  "Maker's Passage": { number: "06", color: "#FFB8E2", description: "Public-version preparation routes for original film, animation, and episode-ready creator packs.", invitation: "Enter when an owner-approved script, master, credits, and accessibility packet are ready.", state: "REQUIRES OWNER RELEASE" },
 };
 
 const STORIES: StoryRecord[] = [
@@ -31,6 +34,12 @@ const STORIES: StoryRecord[] = [
   { id: "SV-STORY-015", title: "The City Canvas", district: "Civic Horizon", pathway: "City film study · mural comic · place-making lesson", audience: "ALL-AGES DISCOVERY", source: "IMG_4209.PNG" },
   { id: "SV-STORY-016", title: "The Eternal Flow of King Chais", district: "Civic Horizon", pathway: "Legacy visual essay · graphic chronicle · reflection route", audience: "ALL-AGES + REFLECTION", source: "IMG_4209.PNG" },
   { id: "SV-STORY-017", title: "The Gift of Aura's Truth", district: "Lumen Trails", pathway: "Kindness animation · comic chapter · family discussion route", audience: "FAMILY + ADULT-SUPPORTED", source: "IMG_4209.PNG" },
+  { id: "SV-WORLD-018", title: "The Absolute World Ordered", district: "Citadel Signal", pathway: "Episode 41 protected reference · Citadel visual language · public-version gate", audience: "ALL-AGES + REFLECTION", source: "Episode 41 browser-local protected reference" },
+  { id: "SV-WORLD-019", title: "The Motherboard of the World", district: "Citadel Signal", pathway: "Episode 42 protected reference · Mainboard Chamber · archive-validator planning", audience: "ALL-AGES + REFLECTION", source: "Episode 42 browser-local protected reference" },
+  { id: "SV-WORLD-020", title: "Final Core Infrastructure Nodes", district: "Citadel Signal", pathway: "Episode 43 research prompt · complete-source gate · future production pathway", audience: "ALL-AGES + REFLECTION", source: "Episode 43 browser-local research record" },
+  { id: "SV-WORLD-021", title: "The 51 Questions Constellation", district: "Evidence Commons", pathway: "Master Index · source-labeled chronology · individual title-node navigation", audience: "ALL-AGES + REFLECTION", source: "Omniverse Manifesto Master Index" },
+  { id: "SV-WORLD-022", title: "The Source Accessions Corridor", district: "Evidence Commons", pathway: "Protected attachment metadata · source hashes · correction pathway", audience: "ALL-AGES + REFLECTION", source: "Protected Attachment Accession" },
+  { id: "SV-WORLD-023", title: "The Public Version Workshop", district: "Maker's Passage", pathway: "Original film + animation pack · captions · credits · destination decision", audience: "ALL-AGES + REFLECTION", source: "Film + Animation Studio and YouTube Episode Release Desk" },
 ];
 
 const LANES = [
