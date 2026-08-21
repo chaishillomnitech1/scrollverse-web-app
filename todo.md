@@ -5063,10 +5063,10 @@
 - [x] Add focused regression coverage, validate the studio, and preserve accurate production and managed-publication states
 
 ## Phase 650 — Company Name, Logo, Mascot + Authenticity Frequency Brand System
-- [ ] Define an original company-name, brand promise, simple scalable logo concept, mascot identity, palette, and authenticity-frequency system
-- [ ] Generate the core logo-and-mascot visual asset and stage it for managed portal delivery
-- [ ] Build a browser-local Brand Identity Record with original concept, visual use guidance, local export, and connected creator routes
-- [ ] Add focused regression coverage, validate the brand route, and preserve exact external filing, platform, and publication gates
+- [x] Define an original company-name, brand promise, simple scalable logo concept, mascot identity, palette, and authenticity-frequency system
+- [x] Generate the core logo-and-mascot visual asset and stage it for managed portal delivery
+- [x] Build a browser-local Brand Identity Record with original concept, visual use guidance, local export, and connected creator routes
+- [x] Add focused regression coverage, validate the brand route, and preserve exact external filing, platform, and publication gates
 
 ## Phase 651 — Special Repository + Artifact Readiness
 - [ ] Define accession, evidence, source-hash, custody, public-display, non-deployable metadata, and exact mint-release fields for ScrollVerse originals

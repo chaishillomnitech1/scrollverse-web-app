@@ -449,6 +449,7 @@ import FilmAnimationStudio from "./pages/FilmAnimationStudio";
 import ShowTheWorkKnowledgeBase from "./pages/ShowTheWorkKnowledgeBase";
 import IntegrationObservabilityReference from "./pages/IntegrationObservabilityReference";
 import FirstPartySitesRegister from "./pages/FirstPartySitesRegister";
+import BrandIdentityRecord from "./pages/BrandIdentityRecord";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -703,6 +704,7 @@ function Router() {
       <Route path={"/show-the-work-knowledge-base"} component={ShowTheWorkKnowledgeBase} />
       <Route path={"/integration-observability-reference"} component={IntegrationObservabilityReference} />
       <Route path={"/first-party-sites-register"} component={FirstPartySitesRegister} />
+      <Route path={"/brand-identity-record"} component={BrandIdentityRecord} />
       <Route path={"/trinity-sovereign-portal"} component={TrinitySovereignPortal} />
       <Route path={"/admin/royalty-records"} component={AdminRoyaltyRecords} />
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
