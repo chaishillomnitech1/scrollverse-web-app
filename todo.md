@@ -5207,3 +5207,13 @@
 - [x] Inspect the owner-supplied shared ChatGPT record at share ID 6a33a5db-d004-83ea-b787-62f71dd0f7ff and preserve only visible source material
 - [x] Classify visible chronology, themes, evidence, and explicit limitations for Codex connection
 - [x] Add a source-labeled Codex handoff only after the visible record is validated
+
+## Phase 678 — Omniverse Manifesto Master Index
+- [x] Map all 51 recovered visible conversation titles into source-labeled thematic Codex volumes without inventing underlying conversation content
+- [x] Build a browser-local Master Index with search, volume filters, local export, and handoffs to the manifesto, chronology, and repository records
+- [x] Add focused regression coverage, chronology documentation, browser verification, and source-boundary controls
+
+## Phase 679 — Protected Attachment Intake
+- [x] Identify the file types, stable hashes, and directly observable content of Clipboard_0_A2E8CE60 and Clipboard_1_C004425D
+- [x] Classify their archive relevance without executing, publishing, or inferring unseen source content
+- [x] Add a source-labeled accession or Codex handoff only after direct evidence is documented
