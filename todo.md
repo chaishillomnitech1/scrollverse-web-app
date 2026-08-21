@@ -5156,3 +5156,8 @@
 - [x] Inspect the completed Origin Ark Studios brand asset and current manifest configuration for a manifest-ready icon candidate
 - [x] Create a browser-local icon-candidate record with source identity, accessibility label, and required export references
 - [x] Add focused regression coverage, validate the candidate, and preserve the final authenticated application-icon activation gate
+
+## Phase 668 — Homepage Polygon State Label Repair
+- [x] Locate the stale Polygon release wording in the homepage hero
+- [x] Replace it with an accurate source-led no-chain-action label
+- [x] Add focused regression coverage, validate the corrected homepage state, and publish the repair
