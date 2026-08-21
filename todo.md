@@ -5217,3 +5217,8 @@
 - [x] Identify the file types, stable hashes, and directly observable content of Clipboard_0_A2E8CE60 and Clipboard_1_C004425D
 - [x] Classify their archive relevance without executing, publishing, or inferring unseen source content
 - [x] Add a source-labeled accession or Codex handoff only after direct evidence is documented
+
+## Phase 680 — Omniverse Manifesto Chronology
+- [x] Design a source-labeled chronology from the 51 visible recovered titles, the Codex record, and verified archive milestones without inventing dates or unseen source content
+- [x] Build a browser-local chronology route with chapter filters, local export, and direct Master Index, Codex, accession, and repository handoffs
+- [x] Add focused regression coverage, source documentation, browser verification, and correction controls
