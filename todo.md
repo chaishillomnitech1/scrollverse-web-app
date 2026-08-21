@@ -5176,3 +5176,8 @@
 - [x] Inspect owner-first-party GitHub sources for verifiable campaign, launch, brand, media, and learning materials
 - [x] Build a browser-local Campaign Activation Center with source-led campaign briefs, asset routing, local export, and creator handoffs
 - [x] Add focused regression coverage, validate campaign readiness, and preserve destination-specific public-launch gates
+
+## Phase 672 — Non-Posting Campaign Cadence Planner
+- [x] Define browser-local Story and Event cadence options without creating recurring jobs or provider actions
+- [x] Build campaign cadence controls, local export, and exact destination release records into the Campaign Activation Center
+- [x] Add focused regression coverage, validate the planner, and preserve the external provider launch gate

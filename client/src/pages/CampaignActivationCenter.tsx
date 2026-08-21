@@ -114,7 +114,19 @@ export default function CampaignActivationCenter() {
   useSovereignHeartbeat({ page: "campaign-activation-center" });
   const [selectedId, setSelectedId] = useState(CAMPAIGNS[0].id);
   const [filter, setFilter] = useState<"all" | CampaignState>("all");
+  const [cadence, setCadence] = useState<"story" | "event">("story");
   const selected = CAMPAIGNS.find((campaign) => campaign.id === selectedId) ?? CAMPAIGNS[0];
+  const cadencePlan = cadence === "story"
+    ? {
+        title: "Story rhythm",
+        label: "LOCAL REVIEW CADENCE",
+        steps: ["Select one source-led brief", "Prepare one visual or route handoff", "Review copy, accessibility, and destination before any release"],
+      }
+    : {
+        title: "Event rhythm",
+        label: "LOCAL EVENT PLAN",
+        steps: ["Name the event or release moment", "Pair an approved asset with a source-led brief", "Record destination, visibility, and exact release decision"],
+      };
   const filtered = useMemo(
     () => CAMPAIGNS.filter((campaign) => filter === "all" || campaign.state === filter),
     [filter],
@@ -126,7 +138,7 @@ export default function CampaignActivationCenter() {
   };
 
   const exportRecord = () => {
-    const blob = new Blob([JSON.stringify(toExport(selected), null, 2)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify({ ...toExport(selected), cadencePlan }, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
@@ -260,6 +272,31 @@ export default function CampaignActivationCenter() {
             ))}
           </div>
           <div className="mt-5 flex items-center gap-2 text-sm text-slate-400"><Radio className="h-4 w-4 text-cyan-300" /> Browser-local campaign activation is available now. External launch begins only with a named destination and final owner release.</div>
+        </section>
+
+        <section className="rounded-3xl border border-cyan-400/20 bg-[#07152a] p-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="font-mono text-xs tracking-[0.2em] text-cyan-300">NON-POSTING CAMPAIGN CADENCE</p>
+              <h2 className="mt-2 text-2xl font-black">Plan the rhythm. Keep the release decision exact.</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-400">These controls organize browser-local review only. They do not create a recurring job, post content, send outreach, or contact a provider.</p>
+            </div>
+            <div className="flex gap-2">
+              {(["story", "event"] as const).map((mode) => (
+                <button key={mode} onClick={() => setCadence(mode)} className={`rounded-xl px-4 py-2 text-xs font-bold uppercase ${cadence === mode ? "bg-cyan-300 text-slate-950" : "border border-white/15 text-slate-300"}`}>
+                  {mode}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/35 p-5">
+            <p className="font-mono text-xs text-cyan-300">{cadencePlan.label}</p>
+            <h3 className="mt-2 text-xl font-black">{cadencePlan.title}</h3>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              {cadencePlan.steps.map((step, index) => <div key={step} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-6 text-slate-300"><span className="mr-2 font-mono text-cyan-300">0{index + 1}</span>{step}</div>)}
+            </div>
+            <p className="mt-4 text-xs leading-5 text-amber-100">Provider launch gate: name the destination, intended-use scope, visibility, exact asset, and final owner release decision before any public action.</p>
+          </div>
         </section>
 
         <div className="flex flex-wrap gap-3 border-t border-white/10 pt-6 text-sm text-slate-400">
