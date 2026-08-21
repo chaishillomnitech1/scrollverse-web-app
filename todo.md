@@ -5136,3 +5136,8 @@
 - [x] Define reusable DNS, contract, and master-media input records, consequences, no-action boundaries, and handoff outputs
 - [x] Create and validate a concise reusable skill for the three-lane release readiness workflow
 - [x] Link the skill to the portal release register and preserve exact action gates
+
+## Phase 663 — Star Dust Source Evidence Discovery
+- [x] Inspect owner-connected GitHub sources for verifiable Star Dust contract, ABI, metadata, and approved media evidence without executing any external release
+- [x] Add only verified source evidence to the browser-local release register with current-state and limitation labels
+- [x] Add focused regression coverage, validate the evidence record, and preserve exact deployment and master-media action gates

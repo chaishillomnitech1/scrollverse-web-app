@@ -24,7 +24,7 @@ const LANES = [
     icon: WalletCards,
     color: "#FFCC4D",
     title: "Star Dust Collective contract release",
-    sourceState: "No deployed Star Dust contract address, verified source, ABI, target network, deployer configuration, funded gas wallet, or metadata URI was supplied in this task.",
+    sourceState: "Owner GitHub sources contain reusable smart-contract references, including a PantheonNFT Scroll-testnet guide and a Vibranium ERC-1155 Sepolia metadata record. Neither is a verified Star Dust contract source, ABI, approved target network, deployer configuration, funded gas wallet, or metadata URI for this lane.",
     outcome: "Compile and test the approved contract on the named testnet; prepare the exact deployment transaction only after its source, destination, and costs are reviewable.",
     fields: ["Audited or owner-approved contract source and ABI", "Testnet and mainnet network names", "Deployer wallet/provider configuration", "Funded gas-wallet authorization", "Metadata base URI", "Royalty / edition terms", "Exact deployment action and expected gas consequence", "Same-conversation mainnet confirmation"],
     consequence: "A mainnet deployment is an irreversible blockchain transaction that may consume gas and create public contract state. Testnet validation must be completed first.",
