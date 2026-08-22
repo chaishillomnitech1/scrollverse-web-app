@@ -5269,9 +5269,9 @@
 - [ ] Add source-labeled visual accession and lookbook handoffs only after direct evidence and boundaries are documented
 
 ## Phase 769 — Workspace Reconciliation and Verified Milestone Recovery
-- [ ] Preserve the current uncommitted source tree and record the detected workspace reversion without deleting, resetting, or overwriting active work
-- [ ] Locate recoverable verified portal milestones in checkpoint or repository history and compare them against the active workspace
-- [ ] Restore only verified milestones, validate TypeScript and the full suite, and checkpoint the reconciled workspace
+- [x] Preserve the current uncommitted source tree and record the detected workspace reversion without deleting, resetting, or overwriting active work
+- [x] Locate recoverable verified portal milestones in checkpoint or repository history and compare them against the active workspace
+- [x] Restore only verified milestones, validate TypeScript and the full suite, and checkpoint the reconciled workspace
 
 ## Phase 768 — Apex Digital Intelligence Research and Discovery
 - [ ] Define source standards, research tracks, applied-design boundaries, and protected discovery handling for the Apex Digital Intelligence framework
