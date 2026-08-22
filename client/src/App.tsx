@@ -485,6 +485,7 @@ import CreatorVisualIntakeAtlas from "./pages/CreatorVisualIntakeAtlas";
 import RetainedImageIntake from "./pages/RetainedImageIntake";
 import GenericRetainedImageIntake from "./pages/GenericRetainedImageIntake";
 import ProtectedVisualEvidenceHub from "./pages/ProtectedVisualEvidenceHub";
+import RetainedPhotoIntake from "./pages/RetainedPhotoIntake";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1077,6 +1078,7 @@ function Router() {
         <Route path="/retained-image-intake" component={RetainedImageIntake} />
         <Route path="/generic-retained-image-intake" component={GenericRetainedImageIntake} />
         <Route path="/protected-visual-evidence-hub" component={ProtectedVisualEvidenceHub} />
+        <Route path="/retained-photo-intake" component={RetainedPhotoIntake} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
