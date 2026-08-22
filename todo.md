@@ -5651,3 +5651,8 @@
 - [x] Define source, purpose, creative systems, research, portfolio, partnership, and release-readiness fields with transparent browser-local operating states
 - [x] Build a ScrollVerse Brand Architecture route with direct ecosystem, launchpad, portfolio, research, partnership, and release-gate handoffs
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the brand-architecture update
+
+## Phase 776 — Sovereign Archive Pilot Source Record
+- [x] Preserve directly visible SovereignHub pilot metadata as source-labeled archive context without treating the external page as an authorization, rights, release, account, or operating record
+- [x] Add a browser-local Sovereign Archive pilot evidence card and direct discovery handoffs without posting, changing, uploading to, or otherwise operating the external site
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the source-record update

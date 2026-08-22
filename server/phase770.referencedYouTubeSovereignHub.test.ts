@@ -11,6 +11,6 @@ describe("Phase 770 — Referenced YouTube and SovereignHub Evidence Review", ()
   });
 
   it("keeps a clear current-feed research handoff", () => {
-    expect(page).toContain("FOUR EVIDENCE LANES");
+    expect(page).toContain("FIVE EVIDENCE LANES");
   });
 });
