@@ -4,6 +4,7 @@ import NextRetainedImageIntake from "@/pages/NextRetainedImageIntake";
 import GameSystemsResearchBlueprint from "@/pages/GameSystemsResearchBlueprint";
 import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery";
 import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord";
+import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay";
 import { lazy, Suspense } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
@@ -1089,6 +1090,7 @@ function Router() {
         <Route path="/game-systems-research-blueprint" component={GameSystemsResearchBlueprint} />
         <Route path="/omniland-consoleless-delivery" component={OmnilandConsolelessDelivery} />
         <Route path="/omni-master-registry" component={OmniMasterRegistryRecord} />
+        <Route path="/omniland-embodied-play" component={OmnilandEmbodiedPlay} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>

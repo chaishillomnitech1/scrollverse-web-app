@@ -5483,7 +5483,7 @@
 - [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 742 — Omniland Embodied Play & Accessibility Blueprint
-- [ ] Research documented motion capture, hands-first interaction, XR accessibility, and controller-adaptive foundations without claiming platform certification or current partner support
-- [ ] Build a browser-local embodied-play blueprint covering motion capture, optional wearable research, controllerless paths, adaptive participation, privacy, comfort, safety, and cross-device constraints
+- [x] Research documented motion capture, hands-first interaction, XR accessibility, and controller-adaptive foundations without claiming platform certification or current partner support
+- [x] Build a browser-local input-agnostic embodied-play blueprint covering motion capture, optional wearable research, controllerless paths, keyboard/mouse/touch/game-controller paths, adaptive participation, privacy, comfort, safety, and cross-device constraints
 - [ ] Link the blueprint to Omniland Consoleless Delivery, Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, and the Empire Power Index
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
