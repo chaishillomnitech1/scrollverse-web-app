@@ -2852,13 +2852,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
               { href: "/omniverse-manifesto-codex", step: "01", title: "Manifesto Codex", source: "Recovered source record", state: "available now", color: "#00D4FF" },
               { href: "/omniverse-manifesto-master-index", step: "02", title: "Master Index", source: "51 visible titles · six volumes", state: "available now", color: "#B98CFF" },
               { href: "/omniverse-manifesto-chronology", step: "03", title: "Chronology", source: "Conceptual navigation arc", state: "available now", color: "#FFCC4D" },
               { href: "/omniverse-manifesto-nodes", step: "04", title: "Node Gallery", source: "51 individual title-only records", state: "available now", color: "#FF6B9A" },
               { href: "/protected-attachment-accession", step: "05", title: "Source Accessions", source: "Protected attachment hashes", state: "available now", color: "#00FF88" },
+              { href: "/empire-power-index", step: "06", title: "Empire Power Index", source: "18 connected project routes", state: "available now", color: "#9DEBFF" },
+              { href: "/protected-visual-intake", step: "07", title: "Visual Accession", source: "Five protected visual records", state: "research", color: "#FFCC4D" },
+              { href: "/supplied-public-references", step: "08", title: "Public References", source: "Replay and prior-portal record", state: "research", color: "#B98CFF" },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="group rounded-[1.65rem] border p-5 transition-all duration-200 hover:-translate-y-1" style={{ borderColor: `${item.color}50`, background: `${item.color}08` }}>
                 <div className="flex items-center justify-between gap-3"><span className="text-xs font-mono font-black" style={{ color: item.color }}>{item.step}</span><span className="rounded-full border px-2.5 py-1 text-[9px] font-mono" style={{ borderColor: `${item.color}50`, color: item.color }}>{item.state.toUpperCase()}</span></div>

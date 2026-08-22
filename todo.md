@@ -5301,3 +5301,7 @@
 ## Phase 702 — Final Sovereign Gallery Artwork Delivery
 - [x] Upload the completed fourteenth sovereign artwork through managed project storage and update its gallery state from reserved to available now
 - [x] Update gallery regression coverage, TypeScript validation, and the full suite before publishing
+
+## Phase 703 — Homepage Archive Cross-Promotion
+- [x] Extend the homepage source-discovery rail with direct browser-local handoffs to the Empire Power Index, Protected Visual Intake, and supplied public-reference record
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
