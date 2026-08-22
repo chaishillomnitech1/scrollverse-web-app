@@ -5335,3 +5335,8 @@
 - [x] Classify `IMG_1530.png` as the adjacent final visible slide only if its direct source labeling supports that relationship
 - [x] Extend the protected visual accession and its focused regression coverage with any verified final-sequence context without republishing the screenshot
 - [x] Validate TypeScript plus the full suite before publishing
+
+## Phase 710 — Preceding Protected Visual Sequence Review
+- [x] Classify `IMG_1516.png` through `IMG_1519.png` by direct observation, metadata, sequence relationship, and source boundary only
+- [x] Extend the protected visual accession with the verified preceding records without republishing source screenshots
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
