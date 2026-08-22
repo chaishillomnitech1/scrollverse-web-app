@@ -13,7 +13,7 @@ describe("Phase 728 — Homepage Retained-Image Discovery Synchronization", () =
   });
 
   it("aligns homepage discovery counts with the active archive maps", () => {
-    expect(home).toContain("27 connected project routes");
+    expect(home).toContain("28 connected project routes");
     expect(home).toContain("11 protected visual metadata records · no image republication");
   });
 });

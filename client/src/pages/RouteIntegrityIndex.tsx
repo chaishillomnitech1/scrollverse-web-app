@@ -38,6 +38,7 @@ const ROUTES: RouteRecord[] = [
   { path: "/creator-visual-intake-atlas", title: "Creator Visual Intake Atlas", purpose: "Unified browser-local map of eleven protected creator-visual metadata records with family filters, local export, and stable fingerprints.", state: "research", group: "Evidence" },
   { path: "/retained-image-intake", title: "Retained Image Intake", purpose: "Five protected screenshot source records with direct visual scope, stable fingerprints, and strict financial and external-claim boundaries.", state: "research", group: "Evidence" },
   { path: "/generic-retained-image-intake", title: "Generic Retained Image Intake", purpose: "Five protected photo and apparel source files with direct visual scope, stable fingerprints, and a confirmed byte-identical pair.", state: "research", group: "Evidence" },
+  { path: "/protected-visual-evidence-hub", title: "Protected Visual Evidence Hub", purpose: "Three browser-local protected visual evidence lanes with source-specific boundaries, local correction controls, and no image republication.", state: "research", group: "Evidence" },
 ];
 
 const STATE_COLORS: Record<RouteRecord["state"], string> = {

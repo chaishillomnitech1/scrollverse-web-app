@@ -13,6 +13,6 @@ describe("Phase 731 — Homepage Generic Retained-Image Discovery", () => {
   });
 
   it("aligns the homepage Power Index count with the current 27-route map", () => {
-    expect(home).toContain("27 connected project routes");
+    expect(home).toContain("28 connected project routes");
   });
 });

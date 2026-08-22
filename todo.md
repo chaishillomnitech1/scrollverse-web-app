@@ -5436,3 +5436,7 @@
 - [x] Build a browser-local hub that unifies the Protected Visual Intake, Retained Image Intake, and Generic Retained Image Intake with direct source-boundary summaries
 - [x] Add direct archive handoffs to the Creator Visual Atlas, Sovereign Cartoon Gallery, and Empire Power Index without republishing protected source images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 733 — Protected Visual Evidence Hub Discovery Synchronization
+- [x] Add the Protected Visual Evidence Hub to the Empire Power Index, Route Integrity Index, and homepage archive-discovery rail with a direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

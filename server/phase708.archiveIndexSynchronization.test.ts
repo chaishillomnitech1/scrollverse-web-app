@@ -20,7 +20,7 @@ describe("Phase 708 — Archive Index Synchronization", () => {
     expect(index).toContain("POWER-19");
     expect(index).toContain("POWER-20");
     expect(index).toContain("POWER-21");
-    expect(index).toContain("27 CONNECTED POWER ROUTES");
+    expect(index).toContain("28 CONNECTED POWER ROUTES");
     expect(index).toContain("source-absence state");
   });
 
