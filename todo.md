@@ -5401,3 +5401,7 @@
 - [x] Classify `chais_bust_transparent.png` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
 - [x] Add the verified source record to the browser-local creator-visual archive without republishing the protected image
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 725 — Creator Visual Atlas Count Consistency
+- [x] Align all visible Creator Visual Intake Atlas record-count copy with the 11 rendered source records
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

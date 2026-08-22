@@ -9,6 +9,7 @@ describe("Phase 720 — Creator Visual Intake Atlas", () => {
   it("unifies the two completed visual intake families into eleven source records", () => {
     const page = read("client/src/pages/CreatorVisualIntakeAtlas.tsx");
     expect(page).toContain("11 SOURCE RECORDS");
+    expect(page).toContain("Filter and search 11 source records");
     expect(page).toContain('family: "Sticker variants"');
     expect(page).toContain('family: "Artifact variants"');
     expect(page).toContain("SV-STICKER-001");
