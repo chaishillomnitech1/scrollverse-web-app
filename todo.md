@@ -5592,3 +5592,14 @@
 - [x] Define browser-local physical, material, digital, and business asset-evidence fields without asserting ownership, valuation, collateral eligibility, appraisal, title, or financing status
 - [x] Build a local-only asset-evidence inventory with copy/export preparation and direct partnership-readiness handoffs
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the asset-evidence update
+
+## Phase 765 — AutoEmpire Source and Portfolio Readiness Intake
+- [x] Review the supplied AutoEmpire site as source material and separate directly visible interface content from unverified vehicle, payment, provider, finance, account, inventory, or operating claims
+- [x] Preserve the owner-authorized Google account-access security alert as protected context without reopening the image, reading email, changing account settings, or treating it as evidence of bank, finance, provider, account, or operational activation
+- [x] Add a source-labeled AutoEmpire record to the browser-local portfolio and partnership readiness system without connecting providers, handling payments, operating inventory, initiating financing, or changing any external site
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the source-intake update
+
+## Phase 766 — Connected Statements and Music Evidence Review
+- [x] Review the connected GitHub repository, ScrollVerse source records, and public music-catalog surfaces for directly attributable notifications, statements, releases, cover-art records, and linked evidence without modifying external accounts or content
+- [x] Preserve verified findings in a source-bounded evidence record and connect only directly attributable music and portfolio handoffs
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the evidence-review update
