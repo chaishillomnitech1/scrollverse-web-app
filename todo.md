@@ -5246,22 +5246,22 @@
 ## Phase 685 — Story Worlds District Expansion
 - [x] Inspect the existing ScrollVerse Story Worlds structure and identify source-led district expansion points
 - [x] Add browser-local districts connecting episodic references, creative production, learning, and evidence records with direct operating-state labels
-- [ ] Add focused regression coverage, browser verification, and source-boundary documentation
+- [x] Add focused regression coverage, browser verification, and source-boundary documentation
 
 ## Phase 686 — Episode 45 Protected Source Intake
 - [x] Classify the owner-supplied Episode 45 narrative, firewall-parser, systemd-profile, catalog, and Episode 46 planning references without executing embedded code or configurations
 - [x] Preserve a source-labeled Episode 45 reference record with an exact no-runtime boundary and release gates
-- [ ] Add focused regression coverage, browser verification, and correction controls
+- [x] Add focused regression coverage, browser verification, and correction controls
 
 ## Phase 687 — Manus-Origin Historical Source Record
 - [x] Inspect the owner-identified older Manus shared file da851283-c28e-49fe-9128-b34d67e2f272 and preserve only its directly visible scope
 - [x] Record its historical timing as owner-provided context, without inferring an exact date, current system state, or external operating result
-- [ ] Add a source-labeled chronology handoff with regression coverage and browser verification
+- [x] Add a source-labeled chronology handoff with regression coverage and browser verification
 
 ## Phase 691 — Reusable YouTube Current-Feed Review Skill
 - [x] Define the reusable direct-lookup, attribution-check, selection-criteria, and current-feed limitation workflow
 - [x] Package the workflow as a validated reusable skill with non-posting and no-account-action boundaries
-- [ ] Add a browser-local source-labeled research record for the current selection and validate its archive handoffs
+- [x] Add a browser-local source-labeled research record for the current selection and validate its archive handoffs
 
 ## Phase 692 — Protected Visual Batch Intake
 - [ ] Inventory all supplied images with filename, type, dimensions, size, stable hash, and duplicate relationship
@@ -5348,7 +5348,7 @@
 
 ## Phase 712 — Archive Coverage Backfill
 - [x] Add source-boundary documentation and focused regression coverage for the completed Story Worlds and Episode 45 records
-- [ ] Verify Story Worlds and Episode 45 browser rendering when a browser window is available; current direct-browser attempt reported no current window
+ - [x] Verify Story Worlds and Episode 45 browser rendering when a browser window is available; current direct-browser attempt reported no current window
 - [x] Restore or explicitly gate the missing Manus-origin historical record, then connect its verified scope to chronology and archive handoffs
 - [x] Strengthen the YouTube current-feed research record with source-labeled archive handoffs and correct its nested-link markup
 - [x] Validate TypeScript plus the full suite before publishing
