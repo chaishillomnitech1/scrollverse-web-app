@@ -5,7 +5,7 @@ import path from "node:path";
 describe("Phase 683 Connected Source Registry", () => {
   it("records all supplied portal, shared-file, and protected-attachment references", () => {
     const page = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/ConnectedSourceRegistry.tsx"), "utf8");
-    expect(page).toContain("18 SOURCE RECORDS · VISIBLE SCOPE");
+    expect(page).toContain("20 SOURCE RECORDS · VISIBLE SCOPE");
     expect(page).toContain("https://scrollport-ccbm4cgm.manus.space/catalog");
     expect(page).toContain("https://scrollverse-3mddshgp.manus.space/");
     expect(page).toContain("Pasted_content_100_01");

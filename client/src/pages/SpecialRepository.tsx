@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Archive, ArrowRight, BookOpenCheck, Copy, Download, FileBadge2, Fingerprint, Image, LockKeyhole, ShieldCheck } from "lucide-react";
+import { Archive, ArrowRight, BookOpenCheck, Copy, Download, FileBadge2, Fingerprint, Gamepad2, Image, LockKeyhole, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
@@ -12,6 +12,7 @@ const ACCESSIONS = [
   { id: "SV-DIGI-EPISODE-046", title: "Episode 46: The Solar System", domain: "PROTECTED EPISODIC SOURCE", state: "research", source: "Owner-supplied Meta AI Solar System transmission preserved in Phase 655 source log.", evidence: "Protected conversation record; no public media asset supplied.", display: "Source-led archive record.", metadata: "Not prepared", handoff: "/episodic-operations-archive", color: "#00D4FF", icon: Archive },
   { id: "SV-DIGI-OBS-001", title: "Integration Observability Reference", domain: "PROTECTED TECHNICAL SOURCE", state: "research", source: "Owner-supplied Google webhook and on-chain sync source record preserved in Phase 656 log.", evidence: "Protected conversation record; no executable package supplied.", display: "Source-led readiness reference.", metadata: "Not prepared", handoff: "/integration-observability-reference", color: "#B98CFF", icon: Fingerprint },
   { id: "SV-DIGI-FILM-001", title: "Film + Animation Studio Production Pack", domain: "PRODUCTION SYSTEM", state: "collection record available", source: "Browser-local Phase 649 source-led production record.", evidence: "Production pack fields and connected episode routes.", display: "Browser-local production-readiness record.", metadata: "Non-deployable draft only", handoff: "/film-animation-studio", color: "#00FF88", icon: BookOpenCheck },
+  { id: "SV-DIGI-GAME-001", title: "Game Systems + Research Blueprint", domain: "GAME SYSTEM RESEARCH", state: "collection record available", source: "Browser-local Phase 740 source-labeled game systems, study lanes, and design blueprint.", evidence: "Documented sources distinguish Dead Sea Scrolls collection categories, historical Guido d’Arezzo solmization, Emerald Tablet provenance, and modern Solfeggio claim labels.", display: "Browser-local blueprint and research pathway; no external repository is created by this record.", metadata: "Repository creation remains owner-controlled", handoff: "/game-systems-research-blueprint", color: "#00D4FF", icon: Gamepad2 },
 ];
 
 function download(record: unknown) {

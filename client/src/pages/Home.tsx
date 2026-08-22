@@ -961,6 +961,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "♞", title: "ScrollVerse Chess Initiative", detail: "Play an original browser-local strategy table, follow beginner-to-advanced study paths, use local AI-practice prompts, and explore youth-supported participation guidance.", href: "/scrollverse-chess-arena", color: "#00D4FF" },
   { icon: "⌘", title: "IP and Digital Evidence", detail: "Map public code, work, mark, patent, domain, and source records with dated evidence labels, limitations, and qualified-review handoffs.", href: "/ip-digital-evidence-navigator", color: "#00D4FF" },
   { icon: "♫", title: "Music and Creator Release Readiness", detail: "Prepare original music, visuals, publishing, distribution, merchandise, direct-to-fan bundle, and collectible questions with specialist guides and evidence gates.", href: "/music-creator-release-readiness", color: "#00FF88" },
+  { icon: "◫", title: "Next Retained Image Intake", detail: "Review five protected visual source records through direct metadata and fingerprints, with research boundaries and no image republication.", href: "/next-retained-image-intake", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
@@ -2852,13 +2853,22 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
               { href: "/omniverse-manifesto-codex", step: "01", title: "Manifesto Codex", source: "Recovered source record", state: "available now", color: "#00D4FF" },
               { href: "/omniverse-manifesto-master-index", step: "02", title: "Master Index", source: "51 visible titles · six volumes", state: "available now", color: "#B98CFF" },
               { href: "/omniverse-manifesto-chronology", step: "03", title: "Chronology", source: "Conceptual navigation arc", state: "available now", color: "#FFCC4D" },
               { href: "/omniverse-manifesto-nodes", step: "04", title: "Node Gallery", source: "51 individual title-only records", state: "available now", color: "#FF6B9A" },
               { href: "/protected-attachment-accession", step: "05", title: "Source Accessions", source: "Protected attachment hashes", state: "available now", color: "#00FF88" },
+              { href: "/empire-power-index", step: "06", title: "Empire Power Index", source: "30 connected project routes", state: "available now", color: "#9DEBFF" },
+              { href: "/protected-visual-intake", step: "07", title: "Visual Accession", source: "Five protected visual records", state: "research", color: "#FFCC4D" },
+              { href: "/supplied-public-references", step: "08", title: "Public References", source: "Replay and prior-portal record", state: "research", color: "#B98CFF" },
+              { href: "/creator-visual-intake-atlas", step: "09", title: "Creator Visual Atlas", source: "11 protected visual metadata records · no image republication", state: "research", color: "#FF6B9A" },
+              { href: "/retained-image-intake", step: "10", title: "Retained Image Intake", source: "Five protected screenshot records · evidence boundaries", state: "research", color: "#00D4FF" },
+              { href: "/generic-retained-image-intake", step: "11", title: "Generic Retained Image Intake", source: "Five protected photo/apparel files · no image republication", state: "research", color: "#FFB800" },
+              { href: "/protected-visual-evidence-hub", step: "12", title: "Protected Visual Evidence Hub", source: "Five evidence lanes · source-specific boundaries", state: "research", color: "#B98CFF" },
+              { href: "/retained-photo-intake", step: "13", title: "Retained Photo Intake", source: "Five protected photo/apparel records · no image republication", state: "research", color: "#FF6B9A" },
+              { href: "/paired-retained-image-intake", step: "14", title: "Paired Retained Image Intake", source: "Five protected source files · confirmed duplicate pair", state: "research", color: "#7CFFBB" },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="group rounded-[1.65rem] border p-5 transition-all duration-200 hover:-translate-y-1" style={{ borderColor: `${item.color}50`, background: `${item.color}08` }}>
                 <div className="flex items-center justify-between gap-3"><span className="text-xs font-mono font-black" style={{ color: item.color }}>{item.step}</span><span className="rounded-full border px-2.5 py-1 text-[9px] font-mono" style={{ borderColor: `${item.color}50`, color: item.color }}>{item.state.toUpperCase()}</span></div>

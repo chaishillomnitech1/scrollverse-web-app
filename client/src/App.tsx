@@ -1,5 +1,13 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import NextRetainedImageIntake from "@/pages/NextRetainedImageIntake";
+import GameSystemsResearchBlueprint from "@/pages/GameSystemsResearchBlueprint";
+import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery";
+import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord";
+import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay";
+import OmnilandGameSystemsContribution from "@/pages/OmnilandGameSystemsContribution";
+import MediaReleaseConceptBoard from "@/pages/MediaReleaseConceptBoard";
+import CommerceFinancialReadinessBoard from "@/pages/CommerceFinancialReadinessBoard";
 import { lazy, Suspense } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
@@ -445,7 +453,7 @@ import Episode38ExchangeMatrix from "./pages/Episode38ExchangeMatrix";
 import Episode39ExchangePerimeter from "./pages/Episode39ExchangePerimeter";
 import Episode40InfrastructureScaling from "./pages/Episode40InfrastructureScaling";
 import { Episode41Reference, Episode42Reference, Episode43Reference } from "./pages/Episode4143References";
-import Episode45ProtectedReference from "./pages/Episode45ProtectedReference";
+import Episode45ProtectedReference, { Episode52ProtectedReference } from "./pages/Episode45ProtectedReference";
 import Episode50ProtectedReference from "./pages/Episode50ProtectedReference";
 import YouTubeEpisodeReleaseDesk from "./pages/YouTubeEpisodeReleaseDesk";
 import FilmAnimationStudio from "./pages/FilmAnimationStudio";
@@ -472,6 +480,21 @@ import OmniverseManifestoNodes, { OmniverseManifestoNode } from "./pages/Omniver
 import ConnectedSourceRegistry from "./pages/ConnectedSourceRegistry";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
+import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
+import SovereigntyInfrastructureRecord from "./pages/SovereigntyInfrastructureRecord";
+import EmpirePowerIndex from "./pages/EmpirePowerIndex";
+import ProtectedVisualIntake from "./pages/ProtectedVisualIntake";
+import SuppliedPublicReferences from "./pages/SuppliedPublicReferences";
+import ManusOriginHistoricalRecoveryGate from "./pages/ManusOriginHistoricalRecoveryGate";
+import Omega267PriorHubRecoveryGate from "./pages/Omega267PriorHubRecoveryGate";
+import CreatorStickerIntake from "./pages/CreatorStickerIntake";
+import CreatorArtifactIntake from "./pages/CreatorArtifactIntake";
+import CreatorVisualIntakeAtlas from "./pages/CreatorVisualIntakeAtlas";
+import RetainedImageIntake from "./pages/RetainedImageIntake";
+import GenericRetainedImageIntake from "./pages/GenericRetainedImageIntake";
+import ProtectedVisualEvidenceHub from "./pages/ProtectedVisualEvidenceHub";
+import RetainedPhotoIntake from "./pages/RetainedPhotoIntake";
+import PairedRetainedImageIntake from "./pages/PairedRetainedImageIntake";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -725,6 +748,7 @@ function Router() {
       <Route path={"/episode-42-motherboard-world"} component={Episode42Reference} />
       <Route path={"/episode-43-final-core-nodes"} component={Episode43Reference} />
       <Route path={"/episode-45-kernel-traffic-drops"} component={Episode45ProtectedReference} />
+      <Route path={"/episode-52-final-structural-expansion"} component={Episode52ProtectedReference} />
       <Route path={"/youtube-episode-release-desk"} component={YouTubeEpisodeReleaseDesk} />
       <Route path={"/film-animation-studio"} component={FilmAnimationStudio} />
       <Route path={"/show-the-work-knowledge-base"} component={ShowTheWorkKnowledgeBase} />
@@ -1050,6 +1074,29 @@ function Router() {
         <Route path="/connected-source-registry" component={ConnectedSourceRegistry} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
+        <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
+        <Route path="/sovereignty-infrastructure-record" component={SovereigntyInfrastructureRecord} />
+        <Route path="/empire-power-index" component={EmpirePowerIndex} />
+        <Route path="/protected-visual-intake" component={ProtectedVisualIntake} />
+        <Route path="/supplied-public-references" component={SuppliedPublicReferences} />
+        <Route path="/manus-origin-historical-recovery" component={ManusOriginHistoricalRecoveryGate} />
+        <Route path="/omega-267-prior-hub-recovery" component={Omega267PriorHubRecoveryGate} />
+        <Route path="/creator-sticker-intake" component={CreatorStickerIntake} />
+        <Route path="/creator-artifact-intake" component={CreatorArtifactIntake} />
+        <Route path="/creator-visual-intake-atlas" component={CreatorVisualIntakeAtlas} />
+        <Route path="/retained-image-intake" component={RetainedImageIntake} />
+        <Route path="/generic-retained-image-intake" component={GenericRetainedImageIntake} />
+        <Route path="/protected-visual-evidence-hub" component={ProtectedVisualEvidenceHub} />
+        <Route path="/retained-photo-intake" component={RetainedPhotoIntake} />
+        <Route path="/paired-retained-image-intake" component={PairedRetainedImageIntake} />
+        <Route path="/next-retained-image-intake" component={NextRetainedImageIntake} />
+        <Route path="/game-systems-research-blueprint" component={GameSystemsResearchBlueprint} />
+        <Route path="/omniland-consoleless-delivery" component={OmnilandConsolelessDelivery} />
+        <Route path="/omni-master-registry" component={OmniMasterRegistryRecord} />
+        <Route path="/omniland-embodied-play" component={OmnilandEmbodiedPlay} />
+        <Route path="/omniland-game-systems-contribution" component={OmnilandGameSystemsContribution} />
+        <Route path="/media-release-concept-board" component={MediaReleaseConceptBoard} />
+        <Route path="/commerce-financial-readiness-board" component={CommerceFinancialReadinessBoard} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
