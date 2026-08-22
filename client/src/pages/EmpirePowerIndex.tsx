@@ -37,6 +37,7 @@ const ROUTES = [
   { id: "POWER-29", lane: "Evidence", state: "research", href: "/retained-photo-intake", title: "Retained Photo Intake", text: "Five protected photo and apparel-reference records with direct visual scope, apparent garment-view context, fingerprints, and no image republication." },
   { id: "POWER-30", lane: "Evidence", state: "research", href: "/paired-retained-image-intake", title: "Paired Retained Image Intake", text: "Five protected retained images with direct visual scope, one byte-identical pair, fingerprints, and no image republication." },
   { id: "POWER-31", lane: "Evidence", state: "research", href: "/next-retained-image-intake", title: "Next Retained Image Intake", text: "Five protected invitation, scene, and apparel-reference source records with direct fingerprints and no image republication." },
+  { id: "POWER-32", lane: "Game Worlds", state: "available now", href: "/game-systems-research-blueprint", title: "Game Systems + Research Blueprint", text: "Source-labeled mathematics, physics, science, comparative philosophy, manuscript transmission, and sound-research lanes for original game-world design." },
 ] as const;
 
 const LANE_META = {
