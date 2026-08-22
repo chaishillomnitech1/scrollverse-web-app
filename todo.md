@@ -5379,3 +5379,7 @@
 - [x] Classify `chais_sticker_06_badge.png`, `chais_sticker_pack.png`, `chais_holographic_pack.png`, `chais_bust_gold_transparent.png`, and `chais_bust_stone_transparent.png` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
 - [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 719 — Creator-Artifact Discovery Synchronization
+- [x] Add the creator-artifact intake record to the Empire Power Index and Route Integrity Index with a direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
