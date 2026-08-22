@@ -5305,3 +5305,8 @@
 ## Phase 703 — Homepage Archive Cross-Promotion
 - [x] Extend the homepage source-discovery rail with direct browser-local handoffs to the Empire Power Index, Protected Visual Intake, and supplied public-reference record
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 704 — Adjacent Protected Visual Sequence Review
+- [x] Classify `IMG_1525.png` through `IMG_1529.png` by direct observation, metadata, sequence relationship, and source boundary only
+- [x] Extend the browser-local protected visual accession with the verified adjacent records without republishing source screenshots
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
