@@ -5257,3 +5257,24 @@
 - [x] Inspect the owner-identified older Manus shared file da851283-c28e-49fe-9128-b34d67e2f272 and preserve only its directly visible scope
 - [x] Record its historical timing as owner-provided context, without inferring an exact date, current system state, or external operating result
 - [ ] Add a source-labeled chronology handoff with regression coverage and browser verification
+
+## Phase 691 — Reusable YouTube Current-Feed Review Skill
+- [x] Define the reusable direct-lookup, attribution-check, selection-criteria, and current-feed limitation workflow
+- [x] Package the workflow as a validated reusable skill with non-posting and no-account-action boundaries
+- [ ] Add a browser-local source-labeled research record for the current selection and validate its archive handoffs
+
+## Phase 692 — Protected Visual Batch Intake
+- [ ] Inventory all supplied images with filename, type, dimensions, size, stable hash, and duplicate relationship
+- [ ] Classify directly visible visual subject matter and candidate archive/lookbook relevance without inferring ownership, rights, identity, or publication state
+- [ ] Add source-labeled visual accession and lookbook handoffs only after direct evidence and boundaries are documented
+
+## Phase 769 — Workspace Reconciliation and Verified Milestone Recovery
+- [ ] Preserve the current uncommitted source tree and record the detected workspace reversion without deleting, resetting, or overwriting active work
+- [ ] Locate recoverable verified portal milestones in checkpoint or repository history and compare them against the active workspace
+- [ ] Restore only verified milestones, validate TypeScript and the full suite, and checkpoint the reconciled workspace
+
+## Phase 768 — Apex Digital Intelligence Research and Discovery
+- [ ] Define source standards, research tracks, applied-design boundaries, and protected discovery handling for the Apex Digital Intelligence framework
+- [ ] Research authoritative foundations for digital intelligence, agent systems, system safety, evaluation, and applied-design methods
+- [ ] Build a browser-local research and discovery route with direct Game Worlds, source registry, Digital Mirror Twin, portfolio, and ecosystem handoffs
+- [ ] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the research-framework update
