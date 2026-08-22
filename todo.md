@@ -5310,3 +5310,13 @@
 - [x] Classify `IMG_1525.png` through `IMG_1529.png` by direct observation, metadata, sequence relationship, and source boundary only
 - [x] Extend the browser-local protected visual accession with the verified adjacent records without republishing source screenshots
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 705 — Episode 52 Source Recovery
+- [x] Inspect retained protected intake metadata and visible content to locate the owner-supplied Episode 52 record without executing any embedded material
+- [x] Build an Episode 52 browser-local reference route only if its visible source scope can be preserved accurately
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 706 — Episode 52 Source-Absence Gate
+- [x] Build `/episode-52-final-structural-expansion` as a browser-local recovery-gate record that preserves the owner-supplied title while stating that underlying protected source material is not present in the active workspace
+- [x] Add source reattachment, correction, and archive handoffs without inventing Episode 52 narrative content, chronology, code, or operating state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

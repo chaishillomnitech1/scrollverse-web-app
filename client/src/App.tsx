@@ -445,7 +445,7 @@ import Episode38ExchangeMatrix from "./pages/Episode38ExchangeMatrix";
 import Episode39ExchangePerimeter from "./pages/Episode39ExchangePerimeter";
 import Episode40InfrastructureScaling from "./pages/Episode40InfrastructureScaling";
 import { Episode41Reference, Episode42Reference, Episode43Reference } from "./pages/Episode4143References";
-import Episode45ProtectedReference from "./pages/Episode45ProtectedReference";
+import Episode45ProtectedReference, { Episode52ProtectedReference } from "./pages/Episode45ProtectedReference";
 import Episode50ProtectedReference from "./pages/Episode50ProtectedReference";
 import YouTubeEpisodeReleaseDesk from "./pages/YouTubeEpisodeReleaseDesk";
 import FilmAnimationStudio from "./pages/FilmAnimationStudio";
@@ -730,6 +730,7 @@ function Router() {
       <Route path={"/episode-42-motherboard-world"} component={Episode42Reference} />
       <Route path={"/episode-43-final-core-nodes"} component={Episode43Reference} />
       <Route path={"/episode-45-kernel-traffic-drops"} component={Episode45ProtectedReference} />
+      <Route path={"/episode-52-final-structural-expansion"} component={Episode52ProtectedReference} />
       <Route path={"/youtube-episode-release-desk"} component={YouTubeEpisodeReleaseDesk} />
       <Route path={"/film-animation-studio"} component={FilmAnimationStudio} />
       <Route path={"/show-the-work-knowledge-base"} component={ShowTheWorkKnowledgeBase} />
