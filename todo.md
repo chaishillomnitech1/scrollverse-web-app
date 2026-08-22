@@ -5518,10 +5518,10 @@
 - [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 751 — Active Pathways and Release-Gates Audit
-- [ ] Reconcile active browser-local portal, game, media, fashion, campaign, catalog, commerce, and protected-source pathways into one source-labeled audit record
-- [ ] List exact owner-controlled external release gates for social posting, account actions, Shopify fork connection, production/vendor activation, listings, checkout, payouts, exchanges, transfers, and separate repository creation
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Reconcile active browser-local portal, game, media, fashion, campaign, catalog, commerce, and protected-source pathways into one source-labeled audit record
+- [x] List exact owner-controlled external release gates for social posting, account actions, Shopify fork connection, production/vendor activation, listings, checkout, payouts, exchanges, transfers, and separate repository creation
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 752 — Evidence-Backed Execution Audit
-- [ ] Reconcile current execution pathways into a browser-local audit with verified operating states and owner-controlled external gates
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Reconcile current execution pathways into a browser-local audit with verified operating states and owner-controlled external gates
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
