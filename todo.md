@@ -5487,3 +5487,9 @@
 - [x] Build a browser-local input-agnostic embodied-play blueprint covering motion capture, optional wearable research, controllerless paths, keyboard/mouse/touch/game-controller paths, adaptive participation, privacy, comfort, safety, and cross-device constraints
 - [ ] Link the blueprint to Omniland Consoleless Delivery, Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, and the Empire Power Index
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 743 — Omniland Game Systems Contribution Blueprint
+- [ ] Define a browser-local non-exclusive contribution model for creator tools, accessible input research, delivery research, learning systems, and source-led game design records
+- [ ] Build a research blueprint that treats platform integrations, partner relationships, licensing, standards, commercial use, brand relationships, subsidiary arrangements, and operational adoption as voluntary owner-controlled release gates
+- [ ] Link the contribution blueprint to Omniland Consoleless Delivery, Embodied Play, Game Systems & Research Blueprint, Game Worlds Studio, and Special Repository
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
