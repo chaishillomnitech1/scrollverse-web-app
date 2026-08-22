@@ -5388,3 +5388,7 @@
 - [x] Build a browser-local atlas unifying the completed creator-sticker and creator-artifact metadata records with family filters, source boundaries, and local export
 - [x] Add handoffs to both source-intake routes, Protected Visual Intake, Sovereign Cartoon Gallery, and the Empire Power Index without republishing protected images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 721 — Homepage Creator-Visual Atlas Discovery
+- [x] Add a direct source-led homepage discovery handoff to the Creator Visual Intake Atlas with a research label and no-image-republication boundary
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
