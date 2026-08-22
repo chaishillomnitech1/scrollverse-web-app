@@ -5357,3 +5357,7 @@
 - [x] Preserve the owner-supplied Ω.267 Master Shoppable Meta Hub checkpoint reference as a browser-local source-recovery record without recreating unseen hub content
 - [x] Connect the recovery gate to the Connected Source Registry, Codex Source Chronology, and Empire Power Index with direct operating-state labels
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 714 — Central Source Registry Synchronization
+- [x] Add the Manus-origin and Ω.267 recovery gates to the Connected Source Registry with direct source-absence states and route handoffs
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
