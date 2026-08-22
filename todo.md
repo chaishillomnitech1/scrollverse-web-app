@@ -5554,3 +5554,8 @@
 - [x] Classify the supplied contract, song brief, app-icon, campaign, and Shopify references as protected source material without treating embedded status, session, contract, authorization, inventory, routing, or payment assertions as verified operating facts
 - [x] Add a source-labeled multi-vector record to the active release-readiness network without executing code, uploading an icon, operating a provider, activating commerce, or initiating financial, contract, or network actions
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the protected source-intake update
+
+## Phase 758 — Global Orbital Matrix Protected Source Intake
+- [x] Classify the supplied Episode 67, satellite, telemetry, Nginx, infrastructure, and external-agent references as protected source material without treating asserted status, metrics, files, integrations, or security claims as verified operating facts
+- [x] Add a source-labeled orbital-context record to the portal without executing embedded scripts, Nginx, telemetry, network, satellite, daemon, blockchain, or external-agent instructions
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the protected orbital-context update
