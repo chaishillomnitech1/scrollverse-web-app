@@ -206,6 +206,7 @@ const DOMAINS: ArchiveDomain[] = [
       { title: "System Status", route: "/status", description: "System health and infrastructure references." },
       { title: "Security", route: "/security", description: "Security and quantum-resilience information architecture." },
       { title: "Platforms", route: "/platforms", description: "Cross-platform distribution and partnership hub." },
+      { title: "Active Pathways Audit", route: "/active-pathways-release-gates-audit", description: "Source-labeled map of browser-local pathways and exact owner-controlled external release gates." },
       { title: "GitHub Constellation", route: "/github-constellation", description: "Visual map of sovereign repositories and categories." },
       { title: "Pattern Engine", route: "/pattern", description: "Repeatable design and build system." },
       { title: "GodEngine", route: "/godengine", description: "Command-center concept for sovereign creation workflows." },
