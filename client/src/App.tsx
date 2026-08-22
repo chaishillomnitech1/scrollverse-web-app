@@ -481,6 +481,7 @@ import ManusOriginHistoricalRecoveryGate from "./pages/ManusOriginHistoricalReco
 import Omega267PriorHubRecoveryGate from "./pages/Omega267PriorHubRecoveryGate";
 import CreatorStickerIntake from "./pages/CreatorStickerIntake";
 import CreatorArtifactIntake from "./pages/CreatorArtifactIntake";
+import CreatorVisualIntakeAtlas from "./pages/CreatorVisualIntakeAtlas";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1069,6 +1070,7 @@ function Router() {
         <Route path="/omega-267-prior-hub-recovery" component={Omega267PriorHubRecoveryGate} />
         <Route path="/creator-sticker-intake" component={CreatorStickerIntake} />
         <Route path="/creator-artifact-intake" component={CreatorArtifactIntake} />
+        <Route path="/creator-visual-intake-atlas" component={CreatorVisualIntakeAtlas} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
