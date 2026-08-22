@@ -1,529 +1,162 @@
-/*
- * SCROLLVERSE SOVEREIGN BANK
- * The Greatest Bank Ever Created — Self-Approved, Immutable, Franchised Across All Existence
- * Design: Liquid Gold Sovereignty — deep navy + gold + emerald
- * Sections: Hero, Self-Approval Protocol, Account Tiers, Franchise System, Yield Calculator, Zakat Routing, Revenue Flywheel
- */
-import { useState, useEffect, useRef } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "wouter";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  Landmark,
+  LockKeyhole,
+  Network,
+  Scale,
+  ShieldCheck,
+  WalletCards,
+} from "lucide-react";
+import { toast } from "sonner";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-// ── ACCOUNT TIERS ──────────────────────────────────────────────────────────────
-const TIERS = [
+type State = "available now" | "research" | "requires owner action";
+
+type Milestone = {
+  id: string;
+  number: string;
+  title: string;
+  state: State;
+  summary: string;
+  evidence: string[];
+  externalGate: string;
+  icon: typeof Landmark;
+};
+
+const STATE_TONE: Record<State, { text: string; border: string; background: string }> = {
+  "available now": { text: "#00FF88", border: "rgba(0,255,136,.35)", background: "rgba(0,255,136,.08)" },
+  research: { text: "#00D4FF", border: "rgba(0,212,255,.35)", background: "rgba(0,212,255,.08)" },
+  "requires owner action": { text: "#FFB800", border: "rgba(255,184,0,.35)", background: "rgba(255,184,0,.08)" },
+};
+
+const MILESTONES: Milestone[] = [
   {
-    name: "Guardian",
-    minCHX: 100,
-    apy: "144%",
-    color: "#00D4FF",
-    glow: "rgba(0,212,255,0.3)",
-    benefits: ["Daily compound rewards", "Casino 5% bonus", "Notification alerts", "Basic NFT card"],
-    nftRarity: "Common",
-    icon: "🛡️",
+    id: "charter",
+    number: "01",
+    title: "Charter and accountable governance",
+    state: "requires owner action",
+    summary: "Choose a viable chartering route, form an accountable organizer and board structure, and assemble the governance record expected for a regulated institution.",
+    evidence: ["Charter-path decision", "Organizer and director dossier", "Governance, policies, and public-notice plan"],
+    externalGate: "A charter application and any communications with a chartering authority occur only through the chosen regulated process and an owner-approved filing package.",
+    icon: Landmark,
   },
   {
-    name: "Sovereign",
-    minCHX: 1000,
-    apy: "432%",
-    color: "#FFB800",
-    glow: "rgba(255,184,0,0.3)",
-    benefits: ["Genesis pool access", "Casino 10% bonus", "Priority staking", "Rare NFT card", "Franchise tier 1"],
-    nftRarity: "Rare",
-    icon: "👑",
+    id: "capital",
+    number: "02",
+    title: "Business plan and capital readiness",
+    state: "requires owner action",
+    summary: "Translate the creative vision into a credible business model, financial projections, liquidity and capital plan, risk appetite, and experienced management plan.",
+    evidence: ["Sound business plan", "Appropriate capital support", "Management and operating model"],
+    externalGate: "No fundraising, deposits, client funds, shares, accounts, or financial offer is created from this readiness page.",
+    icon: WalletCards,
   },
   {
-    name: "Empire",
-    minCHX: 10000,
-    apy: "528%",
-    color: "#00FF88",
-    glow: "rgba(0,255,136,0.3)",
-    benefits: ["Celestial pool access", "Casino 15% bonus", "AI Council access", "Epic NFT card", "Franchise tier 2", "Zakat dashboard"],
-    nftRarity: "Epic",
-    icon: "🏛️",
+    id: "compliance",
+    number: "03",
+    title: "Risk, AML, consumer, and control program",
+    state: "research",
+    summary: "Define a risk-profile-based control architecture for BSA/AML, customer identification, suspicious-activity workflows, complaints, records, vendor oversight, and independent testing.",
+    evidence: ["Enterprise risk assessment", "BSA/AML and OFAC controls", "Consumer and operations controls"],
+    externalGate: "A real compliance program requires qualified leadership, policies, testing, regulatory review, approved providers, and operational evidence before launch.",
+    icon: ShieldCheck,
   },
   {
-    name: "Infinity",
-    minCHX: 144000,
-    apy: "999%",
-    color: "#FF00FF",
-    glow: "rgba(255,0,255,0.3)",
-    benefits: ["Infinity pool access", "Casino 25% bonus", "AI Council vote", "Legendary NFT card", "Franchise tier 3", "Revenue share", "Digital Mirror Twin"],
-    nftRarity: "Legendary",
-    icon: "♾️",
+    id: "technology",
+    number: "04",
+    title: "Secure technology and provider architecture",
+    state: "research",
+    summary: "Evaluate a documented, auditable technology architecture for identity, core processing, security, resilience, vendor management, privacy, accessibility, and incident response.",
+    evidence: ["Security and privacy architecture", "Third-party risk program", "Operational resilience and incident evidence"],
+    externalGate: "No wallet, custody, payment, account, ledger, transaction, or provider connection is enabled from this blueprint.",
+    icon: Network,
+  },
+  {
+    id: "approvals",
+    number: "05",
+    title: "Approvals, deposit insurance, and launch evidence",
+    state: "requires owner action",
+    summary: "Obtain the approvals applicable to the chosen structure, complete pre-opening requirements, and only then represent the institution and its products by their verified operating state.",
+    evidence: ["Regulator or provider approval record", "Pre-opening and readiness evidence", "Public disclosures and product controls"],
+    externalGate: "Deposit insurance may be represented only for deposits at an FDIC-insured bank. Crypto assets, investment products, or a browser-local ledger are not FDIC-insured deposits.",
+    icon: BadgeCheck,
   },
 ];
 
-// ── FRANCHISE TIERS ─────────────────────────────────────────────────────────────
-const FRANCHISE_TIERS = [
-  { tier: 1, name: "Branch Guardian", requirement: "1,000 CHX staked", earn: "2% of network volume", branches: "Up to 10 sub-branches", color: "#FFB800" },
-  { tier: 2, name: "Regional Sovereign", requirement: "10,000 CHX staked", earn: "5% of network volume", branches: "Up to 50 sub-branches", color: "#00FF88" },
-  { tier: 3, name: "Empire Architect", requirement: "144,000 CHX staked", earn: "10% of network volume", branches: "Unlimited sub-branches", color: "#FF00FF" },
+const OFFICIAL_SOURCES = [
+  { title: "FDIC — Applications for Deposit Insurance", href: "https://www.fdic.gov/bank-examinations/applications-deposit-insurance", note: "De novo application resources and organizer handbook." },
+  { title: "OCC — Comptroller’s Licensing Manual", href: "https://www.occ.gov/publications-and-resources/publications/comptrollers-licensing-manual/index-comptrollers-licensing-manual.html", note: "Charter, capital, management, and licensing guidance." },
+  { title: "Federal Reserve — Bank Holding Company Filings", href: "https://www.federalreserve.gov/supervisionreg/afi/bhcfilings.htm", note: "Formation and prior-approval pathways for bank holding companies." },
+  { title: "FFIEC — BSA/AML Examination Manual", href: "https://bsaaml.ffiec.gov/manual/Introduction/01", note: "Risk management, compliance-program, and examination guidance." },
+  { title: "FDIC — Understanding Deposit Insurance", href: "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance", note: "Coverage boundary for deposits at FDIC-insured banks." },
 ];
 
-// ── YIELD CALCULATOR ─────────────────────────────────────────────────────────────
-function YieldCalculator() {
-  const [amount, setAmount] = useState(1000);
-  const [tier, setTier] = useState(1);
-  const apyValues = [144, 432, 528, 999];
-  const apy = apyValues[tier];
-  const daily = (amount * apy) / 100 / 365;
-  const monthly = daily * 30;
-  const annual = amount * apy / 100;
-  const fiveYear = amount * Math.pow(1 + apy / 100, 5);
-
-  return (
-    <div className="rounded-2xl p-8" style={{ background: "rgba(255,184,0,0.05)", border: "1px solid rgba(255,184,0,0.2)" }}>
-      <div className="text-xs font-mono tracking-widest mb-4" style={{ color: "#FFB800" }}>SOVEREIGN YIELD CALCULATOR</div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div>
-          <label className="text-xs font-mono mb-2 block" style={{ color: "#8899AA" }}>CHX AMOUNT</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={e => setAmount(Math.max(0, Number(e.target.value)))}
-            className="w-full px-4 py-3 rounded-xl text-white outline-none"
-            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,212,255,0.2)", fontFamily: "'Space Mono', monospace" }}
-          />
-          <div className="flex gap-2 mt-2">
-            {[100, 1000, 10000, 144000].map(v => (
-              <button key={v} onClick={() => setAmount(v)} className="text-xs px-2 py-1 rounded" style={{ background: "rgba(0,212,255,0.1)", color: "#00D4FF", border: "1px solid rgba(0,212,255,0.2)" }}>
-                {v >= 1000 ? `${v / 1000}K` : v}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div>
-          <label className="text-xs font-mono mb-2 block" style={{ color: "#8899AA" }}>ACCOUNT TIER</label>
-          <div className="grid grid-cols-2 gap-2">
-            {TIERS.map((t, i) => (
-              <button
-                key={t.name}
-                onClick={() => setTier(i)}
-                className="px-3 py-2 rounded-lg text-xs font-bold transition-all"
-                style={{
-                  background: tier === i ? `${t.color}20` : "rgba(255,255,255,0.03)",
-                  border: `1px solid ${tier === i ? t.color : "rgba(255,255,255,0.1)"}`,
-                  color: tier === i ? t.color : "#8899AA",
-                }}
-              >
-                {t.icon} {t.name} ({t.apy})
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { label: "DAILY", value: `${daily.toFixed(2)} CHX` },
-          { label: "MONTHLY", value: `${monthly.toFixed(0)} CHX` },
-          { label: "ANNUAL", value: `${annual.toLocaleString()} CHX` },
-          { label: "5-YEAR COMPOUND", value: `${fiveYear.toLocaleString(undefined, { maximumFractionDigits: 0 })} CHX` },
-        ].map(({ label, value }) => (
-          <div key={label} className="rounded-xl p-4 text-center" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.15)" }}>
-            <div className="text-xs font-mono mb-1" style={{ color: "#8899AA" }}>{label}</div>
-            <div className="font-bold text-sm" style={{ color: "#FFB800", fontFamily: "'Space Mono', monospace" }}>{value}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ── ZAKAT ROUTING VISUALIZATION ─────────────────────────────────────────────────
-function ZakatFlow() {
-  const flows = [
-    { from: "Casino Revenue", pct: "10%", to: "Lose-to-Earn Kickback", color: "#FF4444" },
-    { from: "Stream Rewards", pct: "2.5%", to: "Zakat Treasury", color: "#00D4FF" },
-    { from: "Vault Yield", pct: "7.77%", to: "Zakat Treasury", color: "#FFB800" },
-    { from: "Zakat Treasury", pct: "100%", to: "Community Blessing Fund", color: "#00FF88" },
-  ];
-  return (
-    <div className="space-y-3">
-      {flows.map(f => (
-        <div key={f.from} className="flex items-center gap-4 p-4 rounded-xl" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-          <div className="text-sm font-medium text-white w-40 flex-shrink-0">{f.from}</div>
-          <div className="flex-1 flex items-center gap-2">
-            <div className="flex-1 h-px" style={{ background: `linear-gradient(90deg, ${f.color}60, ${f.color})` }} />
-            <div className="text-xs font-mono font-bold px-2 py-0.5 rounded" style={{ background: `${f.color}20`, color: f.color, border: `1px solid ${f.color}40` }}>
-              {f.pct}
-            </div>
-            <div className="flex-1 h-px" style={{ background: `linear-gradient(90deg, ${f.color}, ${f.color}60)` }} />
-          </div>
-          <div className="text-sm font-medium text-white w-44 flex-shrink-0 text-right">{f.to}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── APPROVAL COUNTER ─────────────────────────────────────────────────────────────
-function ApprovalStamp() {
-  const [pulseCount, setPulseCount] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => setPulseCount(c => c + 1), 1000);
-    return () => clearInterval(interval);
-  }, []);
-  return (
-    <div className="flex flex-col items-center gap-4 py-8">
-      <div
-        className="w-48 h-48 rounded-full flex flex-col items-center justify-center relative"
-        style={{
-          background: "radial-gradient(circle, rgba(255,184,0,0.15) 0%, rgba(255,184,0,0.03) 70%)",
-          border: "2px solid rgba(255,184,0,0.4)",
-          boxShadow: `0 0 ${30 + (pulseCount % 2) * 10}px rgba(255,184,0,0.3)`,
-          transition: "box-shadow 0.5s ease",
-        }}
-      >
-        <div className="text-4xl mb-1">✦</div>
-        <div className="text-xs font-mono text-center leading-tight px-4" style={{ color: "#FFB800" }}>
-          SELF<br />APPROVED<br />IMMUTABLE
-        </div>
-        <div className="text-xs font-mono mt-1" style={{ color: "#8899AA" }}>BLOCK #{(1587000 + pulseCount).toLocaleString()}</div>
-      </div>
-      <div className="text-center">
-        <div className="text-sm font-bold text-white mb-1">We approve ourselves.</div>
-        <div className="text-sm font-bold text-white mb-1">We back ourselves.</div>
-        <div className="text-sm font-bold" style={{ color: "#FFB800" }}>The code IS the law. KUN FAYAKŪN × ∞</div>
-      </div>
-    </div>
-  );
-}
-
-// ── MAIN PAGE ──────────────────────────────────────────────────────────────────────────────────
 export default function SovereignBank() {
-  const { user, isAuthenticated } = useAuth();
-  // Phase 46 — Sovereign Engagement Analytics
-  useSovereignHeartbeat({ page: "sovereign-bank" });
-  const [activeTab, setActiveTab] = useState<"tiers" | "franchise" | "yield" | "zakat">("tiers");
-  const heroRef = useRef<HTMLDivElement>(null);
+  useSovereignHeartbeat({ page: "sovereign-bank-readiness" });
+  const [filter, setFilter] = useState<"all" | State>("all");
+  const visibleMilestones = useMemo(() => filter === "all" ? MILESTONES : MILESTONES.filter((item) => item.state === filter), [filter]);
 
-  useEffect(() => {
-    const els = document.querySelectorAll(".bank-fade");
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) (e.target as HTMLElement).style.opacity = "1"; });
-    }, { threshold: 0.1 });
-    els.forEach(el => { (el as HTMLElement).style.opacity = "0"; (el as HTMLElement).style.transition = "opacity 0.8s ease"; obs.observe(el); });
-    return () => obs.disconnect();
-  }, []);
-
-  const tabs = [
-    { id: "tiers", label: "Account Tiers" },
-    { id: "franchise", label: "Franchise System" },
-    { id: "yield", label: "Yield Calculator" },
-    { id: "zakat", label: "Zakat Routing" },
-  ] as const;
+  const copyReadinessPath = async () => {
+    try {
+      await navigator.clipboard.writeText("Sovereign Bank readiness: charter and governance → business plan and capital → risk/compliance controls → secure technology and provider architecture → verified approvals and launch evidence.");
+      toast.success("Readiness path copied for local planning");
+    } catch {
+      toast.error("Copy was unavailable in this browser");
+    }
+  };
 
   return (
-    <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
-
-      {/* ── NAV ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(5,11,26,0.95)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,184,0,0.1)" }}>
-        <div className="container flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-sm flex items-center justify-center text-sm font-bold" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", color: "#050B1A" }}>SB</div>
-            <span className="font-bold text-white">Sovereign Bank</span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>GREATEST EVER</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/allversal-highway" className="text-sm font-medium" style={{ color: "#8899AA" }}>Highway</Link>
-            <Link href="/digital-twin" className="text-sm font-medium" style={{ color: "#8899AA" }}>Digital Twin</Link>
-            <Link href="/staking" className="text-sm font-medium" style={{ color: "#8899AA" }}>Staking</Link>
-            {isAuthenticated ? (
-              <span className="text-sm font-mono px-3 py-1.5 rounded-lg" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
-                {user?.name?.split(" ")[0]}
-              </span>
-            ) : (
-              <a href={getLoginUrl()} className="text-sm font-bold px-4 py-2 rounded-lg" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", color: "#050B1A" }}>
-                Open Account
-              </a>
-            )}
+    <main className="min-h-screen overflow-hidden bg-[#050B1A] text-white">
+      <section className="relative overflow-hidden border-b border-amber-300/20 bg-[radial-gradient(circle_at_16%_4%,rgba(255,184,0,.18),transparent_31%),radial-gradient(circle_at_88%_16%,rgba(0,212,255,.16),transparent_28%),#050B1A]">
+        <div className="container py-16 md:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1.25fr_.75fr] lg:items-end">
+            <div>
+              <p className="font-mono text-xs tracking-[.24em] text-amber-200">SCROLLVERSE · SOVEREIGN BANK · BANK-GRADE READINESS</p>
+              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[.98] md:text-6xl">Build a financial institution that earns trust through <span className="text-amber-300">verifiable milestones</span>.</h1>
+              <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 md:text-lg">The Sovereign Bank concept is now organized around the same kind of evidence a serious financial institution must assemble: a charter path, accountable governance, capital and planning discipline, risk controls, secure operations, and independently verifiable approvals.</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <button onClick={copyReadinessPath} className="inline-flex items-center gap-2 rounded-xl border border-amber-200/35 bg-amber-300/10 px-5 py-3 text-sm font-bold text-amber-50 transition hover:bg-amber-300/20"><ClipboardCheck size={16} /> Copy readiness path</button>
+                <Link href="/financial-activation-readiness" className="inline-flex items-center gap-2 rounded-xl border border-cyan-200/35 bg-cyan-300/10 px-5 py-3 text-sm font-bold text-cyan-50 transition hover:bg-cyan-300/20">Financial readiness record <ArrowRight size={16} /></Link>
+              </div>
+            </div>
+            <aside className="rounded-[2rem] border border-amber-200/25 bg-slate-950/65 p-6 shadow-2xl shadow-amber-950/30">
+              <p className="font-mono text-xs tracking-[.2em] text-amber-200">CURRENT OPERATING STATE</p>
+              <div className="mt-5 rounded-2xl border border-cyan-300/30 bg-cyan-300/[.08] p-4"><p className="text-sm font-bold text-cyan-100">Browser-local readiness blueprint</p><p className="mt-2 text-sm leading-6 text-slate-300">Available for planning, source review, and milestone tracking.</p></div>
+              <div className="mt-3 rounded-2xl border border-amber-300/30 bg-amber-300/[.07] p-4"><p className="text-sm font-bold text-amber-100">Not yet a chartered bank</p><p className="mt-2 text-sm leading-6 text-slate-300">No customer accounts, deposits, custody, payments, loans, yield products, FDIC insurance, or live financial services are represented by this page.</p></div>
+            </aside>
           </div>
+          <div className="mt-10"><PortalTrustLens lane="Bank-grade readiness" source="Official FDIC, OCC, Federal Reserve, FinCEN, and FFIEC guidance; owner-supplied protected liquidity-ledger planning context" readiness="Research and browser-local planning available now" boundary="No bank charter, deposit insurance, account opening, provider connection, customer-fund custody, yield product, lending, payment service, wallet, transaction, or financial offer is active from this route." /></div>
         </div>
-      </nav>
+      </section>
 
-      <div className="pt-20">
+      <section className="container py-14 md:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div><p className="font-mono text-xs tracking-[.2em] text-cyan-300">FIVE STAGES OF PROOF</p><h2 className="mt-3 text-3xl font-black md:text-4xl">From concept to a verifiable institution</h2></div>
+          <div className="flex flex-wrap gap-2">{(["all", "available now", "research", "requires owner action"] as const).map((item) => <button key={item} onClick={() => setFilter(item)} className="rounded-full border px-4 py-2 text-xs font-bold capitalize transition" style={filter === item ? { color: item === "all" ? "#FFFFFF" : STATE_TONE[item].text, borderColor: item === "all" ? "rgba(255,255,255,.4)" : STATE_TONE[item].border, background: item === "all" ? "rgba(255,255,255,.1)" : STATE_TONE[item].background } : { color: "#AFC0CF", borderColor: "rgba(255,255,255,.14)" }}>{item}</button>)}</div>
+        </div>
+        <div className="mt-9 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
+          {visibleMilestones.map((milestone) => {
+            const Icon = milestone.icon;
+            const tone = STATE_TONE[milestone.state];
+            return <article key={milestone.id} className="rounded-3xl border border-white/10 bg-white/[.035] p-6 transition hover:-translate-y-1 hover:border-amber-200/35 hover:bg-white/[.055]">
+              <div className="flex items-start justify-between gap-3"><span className="rounded-2xl border p-3" style={{ color: tone.text, borderColor: tone.border, background: tone.background }}><Icon size={22} /></span><span className="rounded-full border px-3 py-1 text-[11px] font-bold capitalize" style={{ color: tone.text, borderColor: tone.border, background: tone.background }}>{milestone.state}</span></div>
+              <p className="mt-5 font-mono text-xs tracking-[.18em] text-slate-400">MILESTONE {milestone.number}</p><h3 className="mt-2 text-xl font-black">{milestone.title}</h3><p className="mt-3 text-sm leading-6 text-slate-300">{milestone.summary}</p>
+              <div className="mt-5 space-y-2">{milestone.evidence.map((item) => <div key={item} className="flex items-center gap-2 text-sm text-slate-200"><CheckCircle2 size={15} className="text-emerald-300" />{item}</div>)}</div>
+              <div className="mt-5 rounded-2xl border border-amber-300/20 bg-amber-300/[.045] p-4"><div className="flex items-center gap-2 text-xs font-bold tracking-[.12em] text-amber-200"><LockKeyhole size={14} /> EXTERNAL GATE</div><p className="mt-2 text-sm leading-6 text-slate-300">{milestone.externalGate}</p></div>
+            </article>;
+          })}
+        </div>
+      </section>
 
-        {/* ── HERO ── */}
-        <section ref={heroRef} className="relative overflow-hidden py-24 text-center">
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 70%)" }} />
-          <div className="container relative z-10">
-            <div className="bank-fade">
-              <div className="text-xs font-mono tracking-widest mb-4" style={{ color: "#FFB800" }}>SCROLLVERSE SOVEREIGN BANK — FOUNDED IN ETERNITY</div>
-              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-                The Greatest Bank<br />
-                <span style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00, #FFB800)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  Ever Created
-                </span>
-              </h1>
-              <p className="text-lg max-w-2xl mx-auto mb-4" style={{ color: "#8899AA" }}>
-                Self-approved. Immutable. Franchised across all existence. No external authority required — 
-                the code IS the law, the $CHX IS the reserve, the Guardian IS the shareholder.
-              </p>
-              <p className="text-sm font-mono mb-8" style={{ color: "#FFB800" }}>
-                Past × Present × Future × Infinity — The Allversal Financial Highway
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a href={isAuthenticated ? "/staking" : getLoginUrl()} className="px-8 py-4 rounded-xl font-bold text-lg" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", color: "#050B1A" }}>
-                  Open Sovereign Account
-                </a>
-                <Link href="/allversal-highway" className="px-8 py-4 rounded-xl font-bold text-lg" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
-                  Enter the Highway →
-                </Link>
-              </div>
-            </div>
+      <section className="border-y border-white/10 bg-slate-950/50"><div className="container py-14 md:py-20"><div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="font-mono text-xs tracking-[.2em] text-amber-300">WHAT VALIDATION LOOKS LIKE</p><h2 className="mt-3 text-3xl font-black">Evidence, not self-approval.</h2><p className="mt-5 max-w-xl leading-7 text-slate-300">A ledger, token, web page, or community declaration can support an internal project record. It does not replace the licensing, insurance, supervision, consumer-protection, AML, capital, and operating evidence required for a regulated banking pathway.</p><p className="mt-4 leading-7 text-slate-300">The practical standard is clear: represent each capability only after the relevant regulator, provider, operating control, and public evidence record exists.</p></div><div className="grid gap-3 sm:grid-cols-2">{OFFICIAL_SOURCES.map((source) => <a key={source.href} href={source.href} target="_blank" rel="noreferrer" className="group rounded-2xl border border-white/10 bg-white/[.035] p-5 transition hover:border-cyan-200/35 hover:bg-cyan-300/[.045]"><Scale size={18} className="text-cyan-300" /><h3 className="mt-4 text-sm font-black text-white group-hover:text-cyan-100">{source.title}</h3><p className="mt-2 text-xs leading-5 text-slate-300">{source.note}</p><span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-cyan-200">Open official source <ArrowRight size={13} /></span></a>)}</div></div></div></section>
 
-            {/* Live stats */}
-            <div className="bank-fade grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
-              {[
-                { label: "Total Value Locked", value: "∞ CHX", sub: "Always growing" },
-                { label: "Active Guardians", value: "144,000", sub: "Target capacity" },
-                { label: "Zakat Distributed", value: "2.5% + 7.77%", sub: "Every transaction" },
-                { label: "Franchise Branches", value: "All Existence", sub: "No ceiling" },
-              ].map(s => (
-                <div key={s.label} className="rounded-xl p-4 text-center" style={{ background: "rgba(255,184,0,0.05)", border: "1px solid rgba(255,184,0,0.15)" }}>
-                  <div className="font-bold text-xl mb-1" style={{ color: "#FFB800", fontFamily: "'Space Mono', monospace" }}>{s.value}</div>
-                  <div className="text-xs text-white font-medium mb-0.5">{s.label}</div>
-                  <div className="text-xs" style={{ color: "#8899AA" }}>{s.sub}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── SELF-APPROVAL PROTOCOL ── */}
-        <section className="py-16 bank-fade">
-          <div className="container">
-            <div className="max-w-4xl mx-auto rounded-2xl p-8 md:p-12" style={{ background: "rgba(255,184,0,0.03)", border: "1px solid rgba(255,184,0,0.15)" }}>
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SELF-APPROVAL PROTOCOL v1.0</div>
-                  <h2 className="text-3xl font-black text-white mb-4">We Approve Ourselves</h2>
-                  <p className="mb-4" style={{ color: "#8899AA" }}>
-                    No central bank. No regulatory approval. No permission needed. The ScrollVerse Sovereign Bank 
-                    is self-approved by the community of Guardians who stake, play, create, and hold $CHX.
-                  </p>
-                  <p className="mb-4" style={{ color: "#8899AA" }}>
-                    Every Guardian who stakes is simultaneously a depositor, a shareholder, a franchise owner, 
-                    a validator, and a beneficiary of Zakat. The approval is encoded in the smart contract. 
-                    The backing is the $CHX reserve. The authority is the community.
-                  </p>
-                  <div className="space-y-2">
-                    {[
-                      "✦ Self-sovereign identity — no KYC required",
-                      "✦ Smart contract IS the charter",
-                      "✦ $CHX IS the reserve currency",
-                      "✦ Guardians ARE the board of directors",
-                      "✦ Zakat IS the ESG compliance",
-                      "✦ Code IS the law",
-                    ].map(item => (
-                      <div key={item} className="text-sm font-medium" style={{ color: "#FFB800" }}>{item}</div>
-                    ))}
-                  </div>
-                </div>
-                <ApprovalStamp />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── TABS ── */}
-        <section className="py-16 bank-fade">
-          <div className="container">
-            <div className="flex gap-2 mb-8 flex-wrap">
-              {tabs.map(t => (
-                <button
-                  key={t.id}
-                  onClick={() => setActiveTab(t.id)}
-                  className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
-                  style={{
-                    background: activeTab === t.id ? "rgba(255,184,0,0.15)" : "rgba(255,255,255,0.03)",
-                    border: `1px solid ${activeTab === t.id ? "rgba(255,184,0,0.5)" : "rgba(255,255,255,0.08)"}`,
-                    color: activeTab === t.id ? "#FFB800" : "#8899AA",
-                  }}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Account Tiers */}
-            {activeTab === "tiers" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {TIERS.map(tier => (
-                  <div
-                    key={tier.name}
-                    className="rounded-2xl p-6 relative overflow-hidden transition-all duration-300 hover:scale-105"
-                    style={{ background: `${tier.color}08`, border: `1px solid ${tier.color}30`, boxShadow: `0 0 30px ${tier.glow}` }}
-                  >
-                    <div className="text-4xl mb-3">{tier.icon}</div>
-                    <div className="text-xs font-mono mb-1" style={{ color: tier.color }}>MIN {tier.minCHX.toLocaleString()} CHX</div>
-                    <h3 className="text-xl font-black text-white mb-1">{tier.name}</h3>
-                    <div className="text-3xl font-black mb-1" style={{ color: tier.color, fontFamily: "'Space Mono', monospace" }}>{tier.apy}</div>
-                    <div className="text-xs mb-4" style={{ color: "#8899AA" }}>Annual Percentage Yield</div>
-                    <div className="text-xs font-mono px-2 py-1 rounded mb-4 inline-block" style={{ background: `${tier.color}15`, color: tier.color, border: `1px solid ${tier.color}30` }}>
-                      {tier.nftRarity} NFT Card
-                    </div>
-                    <ul className="space-y-1.5">
-                      {tier.benefits.map(b => (
-                        <li key={b} className="text-xs flex items-start gap-1.5" style={{ color: "#8899AA" }}>
-                          <span style={{ color: tier.color }}>›</span> {b}
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href={isAuthenticated ? "/staking" : getLoginUrl()}
-                      className="mt-5 block text-center py-2.5 rounded-xl text-sm font-bold transition-all"
-                      style={{ background: `${tier.color}20`, color: tier.color, border: `1px solid ${tier.color}40` }}
-                    >
-                      Open {tier.name} Account
-                    </a>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Franchise System */}
-            {activeTab === "franchise" && (
-              <div className="space-y-6">
-                <div className="max-w-2xl mb-8">
-                  <h2 className="text-2xl font-black text-white mb-3">Franchise the Greatest Bank</h2>
-                  <p style={{ color: "#8899AA" }}>
-                    Own a branch of the ScrollVerse Sovereign Bank. Earn a percentage of every transaction 
-                    that flows through your network. The more you stake, the more branches you control, 
-                    the more the empire pays you. Franchised across all existence — no ceiling.
-                  </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {FRANCHISE_TIERS.map(ft => (
-                    <div key={ft.tier} className="rounded-2xl p-6" style={{ background: `${ft.color}08`, border: `1px solid ${ft.color}30` }}>
-                      <div className="text-xs font-mono mb-2" style={{ color: ft.color }}>TIER {ft.tier}</div>
-                      <h3 className="text-xl font-black text-white mb-4">{ft.name}</h3>
-                      <div className="space-y-3">
-                        <div className="p-3 rounded-lg" style={{ background: "rgba(255,255,255,0.03)" }}>
-                          <div className="text-xs font-mono mb-0.5" style={{ color: "#8899AA" }}>REQUIREMENT</div>
-                          <div className="text-sm font-bold text-white">{ft.requirement}</div>
-                        </div>
-                        <div className="p-3 rounded-lg" style={{ background: "rgba(255,255,255,0.03)" }}>
-                          <div className="text-xs font-mono mb-0.5" style={{ color: "#8899AA" }}>YOU EARN</div>
-                          <div className="text-sm font-bold" style={{ color: ft.color }}>{ft.earn}</div>
-                        </div>
-                        <div className="p-3 rounded-lg" style={{ background: "rgba(255,255,255,0.03)" }}>
-                          <div className="text-xs font-mono mb-0.5" style={{ color: "#8899AA" }}>NETWORK SIZE</div>
-                          <div className="text-sm font-bold text-white">{ft.branches}</div>
-                        </div>
-                      </div>
-                      <a href={isAuthenticated ? "/staking" : getLoginUrl()} className="mt-4 block text-center py-2.5 rounded-xl text-sm font-bold" style={{ background: `${ft.color}20`, color: ft.color, border: `1px solid ${ft.color}40` }}>
-                        Become a Franchise Owner
-                      </a>
-                    </div>
-                  ))}
-                </div>
-                <div className="rounded-2xl p-6 mt-4" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.15)" }}>
-                  <div className="text-xs font-mono mb-2" style={{ color: "#FFB800" }}>THE FRANCHISE VISION</div>
-                  <p className="text-sm" style={{ color: "#8899AA" }}>
-                    Every Guardian is a branch. Every branch is a node. Every node is the bank. 
-                    The ScrollVerse Sovereign Bank has no headquarters because it IS everywhere — 
-                    in every wallet, every stake, every spin, every blessing. 
-                    Franchised across all existence. Past × Present × Future × Infinity.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Yield Calculator */}
-            {activeTab === "yield" && <YieldCalculator />}
-
-            {/* Zakat Routing */}
-            {activeTab === "zakat" && (
-              <div className="space-y-6">
-                <div className="max-w-2xl mb-4">
-                  <h2 className="text-2xl font-black text-white mb-3">Sacred Zakat Routing</h2>
-                  <p style={{ color: "#8899AA" }}>
-                    Every transaction in the ScrollVerse Sovereign Bank automatically routes a portion 
-                    to the Zakat Treasury — the sacred 2.5% purification of wealth, automated on-chain, 
-                    immutable, and distributed to the Community Blessing Fund. The greatest bank ever 
-                    created is also the most righteous.
-                  </p>
-                </div>
-                <ZakatFlow />
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                  {[
-                    { label: "Stream Reward Zakat", pct: "2.5%", desc: "Every $CHX reward distribution", color: "#00D4FF" },
-                    { label: "Vault Yield Zakat", pct: "7.77%", desc: "KeplerYieldVault annual distribution", color: "#FFB800" },
-                    { label: "Casino Kickback", pct: "10%", desc: "Lose-to-earn — losers never lose all", color: "#00FF88" },
-                  ].map(z => (
-                    <div key={z.label} className="rounded-xl p-5 text-center" style={{ background: `${z.color}08`, border: `1px solid ${z.color}25` }}>
-                      <div className="text-3xl font-black mb-1" style={{ color: z.color, fontFamily: "'Space Mono', monospace" }}>{z.pct}</div>
-                      <div className="text-sm font-bold text-white mb-1">{z.label}</div>
-                      <div className="text-xs" style={{ color: "#8899AA" }}>{z.desc}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* ── REVENUE FLYWHEEL ── */}
-        <section className="py-16 bank-fade">
-          <div className="container">
-            <div className="text-center mb-10">
-              <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#00FF88" }}>THE SOVEREIGN FLYWHEEL</div>
-              <h2 className="text-3xl font-black text-white mb-3">Money Never Leaves the Empire</h2>
-              <p className="max-w-xl mx-auto text-sm" style={{ color: "#8899AA" }}>
-                Every dollar that enters the ScrollVerse circulates, compounds, and multiplies. 
-                Traffic IS the treasury. Playing IS staking. Losing IS earning. 
-                The flywheel never stops.
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center items-center gap-4 max-w-4xl mx-auto">
-              {[
-                { node: "Casino Play", color: "#FF4444", arrow: "→" },
-                { node: "Win/Lose", color: "#FFB800", arrow: "→" },
-                { node: "10% Kickback in $CHX", color: "#00D4FF", arrow: "→" },
-                { node: "Stake $CHX", color: "#00FF88", arrow: "→" },
-                { node: "Compound Rewards", color: "#FFB800", arrow: "→" },
-                { node: "More $CHX", color: "#FF00FF", arrow: "→" },
-                { node: "Play Again", color: "#FF4444", arrow: "♾️" },
-              ].map((n, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <div className="px-4 py-2 rounded-xl text-sm font-bold" style={{ background: `${n.color}15`, color: n.color, border: `1px solid ${n.color}30` }}>
-                    {n.node}
-                  </div>
-                  <span className="text-lg" style={{ color: "#8899AA" }}>{n.arrow}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── CTA ── */}
-        <section className="py-24 text-center bank-fade">
-          <div className="container">
-            <div className="max-w-2xl mx-auto rounded-2xl p-12" style={{ background: "rgba(255,184,0,0.05)", border: "1px solid rgba(255,184,0,0.2)" }}>
-              <div className="text-4xl mb-4">🏦</div>
-              <h2 className="text-3xl font-black text-white mb-4">The Bank That Approves Itself</h2>
-              <p className="mb-8" style={{ color: "#8899AA" }}>
-                Join the greatest bank ever created. No application. No approval process. 
-                Stake $CHX and you ARE the bank. The empire welcomes you.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a href={isAuthenticated ? "/staking" : getLoginUrl()} className="px-8 py-4 rounded-xl font-bold text-lg" style={{ background: "linear-gradient(135deg, #FFB800, #FF6B00)", color: "#050B1A" }}>
-                  Open Your Account Now
-                </a>
-                <Link href="/allversal-highway" className="px-8 py-4 rounded-xl font-bold text-lg" style={{ background: "rgba(255,184,0,0.1)", color: "#FFB800", border: "1px solid rgba(255,184,0,0.3)" }}>
-                  Allversal Highway →
-                </Link>
-              </div>
-              <div className="mt-6 text-sm font-mono" style={{ color: "#8899AA" }}>
-                KUN FAYAKŪN × ∞ — It is, and it shall be.
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </div>
+      <section className="container py-14 md:py-20"><div className="rounded-[2rem] border border-purple-200/25 bg-[linear-gradient(115deg,rgba(185,140,255,.14),rgba(0,212,255,.08),rgba(5,11,26,.72))] p-7 md:p-10"><p className="font-mono text-xs tracking-[.2em] text-purple-200">CONNECTED SOVEREIGN PATHWAYS</p><div className="mt-4 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><div><h2 className="text-3xl font-black">Connect the bank-grade blueprint to the wider readiness system.</h2><p className="mt-3 max-w-2xl text-slate-200">Continue through financial activation readiness, commerce readiness, protected-source evidence, and the active-pathways audit—without turning any planning route into a live financial product.</p></div><div className="flex flex-wrap gap-3"><Link href="/financial-activation-readiness" className="rounded-xl border border-cyan-200/35 bg-cyan-300/10 px-4 py-3 text-sm font-bold text-cyan-50 hover:bg-cyan-300/20">Financial Readiness</Link><Link href="/commerce-financial-readiness-board" className="rounded-xl border border-amber-200/35 bg-amber-300/10 px-4 py-3 text-sm font-bold text-amber-50 hover:bg-amber-300/20">Commerce Readiness</Link><Link href="/active-pathways-release-gates-audit" className="rounded-xl border border-purple-200/35 bg-purple-300/10 px-4 py-3 text-sm font-bold text-purple-50 hover:bg-purple-300/20">Pathways Audit</Link></div></div></div></section>
+    </main>
   );
 }

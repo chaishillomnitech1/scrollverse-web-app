@@ -12,7 +12,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Two sovereigns in a private lounge, Bob Marley watching over — the quiet before the movement.",
     style: "Lounge · Duo · Intimate",
-    art: "/manus-storage/sv-nft-01-red-lamp-session_a7bd34f1.png",
+    art: "/manus-storage/sv-nft-01-red-lamp-session_d30ebff7.png",
     color: "#FFB800",
   },
   {
@@ -22,7 +22,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Street-to-boardroom energy against raw timber — blazer meets ripped denim, Jordans on both feet.",
     style: "Street · Duo · Overhead",
-    art: "/manus-storage/sv-nft-02-wood-grain-royalty_a0212510.png",
+    art: "/manus-storage/sv-nft-02-wood-grain-royalty_a73986aa.png",
     color: "#00D4FF",
   },
   {
@@ -32,7 +32,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Venue night, velvet coat, Baltimore pride — two figures holding their frequency under neon.",
     style: "Venue · Duo · Neon",
-    art: "/manus-storage/sv-nft-03-corduroy-and-orioles_faa33592.png",
+    art: "/manus-storage/sv-nft-03-corduroy-and-orioles_f72c7753.png",
     color: "#FF6B35",
   },
   {
@@ -42,7 +42,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "The whole squad assembled, Aaliyah varsity, Warriors blue — a gathering of tribes.",
     style: "Group · Venue · Energy",
-    art: "/manus-storage/sv-nft-04-warriors-in-the-room_d57c5a1c.png",
+    art: "/manus-storage/sv-nft-04-warriors-in-the-room_19eebd1e.png",
     color: "#FFB800",
   },
   {
@@ -52,7 +52,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Fendi-wrapped, Nike-suited, hands open like a conductor — identity concealed, energy undeniable.",
     style: "Solo · Cinematic · Mysterious",
-    art: "/manus-storage/sv-nft-05-architect-descends_9d2fdffd.png",
+    art: "/manus-storage/sv-nft-05-architect-descends_9d281e19.png",
     color: "#B98CFF",
   },
   {
@@ -62,7 +62,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Same session, second angle — the pendant catches light, the hands speak a different phrase.",
     style: "Solo · Cinematic · Alternate",
-    art: "/manus-storage/sv-nft-06-architect-descends-ii_d5eef6a6.png",
+    art: "/manus-storage/sv-nft-06-architect-descends-ii_5ea2f4a8.png",
     color: "#8899AA",
   },
   {
@@ -72,7 +72,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Red Bulls cap, camera in hand, burgundy Adidas — two creators in the venue doorway, the night just beginning.",
     style: "Venue · Duo · Entrance",
-    art: "/manus-storage/sv-nft-07-bulls-and-burgundy_744d76c0.png",
+    art: "/manus-storage/sv-nft-07-bulls-and-burgundy_f708511d.png",
     color: "#FF3B30",
   },
   {
@@ -82,7 +82,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Sitting on concrete steps in the sun, chain down, Jordan 1s — quiet focus before the move.",
     style: "Solo · Outdoor · Contemplative",
-    art: "/manus-storage/sv-nft-08-steps-of-intention_b072aa93.png",
+    art: "/manus-storage/sv-nft-08-steps-of-intention_4acfd918.png",
     color: "#FFB800",
   },
   {
@@ -92,7 +92,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Full-body rainbow puffer, STP cap, multicolor sneakers — the whole room watching one frequency.",
     style: "Solo · Club · Full Body",
-    art: "/manus-storage/sv-nft-09-spectrum-sovereign_1025b4be.png",
+    art: "/manus-storage/sv-nft-09-spectrum-sovereign_98c6f675.png",
     color: "#00FF88",
   },
   {
@@ -102,7 +102,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Same session, different angle — the light hits the chain differently, same stillness.",
     style: "Solo · Outdoor · Profile",
-    art: "/manus-storage/sv-nft-10-steps-of-intention-ii_a64dc541.png",
+    art: "/manus-storage/sv-nft-10-steps-of-intention-ii_db4030df.png",
     color: "#FFB800",
   },
   {
@@ -112,7 +112,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Stay Puft reimagined as a sovereign street figure — cracked, chained, holding the Oaktree sign — original product art.",
     style: "Product Art · Collector · Original",
-    art: "/manus-storage/sv-nft-11-smoke-busters-artifact_9bf17055.png",
+    art: "/manus-storage/sv-nft-11-smoke-busters-artifact_38f949a0.png",
     color: "#B98CFF",
   },
   {
@@ -122,7 +122,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Professional photographer's frame of the same rainbow puffer moment — official documentation.",
     style: "Solo · Club · Professional",
-    art: "/manus-storage/sv-nft-12-spectrum-sovereign-rizz_4c634af0.png",
+    art: "/manus-storage/sv-nft-12-spectrum-sovereign-rizz_cf927a52.png",
     color: "#00D4FF",
   },
   {
@@ -132,7 +132,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Two men in a kitchen space, Rugrats hoodie, blue Jordans, hands moving — the real meeting happens between the words.",
     style: "Duo · Indoor · Creative",
-    art: "/manus-storage/sv-nft-13-the-conversation_b2d64d54.png",
+    art: "/manus-storage/sv-nft-13-the-conversation_b8783a26.png",
     color: "#00FF88",
   },
   {
@@ -142,7 +142,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Third angle of the same rainbow puffer session — the full silhouette, the crowd behind.",
     style: "Solo · Club · Silhouette",
-    art: "/manus-storage/sv-nft-14-spectrum-sovereign-iii_61f9876b.png",
+    art: "/manus-storage/sv-nft-14-spectrum-sovereign-iii_76bef1b4.png",
     color: "#FF6B9A",
   },
 ];
