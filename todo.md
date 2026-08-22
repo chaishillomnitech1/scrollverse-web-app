@@ -5257,3 +5257,18 @@
 - [x] Inspect the owner-identified older Manus shared file da851283-c28e-49fe-9128-b34d67e2f272 and preserve only its directly visible scope
 - [x] Record its historical timing as owner-provided context, without inferring an exact date, current system state, or external operating result
 - [ ] Add a source-labeled chronology handoff with regression coverage and browser verification
+
+## Phase 691 — Reusable YouTube Current-Feed Review Skill
+- [x] Define the reusable direct-lookup, attribution-check, selection-criteria, and current-feed limitation workflow
+- [x] Package the workflow as a validated reusable skill with non-posting and no-account-action boundaries
+- [ ] Add a browser-local source-labeled research record for the current selection and validate its archive handoffs
+
+## Phase 692 — Protected Visual Batch Intake
+- [ ] Inventory all supplied images with filename, type, dimensions, size, stable hash, and duplicate relationship
+- [ ] Classify directly visible visual subject matter and candidate archive/lookbook relevance without inferring ownership, rights, identity, or publication state
+- [ ] Add source-labeled visual accession and lookbook handoffs only after direct evidence and boundaries are documented
+
+## Phase 696 — Sovereign Cartoon Gallery · 8:28 Milestone
+- [x] Build the browser-local `/sovereign-cartoon-gallery` route with 14 named sovereign-art records, catalog-song pairings, expandable visual intake, and clear collection-state labels
+- [x] Upload and connect 13 confirmed artwork assets through managed project storage; reserve the 14th artwork URL while its generation completes
+- [x] Add focused regression coverage, validate route registration, TypeScript, and the full test suite before publication

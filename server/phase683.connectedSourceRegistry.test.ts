@@ -26,4 +26,16 @@ describe("Phase 683 Connected Source Registry", () => {
     expect(app).toContain("ConnectedSourceRegistry");
     expect(home).toContain('href="/connected-source-registry"');
   });
+
+  it("preserves the current-feed research set with clear attribution and no-account-action limits", () => {
+    const page = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/YouTubeCurrentFeedResearch.tsx"), "utf8");
+    const app = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/App.tsx"), "utf8");
+    expect(page).toContain("VZJUmiCO25E");
+    expect(page).toContain("A4wl8qdZ2h0");
+    expect(page).toContain("h8VWhpH3pCw");
+    expect(page).toContain("Feed context is not channel ownership");
+    expect(page).toContain("No video was played, liked, shared, saved, posted");
+    expect(app).toContain('path={"/youtube-current-feed-research"}');
+    expect(app).toContain("YouTubeCurrentFeedResearch");
+  });
 });
