@@ -480,6 +480,7 @@ import ProtectedAttachmentAccession from "./pages/ProtectedAttachmentAccession";
 import OmniverseManifestoChronology from "./pages/OmniverseManifestoChronology";
 import OmniverseManifestoNodes, { OmniverseManifestoNode } from "./pages/OmniverseManifestoNodes";
 import ConnectedSourceRegistry from "./pages/ConnectedSourceRegistry";
+import MultiVectorProtectedSourceIntake from "./pages/MultiVectorProtectedSourceIntake";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1076,6 +1077,7 @@ function Router() {
         <Route path="/omniverse-manifesto-nodes" component={OmniverseManifestoNodes} />
         <Route path="/omniverse-node/:id" component={OmniverseManifestoNode} />
         <Route path="/connected-source-registry" component={ConnectedSourceRegistry} />
+        <Route path="/multi-vector-protected-source-intake" component={MultiVectorProtectedSourceIntake} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
