@@ -2859,14 +2859,15 @@ export default function Home() {
               { href: "/omniverse-manifesto-chronology", step: "03", title: "Chronology", source: "Conceptual navigation arc", state: "available now", color: "#FFCC4D" },
               { href: "/omniverse-manifesto-nodes", step: "04", title: "Node Gallery", source: "51 individual title-only records", state: "available now", color: "#FF6B9A" },
               { href: "/protected-attachment-accession", step: "05", title: "Source Accessions", source: "Protected attachment hashes", state: "available now", color: "#00FF88" },
-              { href: "/empire-power-index", step: "06", title: "Empire Power Index", source: "29 connected project routes", state: "available now", color: "#9DEBFF" },
+              { href: "/empire-power-index", step: "06", title: "Empire Power Index", source: "30 connected project routes", state: "available now", color: "#9DEBFF" },
               { href: "/protected-visual-intake", step: "07", title: "Visual Accession", source: "Five protected visual records", state: "research", color: "#FFCC4D" },
               { href: "/supplied-public-references", step: "08", title: "Public References", source: "Replay and prior-portal record", state: "research", color: "#B98CFF" },
               { href: "/creator-visual-intake-atlas", step: "09", title: "Creator Visual Atlas", source: "11 protected visual metadata records · no image republication", state: "research", color: "#FF6B9A" },
               { href: "/retained-image-intake", step: "10", title: "Retained Image Intake", source: "Five protected screenshot records · evidence boundaries", state: "research", color: "#00D4FF" },
               { href: "/generic-retained-image-intake", step: "11", title: "Generic Retained Image Intake", source: "Five protected photo/apparel files · no image republication", state: "research", color: "#FFB800" },
-              { href: "/protected-visual-evidence-hub", step: "12", title: "Protected Visual Evidence Hub", source: "Three evidence lanes · source-specific boundaries", state: "research", color: "#B98CFF" },
+              { href: "/protected-visual-evidence-hub", step: "12", title: "Protected Visual Evidence Hub", source: "Five evidence lanes · source-specific boundaries", state: "research", color: "#B98CFF" },
               { href: "/retained-photo-intake", step: "13", title: "Retained Photo Intake", source: "Five protected photo/apparel records · no image republication", state: "research", color: "#FF6B9A" },
+              { href: "/paired-retained-image-intake", step: "14", title: "Paired Retained Image Intake", source: "Five protected source files · confirmed duplicate pair", state: "research", color: "#7CFFBB" },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="group rounded-[1.65rem] border p-5 transition-all duration-200 hover:-translate-y-1" style={{ borderColor: `${item.color}50`, background: `${item.color}08` }}>
                 <div className="flex items-center justify-between gap-3"><span className="text-xs font-mono font-black" style={{ color: item.color }}>{item.step}</span><span className="rounded-full border px-2.5 py-1 text-[9px] font-mono" style={{ borderColor: `${item.color}50`, color: item.color }}>{item.state.toUpperCase()}</span></div>

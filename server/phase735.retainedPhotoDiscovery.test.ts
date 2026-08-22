@@ -10,8 +10,8 @@ describe("Phase 735 — Retained Photo Intake Discovery Synchronization", () => 
     const hub = read("client/src/pages/ProtectedVisualEvidenceHub.tsx");
     expect(hub).toContain("PVE-04");
     expect(hub).toContain('href: "/retained-photo-intake"');
-    expect(hub).toContain("4 EVIDENCE LANES");
-    expect(hub).toContain("Four source lanes.");
+    expect(hub).toContain("5 EVIDENCE LANES");
+    expect(hub).toContain("Five source lanes.");
   });
 
   it("adds the route across primary navigation maps with research state", () => {
@@ -19,9 +19,9 @@ describe("Phase 735 — Retained Photo Intake Discovery Synchronization", () => 
     const routes = read("client/src/pages/RouteIntegrityIndex.tsx");
     const home = read("client/src/pages/Home.tsx");
     expect(index).toContain("POWER-29");
-    expect(index).toContain("29 CONNECTED POWER ROUTES");
+    expect(index).toContain("30 CONNECTED POWER ROUTES");
     expect(routes).toContain('path: "/retained-photo-intake"');
     expect(home).toContain('step: "13", title: "Retained Photo Intake"');
-    expect(home).toContain("29 connected project routes");
+    expect(home).toContain("30 connected project routes");
   });
 });
