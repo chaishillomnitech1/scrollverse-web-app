@@ -5467,3 +5467,10 @@
 ## Phase 739 — Next Retained-Image Discovery Synchronization
 - [ ] Add the Next Retained Image Intake to the Protected Visual Evidence Hub, Empire Power Index, Route Integrity Index, and homepage archive-discovery rail with a direct research state
 - [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 740 — Game Systems & Research Blueprint
+- [x] Research and source-label game-system study domains: mathematics, physics, sciences, comparative philosophy, historical texts, classical solmization, and modern Solfeggio frequency claims
+- [x] Build a browser-local Game Systems & Research Blueprint with source pathways, research prompts, game-world applications, and a clear distinction between historical documentation, modern claims, and original design exploration
+- [x] Add a special-repository continuity record for game systems and blueprint code without creating an external repository or claiming publication
+- [x] Link the new blueprint to Game Worlds Studio, ScrollVerse Story Worlds, Special Repository, and the Empire Power Index
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
