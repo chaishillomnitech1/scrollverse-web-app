@@ -5561,9 +5561,9 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the protected orbital-context update
 
 ## Phase 759 — Transmissions and Source Convergence Register
-- [ ] Map the Financial Continuum, Multi-Vector, and Global Orbital Matrix protected records into a single browser-local source convergence register with their live readiness handoffs
-- [ ] Connect the register to the Connected Source Registry without changing any source record into a verified technical, financial, media, or external operating claim
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the connected source-register update
+- [x] Map the Financial Continuum, Multi-Vector, and Global Orbital Matrix protected records into a single browser-local source convergence register with their live readiness handoffs
+- [x] Connect the register to the Connected Source Registry without changing any source record into a verified technical, financial, media, or external operating claim
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the connected source-register update
 
 ## Phase 760 — Digital Mirror Twin and Signature Readiness
 - [x] Classify the supplied tokenization, private-repository, Episode 68, infrastructure, and self-healing references as protected source context without adopting embedded execution, repository, security, token, or infrastructure assertions

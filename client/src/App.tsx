@@ -484,6 +484,7 @@ import MultiVectorProtectedSourceIntake from "./pages/MultiVectorProtectedSource
 import GlobalOrbitalMatrixSourceIntake from "./pages/GlobalOrbitalMatrixSourceIntake";
 import DigitalMirrorTwin from "./pages/DigitalMirrorTwin";
 import EcosystemDiscovery from "./pages/EcosystemDiscovery";
+import TransmissionsSourceConvergence from "./pages/TransmissionsSourceConvergence";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1084,6 +1085,7 @@ function Router() {
         <Route path="/global-orbital-matrix-source-intake" component={GlobalOrbitalMatrixSourceIntake} />
         <Route path="/digital-mirror-twin" component={DigitalMirrorTwin} />
         <Route path="/ecosystem-discovery" component={EcosystemDiscovery} />
+        <Route path="/transmissions-source-convergence" component={TransmissionsSourceConvergence} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
