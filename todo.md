@@ -5637,10 +5637,10 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the blueprint-library update
 
 ## Phase 773 — External Action Governance Study
-- [ ] Define evidence-led authority, source, privacy, accountability, and release-control boundaries for browser-local governance study records
-- [ ] Research public governance, privacy, accountability, and interoperability foundations without providing legal advice or initiating external actions
-- [ ] Build a browser-local External Action Governance Study with direct source, portfolio, capital, release-gate, and Apex Research handoffs
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the governance-study update
+- [x] Define evidence-led authority, source, privacy, accountability, and release-control boundaries for browser-local governance study records
+- [x] Research public governance, privacy, accountability, and interoperability foundations without providing legal advice or initiating external actions
+- [x] Build a browser-local External Action Governance Study with direct source, portfolio, capital, release-gate, and Apex Research handoffs
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the governance-study update
 
 ## Phase 774 — Partnership Highways Framework
 - [x] Define reusable source, purpose, contribution, evidence, participation-state, and external-release fields for cross-discipline collaboration study records

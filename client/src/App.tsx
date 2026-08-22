@@ -496,6 +496,7 @@ import CreativeSystemsLaunchpad from "./pages/CreativeSystemsLaunchpad";
 import PartnershipHighways from "./pages/PartnershipHighways";
 import ScrollVerseBrandArchitecture from "./pages/ScrollVerseBrandArchitecture";
 import SystemsBlueprintLibrary from "./pages/SystemsBlueprintLibrary";
+import ExternalActionGovernanceStudy from "./pages/ExternalActionGovernanceStudy";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1108,6 +1109,7 @@ function Router() {
         <Route path="/partnership-highways" component={PartnershipHighways} />
         <Route path="/scrollverse-brand-architecture" component={ScrollVerseBrandArchitecture} />
         <Route path="/systems-blueprint-library" component={SystemsBlueprintLibrary} />
+        <Route path="/external-action-governance-study" component={ExternalActionGovernanceStudy} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
