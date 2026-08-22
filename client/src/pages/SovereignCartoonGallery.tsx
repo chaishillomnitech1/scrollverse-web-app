@@ -142,7 +142,7 @@ const PIECES = [
     songUrl: "https://open.spotify.com/artist/3P0GWluMPNZ2xSCVffVGAr",
     concept: "Third angle of the same rainbow puffer session — the full silhouette, the crowd behind.",
     style: "Solo · Club · Silhouette",
-    art: "/manus-storage/sv-nft-14-spectrum-sovereign-iii_61f9876b.png",
+    art: "/manus-storage/sv-nft-14-spectrum-sovereign-iii_76bef1b4.png",
     color: "#FF6B9A",
   },
 ];

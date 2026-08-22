@@ -9,6 +9,7 @@ describe("Phase 696 — Sovereign Cartoon Gallery", () => {
     expect(src).toContain("SV-014");
     expect(src).toContain("Red Lamp Session");
     expect(src).toContain("The Conversation");
+    expect(src).toContain("sv-nft-14-spectrum-sovereign-iii_76bef1b4.png");
   });
 
   it("gallery route is registered in App.tsx", () => {
