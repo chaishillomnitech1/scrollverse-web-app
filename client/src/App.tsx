@@ -492,6 +492,7 @@ import AutoEmpireSourceIntake from "./pages/AutoEmpireSourceIntake";
 import ConnectedStatementsMusicEvidence from "./pages/ConnectedStatementsMusicEvidence";
 import PortfolioEvidenceHub from "./pages/PortfolioEvidenceHub";
 import ApexDigitalIntelligenceResearch from "./pages/ApexDigitalIntelligenceResearch";
+import CreativeSystemsLaunchpad from "./pages/CreativeSystemsLaunchpad";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1100,6 +1101,7 @@ function Router() {
         <Route path="/connected-statements-music-evidence" component={ConnectedStatementsMusicEvidence} />
         <Route path="/portfolio-evidence-hub" component={PortfolioEvidenceHub} />
         <Route path="/apex-digital-intelligence-research" component={ApexDigitalIntelligenceResearch} />
+        <Route path="/creative-systems-launchpad" component={CreativeSystemsLaunchpad} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
