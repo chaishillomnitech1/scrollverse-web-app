@@ -5292,3 +5292,8 @@
 - [x] Preserve direct classification, stable metadata, and consecutive-source relationship for `IMG_1520.png` through `IMG_1524.png`
 - [x] Build a browser-local protected visual-accession record with source boundaries and handoffs, without republishing the source screenshots
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 701 — Supplied Replay and Prior-Portal Record
+- [x] Classify the three owner-supplied public Manus replay landing pages and the visible `scrollverse-jqwuy5bt.manus.space` Command Center without authenticating or performing external actions
+- [x] Build a browser-local source record that preserves direct scope, preview and credential boundaries, and handoffs to current ScrollVerse archive routes
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
