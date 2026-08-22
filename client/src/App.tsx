@@ -499,6 +499,7 @@ import SystemsBlueprintLibrary from "./pages/SystemsBlueprintLibrary";
 import ExternalActionGovernanceStudy from "./pages/ExternalActionGovernanceStudy";
 import MediaEvidenceBridge from "./pages/MediaEvidenceBridge";
 import QuantumDigitalMagicSourceRecord from "./pages/QuantumDigitalMagicSourceRecord";
+import OwnerInputRoutingBoard from "./pages/OwnerInputRoutingBoard";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1114,6 +1115,7 @@ function Router() {
         <Route path="/external-action-governance-study" component={ExternalActionGovernanceStudy} />
         <Route path="/media-evidence-bridge" component={MediaEvidenceBridge} />
         <Route path="/quantum-digital-magic-source-record" component={QuantumDigitalMagicSourceRecord} />
+        <Route path="/owner-input-routing-board" component={OwnerInputRoutingBoard} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
