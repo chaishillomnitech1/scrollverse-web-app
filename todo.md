@@ -5287,3 +5287,8 @@
 - [x] Build a browser-local index connecting the published archive, creator, game-world, media, evidence, campaign, and continuity routes into one searchable map
 - [x] Add direct operating-state labels, copy/export controls, and source-led handoffs to Route Integrity, Connected Sources, Sovereignty Infrastructure, and the Omniverse archive
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 700 — Five-Image Protected Visual Accession
+- [x] Preserve direct classification, stable metadata, and consecutive-source relationship for `IMG_1520.png` through `IMG_1524.png`
+- [x] Build a browser-local protected visual-accession record with source boundaries and handoffs, without republishing the source screenshots
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
