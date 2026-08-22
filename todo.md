@@ -5474,3 +5474,10 @@
 - [x] Add a special-repository continuity record for game systems and blueprint code without creating an external repository or claiming publication
 - [x] Link the new blueprint to Game Worlds Studio, ScrollVerse Story Worlds, Special Repository, and the Empire Power Index
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 741 — Omniland Consoleless Delivery and Master Registry
+- [ ] Classify the three supplied OMNI convergence and Omniland protected references, including their manifest, registry, and generated-code claims, without executing embedded code or configurations
+- [ ] Build browser-local Omniland Consoleless Delivery and OMNI Master Registry records that distinguish verified portal evidence from designed architecture, historical source language, and owner-release gates
+- [ ] Add an Episode 55 source-attachment gate without publishing or expanding the supplied narrative as a media release
+- [ ] Link the new records to Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, ScrollVerse Story Worlds, and the Empire Power Index
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
