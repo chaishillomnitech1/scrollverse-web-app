@@ -5352,3 +5352,8 @@
 - [x] Restore or explicitly gate the missing Manus-origin historical record, then connect its verified scope to chronology and archive handoffs
 - [x] Strengthen the YouTube current-feed research record with source-labeled archive handoffs and correct its nested-link markup
 - [x] Validate TypeScript plus the full suite before publishing
+
+## Phase 713 — Ω.267 Prior-Hub Recovery Gate
+- [x] Preserve the owner-supplied Ω.267 Master Shoppable Meta Hub checkpoint reference as a browser-local source-recovery record without recreating unseen hub content
+- [x] Connect the recovery gate to the Connected Source Registry, Codex Source Chronology, and Empire Power Index with direct operating-state labels
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
