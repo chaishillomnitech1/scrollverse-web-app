@@ -5631,10 +5631,10 @@
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the launchpad update
 
 ## Phase 772 — Systems Blueprint Library
-- [ ] Define comparative research boundaries and source standards for system design, safety, interoperability, governance, and human-centered operating patterns
-- [ ] Research authoritative foundations and record reusable design principles without asserting external adoption, interoperability, certification, or provider integration
-- [ ] Build a browser-local Systems Blueprint Library with direct Apex Research, Game Worlds, source, portfolio, and release-gate handoffs
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the blueprint-library update
+- [x] Define comparative research boundaries and source standards for system design, safety, interoperability, governance, and human-centered operating patterns
+- [x] Research authoritative foundations and record reusable design principles without asserting external adoption, interoperability, certification, or provider integration
+- [x] Build a browser-local Systems Blueprint Library with direct Apex Research, Game Worlds, source, portfolio, and release-gate handoffs
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the blueprint-library update
 
 ## Phase 773 — External Action Governance Study
 - [ ] Define evidence-led authority, source, privacy, accountability, and release-control boundaries for browser-local governance study records
