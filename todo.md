@@ -5476,28 +5476,28 @@
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 741 — Omniland Consoleless Delivery and Master Registry
-- [ ] Classify the three supplied OMNI convergence and Omniland protected references, including their manifest, registry, and generated-code claims, without executing embedded code or configurations
-- [ ] Build browser-local Omniland Consoleless Delivery and OMNI Master Registry records that distinguish verified portal evidence from designed architecture, historical source language, and owner-release gates
-- [ ] Add an Episode 55 source-attachment gate without publishing or expanding the supplied narrative as a media release
-- [ ] Link the new records to Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, ScrollVerse Story Worlds, and the Empire Power Index
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Classify the three supplied OMNI convergence and Omniland protected references, including their manifest, registry, and generated-code claims, without executing embedded code or configurations
+- [x] Build browser-local Omniland Consoleless Delivery and OMNI Master Registry records that distinguish verified portal evidence from designed architecture, historical source language, and owner-release gates
+- [x] Add an Episode 55 source-attachment gate without publishing or expanding the supplied narrative as a media release
+- [x] Link the new records to Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, ScrollVerse Story Worlds, and the Empire Power Index
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 742 — Omniland Embodied Play & Accessibility Blueprint
 - [x] Research documented motion capture, hands-first interaction, XR accessibility, and controller-adaptive foundations without claiming platform certification or current partner support
 - [x] Build a browser-local input-agnostic embodied-play blueprint covering motion capture, optional wearable research, controllerless paths, keyboard/mouse/touch/game-controller paths, adaptive participation, privacy, comfort, safety, and cross-device constraints
-- [ ] Link the blueprint to Omniland Consoleless Delivery, Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, and the Empire Power Index
+- [x] Link the blueprint to Omniland Consoleless Delivery, Game Systems & Research Blueprint, Game Worlds Studio, Special Repository, and the Empire Power Index
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 743 — Omniland Game Systems Contribution Blueprint
-- [ ] Define a browser-local non-exclusive contribution model for creator tools, accessible input research, delivery research, learning systems, and source-led game design records
-- [ ] Build a research blueprint that treats platform integrations, partner relationships, licensing, standards, commercial use, brand relationships, subsidiary arrangements, and operational adoption as voluntary owner-controlled release gates
-- [ ] Link the contribution blueprint to Omniland Consoleless Delivery, Embodied Play, Game Systems & Research Blueprint, Game Worlds Studio, and Special Repository
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Define a browser-local non-exclusive contribution model for creator tools, accessible input research, delivery research, learning systems, and source-led game design records
+- [x] Build a research blueprint that treats platform integrations, partner relationships, licensing, standards, commercial use, brand relationships, subsidiary arrangements, and operational adoption as voluntary owner-controlled release gates
+- [x] Link the contribution blueprint to Omniland Consoleless Delivery, Embodied Play, Game Systems & Research Blueprint, Game Worlds Studio, and Special Repository
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 744 — YouTube Current-Feed Top 3 Refresh
 - [x] Review the current public feed for UCYfdidRxbB8Qhf0Nx7ioOYw using direct public metadata only
-- [ ] Refresh the browser-local Top 3 selection with direct watch links, selection rationale, retrieval date, and current-feed limitations; current unauthenticated retrieval rendered a generic News surface rather than channel-specific uploads
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Refresh the browser-local Top 3 selection with direct watch links, selection rationale, retrieval date, and current-feed limitations; current unauthenticated retrieval rendered a generic News surface rather than channel-specific uploads
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 745 — ScrollVerse Media and Release Concept Board
 - [x] Map existing creator, campaign, catalog, YouTube, fashion, commerce, and release-readiness records into source-labeled concept lanes
@@ -5513,9 +5513,9 @@
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 747 — Conversation-Backed Readiness Audit
-- [ ] Reconcile completed portal, archive, game systems, media, campaign, commerce, and protected-source records against the current browser-local routes
-- [ ] Build an audit-ready active-pathways and owner-release-gates record that links all owner-independent preparation systems and keeps external actions exact
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Reconcile completed portal, archive, game systems, media, campaign, commerce, and protected-source records against the current browser-local routes
+- [x] Build an audit-ready active-pathways and owner-release-gates record that links all owner-independent preparation systems and keeps external actions exact
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 751 — Active Pathways and Release-Gates Audit
 - [x] Reconcile active browser-local portal, game, media, fashion, campaign, catalog, commerce, and protected-source pathways into one source-labeled audit record
