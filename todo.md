@@ -5325,3 +5325,8 @@
 - [x] Classify the owner-supplied `F5NeawJd7mXW9Eegw85kLk` public replay by directly visible scope without authenticating, rerunning, or performing external actions
 - [x] Add the verified public-replay finding to the browser-local supplied-reference record with an evidence boundary and active-project handoff
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 708 — Archive Index Synchronization
+- [x] Add the new protected visual, supplied public-reference, Episode 52 recovery-gate, and Empire Power Index records to the Route Integrity Index with direct operating-state labels
+- [x] Extend the Empire Power Index with the new evidence and recovery routes, preserving designed/research and source-absence states
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

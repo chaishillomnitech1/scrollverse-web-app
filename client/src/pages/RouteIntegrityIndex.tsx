@@ -27,6 +27,10 @@ const ROUTES: RouteRecord[] = [
   { path: "/special-repository", title: "Special Repository", purpose: "Artifact evidence, accession, and non-deployable metadata.", state: "available now", group: "Evidence" },
   { path: "/app-icon-candidate", title: "App Icon Candidate", purpose: "Manifest-ready icon candidates awaiting authenticated selection.", state: "requires owner release", group: "Release" },
   { path: "/episodic-operations-archive", title: "Episodic Operations Archive", purpose: "Protected episodic source records and local review controls.", state: "available now", group: "Evidence" },
+  { path: "/empire-power-index", title: "Empire Power Index", purpose: "Searchable map of maintained ScrollVerse archive, evidence, creator, Game Worlds, continuity, and campaign routes.", state: "available now", group: "Discover" },
+  { path: "/protected-visual-intake", title: "Protected Visual Intake", purpose: "Ten directly observed protected visual source records with stable fingerprints and no screenshot republication.", state: "research", group: "Evidence" },
+  { path: "/supplied-public-references", title: "Supplied Public References", purpose: "Five visible-scope public replay and prior-portal records with source and credential boundaries.", state: "research", group: "Evidence" },
+  { path: "/episode-52-final-structural-expansion", title: "Episode 52 Recovery Gate", purpose: "Browser-local source-absence record for Final Structural Expansion, with direct reattachment and archive handoffs.", state: "research", group: "Evidence" },
 ];
 
 const STATE_COLORS: Record<RouteRecord["state"], string> = {
