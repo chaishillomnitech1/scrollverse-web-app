@@ -5423,3 +5423,7 @@
 - [x] Classify `082AD519-EB49-4C59-9277-44A5CB297EAE.JPEG`, `082AD519-EB49-4C59-9277-44A5CB297EAE_01.JPEG`, `0a33ffe9aa3bf28666ba7989631fbd9d.JPEG`, `1527a8fb5f8055bd4408f44bed6225d8.JPEG`, and `17F2D8E0-C117-4F34-8267-FD513FF064DA.JPEG` by direct observation, stable metadata, and duplicate relationship without inferring identity, ownership, or release state
 - [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 730 — Generic Retained-Image Discovery Synchronization
+- [x] Add the Generic Retained Image Intake to the Empire Power Index and Route Integrity Index with its direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
