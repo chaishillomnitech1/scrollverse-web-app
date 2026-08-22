@@ -5498,3 +5498,21 @@
 - [x] Review the current public feed for UCYfdidRxbB8Qhf0Nx7ioOYw using direct public metadata only
 - [ ] Refresh the browser-local Top 3 selection with direct watch links, selection rationale, retrieval date, and current-feed limitations; current unauthenticated retrieval rendered a generic News surface rather than channel-specific uploads
 - [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 745 — ScrollVerse Media and Release Concept Board
+- [x] Map existing creator, campaign, catalog, YouTube, fashion, commerce, and release-readiness records into source-labeled concept lanes
+- [x] Build a browser-local Media and Release Concept Board for video, social, coming-soon, catalog, campaign, and commerce-preparation concepts
+- [x] Preserve posting, account, advertising, listing, exchange, purchase, checkout, payout, and sale actions as owner-controlled release gates
+- [x] Link the board to Campaign Activation Center, YouTube Release Desk, Film & Animation Studio, Lookbook, catalog, and commerce-readiness routes
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 746 — Commerce and Financial Highways Readiness Board
+- [x] Map current Stripe test-mode, Shopify fork requirement, campaign, catalog, and financial research constraints into direct operating-state lanes
+- [x] Build a browser-local commerce and financial highways readiness board with Shopify-copy guidance, catalog and campaign handoffs, and non-transactional planning controls
+- [x] Preserve purchases, checkout, payouts, exchange actions, wallet connections, transfers, and live financial activity as exact owner-controlled release gates
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 747 — Conversation-Backed Readiness Audit
+- [ ] Reconcile completed portal, archive, game systems, media, campaign, commerce, and protected-source records against the current browser-local routes
+- [ ] Build an audit-ready active-pathways and owner-release-gates record that links all owner-independent preparation systems and keeps external actions exact
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing

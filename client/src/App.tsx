@@ -6,6 +6,8 @@ import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery";
 import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord";
 import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay";
 import OmnilandGameSystemsContribution from "@/pages/OmnilandGameSystemsContribution";
+import MediaReleaseConceptBoard from "@/pages/MediaReleaseConceptBoard";
+import CommerceFinancialReadinessBoard from "@/pages/CommerceFinancialReadinessBoard";
 import { lazy, Suspense } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
@@ -1093,6 +1095,8 @@ function Router() {
         <Route path="/omni-master-registry" component={OmniMasterRegistryRecord} />
         <Route path="/omniland-embodied-play" component={OmnilandEmbodiedPlay} />
         <Route path="/omniland-game-systems-contribution" component={OmnilandGameSystemsContribution} />
+        <Route path="/media-release-concept-board" component={MediaReleaseConceptBoard} />
+        <Route path="/commerce-financial-readiness-board" component={CommerceFinancialReadinessBoard} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
