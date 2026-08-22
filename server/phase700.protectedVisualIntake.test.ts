@@ -32,6 +32,9 @@ describe("Phase 700 / 704 — Protected Visual Accession", () => {
     expect(page).toContain("payment connection");
     expect(page).toContain("no printed fraction");
     expect(page).toContain("unverified source language");
+    expect(page).toContain("Opening-slide recovery gate");
+    expect(page).toContain("filename-only result is not proof");
+    expect(page).toContain("No missing source content has been recreated or inferred");
     expect(page).toContain("externalAction: \"none\"");
   });
 

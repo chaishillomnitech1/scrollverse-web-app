@@ -5340,3 +5340,8 @@
 - [x] Classify `IMG_1516.png` through `IMG_1519.png` by direct observation, metadata, sequence relationship, and source boundary only
 - [x] Extend the protected visual accession with the verified preceding records without republishing source screenshots
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 711 — Opening-Slide Recovery Gate
+- [x] Document the absence of a directly located visible `1/16` opening slide from the reviewed protected intake batch without treating a filename gap as proof of nonexistence
+- [x] Add a browser-local source-reattachment path to the protected visual accession without inventing or recreating missing source content
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
