@@ -5581,3 +5581,8 @@
 - [x] Define the browser-local evidence, proposal, governance, use-of-funds, and white-label readiness inputs without representing a loan, lender, partnership agreement, funding, security interest, contract, or market action as completed
 - [x] Build a polished partnership-readiness route that connects ScrollVerse, XLVIIIblocks, capital readiness, Sovereign Bank, revenue readiness, commerce readiness, and release-gate records
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the readiness update
+
+## Phase 763 — ScrollVerse × XLVIIIblocks Local Proposal Canvas
+- [x] Define browser-local proposal fields for counterparty, scope, amount, use of funds, terms, governance, white-label responsibilities, and destination without collecting credentials or transmitting data
+- [x] Build a local-only proposal canvas with copy/export preparation affordances and an explicit non-submission boundary
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the proposal-canvas update
