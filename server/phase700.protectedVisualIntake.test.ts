@@ -12,10 +12,12 @@ describe("Phase 700 / 704 — Protected Visual Accession", () => {
     expect(page).toContain("IMG_1524.png");
     expect(page).toContain("IMG_1525.png");
     expect(page).toContain("IMG_1529.png");
+    expect(page).toContain("IMG_1530.png");
     expect(page).toContain("31125cc80a16346b");
     expect(page).toContain("43ae8560d4d6ccb2");
     expect(page).toContain("5345d25a02aa1a31");
     expect(page).toContain("3f10b62877fcac99");
+    expect(page).toContain("c060bc4de759bbfe");
   });
 
   it("keeps protected screenshots unrepublished and source claims bounded", () => {
@@ -24,6 +26,7 @@ describe("Phase 700 / 704 — Protected Visual Accession", () => {
     expect(page).toContain("not therapeutic instruction");
     expect(page).toContain("unverified here");
     expect(page).toContain("payment connection");
+    expect(page).toContain("no printed fraction");
     expect(page).toContain("externalAction: \"none\"");
   });
 

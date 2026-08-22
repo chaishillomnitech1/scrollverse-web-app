@@ -5330,3 +5330,8 @@
 - [x] Add the new protected visual, supplied public-reference, Episode 52 recovery-gate, and Empire Power Index records to the Route Integrity Index with direct operating-state labels
 - [x] Extend the Empire Power Index with the new evidence and recovery routes, preserving designed/research and source-absence states
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 709 — Final Visible-Slide Accession
+- [x] Classify `IMG_1530.png` as the adjacent final visible slide only if its direct source labeling supports that relationship
+- [x] Extend the protected visual accession and its focused regression coverage with any verified final-sequence context without republishing the screenshot
+- [x] Validate TypeScript plus the full suite before publishing
