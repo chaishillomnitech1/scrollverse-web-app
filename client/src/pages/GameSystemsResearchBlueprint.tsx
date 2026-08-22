@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { BookOpen, Gamepad2, Library, Orbit, Sparkles } from "lucide-react";
+import { BookOpen, Gamepad2, Library, Orbit, Sparkles, type LucideIcon } from "lucide-react";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
@@ -11,7 +11,52 @@ const lanes = [
   ["Sound + frequency research", "Historical Guido d’Arezzo solmization is separate from modern fixed-Hertz Solfeggio claim sets.", "Sound sandbox for rhythm, pitch, spectrum, and self-authored mood notes—without therapeutic promises."],
 ] as const;
 
+const laneIcons: LucideIcon[] = [Orbit, Sparkles, BookOpen, Library, Gamepad2];
+
 export default function GameSystemsResearchBlueprint() {
   useSovereignHeartbeat({ page: "game-systems-research-blueprint" });
-  return <main className="min-h-screen bg-[#050B1A] pb-24 text-white"><section className="border-b border-cyan-400/20 bg-[radial-gradient(circle_at_10%_0%,rgba(0,212,255,.16),transparent_32%),radial-gradient(circle_at_86%_12%,rgba(185,140,255,.15),transparent_28%),#050B1A]"><div className="container py-16"><Link href="/game-worlds-studio" className="text-xs font-mono tracking-wider text-cyan-300">← GAME WORLDS STUDIO</Link><p className="mt-10 font-mono text-xs tracking-[.22em] text-cyan-300">SCROLLVERSE · GAME SYSTEMS + RESEARCH BLUEPRINT</p><h1 className="mt-4 max-w-5xl text-5xl font-black leading-[.9] md:text-7xl">A game universe that <span className="text-cyan-300">studies itself.</span></h1><p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">A browser-local blueprint for living game systems: learn, test, compare, create, revise, and build original worlds without confusing research pathways with settled fact or external activation.</p></div></section><section className="container py-8"><PortalTrustLens lane="Game Systems + Research Blueprint" source="Source-labeled historical and educational study pathways, plus original ScrollVerse game design." readiness="Available now as a browser-local research and design record." boundary="No game repository is created externally, no historical interpretation is presented as final authority, and no sound frequency claim is presented as medical or therapeutic fact."/></section><section className="container grid gap-4 py-5 md:grid-cols-2 xl:grid-cols-3">{lanes.map(([title,study,game],i)=><article key={title} className="rounded-3xl border border-white/10 bg-white/[.03] p-7"><div className="flex items-center gap-3 text-cyan-300">{[Orbit, Sparkles, BookOpen, Library, Gamepad2][i]({ className:"h-6 w-6" })}<span className="font-mono text-xs">LANE 0{i+1}</span></div><h2 className="mt-5 text-2xl font-black">{title}</h2><p className="mt-4 text-sm leading-7 text-slate-300">{study}</p><p className="mt-4 border-t border-white/10 pt-4 text-sm leading-7 text-amber-200">Game application: {game}</p></article>)}</section><section className="container py-8"><div className="rounded-3xl border border-emerald-400/30 bg-emerald-400/[.05] p-7"><p className="font-mono text-xs tracking-wider text-emerald-300">SPECIAL REPOSITORY CONTINUITY</p><h2 className="mt-3 text-3xl font-black">Blueprint before repository.</h2><p className="mt-4 max-w-3xl text-slate-300">The active project can hold source-labeled blueprint records now. An external dedicated repository remains an owner-controlled next step, created only with the selected destination and repository name; this page does not claim that one exists.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/special-repository" className="rounded-xl border border-emerald-300/40 px-4 py-3 font-bold text-emerald-200">Open Special Repository Record</Link><Link href="/scrollverse-story-worlds" className="rounded-xl border border-cyan-300/40 px-4 py-3 font-bold text-cyan-200">Open Story Worlds</Link></div></div></section></main>;
+
+  return (
+    <main className="min-h-screen bg-[#050B1A] pb-24 text-white">
+      <section className="border-b border-cyan-400/20 bg-[radial-gradient(circle_at_10%_0%,rgba(0,212,255,.16),transparent_32%),radial-gradient(circle_at_86%_12%,rgba(185,140,255,.15),transparent_28%),#050B1A)]">
+        <div className="container py-16">
+          <Link href="/game-worlds-studio" className="text-xs font-mono tracking-wider text-cyan-300">← GAME WORLDS STUDIO</Link>
+          <p className="mt-10 font-mono text-xs tracking-[.22em] text-cyan-300">SCROLLVERSE · GAME SYSTEMS + RESEARCH BLUEPRINT</p>
+          <h1 className="mt-4 max-w-5xl text-5xl font-black leading-[.9] md:text-7xl">A game universe that <span className="text-cyan-300">studies itself.</span></h1>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">A browser-local blueprint for living game systems: learn, test, compare, create, revise, and build original worlds without confusing research pathways with settled fact or external activation.</p>
+        </div>
+      </section>
+
+      <section className="container py-8">
+        <PortalTrustLens lane="Game Systems + Research Blueprint" source="Source-labeled historical and educational study pathways, plus original ScrollVerse game design." readiness="Available now as a browser-local research and design record." boundary="No game repository is created externally, no historical interpretation is presented as final authority, and no sound frequency claim is presented as medical or therapeutic fact." />
+      </section>
+
+      <section className="container grid gap-4 py-5 md:grid-cols-2 xl:grid-cols-3">
+        {lanes.map(([title, study, game], index) => {
+          const Icon = laneIcons[index];
+          return (
+            <article key={title} className="rounded-3xl border border-white/10 bg-white/[.03] p-7">
+              <div className="flex items-center gap-3 text-cyan-300"><Icon className="h-6 w-6" /><span className="font-mono text-xs">LANE 0{index + 1}</span></div>
+              <h2 className="mt-5 text-2xl font-black">{title}</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{study}</p>
+              <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-7 text-amber-200">Game application: {game}</p>
+            </article>
+          );
+        })}
+      </section>
+
+      <section className="container py-8">
+        <div className="rounded-3xl border border-emerald-400/30 bg-emerald-400/[.05] p-7">
+          <p className="font-mono text-xs tracking-wider text-emerald-300">SPECIAL REPOSITORY CONTINUITY</p>
+          <h2 className="mt-3 text-3xl font-black">Blueprint before repository.</h2>
+          <p className="mt-4 max-w-3xl text-slate-300">The active project can hold source-labeled blueprint records now. An external dedicated repository remains an owner-controlled next step, created only with the selected destination and repository name; this page does not claim that one exists.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/special-repository" className="rounded-xl border border-emerald-300/40 px-4 py-3 font-bold text-emerald-200">Open Special Repository Record</Link>
+            <Link href="/scrollverse-story-worlds" className="rounded-xl border border-cyan-300/40 px-4 py-3 font-bold text-cyan-200">Open Story Worlds</Link>
+            <Link href="/apex-digital-intelligence-research" className="rounded-xl border border-purple-300/40 px-4 py-3 font-bold text-purple-200">Open Apex Research</Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

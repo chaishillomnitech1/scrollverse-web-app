@@ -5612,8 +5612,8 @@
 ## Phase 768 — Apex Digital Intelligence Research and Discovery
 - [x] Define source standards, research tracks, applied-design boundaries, and protected discovery handling for the Apex Digital Intelligence framework
 - [x] Research authoritative foundations for digital intelligence, agent systems, system safety, evaluation, and applied-design methods
-- [ ] Build a browser-local research and discovery route with direct Game Worlds, source registry, Digital Mirror Twin, portfolio, and ecosystem handoffs
-- [ ] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the research-framework update
+- [x] Build a browser-local research and discovery route with direct Game Worlds, source registry, Digital Mirror Twin, portfolio, and ecosystem handoffs
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the research-framework update
 
 ## Phase 769 — Workspace Reconciliation and Verified Milestone Recovery
 - [x] Preserve the current uncommitted source tree and record the detected workspace reversion without deleting, resetting, or overwriting active work
