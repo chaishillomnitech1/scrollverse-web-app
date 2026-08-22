@@ -446,6 +446,7 @@ import Episode39ExchangePerimeter from "./pages/Episode39ExchangePerimeter";
 import Episode40InfrastructureScaling from "./pages/Episode40InfrastructureScaling";
 import { Episode41Reference, Episode42Reference, Episode43Reference } from "./pages/Episode4143References";
 import Episode45ProtectedReference from "./pages/Episode45ProtectedReference";
+import Episode50ProtectedReference from "./pages/Episode50ProtectedReference";
 import YouTubeEpisodeReleaseDesk from "./pages/YouTubeEpisodeReleaseDesk";
 import FilmAnimationStudio from "./pages/FilmAnimationStudio";
 import ShowTheWorkKnowledgeBase from "./pages/ShowTheWorkKnowledgeBase";
@@ -469,6 +470,8 @@ import ProtectedAttachmentAccession from "./pages/ProtectedAttachmentAccession";
 import OmniverseManifestoChronology from "./pages/OmniverseManifestoChronology";
 import OmniverseManifestoNodes, { OmniverseManifestoNode } from "./pages/OmniverseManifestoNodes";
 import ConnectedSourceRegistry from "./pages/ConnectedSourceRegistry";
+import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
+import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1045,6 +1048,9 @@ function Router() {
         <Route path="/omniverse-manifesto-nodes" component={OmniverseManifestoNodes} />
         <Route path="/omniverse-node/:id" component={OmniverseManifestoNode} />
         <Route path="/connected-source-registry" component={ConnectedSourceRegistry} />
+        <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
+        <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
+        <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
     </Suspense>

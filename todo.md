@@ -5257,3 +5257,22 @@
 - [x] Inspect the owner-identified older Manus shared file da851283-c28e-49fe-9128-b34d67e2f272 and preserve only its directly visible scope
 - [x] Record its historical timing as owner-provided context, without inferring an exact date, current system state, or external operating result
 - [ ] Add a source-labeled chronology handoff with regression coverage and browser verification
+
+## Phase 691 — Reusable YouTube Current-Feed Review Skill
+- [x] Define the reusable direct-lookup, attribution-check, selection-criteria, and current-feed limitation workflow
+- [x] Package the workflow as a validated reusable skill with non-posting and no-account-action boundaries
+- [ ] Add a browser-local source-labeled research record for the current selection and validate its archive handoffs
+
+## Phase 692 — Protected Visual Batch Intake
+- [ ] Inventory all supplied images with filename, type, dimensions, size, stable hash, and duplicate relationship
+- [ ] Classify directly visible visual subject matter and candidate archive/lookbook relevance without inferring ownership, rights, identity, or publication state
+- [ ] Add source-labeled visual accession and lookbook handoffs only after direct evidence and boundaries are documented
+
+## Phase 752 — Evidence-Backed Execution Audit
+- [ ] Reconcile the current belief, intent, and execution pathways into a browser-local audit record with verified states and owner-controlled external gates
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 751 — Active Pathways and Release-Gates Audit
+- [ ] Reconcile active browser-local portal, game, media, fashion, campaign, catalog, commerce, and protected-source pathways into one source-labeled audit record
+- [ ] List exact owner-controlled external release gates for social posting, account actions, Shopify fork connection, production/vendor activation, listings, checkout, payouts, exchanges, transfers, and separate repository creation
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
