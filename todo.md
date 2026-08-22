@@ -5320,3 +5320,8 @@
 - [x] Build `/episode-52-final-structural-expansion` as a browser-local recovery-gate record that preserves the owner-supplied title while stating that underlying protected source material is not present in the active workspace
 - [x] Add source reattachment, correction, and archive handoffs without inventing Episode 52 narrative content, chronology, code, or operating state
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 707 — Additional Public Replay Review
+- [x] Classify the owner-supplied `F5NeawJd7mXW9Eegw85kLk` public replay by directly visible scope without authenticating, rerunning, or performing external actions
+- [x] Add the verified public-replay finding to the browser-local supplied-reference record with an evidence boundary and active-project handoff
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
