@@ -5493,3 +5493,8 @@
 - [ ] Build a research blueprint that treats platform integrations, partner relationships, licensing, standards, commercial use, brand relationships, subsidiary arrangements, and operational adoption as voluntary owner-controlled release gates
 - [ ] Link the contribution blueprint to Omniland Consoleless Delivery, Embodied Play, Game Systems & Research Blueprint, Game Worlds Studio, and Special Repository
 - [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 744 — YouTube Current-Feed Top 3 Refresh
+- [x] Review the current public feed for UCYfdidRxbB8Qhf0Nx7ioOYw using direct public metadata only
+- [ ] Refresh the browser-local Top 3 selection with direct watch links, selection rationale, retrieval date, and current-feed limitations; current unauthenticated retrieval rendered a generic News surface rather than channel-specific uploads
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
