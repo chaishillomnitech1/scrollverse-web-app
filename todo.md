@@ -5361,3 +5361,7 @@
 ## Phase 714 — Central Source Registry Synchronization
 - [x] Add the Manus-origin and Ω.267 recovery gates to the Connected Source Registry with direct source-absence states and route handoffs
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 715 — Recovery-Gate Route Integrity Synchronization
+- [x] Add the Manus-origin and Ω.267 recovery gates to the Route Integrity Index with direct research and source-absence labels
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

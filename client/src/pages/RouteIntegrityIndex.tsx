@@ -31,6 +31,8 @@ const ROUTES: RouteRecord[] = [
   { path: "/protected-visual-intake", title: "Protected Visual Intake", purpose: "Ten directly observed protected visual source records with stable fingerprints and no screenshot republication.", state: "research", group: "Evidence" },
   { path: "/supplied-public-references", title: "Supplied Public References", purpose: "Five visible-scope public replay and prior-portal records with source and credential boundaries.", state: "research", group: "Evidence" },
   { path: "/episode-52-final-structural-expansion", title: "Episode 52 Recovery Gate", purpose: "Browser-local source-absence record for Final Structural Expansion, with direct reattachment and archive handoffs.", state: "research", group: "Evidence" },
+  { path: "/manus-origin-historical-recovery", title: "Manus-Origin Historical Recovery", purpose: "Browser-local source-absence gate for an owner-identified historical shared-source pointer.", state: "research", group: "Evidence" },
+  { path: "/omega-267-prior-hub-recovery", title: "Ω.267 Prior-Hub Recovery", purpose: "Browser-local source-absence gate for the Master Shoppable Meta Hub checkpoint reference.", state: "research", group: "Evidence" },
 ];
 
 const STATE_COLORS: Record<RouteRecord["state"], string> = {
