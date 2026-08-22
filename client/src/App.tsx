@@ -474,6 +474,7 @@ import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
 import SovereigntyInfrastructureRecord from "./pages/SovereigntyInfrastructureRecord";
+import EmpirePowerIndex from "./pages/EmpirePowerIndex";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1054,6 +1055,7 @@ function Router() {
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />
         <Route path="/sovereignty-infrastructure-record" component={SovereigntyInfrastructureRecord} />
+        <Route path="/empire-power-index" component={EmpirePowerIndex} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>

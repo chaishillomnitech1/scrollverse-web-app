@@ -5282,3 +5282,8 @@
 - [x] Build a browser-local permanence record for repository export, owner-controlled domain routing, portable-hosting research, and a future static/public archive handoff
 - [x] Extend Game Worlds Studio with the owner-supplied consoleless Omniland direction as a browser-local device-path and creative-world roadmap
 - [x] Add source-led routes, official deployment references, regression coverage, TypeScript validation, and full-suite verification without deploying to a third-party provider or changing DNS
+
+## Phase 699 — ScrollVerse Empire Power Index
+- [x] Build a browser-local index connecting the published archive, creator, game-world, media, evidence, campaign, and continuity routes into one searchable map
+- [x] Add direct operating-state labels, copy/export controls, and source-led handoffs to Route Integrity, Connected Sources, Sovereignty Infrastructure, and the Omniverse archive
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
