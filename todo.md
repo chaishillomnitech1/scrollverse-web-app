@@ -5445,3 +5445,7 @@
 - [x] Classify `213C0867-6158-40B6-817B-42022E4F7A01.JPEG`, `526A115A-A193-40FD-86D4-6C4039FDE654.JPG`, `537e040995459d6aaa78426d04d1a3c5.JPEG`, `605b48a13d2552c4a7c79d87d0a32816.JPEG`, and `68B08323-83CC-4F5D-B3C2-1261491780FF.JPG` by direct observation, stable metadata, and source relationship without inferring identity, ownership, or release state
 - [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 735 — Retained Photo Intake Discovery Synchronization
+- [x] Add the Retained Photo Intake to the Protected Visual Evidence Hub, Empire Power Index, Route Integrity Index, and homepage archive-discovery rail with a direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

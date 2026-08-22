@@ -11,7 +11,7 @@ describe("Phase 730 — Generic Retained-Image Discovery Synchronization", () =>
     expect(index).toContain("POWER-27");
     expect(index).toContain("Generic Retained Image Intake");
     expect(index).toContain("/generic-retained-image-intake");
-    expect(index).toContain("28 CONNECTED POWER ROUTES");
+    expect(index).toContain("29 CONNECTED POWER ROUTES");
   });
 
   it("adds direct path recovery through the Route Integrity Index", () => {

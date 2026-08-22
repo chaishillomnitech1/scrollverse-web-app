@@ -11,7 +11,7 @@ describe("Phase 727 — Retained Image Intake Discovery Synchronization", () => 
     expect(index).toContain("POWER-26");
     expect(index).toContain("Retained Image Intake");
     expect(index).toContain("/retained-image-intake");
-    expect(index).toContain("28 CONNECTED POWER ROUTES");
+    expect(index).toContain("29 CONNECTED POWER ROUTES");
   });
 
   it("adds the route to the Route Integrity Index and aligns visible creator-visual metadata count", () => {

@@ -13,6 +13,6 @@ describe("Phase 721 — Homepage Creator-Visual Atlas Discovery", () => {
   });
 
   it("keeps the homepage Power Index discovery count aligned with the current map", () => {
-    expect(home).toContain("28 connected project routes");
+    expect(home).toContain("29 connected project routes");
   });
 });

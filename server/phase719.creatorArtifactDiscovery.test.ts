@@ -11,7 +11,7 @@ describe("Phase 719 — Creator-Artifact Discovery Synchronization", () => {
     expect(index).toContain("POWER-24");
     expect(index).toContain("Creator-Artifact Intake");
     expect(index).toContain("/creator-artifact-intake");
-    expect(index).toContain("28 CONNECTED POWER ROUTES");
+    expect(index).toContain("29 CONNECTED POWER ROUTES");
   });
 
   it("adds the artifact intake to the Route Integrity Index as a research evidence route", () => {

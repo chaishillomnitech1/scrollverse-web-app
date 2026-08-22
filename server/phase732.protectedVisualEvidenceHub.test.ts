@@ -15,7 +15,7 @@ describe("Phase 732 — Protected Visual Evidence Hub", () => {
   it("unifies the three visual evidence lanes without republishing protected images", () => {
     const page = read("client/src/pages/ProtectedVisualEvidenceHub.tsx");
     for (const route of ["/protected-visual-intake", "/retained-image-intake", "/generic-retained-image-intake"]) expect(page).toContain(route);
-    expect(page).toContain("3 EVIDENCE LANES");
+    expect(page).toContain("4 EVIDENCE LANES");
     expect(page).toContain("No protected image bytes are republished");
     expect(page).toContain("5 source files · 4 unique visuals");
   });

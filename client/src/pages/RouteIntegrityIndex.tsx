@@ -39,6 +39,7 @@ const ROUTES: RouteRecord[] = [
   { path: "/retained-image-intake", title: "Retained Image Intake", purpose: "Five protected screenshot source records with direct visual scope, stable fingerprints, and strict financial and external-claim boundaries.", state: "research", group: "Evidence" },
   { path: "/generic-retained-image-intake", title: "Generic Retained Image Intake", purpose: "Five protected photo and apparel source files with direct visual scope, stable fingerprints, and a confirmed byte-identical pair.", state: "research", group: "Evidence" },
   { path: "/protected-visual-evidence-hub", title: "Protected Visual Evidence Hub", purpose: "Three browser-local protected visual evidence lanes with source-specific boundaries, local correction controls, and no image republication.", state: "research", group: "Evidence" },
+  { path: "/retained-photo-intake", title: "Retained Photo Intake", purpose: "Five protected photo and apparel-reference records with direct visual scope, apparent garment-view context, and strict identity, brand, and release boundaries.", state: "research", group: "Evidence" },
 ];
 
 const STATE_COLORS: Record<RouteRecord["state"], string> = {
