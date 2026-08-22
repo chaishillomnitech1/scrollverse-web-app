@@ -16,6 +16,8 @@ describe("Phase 760 — Digital Mirror Twin", () => {
     for (const label of ["Source trail", "Image and style", "Story and sound", "Fashion and identity", "Game-world extension"]) expect(page).toContain(label);
     for (const route of ["/connected-source-registry", "/protected-visual-evidence-hub", "/media-release-concept-board", "/fashion-empire", "/game-worlds-studio"]) expect(page).toContain(route);
     expect(page).toContain("SIGNATURE SYSTEM");
+    expect(page).toContain("SIGNATURE SYSTEM · VISUAL REFERENCE");
+    expect(page).toContain("It is not a scannable code, destination, authentication factor, identity proof, cryptographic signature, wallet reference, or verification method.");
     expect(page).toContain("COLLECTIBLE READINESS");
   });
 

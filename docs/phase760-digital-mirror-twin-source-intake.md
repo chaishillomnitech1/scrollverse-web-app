@@ -15,6 +15,19 @@ This record preserves the owner-supplied `Pasted_content_100.txt` transmission t
 | Nginx and ingress block | Proxy, WebSocket, buffering, and endpoint configuration proposal | Non-executable configuration concept. | No server, Nginx, socket, host, port, firewall, telemetry, or infrastructure change. |
 | Self-healing and security claims | Runtime, cryptographic-boundary, permanence, and dependency statements | Source assertions only; not verified portal capabilities. | No daemon, security service, private host, cryptographic control, or autonomous process. |
 
+## Later transmission additions
+
+Two later owner-supplied transmissions extend this protected source context with Episode 69 and Episode 70 narratives, an inline QR-style signature graphic, a named developer-anchor profile, a protected replay reference, repeated benchmark language, and repeated Nginx configuration proposals.
+
+| Added source family | Intake treatment | Boundary retained |
+|---|---|---|
+| Episode 69 and Episode 70 narratives | Protected story context for Digital Mirror Twin and OMNITECH convergence ideas. | No episode production, music synchronization, media generation, upload, or publication. |
+| QR-style signature SVG | Visual-design reference for a future browser-local signature card. | Not an authentication factor, QR destination, identity proof, cryptographic signature, wallet reference, or verification method. |
+| Developer-anchor and replay reference | Protected source pointer and continuity context. | No repository, account, developer profile, replay state, credential, or external relationship is asserted or accessed. |
+| Repeated benchmark and infrastructure language | Non-executable technical source material. | No script, metric, Nginx configuration, server, host, proxy, socket, telemetry endpoint, firewall, daemon, or process was created or changed. |
+
+> The later transmissions describe their own status labels and technical state. Those statements remain source language rather than independent evidence of browser, project, repository, provider, hosting, or external-system operation.
+
 ## Digital Mirror Twin relationship
 
 The source supports a browser-local concept in which each original ScrollVerse creation can be organized as a **mirror record**: its supplied or recorded origin, creative identity, visual variation, narrative relation, and future collectible-release evidence. This is an information and provenance architecture, not a digital-asset issuance mechanism.
