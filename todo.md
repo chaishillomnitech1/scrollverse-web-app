@@ -5410,3 +5410,11 @@
 - [x] Classify `IMG_1467.png`, `IMG_1468.png`, `IMG_1473.png`, `IMG_1474.png`, and `IMG_1494.jpeg` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
 - [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 727 — Retained Image Intake Discovery Synchronization
+- [x] Add the Retained Image Intake to the Empire Power Index and Route Integrity Index with its direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 728 — Homepage Retained-Image Discovery Synchronization
+- [x] Add the Retained Image Intake to the homepage archive-discovery rail and align its visible route and creator-visual metadata counts
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
