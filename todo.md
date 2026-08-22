@@ -5603,3 +5603,8 @@
 - [x] Review the connected GitHub repository, ScrollVerse source records, and public music-catalog surfaces for directly attributable notifications, statements, releases, cover-art records, and linked evidence without modifying external accounts or content
 - [x] Preserve verified findings in a source-bounded evidence record and connect only directly attributable music and portfolio handoffs
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the evidence-review update
+
+## Phase 767 — ScrollVerse Portfolio Evidence Hub
+- [x] Map automotive, music, visual, digital, business, partnership, capital, and source-record routes into an evidence-led portfolio structure without valuation, ownership, collateral, or financial-operation claims
+- [x] Build a browser-local Portfolio Evidence Hub with direct current-state handoffs to the major asset and readiness pathways
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the portfolio-hub update
