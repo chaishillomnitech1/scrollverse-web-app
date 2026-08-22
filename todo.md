@@ -5405,3 +5405,8 @@
 ## Phase 725 — Creator Visual Atlas Count Consistency
 - [x] Align all visible Creator Visual Intake Atlas record-count copy with the 11 rendered source records
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 726 — Retained Image Visual Intake Tranche
+- [x] Classify `IMG_1467.png`, `IMG_1468.png`, `IMG_1473.png`, `IMG_1474.png`, and `IMG_1494.jpeg` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
+- [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

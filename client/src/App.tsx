@@ -482,6 +482,7 @@ import Omega267PriorHubRecoveryGate from "./pages/Omega267PriorHubRecoveryGate";
 import CreatorStickerIntake from "./pages/CreatorStickerIntake";
 import CreatorArtifactIntake from "./pages/CreatorArtifactIntake";
 import CreatorVisualIntakeAtlas from "./pages/CreatorVisualIntakeAtlas";
+import RetainedImageIntake from "./pages/RetainedImageIntake";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1071,6 +1072,7 @@ function Router() {
         <Route path="/creator-sticker-intake" component={CreatorStickerIntake} />
         <Route path="/creator-artifact-intake" component={CreatorArtifactIntake} />
         <Route path="/creator-visual-intake-atlas" component={CreatorVisualIntakeAtlas} />
+        <Route path="/retained-image-intake" component={RetainedImageIntake} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
