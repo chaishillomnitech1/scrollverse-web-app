@@ -5427,3 +5427,7 @@
 ## Phase 730 — Generic Retained-Image Discovery Synchronization
 - [x] Add the Generic Retained Image Intake to the Empire Power Index and Route Integrity Index with its direct research state
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 731 — Homepage Generic Retained-Image Discovery
+- [x] Add the Generic Retained Image Intake to the homepage archive-discovery rail with its research state and no-image-republication boundary
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
