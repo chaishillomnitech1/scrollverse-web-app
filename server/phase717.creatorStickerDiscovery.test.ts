@@ -11,7 +11,7 @@ describe("Phase 717 — Creator-Sticker Discovery Synchronization", () => {
     expect(index).toContain("POWER-23");
     expect(index).toContain("Creator-Sticker Intake");
     expect(index).toContain("/creator-sticker-intake");
-    expect(index).toContain("24 CONNECTED POWER ROUTES");
+    expect(index).toContain("25 CONNECTED POWER ROUTES");
   });
 
   it("adds the intake record to the Route Integrity Index as a research evidence route", () => {

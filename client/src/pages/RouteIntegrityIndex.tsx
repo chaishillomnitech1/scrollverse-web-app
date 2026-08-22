@@ -35,6 +35,7 @@ const ROUTES: RouteRecord[] = [
   { path: "/omega-267-prior-hub-recovery", title: "Ω.267 Prior-Hub Recovery", purpose: "Browser-local source-absence gate for the Master Shoppable Meta Hub checkpoint reference.", state: "research", group: "Evidence" },
   { path: "/creator-sticker-intake", title: "Creator-Sticker Intake", purpose: "Five protected visual source records with direct visual treatment, metadata, and stable fingerprints.", state: "research", group: "Evidence" },
   { path: "/creator-artifact-intake", title: "Creator-Artifact Intake", purpose: "Five protected badge, variant-set, and sculptural-bust source records with direct visual treatment, metadata, and stable fingerprints.", state: "research", group: "Evidence" },
+  { path: "/creator-visual-intake-atlas", title: "Creator Visual Intake Atlas", purpose: "Unified browser-local map of ten protected creator-visual metadata records with family filters, local export, and stable fingerprints.", state: "research", group: "Evidence" },
 ];
 
 const STATE_COLORS: Record<RouteRecord["state"], string> = {
