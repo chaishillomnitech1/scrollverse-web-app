@@ -19,7 +19,7 @@ describe("Phase 735 — Retained Photo Intake Discovery Synchronization", () => 
     const routes = read("client/src/pages/RouteIntegrityIndex.tsx");
     const home = read("client/src/pages/Home.tsx");
     expect(index).toContain("POWER-29");
-    expect(index).toContain("30 CONNECTED POWER ROUTES");
+    expect(index).toContain("31 CONNECTED POWER ROUTES");
     expect(routes).toContain('path: "/retained-photo-intake"');
     expect(home).toContain('step: "13", title: "Retained Photo Intake"');
     expect(home).toContain("30 connected project routes");

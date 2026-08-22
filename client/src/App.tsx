@@ -2,6 +2,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NextRetainedImageIntake from "@/pages/NextRetainedImageIntake";
 import GameSystemsResearchBlueprint from "@/pages/GameSystemsResearchBlueprint";
+import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery";
+import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord";
 import { lazy, Suspense } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
@@ -1085,6 +1087,8 @@ function Router() {
         <Route path="/paired-retained-image-intake" component={PairedRetainedImageIntake} />
         <Route path="/next-retained-image-intake" component={NextRetainedImageIntake} />
         <Route path="/game-systems-research-blueprint" component={GameSystemsResearchBlueprint} />
+        <Route path="/omniland-consoleless-delivery" component={OmnilandConsolelessDelivery} />
+        <Route path="/omni-master-registry" component={OmniMasterRegistryRecord} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>

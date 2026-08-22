@@ -10,7 +10,7 @@ describe("Phase 733 — Protected Visual Evidence Hub Discovery Synchronization"
     const index = read("client/src/pages/EmpirePowerIndex.tsx");
     expect(index).toContain("POWER-28");
     expect(index).toContain("/protected-visual-evidence-hub");
-    expect(index).toContain("30 CONNECTED POWER ROUTES");
+    expect(index).toContain("31 CONNECTED POWER ROUTES");
   });
 
   it("adds the hub to the Route Integrity Index and homepage archive rail", () => {

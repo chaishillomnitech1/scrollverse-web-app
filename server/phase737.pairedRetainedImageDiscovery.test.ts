@@ -16,7 +16,7 @@ describe("Phase 737 — Paired Retained Image Discovery Synchronization", () => 
     const routes = read("client/src/pages/RouteIntegrityIndex.tsx");
     const home = read("client/src/pages/Home.tsx");
     expect(index).toContain("POWER-30");
-    expect(index).toContain("30 CONNECTED POWER ROUTES");
+    expect(index).toContain("31 CONNECTED POWER ROUTES");
     expect(routes).toContain('path: "/paired-retained-image-intake"');
     expect(home).toContain('step: "14", title: "Paired Retained Image Intake"');
     expect(home).toContain("30 connected project routes");

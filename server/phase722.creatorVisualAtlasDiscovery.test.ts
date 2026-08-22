@@ -11,7 +11,7 @@ describe("Phase 722 — Creator-Visual Atlas Index Synchronization", () => {
     expect(index).toContain("POWER-25");
     expect(index).toContain("Creator Visual Intake Atlas");
     expect(index).toContain("/creator-visual-intake-atlas");
-    expect(index).toContain("30 CONNECTED POWER ROUTES");
+    expect(index).toContain("31 CONNECTED POWER ROUTES");
   });
 
   it("adds the atlas to the Route Integrity Index as a research evidence route", () => {

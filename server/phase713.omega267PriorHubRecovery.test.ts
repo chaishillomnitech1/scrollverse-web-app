@@ -20,7 +20,7 @@ describe("Phase 713 — Ω.267 Prior-Hub Recovery", () => {
     expect(app).toContain('path="/omega-267-prior-hub-recovery"');
     expect(index).toContain("POWER-22");
     expect(index).toContain("Ω.267 Prior-Hub Recovery");
-    expect(index).toContain("30 CONNECTED POWER ROUTES");
+    expect(index).toContain("31 CONNECTED POWER ROUTES");
   });
 
   it("keeps direct handoffs to the source registry and chronology", () => {
