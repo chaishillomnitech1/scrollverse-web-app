@@ -6,13 +6,13 @@ const root = resolve(__dirname, "..");
 const read = (path: string) => readFileSync(resolve(root, path), "utf-8");
 
 describe("Phase 720 — Creator Visual Intake Atlas", () => {
-  it("unifies the two completed visual intake families into ten source records", () => {
+  it("unifies the two completed visual intake families into eleven source records", () => {
     const page = read("client/src/pages/CreatorVisualIntakeAtlas.tsx");
-    expect(page).toContain("10 SOURCE RECORDS");
+    expect(page).toContain("11 SOURCE RECORDS");
     expect(page).toContain('family: "Sticker variants"');
     expect(page).toContain('family: "Artifact variants"');
     expect(page).toContain("SV-STICKER-001");
-    expect(page).toContain("SV-ARTIFACT-005");
+    expect(page).toContain("SV-ARTIFACT-006");
   });
 
   it("provides filters, local export, source boundaries, and intake handoffs without republishing images", () => {

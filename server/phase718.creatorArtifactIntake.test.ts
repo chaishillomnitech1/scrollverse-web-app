@@ -10,9 +10,11 @@ describe("Phase 718 — Creator-Artifact Visual Intake", () => {
     const page = read("client/src/pages/CreatorArtifactIntake.tsx");
     expect(page).toContain("chais_sticker_06_badge.png");
     expect(page).toContain("chais_bust_stone_transparent.png");
+    expect(page).toContain("chais_bust_transparent.png");
     expect(page).toContain("Badge · Variant Set · Relief · Bust");
     expect(page).toContain("5f90c9265cbaf5c7bc82b134753c7e81a27787ddfed12a4a6e9c7f99d349295a");
     expect(page).toContain("8446083309fc4c2bce31b2283f1ffa32d96c018008ecbff20714d0a9c973251d");
+    expect(page).toContain("51995e9bb874c98b24b08113f10cfc3175ae1f4926d72f71f60039fdb018ce42");
   });
 
   it("keeps the artifact record browser-local and source-led without republishing images or claiming commercial state", () => {

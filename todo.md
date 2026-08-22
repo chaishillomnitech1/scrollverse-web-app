@@ -5396,3 +5396,8 @@
 ## Phase 722 — Creator-Visual Atlas Index Synchronization
 - [x] Add the Creator Visual Intake Atlas to the Empire Power Index and Route Integrity Index with a direct research state
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 724 — Final Retained Creator-Visual Source
+- [x] Classify `chais_bust_transparent.png` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
+- [x] Add the verified source record to the browser-local creator-visual archive without republishing the protected image
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
