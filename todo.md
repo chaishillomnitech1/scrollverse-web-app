@@ -5370,3 +5370,7 @@
 - [x] Classify `chais_sticker_01_realistic.png` through `chais_sticker_05_chibi.png` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
 - [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 717 — Creator-Sticker Discovery Synchronization
+- [x] Add the creator-sticker intake record to the Empire Power Index and Route Integrity Index with a direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
