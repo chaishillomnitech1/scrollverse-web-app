@@ -961,6 +961,7 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "♞", title: "ScrollVerse Chess Initiative", detail: "Play an original browser-local strategy table, follow beginner-to-advanced study paths, use local AI-practice prompts, and explore youth-supported participation guidance.", href: "/scrollverse-chess-arena", color: "#00D4FF" },
   { icon: "⌘", title: "IP and Digital Evidence", detail: "Map public code, work, mark, patent, domain, and source records with dated evidence labels, limitations, and qualified-review handoffs.", href: "/ip-digital-evidence-navigator", color: "#00D4FF" },
   { icon: "♫", title: "Music and Creator Release Readiness", detail: "Prepare original music, visuals, publishing, distribution, merchandise, direct-to-fan bundle, and collectible questions with specialist guides and evidence gates.", href: "/music-creator-release-readiness", color: "#00FF88" },
+  { icon: "◫", title: "Next Retained Image Intake", detail: "Review five protected visual source records through direct metadata and fingerprints, with research boundaries and no image republication.", href: "/next-retained-image-intake", color: "#00D4FF" },
 ] as const;
 
 const SPECIALIST_GUIDE_ROLES = [
