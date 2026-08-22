@@ -355,6 +355,7 @@ import EcosystemOutcomesScorecard from "./pages/EcosystemOutcomesScorecard";
 import ScrollVerseChessArena from "./pages/ScrollVerseChessArena";
 import DigitalHollywoodStudio from "./pages/DigitalHollywoodStudio";
 import FinancialActivationReadiness from "./pages/FinancialActivationReadiness";
+import CapitalReadinessHub from "./pages/CapitalReadinessHub";
 import FutureInfrastructureBlueprint from "./pages/FutureInfrastructureBlueprint";
 import QuantumFrequencyResearchLab from "./pages/QuantumFrequencyResearchLab";
 import AudienceValueLeverage from "./pages/AudienceValueLeverage";
@@ -1033,6 +1034,7 @@ function Router() {
         <Route path="/media-portfolio-readiness" component={MediaPortfolioReadiness} />
         <Route path="/digital-hollywood-studio" component={DigitalHollywoodStudio} />
         <Route path="/financial-activation-readiness" component={FinancialActivationReadiness} />
+        <Route path="/capital-readiness" component={CapitalReadinessHub} />
         <Route path="/future-infrastructure-blueprint" component={FutureInfrastructureBlueprint} />
         <Route path="/quantum-frequency-research-lab" component={QuantumFrequencyResearchLab} />
         <Route path="/audience-value-leverage" component={AudienceValueLeverage} />

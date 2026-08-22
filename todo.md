@@ -5465,8 +5465,8 @@
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 739 — Next Retained-Image Discovery Synchronization
-- [ ] Add the Next Retained Image Intake to the Protected Visual Evidence Hub, Empire Power Index, Route Integrity Index, and homepage archive-discovery rail with a direct research state
-- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+- [x] Add the Next Retained Image Intake to the Protected Visual Evidence Hub, Empire Power Index, Route Integrity Index, and homepage archive-discovery rail with a direct research state
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
 
 ## Phase 740 — Game Systems & Research Blueprint
 - [x] Research and source-label game-system study domains: mathematics, physics, sciences, comparative philosophy, historical texts, classical solmization, and modern Solfeggio frequency claims
@@ -5538,3 +5538,9 @@
 - [x] Establish a polished presentation system that separates creative ScrollVerse expression from matter-of-fact financial and business readiness language
 - [x] Refine priority financial readiness routes with concise investor, partner, and customer-facing narratives, transparent evidence labels, and direct next steps
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the presentation update
+
+## Phase 755 — Unified Capital and Asset Readiness Network
+- [x] Audit the Wall Street, revenue, asset, bank, payment, and market routes for unsupported active-market, revenue, or transaction language
+- [x] Build a source-led capital-readiness hub that connects business, bank, market, Wall Street, asset, and revenue preparation pathways through a common operating-state hierarchy
+- [x] Refine priority Wall Street and revenue pages into polished research and planning records without simulated performance, active brokerage, revenue, transaction, or investment claims
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the financial-readiness network
