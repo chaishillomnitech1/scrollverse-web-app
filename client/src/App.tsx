@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import NextRetainedImageIntake from "@/pages/NextRetainedImageIntake";
 import { lazy, Suspense } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
@@ -1081,6 +1082,7 @@ function Router() {
         <Route path="/protected-visual-evidence-hub" component={ProtectedVisualEvidenceHub} />
         <Route path="/retained-photo-intake" component={RetainedPhotoIntake} />
         <Route path="/paired-retained-image-intake" component={PairedRetainedImageIntake} />
+        <Route path="/next-retained-image-intake" component={NextRetainedImageIntake} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
