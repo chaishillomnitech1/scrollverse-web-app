@@ -483,6 +483,7 @@ import CreatorStickerIntake from "./pages/CreatorStickerIntake";
 import CreatorArtifactIntake from "./pages/CreatorArtifactIntake";
 import CreatorVisualIntakeAtlas from "./pages/CreatorVisualIntakeAtlas";
 import RetainedImageIntake from "./pages/RetainedImageIntake";
+import GenericRetainedImageIntake from "./pages/GenericRetainedImageIntake";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1073,6 +1074,7 @@ function Router() {
         <Route path="/creator-artifact-intake" component={CreatorArtifactIntake} />
         <Route path="/creator-visual-intake-atlas" component={CreatorVisualIntakeAtlas} />
         <Route path="/retained-image-intake" component={RetainedImageIntake} />
+        <Route path="/generic-retained-image-intake" component={GenericRetainedImageIntake} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
