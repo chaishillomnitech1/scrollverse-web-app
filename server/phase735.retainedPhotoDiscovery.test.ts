@@ -10,8 +10,8 @@ describe("Phase 735 — Retained Photo Intake Discovery Synchronization", () => 
     const hub = read("client/src/pages/ProtectedVisualEvidenceHub.tsx");
     expect(hub).toContain("PVE-04");
     expect(hub).toContain('href: "/retained-photo-intake"');
-    expect(hub).toContain("5 EVIDENCE LANES");
-    expect(hub).toContain("Five source lanes.");
+    expect(hub).toContain("7 EVIDENCE LANES");
+    expect(hub).toContain("Seven source lanes.");
   });
 
   it("adds the route across primary navigation maps with research state", () => {

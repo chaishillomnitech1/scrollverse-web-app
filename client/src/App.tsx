@@ -494,6 +494,7 @@ import CreatorVisualIntakeAtlas from "./pages/CreatorVisualIntakeAtlas";
 import RetainedImageIntake from "./pages/RetainedImageIntake";
 import GenericRetainedImageIntake from "./pages/GenericRetainedImageIntake";
 import ProtectedVisualEvidenceHub from "./pages/ProtectedVisualEvidenceHub";
+import ProtectedVisualBatchIntake from "./pages/ProtectedVisualBatchIntake";
 import RetainedPhotoIntake from "./pages/RetainedPhotoIntake";
 import PairedRetainedImageIntake from "./pages/PairedRetainedImageIntake";
 
@@ -1088,6 +1089,7 @@ function Router() {
         <Route path="/retained-image-intake" component={RetainedImageIntake} />
         <Route path="/generic-retained-image-intake" component={GenericRetainedImageIntake} />
         <Route path="/protected-visual-evidence-hub" component={ProtectedVisualEvidenceHub} />
+        <Route path="/protected-visual-batch-intake" component={ProtectedVisualBatchIntake} />
         <Route path="/retained-photo-intake" component={RetainedPhotoIntake} />
         <Route path="/paired-retained-image-intake" component={PairedRetainedImageIntake} />
         <Route path="/next-retained-image-intake" component={NextRetainedImageIntake} />

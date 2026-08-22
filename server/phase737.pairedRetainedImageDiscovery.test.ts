@@ -9,7 +9,7 @@ describe("Phase 737 — Paired Retained Image Discovery Synchronization", () => 
     const hub = read("client/src/pages/ProtectedVisualEvidenceHub.tsx");
     expect(hub).toContain("PVE-05");
     expect(hub).toContain('href: "/paired-retained-image-intake"');
-    expect(hub).toContain("5 EVIDENCE LANES");
+    expect(hub).toContain("7 EVIDENCE LANES");
   });
   it("adds the route across the primary navigation maps with a research state", () => {
     const index = read("client/src/pages/EmpirePowerIndex.tsx");

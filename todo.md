@@ -5264,9 +5264,9 @@
 - [x] Add a browser-local source-labeled research record for the current selection and validate its archive handoffs
 
 ## Phase 692 — Protected Visual Batch Intake
-- [ ] Inventory all supplied images with filename, type, dimensions, size, stable hash, and duplicate relationship
-- [ ] Classify directly visible visual subject matter and candidate archive/lookbook relevance without inferring ownership, rights, identity, or publication state
-- [ ] Add source-labeled visual accession and lookbook handoffs only after direct evidence and boundaries are documented
+- [x] Inventory all supplied images with filename, type, dimensions, size, stable hash, and duplicate relationship
+- [x] Classify directly visible visual subject matter and candidate archive/lookbook relevance without inferring ownership, rights, identity, or publication state
+- [x] Add source-labeled visual accession and lookbook handoffs only after direct evidence and boundaries are documented
 
 ## Phase 696 — Sovereign Cartoon Gallery · 8:28 Milestone
 - [x] Build the browser-local `/sovereign-cartoon-gallery` route with 14 named sovereign-art records, catalog-song pairings, expandable visual intake, and clear collection-state labels
