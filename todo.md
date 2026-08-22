@@ -5458,3 +5458,8 @@
 ## Phase 737 — Paired Retained-Image Discovery Synchronization
 - [x] Add the Paired Retained Image Intake to the Protected Visual Evidence Hub, Empire Power Index, Route Integrity Index, and homepage archive-discovery rail with a direct research state
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 738 — Next Retained Image Visual Intake Tranche
+- [ ] Classify `79a4d2305a9950877a9a15cb5e4d8579.jpeg`, `7A42C1B1-E054-4D80-A592-9CA94176ACD5.JPEG`, `910f760a1cda11990ce2bd9d0b5f4632.JPEG`, `92b0833ca35d4c6de1b89b845cc9f782.JPEG`, and `9F9EBBA9-FCE1-418D-ADB6-F71068F8F81B.JPG` by direct observation, stable metadata, and source relationship without inferring identity, ownership, or release state
+- [ ] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
+- [ ] Add focused regression coverage and validate TypeScript plus the full suite before publishing
