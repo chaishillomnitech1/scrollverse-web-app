@@ -5272,3 +5272,13 @@
 - [x] Build the browser-local `/sovereign-cartoon-gallery` route with 14 named sovereign-art records, catalog-song pairings, expandable visual intake, and clear collection-state labels
 - [x] Upload and connect 13 confirmed artwork assets through managed project storage; reserve the 14th artwork URL while its generation completes
 - [x] Add focused regression coverage, validate route registration, TypeScript, and the full test suite before publication
+
+## Phase 697 — Remaining Protected Source Classification
+- [x] Classify `Pasted_content_04.txt`, `Pasted_content_08.txt`, `Pasted_content_11.txt`, `Pasted_content_18.txt`, and `Pasted_content_26.txt` as protected non-executable source material, preserving only directly visible scope and safe documentation lessons
+- [x] Classify `Clipboard_0_08832A06`, `Clipboard_1_3FFB318A`, and `IMG_1796.PNG` with source, format, hash, and direct-observation boundaries without executing, publishing, or reopening the 8:28 screenshot
+- [x] Connect the completed source classification to a browser-local archive record with focused regression coverage and direct operating-state labels
+
+## Phase 698 — Sovereignty Infrastructure and Omniland Research Records
+- [x] Build a browser-local permanence record for repository export, owner-controlled domain routing, portable-hosting research, and a future static/public archive handoff
+- [x] Extend Game Worlds Studio with the owner-supplied consoleless Omniland direction as a browser-local device-path and creative-world roadmap
+- [x] Add source-led routes, official deployment references, regression coverage, TypeScript validation, and full-suite verification without deploying to a third-party provider or changing DNS
