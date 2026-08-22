@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ExternalLink, Copy, ShieldCheck, Film } from "lucide-react";
+import { ArrowRight, Archive, Copy, ShieldCheck, Film } from "lucide-react";
 import { toast } from "sonner";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
@@ -122,17 +122,20 @@ export default function YouTubeCurrentFeedResearch() {
           </ul>
         </div>
 
+        <section className="mt-8 rounded-xl p-5" style={{ background: "rgba(185,140,255,0.06)", border: "1px solid rgba(185,140,255,0.26)" }}>
+          <div className="flex items-center gap-2"><Archive size={16} style={{ color: "#D9C1FF" }} /><span className="text-xs font-mono font-bold" style={{ color: "#D9C1FF" }}>ARCHIVE HANDOFFS</span></div>
+          <p className="mt-3 text-xs leading-6" style={{ color: "#AFC0CF" }}>This selection remains a time-bounded research record. Use the connected registry for source context, the Empire Power Index for active-route discovery, and the release desk only when an owner-controlled public-version packet is complete.</p>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {[
+              { href: "/connected-source-registry", title: "Connected Source Registry", color: "#00D4FF" },
+              { href: "/empire-power-index", title: "Empire Power Index", color: "#B98CFF" },
+              { href: "/youtube-episode-release-desk", title: "YouTube Release Desk", color: "#FFB800" },
+            ].map((item) => <Link key={item.href} href={item.href} className="rounded-lg border px-4 py-3 text-xs font-black transition hover:-translate-y-0.5" style={{ borderColor: `${item.color}55`, color: item.color, background: `${item.color}10` }}>{item.title} <ArrowRight className="ml-1 inline h-3.5 w-3.5" /></Link>)}
+          </div>
+        </section>
         <div className="mt-8 flex gap-3 flex-wrap">
-          <Link href="/connected-source-registry">
-            <a className="px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}>
-              ← Connected Source Registry
-            </a>
-          </Link>
-          <Link href="/">
-            <a className="px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#8899AA" }}>
-              Home
-            </a>
-          </Link>
+          <Link href="/connected-source-registry" className="px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00D4FF" }}>← Connected Source Registry</Link>
+          <Link href="/" className="px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#8899AA" }}>Home</Link>
         </div>
       </div>
     </main>

@@ -477,6 +477,7 @@ import SovereigntyInfrastructureRecord from "./pages/SovereigntyInfrastructureRe
 import EmpirePowerIndex from "./pages/EmpirePowerIndex";
 import ProtectedVisualIntake from "./pages/ProtectedVisualIntake";
 import SuppliedPublicReferences from "./pages/SuppliedPublicReferences";
+import ManusOriginHistoricalRecoveryGate from "./pages/ManusOriginHistoricalRecoveryGate";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1061,6 +1062,7 @@ function Router() {
         <Route path="/empire-power-index" component={EmpirePowerIndex} />
         <Route path="/protected-visual-intake" component={ProtectedVisualIntake} />
         <Route path="/supplied-public-references" component={SuppliedPublicReferences} />
+        <Route path="/manus-origin-historical-recovery" component={ManusOriginHistoricalRecoveryGate} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>

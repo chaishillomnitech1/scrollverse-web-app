@@ -5345,3 +5345,10 @@
 - [x] Document the absence of a directly located visible `1/16` opening slide from the reviewed protected intake batch without treating a filename gap as proof of nonexistence
 - [x] Add a browser-local source-reattachment path to the protected visual accession without inventing or recreating missing source content
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 712 — Archive Coverage Backfill
+- [x] Add source-boundary documentation and focused regression coverage for the completed Story Worlds and Episode 45 records
+- [ ] Verify Story Worlds and Episode 45 browser rendering when a browser window is available; current direct-browser attempt reported no current window
+- [x] Restore or explicitly gate the missing Manus-origin historical record, then connect its verified scope to chronology and archive handoffs
+- [x] Strengthen the YouTube current-feed research record with source-labeled archive handoffs and correct its nested-link markup
+- [x] Validate TypeScript plus the full suite before publishing
