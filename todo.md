@@ -5365,3 +5365,8 @@
 ## Phase 715 — Recovery-Gate Route Integrity Synchronization
 - [x] Add the Manus-origin and Ω.267 recovery gates to the Route Integrity Index with direct research and source-absence labels
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 716 — Creator-Sticker Visual Intake Tranche
+- [x] Classify `chais_sticker_01_realistic.png` through `chais_sticker_05_chibi.png` by direct observation, stable metadata, and archive relevance without inferring identity, ownership, or release state
+- [x] Preserve the five-item intake in a source-labeled browser-local visual record without republishing protected source images
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing

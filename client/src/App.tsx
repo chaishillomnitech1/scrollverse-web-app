@@ -479,6 +479,7 @@ import ProtectedVisualIntake from "./pages/ProtectedVisualIntake";
 import SuppliedPublicReferences from "./pages/SuppliedPublicReferences";
 import ManusOriginHistoricalRecoveryGate from "./pages/ManusOriginHistoricalRecoveryGate";
 import Omega267PriorHubRecoveryGate from "./pages/Omega267PriorHubRecoveryGate";
+import CreatorStickerIntake from "./pages/CreatorStickerIntake";
 
 const AILegionApex = lazy(() => import("./pages/AILegionApex"));
 const ComponentShowcase = lazy(() => import("./pages/ComponentShowcase"));
@@ -1065,6 +1066,7 @@ function Router() {
         <Route path="/supplied-public-references" component={SuppliedPublicReferences} />
         <Route path="/manus-origin-historical-recovery" component={ManusOriginHistoricalRecoveryGate} />
         <Route path="/omega-267-prior-hub-recovery" component={Omega267PriorHubRecoveryGate} />
+        <Route path="/creator-sticker-intake" component={CreatorStickerIntake} />
         <Route path={"/youtube-current-feed-research"} component={YouTubeCurrentFeedResearch} />
         <Route component={NotFound} />
     </Switch>
