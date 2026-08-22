@@ -5431,3 +5431,8 @@
 ## Phase 731 — Homepage Generic Retained-Image Discovery
 - [x] Add the Generic Retained Image Intake to the homepage archive-discovery rail with its research state and no-image-republication boundary
 - [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
+
+## Phase 732 — Protected Visual Evidence Hub
+- [x] Build a browser-local hub that unifies the Protected Visual Intake, Retained Image Intake, and Generic Retained Image Intake with direct source-boundary summaries
+- [x] Add direct archive handoffs to the Creator Visual Atlas, Sovereign Cartoon Gallery, and Empire Power Index without republishing protected source images
+- [x] Add focused regression coverage and validate TypeScript plus the full suite before publishing
