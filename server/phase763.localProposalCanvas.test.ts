@@ -8,6 +8,7 @@ const read = (file: string) => readFileSync(resolve(root, file), "utf-8");
 describe("Phase 763 — ScrollVerse × XLVIIIblocks local proposal canvas", () => {
   it("registers the browser-local proposal canvas route", () => {
     expect(read("client/src/App.tsx")).toContain('path="/xlviiiblocks-proposal-canvas" component={XLVIIIblocksProposalCanvas}');
+    expect(read("client/src/pages/ScrollVerseXLVIIIblocksReadiness.tsx")).toContain('href="/xlviiiblocks-proposal-canvas"');
   });
 
   it("includes structured local proposal fields and browser-only export affordances", () => {

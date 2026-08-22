@@ -487,6 +487,7 @@ import EcosystemDiscovery from "./pages/EcosystemDiscovery";
 import TransmissionsSourceConvergence from "./pages/TransmissionsSourceConvergence";
 import ScrollVerseXLVIIIblocksReadiness from "./pages/ScrollVerseXLVIIIblocksReadiness";
 import XLVIIIblocksProposalCanvas from "./pages/XLVIIIblocksProposalCanvas";
+import PortfolioAssetEvidenceInventory from "./pages/PortfolioAssetEvidenceInventory";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1090,6 +1091,7 @@ function Router() {
         <Route path="/transmissions-source-convergence" component={TransmissionsSourceConvergence} />
         <Route path="/scrollverse-xlviiiblocks-readiness" component={ScrollVerseXLVIIIblocksReadiness} />
         <Route path="/xlviiiblocks-proposal-canvas" component={XLVIIIblocksProposalCanvas} />
+        <Route path="/portfolio-asset-evidence-inventory" component={PortfolioAssetEvidenceInventory} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />

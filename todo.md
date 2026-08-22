@@ -5586,3 +5586,9 @@
 - [x] Define browser-local proposal fields for counterparty, scope, amount, use of funds, terms, governance, white-label responsibilities, and destination without collecting credentials or transmitting data
 - [x] Build a local-only proposal canvas with copy/export preparation affordances and an explicit non-submission boundary
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the proposal-canvas update
+- [x] Add a direct partnership-readiness handoff into the local proposal canvas and validate the linked preparation flow
+
+## Phase 764 — Portfolio Asset Evidence Inventory
+- [x] Define browser-local physical, material, digital, and business asset-evidence fields without asserting ownership, valuation, collateral eligibility, appraisal, title, or financing status
+- [x] Build a local-only asset-evidence inventory with copy/export preparation and direct partnership-readiness handoffs
+- [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the asset-evidence update
