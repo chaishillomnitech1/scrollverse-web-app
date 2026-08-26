@@ -5784,6 +5784,12 @@
 - [x] Audit and replace the same self-contradictory framing in high-visibility shared public presentation components
 - [x] Rebalance high-visibility discovery copy toward value, source context, reader choice, and the next available visitor path
 
+## Phase 804 — Extended Welcoming Language Audit
+- [x] Inventory remaining repeated public “does not prove” and self-undermining wording for source-and-reader presentation updates
+- [x] Reframe the Book of Life discovery, platform, music, and collectible-readiness copy around creator context and clear next paths
+- [x] Replace the next highest-visibility language cluster with respectful source, creator-context, and reader-choice phrasing
+- [x] Validate and publish the follow-on public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

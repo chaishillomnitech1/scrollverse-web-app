@@ -312,7 +312,7 @@ export default function BookOfLife() {
 
   const handlePlatformClick = (platform: typeof BOOK_PLATFORMS[0]) => {
     window.open(platform.url, "_blank");
-    toast.info(`Opening ${platform.name} as an official preparation reference. This is not evidence that The Book of Life is published there.`);
+    toast.info(`Opening ${platform.name} as a public preparation reference. Explore its information alongside The Book of Life release pathway.`);
   };
 
   const tabs = [
@@ -390,7 +390,7 @@ export default function BookOfLife() {
               By <span style={{ color: "#FFD700" }}>CHAIS THE GREAT ∞</span>
             </p>
             <p className="text-sm mb-6 leading-relaxed" style={{ color: "#8899AA" }}>
-              A first-party creative reading experience organized around seven thematic seals, timestamp notes, music-book concepts, and release-readiness pathways. Interpretive, spiritual, and creative material is presented as creator context; it is not a scientific, medical, historical, legal, financial, platform-availability, or on-chain verification claim.
+              A first-party creative reading experience organized around seven thematic seals, timestamp notes, music-book concepts, and release-readiness pathways. Interpretive, spiritual, and creative material is presented as creator context for readers to explore alongside source trails, personal reflection, and future release updates.
             </p>
 
             {/* Stats */}
@@ -546,7 +546,7 @@ export default function BookOfLife() {
         {activeTab === "prophetic" && (
           <div className="space-y-4">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Creator timestamp notes and interpretive context. These entries are not independently verified predictions, audio analyses, or causal evidence.
+              Creator timestamp notes and interpretive context. Explore each entry alongside the original track, source dates, and your own reading of the material.
             </div>
             {PROPHETIC_TIMESTAMPS.map(pt => (
               <div
@@ -581,7 +581,7 @@ export default function BookOfLife() {
             >
               <div className="text-sm font-bold text-white mb-1">The Full Prophetic Codex</div>
               <p className="text-xs mb-3" style={{ color: "#8899AA" }}>
-                A longer timestamp and music-book release package may be prepared after source, rights, accessibility, and owner review. This card does not establish that a full edition is available.
+                A longer timestamp and music-book release package can move forward through source, rights, accessibility, and owner review. Follow the release pathway for future edition updates.
               </p>
               <button
                 onClick={() => handlePlatformClick(BOOK_PLATFORMS[0])}
@@ -598,7 +598,7 @@ export default function BookOfLife() {
         {activeTab === "music" && (
           <div className="space-y-6">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Each chapter can be developed alongside an original music and media concept. Frequency references are creative labels, not health, clinical, or performance claims.
+              Each chapter can be developed alongside an original music and media concept. Frequency references are part of the creative language of this music-book experience.
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               {SEVEN_SEALS.map((seal, i) => (
@@ -629,7 +629,7 @@ export default function BookOfLife() {
             >
               <div className="text-sm font-bold text-white mb-2">🎵 Full Music-Book Experience</div>
               <p className="text-xs mb-4" style={{ color: "#8899AA" }}>
-                Explore public platform-preparation references for an eventual music-book soundtrack. A provider link does not establish that a soundtrack, track, or synchronized chapter is live there.
+                Explore public platform-preparation references for an eventual music-book soundtrack and follow the release pathway as creator-approved listening experiences become available.
               </p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {BOOK_PLATFORMS.filter(p => p.type === "music").map(p => (
@@ -651,7 +651,7 @@ export default function BookOfLife() {
         {activeTab === "platforms" && (
           <div className="space-y-6">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Public preparation references for ebook, audio, and music delivery. These links do not verify title upload, provider acceptance, listing, searchability, payout, or availability.
+              Public preparation references for ebook, audio, and music delivery. Explore each platform alongside the creator’s release pathway for current title and availability updates.
             </div>
             {["ebook", "audio", "music"].map(type => (
               <div key={type}>
@@ -681,7 +681,7 @@ export default function BookOfLife() {
         {activeTab === "nft" && (
           <div className="space-y-6">
             <div className="text-xs font-mono mb-4" style={{ color: "#8899AA" }}>
-              Review the seven seal concepts as potential collectible records. No mint, wallet, listing, ownership transfer, or on-chain action is available from this route.
+              Review the seven seal concepts as potential collectible records. This route shares the concepts and their readiness path; future collectible activity will open through its dedicated release experience.
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               {SEVEN_SEALS.map(seal => (
@@ -703,7 +703,7 @@ export default function BookOfLife() {
                     </div>
                   </div>
                   <p className="text-xs mb-4" style={{ color: "#8899AA" }}>
-                    A potential collectible record for {seal.title.toLowerCase()}. Rights, contract, wallet, marketplace, and release evidence must be reviewed before any on-chain action.
+                    A potential collectible record for {seal.title.toLowerCase()}. The release pathway brings together rights, contract, wallet, marketplace, and creator-approved release evidence for future activity.
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="text-xs font-mono" style={{ color: "#556677" }}>
