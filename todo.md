@@ -5881,6 +5881,10 @@
 - [x] Reframe Distribution Highways Map around creator distribution context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the Distribution Highways Map public-language update
 
+## Phase 827 — Crypto Systems Atlas Presentation
+- [x] Reframe Crypto Systems Atlas research and readiness copy around source context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Crypto Systems Atlas public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

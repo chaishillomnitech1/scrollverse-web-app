@@ -1069,13 +1069,15 @@ describe("Phase 94 route map", () => {
     expect(register).toContain("separately attributed project with a similar name");
     expect(register).toContain("not incorporate current dashboard figures as permanent status");
   });
-  it("registers the Crypto Systems Atlas with evidence gates and no financial, custody, or transaction activation", () => {
+  it("registers the Crypto Systems Atlas with evidence gates and owner-led action pathways", () => {
     const atlas = readProjectFile("client/src/pages/CryptoSystemsAtlas.tsx");
     const home = readProjectFile("client/src/pages/Home.tsx");
     const register = readProjectFile("docs/phase184-crypto-systems-atlas-source-register.md");
     expect(app).toContain('import CryptoSystemsAtlas from "./pages/CryptoSystemsAtlas"');
     expect(app).toContain('<Route path="/crypto-systems-atlas" component={CryptoSystemsAtlas} />');
     expect(atlas).toContain("CRYPTO SYSTEMS ATLAS");
+    expect(atlas).toContain("OWNER-LED ACTION PATHWAYS");
+    expect(atlas).toContain("context readers can use to explore responsibly");
     expect(atlas).toContain("Build capability from evidence, not imitation.");
     expect(atlas).toContain("ERC-2981");
     expect(atlas).toContain("A royalty interface is not a revenue guarantee");
