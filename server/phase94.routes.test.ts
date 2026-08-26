@@ -239,8 +239,8 @@ describe("Phase 94 route map", () => {
     expect(app).toContain('<Route path="/knowledge-context" component={KnowledgeContext} />');
     expect(home).toContain('href: "/knowledge-context"');
     expect(context).toContain("SOURCE-LED KNOWLEDGE CONTEXT");
-    expect(context).toContain("INTERPRETATION BOUNDARY");
-    expect(context).toContain("does not offer medical care, divination, predictive guidance");
+    expect(context).toContain("SOURCE + INTERPRETATION LENS");
+    expect(context).toContain("For clinical care, predictive decisions, and other high-stakes actions");
     expect(context).toContain("MULTIPLE-PATH EXPLORATION MODEL");
     expect(context).toContain("DOCUMENTED");
     expect(context).toContain("INTERPRETIVE");

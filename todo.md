@@ -5798,6 +5798,10 @@
 - [x] Reframe the GitHub evidence map around creator portfolio context, source pathways, and reader-led review
 - [x] Add regression coverage and validate the GitHub evidence public-language update
 
+## Phase 807 — Knowledge Context Presentation
+- [x] Reframe Knowledge Context research copy around source-led discovery, creator context, and reader choice
+- [x] Add regression coverage and validate the Knowledge Context public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
