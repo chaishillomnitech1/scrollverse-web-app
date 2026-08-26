@@ -31,6 +31,6 @@ describe("Phase 490 — Owner-brand visual asset catalog", () => {
     expect(catalog).toContain("source and rights review required");
     expect(catalog).toContain("does not convert a file identifier into a copyright registration");
     expect(registry).toContain("No product, checkout, or commercial offer is active.");
-    expect(registry).toContain("does not establish reproduction rights, a product listing, price, inventory, checkout, token, or sale");
+    expect(registry).toContain("Reproduction rights, product listing, price, inventory, checkout, token, and sale each travel through their dedicated release record");
   });
 });

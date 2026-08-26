@@ -25,8 +25,8 @@ describe("Phase 458 — Unified ScrollVerse Asset Registry", () => {
     expect(registry).toContain('href: "/knowledge-commons"');
   });
 
-  it("keeps payments, tokens, licenses, providers, payouts, and sales item-specific and inactive", () => {
-    expect(registry).toContain("does not activate a payment highway");
+  it("keeps payments, tokens, licenses, providers, payouts, and sales item-specific", () => {
+    expect(registry).toContain("current state and next record visible");
     expect(registry).toContain("token, coin, public license, provider connection, sale, listing, payout");
     expect(registry).toContain("Each item keeps its own source, rights, public-display state, and release pathway");
   });
