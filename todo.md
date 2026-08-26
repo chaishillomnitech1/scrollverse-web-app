@@ -5790,6 +5790,10 @@
 - [x] Replace the next highest-visibility language cluster with respectful source, creator-context, and reader-choice phrasing
 - [x] Validate and publish the follow-on public-language update
 
+## Phase 805 — Commerce-Adjacent Discovery Presentation
+- [x] Reframe the Evolution Lookbook’s source and creator-context language around discovery and approved release paths
+- [x] Add regression coverage and validate the Evolution Lookbook public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

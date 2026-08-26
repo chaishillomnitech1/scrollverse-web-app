@@ -64,12 +64,12 @@ describe("Phase 590 — Evolution Lookbook", () => {
     expect(page).toContain('href="/tutorial-studio"');
   });
 
-  it("keeps token, pricing, marketplace, and legal-outcome claims outside the active exhibit", () => {
+  it("keeps token, pricing, and marketplace activity routed through item-specific release paths", () => {
     const page = read("client/src/pages/EvolutionLookbook.tsx");
     const evidence = read("docs/phase590-evolution-lookbook-asset-evidence.md");
 
-    expect(page).toContain("This page is a visual exhibit");
-    expect(page).toContain("not as a live financial, token, or marketplace feed");
+    expect(page).toContain("This visual exhibit centers the original work and source trail");
+    expect(page).toContain("future financial, token, or marketplace activity follows the item-specific release path");
     expect(evidence).toContain("artwork content");
     expect(evidence).toContain("No price, profit, token, contract");
   });
