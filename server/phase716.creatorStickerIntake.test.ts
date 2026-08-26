@@ -15,10 +15,10 @@ describe("Phase 716 — Creator-Sticker Visual Intake", () => {
     expect(page).toContain("06576d146f7b4bd3ec2700c32d91789f390a2caf5e37fd66c8717c39cdbc1488");
   });
 
-  it("keeps the intake source-led without republishing images or inventing release state", () => {
+  it("keeps the intake source-led with protected images and dedicated creator pathways", () => {
     const page = read("client/src/pages/CreatorStickerIntake.tsx");
-    expect(page).toContain("Source images are not republished here.");
-    expect(page).toContain("does not infer ownership, rights, identity, release state");
+    expect(page).toContain("Source images remain protected in this intake.");
+    expect(page).toContain("continue through their dedicated creator pathway");
     expect(page).toContain("/protected-visual-intake");
     expect(page).toContain("/sovereign-cartoon-gallery");
   });
