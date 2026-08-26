@@ -5869,6 +5869,10 @@
 - [x] Reframe Creator Catalog Readiness around creator context, reader choice, and dedicated release pathways
 - [x] Add regression coverage and validate the Creator Catalog Readiness public-language update
 
+## Phase 824 — Consortium Nexus Presentation
+- [x] Reframe Consortium Nexus around collaboration context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Consortium Nexus public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

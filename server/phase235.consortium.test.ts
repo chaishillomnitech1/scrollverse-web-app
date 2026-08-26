@@ -22,7 +22,7 @@ describe("Phase 235 ScrollVerse Consortium", () => {
     expect(page).toContain("SCROLLVERSE CONSORTIUM");
     expect(page).toContain("One readable map. Many independent systems.");
     expect(page).toContain("No hidden handoffs. No shared secrets. No invisible authority.");
-    expect(page).toContain("does not access, combine, recover, synchronize, or control external accounts");
+    expect(page).toContain("External accounts, private chats, inboxes, credentials, wallets, providers, and AI workspaces each continue through their own approved connection pathway.");
     expect(page).toContain("AI roles are assistive patterns");
     expect(page).toContain("PROTECTED TRANSACTION AND SECRET GATE · FAIL-CLOSED");
     expect(page).toContain("Documentation is not execution. A simulation review is not authorization.");

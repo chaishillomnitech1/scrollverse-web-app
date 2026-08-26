@@ -140,7 +140,7 @@ export default function ConsortiumNexus() {
           </div>
         </section>
 
-        <div className="mt-8"><PortalTrustLens lane="Consortium architecture" source="Owner-supplied portfolio context, protected continuity records, and cited public identity/backup/security guidance" readiness="First-party discovery and documentation blueprint active; external connection readiness remains staged" boundary="This route does not access, combine, recover, synchronize, or control external accounts, private chats, inboxes, credentials, wallets, providers, or AI workspaces." /></div>
+        <div className="mt-8"><PortalTrustLens lane="Consortium architecture" source="Owner-supplied portfolio context, protected continuity records, and cited public identity/backup/security guidance" readiness="First-party discovery and documentation blueprint active; external connection readiness remains staged" boundary="This route keeps collaborative source context visible. External accounts, private chats, inboxes, credentials, wallets, providers, and AI workspaces each continue through their own approved connection pathway." /></div>
 
         <section className="mt-8 grid gap-4 lg:grid-cols-3">
           <article className="rounded-3xl border border-[#00D4FF]/25 bg-[#00D4FF]/[0.05] p-6"><div className="text-xs font-mono tracking-[0.16em] text-[#00D4FF]">DISCOVER</div><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">Use one source-labeled directory to find first-party routes, public records, and project context without pretending every system is connected.</p></article>
