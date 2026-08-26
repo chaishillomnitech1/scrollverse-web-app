@@ -5752,6 +5752,11 @@
 - [ ] Prepare selected source-labeled screen-recording media for the central library
 - [ ] Validate, publish, and verify the integrated media experience
 
+## Phase 797 — Local Eyewitness Research and Sovereign-App Recovery
+- [x] Update the screen-recording provenance as owner-supplied local eyewitness evidence while preserving the visible-source limitations
+- [x] Define a public research pathway separating observation, hypotheses, and verified findings
+- [x] Record the separate owner-led sovereign-app restoration lane without modifying or claiming its current live state
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
