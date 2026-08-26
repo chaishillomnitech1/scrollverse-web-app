@@ -5810,6 +5810,10 @@
 - [x] Reframe Public Portfolio Governance around creator portfolio context, source pathways, and reader-led review
 - [x] Add regression coverage and validate the Public Portfolio Governance public-language update
 
+## Phase 810 — GitHub Showcase Presentation
+- [x] Reframe GitHub Showcase around creator work, source context, and reader-led discovery
+- [x] Add regression coverage and validate the GitHub Showcase public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

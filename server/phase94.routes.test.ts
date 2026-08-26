@@ -1006,7 +1006,8 @@ describe("Phase 94 route map", () => {
     expect(showcase).toContain("Filter GitHub repositories");
     expect(showcase).toContain("Inspect public source");
     expect(showcase).toContain("does not search GitHub live, access private repositories, or collect visitor data");
-    expect(showcase).toContain("not an audit, legal title record, account-control verification, deployment ledger");
+    expect(showcase).toContain("SOURCE + READER LENS");
+    expect(showcase).toContain("build their own understanding of the portfolio");
     expect(showcase).toContain("scrollsoul-music-sync");
     expect(showcase).toContain("vibranium-sovereignty-protocol");
     expect(home).toContain('href: "/github-showcase"');
