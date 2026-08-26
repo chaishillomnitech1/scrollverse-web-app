@@ -11,6 +11,7 @@ describe("Phase 176 — Path B secure credential readiness", () => {
   });
 
   it("keeps live credential availability as an execution-time secure-field gate, not a CI input", () => {
-    expect(process.env.MAINNET_DEPLOYER_PRIVATE_KEY).toBeDefined();
+    const runtimeCredential = process.env.MAINNET_DEPLOYER_PRIVATE_KEY;
+    expect(runtimeCredential === undefined || isValidSigningCredential(runtimeCredential)).toBe(true);
   });
 });

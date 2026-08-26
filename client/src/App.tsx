@@ -500,6 +500,8 @@ import ExternalActionGovernanceStudy from "./pages/ExternalActionGovernanceStudy
 import MediaEvidenceBridge from "./pages/MediaEvidenceBridge";
 import QuantumDigitalMagicSourceRecord from "./pages/QuantumDigitalMagicSourceRecord";
 import OwnerInputRoutingBoard from "./pages/OwnerInputRoutingBoard";
+import LegionKnowledgeBase from "./pages/LegionKnowledgeBase";
+import WorldLens from "./pages/WorldLens";
 import YouTubeCurrentFeedResearch from "./pages/YouTubeCurrentFeedResearch";
 import SovereignCartoonGallery from "./pages/SovereignCartoonGallery";
 import ProtectedSourceConvergence from "./pages/ProtectedSourceConvergence";
@@ -1116,6 +1118,8 @@ function Router() {
         <Route path="/media-evidence-bridge" component={MediaEvidenceBridge} />
         <Route path="/quantum-digital-magic-source-record" component={QuantumDigitalMagicSourceRecord} />
         <Route path="/owner-input-routing-board" component={OwnerInputRoutingBoard} />
+        <Route path="/legion-knowledge-base" component={LegionKnowledgeBase} />
+        <Route path="/world-lens" component={WorldLens} />
         <Route path={"/episode-50-final-structural-expansion"} component={Episode50ProtectedReference} />
         <Route path="/sovereign-cartoon-gallery" component={SovereignCartoonGallery} />
         <Route path="/protected-source-convergence" component={ProtectedSourceConvergence} />

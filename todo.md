@@ -5672,3 +5672,9 @@
 - [x] Reconcile remaining external release, media, domain, provider, contract, finance, and partnership gates into exact non-sensitive input requests
 - [x] Build a browser-local Owner Input Routing Board with local-copy templates and safe preparation handoffs, without requesting credentials or initiating external actions
 - [x] Add focused regression coverage, validate TypeScript and the full suite, and checkpoint the input-routing update
+
+## Phase 780 — Recovered Atlas Consolidation
+- [x] Restore the missing chess.js dependency required by the synchronized original-site route graph
+- [x] Integrate the recovered Legion Knowledge Base and World Lens into the original site route map and Home discovery rail
+- [x] Repair the baseline test expectations for unavailable local-only skills and absent deployer-secret state without adding or exposing sensitive credentials
+- [ ] Validate and publish the consolidated original-site recovery update
