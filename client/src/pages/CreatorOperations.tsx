@@ -223,7 +223,7 @@ export default function CreatorOperations() {
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
             <div>
               <h1 className="text-4xl font-black leading-none sm:text-5xl">Prepare the release.<br /><span style={{ color: "#B98CFF" }}>Keep the record.</span></h1>
-              <p className="mt-5 max-w-3xl text-sm leading-relaxed" style={{ color: "#C1D0DE" }}>Use this authenticated workspace to open private operational support requests and prepare release-material notes. Statuses show first-party workflow progress only; they are never legal clearance, platform approval, payment activation, or a promise of response timing.</p>
+              <p className="mt-5 max-w-3xl text-sm leading-relaxed" style={{ color: "#C1D0DE" }}>Use this authenticated workspace to open private operational support requests and prepare release-material notes. Statuses show first-party workflow progress; legal clearance, platform approval, payment activation, response timing, and external release decisions each continue through their dedicated record.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link href="/creator-workspace" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ borderColor: "rgba(0,212,255,0.4)", color: "#00D4FF" }}>Creator Workspace</Link>
@@ -253,7 +253,7 @@ export default function CreatorOperations() {
         <form onSubmit={submitAssetRecord} className="rounded-3xl border p-6" style={{ borderColor: "rgba(0,255,136,0.25)", background: "rgba(0,255,136,0.03)" }}>
           <div className="text-xs font-mono tracking-widest" style={{ color: "#00FF88" }}>RELEASE-MATERIAL RECORD</div>
           <h2 className="mt-3 text-2xl font-black">Prepare a reviewable release bundle.</h2>
-          <p className="mt-3 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>Record what exists, its source context, and any related private provenance note. A submission receives completeness feedback only; it does not create a store listing or determine rights.</p>
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: "#B8C7D6" }}>Record what exists, its source context, and any related private provenance note. A submission opens protected completeness feedback; listing, rights, and release decisions continue through their dedicated owner or provider record.</p>
           <div className="mt-6 grid gap-3">
             <select value={assetKind} onChange={event => setAssetKind(event.target.value as (typeof ASSET_KINDS)[number])} className="rounded-xl border bg-[#081226] px-3 py-2 text-sm" style={{ borderColor: "rgba(255,255,255,0.16)" }}>{ASSET_KINDS.map(item => <option key={item} value={item}>{item.replaceAll("_", " ")}</option>)}</select>
             <input value={assetTitle} onChange={event => setAssetTitle(event.target.value)} required minLength={3} maxLength={180} placeholder="Asset or copy title" className="rounded-xl border bg-transparent px-3 py-2 text-sm outline-none" style={{ borderColor: "rgba(255,255,255,0.16)" }} />
@@ -330,7 +330,7 @@ export default function CreatorOperations() {
         <div className="rounded-3xl border p-7" style={{ borderColor: "rgba(255,184,0,0.28)", background: "linear-gradient(130deg, rgba(255,184,0,0.09), rgba(0,212,255,0.035))" }}>
           <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>CREATOR-PROVIDED CHANNEL HANDOFFS</div>
           <h2 className="mt-3 text-3xl font-black">Keep your public destinations within reach.</h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>These links were supplied by the ScrollVerse creator. They remain external destinations with their own access and policy rules; this workspace does not manage any of the associated accounts.</p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed" style={{ color: "#C8D8E7" }}>These links were supplied by the ScrollVerse creator. Visit each connected destination directly, where its own access, policy, and account experience continue through that channel.</p>
           <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-5">{CREATOR_CHANNEL_HANDOFFS.map(channel => <a key={channel.url} href={channel.url} target="_blank" rel="noreferrer" className="rounded-2xl border p-4 transition-transform hover:-translate-y-0.5" style={{ borderColor: `${channel.color}38`, background: "rgba(4,14,30,0.5)" }}><div className="text-lg" style={{ color: channel.color }}>{channel.icon}</div><h3 className="mt-3 text-sm font-black">{channel.title}</h3><p className="mt-2 text-[10px] font-mono" style={{ color: channel.color }}>{channel.lane.toUpperCase()}</p></a>)}</div>
         </div>
       </section>

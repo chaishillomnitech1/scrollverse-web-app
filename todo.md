@@ -5909,6 +5909,10 @@
 - [x] Reframe Creator Network around source-led discovery, creator context, and dedicated external pathways
 - [x] Add regression coverage and validate the Creator Network public-language update
 
+## Phase 834 — Creator Operations Presentation
+- [x] Reframe Creator Operations around creator record context and dedicated owner or provider pathways
+- [x] Add regression coverage and validate the Creator Operations public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
