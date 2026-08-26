@@ -5762,7 +5762,11 @@
 
 ## Phase 799 — Shopify Live-Commerce Evidence
 - [x] Preserve the owner-supplied Shopify Payments test-mode-off evidence with its provider-specific boundary
-- [ ] Reconcile Shopify live-commerce readiness with the separate Stripe portal payment state without creating an order or charge
+- [x] Reconcile Shopify live-commerce readiness with the separate Stripe portal payment state without creating an order or charge
+
+## Phase 800 — Shopify Payment Change Evidence
+- [x] Preserve the owner-supplied Shopify notice confirming the owner changed test mode for scrollverse-dev
+- [x] Document the remaining separate Stripe portal configuration dependency without disputing the confirmed Shopify payment state
 
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
