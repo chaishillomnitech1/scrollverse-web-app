@@ -24,7 +24,7 @@ describe("Phase 841 — creator-owned source consolidation", () => {
     expect(atlas).toContain("Visual + fashion worlds");
     expect(atlas).toContain("Music + media worlds");
     expect(atlas).toContain("Game + learning worlds");
-    expect(atlas).toContain("Nia, Orun + Miro");
+    expect(atlas).toContain("Nia Vale · Orun · Miro");
     expect(atlas).toContain("Lumenwright");
     expect(atlas).toContain("Concepts travel with their source trail.");
     expect(atlas).toContain("does not reproduce restricted artwork");
