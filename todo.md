@@ -5818,6 +5818,10 @@
 - [x] Reframe Art Museum around creator work, source context, and reader-led interpretation
 - [x] Add regression coverage and validate the Art Museum public-language update
 
+## Phase 812 — Books Presentation
+- [x] Reframe Books around creator context, source trails, and reader-led discovery
+- [x] Add regression coverage and validate the Books public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

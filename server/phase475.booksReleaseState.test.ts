@@ -14,7 +14,7 @@ describe("Phase 475 — Books release-state correction", () => {
 
   it("keeps retailer and platform references visibly separate from listing or availability claims", () => {
     expect(books).toContain("PLATFORM PREPARATION REFERENCES · NOT LISTING CONFIRMATIONS");
-    expect(books).toContain("does not establish that this book is listed, purchasable, delivered, licensed, or available there");
+    expect(books).toContain("Each platform reference connects readers to its own listing, delivery, licensing, and availability pathway");
     expect(books).toContain("reference</span>");
   });
 

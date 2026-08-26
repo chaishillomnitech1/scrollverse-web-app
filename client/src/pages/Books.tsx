@@ -406,7 +406,7 @@ function BookCard({ book, onMintNFT, onMintCoin, onPurchase, isPurchasing }: {
         {tab === "platforms" && (
           <div className="space-y-2">
             <p className="text-xs font-mono mb-3" style={{ color: "#8899AA" }}>PLATFORM PREPARATION REFERENCES · NOT LISTING CONFIRMATIONS</p>
-            <p className="mb-3 text-xs leading-5" style={{ color: "#AAB8CC" }}>These are research destinations for possible future distribution review. A platform name or reference link does not establish that this book is listed, purchasable, delivered, licensed, or available there.</p>
+            <p className="mb-3 text-xs leading-5" style={{ color: "#AAB8CC" }}>These are research destinations for future distribution review. Each platform reference connects readers to its own listing, delivery, licensing, and availability pathway.</p>
             <div className="grid grid-cols-2 gap-2">
               {book.platforms.map((p) => (
                 <a
@@ -510,7 +510,7 @@ function CoinMintModal({ onClose }: { onClose: () => void }) {
         >
           <div className="text-xs font-mono" style={{ color: "#8899AA" }}>RESEARCH LENS</div>
           <div className="text-2xl font-black" style={{ color: "#00D4FF" }}>{selected} $LONDC</div>
-          <div className="text-xs" style={{ color: "#8899AA" }}>A quantity lens only; it does not establish a price, balance, supply, allocation, or token availability.</div>
+          <div className="text-xs" style={{ color: "#8899AA" }}>A quantity lens for exploring the collection; price, balance, supply, allocation, and token availability each travel through their direct release records.</div>
         </div>
         <button
           onClick={openReadiness}
