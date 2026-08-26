@@ -5889,6 +5889,10 @@
 - [x] Reframe Empire Asset Navigator around creator asset context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the Empire Asset Navigator public-language update
 
+## Phase 829 — IP Digital Evidence Navigator Presentation
+- [x] Reframe IP Digital Evidence Navigator around creator IP context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the IP Digital Evidence Navigator public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
