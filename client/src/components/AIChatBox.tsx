@@ -195,6 +195,10 @@ export function AIChatBox({
       )}
       style={{ height }}
     >
+      <section className="border-b border-primary/15 bg-primary/[0.035] px-4 py-3" aria-label="Hear All companion standard">
+        <p className="text-[10px] font-mono tracking-[0.14em] text-primary">HEAR ALL · CONTEXT BEFORE RESPONSE</p>
+        <p className="mt-1 text-xs leading-5 text-muted-foreground">Speak freely. The companion listens for context and intent, responds with discernment, and leads with respect. Clear boundaries, teachable moments, and de-escalation keep the conversation moving toward growth and creation.</p>
+      </section>
       {/* Messages Area */}
       <div ref={scrollAreaRef} className="flex-1 overflow-hidden">
         {displayMessages.length === 0 ? (

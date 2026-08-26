@@ -5830,6 +5830,16 @@
 - [x] Reframe Asset Registry around creator assets, source context, and reader-led pathways
 - [x] Add regression coverage and validate the Asset Registry public-language update
 
+## Phase 815 — Activation Register Presentation
+- [x] Reframe Activation Register around creator activation records, source context, and reader-led pathways
+- [x] Add regression coverage and validate the Activation Register public-language update
+
+## Phase 816 — Hear All Companion Standard
+- [x] Review companion and community-response surfaces for a context-aware Hear All engagement standard
+- [x] Define public guidance for open expression, discernment, teachable moments, firm respectful boundaries, and non-escalation
+- [x] Add a companion-facing Hear All guidance surface and regression coverage
+- [x] Validate and publish the Hear All companion engagement standard
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

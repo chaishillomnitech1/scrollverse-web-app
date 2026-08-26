@@ -199,7 +199,7 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(productReleasePipelineSource).not.toMatch(/publish product now|open checkout now|enable payout now|create inventory now/i);
   });
 
-  it("registers a source-bound Activation Register with correction paths and no provider action", () => {
+  it("registers a source-bound Activation Register with correction paths and visible provider pathways", () => {
     expect(routerSource).toContain('path={"/activation-register"}');
     expect(routerSource).toContain("ActivationRegister");
     expect(productReleasePipelineSource).toContain('href="/activation-register"');
@@ -211,6 +211,8 @@ describe("Phase 371 — Direct-to-Fan Catalog", () => {
     expect(activationRegisterSource).toContain("SHOPIFY-PRODUCT-001");
     expect(activationRegisterSource).toContain("TRADE-ORDER-001");
     expect(activationRegisterSource).toContain("A copied status message is a source, not a switch.");
+    expect(activationRegisterSource).toContain("ACTIVATION REGISTER · VISIBLE PATHWAYS");
+    expect(activationRegisterSource).toContain("Name the action. Show the consequence. Follow the record.");
     expect(activationRegisterSource).toContain("DIRECT CONFIRMATION FORMAT");
     expect(activationRegisterSource).not.toMatch(/place order|enable checkout|remove password now/i);
   });

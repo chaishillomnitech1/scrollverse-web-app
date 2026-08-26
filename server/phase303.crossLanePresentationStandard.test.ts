@@ -19,6 +19,6 @@ describe("Phase 303 cross-lane creator-directed presentation", () => {
     expect(media).toContain("original concept lanes for development, not released episodes");
     expect(media).toContain("SOURCE-LABELED PROGRAM PATH");
     expect(artifacts).toContain("OPERATING STATE");
-    expect(activation).toContain("Live visitor paths are built item by item, never guessed into existence");
+    expect(activation).toContain("Live visitor paths are built item by item, with their source and consequence visible");
   });
 });
