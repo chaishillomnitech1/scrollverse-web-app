@@ -5686,3 +5686,11 @@
 - [x] Verify that ScrollVerse.co serves the completed published ScrollVerse portal after custom-domain configuration
 - [x] Verify that www.scrollverse.co redirects to and serves the same completed published ScrollVerse portal
 - [x] Verify that ScrollVerse.co/legion-knowledge-base serves the restored Atlas route without a 404
+
+## Phase 781 — Development Service Recovery
+- [x] Restart the stopped ScrollVerse development service and confirm the core recovered routes respond locally
+
+## Phase 782 — Financial Route Verification
+- [x] Inventory all current financial, token, wallet, payment, marketplace, staking, and payout-facing routes with their actual release state
+- [x] Verify provider configuration and fail-closed transaction boundaries without initiating payments, transfers, custody, contract, or provider mutations
+- [x] Prepare a route-by-route activation matrix and identify any specific irreversible action requiring renewed confirmation
