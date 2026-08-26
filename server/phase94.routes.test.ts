@@ -1482,4 +1482,20 @@ describe("Phase 94 route map", () => {
     expect(architecture).toContain("offers no financial functionality");
     expect(home).toContain('href: "/institutional-systems-atlas"');
   });
+
+  it("keeps the central ScrollVerse library source-labeled across live worlds, media, games, story worlds, and the owner-supplied book artifact", () => {
+    const home = readProjectFile("client/src/pages/Home.tsx");
+    const sources = readProjectFile("docs/phase789-central-library-sources.md");
+    expect(home).toContain("function LiveDestinationShowcase()");
+    expect(home).toContain("https://globalmap.scrollverse.co");
+    expect(home).toContain("https://scrollverse-gjhhowxn.manus.space");
+    expect(home).toContain("https://scrollshop-vxg9x8ac.manus.space");
+    expect(home).toContain("https://sovereignhub-mo62pcrx.manus.space/");
+    expect(home).toContain('href: "/game-worlds-studio"');
+    expect(home).toContain('href: "/scrollverse-story-worlds"');
+    expect(home).toContain("Manual of Divine Upgrades");
+    expect(home).toContain("INTERPRETATION ≠ INDEPENDENT VERIFICATION");
+    expect(sources).toContain("central library is a navigation and provenance layer");
+    expect(sources).toContain("does not activate external commerce");
+  });
 });

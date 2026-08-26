@@ -5694,3 +5694,60 @@
 - [x] Inventory all current financial, token, wallet, payment, marketplace, staking, and payout-facing routes with their actual release state
 - [x] Verify provider configuration and fail-closed transaction boundaries without initiating payments, transfers, custody, contract, or provider mutations
 - [x] Prepare a route-by-route activation matrix and identify any specific irreversible action requiring renewed confirmation
+
+## Phase 783 — Confirmed Live-Payment Switch
+- [ ] Classify the supplied merge and payment-readiness scripts as non-executable reference material while preserving their stated checkout scope
+- [ ] Verify the payment settings path, product records, and customer-facing checkout terms before switching Stripe from test to live
+- [ ] Switch the provider from test to live only through the owner-controlled payment settings, then verify readiness without creating a customer charge
+- [ ] Enable only the confirmed book and SaferWay real-charge checkout families; retain separate exact-action gates for wallets, tokens, contracts, staking, exchange execution, and payouts
+- [ ] Verify that the owner-controlled payment panel reflects live mode before conducting a no-charge checkout readiness check
+
+## Phase 784 — Sovereign Archive and Synchronization Media Restoration
+- [x] Inspect the original Sovereign Archive Chronicles destination and both supplied YouTube links
+- [x] Restore the Sovereign Archive visual/game-concept entry to the home page and add a source-labeled synchronization-media section
+- [ ] Validate the home links and publish the restored media discovery paths
+
+## Phase 785 — Global Map Subdomain Connection
+- [x] Inspect `globalmap.scrollverse.co` and confirm its current public status
+- [x] Link the distinct Global Map experience from the central ScrollVerse portal without replacing the main site
+
+## Phase 786 — Central Destination Showcase
+- [x] Inspect `scrollverse-gjhhowxn.manus.space` and consolidate all verified owner-supplied destinations into a front-page showcase inventory
+- [x] Add a high-impact central showcase for live ScrollVerse worlds, the Sovereign Archive visual-game concept, Global Map, and source-labeled synchronization media
+- [ ] Validate external links, first-party fallbacks, and publish the upgraded central portal
+
+## Phase 787 — Initial Synchronization Research Records
+- [x] Add source-labeled research records for the owner-supplied YouTube videos `scPZPrzGccw` and `7626czz4LWs`
+- [x] Add clear creator-interpretation and independent-verification boundaries to the corresponding research access points
+
+## Phase 788 — Central Website Library and Story Worlds
+- [x] Inventory the owner-supplied ScrollVerse websites and identify the strongest existing games-and-stories experience
+- [x] Add a high-impact central website library and a primary games-and-stories front-page pathway
+- [ ] Validate external destinations and publish the expanded central library
+
+## Phase 789 — Owner Artifact Library Integration
+- [x] Classify the supplied artwork, QR, lookbook, website, creator-channel, and infrastructure inventory with source and activation boundaries
+- [x] Add the verified live destinations, creator channels, lookbook references, and games-and-stories pathways to the central library
+- [x] Exclude unsupported automation, financial, contract, throughput, and treasury claims from public operational presentation
+
+## Phase 790 — ScrollShop Central Library Entry
+- [x] Inspect `scrollshop-vxg9x8ac.manus.space` and preserve its public commerce status with clear checkout boundaries
+- [x] Add the verified ScrollShop destination to the central ScrollVerse library
+
+## Phase 791 — Manual of Divine Upgrades Artifact
+- [x] Prepare and upload the supplied Manual of Divine Upgrades cover as a web-safe central-library asset
+- [x] Add the book artifact with the supplied creator attribution and source-labeled research boundary
+- [ ] Validate, publish, and verify the book artifact in the central library
+
+## Phase 792 — Shared File Intake
+- [ ] Inspect the owner-supplied shared file and classify any assets, destinations, or research material for the central library
+- [ ] Integrate any appropriate source-labeled material into the central ScrollVerse experience
+
+## Phase 793 — Manus Library Intake
+- [ ] Inspect the authenticated Manus Library for ScrollVerse-related assets, projects, and references
+- [ ] Classify reusable library entries by source and central-library fit before integration
+
+## Phase 794 — Dated Accomplishment Timeline
+- [x] Inventory dated Manus Library and ScrollVerse project records relevant to historical accomplishments
+- [x] Classify timestamped artifacts separately from creator context and unverified operational claims
+- [x] Produce a source-labeled historical accomplishment timeline

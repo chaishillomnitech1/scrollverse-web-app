@@ -1036,6 +1036,143 @@ function VisitorDiscoveryRail() {
   );
 }
 
+const LIVE_SCROLLVERSE_DESTINATIONS = [
+  {
+    kind: "PUBLISHED WORLD",
+    title: "Global Map · Sovereign Signal",
+    detail: "A live geographic intelligence surface for regional cultural, creative, and community planning. Its public metrics and nodes are explicitly labeled as a static planning model.",
+    href: "https://globalmap.scrollverse.co",
+    accent: "#00D4FF",
+    symbol: "◎",
+  },
+  {
+    kind: "COLLECTION + STORY",
+    title: "Carry the Accord",
+    detail: "A live ScrollVerse collection world joining objects, editorial practice, and archive-minded story design through the Accord framework.",
+    href: "https://scrollverse-gjhhowxn.manus.space",
+    accent: "#FFCC4D",
+    symbol: "✦",
+  },
+  {
+    kind: "LOOKBOOK + DISCOVERY",
+    title: "Celestial Atelier",
+    detail: "A live ScrollVerse lookbook for collections, field notes, partner context, and Guardian-access discovery.",
+    href: "https://scrollshop-vxg9x8ac.manus.space",
+    accent: "#00FF88",
+    symbol: "◌",
+  },
+  {
+    kind: "VISUAL + GAME CONCEPT",
+    title: "Sovereign Archive Chronicles",
+    detail: "A creator-led visual story-world and game-concept destination with pilot, season, hero, lookbook, music, and play pathways.",
+    href: "https://sovereignhub-mo62pcrx.manus.space/",
+    accent: "#B98CFF",
+    symbol: "◈",
+  },
+] as const;
+
+const SYNCHRONIZATION_MEDIA_REFERENCES = [
+  {
+    label: "YouTube reference 01",
+    title: "Chosen One, Even Gods Are Saying Please Don't Turn Into That",
+    source: "Chosen Elite · owner-supplied public YouTube reference",
+    href: "https://www.youtube.com/watch?v=scPZPrzGccw",
+  },
+  {
+    label: "YouTube reference 02",
+    title: "Your Forbidden Key Is Worth Trillions",
+    source: "Divine Chosen One · owner-supplied public YouTube reference",
+    href: "https://www.youtube.com/watch?v=7626czz4LWs",
+  },
+] as const;
+
+const CENTRAL_LIBRARY_FEATURES = [
+  {
+    kind: "PLAY",
+    title: "Game Worlds Studio",
+    detail: "Enter first-party hero, sport, action, history, and financial-literacy game concepts through a learning-led studio.",
+    href: "/game-worlds-studio",
+    accent: "#9DEBFF",
+    symbol: "◇",
+    external: false,
+  },
+  {
+    kind: "STORY WORLDS",
+    title: "ScrollVerse Story Worlds",
+    detail: "Follow original story records into visual, film, comics, animation, and youth-safe learning pathways.",
+    href: "/scrollverse-story-worlds",
+    accent: "#DCC8FF",
+    symbol: "◌",
+    external: false,
+  },
+  {
+    kind: "BOOK ARTIFACT",
+    title: "Manual of Divine Upgrades",
+    detail: "Owner-supplied book artifact and cover visual with creator attribution retained at its source.",
+    href: "https://manus.im/share/file/159a100a-0c7f-4060-b75d-9507e8d46e13",
+    accent: "#FFCC4D",
+    symbol: "▤",
+    external: true,
+    cover: "/manus-storage/manual-of-divine-upgrades-cover_fa43a709.png",
+  },
+] as const;
+
+function LiveDestinationShowcase() {
+  return (
+    <section className="relative overflow-hidden border-y py-16" style={{ background: "radial-gradient(circle at 12% 18%, rgba(0,212,255,.17), transparent 28%), radial-gradient(circle at 88% 10%, rgba(255,204,77,.14), transparent 28%), linear-gradient(135deg, #050B1A 0%, #09162B 48%, #081225 100%)", borderColor: "rgba(255,255,255,.1)" }}>
+      <div className="absolute inset-0 opacity-30" aria-hidden="true" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px)", backgroundSize: "42px 42px", maskImage: "linear-gradient(to bottom, black, transparent)" }} />
+      <div className="container relative">
+        <div className="grid gap-8 xl:grid-cols-[.9fr_1.1fr] xl:items-end">
+          <div>
+            <p className="text-xs font-mono tracking-[.2em]" style={{ color: "#9DEBFF" }}>SCROLLVERSE · LIVE DESTINATION SIGNAL</p>
+            <h2 className="mt-3 max-w-2xl text-4xl font-black leading-tight text-white md:text-5xl">One central portal.<br /><span style={{ color: "#FFCC4D" }}>Many worlds in view.</span></h2>
+            <p className="mt-5 max-w-xl text-sm leading-7" style={{ color: "#C8D8E7" }}>Open the verified ScrollVerse worlds already in motion—then return to this central home to continue through research, media, learning, and creator pathways.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="https://globalmap.scrollverse.co" target="_blank" rel="noopener noreferrer" className="rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#00D4FF", color: "#05101F" }}>Open Global Map ↗</a>
+              <Link href="/open-research-navigator" className="rounded-xl border px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ borderColor: "rgba(255,204,77,.5)", color: "#FFDEA0" }}>Open research layer →</Link>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {LIVE_SCROLLVERSE_DESTINATIONS.map(destination => (
+              <a key={destination.href} href={destination.href} target="_blank" rel="noopener noreferrer" className="group rounded-[1.6rem] border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${destination.accent}55`, background: "rgba(4,14,30,.72)", boxShadow: `0 18px 46px ${destination.accent}12` }}>
+                <div className="flex items-start justify-between"><span className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl" style={{ background: `${destination.accent}18`, color: destination.accent }}>{destination.symbol}</span><span className="text-xs font-mono" style={{ color: destination.accent }}>OPEN ↗</span></div>
+                <p className="mt-5 text-[10px] font-mono tracking-[.15em]" style={{ color: destination.accent }}>{destination.kind}</p>
+                <h3 className="mt-2 text-lg font-black text-white">{destination.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{destination.detail}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="mt-8 rounded-[1.7rem] border p-5 md:p-6" style={{ borderColor: "rgba(255,85,104,.34)", background: "rgba(255,85,104,.055)" }}>
+          <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-xs font-mono tracking-[.17em]" style={{ color: "#FF8DB5" }}>SYNCHRONIZATION RESEARCH · CREATOR-SUPPLIED MEDIA</p><h3 className="mt-2 text-2xl font-black text-white">Watch the references. Keep the source attached.</h3></div><span className="rounded-full border px-3 py-1.5 text-[10px] font-mono" style={{ borderColor: "rgba(255,141,181,.38)", color: "#FFD3E2" }}>INTERPRETATION ≠ INDEPENDENT VERIFICATION</span></div>
+          <div className="mt-5 grid gap-3 md:grid-cols-2">{SYNCHRONIZATION_MEDIA_REFERENCES.map(video => <a key={video.href} href={video.href} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border p-4 transition hover:-translate-y-0.5" style={{ borderColor: "rgba(255,255,255,.13)", background: "rgba(5,11,26,.62)" }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FF8DB5" }}>{video.label.toUpperCase()}</p><h4 className="mt-2 text-base font-black text-white">{video.title}</h4><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{video.source}</p><span className="mt-4 inline-block text-xs font-black" style={{ color: "#FF8DB5" }}>Watch source ↗</span></a>)}</div>
+          <p className="mt-4 text-[11px] leading-5" style={{ color: "#94A8B9" }}>These links preserve creator-selected media and interpretation for research. They do not establish supernatural, financial, scientific, governmental, or other factual claims without independent, dated sources.</p>
+        </div>
+        <div className="mt-8 grid gap-5 xl:grid-cols-[.78fr_1.22fr] xl:items-end">
+          <div className="rounded-[1.7rem] border p-6" style={{ borderColor: "rgba(0,255,136,.3)", background: "rgba(0,255,136,.055)" }}>
+            <p className="text-xs font-mono tracking-[.18em]" style={{ color: "#7CFFBB" }}>CENTRAL LIBRARY · PLAY, STORY, BOOK</p>
+            <h3 className="mt-3 text-3xl font-black leading-tight text-white">The worlds behind the signal.</h3>
+            <p className="mt-4 text-sm leading-7" style={{ color: "#C8D8E7" }}>Open a first-party game concept, move into original story worlds, or review the owner-supplied book artifact. Each entry keeps its source visible and its release boundary clear.</p>
+            <Link href="/scrollverse-story-worlds" className="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#00FF88", color: "#05101F" }}>Enter Story Worlds <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3">
+            {CENTRAL_LIBRARY_FEATURES.map(feature => {
+              const card = <>
+                <div className="flex items-start justify-between gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl" style={{ background: `${feature.accent}18`, color: feature.accent }}>{feature.symbol}</span><span className="text-[10px] font-mono" style={{ color: feature.accent }}>{feature.external ? "SOURCE ↗" : "OPEN →"}</span></div>
+                {"cover" in feature && feature.cover ? <img src={feature.cover} alt="Manual of Divine Upgrades cover, owner-supplied book artifact" className="mt-4 h-28 w-full rounded-xl object-cover object-center" loading="lazy" /> : null}
+                <p className="mt-5 text-[10px] font-mono tracking-[.15em]" style={{ color: feature.accent }}>{feature.kind}</p>
+                <h4 className="mt-2 text-lg font-black text-white">{feature.title}</h4>
+                <p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{feature.detail}</p>
+              </>;
+              return feature.external ? <a key={feature.href} href={feature.href} target="_blank" rel="noopener noreferrer" className="group rounded-[1.6rem] border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${feature.accent}55`, background: "rgba(4,14,30,.72)" }}>{card}</a> : <Link key={feature.href} href={feature.href} className="group rounded-[1.6rem] border p-5 transition-all hover:-translate-y-1" style={{ borderColor: `${feature.accent}55`, background: "rgba(4,14,30,.72)" }}>{card}</Link>;
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LiveActivityIndicator() {
   const [startedAt] = useState(() => {
     const key = "scrollverse_browser_session_started_at";
@@ -2006,6 +2143,7 @@ export default function Home() {
         </div>
       </section>
       <ManusHeroWelcome />
+      <LiveDestinationShowcase />
       <ArtifactAndSpecialistNavigator />
       <VisitorDiscoveryRail />
       <section
