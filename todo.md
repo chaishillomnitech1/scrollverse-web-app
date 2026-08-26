@@ -5949,6 +5949,18 @@
 - [x] Transfer permitted source-led material into Omniland and related first-party pathways
 - [x] Add regression coverage and validate the consolidation before publishing
 
+## Phase 842 — Newly Supplied Creator Destination Expansion
+- [ ] Inventory Carry the Accord, Global Map, Scrollport, ScrollNexus, and ScrollShop accessible source concepts
+- [ ] Classify direct source links, first-party continuation opportunities, visual reuse status, and destination-specific operating context
+- [ ] Expand the Omniland Source Atlas with permitted concepts and direct source trails
+- [ ] Add regression coverage and validate the expanded source atlas before publishing
+
+## Phase 843 — Historical Legacy + Royalty Research Pathway
+- [x] Classify the supplied historical ScrollVerse, OmniGenesis, GitHub-workflow, and blockchain-royalty record index
+- [x] Create a source-led legacy and royalty-research pathway that separates historical concepts from external operating claims
+- [x] Add first-party discovery links from Omniland and the central portal
+- [x] Add regression coverage and validate the historical source pathway before publishing
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
