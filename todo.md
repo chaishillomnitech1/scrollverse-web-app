@@ -5772,6 +5772,11 @@
 - [x] Preserve the confirmed Shopify action as provider-specific evidence without attributing the separate portal Stripe state to owner error
 - [x] Identify and report the exact non-sensitive Stripe environment boundary that remains for portal checkouts
 
+## Phase 802 — Guardian Alerts Evidence and Disclosure
+- [x] Preserve the owner-supplied Guardian Alerts screenshot as interface evidence and separate visible staking claims from independently verified settlement
+- [x] Review and improve non-disruptive Guardian Alerts disclosure wording without disabling the live interface
+- [x] Clarify that Guardian Alerts are issued inside the ScrollVerse site while retaining a separate transaction-record boundary
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

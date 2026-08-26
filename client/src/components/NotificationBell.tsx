@@ -196,7 +196,7 @@ export default function NotificationBell() {
             style={{ borderColor: "rgba(255,255,255,0.06)" }}
           >
             <span className="text-xs" style={{ color: "#4A5568" }}>
-              ScrollVerse Guardian Alerts · Real-time
+              ScrollVerse Guardian Alerts · Issued in the ScrollVerse site · Confirm transaction status in your account or provider record
             </span>
           </div>
         </div>
