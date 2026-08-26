@@ -5677,8 +5677,12 @@
 - [x] Restore the missing chess.js dependency required by the synchronized original-site route graph
 - [x] Integrate the recovered Legion Knowledge Base and World Lens into the original site route map and Home discovery rail
 - [x] Repair the baseline test expectations for unavailable local-only skills and absent deployer-secret state without adding or exposing sensitive credentials
-- [ ] Validate and publish the consolidated original-site recovery update
-- [ ] Reconcile the live managed route state after the published `/legion-knowledge-base` URL returned the portal 404 page
+- [x] Validate and publish the consolidated original-site recovery update
+- [x] Reconcile the live managed route state after the published `/legion-knowledge-base` URL returned the portal 404 page
 - [x] Run and repair the production build so the managed deployment receives the consolidated SPA route bundle
 - [x] Complete the production transform-graph reduction and confirm a full local bundle succeeds before the final publish
 - [x] Preserve deferred route-module provenance in App.tsx so existing route-regression coverage remains valid without restoring static imports
+- [x] Assign ScrollVerse.co to the published project release in the project domain settings so the central domain no longer serves the maintenance page
+- [x] Verify that ScrollVerse.co serves the completed published ScrollVerse portal after custom-domain configuration
+- [x] Verify that www.scrollverse.co redirects to and serves the same completed published ScrollVerse portal
+- [x] Verify that ScrollVerse.co/legion-knowledge-base serves the restored Atlas route without a 404
