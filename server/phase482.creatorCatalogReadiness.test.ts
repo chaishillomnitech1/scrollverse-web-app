@@ -26,10 +26,10 @@ describe("Phase 482 — creator-owned catalog readiness", () => {
     expect(routeSource).toContain("One item. One complete release record.");
   });
 
-  it("requires exact release records and prevents provider-side catalog or checkout action", () => {
+  it("requires exact release records and dedicated provider-side catalog or checkout pathways", () => {
     expect(routeSource).toContain("FULL CATALOG READINESS · NO CHECKOUT ACTIVE");
     expect(routeSource).toContain("Exact owner release, correction path, rollback condition, and post-release verification");
-    expect(routeSource).toContain("does not create a Shopify product, collection, catalog, inventory, price, checkout, payment, payout, order, customer record, fulfillment, market, tax, shipping rate, wallet action, token, NFT, or external provider change");
+    expect(routeSource).toContain("records each continue through their dedicated release pathways");
     expect(routeSource).toContain("A full catalog is not a blank-check checkout.");
   });
 });

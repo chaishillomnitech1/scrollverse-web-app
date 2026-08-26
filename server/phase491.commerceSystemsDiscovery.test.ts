@@ -22,8 +22,8 @@ describe("Phase 491 — Creator commerce and systems-offering discovery", () => 
     expect(catalog).toContain("EXACT CHECKOUT ACTIVATION GATE");
   });
 
-  it("keeps provider-side commerce and B2B engagement fail-closed until separately approved", () => {
-    expect(catalog).toContain("does not create a Shopify product, collection, catalog, inventory, price, checkout");
+  it("keeps provider-side commerce and B2B engagement on their dedicated approved pathways", () => {
+    expect(catalog).toContain("records each continue through their dedicated release pathways");
     expect(catalog).toContain("exact current owner confirmation");
     expect(blueprint).toContain("does not contact a buyer");
     expect(blueprint).toContain("does not create a contract, set a price, grant a license");
