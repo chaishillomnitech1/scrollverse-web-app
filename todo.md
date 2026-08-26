@@ -5937,6 +5937,18 @@
 - [x] Register routes, add regression coverage, and validate the Omniland experience before publishing
 - [x] Correct production-build environment gating and revalidate the Omniland production build
 
+## Phase 840 — Omniland Cinematic Gateway
+- [ ] Create a high-impact Omniland Cinematic Gateway composition for visual worlds, comics, animation, film, and game concepts
+- [ ] Add accessible first-party entry points from Omniland and the ScrollVerse home page
+- [ ] Add regression coverage and validate the Cinematic Gateway enhancement before publishing
+
+## Phase 841 — Creator-Owned Source Consolidation
+- [x] Inventory accessible creator-owned Omniland, Manus, visual-world, film, animation, comic, and game-concept sources
+- [x] Classify reusable records, public visuals, concepts, private material, and external-only destinations with source attribution
+- [x] Create the central ScrollVerse migration structure for permitted records and visual concepts
+- [x] Transfer permitted source-led material into Omniland and related first-party pathways
+- [x] Add regression coverage and validate the consolidation before publishing
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
