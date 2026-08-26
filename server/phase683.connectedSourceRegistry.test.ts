@@ -9,6 +9,7 @@ describe("Phase 683 Connected Source Registry", () => {
     expect(page).toContain("https://scrollport-ccbm4cgm.manus.space/catalog");
     expect(page).toContain("https://scrollverse-3mddshgp.manus.space/");
     expect(page).toContain("Pasted_content_100_01");
+    expect(page).toContain("SOURCE CONTEXT &amp; NEXT PATH");
   });
 
   it("keeps planning, metrics, release, checkout, and protected-source boundaries explicit", () => {

@@ -5857,6 +5857,10 @@
 - [x] Reframe Brand Identity Record around creator identity context, source trails, and reader-led pathways
 - [x] Add regression coverage and validate the Brand Identity Record public-language update
 
+## Phase 821 — Connected Source Registry Presentation
+- [x] Reframe Connected Source Registry around creator context, reader choice, and dedicated source pathways
+- [x] Add regression coverage and validate the Connected Source Registry public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
