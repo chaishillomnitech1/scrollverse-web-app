@@ -5822,6 +5822,10 @@
 - [x] Reframe Books around creator context, source trails, and reader-led discovery
 - [x] Add regression coverage and validate the Books public-language update
 
+## Phase 813 — AI Companion Hub Presentation
+- [x] Reframe AI Companion Hub around creator context, source trails, and clear visitor pathways
+- [x] Add regression coverage and validate the AI Companion Hub public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

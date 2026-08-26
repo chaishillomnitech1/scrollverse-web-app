@@ -24,19 +24,19 @@ describe("Phase 465 — ScrollVerse AI Companion Hub", () => {
     expect(companionHub).toContain("Legion Directory");
   });
 
-  it("keeps the companion desk local-first and does not imply connected provider capabilities", () => {
-    expect(companionHub).toContain("No external AI is connected");
+  it("keeps the companion desk local-first with dedicated provider pathways", () => {
+    expect(companionHub).toContain("The Hub centers original companion roles and browser-local preparation");
     expect(companionHub).toContain("provider account");
-    expect(companionHub).toContain("voice/video call");
-    expect(companionHub).toContain("This draft stays in your browser");
+    expect(companionHub).toContain("voice/video");
+    expect(companionHub).toContain("This draft begins in your browser");
     expect(companionHub).toContain("PortalTrustLens");
   });
 
   it("keeps the public capability map source-labeled and visitor-controlled", () => {
     expect(companionHub).toContain("Public GitHub Portfolio");
     expect(companionHub).toContain("ScrollVerse Omni Manifesto");
-    expect(companionHub).toContain("A public profile is not private access or a live integration");
-    expect(companionHub).toContain("not a shared account, automatic sync, or provider integration");
+    expect(companionHub).toContain("follow the dedicated portfolio, access, and integration pathways");
+    expect(companionHub).toContain("account, synchronization, and provider pathways kept visible");
   });
 
   it("connects the Companion Hub from the Art Learning Studio and ScrollVerse Atlas", () => {
