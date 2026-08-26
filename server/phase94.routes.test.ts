@@ -828,7 +828,8 @@ describe("Phase 94 route map", () => {
     expect(trail).toContain("https://github.com/chaishillomnitech1");
     expect(trail).toContain("https://github.com/LayerZero-Labs/omnichain-governance-executor");
     expect(trail).toContain("https://cryptoadventure.com/scroll-dao-to-pause-governance-structure-amid-leadership-shake-up-redesign-plans/");
-    expect(trail).toContain("do not, by themselves, verify account control, an affiliation, audience influence");
+    expect(trail).toContain("Every entry keeps its source, visible topic, and study context visible");
+    expect(trail).toContain("READING CONTEXT");
     expect(trail).toContain("Copy all public links");
     expect(home).toContain('href: "/public-reference-trail"');
     expect(record).toContain("all 28 distinct source URLs");

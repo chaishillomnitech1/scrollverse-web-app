@@ -5777,6 +5777,13 @@
 - [x] Review and improve non-disruptive Guardian Alerts disclosure wording without disabling the live interface
 - [x] Clarify that Guardian Alerts are issued inside the ScrollVerse site while retaining a separate transaction-record boundary
 
+## Phase 803 — Public Reference Presentation
+- [x] Replace repeated public reference-card “Limit” statements with respectful source, context, and reader-interpretation language
+- [x] Preserve concise availability/status indicators only where a live action requires provider, account, or release-record confirmation
+- [x] Add regression coverage for the revised public-reference presentation
+- [x] Audit and replace the same self-contradictory framing in high-visibility shared public presentation components
+- [x] Rebalance high-visibility discovery copy toward value, source context, reader choice, and the next available visitor path
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

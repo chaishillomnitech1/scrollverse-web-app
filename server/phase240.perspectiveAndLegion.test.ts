@@ -11,9 +11,9 @@ describe("Phase 240 — first-party perspective and AI Legion entry", () => {
 
   it("centers source-led routes on creator-directed first-party presentation", () => {
     expect(lens).toContain("PORTAL PERSPECTIVE LENS");
-    expect(lens).toContain("creator’s first-party ScrollVerse materials directly");
-    expect(lens).toContain("Visitor controls are optional ways to explore");
-    expect(lens).toContain("do not redefine the creator’s direction");
+    expect(lens).toContain("presents creator-led ScrollVerse materials with their source trail");
+    expect(lens).toContain("Use the visitor controls to explore the world");
+    expect(lens).toContain("make your own reading");
   });
 
   it("opens a selected entity chat instead of routing to an unregistered ai-entity path", () => {

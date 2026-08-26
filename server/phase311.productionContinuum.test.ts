@@ -25,11 +25,11 @@ describe("Phase 311 — Episode 7 Cross-Lane Discovery Integration", () => {
     expect(continuum).toContain("does not activate a token, reward, wallet, contract");
   });
 
-  it("surfaces the route from creator channels and keeps trust copy creator-directed", () => {
+  it("surfaces the route from creator channels and keeps trust copy creator-led", () => {
     expect(channels).toContain('href="/production-continuum"');
     expect(channels).toContain("Production Continuum");
-    expect(trustLens).toContain("presents the creator’s first-party ScrollVerse materials directly");
-    expect(trustLens).toContain("do not redefine the creator’s direction");
+    expect(trustLens).toContain("presents creator-led ScrollVerse materials with their source trail");
+    expect(trustLens).toContain("make your own reading");
   });
 
   it("keeps discovery filtering and channel search local and keyboard-addressable", () => {

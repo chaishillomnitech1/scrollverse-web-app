@@ -41,10 +41,10 @@ describe("Phase 208 portal-wide Trust Lens standard", () => {
 
     expect(component).toContain("PERSPECTIVE & SOURCE TRAIL");
     expect(component).toContain("CURRENT EXPERIENCE STATE");
-    expect(component).toContain("SCOPE & CONTROL");
+    expect(component).toContain("READER INVITATION");
     expect(component).toContain("Add a source or correction");
-    expect(component).toContain("presents the creator’s first-party ScrollVerse materials directly");
-    expect(component).toContain("do not redefine the creator’s direction");
+    expect(component).toContain("presents creator-led ScrollVerse materials with their source trail");
+    expect(component).toContain("make your own reading");
 
     expect(new Set(trustLensPages).size).toBe(25);
     for (const page of trustLensPages) {

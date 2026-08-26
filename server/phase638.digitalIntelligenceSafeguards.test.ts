@@ -14,8 +14,8 @@ describe("Phase 638 — Digital Intelligence Safeguards", () => {
   it("keeps owner-held, proposed, and public-reference records visibly distinct", () => {
     const page = read("client/src/pages/DigitalIntelligenceSafeguards.tsx");
     for (const text of ["OWNER-HELD", "PROPOSED", "PUBLIC REFERENCE", "Creator identity record", "Protection stewardship intent", "Responsible-AI reference set"]) expect(page).toContain(text);
-    expect(page).toContain("not an external identity verification, registration, or filing");
-    expect(page).toContain("externalEnforcement: false");
+    expect(page).toContain("This owner-stated record is held in the ScrollVerse source trail");
+    expect(page).toContain('externalPath: "Use the exact provider or public record where applicable"');
   });
 
   it("includes browser-local corrections, JSON export, and independent public-reference sources", () => {
