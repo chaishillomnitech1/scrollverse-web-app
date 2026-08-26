@@ -22,8 +22,8 @@ describe("Phase 497 — IP and digital-security readiness", () => {
     expect(record).toContain("Cybersecurity Framework");
   });
 
-  it("keeps filings, rights conclusions, secret transfer, configurations, tokens, wallets, and provider changes fail-closed", () => {
-    expect(page).toContain("does not file a copyright, trademark, patent, or other registration");
+  it("routes filings, rights conclusions, secret transfer, configurations, tokens, wallets, and provider changes through dedicated readiness pathways", () => {
+    expect(page).toContain("Next pathway: This packet prepares source context");
     expect(page).toContain("does not give legal advice, file a registration, determine rights or clearance, store a secret");
     expect(page).toContain("not a statement that a control is configured, tested, certified, “military-grade,”");
     expect(record).toContain("does not file a copyright, trademark, patent, or any other registration");
