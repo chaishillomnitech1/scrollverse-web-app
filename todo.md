@@ -5768,6 +5768,10 @@
 - [x] Preserve the owner-supplied Shopify notice confirming the owner changed test mode for scrollverse-dev
 - [x] Document the remaining separate Stripe portal configuration dependency without disputing the confirmed Shopify payment state
 
+## Phase 801 — Provider Environment Reconciliation
+- [x] Preserve the confirmed Shopify action as provider-specific evidence without attributing the separate portal Stripe state to owner error
+- [x] Identify and report the exact non-sensitive Stripe environment boundary that remains for portal checkouts
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
