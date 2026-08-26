@@ -5757,6 +5757,13 @@
 - [x] Define a public research pathway separating observation, hypotheses, and verified findings
 - [x] Record the separate owner-led sovereign-app restoration lane without modifying or claiming its current live state
 
+## Phase 798 — Restored Live-Payment Verification
+- [ ] Confirm the current Stripe payment-mode indicator and run a no-charge readiness check for the owner-confirmed book and SaferWay checkout scope
+
+## Phase 799 — Shopify Live-Commerce Evidence
+- [x] Preserve the owner-supplied Shopify Payments test-mode-off evidence with its provider-specific boundary
+- [ ] Reconcile Shopify live-commerce readiness with the separate Stripe portal payment state without creating an order or charge
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
