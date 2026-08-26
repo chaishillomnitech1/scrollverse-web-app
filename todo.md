@@ -5845,6 +5845,10 @@
 - [x] Preserve dignity by excluding humiliation, threats, and retaliatory escalation from companion responses
 - [x] Add regression coverage and validate the refined companion boundary voice
 
+## Phase 818 — Artifact Evidence Blueprint Presentation
+- [x] Reframe Artifact Evidence Blueprint around creator artifacts, source context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Artifact Evidence Blueprint public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

@@ -1092,8 +1092,8 @@ describe("Phase 94 route map", () => {
     expect(app).toContain('import ArtifactEvidenceBlueprint from "./pages/ArtifactEvidenceBlueprint"');
     expect(app).toContain('<Route path="/artifact-evidence-blueprint" component={ArtifactEvidenceBlueprint} />');
     expect(blueprint).toContain("ARTIFACT EVIDENCE BLUEPRINT");
-    expect(blueprint).toContain("A hash can compare data. It cannot tell the whole story.");
-    expect(blueprint).toContain("A blueprint is not a command.");
+    expect(blueprint).toContain("A hash strengthens the record.");
+    expect(blueprint).toContain("A blueprint prepares the next record.");
     expect(blueprint).toContain("does not save, hash, upload, sign, or publish any material");
     expect(blueprint).toContain("does not make an ownership, authenticity, weight, metal-content, custody, valuation");
     expect(blueprint).toContain("https://www.nist.gov/glossary-term/38726");
