@@ -14,9 +14,9 @@ describe("Phase 683 Connected Source Registry", () => {
 
   it("keeps planning, metrics, release, checkout, and protected-source boundaries explicit", () => {
     const page = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/ConnectedSourceRegistry.tsx"), "utf8");
-    expect(page).toContain("Planning and projection language is not external-performance verification");
-    expect(page).toContain("Reported figures are not an independent user, revenue, or performance audit");
-    expect(page).toContain("Visible cart controls do not establish checkout");
+    expect(page).toContain("performance verification follows its independently recorded outcome path");
+    expect(page).toContain("Reported figures are presented as self-reported context");
+    expect(page).toContain("Visible cart controls support catalog discovery");
     expect(page).toContain("Protected source is not executed");
   });
 
