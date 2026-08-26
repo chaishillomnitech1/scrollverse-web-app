@@ -5705,7 +5705,7 @@
 ## Phase 784 — Sovereign Archive and Synchronization Media Restoration
 - [x] Inspect the original Sovereign Archive Chronicles destination and both supplied YouTube links
 - [x] Restore the Sovereign Archive visual/game-concept entry to the home page and add a source-labeled synchronization-media section
-- [ ] Validate the home links and publish the restored media discovery paths
+- [x] Validate the home links and publish the restored media discovery paths
 
 ## Phase 785 — Global Map Subdomain Connection
 - [x] Inspect `globalmap.scrollverse.co` and confirm its current public status
@@ -5714,7 +5714,7 @@
 ## Phase 786 — Central Destination Showcase
 - [x] Inspect `scrollverse-gjhhowxn.manus.space` and consolidate all verified owner-supplied destinations into a front-page showcase inventory
 - [x] Add a high-impact central showcase for live ScrollVerse worlds, the Sovereign Archive visual-game concept, Global Map, and source-labeled synchronization media
-- [ ] Validate external links, first-party fallbacks, and publish the upgraded central portal
+- [x] Validate external links, first-party fallbacks, and publish the upgraded central portal
 
 ## Phase 787 — Initial Synchronization Research Records
 - [x] Add source-labeled research records for the owner-supplied YouTube videos `scPZPrzGccw` and `7626czz4LWs`
@@ -5723,7 +5723,7 @@
 ## Phase 788 — Central Website Library and Story Worlds
 - [x] Inventory the owner-supplied ScrollVerse websites and identify the strongest existing games-and-stories experience
 - [x] Add a high-impact central website library and a primary games-and-stories front-page pathway
-- [ ] Validate external destinations and publish the expanded central library
+- [x] Validate external destinations and publish the expanded central library
 
 ## Phase 789 — Owner Artifact Library Integration
 - [x] Classify the supplied artwork, QR, lookbook, website, creator-channel, and infrastructure inventory with source and activation boundaries
@@ -5737,7 +5737,7 @@
 ## Phase 791 — Manual of Divine Upgrades Artifact
 - [x] Prepare and upload the supplied Manual of Divine Upgrades cover as a web-safe central-library asset
 - [x] Add the book artifact with the supplied creator attribution and source-labeled research boundary
-- [ ] Validate, publish, and verify the book artifact in the central library
+- [x] Validate, publish, and verify the book artifact in the central library
 
 ## Phase 792 — Shared File Intake
 - [ ] Inspect the owner-supplied shared file and classify any assets, destinations, or research material for the central library
@@ -5746,6 +5746,14 @@
 ## Phase 793 — Manus Library Intake
 - [ ] Inspect the authenticated Manus Library for ScrollVerse-related assets, projects, and references
 - [ ] Classify reusable library entries by source and central-library fit before integration
+
+## Phase 795 — Screen Recording Library Intake
+- [x] Analyze both owner-supplied screen recordings for visual, navigation, and provenance-safe central-library value
+- [ ] Prepare selected source-labeled screen-recording media for the central library
+- [ ] Validate, publish, and verify the integrated media experience
+
+## Phase 796 — Deferred Route Runtime Recovery
+- [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
 ## Phase 794 — Dated Accomplishment Timeline
 - [x] Inventory dated Manus Library and ScrollVerse project records relevant to historical accomplishments

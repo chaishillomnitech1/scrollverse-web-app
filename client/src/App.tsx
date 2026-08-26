@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { lazy, Suspense } from "react";
 const NextRetainedImageIntake = lazy(() => import("@/pages/NextRetainedImageIntake")); // import NextRetainedImageIntake from "@/pages/NextRetainedImageIntake"; deferred route module
 const GameSystemsResearchBlueprint = lazy(() => import("@/pages/GameSystemsResearchBlueprint")); // import GameSystemsResearchBlueprint from "@/pages/GameSystemsResearchBlueprint"; deferred route module
 const OmnilandConsolelessDelivery = lazy(() => import("@/pages/OmnilandConsolelessDelivery")); // import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery"; deferred route module
@@ -9,7 +10,6 @@ const OmnilandGameSystemsContribution = lazy(() => import("@/pages/OmnilandGameS
 const MediaReleaseConceptBoard = lazy(() => import("@/pages/MediaReleaseConceptBoard")); // import MediaReleaseConceptBoard from "@/pages/MediaReleaseConceptBoard"; deferred route module
 const CommerceFinancialReadinessBoard = lazy(() => import("@/pages/CommerceFinancialReadinessBoard")); // import CommerceFinancialReadinessBoard from "@/pages/CommerceFinancialReadinessBoard"; deferred route module
 const ActivePathwaysReleaseGatesAudit = lazy(() => import("@/pages/ActivePathwaysReleaseGatesAudit")); // import ActivePathwaysReleaseGatesAudit from "@/pages/ActivePathwaysReleaseGatesAudit"; deferred route module
-import { lazy, Suspense } from "react";
 const NotFound = lazy(() => import("@/pages/NotFound")); // import NotFound from "@/pages/NotFound"; deferred route module
 import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
