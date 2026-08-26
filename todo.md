@@ -5877,6 +5877,10 @@
 - [x] Reframe Creator Sticker Intake around creator submission context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the Creator Sticker Intake public-language update
 
+## Phase 826 — Distribution Highways Map Presentation
+- [x] Reframe Distribution Highways Map around creator distribution context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Distribution Highways Map public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

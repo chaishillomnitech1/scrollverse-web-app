@@ -932,7 +932,7 @@ describe("Phase 94 route map", () => {
     expect(studio).toContain('href="/media-readiness-lab"');
     expect(audit).toContain("Spotify prefers FLAC");
   });
-  it("registers the source-labeled Distribution Highways map without claiming provider access or delivery", () => {
+  it("registers the source-labeled Distribution Highways map with dedicated provider pathways", () => {
     const map = readProjectFile("client/src/pages/DistributionHighwaysMap.tsx");
     const register = readProjectFile("docs/phase173-distribution-highways-source-register.md");
     expect(app).toContain('import DistributionHighwaysMap from "./pages/DistributionHighwaysMap"');
@@ -941,8 +941,8 @@ describe("Phase 94 route map", () => {
     expect(map).toContain("UnitedMasters");
     expect(map).toContain("Sony Music Entertainment");
     expect(map).toContain("Netflix Partner Help Center");
-    expect(map).toContain("does not establish a partnership, account, submission authority, delivery");
-    expect(map).toContain("A visible public route does not establish a partnership");
+    expect(map).toContain("Partnership, account, submission, delivery, catalog, payout, and legal records each continue through their dedicated destination pathways");
+    expect(map).toContain("SOURCE CONTEXT &amp; NEXT PATH");
     expect(register).toContain("Hulu Content Portal");
     expect(register).toContain("The Orchard");
   });
