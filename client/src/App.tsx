@@ -6,6 +6,7 @@ const GameSystemsResearchBlueprint = lazy(() => import("@/pages/GameSystemsResea
 const OmnilandConsolelessDelivery = lazy(() => import("@/pages/OmnilandConsolelessDelivery")); // import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery"; deferred route module
 const Omniland = lazy(() => import("@/pages/Omniland")); // import Omniland from "@/pages/Omniland"; deferred route module
 const OmnilandSourceAtlas = lazy(() => import("@/pages/OmnilandSourceAtlas")); // import OmnilandSourceAtlas from "@/pages/OmnilandSourceAtlas"; deferred route module
+const OmnilandCinematicGateway = lazy(() => import("@/pages/OmnilandCinematicGateway")); // import OmnilandCinematicGateway from "@/pages/OmnilandCinematicGateway"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
 const OmnilandEmbodiedPlay = lazy(() => import("@/pages/OmnilandEmbodiedPlay")); // import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay"; deferred route module
 const OmnilandGameSystemsContribution = lazy(() => import("@/pages/OmnilandGameSystemsContribution")); // import OmnilandGameSystemsContribution from "@/pages/OmnilandGameSystemsContribution"; deferred route module
@@ -1145,6 +1146,7 @@ function Router() {
         <Route path="/omniland-consoleless-delivery" component={OmnilandConsolelessDelivery} />
         <Route path="/omniland" component={Omniland} />
         <Route path="/omniland-source-atlas" component={OmnilandSourceAtlas} />
+        <Route path="/omniland-cinematic-gateway" component={OmnilandCinematicGateway} />
         <Route path="/omni-master-registry" component={OmniMasterRegistryRecord} />
         <Route path="/omniland-embodied-play" component={OmnilandEmbodiedPlay} />
         <Route path="/omniland-game-systems-contribution" component={OmnilandGameSystemsContribution} />

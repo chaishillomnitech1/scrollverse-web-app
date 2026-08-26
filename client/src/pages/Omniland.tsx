@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, ExternalLink, Film, Gamepad2, Map, Orbit, Play, Sparkles, Wand2 } from "lucide-react";
+import { ArrowRight, BookOpen, ExternalLink, Film, Gamepad2, Map, Orbit, Play, PlayCircle, Sparkles, Wand2 } from "lucide-react";
 import { Link } from "wouter";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
@@ -75,7 +75,7 @@ export default function Omniland() {
             <p className="text-xs font-mono tracking-[.24em] text-[#A7EEFF]">KUN FAYAKŪN × ∞</p>
             <h1 className="mt-5 text-5xl font-black leading-[.9] tracking-[-.04em] md:text-7xl">Enter the worlds<br /><span className="text-[#FFDEA0]">behind the signal.</span></h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#D6E2EE] md:text-lg">Omniland is the ScrollVerse discovery district for original visual worlds, game concepts, animation pathways, story records, and creator-selected source trails. Choose a door, follow the work, and return through the central portal whenever you want.</p>
-            <div className="mt-8 flex flex-wrap gap-3"><a href="#worlds" className="inline-flex items-center gap-2 rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#04101E] transition hover:-translate-y-0.5">Explore Omniland <ArrowRight className="h-4 w-4" /></a><Link href="/omniland-source-atlas" className="inline-flex items-center gap-2 rounded-xl border border-[#FFCC4D]/60 bg-[#FFCC4D]/10 px-5 py-3 text-sm font-black text-[#FFE09A] transition hover:border-[#FFCC4D]">Open source atlas <BookOpen className="h-4 w-4" /></Link><Link href="/connected-source-registry" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/20 px-5 py-3 text-sm font-black text-white transition hover:border-[#FFCC4D]/70">Source registry</Link></div>
+            <div className="mt-8 flex flex-wrap gap-3"><Link href="/omniland-cinematic-gateway" className="inline-flex items-center gap-2 rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#04101E] transition hover:-translate-y-0.5">Enter cinematic gateway <PlayCircle className="h-4 w-4" /></Link><a href="#worlds" className="inline-flex items-center gap-2 rounded-xl border border-[#00D4FF]/55 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#A7EEFF] transition hover:border-[#00D4FF]">Explore Omniland <ArrowRight className="h-4 w-4" /></a><Link href="/omniland-source-atlas" className="inline-flex items-center gap-2 rounded-xl border border-[#FFCC4D]/60 bg-[#FFCC4D]/10 px-5 py-3 text-sm font-black text-[#FFE09A] transition hover:border-[#FFCC4D]">Open source atlas <BookOpen className="h-4 w-4" /></Link></div>
           </div>
         </div>
       </section>

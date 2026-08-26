@@ -5938,9 +5938,9 @@
 - [x] Correct production-build environment gating and revalidate the Omniland production build
 
 ## Phase 840 — Omniland Cinematic Gateway
-- [ ] Create a high-impact Omniland Cinematic Gateway composition for visual worlds, comics, animation, film, and game concepts
-- [ ] Add accessible first-party entry points from Omniland and the ScrollVerse home page
-- [ ] Add regression coverage and validate the Cinematic Gateway enhancement before publishing
+- [x] Create a high-impact Omniland Cinematic Gateway composition for visual worlds, comics, animation, film, and game concepts
+- [x] Add accessible first-party entry points from Omniland and the ScrollVerse home page
+- [x] Add regression coverage and validate the Cinematic Gateway enhancement before publishing
 
 ## Phase 841 — Creator-Owned Source Consolidation
 - [x] Inventory accessible creator-owned Omniland, Manus, visual-world, film, animation, comic, and game-concept sources
