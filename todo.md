@@ -5921,6 +5921,10 @@
 - [x] Reframe selected Connected Source Registry records around source context and dedicated next pathways
 - [x] Add regression coverage and validate the Connected Source Registry public-language update
 
+## Phase 837 — Creator Atlas Presentation
+- [x] Reframe Creator Atlas around creator discovery, source context, and dedicated external pathways
+- [x] Add regression coverage and validate the Creator Atlas public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
