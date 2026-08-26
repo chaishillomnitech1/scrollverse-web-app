@@ -5802,6 +5802,10 @@
 - [x] Reframe Knowledge Context research copy around source-led discovery, creator context, and reader choice
 - [x] Add regression coverage and validate the Knowledge Context public-language update
 
+## Phase 808 — Evidence Standards Presentation
+- [x] Reframe Evidence Standards around source quality, creator context, and reader-led review
+- [x] Add regression coverage and validate the Evidence Standards public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
