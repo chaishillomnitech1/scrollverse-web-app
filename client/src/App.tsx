@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 const NextRetainedImageIntake = lazy(() => import("@/pages/NextRetainedImageIntake")); // import NextRetainedImageIntake from "@/pages/NextRetainedImageIntake"; deferred route module
 const GameSystemsResearchBlueprint = lazy(() => import("@/pages/GameSystemsResearchBlueprint")); // import GameSystemsResearchBlueprint from "@/pages/GameSystemsResearchBlueprint"; deferred route module
 const OmnilandConsolelessDelivery = lazy(() => import("@/pages/OmnilandConsolelessDelivery")); // import OmnilandConsolelessDelivery from "@/pages/OmnilandConsolelessDelivery"; deferred route module
+const Omniland = lazy(() => import("@/pages/Omniland")); // import Omniland from "@/pages/Omniland"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
 const OmnilandEmbodiedPlay = lazy(() => import("@/pages/OmnilandEmbodiedPlay")); // import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay"; deferred route module
 const OmnilandGameSystemsContribution = lazy(() => import("@/pages/OmnilandGameSystemsContribution")); // import OmnilandGameSystemsContribution from "@/pages/OmnilandGameSystemsContribution"; deferred route module
@@ -1141,6 +1142,7 @@ function Router() {
         <Route path="/next-retained-image-intake" component={NextRetainedImageIntake} />
         <Route path="/game-systems-research-blueprint" component={GameSystemsResearchBlueprint} />
         <Route path="/omniland-consoleless-delivery" component={OmnilandConsolelessDelivery} />
+        <Route path="/omniland" component={Omniland} />
         <Route path="/omni-master-registry" component={OmniMasterRegistryRecord} />
         <Route path="/omniland-embodied-play" component={OmnilandEmbodiedPlay} />
         <Route path="/omniland-game-systems-contribution" component={OmnilandGameSystemsContribution} />

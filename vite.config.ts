@@ -150,7 +150,7 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDevelopment = process.env.NODE_ENV === "development";
 
 // JSX source-location attributes and the browser debug collector are development-only
 // diagnostics. Excluding them from production avoids a second transform pass across the

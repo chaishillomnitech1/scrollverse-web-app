@@ -5929,6 +5929,14 @@
 - [x] Reframe Connected Systems Map around creator systems, source trails, and dedicated external pathways
 - [x] Add regression coverage and validate the Connected Systems Map public-language update
 
+## Phase 839 — Omniland Discovery World
+- [x] Inventory approved Manus destinations, current ScrollVerse worlds, and owner-supplied concept sources for Omniland
+- [x] Create a source-led Omniland discovery page for visual worlds, films, cartoons, games, and concept paths
+- [x] Add a prominent accessible Omniland entry to the ScrollVerse home page
+- [x] Prepare and integrate original permission-cleared Omniland visual assets
+- [x] Register routes, add regression coverage, and validate the Omniland experience before publishing
+- [x] Correct production-build environment gating and revalidate the Omniland production build
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
