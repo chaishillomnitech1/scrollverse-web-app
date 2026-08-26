@@ -17,7 +17,7 @@ describe("Phase 647 — Individual Episode 38–40 protected references", () => 
     expect(episode38).toContain("The Sovereign Exchange Matrix");
     expect(episode39).toContain("The Hardened Perimeter Rings");
     expect(episode40).toContain("The Final Structural Scaling");
-    expect(episode38).toContain("No exchange, bank, allocation");
+    expect(episode38).toContain("Exchange, bank, allocation, market, product, account, balance, and financial actions each continue through their dedicated provider, owner, and release records");
     expect(episode39).toContain("No blockchain daemon");
     expect(episode40).toContain("No Nginx, WebSocket, TLS");
   });

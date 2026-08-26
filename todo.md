@@ -5901,6 +5901,10 @@
 - [x] Reframe Journey Co-Creation Archive around collaboration history, source context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the Journey Co-Creation Archive public-language update
 
+## Phase 832 — Exchange Narrative Presentation
+- [x] Reframe Exchange Narrative research and readiness materials around source context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Exchange Narrative public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
