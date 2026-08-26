@@ -5814,6 +5814,10 @@
 - [x] Reframe GitHub Showcase around creator work, source context, and reader-led discovery
 - [x] Add regression coverage and validate the GitHub Showcase public-language update
 
+## Phase 811 — Art Museum Presentation
+- [x] Reframe Art Museum around creator work, source context, and reader-led interpretation
+- [x] Add regression coverage and validate the Art Museum public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
