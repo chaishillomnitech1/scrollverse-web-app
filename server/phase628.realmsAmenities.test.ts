@@ -28,7 +28,7 @@ describe("Phase 628 — Realms + Amenities and Creator Registry", () => {
     expect(realms).toContain("does not identify a purchasable property");
     expect(registry).toContain("SOURCE + BRAND REGISTRY");
     expect(registry).toContain("EXACT ACTION RECORDS");
-    expect(registry).toContain("needs its own exact record");
+    expect(registry).toContain("continue through their own exact pathway");
   });
 
   it("publishes official research links and source-labeled claim candidates without asserting external outcomes", () => {
