@@ -17,12 +17,14 @@ describe("Phase 650 — Authenticity Frequency Brand Identity Record", () => {
     expect(page).toContain("origin-ark-studios-auri-signal-warden-logo_62a2af6b.png");
   });
 
-  it("registers the route and retains the original-concept and external-release boundaries", () => {
+  it("registers the route and retains the original-concept and dedicated release pathways", () => {
     const app = read("client/src/App.tsx");
     const brief = read("docs/phase650-authenticity-frequency-brand-brief.md");
     expect(app).toContain('import BrandIdentityRecord from "./pages/BrandIdentityRecord"');
     expect(app).toContain('<Route path={"/brand-identity-record"} component={BrandIdentityRecord} />');
     expect(brief).toContain("original browser-local **working identity**");
     expect(brief).toContain("Any external filing");
+    expect(read("client/src/pages/BrandIdentityRecord.tsx")).toContain("DEDICATED RELEASE PATH");
+    expect(read("client/src/pages/BrandIdentityRecord.tsx")).toContain("ready for their next record");
   });
 });

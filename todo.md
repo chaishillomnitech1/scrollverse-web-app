@@ -5853,6 +5853,10 @@
 - [x] Reframe Assistive Governance Desk around creator governance context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the Assistive Governance Desk public-language update
 
+## Phase 820 — Brand Identity Record Presentation
+- [x] Reframe Brand Identity Record around creator identity context, source trails, and reader-led pathways
+- [x] Add regression coverage and validate the Brand Identity Record public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
