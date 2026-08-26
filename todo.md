@@ -5840,6 +5840,11 @@
 - [x] Add a companion-facing Hear All guidance surface and regression coverage
 - [x] Validate and publish the Hear All companion engagement standard
 
+## Phase 817 — Equal-Footing Boundary Voice
+- [x] Extend Hear All guidance with articulate, behavior-focused boundary setting and a constructive return-to-collaboration path
+- [x] Preserve dignity by excluding humiliation, threats, and retaliatory escalation from companion responses
+- [x] Add regression coverage and validate the refined companion boundary voice
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
