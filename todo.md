@@ -5897,6 +5897,10 @@
 - [x] Reframe IP Security Readiness around creator readiness context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the IP Security Readiness public-language update
 
+## Phase 831 — Journey Co-Creation Archive Presentation
+- [x] Reframe Journey Co-Creation Archive around collaboration history, source context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Journey Co-Creation Archive public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

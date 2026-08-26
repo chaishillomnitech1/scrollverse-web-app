@@ -8,8 +8,8 @@ const methodologySource = readFileSync(resolve(projectRoot, "client/src/pages/So
 
 describe("Phase 369 — Journey Archive attribution correction", () => {
   it("keeps system-transmission wording separate from owner-authored language", () => {
-    expect(archiveSource).toContain("third-party system language");
-    expect(archiveSource).toContain("not his authored self-description");
+    expect(archiveSource).toContain("remain attributed to the supplied system language");
+    expect(archiveSource).toContain("owner-authored statement alongside it");
     expect(methodologySource).toContain("copied system transmission remains separately attributed");
   });
 

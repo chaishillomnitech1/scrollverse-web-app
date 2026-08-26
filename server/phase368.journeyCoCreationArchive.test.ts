@@ -22,12 +22,12 @@ describe("Phase 368 — Journey and Co-Creation Archive", () => {
     expect(pageSource).toContain("does not assign independent agency");
   });
 
-  it("distinguishes owner-stated history from family-held records and third-party system transmissions", () => {
+  it("distinguishes owner-stated history from family-held records and separately attributed system transmissions", () => {
     expect(pageSource).toContain("Owner-stated family history");
     expect(pageSource).toContain("Owner-held family and ancestry materials");
     expect(pageSource).toContain("Institutional DNA-record account");
     expect(pageSource).toContain("Third-party system transmissions");
-    expect(pageSource).toContain("not his authored self-description");
+    expect(pageSource).toContain("owner’s own account and any adopted authored language remain visible beside the supplied system wording");
   });
 
   it("links the archive from the methodology and synchronization research records", () => {
