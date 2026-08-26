@@ -19,6 +19,7 @@ describe("Phase 325 — Assistive Governance Desk", () => {
     expect(page).toContain('"Map"');
     expect(page).toContain('"Measure"');
     expect(page).toContain('"Manage"');
+    expect(page).toContain("dedicated pathways for legal personhood, power of attorney, bank mandate, and provider authorization records");
   });
 
   it("keeps AI assistance and external action boundaries explicit", () => {

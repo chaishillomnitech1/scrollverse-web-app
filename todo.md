@@ -5849,6 +5849,10 @@
 - [x] Reframe Artifact Evidence Blueprint around creator artifacts, source context, reader choice, and dedicated pathways
 - [x] Add regression coverage and validate the Artifact Evidence Blueprint public-language update
 
+## Phase 819 — Assistive Governance Desk Presentation
+- [x] Reframe Assistive Governance Desk around creator governance context, reader choice, and dedicated pathways
+- [x] Add regression coverage and validate the Assistive Governance Desk public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
