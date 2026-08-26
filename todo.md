@@ -5806,6 +5806,10 @@
 - [x] Reframe Evidence Standards around source quality, creator context, and reader-led review
 - [x] Add regression coverage and validate the Evidence Standards public-language update
 
+## Phase 809 — Public Portfolio Governance Presentation
+- [x] Reframe Public Portfolio Governance around creator portfolio context, source pathways, and reader-led review
+- [x] Add regression coverage and validate the Public Portfolio Governance public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 
