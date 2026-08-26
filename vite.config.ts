@@ -177,6 +177,23 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    target: "esnext",
+    minify: false,
+    cssMinify: false,
+    assetsInlineLimit: 0,
+    reportCompressedSize: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return;
+          if (id.includes("react") || id.includes("scheduler") || id.includes("wouter")) return "react-runtime";
+          if (id.includes("@tanstack") || id.includes("@trpc") || id.includes("superjson")) return "data-runtime";
+          if (id.includes("lucide-react") || id.includes("framer-motion") || id.includes("recharts")) return "ui-runtime";
+          if (id.includes("mermaid") || id.includes("streamdown") || id.includes("markdown")) return "content-runtime";
+          return "vendor";
+        },
+      },
+    },
   },
   server: {
     host: true,

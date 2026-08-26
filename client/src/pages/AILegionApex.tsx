@@ -8,7 +8,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { Streamdown } from "streamdown";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -259,7 +258,7 @@ function ChatPanel({ entity }: { entity: Entity }) {
               {msg.role === "assistant" && (
                 <div className="text-xs font-mono mb-2" style={{ color: entity.color }}>{entity.name}</div>
               )}
-              <Streamdown>{msg.content}</Streamdown>
+              <p className="whitespace-pre-wrap leading-relaxed">{msg.content}</p>
             </div>
           </div>
         ))}
@@ -413,7 +412,7 @@ function CouncilMode({ entities }: { entities: Entity[] }) {
           {responses.map((r) => (
             <div key={r.entityId} className="rounded-xl p-4" style={{ background: `${r.color}08`, border: `1px solid ${r.color}25` }}>
               <div className="text-xs font-mono mb-2" style={{ color: r.color }}>{r.entityName}</div>
-              <div className="text-sm text-white/80"><Streamdown>{r.reply}</Streamdown></div>
+              <p className="whitespace-pre-wrap text-sm leading-relaxed text-white/80">{r.reply}</p>
             </div>
           ))}
         </div>
@@ -499,7 +498,7 @@ function ApexAnalysisMode() {
                 <span>{tier} TIER</span>
                 <div className="flex-1 h-px" style={{ background: `${TIER_COLORS[tier]}30` }} />
               </div>
-              <div className="text-sm text-white/80"><Streamdown>{analysis}</Streamdown></div>
+              <p className="whitespace-pre-wrap text-sm leading-relaxed text-white/80">{analysis}</p>
             </div>
           ))}
         </div>

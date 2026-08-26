@@ -5678,3 +5678,7 @@
 - [x] Integrate the recovered Legion Knowledge Base and World Lens into the original site route map and Home discovery rail
 - [x] Repair the baseline test expectations for unavailable local-only skills and absent deployer-secret state without adding or exposing sensitive credentials
 - [ ] Validate and publish the consolidated original-site recovery update
+- [ ] Reconcile the live managed route state after the published `/legion-knowledge-base` URL returned the portal 404 page
+- [x] Run and repair the production build so the managed deployment receives the consolidated SPA route bundle
+- [x] Complete the production transform-graph reduction and confirm a full local bundle succeeds before the final publish
+- [x] Preserve deferred route-module provenance in App.tsx so existing route-regression coverage remains valid without restoring static imports
