@@ -5925,6 +5925,10 @@
 - [x] Reframe Creator Atlas around creator discovery, source context, and dedicated external pathways
 - [x] Add regression coverage and validate the Creator Atlas public-language update
 
+## Phase 838 — Connected Systems Map Presentation
+- [x] Reframe Connected Systems Map around creator systems, source trails, and dedicated external pathways
+- [x] Add regression coverage and validate the Connected Systems Map public-language update
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

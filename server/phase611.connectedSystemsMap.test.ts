@@ -26,7 +26,8 @@ describe("Phase 611 — Connected Systems Map", () => {
     const record = read("docs/phase611-connected-systems-source-map.md");
 
     expect(page).toContain("SOURCE-FIRST SYSTEMS PRINCIPLE");
-    expect(page).toContain("does not activate external systems");
+    expect(page).toContain("The map makes creator systems, source trails, and operating labels visible");
+    expect(page).toContain("dedicated operational pathway");
     expect(page).not.toContain("fetch(");
     expect(record).toContain("Current Browser-Local Systems Overview");
     expect(record).toContain("Creator-First Interpretation");
