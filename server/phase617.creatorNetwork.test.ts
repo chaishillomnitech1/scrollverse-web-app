@@ -19,8 +19,8 @@ describe("Phase 617 Creator Network", () => {
 
   it("keeps route handoffs source-labeled and browser-local", () => {
     expect(page).toContain("CROSS-PROMOTION · PUBLIC CHOICE");
-    expect(page).toContain("The network is a discovery map");
-    expect(page).toContain("does not connect an outside account");
+    expect(page).toContain("keeps its source context visible");
+    expect(page).toContain("dedicated connection pathways");
     expect(page).toContain("/crypto-artifact-lookbook");
     expect(page).toContain("/activation-dossier");
   });
