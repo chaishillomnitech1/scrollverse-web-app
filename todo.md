@@ -5696,8 +5696,8 @@
 - [x] Prepare a route-by-route activation matrix and identify any specific irreversible action requiring renewed confirmation
 
 ## Phase 783 — Confirmed Live-Payment Switch
-- [ ] Classify the supplied merge and payment-readiness scripts as non-executable reference material while preserving their stated checkout scope
-- [ ] Verify the payment settings path, product records, and customer-facing checkout terms before switching Stripe from test to live
+- [x] Classify the supplied merge and payment-readiness scripts as non-executable reference material while preserving their stated checkout scope
+- [x] Verify the payment settings path, product records, and customer-facing checkout terms before switching Stripe from test to live
 - [ ] Switch the provider from test to live only through the owner-controlled payment settings, then verify readiness without creating a customer charge
 - [ ] Enable only the confirmed book and SaferWay real-charge checkout families; retain separate exact-action gates for wallets, tokens, contracts, staking, exchange execution, and payouts
 - [ ] Verify that the owner-controlled payment panel reflects live mode before conducting a no-charge checkout readiness check
@@ -5740,12 +5740,12 @@
 - [x] Validate, publish, and verify the book artifact in the central library
 
 ## Phase 792 — Shared File Intake
-- [ ] Inspect the owner-supplied shared file and classify any assets, destinations, or research material for the central library
-- [ ] Integrate any appropriate source-labeled material into the central ScrollVerse experience
+- [x] Inspect the owner-supplied shared file and classify its Manual of Divine Upgrades book artifact for the central library
+- [x] Integrate the appropriate source-labeled book material into the central ScrollVerse experience
 
 ## Phase 793 — Manus Library Intake
-- [ ] Inspect the authenticated Manus Library for ScrollVerse-related assets, projects, and references
-- [ ] Classify reusable library entries by source and central-library fit before integration
+- [x] Inspect the authenticated Manus Library for ScrollVerse-related assets, projects, and references
+- [x] Classify reusable library entries by source and central-library fit before integration
 
 ## Phase 795 — Screen Recording Library Intake
 - [x] Analyze both owner-supplied screen recordings for visual, navigation, and provenance-safe central-library value
