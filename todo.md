@@ -6161,6 +6161,9 @@
 ## Phase 885 — Current Mobile Store-Readiness Packet
 - [x] Expand the owner-controlled Apple, Google Play, and Expo release packet with current privacy, accessibility, test, build, and submission decision fields without initiating any external action
 
+## Phase 886 — Source-Only Release-Gate Preflight
+- [x] Add a repeatable local preflight command that verifies the companion’s source-only identity, required routes, release-packet references, and absence of store-submission configuration
+
 ## Phase 880 — If/Then Release Decision Framework
 - [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
 - [x] Link the framework to the existing release-readiness and source-record pathways

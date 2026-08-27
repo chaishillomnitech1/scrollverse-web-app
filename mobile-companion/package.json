@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "preflight:release": "node ./scripts/release-preflight.mjs"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

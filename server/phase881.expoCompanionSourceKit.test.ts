@@ -9,6 +9,7 @@ describe("Phase 881 Expo companion source kit", () => {
   it("provides focused native routes and portal handoffs without hardcoding a store identity or submission flow", () => {
     const config = fs.readFileSync(path.join(root, "app.config.ts"), "utf8");
     const packageManifest = fs.readFileSync(path.join(root, "package.json"), "utf8");
+    const releasePreflight = fs.readFileSync(path.join(root, "scripts/release-preflight.mjs"), "utf8");
     const tabs = fs.readFileSync(path.join(root, "app/(tabs)/_layout.tsx"), "utf8");
     const portal = fs.readFileSync(path.join(root, "lib/portal.ts"), "utf8");
     const portalCard = fs.readFileSync(path.join(root, "components/PortalCard.tsx"), "utf8");
@@ -20,6 +21,7 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(config).not.toContain("package:");
     expect(packageManifest).toContain('"react-dom": "19.1.0"');
     expect(packageManifest).toContain('"react-native-web": "^0.21.0"');
+    expect(packageManifest).toContain('"preflight:release": "node ./scripts/release-preflight.mjs"');
     expect(tabs).toContain('name="index"');
     expect(tabs).toContain('name="omniland"');
     expect(tabs).toContain('name="mirror"');
@@ -46,5 +48,8 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(releasePacket).toContain("Final-release rule");
     expect(releasePacket).toContain("App privacy details on the App Store");
     expect(releasePacket).not.toContain("eas submit --platform");
+    expect(releasePreflight).toContain("source-only release-gate preflight");
+    expect(releasePreflight).toContain("Store-bound iOS and Android identifiers are absent");
+    expect(releasePreflight).toContain("No EAS submission profile is configured");
   });
 });

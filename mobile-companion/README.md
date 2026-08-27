@@ -18,6 +18,8 @@ Use `pnpm android`, `pnpm ios`, or `pnpm web` for target development. Before add
 
 The source kit has been type-checked and exported for Android and web runtimes. Those exports verify the navigable source package only; they do not create a signed mobile binary, a public companion website, or a store release.
 
+Before any owner-directed release discussion, run `pnpm preflight:release`. It confirms the current source-only identity, five registered tabs, first-party portal origin, owner release-packet references, and absence of an EAS submission profile. A passing preflight does not authorize an external account action, signing, upload, or submission.
+
 ## Store-release gate
 
 Before a store-bound binary is configured, the owner must select exact identifiers, store account/organization, final metadata, approved icon/screenshots, support URL, privacy-policy URL, native data inventory, permissions, testing approach, target regions, and final release decision. See `../docs/scrollverse-app-store-owner-packet.md`.
