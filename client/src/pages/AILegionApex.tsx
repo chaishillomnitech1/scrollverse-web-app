@@ -577,6 +577,11 @@ export default function AILegionApex() {
           </p>
         </div>
 
+        <div className="mb-10 grid gap-4 rounded-[1.7rem] border border-[#FFCC4D]/35 bg-[linear-gradient(110deg,rgba(255,204,77,.10),rgba(185,140,255,.08),rgba(0,212,255,.07))] p-6 md:grid-cols-[1fr_auto] md:items-center">
+          <div><p className="text-[10px] font-mono tracking-[.17em] text-[#FFE09A]">CREATOR-CONTEXT HANDOFF</p><h2 className="mt-2 text-2xl font-black text-white">Chais Sabir Allah Mirror</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[#D6E2EE]">Open the creator-authored Digital Twin profile for direct first-party conversation, source navigation, and practical collaboration pathways.</p></div>
+          <div className="flex flex-wrap gap-3"><Link href="/chais-sabir-allah-mirror" className="rounded-xl bg-[#FFCC4D] px-5 py-3 text-sm font-black text-[#07101D]">Open Mirror profile →</Link><Link href="/ai-twin" className="rounded-xl border border-[#00D4FF]/50 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#BFEFFF]">Speak with Mirror →</Link></div>
+        </div>
+
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[

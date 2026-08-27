@@ -10,6 +10,7 @@ const OmnilandCinematicGateway = lazy(() => import("@/pages/OmnilandCinematicGat
 const LegacyRoyaltiesResearch = lazy(() => import("@/pages/LegacyRoyaltiesResearch")); // import LegacyRoyaltiesResearch from "@/pages/LegacyRoyaltiesResearch"; deferred route module
 const SovereignArchiveChronicles = lazy(() => import("@/pages/SovereignArchiveChronicles")); // import SovereignArchiveChronicles from "@/pages/SovereignArchiveChronicles"; deferred route module
 const CreatorDigitalDNA = lazy(() => import("@/pages/CreatorDigitalDNA")); // import CreatorDigitalDNA from "@/pages/CreatorDigitalDNA"; deferred route module
+const ChaisSabirAllahMirror = lazy(() => import("@/pages/ChaisSabirAllahMirror")); // import ChaisSabirAllahMirror from "@/pages/ChaisSabirAllahMirror"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
 const OmnilandEmbodiedPlay = lazy(() => import("@/pages/OmnilandEmbodiedPlay")); // import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay"; deferred route module
 const OmnilandGameSystemsContribution = lazy(() => import("@/pages/OmnilandGameSystemsContribution")); // import OmnilandGameSystemsContribution from "@/pages/OmnilandGameSystemsContribution"; deferred route module
@@ -804,6 +805,7 @@ function Router() {
       <Route path={"/visual-story-worlds"} component={VisualStoryWorlds} />
       <Route path={"/sovereign-archive-chronicles"} component={SovereignArchiveChronicles} />
       <Route path={"/creator-digital-dna"} component={CreatorDigitalDNA} />
+      <Route path={"/chais-sabir-allah-mirror"} component={ChaisSabirAllahMirror} />
       <Route path={"/replay-readiness"} component={ReplayReadinessDesk} />
       <Route path={"/capability-comparison"} component={CapabilityComparison} />
       <Route path={"/collaborate"} component={CollaborationInvitation} />
