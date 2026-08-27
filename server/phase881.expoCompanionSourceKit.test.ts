@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "../mobile-companion");
+const docsRoot = path.resolve(import.meta.dirname, "../docs");
 
 describe("Phase 881 Expo companion source kit", () => {
   it("provides focused native routes and portal handoffs without hardcoding a store identity or submission flow", () => {
@@ -13,6 +14,7 @@ describe("Phase 881 Expo companion source kit", () => {
     const portalCard = fs.readFileSync(path.join(root, "components/PortalCard.tsx"), "utf8");
     const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
     const qaChecklist = fs.readFileSync(path.join(root, "QA-CHECKLIST.md"), "utf8");
+    const releasePacket = fs.readFileSync(path.join(docsRoot, "scrollverse-app-store-owner-packet.md"), "utf8");
     expect(config).toContain('slug: "scrollverse-mobile-companion"');
     expect(config).not.toContain("bundleIdentifier:");
     expect(config).not.toContain("package:");
@@ -39,5 +41,10 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(qaChecklist).toContain("Screen-reader labels");
     expect(qaChecklist).toContain("Release boundary");
     expect(qaChecklist).not.toContain("Apple Developer account password");
+    expect(releasePacket).toContain("Current source-kit baseline");
+    expect(releasePacket).toContain("Do not prefill “no data collected.”");
+    expect(releasePacket).toContain("Final-release rule");
+    expect(releasePacket).toContain("App privacy details on the App Store");
+    expect(releasePacket).not.toContain("eas submit --platform");
   });
 });

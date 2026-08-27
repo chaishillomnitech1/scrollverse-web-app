@@ -31,4 +31,4 @@ A separate source-only Expo companion kit is now present under `mobile-companion
 | Signed build and testing | Android and web runtime bundles exported; no signed mobile binary or testing-track build | Exact Expo/EAS or alternative build decision, credentials/signing approach, testing group, and release target |
 | Store submission | Not initiated | Final review of the complete owner submission packet and explicit confirmation at the time of upload/submission |
 
-The next safe build step is to move the source-only kit into an owner-selected companion-app repository or dedicated project location, then define the package identities and signed-build approach. The live website remains independent and available throughout that work.
+The owner packet now includes current official privacy, test-distribution, accessibility, final-binary, and store-decision fields. The next safe build step is to move the source-only kit into an owner-selected companion-app repository or dedicated project location, then define the package identities and signed-build approach. The live website remains independent and available throughout that work.

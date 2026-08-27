@@ -6158,6 +6158,9 @@
 ## Phase 884 — Cross-Platform Companion Source Validation
 - [x] Add the Expo web-runtime dependencies and record successful Android and web source-bundle exports without creating a signed or store-bound build
 
+## Phase 885 — Current Mobile Store-Readiness Packet
+- [x] Expand the owner-controlled Apple, Google Play, and Expo release packet with current privacy, accessibility, test, build, and submission decision fields without initiating any external action
+
 ## Phase 880 — If/Then Release Decision Framework
 - [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
 - [x] Link the framework to the existing release-readiness and source-record pathways
