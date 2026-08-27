@@ -9,6 +9,7 @@ describe("Phase 881 Expo companion source kit", () => {
     const config = fs.readFileSync(path.join(root, "app.config.ts"), "utf8");
     const tabs = fs.readFileSync(path.join(root, "app/(tabs)/_layout.tsx"), "utf8");
     const portal = fs.readFileSync(path.join(root, "lib/portal.ts"), "utf8");
+    const portalCard = fs.readFileSync(path.join(root, "components/PortalCard.tsx"), "utf8");
     const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
     const qaChecklist = fs.readFileSync(path.join(root, "QA-CHECKLIST.md"), "utf8");
     expect(config).toContain('slug: "scrollverse-mobile-companion"');
@@ -22,6 +23,11 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(portal).toContain('PORTAL_ORIGIN = "https://scrollverse.co"');
     expect(portal).toContain('mirror: "/chais-sabir-allah-mirror"');
     expect(portal).toContain('create: "/episode-brief-builder"');
+    expect(portal).toContain("Linking.canOpenURL(destination)");
+    expect(portalCard).toContain('accessibilityRole="link"');
+    expect(portalCard).toContain("accessibilityHint={hint}");
+    expect(portalCard).toContain("Path unavailable — try again");
+    expect(portalCard).not.toContain("expo-haptics");
     expect(readme).toContain("does **not** contain a store-bound iOS bundle identifier");
     expect(readme).toContain("Store-release gate");
     expect(readme).toContain("Owner-local device QA");

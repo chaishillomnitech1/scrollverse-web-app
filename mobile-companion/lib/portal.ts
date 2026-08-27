@@ -15,6 +15,13 @@ export const PORTAL_PATHS = {
 } as const;
 
 export async function openPortal(path: (typeof PORTAL_PATHS)[keyof typeof PORTAL_PATHS]) {
+  const destination = `${PORTAL_ORIGIN}${path}`;
+  const canOpen = await Linking.canOpenURL(destination);
+
+  if (!canOpen) {
+    throw new Error("This ScrollVerse destination cannot be opened on this device.");
+  }
+
   await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-  await Linking.openURL(`${PORTAL_ORIGIN}${path}`);
+  await Linking.openURL(destination);
 }

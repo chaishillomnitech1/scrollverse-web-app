@@ -6152,6 +6152,9 @@
 - [x] Add a device and simulator QA checklist for native route behavior, accessibility, safe areas, source language, and observed-issue capture
 - [x] Keep the QA checklist separate from store identity, signing, upload, and submission decisions
 
+## Phase 883 — Accessible Native Portal Handoffs
+- [x] Refine the shared native portal-card interaction so haptic feedback is singular, link intent is announced clearly, and an unavailable handoff is communicated without inventing a destination result
+
 ## Phase 880 — If/Then Release Decision Framework
 - [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
 - [x] Link the framework to the existing release-readiness and source-record pathways
