@@ -6117,6 +6117,11 @@
 ## Phase 875 — Current-State Implementation Update
 - [x] Compile the latest live portal, recent releases, source-record progress, validation evidence, and remaining owner-controlled gates into a concise current-state update
 
+## Phase 876 — Original Visual Episode Intake Packet
+- [x] Inventory existing original episode, storyboard, character, and visual-world source records
+- [x] Prepare a no-action production intake and release-gate packet covering narrative, duration, aspect ratio, style, rights, sound, accessibility, and release destination
+- [ ] Await one complete confirmed production brief before generating reference images, video, narration, music, or release assets
+
 ## Phase 872 — Owner-Observation Record
 - [x] Accession owner-provided local-condition observations with a source date, context, and authorized-display status
 - [x] Keep personal observations, public measurement sources, and reader interpretation distinct in any public presentation
