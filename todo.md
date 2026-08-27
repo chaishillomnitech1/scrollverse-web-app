@@ -6122,6 +6122,12 @@
 - [x] Prepare a no-action production intake and release-gate packet covering narrative, duration, aspect ratio, style, rights, sound, accessibility, and release destination
 - [ ] Await one complete confirmed production brief before generating reference images, video, narration, music, or release assets
 
+## Phase 877 — Browser-Local Episode Brief Builder
+- [x] Build a browser-local form that structures an original visual-episode production brief without generating or publishing media
+- [x] Show live completion and release-gate status across narrative, visual, sound, rights, accessibility, and destination fields
+- [x] Add a local JSON export and direct first-party returns to the Cinematic Gateway, Sovereign Archive, and production intake record
+- [x] Add focused regression coverage, validate, and publish the episode brief builder
+
 ## Phase 872 — Owner-Observation Record
 - [x] Accession owner-provided local-condition observations with a source date, context, and authorized-display status
 - [x] Keep personal observations, public measurement sources, and reader interpretation distinct in any public presentation

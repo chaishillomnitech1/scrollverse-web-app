@@ -11,6 +11,7 @@ const LegacyRoyaltiesResearch = lazy(() => import("@/pages/LegacyRoyaltiesResear
 const SovereignArchiveChronicles = lazy(() => import("@/pages/SovereignArchiveChronicles")); // import SovereignArchiveChronicles from "@/pages/SovereignArchiveChronicles"; deferred route module
 const CreatorDigitalDNA = lazy(() => import("@/pages/CreatorDigitalDNA")); // import CreatorDigitalDNA from "@/pages/CreatorDigitalDNA"; deferred route module
 const ChaisSabirAllahMirror = lazy(() => import("@/pages/ChaisSabirAllahMirror")); // import ChaisSabirAllahMirror from "@/pages/ChaisSabirAllahMirror"; deferred route module
+const EpisodeBriefBuilder = lazy(() => import("@/pages/EpisodeBriefBuilder")); // import EpisodeBriefBuilder from "@/pages/EpisodeBriefBuilder"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
 const OmnilandEmbodiedPlay = lazy(() => import("@/pages/OmnilandEmbodiedPlay")); // import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay"; deferred route module
 const OmnilandGameSystemsContribution = lazy(() => import("@/pages/OmnilandGameSystemsContribution")); // import OmnilandGameSystemsContribution from "@/pages/OmnilandGameSystemsContribution"; deferred route module
@@ -967,6 +968,7 @@ function Router() {
         <Route path="/fashion-artifact-atlas" component={FashionArtifactAtlas} />
         <Route path="/fashion-lookbook-experience" component={FashionLookbookExperience} />
         <Route path="/episode-experience" component={EpisodeExperience} />
+        <Route path="/episode-brief-builder" component={EpisodeBriefBuilder} />
         <Route path="/legion-specialist-profiles" component={LegionSpecialistProfiles} />
         <Route path="/commons" component={ConvergenceCommons} />
         <Route path="/signalworks" component={Signalworks} />
