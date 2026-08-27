@@ -19,3 +19,7 @@ Use `pnpm android`, `pnpm ios`, or `pnpm web` for target development. Before add
 ## Store-release gate
 
 Before a store-bound binary is configured, the owner must select exact identifiers, store account/organization, final metadata, approved icon/screenshots, support URL, privacy-policy URL, native data inventory, permissions, testing approach, target regions, and final release decision. See `../docs/scrollverse-app-store-owner-packet.md`.
+
+## Owner-local device QA
+
+Use [QA-CHECKLIST.md](./QA-CHECKLIST.md) to record a device or simulator review of the source kit before any store-bound work. It covers the five native paths, first-party handoffs, readability, safe areas, accessibility labels, and source-status language without creating a store account or changing a release state.

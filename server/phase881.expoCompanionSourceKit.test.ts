@@ -10,6 +10,7 @@ describe("Phase 881 Expo companion source kit", () => {
     const tabs = fs.readFileSync(path.join(root, "app/(tabs)/_layout.tsx"), "utf8");
     const portal = fs.readFileSync(path.join(root, "lib/portal.ts"), "utf8");
     const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
+    const qaChecklist = fs.readFileSync(path.join(root, "QA-CHECKLIST.md"), "utf8");
     expect(config).toContain('slug: "scrollverse-mobile-companion"');
     expect(config).not.toContain("bundleIdentifier:");
     expect(config).not.toContain("package:");
@@ -23,5 +24,10 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(portal).toContain('create: "/episode-brief-builder"');
     expect(readme).toContain("does **not** contain a store-bound iOS bundle identifier");
     expect(readme).toContain("Store-release gate");
+    expect(readme).toContain("Owner-local device QA");
+    expect(qaChecklist).toContain("ScrollVerse Mobile Companion — Owner-Local QA Checklist");
+    expect(qaChecklist).toContain("Screen-reader labels");
+    expect(qaChecklist).toContain("Release boundary");
+    expect(qaChecklist).not.toContain("Apple Developer account password");
   });
 });
