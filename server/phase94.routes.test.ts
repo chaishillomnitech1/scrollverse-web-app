@@ -1492,7 +1492,7 @@ describe("Phase 94 route map", () => {
     const sources = readProjectFile("docs/phase789-central-library-sources.md");
     expect(home).toContain("function LiveDestinationShowcase()");
     expect(home).toContain("https://globalmap.scrollverse.co");
-    expect(home).toContain("https://scrollverse-gjhhowxn.manus.space");
+    expect(home).toContain("https://scrollport-nen7uujp.manus.space");
     expect(home).toContain("https://scrollshop-vxg9x8ac.manus.space");
     expect(home).toContain("https://sovereignhub-mo62pcrx.manus.space/");
     expect(home).toContain('href: "/game-worlds-studio"');

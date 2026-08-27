@@ -68,5 +68,16 @@ The supplied dashboard view indicates that China had 14 more displayed visitors 
 ## Omnitech Destination Review
 
 | Source | Review date | Visible state | Portal treatment |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | `https://omnitech-mwws68ge.manus.space` | August 27, 2026 | The destination resolved to a platform page stating that the site is blocked and access is restricted. No creator content or route information was available for review. | Retained as an unavailable owner-provided source lead. It is not linked as a visible discovery destination until the underlying page is accessible and can be accurately classified. |
+
+## Creator Destination Review — Scrollport, Scrollshop, ScrollVerse, and Global Map
+
+| Source | Review date | Current visible context | Classification |
+| --- | --- | --- | --- |
+| `https://scrollport-nen7uujp.manus.space` | August 27, 2026 | Public ScrollVerse Trinity / Sovereign Portal presentation with six sector paths for markets, creator economy, intelligence, culture/archive, Guardian access, and merchant access. The page itself labels its token contract as pending/address unverified. | **Available source-labeled discovery link.** Public presentation context only; displayed portal statistics, token, merchant, account, or operational statements are not imported as current ScrollVerse facts. |
+| `https://scrollshop-vxg9x8ac.manus.space` | August 27, 2026 | Public ScrollVerse Lookbook with three visual chapters, three Fashion Empire concept records, source threads, and first-party ScrollVerse routes. The page describes the visual objects as concept records. | **Available source-labeled discovery link.** Suitable for visible lookbook discovery; no item is treated as inventory, a listing, checkout, price, fulfillment promise, or current commerce state. |
+| `https://scrollverse-gjhhowxn.manus.space` | August 27, 2026 | The accessible page returned an unexpected WebGL-not-supported error from an AccordGatePrototype route. No usable creator page content appeared in the accessible view. | **Unavailable source lead.** Do not add a public discovery link until the destination offers an accessible, reviewable fallback or current public page. |
+| `https://globalmap.scrollverse.co` | August 27, 2026 | Public Global Map interface that expressly labels its high-level geography and regional counts as presentation-baseline/static prototype data. It includes original Omniland concept art, motion/comic/game/looks concept boards, a local browser-state Relay Room, and a read-only World Bank population-indicator metadata route. | **Available source-labeled discovery link.** Appropriate as a Global Map / creative-intelligence presentation. Static planning figures, concept lookbook material, external data availability, commerce, payments, domains, wallets, contracts, and operations remain governed by the page’s stated gates. |
+
+The Scrollport, Scrollshop, and Global Map pages can be surfaced as current external source destinations because they resolve publicly and express their own scope. The legacy ScrollVerse destination is preserved as a lead only because the present WebGL error prevented a reliable review. None of these links changes the active ScrollVerse portal’s financial, account, product, provider, commerce, or operational state.

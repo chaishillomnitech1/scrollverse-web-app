@@ -6043,8 +6043,8 @@
 - [x] Preserve external integrations as separate, owner-controlled continuation paths
 
 ## Phase 859 — Configured-Service Boundary Review
-- [ ] Inventory configured project services relevant to first-party portal features without exposing secret values
-- [ ] Confirm that any future external integration, account, payment, token, domain, contract, or provider action has exact owner-controlled scope and current verified status
+- [x] Inventory configured project services relevant to first-party portal features without exposing secret values
+- [x] Confirm that any future external integration, account, payment, token, domain, contract, or provider action has exact owner-controlled scope and current verified status
 
 ## Phase 860 — Mirror Blueprint Repository Record
 - [x] Define the first-party Mirror Blueprint Repository Record’s purpose, source fields, owner-control model, and practical collaboration boundaries
@@ -6072,6 +6072,54 @@
 ## Phase 864 — Omnitech Source Review
 - [x] Review `https://omnitech-mwws68ge.manus.space` for visible creator context, route scope, and suitable source-labeled discovery paths
 - [ ] Add a source-record entry or first-party link only after confirming a compatible visible destination and current operating state
+
+## Phase 865 — Attached Royalty Task Source Review
+- [x] Retrieve the visible conversation, files, and project context from the attached *Transforming Blockchain Royalties into Global Wealth* task
+- [x] Classify its deliverables, source links, and historical task context for first-party creator-record use
+- [x] Add only approved source-led discovery links; retain financial, royalty, wallet, token, contract, and provider actions as separate exact-action records
+
+## Phase 866 — Creator Destination Source Review
+- [x] Review the supplied Scrollport, Scrollshop, ScrollVerse, and Global Map destinations for current visible creator context and public route scope
+- [x] Classify each destination as available, unavailable, source-only, or suitable for an explicitly labeled discovery entry
+- [x] Add only current, compatible, source-labeled destination links to the Connected Source Registry and relevant first-party paths
+- [x] Reconcile the reviewed destinations into a coordinated central record without duplicating stale or unavailable routes
+
+## Phase 867 — Meta AI Lookbook Source Review
+- [x] Inventory the owner-provided Meta AI lookbook references and public destinations available in the current record
+- [x] Classify the lookbooks for visible source context, asset provenance, public-display readiness, and commerce-state limitations
+- [x] Add prominent source-labeled lookbook discovery paths without representing inventory, checkout, product availability, or marketplace status as verified unless a current provider record supports it
+
+## Phase 868 — Original Episode Production Pathway
+- [x] Inventory existing first-party episode, storyboard, film, animation, comic, game, archive, and visual-world routes
+- [x] Add a prominent original-production pathway that connects source-ready concept records without asserting a public media release
+- [x] Preserve separate owner-controlled records for masters, contributors, music, performance, distribution, accessibility, platform publishing, and release approval
+
+## Phase 869 — Visual Signal Front-and-Center
+- [x] Inventory current motion-ready, visual-story, comic, animation, game, archive, and lookbook concept routes
+- [x] Add a high-visibility first-party Visual Signal module using original visuals and source-labeled concept paths
+- [x] Keep advertising, paid promotion, social posting, and public media releases separate from the browser-local discovery experience
+- [x] Add focused regression coverage, validate, and publish the Visual Signal module
+- [x] Add responsive first-party frequency selection and visual pulse feedback without implying therapeutic, technical, or external-system effects
+
+## Phase 870 — Public World-Observation Path
+- [x] Inventory existing first-party world, map, research, and public observation routes relevant to the Mirror
+- [x] Add source-led public world-observation discovery without implying satellite, device, hardware, surveillance, or external-system access
+
+## Phase 873 — First-Party Map Discovery
+- [x] Add the existing ScrollVerse map as a visible first-party handoff from the Visual Signal and Mirror discovery pathways
+- [x] Verify the map route and preserve its own public source and interaction boundaries
+
+## Phase 874 — Integrated Discovery Coordination
+- [x] Reconcile the active Visual Signal, Creator Digital DNA, Mirror, map, and source-record handoffs into one coherent first-party journey
+- [x] Verify that each coordinated interaction is live, accessible, and accurately labeled before publication
+
+## Phase 872 — Owner-Observation Record
+- [x] Accession owner-provided local-condition observations with a source date, context, and authorized-display status
+- [x] Keep personal observations, public measurement sources, and reader interpretation distinct in any public presentation
+
+## Phase 871 — Source-Aware Interaction Validation
+- [x] Verify that every new Visual Signal control leads to a registered first-party route or clearly labeled external source
+- [x] Preserve original creative context while using tests and visual review to confirm interactions behave as designed
 
 ## Phase 858 — Source-Labeled Audience Observation
 - [x] Accession the supplied portal analytics snapshot with its displayed visitor counts and source context

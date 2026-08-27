@@ -10,7 +10,7 @@ describe("Phase 714 — Central Source Registry Synchronization", () => {
     expect(page).toContain("Manus-Origin Historical Reference");
     expect(page).toContain("SRC-020");
     expect(page).toContain("Ω.267 Master Shoppable Meta Hub");
-    expect(page).toContain("22 SOURCE RECORDS");
+    expect(page).toContain("{SOURCES.length} SOURCE RECORDS");
   });
 
   it("provides direct internal recovery-gate handoffs without converting them into public sources", () => {

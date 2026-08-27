@@ -11,6 +11,6 @@ describe("Phase 844 — Front-and-Center Omniland Discovery", () => {
     expect(home).toContain("The worlds are");
     expect(home).toContain('href="/omniland-cinematic-gateway"');
     expect(home).toContain('href: "/omniland-source-atlas"');
-    expect(home).toContain("<OmnilandFrontCenter />\n      <CreatorDigitalDNABeacon />\n      <FeaturedSovereignArchiveVideo />\n      <ManusHeroWelcome />");
+    expect(home).toContain("<OmnilandFrontCenter />\n      <CreatorDigitalDNABeacon />\n      <LookbookConstellationFrontCenter />\n      <VisualSignalFrontCenter />\n      <FeaturedSovereignArchiveVideo />\n      <ManusHeroWelcome />");
   });
 });
