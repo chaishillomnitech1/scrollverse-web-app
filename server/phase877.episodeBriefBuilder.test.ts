@@ -7,6 +7,7 @@ describe("Phase 877 browser-local episode brief builder", () => {
     const page = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/EpisodeBriefBuilder.tsx"), "utf8");
     const app = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/App.tsx"), "utf8");
     const episodes = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/EpisodeExperience.tsx"), "utf8");
+    const home = fs.readFileSync(path.resolve(import.meta.dirname, "../client/src/pages/Home.tsx"), "utf8");
     expect(page).toContain("ORIGINAL EPISODE WORKBENCH");
     expect(page).toContain("BROWSER-LOCAL · NO MEDIA ACTION");
     expect(page).toContain("Export local JSON");
@@ -16,5 +17,8 @@ describe("Phase 877 browser-local episode brief builder", () => {
     expect(page).toContain('href="/sovereign-archive-chronicles"');
     expect(app).toContain('path="/episode-brief-builder"');
     expect(episodes).toContain('href="/episode-brief-builder"');
+    expect(home).toContain('id="production-workbench-beacon"');
+    expect(home).toContain("Open Episode Brief Builder");
+    expect(home).toContain('href="/episode-brief-builder"');
   });
 });

@@ -6128,6 +6128,10 @@
 - [x] Add a local JSON export and direct first-party returns to the Cinematic Gateway, Sovereign Archive, and production intake record
 - [x] Add focused regression coverage, validate, and publish the episode brief builder
 
+## Phase 878 — Visual Signal Production Workbench Entry
+- [x] Add a clear Episode Brief Builder entry to the homepage Visual Signal module
+- [x] Preserve the builder’s browser-local preparation scope and test the front-page handoff
+
 ## Phase 872 — Owner-Observation Record
 - [x] Accession owner-provided local-condition observations with a source date, context, and authorized-display status
 - [x] Keep personal observations, public measurement sources, and reader interpretation distinct in any public presentation
