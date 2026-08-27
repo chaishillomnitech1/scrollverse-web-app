@@ -1,0 +1,74 @@
+Starting video analysis...
+Submitting video analysis task...
+Task submitted (ID: video-analysis-c1455df1-32c0-4e93-98d9-bd0cffa065de)
+[8s] Status: Analyzing video content with AI...
+[33s] Still processing, please wait...
+[1m1s] Status: Analysis completed
+[1m1s] Analysis completed!
+Full analysis result saved to: /home/ubuntu/video_ScreenRecording_08-27-202608-09-11_1_analysis_20260827_121823.md
+Note: This tool performs AI-based visual and audio analysis, not verbatim transcription. For detailed speech transcription, use `manus-speech-to-text` instead.
+Analysis result:
+
+Here is a structured extraction of the visible page titles, navigation labels, story-world concepts, and structural text elements from the video, suitable for rebuilding the source page:
+
+**Top Navigation Labels**
+*   Pilot
+*   Comic
+*   Ledger
+
+**Main Title & Introduction Section**
+*   **Header:** AN ORIGINAL SCROLLVERSE STORY WORLD
+*   **Title:** The Sovereign Archive Chronicles.
+*   **Story Concept/Description:** A city can lose its stories long before it loses its lights. Enter a creator-owned Afrofuturist world where memory is held in common—and repair remains possible.
+*   **Action Buttons:** WATCH THE PILOT, READ ISSUE ZERO
+
+**Moving Record Section**
+*   **Sub-header:** SEASON ONE
+*   **Title:** The Memory Commons
+*   **Sub-header:** MOVING RECORD - 01
+*   **Title:** The Sovereign Archive
+*   **Format Labels:** 60 SECONDS · ENGLISH · VERTICAL PILOT
+*   **Video Player Labels:** ORIGINAL VISUAL PILOT, V 0.1.0
+*   **Quote/Concept:** “A record is not merely data. It is context, credit, memory, and a route back.”
+*   **Story Concept/Description:** When neighborhoods begin to vanish from the public record, Curtis, Aria, Jaxson, and S.O.P.H.I.A. open a path toward repair.
+*   **Metadata Structure:**
+    *   FORMAT: 2D / 3D hybrid animation
+    *   STATUS: Preview record
+    *   SOUND: Original score + narration
+
+**Sequential Record Section**
+*   **Sub-header:** SEQUENTIAL RECORD - ISSUE ZERO
+*   **Title:** Six pages, one signal.
+*   **Story Concept/Description:** Swipe through the origin record of Asha Meridian. Each page is a silent fragment from the custody trail: loss, witness, repair, return.
+*   **Label:** CUSTODY NOTE - PUBLIC PREVIEW
+*   **Carousel Structure & Captions:**
+    *   01 / 06: The city forgets.
+    *   02 / 06: Curtis detects the break.
+    *   03 / 06: The team hears the signal.
+    *   04 / 06: The Null Chorus arrives.
+    *   05 / 06: The Archive opens.
+    *   06 / 06: An open map returns.
+
+**World Ledger Section**
+*   **Sub-header:** WORLD LEDGER
+*   **Title:** The archive remembers who gave every story life.
+*   **Story Concept/Description:** These records preserve authorship, community memory, and a route to repair. The story world opens through animation, comics, cinematic shorts, and future episodes.
+*   **Tags/Labels:** CREATOR-OWNED, ORIGINAL IP, PREVIEW STAGING
+
+**Season Trajectory Section**
+*   **Sub-header:** SEASON ONE TRAJECTORY
+*   **Label:** LEDGER 01
+*   **Episode/Chapter List:**
+    *   01 — The Sovereign Archive
+    *   02 — Echoes Have Owners
+    *   03 — The Repair Route
+    *   04 — The Consent Engine
+    *   05 — A Map of Our Names
+    *   06 — The Long Signal
+    *   07 — Open Gate, Closed Loop
+    *   08 — The Walking Proof
+
+**Footer/Bottom Labels**
+*   SCROLLVERSE - THE SOVEREIGN ARCHIVE
+*   PREVIEW RECORD - NO EXTERNAL RELEASE
+*   ACTION TAKEN

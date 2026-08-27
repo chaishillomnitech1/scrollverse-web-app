@@ -5966,6 +5966,28 @@
 - [x] Add high-contrast visual entry points with clear first-party destination labels
 - [x] Add regression coverage and validate the front-and-center discovery experience before publishing
 
+## Phase 845 — Sovereign Archive Chronicles Restoration
+- [x] Review the original Sovereign Archive, Scrollport, ScrollShop, ScrollMap, and ScrollNexus source destinations plus owner-provided media context
+- [x] Create a source-led Sovereign Archive Chronicles restoration with direct original-source pathways
+- [x] Feature the selected YouTube video in the central ScrollVerse media highlight area
+- [x] Add first-party routes and regression coverage for the restored Chronicles pathway
+- [x] Validate and publish the Sovereign Archive restoration and video feature
+
+## Phase 846 — Motion-Ready Sovereign Archive Story World
+- [x] Create original motion-ready visual scenes for the Sovereign Archive Chronicles story world
+- [x] Add interactive creator-and-Londyn story-world concept pathways without representing external media release
+- [x] Add a cinematic scene selector and clearer game-world handoffs in the restored Chronicles experience
+- [x] Add regression coverage and validate the motion-ready Chronicles enhancement before publishing
+
+## Phase 847 — Black Atlantic City Interactive Showcase
+- [x] Define the original fictional Black Atlantic City story, game-system, movie, and series showcase structure
+- [x] Create original Black Atlantic City concept visuals with no real-person likeness or external media reuse
+- [x] Add an original creator avatar and Thoth Hawk as recurring fictional story-world characters
+- [x] Center Chais Sabir Allah as a creator-origin figure and add the symbolic story-world reset arc
+- [x] Add interactive scene selection and first-party film, story, game, and source-atlas handoffs
+- [x] Promote the Black Atlantic City showcase from the central ScrollVerse home page
+- [x] Add regression coverage and validate the showcase before publishing
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

@@ -1103,6 +1103,12 @@ const LIVE_SCROLLVERSE_DESTINATIONS = [
 
 const SYNCHRONIZATION_MEDIA_REFERENCES = [
   {
+    label: "Featured YouTube signal",
+    title: "Creator-selected ScrollVerse video highlight",
+    source: "Owner-supplied public YouTube source · opens on YouTube",
+    href: "https://www.youtube.com/watch?v=SqK0RJTobNI",
+  },
+  {
     label: "YouTube reference 01",
     title: "Chosen One, Even Gods Are Saying Please Don't Turn Into That",
     source: "Chosen Elite · owner-supplied public YouTube reference",
@@ -1115,6 +1121,10 @@ const SYNCHRONIZATION_MEDIA_REFERENCES = [
     href: "https://www.youtube.com/watch?v=7626czz4LWs",
   },
 ] as const;
+
+function FeaturedSovereignArchiveVideo() {
+  return <section id="featured-scrollverse-video" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.32)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.15), transparent 30%), radial-gradient(circle at 88% 76%, rgba(0,212,255,.14), transparent 30%), #071124" }}><div className="container py-14"><div className="grid gap-8 xl:grid-cols-[.9fr_1.1fr] xl:items-center"><div><p className="text-xs font-mono tracking-[.18em]" style={{ color: "#FFE09A" }}>FEATURED SCROLLVERSE VIDEO</p><h2 className="mt-3 text-4xl font-black leading-tight text-white">A signal from<br/><span style={{ color: "#FFE09A" }}>Black Atlantic City.</span></h2><p className="mt-5 max-w-xl text-sm leading-7" style={{ color: "#D6E2EE" }}>A creator-selected public YouTube source, featured beside the restored Sovereign Archive Chronicles and the original fictional Black Atlantic City concept world. The video plays from YouTube; its channel, title, availability, and account context remain with the source platform.</p><div className="mt-7 flex flex-wrap gap-3"><a href="https://www.youtube.com/watch?v=SqK0RJTobNI" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#FFCC4D", color: "#07101D" }}>Watch on YouTube <span>↗</span></a><Link href="/sovereign-archive-chronicles#black-atlantic-city" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black text-white transition hover:border-[#00D4FF]" style={{ borderColor: "rgba(0,212,255,.55)", background: "rgba(0,212,255,.08)" }}>Enter Black Atlantic City <span>→</span></Link></div><p className="mt-5 text-[11px] leading-5" style={{ color: "#B8C7D6" }}>Source label: creator-supplied public YouTube link. The browser review encountered YouTube’s automated-traffic interstitial, so no unverified title, channel, duration, or video-content description is reproduced here.</p></div><div className="overflow-hidden rounded-[2rem] border p-2 shadow-[0_24px_70px_rgba(255,204,77,.12)]" style={{ borderColor: "rgba(255,204,77,.48)", background: "#030914" }}><div className="relative aspect-video overflow-hidden rounded-[1.45rem] bg-[#030914]"><iframe className="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/SqK0RJTobNI" title="Creator-selected ScrollVerse YouTube video" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="flex items-center justify-between gap-3 px-3 py-3"><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>CREATOR-SELECTED YOUTUBE SOURCE</span><span className="text-[10px] font-mono" style={{ color: "#9DEBFF" }}>BLACK ATLANTIC CITY · EXTERNAL PLAYER</span></div></div></div></div></section>;
+}
 
 const CENTRAL_LIBRARY_FEATURES = [
   {
@@ -2186,6 +2196,7 @@ export default function Home() {
         </div>
       </section>
       <OmnilandFrontCenter />
+      <FeaturedSovereignArchiveVideo />
       <ManusHeroWelcome />
       <LiveDestinationShowcase />
       <ArtifactAndSpecialistNavigator />
