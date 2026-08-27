@@ -6164,6 +6164,9 @@
 ## Phase 886 — Source-Only Release-Gate Preflight
 - [x] Add a repeatable local preflight command that verifies the companion’s source-only identity, required routes, release-packet references, and absence of store-submission configuration
 
+## Phase 887 — Resilient Native Feedback
+- [x] Ensure a device-specific haptic feedback failure cannot block a first-party portal handoff after the destination is confirmed available
+
 ## Phase 880 — If/Then Release Decision Framework
 - [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
 - [x] Link the framework to the existing release-readiness and source-record pathways

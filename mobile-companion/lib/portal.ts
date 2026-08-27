@@ -14,6 +14,14 @@ export const PORTAL_PATHS = {
   worldLens: "/world-lens",
 } as const;
 
+async function provideHandoffFeedback() {
+  try {
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  } catch {
+    // Haptics are optional; a device-specific feedback failure must not block navigation.
+  }
+}
+
 export async function openPortal(path: (typeof PORTAL_PATHS)[keyof typeof PORTAL_PATHS]) {
   const destination = `${PORTAL_ORIGIN}${path}`;
   const canOpen = await Linking.canOpenURL(destination);
@@ -22,6 +30,6 @@ export async function openPortal(path: (typeof PORTAL_PATHS)[keyof typeof PORTAL
     throw new Error("This ScrollVerse destination cannot be opened on this device.");
   }
 
-  await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  await provideHandoffFeedback();
   await Linking.openURL(destination);
 }

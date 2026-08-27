@@ -31,6 +31,9 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(portal).toContain('mirror: "/chais-sabir-allah-mirror"');
     expect(portal).toContain('create: "/episode-brief-builder"');
     expect(portal).toContain("Linking.canOpenURL(destination)");
+    expect(portal).toContain("async function provideHandoffFeedback()");
+    expect(portal).toContain("Haptics are optional; a device-specific feedback failure must not block navigation.");
+    expect(portal).toContain("await Linking.openURL(destination)");
     expect(portalCard).toContain('accessibilityRole="link"');
     expect(portalCard).toContain("accessibilityHint={hint}");
     expect(portalCard).toContain("Path unavailable — try again");
