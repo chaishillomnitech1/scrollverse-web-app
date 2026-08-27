@@ -15,6 +15,7 @@ The new **ScrollVerse Mobile Companion** route at `/mobile-companion` is live in
 | Phone visual review | Passed | Companion blueprint and discovery cards remained readable and usable at 375 × 812 |
 | Expo source-kit typecheck | Passed | `pnpm check` completed with no TypeScript errors in `mobile-companion` |
 | Android runtime bundle | Passed | Expo exported an Android Hermes bundle from the native source kit; this is a code-bundle validation, not a signed Android App Bundle or Google Play upload |
+| Web runtime bundle | Passed | Expo exported a web bundle from the same source kit after adding the required `react-dom` and `react-native-web` runtime dependencies; this validates the source package, not a public web release |
 
 ## Native App and Store Submission Status
 
@@ -27,7 +28,7 @@ A separate source-only Expo companion kit is now present under `mobile-companion
 | Android identity | Not selected | Owner-controlled package name and Play Console account/organization |
 | Store assets and metadata | Not finalized | Final app name, descriptions, screenshots, icon, support contact, and privacy-policy URL that match the native build |
 | Privacy and data safety | Not assessable until native code and SDK decisions exist | Final data inventory for the actual app behavior and included SDKs |
-| Signed build and testing | Android runtime bundle exported; no signed mobile binary or testing-track build | Exact Expo/EAS or alternative build decision, credentials/signing approach, testing group, and release target |
+| Signed build and testing | Android and web runtime bundles exported; no signed mobile binary or testing-track build | Exact Expo/EAS or alternative build decision, credentials/signing approach, testing group, and release target |
 | Store submission | Not initiated | Final review of the complete owner submission packet and explicit confirmation at the time of upload/submission |
 
 The next safe build step is to move the source-only kit into an owner-selected companion-app repository or dedicated project location, then define the package identities and signed-build approach. The live website remains independent and available throughout that work.

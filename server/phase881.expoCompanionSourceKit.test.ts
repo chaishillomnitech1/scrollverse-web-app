@@ -7,6 +7,7 @@ const root = path.resolve(import.meta.dirname, "../mobile-companion");
 describe("Phase 881 Expo companion source kit", () => {
   it("provides focused native routes and portal handoffs without hardcoding a store identity or submission flow", () => {
     const config = fs.readFileSync(path.join(root, "app.config.ts"), "utf8");
+    const packageManifest = fs.readFileSync(path.join(root, "package.json"), "utf8");
     const tabs = fs.readFileSync(path.join(root, "app/(tabs)/_layout.tsx"), "utf8");
     const portal = fs.readFileSync(path.join(root, "lib/portal.ts"), "utf8");
     const portalCard = fs.readFileSync(path.join(root, "components/PortalCard.tsx"), "utf8");
@@ -15,6 +16,8 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(config).toContain('slug: "scrollverse-mobile-companion"');
     expect(config).not.toContain("bundleIdentifier:");
     expect(config).not.toContain("package:");
+    expect(packageManifest).toContain('"react-dom": "19.1.0"');
+    expect(packageManifest).toContain('"react-native-web": "^0.21.0"');
     expect(tabs).toContain('name="index"');
     expect(tabs).toContain('name="omniland"');
     expect(tabs).toContain('name="mirror"');
@@ -31,6 +34,7 @@ describe("Phase 881 Expo companion source kit", () => {
     expect(readme).toContain("does **not** contain a store-bound iOS bundle identifier");
     expect(readme).toContain("Store-release gate");
     expect(readme).toContain("Owner-local device QA");
+    expect(readme).toContain("exported for Android and web runtimes");
     expect(qaChecklist).toContain("ScrollVerse Mobile Companion — Owner-Local QA Checklist");
     expect(qaChecklist).toContain("Screen-reader labels");
     expect(qaChecklist).toContain("Release boundary");

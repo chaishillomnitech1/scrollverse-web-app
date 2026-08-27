@@ -16,6 +16,8 @@ pnpm start
 
 Use `pnpm android`, `pnpm ios`, or `pnpm web` for target development. Before adding features, retain a minimal data model and update the privacy, accessibility, and source-scope record.
 
+The source kit has been type-checked and exported for Android and web runtimes. Those exports verify the navigable source package only; they do not create a signed mobile binary, a public companion website, or a store release.
+
 ## Store-release gate
 
 Before a store-bound binary is configured, the owner must select exact identifiers, store account/organization, final metadata, approved icon/screenshots, support URL, privacy-policy URL, native data inventory, permissions, testing approach, target regions, and final release decision. See `../docs/scrollverse-app-store-owner-packet.md`.
