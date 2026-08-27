@@ -6132,6 +6132,19 @@
 - [x] Add a clear Episode Brief Builder entry to the homepage Visual Signal module
 - [x] Preserve the builder’s browser-local preparation scope and test the front-page handoff
 
+## Phase 879 — Native App + Store Readiness
+- [x] Assess the current ScrollVerse web project for reusable native-app routes, content, and service boundaries
+- [x] Define the companion app’s source-led screen map, app identity, privacy/contact content, and store metadata requirements
+- [ ] Build a companion native-app project and a visible web-to-app discovery path without submitting to external stores
+- [ ] Validate the mobile experience and prepare the exact Apple App Store and Google Play owner-submission packet
+- [ ] Hold all store-account, signed-build, listing, and submission actions for final owner confirmation
+- [x] Add a visible in-portal Mobile Companion blueprint and first-party route handoffs while the separate native workspace is prepared
+- [x] Validate the in-portal Mobile Companion blueprint at desktop and phone viewports and preserve the native-build handoff requirements
+
+## Phase 880 — If/Then Release Decision Framework
+- [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
+- [x] Link the framework to the existing release-readiness and source-record pathways
+
 ## Phase 872 — Owner-Observation Record
 - [x] Accession owner-provided local-condition observations with a source date, context, and authorized-display status
 - [x] Keep personal observations, public measurement sources, and reader interpretation distinct in any public presentation
