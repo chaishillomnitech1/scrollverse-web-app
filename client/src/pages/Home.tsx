@@ -1010,6 +1010,20 @@ function OmnilandFrontCenter() {
   </section>;
 }
 
+function CreatorDigitalDNABeacon() {
+  const signals = [
+    { code: "FREQUENCY", title: "44:OMNI · 528 · 741 · 963", detail: "A creator-authored map of creative frequency labels and storytelling motifs.", color: "#9DEBFF" },
+    { code: "IDENTITY", title: "Equation + seal field", detail: "Explore the creator’s recorded terms, infinity motif, and original visual seal language.", color: "#FFE09A" },
+    { code: "CHARACTERS", title: "A living constellation", detail: "Follow Chais, Thoth Hawk, Londyn, and practical guide routes into first-party worlds.", color: "#DCC8FF" },
+  ] as const;
+
+  return <section id="creator-digital-dna-beacon" className="relative isolate overflow-hidden border-b" style={{ borderColor: "rgba(185,140,255,.36)", background: "radial-gradient(circle at 10% 15%, rgba(185,140,255,.20), transparent 30%), radial-gradient(circle at 91% 80%, rgba(0,255,136,.12), transparent 31%), #071124" }}>
+    <img src="/manus-storage/creator-digital-dna-hero_41685cb6.png" alt="Original Creator Digital DNA ScrollVerse artwork" className="absolute inset-y-0 right-0 -z-20 h-full w-full object-cover object-[78%_center] opacity-35 lg:w-[58%]" loading="lazy" />
+    <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(90deg, #071124 0%, rgba(7,17,36,.95) 42%, rgba(7,17,36,.34) 100%)" }} />
+    <div className="container relative py-12 md:py-16"><div className="grid gap-8 xl:grid-cols-[.88fr_1.12fr] xl:items-end"><div className="max-w-2xl"><div className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-mono tracking-[.16em]" style={{ borderColor: "rgba(185,140,255,.52)", background: "rgba(185,140,255,.11)", color: "#E6D6FF" }}><span className="h-1.5 w-1.5 rounded-full bg-[#B98CFF]" />NEW · CREATOR DIGITAL DNA</div><p className="mt-6 text-xs font-mono tracking-[.2em]" style={{ color: "#BFEFFF" }}>THE CREATOR SIGNAL, MADE NAVIGABLE</p><h2 className="mt-3 text-4xl font-black leading-[.93] text-white md:text-6xl">The story behind<br/><span style={{ color: "#E6D6FF" }}>the worlds is open.</span></h2><p className="mt-5 max-w-xl text-base leading-8" style={{ color: "#D6E2EE" }}>Meet the creator-authored Digital DNA: frequency language, the Chais Sabir Allah equation and seal motifs, original character lineage, practical AI collaboration routes, and a dated ScrollVerse development record.</p><div className="mt-7 flex flex-wrap gap-3"><Link href="/creator-digital-dna" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#B98CFF", color: "#091124" }}>Open Creator Digital DNA <span>→</span></Link><Link href="/sovereign-archive-chronicles#black-atlantic-city" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black text-white transition hover:border-[#FFCC4D]" style={{ borderColor: "rgba(255,204,77,.55)", background: "rgba(255,204,77,.08)" }}>Enter Black Atlantic City <span>→</span></Link></div><p className="mt-5 text-[11px] leading-5" style={{ color: "#B8C7D6" }}>Creator-authored spiritual, biographical, and story-world context is visibly attributed so visitors can read the record in its own frame.</p></div><div className="grid gap-3 sm:grid-cols-3">{signals.map((signal) => <Link key={signal.code} href="/creator-digital-dna" className="group rounded-[1.55rem] border p-5 backdrop-blur-sm transition-all hover:-translate-y-1" style={{ borderColor: `${signal.color}5C`, background: "rgba(4,13,29,.78)", boxShadow: `0 16px 42px ${signal.color}10` }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: signal.color }}>{signal.code}</p><h3 className="mt-4 text-lg font-black leading-tight text-white">{signal.title}</h3><p className="mt-3 text-xs leading-6" style={{ color: "#C8D8E7" }}>{signal.detail}</p><span className="mt-6 inline-flex text-xs font-black" style={{ color: signal.color }}>Open lens →</span></Link>)}</div></div></div>
+  </section>;
+}
+
 const VISITOR_DISCOVERY_PATHS = [
   { kicker: "START HERE", title: "Visual Tutorial Studio", detail: "Open six short, clear learning paths for the portal, ideas, AI, books, chess, and release preparation.", href: "/tutorial-studio", icon: "✦", color: "#9DEBFF" },
   { kicker: "READ", title: "Books & Perspectives", detail: "Follow reader paths for owner-authored books, source-led perspectives, and edition planning.", href: "/books", icon: "▤", color: "#D6C4FF" },
@@ -2196,6 +2210,7 @@ export default function Home() {
         </div>
       </section>
       <OmnilandFrontCenter />
+      <CreatorDigitalDNABeacon />
       <FeaturedSovereignArchiveVideo />
       <ManusHeroWelcome />
       <LiveDestinationShowcase />
