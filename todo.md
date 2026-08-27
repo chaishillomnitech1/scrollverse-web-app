@@ -6020,9 +6020,9 @@
 - [ ] Review any specifically supplied correspondence or chat records before making them publicly accessible
 
 ## Phase 854 — Creator Record Inventory
-- [ ] Index accessible owner-provided chat, note, repository, portal, and correspondence records with common provenance fields
-- [ ] Separate original record excerpts, source metadata, owner-authored interpretation, and independently verifiable context
-- [ ] Add an evidence-led first-party record pathway to ScrollVerse without presenting unverified external conclusions as settled fact
+- [x] Index accessible owner-provided chat, note, repository, portal, and correspondence records with common provenance fields
+- [x] Separate original record excerpts, source metadata, owner-authored interpretation, and independently verifiable context
+- [x] Add an evidence-led first-party record pathway to ScrollVerse without presenting unverified external conclusions as settled fact
 - [x] Classify the six newly supplied Clipboard records for format, date markers, creator context, and authorized public-display readiness
 
 ## Phase 855 — Chais Sabir Allah Mirror
@@ -6038,9 +6038,9 @@
 - [x] Preserve research citations and distinguish product patterns from unverified external capability claims
 
 ## Phase 857 — Connected Resource Review
-- [ ] Inventory the connected project resources and public creator-source records relevant to the Mirror experience
-- [ ] Select only compatible, auditable patterns for a first-party prototype
-- [ ] Preserve external integrations as separate, owner-controlled continuation paths
+- [x] Inventory the connected project resources and public creator-source records relevant to the Mirror experience
+- [x] Select only compatible, auditable patterns for a first-party prototype
+- [x] Preserve external integrations as separate, owner-controlled continuation paths
 
 ## Phase 859 — Configured-Service Boundary Review
 - [ ] Inventory configured project services relevant to first-party portal features without exposing secret values
@@ -6069,9 +6069,13 @@
 - [x] Use the workspace only for first-party development, source review, visual verification, and release validation
 - [x] Preserve external account, provider, token, contract, and financial controls as separate exact-action records
 
+## Phase 864 — Omnitech Source Review
+- [x] Review `https://omnitech-mwws68ge.manus.space` for visible creator context, route scope, and suitable source-labeled discovery paths
+- [ ] Add a source-record entry or first-party link only after confirming a compatible visible destination and current operating state
+
 ## Phase 858 — Source-Labeled Audience Observation
 - [x] Accession the supplied portal analytics snapshot with its displayed visitor counts and source context
-- [ ] Use the observation only as a bounded reporting-period audience record, not a national or technology comparison claim
+- [x] Use the observation only as a bounded reporting-period audience record, not a national or technology comparison claim
 
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update

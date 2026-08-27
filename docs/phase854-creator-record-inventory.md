@@ -41,6 +41,22 @@ These are public task-replay pages, so their presence can support a source trail
 
 These records can be included in a creator process index as visible public replay links. The portal should not infer that an external platform, media outlet, account, payment, provider, or audience action occurred from a replay title alone.
 
+## Public Replay Review — Final Group
+
+| Public source | Visible title | Directly visible record content | Public-use treatment |
+| --- | --- | --- | --- |
+| [B5r4HuP6QRq5nBMUcj8zFz](https://manus.im/share/B5r4HuP6QRq5nBMUcj8zFz?replay=1) | *ScrollVerse Trinity Sovereign Portal Copy* | A completed task replay listing original-fiction classification, original visual direction, portal experiences for comic, film, and game concepts, source-aware future-project work, and validation | Candidate public source link for a creator-process and original-fiction development record |
+| [lB107eWFn3bHOv2Io2nuHz](https://manus.im/share/lB107eWFn3bHOv2Io2nuHz?replay=1) | *Transforming Blockchain Royalties into Global Wealth* | A completed task replay listing architecture choices, affiliate/referral UI, a provider-safe streaming fallback, mobile companion foundations, validation, and delivery of provider setup requirements | Candidate public source link for product-planning and readiness context; it does not establish an external financial, provider, contract, or release result |
+| [JQyCbdE152xEIkgUplmagw](https://manus.im/share/JQyCbdE152xEIkgUplmagw?replay=1) | *How to Access the Shared Manus Link?* | The replay page displayed only a completed-task status with no substantive creator content in the accessible view | Source lead only; no content-specific public claim is supported by the accessible record |
+
+## Public GitHub Profile Review
+
+| Source | Visible profile context | Preservation treatment |
+| --- | --- | --- |
+| [github.com/chaishillomnitech1](https://github.com/chaishillomnitech1) | The public profile identifies `chaishillomnitech1` / “Chais Hill,” links to `scrollverse.co`, and displayed 53 repositories, 47 stars, 127 followers, and 154 following at the time of review. The profile README visibly uses Omnitech1 and ScrollVerse language and provides documentation, security, and contract links. | A public creator-source index and repository-context link. Profile text, repository counts, and README labels are treated as a visible source snapshot rather than confirmation of any deployment, security, contract, financial, organizational, or external-provider outcome. |
+
+The source index is now fully reviewed at the public landing-page level: nine Manus replay links and the owner-provided GitHub profile have been accessioned. Individual repositories, artifacts, media, accounts, and external destinations remain separate records requiring item-by-item review before their contents are quoted or represented as released, working, or verified.
+
 ## Source-Labeled Audience Observation
 
 | Source | Reporting period | Displayed visitor counts | Preservation treatment |
@@ -48,3 +64,9 @@ These records can be included in a creator process index as visible public repla
 | Owner-supplied ScrollVerse dashboard screenshot (`IMG_5334.PNG`) | Not shown in the captured view | China: 61; United States: 47; Canada: 1; Japan: 1; Portugal: 1 | Preserved as a dashboard-view observation only. The visible period, attribution method, bot filtering, and full analytics context are not shown in the screenshot, so the counts are not generalized beyond the displayed portal view. |
 
 The supplied dashboard view indicates that China had 14 more displayed visitors than the United States within that particular view. It is not evidence of a comparative national, technical, political, or market outcome. The visual attachment was not reopened during record accession, in accordance with the owner’s instruction.
+
+## Omnitech Destination Review
+
+| Source | Review date | Visible state | Portal treatment |
+| --- | --- | --- | --- |
+| `https://omnitech-mwws68ge.manus.space` | August 27, 2026 | The destination resolved to a platform page stating that the site is blocked and access is restricted. No creator content or route information was available for review. | Retained as an unavailable owner-provided source lead. It is not linked as a visible discovery destination until the underlying page is accessible and can be accurately classified. |
