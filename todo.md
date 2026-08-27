@@ -5961,6 +5961,11 @@
 - [x] Add first-party discovery links from Omniland and the central portal
 - [x] Add regression coverage and validate the historical source pathway before publishing
 
+## Phase 844 — Front-and-Center Omniland Discovery
+- [x] Promote Omniland, Cinematic Gateway, Source Atlas, and Legacy Research into the ScrollVerse home-page hero hierarchy
+- [x] Add high-contrast visual entry points with clear first-party destination labels
+- [x] Add regression coverage and validate the front-and-center discovery experience before publishing
+
 ## Phase 796 — Deferred Route Runtime Recovery
 - [x] Repair the App.tsx lazy-import initialization ordering so the local and managed preview renders after the central library update
 

@@ -984,6 +984,32 @@ function ArtifactAndSpecialistNavigator() {
   );
 }
 
+function OmnilandFrontCenter() {
+  const paths = [
+    { kicker: "CINEMATIC GATEWAY", title: "Choose your first world", detail: "Open the high-impact entry for cinema, comics, animation, game concepts, and the wider source atlas.", href: "/omniland-cinematic-gateway", symbol: "▶", color: "#FFCC4D" },
+    { kicker: "SOURCE ATLAS", title: "See the whole constellation", detail: "Follow story, fashion, music, media, game, learning, global-signal, and archive paths with sources in view.", href: "/omniland-source-atlas", symbol: "✦", color: "#B98CFF" },
+    { kicker: "PLAY + STORY", title: "Enter a living concept world", detail: "Move into original visual worlds, narrative pathways, game concepts, and first-party ScrollVerse discovery routes.", href: "/omniland", symbol: "◎", color: "#00D4FF" },
+  ] as const;
+
+  return <section id="omniland-front-center" className="relative isolate overflow-hidden border-y" style={{ borderColor: "rgba(0,212,255,.32)", background: "radial-gradient(circle at 9% 17%, rgba(0,212,255,.20), transparent 29%), radial-gradient(circle at 87% 82%, rgba(255,184,0,.18), transparent 32%), #050B1A" }}>
+    <img src="/manus-storage/omniland-hero_78e42db3.png" alt="Original Omniland city and portal artwork" className="absolute inset-y-0 right-0 -z-20 h-full w-full object-cover object-[72%_center] opacity-45 lg:w-[66%]" loading="lazy" />
+    <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(90deg, #050B1A 0%, rgba(5,11,26,.96) 39%, rgba(5,11,26,.28) 100%)" }} />
+    <div className="container relative py-12 md:py-16">
+      <div className="grid gap-8 xl:grid-cols-[.92fr_1.08fr] xl:items-end">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-mono tracking-[.18em]" style={{ borderColor: "rgba(0,255,136,.5)", background: "rgba(0,255,136,.10)", color: "#B5F7CC" }}><span className="h-1.5 w-1.5 rounded-full bg-[#00FF88]" />OMNILAND · FRONT-AND-CENTER</div>
+          <p className="mt-6 text-xs font-mono tracking-[.22em]" style={{ color: "#9DEBFF" }}>THE SCROLLVERSE VISUAL WORLD</p>
+          <h2 className="mt-3 text-4xl font-black leading-[.93] text-white md:text-6xl">The worlds are<br/><span style={{ color: "#FFDEA0" }}>open in front of you.</span></h2>
+          <p className="mt-5 max-w-xl text-base leading-8" style={{ color: "#D6E2EE" }}>Start with Omniland—the central discovery district for original visual worlds, film, animation, comic, game, story, legacy, and creator-owned source pathways. The next door is already visible.</p>
+          <div className="mt-7 flex flex-wrap gap-3"><Link href="/omniland-cinematic-gateway" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#FFCC4D", color: "#06101E" }}>Enter Cinematic Gateway <span>→</span></Link><Link href="/omniland" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black text-white transition hover:border-[#00D4FF]" style={{ borderColor: "rgba(0,212,255,.58)", background: "rgba(0,212,255,.09)" }}>Explore Omniland <span>✦</span></Link></div>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-3">{paths.map((path) => <Link key={path.href} href={path.href} className="group rounded-[1.55rem] border p-5 backdrop-blur-sm transition-all hover:-translate-y-1" style={{ borderColor: `${path.color}70`, background: "rgba(4,13,29,.79)", boxShadow: `0 16px 42px ${path.color}12` }}><div className="flex items-start justify-between gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-xl text-lg" style={{ background: `${path.color}19`, color: path.color }}>{path.symbol}</span><span className="text-[10px] font-mono opacity-0 transition-opacity group-hover:opacity-100" style={{ color: path.color }}>OPEN →</span></div><p className="mt-5 text-[10px] font-mono tracking-[.14em]" style={{ color: path.color }}>{path.kicker}</p><h3 className="mt-2 text-lg font-black leading-tight text-white">{path.title}</h3><p className="mt-3 text-xs leading-6" style={{ color: "#C8D8E7" }}>{path.detail}</p><span className="mt-5 inline-flex text-xs font-black" style={{ color: path.color }}>Open path →</span></Link>)}</div>
+      </div>
+      <div className="mt-7 flex flex-wrap items-center justify-between gap-4 rounded-2xl border px-5 py-4" style={{ borderColor: "rgba(185,140,255,.35)", background: "rgba(185,140,255,.07)" }}><p className="text-sm leading-6" style={{ color: "#E7DEFF" }}><span className="mr-2 text-[10px] font-mono tracking-[.14em]" style={{ color: "#DCC8FF" }}>SOURCE-LED WORLD BUILDING</span>Creator concepts and direct source trails live together here. External releases continue through their own exact record.</p><Link href="/legacy-royalties-research" className="shrink-0 text-xs font-black" style={{ color: "#DCC8FF" }}>Open Legacy Research →</Link></div>
+    </div>
+  </section>;
+}
+
 const VISITOR_DISCOVERY_PATHS = [
   { kicker: "START HERE", title: "Visual Tutorial Studio", detail: "Open six short, clear learning paths for the portal, ideas, AI, books, chess, and release preparation.", href: "/tutorial-studio", icon: "✦", color: "#9DEBFF" },
   { kicker: "READ", title: "Books & Perspectives", detail: "Follow reader paths for owner-authored books, source-led perspectives, and edition planning.", href: "/books", icon: "▤", color: "#D6C4FF" },
@@ -2159,6 +2185,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <OmnilandFrontCenter />
       <ManusHeroWelcome />
       <LiveDestinationShowcase />
       <ArtifactAndSpecialistNavigator />
