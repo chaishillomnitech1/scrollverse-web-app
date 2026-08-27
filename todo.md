@@ -6042,6 +6042,33 @@
 - [ ] Select only compatible, auditable patterns for a first-party prototype
 - [ ] Preserve external integrations as separate, owner-controlled continuation paths
 
+## Phase 859 — Configured-Service Boundary Review
+- [ ] Inventory configured project services relevant to first-party portal features without exposing secret values
+- [ ] Confirm that any future external integration, account, payment, token, domain, contract, or provider action has exact owner-controlled scope and current verified status
+
+## Phase 860 — Mirror Blueprint Repository Record
+- [x] Define the first-party Mirror Blueprint Repository Record’s purpose, source fields, owner-control model, and practical collaboration boundaries
+- [x] Build a public first-party repository-record page linked from the Mirror, Creator Digital DNA, and source registry
+- [x] Include creator purpose, source trail, character connections, and direct collaboration paths without granting autonomous external authority
+- [x] Add focused regression coverage, validate, and publish the repository-record experience
+- [ ] Keep separate external repository creation pending an exact name, visibility, access, and release decision
+- [x] Add a transparent practical capability map for research intake, creative collaboration, source organization, and first-party navigation
+
+## Phase 861 — Mirror Equation + Journey Research Links
+- [x] Inventory the existing Creator Equation and journey-synchronization research routes for source-safe Mirror handoffs
+- [x] Add clear first-party cross-links among the Creator Equation, Mirror, source-led journey research, and Digital DNA record
+- [x] Describe the Mirror as a creator-controlled guide to available portal research rather than a system with unlimited external access
+- [x] Add focused regression coverage, validate, and publish the connected research pathways
+
+## Phase 862 — Owner-Authored IP Claim Record
+- [x] Add an owner-authored authorship and intended-rights cue to the Mirror provenance pathway
+- [x] Keep formal registration, licensing, enforcement, and transfer outcomes separate from source-record and creator-claim context
+- [x] Link the claim record to the existing creator registry and release-readiness pathways
+
+## Phase 863 — Workspace-Supported Mirror Review
+- [x] Use the workspace only for first-party development, source review, visual verification, and release validation
+- [x] Preserve external account, provider, token, contract, and financial controls as separate exact-action records
+
 ## Phase 858 — Source-Labeled Audience Observation
 - [x] Accession the supplied portal analytics snapshot with its displayed visitor counts and source context
 - [ ] Use the observation only as a bounded reporting-period audience record, not a national or technology comparison claim

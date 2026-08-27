@@ -32,6 +32,15 @@ The GitHub profile and Manus share/replay locations collected in `Clipboard_0_79
 
 These are public task-replay pages, so their presence can support a source trail for creator process. Their titles and visible task lists do not, by themselves, establish the outcome of an external action, a platform-wide integration, a financial event, or a technical deployment.
 
+## Public Replay Review — Second Group
+
+| Public source | Visible title | Directly visible record content | Public-use treatment |
+| --- | --- | --- | --- |
+| [ijBxrRGYOae7spbLjKOOMt](https://manus.im/share/ijBxrRGYOae7spbLjKOOMt?replay=1) | *Blockchain Royalties as a Global Wealth Engine* | A completed Manus task replay that lists combined playable-world and media expansion scope, a browser-playable relay-room concept, media production-status surfaces, Season 02 media, lookbook readiness, Global Map entry points, validation, and checkpointing | Candidate public source link; it records a completed creator-process task and does not establish an external financial result, royalty activation, or media-release outcome |
+| [R4R9qiTLH5IZl9ijpVpCDk](https://manus.im/share/R4R9qiTLH5IZl9ijpVpCDk?replay=1) | *ScrollVerse Viral Empire — 24/7 Instagram Content Engine* | A completed task-replay landing record with no readable task detail in the public extractor | Source context only; the title does not establish posting, account, automation, or social-platform outcomes |
+
+These records can be included in a creator process index as visible public replay links. The portal should not infer that an external platform, media outlet, account, payment, provider, or audience action occurred from a replay title alone.
+
 ## Source-Labeled Audience Observation
 
 | Source | Reporting period | Displayed visitor counts | Preservation treatment |

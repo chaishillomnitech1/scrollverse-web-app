@@ -127,6 +127,7 @@ const ACCESS_PATHWAYS = [
   { title: "ScrollVerse Music", href: "/music", icon: "🎵", description: "Music worlds, catalog discovery, and artist-controlled listening paths." },
   { title: "Media Hub", href: "/media-hub", icon: "🎬", description: "Original media, visual worlds, and source-labeled viewing paths." },
   { title: "AI Legion", href: "/ai-legion-apex", icon: "🤖", description: "Authenticated workspace access for ScrollVerse assistance and navigation." },
+  { title: "Chais Sabir Allah Mirror", href: "/chais-sabir-allah-mirror", icon: "∞", description: "Creator-controlled Digital Twin profile for source navigation, creator context, and practical first-party handoffs." },
   { title: "Think Space", href: "/think-space", icon: "🌌", description: "Open creator conversation, reflections, and community discovery." },
   { title: "Legion Network", href: "/legion", icon: "🛡️", description: "Channel-based community discussion across ScrollVerse topics." },
   { title: "Live Chat", href: "/chat", icon: "💬", description: "Lightweight channel conversations and community presence." },
