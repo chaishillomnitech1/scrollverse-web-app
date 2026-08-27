@@ -6135,11 +6135,18 @@
 ## Phase 879 — Native App + Store Readiness
 - [x] Assess the current ScrollVerse web project for reusable native-app routes, content, and service boundaries
 - [x] Define the companion app’s source-led screen map, app identity, privacy/contact content, and store metadata requirements
-- [ ] Build a companion native-app project and a visible web-to-app discovery path without submitting to external stores
+- [x] Build a companion native-app project and a visible web-to-app discovery path without submitting to external stores
 - [ ] Validate the mobile experience and prepare the exact Apple App Store and Google Play owner-submission packet
 - [ ] Hold all store-account, signed-build, listing, and submission actions for final owner confirmation
 - [x] Add a visible in-portal Mobile Companion blueprint and first-party route handoffs while the separate native workspace is prepared
 - [x] Validate the in-portal Mobile Companion blueprint at desktop and phone viewports and preserve the native-build handoff requirements
+- [x] Type-check and Android-bundle the source-only Expo companion kit without signing, uploading, or submitting a store build
+
+## Phase 881 — Expo Companion Source Kit
+- [x] Add a source-only Expo companion starter with a temporary non-store app identity and no signing or submission configuration
+- [x] Implement native mobile navigation for Signal, Omniland, Mirror, Create, and Sources with first-party portal handoffs
+- [x] Add regression coverage and a local build/run handoff for the native source kit
+- [ ] Preserve Apple App Store and Google Play publication as a separate exact-owner action
 
 ## Phase 880 — If/Then Release Decision Framework
 - [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
