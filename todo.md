@@ -6053,6 +6053,7 @@
 - [x] Add focused regression coverage, validate, and publish the repository-record experience
 - [ ] Keep separate external repository creation pending an exact name, visibility, access, and release decision
 - [x] Add a transparent practical capability map for research intake, creative collaboration, source organization, and first-party navigation
+- [x] Prepare a no-action external-repository setup packet listing the exact identity, access, source, visibility, and release inputs required
 
 ## Phase 861 — Mirror Equation + Journey Research Links
 - [x] Inventory the existing Creator Equation and journey-synchronization research routes for source-safe Mirror handoffs
@@ -6112,6 +6113,9 @@
 ## Phase 874 — Integrated Discovery Coordination
 - [x] Reconcile the active Visual Signal, Creator Digital DNA, Mirror, map, and source-record handoffs into one coherent first-party journey
 - [x] Verify that each coordinated interaction is live, accessible, and accurately labeled before publication
+
+## Phase 875 — Current-State Implementation Update
+- [x] Compile the latest live portal, recent releases, source-record progress, validation evidence, and remaining owner-controlled gates into a concise current-state update
 
 ## Phase 872 — Owner-Observation Record
 - [x] Accession owner-provided local-condition observations with a source date, context, and authorized-display status
