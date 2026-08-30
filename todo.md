@@ -6167,6 +6167,14 @@
 ## Phase 887 — Resilient Native Feedback
 - [x] Ensure a device-specific haptic feedback failure cannot block a first-party portal handoff after the destination is confirmed available
 
+## Phase 888 — Attached Content-Engine Review
+- [x] Review the attached ScrollVerse content-engine record and adapt only compatible first-party content-planning elements, with automated publishing and account actions held as separate owner-controlled decisions
+
+## Phase 889 — Seven-Episode Source-Led Series
+- [x] Build a browser-local original seven-episode series planner with distinct episode arcs, source/right/access fields, local export, and registered ScrollVerse story pathways
+- [x] Add a provenance-aware public-record journey lane that can link only approved public materials and does not infer private, legal, financial, or platform facts
+- [x] Preserve the existing front-center Omniland discovery order while retaining a prominent seven-episode planner handoff
+
 ## Phase 880 — If/Then Release Decision Framework
 - [x] Document the first-party build-now versus exact-owner-input decision logic for mobile, store, media, payment, token, provider, and external-release work
 - [x] Link the framework to the existing release-readiness and source-record pathways
