@@ -6198,3 +6198,7 @@
 - [x] Inventory dated Manus Library and ScrollVerse project records relevant to historical accomplishments
 - [x] Classify timestamped artifacts separately from creator context and unverified operational claims
 - [x] Produce a source-labeled historical accomplishment timeline
+
+## Phase 891 — Dynasty Visual Source Intake
+- [x] Inventory and accession the creator-supplied Dynasty stills, transparent coin assets, supplied motion samples, and manifesto text with source labels and no inferred technical, legal, identity, or marketplace claims
+- [ ] Prepare a complete next-motion production brief covering duration, sound, text, continuity, exact use target, and creator-approved reference selection before generating new video
