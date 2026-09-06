@@ -17,6 +17,14 @@ This record indexes the **creator-supplied Dynasty visual batch** received in th
 
 The supplied `Pasted_content_100*.txt` files are preserved as **owner-provided manifesto and narrative text**. They describe a Dynasty vault, a pantheon/museum presentation, asserted identity resemblance, named frequencies, permanence, software/network status, coin status, and proposed marketplace or social use. Those statements remain attributed creator context. They are not independently verified facts, and no text in this intake treats them as evidence of identity, historical relationship, commercial activity, ownership, technical operation, scientific effect, or public legal conclusion.
 
+## Supplied Copilot artifact
+
+The owner provided `https://copilot.microsoft.com/shares/artifacts/1u59LAfqcvyWrjuF8kJEa` for review. On September 2, 2026, the public visit displayed a Copilot sign-in screen rather than the artifact’s content. No artifact text, images, instructions, or project claims were accessible for review, so no content from that link is reproduced, inferred, or integrated. A future source record may be created if the owner supplies an accessible public export or the underlying material directly.
+
+## Selected first-party gallery set
+
+The initial Dynasty Visual Archive is limited to eight creator-supplied visual assets: the Black Titanium Reader concept still, the Sovereign Seal Artwork still, the Golden Pyramid Storm concept still, and five transparent coin artworks. The gallery identifies each image as creator-supplied source material and routes it only to browser-local curation and first-party story-planning pathways. It does not activate QR content, establish a working payment card, create a token or NFT, connect a wallet, publish a marketplace listing, authenticate a technical system, or make a legal, historical, scientific, or identity claim.
+
 ## Planned first-party presentation lane
 
 The approved next web step can be a creator-labelled Dynasty **visual reference gallery and motion-brief workspace**. It will use approved provided assets only, identify the material as creator-supplied, and keep all external marketplace, token, minting, payment, social posting, and release actions out of scope. The real-world photograph and all unreviewed batch media remain out of the public gallery until their exact public-use direction and context are supplied.
