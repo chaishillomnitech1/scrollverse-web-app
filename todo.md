@@ -6205,3 +6205,17 @@
 - [ ] Review the owner-supplied Copilot artifact as a public source and preserve any family contribution only with its exact text, asset, author attribution, and approved display scope
 - [x] Build a source-labeled Dynasty Visual Archive with creator-supplied stills and coin assets, first-party series and episode-planning handoffs, and focused regression coverage
 - [x] Restore the two locally required ScrollVerse skills removed by the environment reset so unrelated source-aware regression tests can run again
+
+## Phase 893 — Dynasty Motion Source Inventory
+- [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
+
+## Phase 894 — YouTube + Manifesto Source Review
+- [x] Review the newly supplied YouTube link and accompanying manifesto text as source-labeled reference records, then add only compatible first-party planning context without implementing autoplay, scheduled refreshes, external embeds, GitHub workflow changes, marketplace actions, token actions, or public distribution
+
+## Phase 895 — INFININILLIONAIRE Film Foundation Source Review
+- [ ] Review the owner-supplied public INFININILLIONAIRE repository and attached records; identify compatible original film-planning and provenance material while retaining unverified operational, financial, token, identity, location, ownership, and external-release claims as source-attributed context only
+- [ ] Classify the newly supplied political-message screenshots, financial/token and treasury assertions, personal birth/location material, and external-operation instructions as non-public source records until independently supported evidence and exact public-use scope are supplied
+
+## Phase 896 — Omniworld Execution Manifesto
+- [x] Preserve a creator-led, source-aware execution manifesto that maps the ScrollVerse architecture, completed portal record, evidence hierarchy, and staged public-release sequence without converting unverified claims into deployed-state assertions
+- [x] State the creator’s authorship and direction of the ScrollVerse artifacts explicitly, while limiting verification qualifiers to separate third-party, transaction, or live-system assertions

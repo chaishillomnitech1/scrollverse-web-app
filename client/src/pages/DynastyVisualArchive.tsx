@@ -16,6 +16,13 @@ type ArchiveAsset = {
   accent: string;
 };
 
+type MotionSource = {
+  id: string;
+  filename: string;
+  title: string;
+  planningUse: string;
+};
+
 const ARCHIVE_ASSETS: readonly ArchiveAsset[] = [
   {
     id: "titanium-reader",
@@ -107,6 +114,27 @@ const ARCHIVE_ASSETS: readonly ArchiveAsset[] = [
   },
 ] as const;
 
+const MOTION_SOURCES: readonly MotionSource[] = [
+  { id: "royal-portrait", filename: "afrofuturist_royal_portrait.mp4", title: "Afrofuturist Royal Portrait", planningUse: "Filename-derived source reference for a future original portrait-sequence brief." },
+  { id: "celestial-keeper", filename: "celestial_keeper_temple.mp4", title: "Celestial Keeper Temple", planningUse: "Filename-derived source reference for a future original environment or keeper-sequence brief." },
+  { id: "pyramid-storm", filename: "golden_pyramid_storm.mp4", title: "Golden Pyramid Storm", planningUse: "Filename-derived source reference for an original storm-environment brief." },
+  { id: "generated-image", filename: "generated_image.mp4", title: "Generated Image Motion Reference", planningUse: "Filename-derived source reference awaiting a creator-approved description before any creative reuse decision." },
+  { id: "pyramid-chamber-a", filename: "afrofuturist_pyramid_chamber.mp4", title: "Afrofuturist Pyramid Chamber A", planningUse: "Filename-derived source reference for an original chamber-sequence brief." },
+  { id: "pyramid-chamber-b", filename: "afrofuturist_pyramid_chamber(1).mp4", title: "Afrofuturist Pyramid Chamber B", planningUse: "Second supplied filename variant retained as a separate source record until a creator review identifies its intended use." },
+  { id: "king-mirror", filename: "afrofuturist_king_mirror.mp4", title: "Afrofuturist King Mirror", planningUse: "Filename-derived source reference for a creator-directed Mirror sequence brief." },
+  { id: "museum-gallery", filename: "afrofuturist_museum_gallery.mp4", title: "Afrofuturist Museum Gallery", planningUse: "Filename-derived source reference for an original gallery-sequence brief." },
+  { id: "royal-storm", filename: "afrofuturist_royal_storm.mp4", title: "Afrofuturist Royal Storm", planningUse: "Filename-derived source reference for an original portrait-and-environment brief." },
+  { id: "golden-coins", filename: "sovereign_golden_coins.mp4", title: "Sovereign Golden Coins", planningUse: "Filename-derived source reference for a non-transactional visual-object sequence brief." },
+  { id: "civic-seal", filename: "episode-4-the-civic-seal---dutch-angle-low-angle-o.mp4", title: "Episode 4 · The Civic Seal", planningUse: "Filename-derived source reference associated by supplied name with Episode 4; its footage and narrative use remain unreviewed in this record." },
+] as const;
+
+const EXTERNAL_SOURCE_REFERENCE = {
+  title: "Infinite Insights · Public YouTube Reference",
+  url: "https://youtu.be/0_oCySkU4Jc",
+  sourceLabel: "External source · public YouTube link",
+  planningNote: "The source’s cosmic imagery, collective-rebuilding tone, and speculative future-market visual language may be discussed as a creative reference. Its alternative financial, systemic, spiritual, and behind-the-scenes implementation narratives remain assertions made by the source, not ScrollVerse facts or operational plans.",
+} as const;
+
 function exportLocalArchive(record: unknown) {
   const href = URL.createObjectURL(new Blob([JSON.stringify(record, null, 2)], { type: "application/json" }));
   const anchor = document.createElement("a");
@@ -119,8 +147,10 @@ function exportLocalArchive(record: unknown) {
 export default function DynastyVisualArchive() {
   useSovereignHeartbeat({ page: "dynasty-visual-archive" });
   const [selectedId, setSelectedId] = useState("titanium-reader");
+  const [selectedMotionId, setSelectedMotionId] = useState("royal-portrait");
   const [curationNote, setCurationNote] = useState("");
   const selected = useMemo(() => ARCHIVE_ASSETS.find((asset) => asset.id === selectedId) ?? ARCHIVE_ASSETS[0], [selectedId]);
+  const selectedMotion = useMemo(() => MOTION_SOURCES.find((source) => source.id === selectedMotionId) ?? MOTION_SOURCES[0], [selectedMotionId]);
   const heroAssets = ARCHIVE_ASSETS.filter((asset) => asset.category === "still");
   const coinAssets = ARCHIVE_ASSETS.filter((asset) => asset.category === "coin");
 
@@ -130,8 +160,11 @@ export default function DynastyVisualArchive() {
       createdAt: new Date().toISOString(),
       selectedAsset: selected,
       assetInventory: ARCHIVE_ASSETS,
+      selectedMotionReference: selectedMotion,
+      motionReferenceInventory: MOTION_SOURCES,
+      externalSourceReference: EXTERNAL_SOURCE_REFERENCE,
       curationNote,
-      notice: "This local export records creator-supplied visual materials and optional curation notes. It does not verify claims, activate a QR code, create a wallet, mint a token, list an item, connect a marketplace, process a payment, generate media, or publish a release.",
+      notice: "This local export records creator-supplied visual materials, motion-file metadata, and optional curation notes. The motion references are not embedded, played, or content-verified in this archive. The export does not verify claims, activate a QR code, create a wallet, mint a token, list an item, connect a marketplace, process a payment, generate media, or publish a release.",
     });
     toast.success("Local Dynasty archive record exported. No external action was created.");
   };
@@ -153,10 +186,19 @@ export default function DynastyVisualArchive() {
             <aside className="rounded-[2rem] border border-[#FFB36B]/35 bg-[#FFB36B]/[.06] p-7">
               <Archive className="h-9 w-9 text-[#FFDEA0]" />
               <p className="mt-5 text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">ARCHIVE STATUS</p>
-              <p className="mt-3 text-2xl font-black">Eight supplied visual assets are ready for local curation.</p>
-              <p className="mt-3 text-sm leading-7 text-[#D6E2EE]">Supplied motion assets remain accessioned for a later, fully specified production brief. The linked Copilot artifact is recorded as inaccessible in the current browser session and is not reproduced here.</p>
+              <p className="mt-3 text-2xl font-black">Eight visual assets and eleven motion-file records are ready for local planning.</p>
+              <p className="mt-3 text-sm leading-7 text-[#D6E2EE]">The motion inventory retains user-supplied filenames and MP4 container metadata only; it does not embed, play, or describe unreviewed footage. A separately labelled public YouTube reference can inform visual planning without being treated as evidence of any financial, technical, legal, or spiritual claim. The linked Copilot artifact is recorded as inaccessible in the current browser session and is not reproduced here.</p>
             </aside>
           </div>
+        </div>
+      </section>
+
+      <section className="container py-4" id="dynasty-motion-source-inventory">
+        <div className="rounded-[2rem] border border-[#9DEBFF]/30 bg-[radial-gradient(circle_at_92%_5%,rgba(0,212,255,.16),transparent_30%),rgba(0,212,255,.035)] p-6 md:p-9">
+          <div className="flex flex-wrap items-start justify-between gap-5"><div><p className="text-[10px] font-mono tracking-[.17em] text-[#9DEBFF]">DYNASTY MOTION SOURCE INVENTORY · METADATA ONLY</p><h2 className="mt-3 text-3xl font-black md:text-4xl">Eleven supplied motion references, held for the next brief.</h2></div><span className="rounded-full border border-[#9DEBFF]/40 bg-[#00D4FF]/10 px-3 py-1 text-xs font-black text-[#9DEBFF]">NO PLAYBACK · NO RELEASE · NO CONTENT CLAIM</span></div>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Each record below identifies an available creator-supplied MP4 file by filename and a cautious planning use. No video is embedded or played here, and no runtime, spoken content, character appearance, quality assessment, authorship beyond the supplied-source label, or release status is inferred from a filename.</p>
+          <div className="mt-7 grid gap-3 md:grid-cols-2 xl:grid-cols-3">{MOTION_SOURCES.map((source) => { const active = source.id === selectedMotion.id; return <button key={source.id} type="button" aria-pressed={active} onClick={() => setSelectedMotionId(source.id)} className="rounded-2xl border p-4 text-left transition active:scale-[.99]" style={{ borderColor: active ? "rgba(157,235,255,.7)" : "rgba(255,255,255,.10)", background: active ? "rgba(0,212,255,.11)" : "rgba(3,9,20,.30)" }}><span className="text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">SUPPLIED MP4 · METADATA RECORD</span><span className="mt-2 block text-base font-black">{source.title}</span><span className="mt-2 block break-all font-mono text-[10px] leading-5 text-[#B8C7D6]">{source.filename}</span></button>; })}</div>
+          <div className="mt-6 rounded-2xl border border-[#9DEBFF]/25 bg-black/20 p-5"><p className="text-[10px] font-mono tracking-[.14em] text-[#9DEBFF]">SELECTED PLANNING RECORD</p><h3 className="mt-2 text-xl font-black">{selectedMotion.title}</h3><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{selectedMotion.planningUse}</p><p className="mt-3 text-xs leading-6 text-[#B8C7D6]">Before any new video generation or public use, a completed creator-approved brief must specify the exact reference selection, permitted use, duration, aspect ratio, story, original-character direction, on-screen text, audio, accessibility, destination, and release decision.</p></div>
         </div>
       </section>
 
@@ -229,11 +271,17 @@ export default function DynastyVisualArchive() {
               <Link href="/episode-brief-builder" className="rounded-2xl border border-white/10 bg-black/15 p-4 text-sm font-black text-white transition hover:border-[#E8DFFF]/55">Original Episode Brief Builder <ArrowRight className="ml-2 inline h-4 w-4 text-[#E8DFFF]" /></Link>
               <Link href="/creator-digital-dna" className="rounded-2xl border border-white/10 bg-black/15 p-4 text-sm font-black text-white transition hover:border-[#00FF88]/55">Creator Digital DNA context <ArrowRight className="ml-2 inline h-4 w-4 text-[#B5F7CC]" /></Link>
             </div>
+            <a href={EXTERNAL_SOURCE_REFERENCE.url} target="_blank" rel="noopener noreferrer" className="mt-6 block rounded-2xl border border-[#9DEBFF]/30 bg-[#00D4FF]/[.045] p-5 transition hover:border-[#9DEBFF]/65">
+              <p className="text-[10px] font-mono tracking-[.15em] text-[#9DEBFF]">EXTERNAL SOURCE · YOUTUBE</p>
+              <h3 className="mt-2 text-lg font-black">{EXTERNAL_SOURCE_REFERENCE.title}</h3>
+              <p className="mt-3 text-xs leading-6 text-[#D6E2EE]">{EXTERNAL_SOURCE_REFERENCE.planningNote}</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-[#9DEBFF]">Open labelled external source <ArrowRight className="h-4 w-4" /></span>
+            </a>
           </article>
 
           <article className="rounded-[2rem] border border-white/10 bg-white/[.025] p-7 md:p-8">
             <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">BROWSER-LOCAL CURATION NOTE</p><h2 className="mt-3 text-3xl font-black">Save a handoff without publishing it.</h2></div><Eye className="h-8 w-8 text-[#FFE09A]" /></div>
-            <p className="mt-4 text-sm leading-7 text-[#D6E2EE]">Capture how the selected asset may be used in a future creator review. This note stays in the browser until you export it; it does not add an asset to a release, authorize reuse, send a request, or change an external account.</p>
+            <p className="mt-4 text-sm leading-7 text-[#D6E2EE]">Capture how the selected still or motion-file record may be used in a future creator review. This note stays in the browser until you export it; it does not add an asset to a release, authorize reuse, send a request, or change an external account.</p>
             <label className="mt-6 block"><span className="text-sm font-black text-white">Local curation note</span><textarea value={curationNote} onChange={(event) => setCurationNote(event.target.value)} rows={6} placeholder="Example: use the selected source as a lighting and material reference for an original scene; keep all new character, sound, and rights choices separate." className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-[#071426] px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-[#76899C] focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/25" /></label>
             <div aria-live="polite" className="mt-6 rounded-2xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.045] p-4 text-xs leading-6 text-[#D6E2EE]"><FileWarning className="mr-2 inline h-4 w-4 text-[#FFE09A]" /><strong className="text-[#FFE09A]">SOURCE RECORD, NOT A RELEASE.</strong> The separate motion-production brief remains required before any new video generation or public release review.</div>
             <button type="button" onClick={exportArchive} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#FFCC4D] px-5 py-3 text-sm font-black text-[#071426] transition hover:brightness-110 active:scale-[.97]"><Download className="h-4 w-4" />Export local archive record</button>
