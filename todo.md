@@ -6219,3 +6219,7 @@
 ## Phase 896 — Omniworld Execution Manifesto
 - [x] Preserve a creator-led, source-aware execution manifesto that maps the ScrollVerse architecture, completed portal record, evidence hierarchy, and staged public-release sequence without converting unverified claims into deployed-state assertions
 - [x] State the creator’s authorship and direction of the ScrollVerse artifacts explicitly, while limiting verification qualifiers to separate third-party, transaction, or live-system assertions
+
+## Phase 897 — Rebirth + Living Codex Foundations
+- [x] Review the creator-supplied Rebirth, Water Guardian, ScrollChain, and human-governance concepts; identify safe first-party ecological-storytelling and provenance-planning material while holding field intervention, funding, token, DAO, account, legal, or external-release actions for specific supporting records and approval
+- [x] Build the registered Rebirth & Living Codex route with browser-local planning export, external research references, and first-party series, episode, and provenance handoffs
