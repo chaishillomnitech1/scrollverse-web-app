@@ -48,6 +48,12 @@ The newly supplied materials add message screenshots attributed to a political f
 
 The compatible next step is a **source-labelled film-foundation planning route** that recognizes the public repository, maps its broad story journey to ScrollVerse’s existing Seven-Episode Series and Episode Brief Builder, and makes clear that it is a creative-development workspace rather than a production, distribution, financial, or technical control surface. This preserves the source trail and strengthens the original story pipeline without importing unsupported status claims.
 
+## First-party planning route record
+
+The resulting first-party route is **INFININILLIONAIRE Film Foundation** at `/infininillionaire-film-foundation`. It presents the five supported creator-authored chapter labels—Queensbridge, Quantum Mansion, Beyond the Veil, Before the World Blows, and THOTHIBIS—as an original cinematic planning arc. The public repository remains an external source link. Each chapter can export a browser-local planning record and routes only into the existing Seven-Episode Series, Episode Brief Builder, and Special Repository workflows.
+
+> **Boundary retained:** no production, rights clearance, financial, token, account, or release action occurs in this route. The reviewed repository does not establish those actions or their prerequisites.
+
 ## References
 
 [1] [INFININILLIONAIRE Film Foundation — Phase-66-Omega public GitHub repository](https://github.com/chaishillomnitech1/infininillionaire-film-foundation-phase-66-omega)
