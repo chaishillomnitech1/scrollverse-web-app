@@ -193,6 +193,10 @@ export default function DynastyVisualArchive() {
         </div>
       </section>
 
+      <section className="container py-4">
+        <Link href="/episode-brief-builder?foundation=dynasty" className="inline-flex items-center gap-2 rounded-xl border border-[#E8DFFF]/45 bg-[#E8DFFF]/[.07] px-5 py-3 text-sm font-black text-[#E8DFFF] transition hover:-translate-y-0.5">Carry Dynasty context into a local brief <BookOpenCheck className="h-4 w-4" /></Link>
+      </section>
+
       <section className="container py-4" id="dynasty-motion-source-inventory">
         <div className="rounded-[2rem] border border-[#9DEBFF]/30 bg-[radial-gradient(circle_at_92%_5%,rgba(0,212,255,.16),transparent_30%),rgba(0,212,255,.035)] p-6 md:p-9">
           <div className="flex flex-wrap items-start justify-between gap-5"><div><p className="text-[10px] font-mono tracking-[.17em] text-[#9DEBFF]">DYNASTY MOTION SOURCE INVENTORY · METADATA ONLY</p><h2 className="mt-3 text-3xl font-black md:text-4xl">Eleven supplied motion references, held for the next brief.</h2></div><span className="rounded-full border border-[#9DEBFF]/40 bg-[#00D4FF]/10 px-3 py-1 text-xs font-black text-[#9DEBFF]">NO PLAYBACK · NO RELEASE · NO CONTENT CLAIM</span></div>

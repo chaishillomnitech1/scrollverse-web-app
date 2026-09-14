@@ -93,6 +93,7 @@ export default function RebirthLivingCodex() {
             <span className="rounded-full border border-[#70D9FF]/45 bg-[#70D9FF]/10 px-3 py-2 text-[#BCEEFF]">THREE CONNECTED LANES</span>
             <span className="rounded-full border border-[#DCC8FF]/45 bg-[#DCC8FF]/10 px-3 py-2 text-[#E8DFFF]">LOCAL EXPORT · NO EXTERNAL ACTION</span>
           </div>
+          <Link href="/episode-brief-builder?foundation=rebirth" className="mt-7 inline-flex rounded-xl border border-[#DCC8FF]/45 bg-[#DCC8FF]/[.08] px-5 py-3 text-sm font-black text-[#E8DFFF] transition hover:-translate-y-0.5">Carry Rebirth context into a local brief →</Link>
         </div>
       </section>
 

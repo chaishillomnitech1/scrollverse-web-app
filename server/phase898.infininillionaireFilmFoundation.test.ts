@@ -27,7 +27,7 @@ describe("Phase 898 — INFININILLIONAIRE Film Foundation planning pathway", () 
 
     expect(page).toContain("https://github.com/chaishillomnitech1/infininillionaire-film-foundation-phase-66-omega");
     expect(page).toContain('href="/seven-episode-series"');
-    expect(page).toContain('href="/episode-brief-builder"');
+    expect(page).toContain('href="/episode-brief-builder?foundation=filmFoundation"');
     expect(page).toContain('href="/special-repository"');
   });
 

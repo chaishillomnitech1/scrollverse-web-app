@@ -6227,3 +6227,6 @@
 ## Phase 897 — Rebirth + Living Codex Foundations
 - [x] Review the creator-supplied Rebirth, Water Guardian, ScrollChain, and human-governance concepts; identify safe first-party ecological-storytelling and provenance-planning material while holding field intervention, funding, token, DAO, account, legal, or external-release actions for specific supporting records and approval
 - [x] Build the registered Rebirth & Living Codex route with browser-local planning export, external research references, and first-party series, episode, and provenance handoffs
+
+## Phase 899 — Story Foundation Brief Handoff
+- [x] Connect completed source-led Dynasty, Rebirth, Film Foundation, and series planning routes to a shared browser-local Episode Brief Builder handoff with source context only; preserve all visual, sound, rights, accessibility, destination, production, financial, account, and release decisions as unfilled owner-controlled fields
