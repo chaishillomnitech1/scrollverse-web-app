@@ -6230,3 +6230,10 @@
 
 ## Phase 899 — Story Foundation Brief Handoff
 - [x] Connect completed source-led Dynasty, Rebirth, Film Foundation, and series planning routes to a shared browser-local Episode Brief Builder handoff with source context only; preserve all visual, sound, rights, accessibility, destination, production, financial, account, and release decisions as unfilled owner-controlled fields
+
+## Phase 900 — Next First-Party Enhancement Selection
+- [x] Review the remaining ScrollVerse backlog and select the highest-value unblocked first-party enhancement before implementation
+
+## Phase 901 — Source-Led Planning Atlas
+- [x] Build a registered, interactive Planning Atlas that unifies Dynasty, Rebirth, Film Foundation, Seven-Episode Series, Episode Brief Builder, and Special Repository into one first-party creator workflow without implying media generation, field action, financial action, account access, or release approval
+- [x] Align the Planning Atlas static source assertion with its intentional styled JSX heading without weakening its route and workflow checks

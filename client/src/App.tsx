@@ -16,6 +16,7 @@ const SevenEpisodeSeries = lazy(() => import("@/pages/SevenEpisodeSeries")); // 
 const DynastyVisualArchive = lazy(() => import("@/pages/DynastyVisualArchive")); // import DynastyVisualArchive from "@/pages/DynastyVisualArchive"; deferred route module
 const RebirthLivingCodex = lazy(() => import("@/pages/RebirthLivingCodex")); // import RebirthLivingCodex from "@/pages/RebirthLivingCodex"; deferred route module
 const InfininillionaireFilmFoundation = lazy(() => import("@/pages/InfininillionaireFilmFoundation")); // import InfininillionaireFilmFoundation from "@/pages/InfininillionaireFilmFoundation"; deferred route module
+const PlanningAtlas = lazy(() => import("@/pages/PlanningAtlas")); // import PlanningAtlas from "@/pages/PlanningAtlas"; deferred route module
 const MobileCompanion = lazy(() => import("@/pages/MobileCompanion")); // import MobileCompanion from "@/pages/MobileCompanion"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
 const OmnilandEmbodiedPlay = lazy(() => import("@/pages/OmnilandEmbodiedPlay")); // import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay"; deferred route module
@@ -978,6 +979,7 @@ function Router() {
         <Route path="/dynasty-visual-archive" component={DynastyVisualArchive} />
         <Route path="/rebirth-living-codex" component={RebirthLivingCodex} />
         <Route path="/infininillionaire-film-foundation" component={InfininillionaireFilmFoundation} />
+        <Route path="/planning-atlas" component={PlanningAtlas} />
         <Route path="/mobile-companion" component={MobileCompanion} />
         <Route path="/legion-specialist-profiles" component={LegionSpecialistProfiles} />
         <Route path="/commons" component={ConvergenceCommons} />
