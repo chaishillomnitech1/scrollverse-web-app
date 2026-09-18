@@ -86,10 +86,21 @@ const STAGES: WorkflowNode["stage"][] = ["SOURCE", "STORY", "BRIEF", "REVIEW"];
 
 export default function PlanningAtlas() {
   const [activeNodeId, setActiveNodeId] = useState<WorkflowNode["id"]>("dynasty");
+  const [routeFinderQuery, setRouteFinderQuery] = useState("");
   const activeNode = useMemo(
     () => WORKFLOW_NODES.find((node) => node.id === activeNodeId) ?? WORKFLOW_NODES[0],
     [activeNodeId],
   );
+  const matchingWorkflowNodes = useMemo(() => {
+    const normalizedQuery = routeFinderQuery.trim().toLowerCase();
+    if (!normalizedQuery) return WORKFLOW_NODES;
+    return WORKFLOW_NODES.filter((node) =>
+      [node.stage, node.title, node.action, node.description, node.handoff]
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedQuery),
+    );
+  }, [routeFinderQuery]);
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#050914] text-white">
@@ -100,6 +111,17 @@ export default function PlanningAtlas() {
           <h1 aria-label="Planning Atlas" className="mt-4 max-w-5xl text-5xl font-black leading-[.9] tracking-tight md:text-7xl">Planning <span className="text-[#70D9FF]">Atlas</span></h1>
           <p className="mt-7 max-w-3xl text-base leading-8 text-[#D6E2EE]">One interactive map for moving a creator-led concept from source context through story design and local brief preparation into provenance review. The workflow is designed to preserve authorship, visibility, and decision ownership at every handoff.</p>
           <div className="mt-8 inline-flex flex-wrap items-center gap-3 rounded-2xl border border-[#BCEEFF]/30 bg-[#BCEEFF]/[.06] px-4 py-3 text-[10px] font-mono font-black tracking-[.16em] text-[#C9F3FF]">SOURCE → STORY → BRIEF → REVIEW</div>
+        </div>
+      </section>
+
+      <section aria-label="First-party route finder" className="border-b border-white/10 bg-[#07101E]">
+        <div className="container py-10 md:py-12">
+          <div className="rounded-[2rem] border border-[#70D9FF]/30 bg-[radial-gradient(circle_at_90%_10%,rgba(112,217,255,.14),transparent_30%),rgba(112,217,255,.035)] p-6 md:p-8">
+            <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-[10px] font-mono tracking-[.18em] text-[#BCEEFF]">BROWSER-LOCAL ROUTE FINDER</p><h2 className="mt-2 text-3xl font-black">Find a workflow route</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-[#D6E2EE]">Filter the current Planning Atlas by story lane, workflow stage, route name, or handoff. Results stay inside the six registered first-party creator workflow routes.</p></div><p aria-live="polite" className="rounded-full border border-white/10 bg-white/[.04] px-3 py-2 text-[10px] font-mono text-[#C9F3FF]">{matchingWorkflowNodes.length} route results</p></div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row"><label className="sr-only" htmlFor="planning-atlas-route-finder">Find a workflow route</label><input id="planning-atlas-route-finder" aria-label="Filter the six first-party creator workflow routes" value={routeFinderQuery} onChange={(event) => setRouteFinderQuery(event.target.value)} placeholder="Try: visual, water, film, season, brief, source…" className="min-h-12 flex-1 rounded-xl border border-[#70D9FF]/35 bg-[#030713]/70 px-4 text-sm text-white outline-none transition placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/25" />{routeFinderQuery && <button type="button" onClick={() => setRouteFinderQuery("")} className="min-h-12 rounded-xl border border-white/20 bg-white/[.04] px-4 text-sm font-black text-white transition hover:bg-white/[.1]">Clear filter</button>}</div>
+            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">{matchingWorkflowNodes.map((node) => <Link key={node.id} href={node.route} onClick={() => setActiveNodeId(node.id)} className="rounded-2xl border p-4 transition hover:-translate-y-0.5" style={{ borderColor: `${node.color}55`, background: `${node.color}0B` }}><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: node.color }}>{node.stage}</p><h3 className="mt-2 text-lg font-black text-white">{node.title}</h3><p className="mt-2 text-xs leading-6 text-[#C2D0DD]">{node.action}</p></Link>)}{matchingWorkflowNodes.length === 0 && <div className="rounded-2xl border border-dashed border-white/20 p-5 text-sm leading-7 text-[#C2D0DD] md:col-span-2 xl:col-span-3">No first-party workflow route matches that filter. Try a route name, workflow stage, or a term such as “source,” “story,” or “brief.”</div>}</div>
+            <p className="mt-5 text-xs leading-6 text-[#B7C8D9]">The finder opens only the six registered first-party planning routes. It does not query external sources or perform an account, financial, production, or release action.</p>
+          </div>
         </div>
       </section>
 

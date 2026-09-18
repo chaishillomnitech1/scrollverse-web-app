@@ -6237,3 +6237,10 @@
 ## Phase 901 — Source-Led Planning Atlas
 - [x] Build a registered, interactive Planning Atlas that unifies Dynasty, Rebirth, Film Foundation, Seven-Episode Series, Episode Brief Builder, and Special Repository into one first-party creator workflow without implying media generation, field action, financial action, account access, or release approval
 - [x] Align the Planning Atlas static source assertion with its intentional styled JSX heading without weakening its route and workflow checks
+
+## Phase 902 — Creator Workflow Route Finder
+- [x] Add a browser-local Planning Atlas route finder that filters only registered first-party creator workflow destinations and preserves clear source and release-boundary context
+
+## Phase 903 — Public Sharing Access Diagnosis
+- [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
+- [ ] External billing or hosting restoration is required before the published domains can be reachable again; recheck sharing access after the owner resolves that account-level gate
