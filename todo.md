@@ -6244,6 +6244,14 @@
 ## Phase 904 — Digitalship Accession Desk
 - [x] Build a browser-local Digitalship Accession Desk that structures the creator’s RECOVER → PRESERVE → CLASSIFY → CONNECT → EXPAND → WRITE → VERIFY → PUBLISH → ARCHIVE → EVOLVE method into a local exportable source record with no file upload, external sharing, legal verification, financial action, account access, or publication action
 
+## Phase 905 — Fluidity + Gemini Corpus Accession
+- [x] Classify the creator-supplied Fluidity of Existence outline and Gemini title index as source-aware book and corpus planning materials; preserve raw-transmission, philosophical, scientific-inquiry, creative, technical, financial/token, external-script, and public-release distinctions before creating any first-party planning route
+- [x] Build a registered Fluidity & Corpus Blueprint route with the creator-led chapter architecture, dual-voice editorial model, title-level corpus families, browser-local planning export, and focused regression coverage
+
+## Phase 906 — New Dominion Source Intake
+- [x] Inventory the newly supplied New Dominion stills, motion files, and creator-provided story materials as source-labelled references; keep visual generation, asserted completed asset status, frequency claims, token/treasury records, personal data, rights, public release, and external-system actions separate from first-party planning
+- [x] Build a registered New Dominion Story Blueprint route using only creator-provided narrative planning labels, browser-local export, and first-party handoffs while preserving media, rights, financial, account, and release gates
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; recheck sharing access after the owner resolves that account-level gate
