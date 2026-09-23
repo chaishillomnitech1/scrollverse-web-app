@@ -1,5 +1,10 @@
 import { useMemo, useState } from "react";
 import { Link } from "wouter";
+import {
+  downloadNarrativeRouteCsv,
+  downloadNarrativeRoutePdf,
+  type NarrativeRouteExport,
+} from "@/lib/narrativeRouteExport";
 
 type StoryAct = {
   id: "council" | "machine" | "transfer" | "return";
@@ -78,8 +83,31 @@ function exportLocalStoryRecord(act: StoryAct, notes: string) {
 export default function NewDominionStoryBlueprint() {
   const [activeActId, setActiveActId] = useState<StoryAct["id"]>("council");
   const [creatorNotes, setCreatorNotes] = useState("");
-  const [exported, setExported] = useState(false);
+  const [exportMessage, setExportMessage] = useState("");
   const activeAct = useMemo(() => ACTS.find((act) => act.id === activeActId) ?? ACTS[0], [activeActId]);
+  const narrativeRouteExport = useMemo<NarrativeRouteExport>(() => ({
+    title: "New Dominion Story Blueprint",
+    route: "/new-dominion-story-blueprint",
+    scope: "Narrative-only route. Four creator-provided planning acts are represented without embedding or playing supplied media.",
+    selectedRecord: activeAct.label,
+    creatorNotes,
+    sections: ACTS.map((act, index) => ({
+      number: index + 1,
+      title: act.label,
+      status: "creator-provided narrative planning label",
+      summary: `${act.premise} Development question: ${act.planningQuestion}`,
+    })),
+  }), [activeAct, creatorNotes]);
+
+  function exportPdf() {
+    downloadNarrativeRoutePdf(narrativeRouteExport, "scrollverse-new-dominion-story-blueprint.pdf");
+    setExportMessage("Formatted PDF downloaded locally. No media upload or release occurred.");
+  }
+
+  function exportCsv() {
+    downloadNarrativeRouteCsv(narrativeRouteExport, "scrollverse-new-dominion-story-blueprint.csv");
+    setExportMessage("CSV downloaded locally. No media upload or release occurred.");
+  }
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#060811] text-white">
@@ -97,7 +125,7 @@ export default function NewDominionStoryBlueprint() {
         <div className="grid gap-8 xl:grid-cols-[.78fr_1.22fr]">
           <aside className="rounded-[2rem] border border-white/10 bg-white/[.025] p-5 md:p-6">
             <p className="text-[10px] font-mono tracking-[.18em] text-[#FFE7B3]">FOUR-ACT CINEMATIC SHAPE</p>
-            <div className="mt-5 space-y-3">{ACTS.map((act) => { const active = act.id === activeAct.id; return <button key={act.id} type="button" onClick={() => { setActiveActId(act.id); setExported(false); }} aria-pressed={active} className="w-full rounded-2xl border p-4 text-left transition hover:-translate-y-0.5" style={{ borderColor: active ? `${act.color}A8` : "rgba(255,255,255,.12)", background: active ? `${act.color}14` : "rgba(255,255,255,.02)" }}><span className="text-[10px] font-mono tracking-[.16em]" style={{ color: act.color }}>{act.label.toUpperCase()}</span><span className="mt-2 block text-base font-black text-white">{act.panelLabels.join(" · ")}</span></button>; })}</div>
+            <div className="mt-5 space-y-3">{ACTS.map((act) => { const active = act.id === activeAct.id; return <button key={act.id} type="button" onClick={() => { setActiveActId(act.id); setExportMessage(""); }} aria-pressed={active} className="w-full rounded-2xl border p-4 text-left transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE7B3]" style={{ borderColor: active ? `${act.color}A8` : "rgba(255,255,255,.12)", background: active ? `${act.color}14` : "rgba(255,255,255,.02)" }}><span className="text-[10px] font-mono tracking-[.16em]" style={{ color: act.color }}>{act.label.toUpperCase()}</span><span className="mt-2 block text-base font-black text-white">{act.panelLabels.join(" · ")}</span></button>; })}</div>
             <div className="mt-6 rounded-2xl border border-[#FFB36B]/30 bg-[#FFB36B]/[.06] p-4"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFDEA0]">MEDIA + ACTION BOUNDARY</p><p className="mt-2 text-sm leading-6 text-[#E7EFF7]">No supplied still or motion file is embedded or played here. Any visual review, edit, generation, rights, platform, or release step needs its own exact creator-approved brief.</p></div>
           </aside>
 
@@ -106,8 +134,8 @@ export default function NewDominionStoryBlueprint() {
             <h2 className="mt-3 text-4xl font-black leading-tight md:text-5xl">{activeAct.panelLabels[0]}</h2>
             <p className="mt-6 text-base leading-8 text-[#E2EBF4]">{activeAct.premise}</p>
             <div className="mt-7 rounded-2xl border border-white/10 bg-[#030713]/55 p-5"><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: activeAct.color }}>DEVELOPMENT QUESTION</p><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{activeAct.planningQuestion}</p></div>
-            <label className="mt-5 block"><span className="text-[10px] font-mono tracking-[.16em]" style={{ color: activeAct.color }}>CREATOR STORY NOTES</span><textarea value={creatorNotes} onChange={(event) => { setCreatorNotes(event.target.value); setExported(false); }} rows={4} placeholder="Record the original character, scene, setting, source question, or unresolved choice without treating a planning direction as a released asset." className="mt-2 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 py-3 text-sm leading-7 text-white outline-none placeholder:text-[#788FA4] focus:ring-2" style={{ borderColor: `${activeAct.color}55` }} /></label>
-            <div className="mt-6 flex flex-wrap items-center gap-3"><button type="button" onClick={() => { exportLocalStoryRecord(activeAct, creatorNotes); setExported(true); }} className="rounded-xl px-5 py-3 text-sm font-black text-[#070914] transition hover:brightness-110 active:scale-[.98]" style={{ background: activeAct.color }}>Export browser-local story record ↓</button>{exported && <span role="status" className="text-sm font-black text-[#C9F3FF]">Local story record exported. No media upload or release occurred.</span>}</div>
+            <label className="mt-5 block"><span className="text-[10px] font-mono tracking-[.16em]" style={{ color: activeAct.color }}>CREATOR STORY NOTES</span><textarea value={creatorNotes} onChange={(event) => { setCreatorNotes(event.target.value); setExportMessage(""); }} rows={4} placeholder="Record the original character, scene, setting, source question, or unresolved choice without treating a planning direction as a released asset." className="mt-2 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 py-3 text-sm leading-7 text-white outline-none placeholder:text-[#788FA4] focus:ring-2" style={{ borderColor: `${activeAct.color}55` }} /></label>
+            <div className="mt-7 rounded-2xl border border-[#FFCF73]/30 bg-[#FFCF73]/[.055] p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFE7B3]">Narrative-only route export</p><p className="mt-2 text-sm leading-7 text-[#E7EFF7]">Download the four-act planning route as a standard PDF or CSV. The browser creates the file locally; it does not upload, publish, play, or release supplied media.</p><div className="mt-5 flex flex-wrap items-center gap-3"><button type="button" onClick={exportPdf} className="min-h-11 rounded-xl bg-[#FFCF73] px-5 py-3 text-sm font-black text-[#070914] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE7B3] active:scale-[.98]">Download formatted PDF</button><button type="button" onClick={exportCsv} className="min-h-11 rounded-xl border border-[#C9F3FF]/45 bg-[#70D9FF]/[.08] px-5 py-3 text-sm font-black text-[#C9F3FF] transition hover:bg-[#70D9FF]/[.16] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F3FF] active:scale-[.98]">Download CSV</button><button type="button" onClick={() => { exportLocalStoryRecord(activeAct, creatorNotes); setExportMessage("Local working record exported. No media upload or release occurred."); }} className="min-h-11 rounded-xl border border-white/20 bg-white/[.04] px-5 py-3 text-sm font-black text-white transition hover:bg-white/[.1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[.98]">Export browser-local story record ↓</button></div>{exportMessage && <p role="status" aria-live="polite" className="mt-4 text-sm font-black text-[#C9F3FF]">{exportMessage}</p>}</div>
           </section>
         </div>
       </section>

@@ -26,6 +26,10 @@ describe("Phase 906 — New Dominion Story Blueprint", () => {
     expect(page).toContain("Creator-supplied media is inventoried, not embedded or played here.");
     expect(page).toContain("No visual generation, rights clearance, financial, account, or release action occurs here.");
     expect(page).toContain("Export browser-local story record");
+    expect(page).toContain("Narrative-only route export");
+    expect(page).toContain("Download formatted PDF");
+    expect(page).toContain("Download CSV");
+    expect(page).toContain("downloadNarrativeRoutePdf");
     expect(sourceRecord).toContain("New Dominion Order Initiated");
   });
 });

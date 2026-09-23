@@ -6252,6 +6252,15 @@
 - [x] Inventory the newly supplied New Dominion stills, motion files, and creator-provided story materials as source-labelled references; keep visual generation, asserted completed asset status, frequency claims, token/treasury records, personal data, rights, public release, and external-system actions separate from first-party planning
 - [x] Build a registered New Dominion Story Blueprint route using only creator-provided narrative planning labels, browser-local export, and first-party handoffs while preserving media, rights, financial, account, and release gates
 
+## Phase 907 — Corpus Map Views + Narrative-Only Local Exports
+- [x] Add an accessible corpus-map filter for the 12 source-backed planning lenses and the 27-position progression, keeping unrecovered positions visible as source-title recovery targets
+- [x] Add hover-and-focus node summaries, a shared browser-local PDF/CSV export helper, and prominent local downloads on the Fluidity and New Dominion planning routes
+- [x] Document the reusable source-aware narrative-route export method as a validated local skill
+
+## Phase 908 — Creator Record Continuation Receipt
+- [x] Preserve the supplied nine-frame, codex, visual-direction, and technical-proposal texts as a source receipt with file identifiers, working classification, and links to the existing first-party planning routes
+- [x] Keep unselected visual media, wallet, minting, payment, deployment, repository, account, and public-release actions outside the active planning build pending their exact source-specific decisions
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; recheck sharing access after the owner resolves that account-level gate

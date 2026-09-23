@@ -27,4 +27,16 @@ describe("Phase 905 — Fluidity and Gemini Corpus Blueprint", () => {
     expect(page).toContain("12 PLANNING LENSES");
     expect(home).toContain("12 PLANNING LENSES");
   });
+
+  it("offers an accessible source-aware view toggle, lens summaries, and local PDF/CSV exports", () => {
+    const page = readFileSync(pagePath, "utf8");
+
+    expect(page).toContain("12 planning lenses");
+    expect(page).toContain("27-chapter progression");
+    expect(page).toContain("Source title pending recovery");
+    expect(page).toContain('role="tooltip"');
+    expect(page).toContain("Download formatted PDF");
+    expect(page).toContain("Download CSV");
+    expect(page).toContain("Narrative-only route export");
+  });
 });
