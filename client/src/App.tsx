@@ -20,6 +20,7 @@ const PlanningAtlas = lazy(() => import("@/pages/PlanningAtlas")); // import Pla
 const DigitalshipAccessionDesk = lazy(() => import("@/pages/DigitalshipAccessionDesk")); // import DigitalshipAccessionDesk from "@/pages/DigitalshipAccessionDesk"; deferred route module
 const FluidityCorpusBlueprint = lazy(() => import("@/pages/FluidityCorpusBlueprint")); // import FluidityCorpusBlueprint from "@/pages/FluidityCorpusBlueprint"; deferred route module
 const NewDominionStoryBlueprint = lazy(() => import("@/pages/NewDominionStoryBlueprint")); // import NewDominionStoryBlueprint from "@/pages/NewDominionStoryBlueprint"; deferred route module
+const NineFrameManifestationPacket = lazy(() => import("@/pages/NineFrameManifestationPacket")); // import NineFrameManifestationPacket from "@/pages/NineFrameManifestationPacket"; deferred route module
 const MobileCompanion = lazy(() => import("@/pages/MobileCompanion")); // import MobileCompanion from "@/pages/MobileCompanion"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
 const OmnilandEmbodiedPlay = lazy(() => import("@/pages/OmnilandEmbodiedPlay")); // import OmnilandEmbodiedPlay from "@/pages/OmnilandEmbodiedPlay"; deferred route module
@@ -986,6 +987,7 @@ function Router() {
         <Route path="/digitalship-accession" component={DigitalshipAccessionDesk} />
         <Route path="/fluidity-corpus-blueprint" component={FluidityCorpusBlueprint} />
         <Route path="/new-dominion-story-blueprint" component={NewDominionStoryBlueprint} />
+        <Route path="/nine-frame-manifestation-packet" component={NineFrameManifestationPacket} />
         <Route path="/mobile-companion" component={MobileCompanion} />
         <Route path="/legion-specialist-profiles" component={LegionSpecialistProfiles} />
         <Route path="/commons" component={ConvergenceCommons} />

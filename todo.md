@@ -6261,6 +6261,14 @@
 - [x] Preserve the supplied nine-frame, codex, visual-direction, and technical-proposal texts as a source receipt with file identifiers, working classification, and links to the existing first-party planning routes
 - [x] Keep unselected visual media, wallet, minting, payment, deployment, repository, account, and public-release actions outside the active planning build pending their exact source-specific decisions
 
+## Phase 909 — Nine-Frame Manifestation Planning Packet
+- [x] Build and register a creator-led text-only route for Key Sigil, The Form, The Chatbot, Avatar in a Box, and the five Manifestation planning positions
+- [x] Add accessible selected-frame controls, browser-local PDF/CSV/JSON exports, homepage discovery, and direct first-party handoffs while keeping visual-source selection, rights, financial, account, deployment, and release actions separate
+
+## Phase 910 — New Creator Source Batch Receipt
+- [x] Preserve the latest supplied text records and 34 unselected visual references as a separate source batch with identifiers, planning classification, and no image inspection, upload, display, or publication
+- [x] Keep reported external status, automation, wallet, token, financial, repository, contract, account, and release language as source reports or proposals pending exact source-specific confirmation and owner-controlled action scope
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; recheck sharing access after the owner resolves that account-level gate
