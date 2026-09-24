@@ -39,4 +39,15 @@ describe("Phase 905 — Fluidity and Gemini Corpus Blueprint", () => {
     expect(page).toContain("Download CSV");
     expect(page).toContain("Narrative-only route export");
   });
+
+  it("indexes the current creator text batch as a recovery docket without treating source reports as operational state", () => {
+    const page = readFileSync(pagePath, "utf8");
+    const sourceReceipt = readFileSync("docs/phase910-new-creator-source-batch-receipt.md", "utf8");
+
+    expect(page).toContain("CURRENT RECOVERY DOCKET");
+    expect(page).toContain("Pasted_content_100.txt");
+    expect(page).toContain("Pasted_content_100_03.txt");
+    expect(page).toContain("Source record only; review has not selected a display asset or verified an external state.");
+    expect(sourceReceipt).toContain("Total visual references in this batch");
+  });
 });

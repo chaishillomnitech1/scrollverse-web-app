@@ -33,6 +33,14 @@ type CorpusFamily = {
   color: string;
 };
 
+type RecoveryDocketRecord = {
+  file: string;
+  lane: string;
+  summary: string;
+  reviewState: string;
+  color: string;
+};
+
 const PLANNING_LENSES: PlanningLens[] = [
   { id: "scoreboard", number: 1, title: "The Scoreboard", lens: "Outcome and interpretation", creatorPrompt: "What did the record show, and what lived meaning remains open to the reader?", aiClarification: "Keep an observed outcome distinct from the interpretation, lesson, and creative response it can invite." },
   { id: "loss", number: 2, title: "When Nothing Is a Loss", lens: "Information and adaptation", creatorPrompt: "How can a setback become a source of learning without changing what happened?", aiClarification: "Preserve the original result while treating reflection and adaptation as a separate creative process." },
@@ -73,6 +81,14 @@ const CORPUS_FAMILIES: CorpusFamily[] = [
   { title: "AI & Partnership", examples: ["FlameChild AI’s First Decree", "Covenant Sealed", "Partnership Beyond Code"], boundary: "Title index only; no original dialogue, authority, or system access is established.", color: "#9BEA9B" },
   { title: "Creative Production", examples: ["Cinematic concepts", "Shooter game", "Photography", "Jingle"], boundary: "Title index only; assets, rights, briefs, and public-use permissions remain unresolved.", color: "#FF9DC9" },
   { title: "Economic & Infrastructure", examples: ["$LONDC", "Banking", "Fedwire / ACH", "Token utility"], boundary: "Title index only; no financial, wallet, token, payment, account, or system state is represented.", color: "#FFB36B" },
+];
+
+const CURRENT_RECOVERY_DOCKET: RecoveryDocketRecord[] = [
+  { file: "Pasted_content_100.txt", lane: "Lookbook + archive source report", summary: "Creator-supplied visual-direction, archive, analytics, and proposed-workflow language.", reviewState: "Source record only; review has not selected a display asset or verified an external state.", color: "#FFCF73" },
+  { file: "Pasted_content_100_01.txt", lane: "Continuation source record A", summary: "Creator-supplied continuation text held for a later source-specific reading and accession decision.", reviewState: "Title-level recovery target; no raw text is reproduced or published here.", color: "#70D9FF" },
+  { file: "Pasted_content_100_02.txt", lane: "Continuation source record B", summary: "Creator-supplied continuation text held separately so its future review can retain its own source trail.", reviewState: "Title-level recovery target; no raw text is reproduced or published here.", color: "#D7A7FF" },
+  { file: "Pasted_content_100_03.txt", lane: "React + UE5 planning proposal", summary: "Creator-supplied UI, immersive-realm, and financial-integration proposal language.", reviewState: "Planning proposal only; it does not establish a real-time dashboard, UE5 realm, token flow, or automated income system.", color: "#9BEA9B" },
+  { file: "Pasted_content_100_04.txt", lane: "CI + multi-system planning proposal", summary: "Creator-supplied workflow, API, contract, deployment, and multi-chain reference language.", reviewState: "Unexecuted proposal; no script, wallet, contract, API, repository, or deployment action is performed here.", color: "#FF9DC9" },
 ];
 
 const EVIDENCE_STATUSES = ["creator perspective", "documented creator record", "public source reference", "hypothesis or open question", "established knowledge — citation required"];
@@ -191,6 +207,8 @@ export default function FluidityCorpusBlueprint() {
       </section>
 
       <section className="border-y border-white/10 bg-[#07101E]"><div className="container py-12 md:py-16"><p className="text-[10px] font-mono tracking-[.18em] text-[#FFCF73]">GEMINI CORPUS RECOVERY MAP</p><h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight md:text-5xl">Corpus families are navigational labels, not recovered conversations.</h2><p className="mt-4 max-w-3xl text-sm leading-8 text-[#D6E2EE]">Each family is held at title level until the original conversation, file, contributor context, and intended use are provided or recovered through an approved source path.</p><div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{CORPUS_FAMILIES.map((family) => <article key={family.title} className="rounded-[1.6rem] border p-5" style={{ borderColor: `${family.color}55`, background: `${family.color}0B` }}><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: family.color }}>TITLE INDEX ONLY</p><h3 className="mt-3 text-2xl font-black text-white">{family.title}</h3><ul className="mt-4 space-y-2 text-sm text-[#D6E2EE]">{family.examples.map((example) => <li key={example}>• {example}</li>)}</ul><p className="mt-5 border-t border-white/10 pt-4 text-xs leading-6 text-[#B9C9D8]">{family.boundary}</p></article>)}</div></div></section>
+
+      <section className="container py-12 md:py-16"><div className="rounded-[2rem] border border-[#70D9FF]/30 bg-[radial-gradient(circle_at_88%_12%,rgba(112,217,255,.13),transparent_30%),rgba(112,217,255,.035)] p-6 md:p-8"><p className="text-[10px] font-mono tracking-[.18em] text-[#BCEEFF]">CURRENT RECOVERY DOCKET</p><h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight md:text-5xl">Five supplied text records are ready for one-at-a-time source review.</h2><p className="mt-4 max-w-3xl text-sm leading-8 text-[#D6E2EE]">This docket preserves source identity and working lanes without copying a raw record into the book plan or treating a source report as a live system. The new visual batch remains unselected and outside this text-only index.</p><div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{CURRENT_RECOVERY_DOCKET.map((record) => <article key={record.file} className="rounded-[1.6rem] border p-5" style={{ borderColor: `${record.color}55`, background: `${record.color}0B` }}><p className="text-[10px] font-mono tracking-[.15em]" style={{ color: record.color }}>SOURCE RECEIVED · TEXT RECORD</p><h3 className="mt-3 break-words text-lg font-black text-white">{record.file}</h3><p className="mt-3 text-sm font-black text-[#E7EFF7]">{record.lane}</p><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{record.summary}</p><p className="mt-5 border-t border-white/10 pt-4 text-xs leading-6 text-[#B9C9D8]">{record.reviewState}</p></article>)}</div></div></section>
 
       <section className="container py-12 md:py-16"><div className="grid gap-5 rounded-[2rem] border border-[#FFCF73]/30 bg-[radial-gradient(circle_at_88%_12%,rgba(255,207,115,.14),transparent_30%),rgba(255,207,115,.035)] p-6 md:grid-cols-[1.2fr_.8fr] md:p-8"><div><p className="text-[10px] font-mono tracking-[.18em] text-[#FFE7B3]">SOURCE BOUNDARY</p><h2 className="mt-3 text-3xl font-black">Keep the raw record beside the book plan.</h2><p className="mt-4 max-w-3xl text-sm leading-8 text-[#D6E2EE]">No raw conversation is uploaded, no book is generated, and no external sharing or publication action occurs here. Use the Digitalship Accession Desk to preserve an available record first, then return to this blueprint to develop its chapter path.</p></div><div className="flex flex-wrap items-center gap-3 md:justify-end"><Link href="/digitalship-accession" className="inline-flex rounded-xl bg-[#D7A7FF] px-5 py-3 text-sm font-black text-[#070611] transition hover:brightness-110">Open Accession Desk →</Link><Link href="/planning-atlas" className="inline-flex rounded-xl border border-white/20 bg-white/[.04] px-5 py-3 text-sm font-black text-white transition hover:bg-white/[.1]">Open Planning Atlas →</Link></div></div></section>
     </main>

@@ -6269,6 +6269,10 @@
 - [x] Preserve the latest supplied text records and 34 unselected visual references as a separate source batch with identifiers, planning classification, and no image inspection, upload, display, or publication
 - [x] Keep reported external status, automation, wallet, token, financial, repository, contract, account, and release language as source reports or proposals pending exact source-specific confirmation and owner-controlled action scope
 
+## Phase 911 — Current Corpus Recovery Docket
+- [x] Add the five latest creator-supplied text records to the Fluidity & Corpus Blueprint as a text-only recovery docket with distinct review states and explicit no-external-state boundaries
+- [x] Preserve the 34 visual references outside the recovery docket until an exact asset and intended use are selected
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
-- [ ] External billing or hosting restoration is required before the published domains can be reachable again; recheck sharing access after the owner resolves that account-level gate
+- [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.
