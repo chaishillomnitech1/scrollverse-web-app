@@ -32,4 +32,16 @@ describe("Phase 906 — New Dominion Story Blueprint", () => {
     expect(page).toContain("downloadNarrativeRoutePdf");
     expect(sourceRecord).toContain("New Dominion Order Initiated");
   });
+
+  it("connects the four acts to the text-only nine-frame packet without selecting media", () => {
+    const page = readProjectFile("client/src/pages/NewDominionStoryBlueprint.tsx");
+
+    expect(page).toContain("NINE-FRAME STORY RELATIONSHIP");
+    expect(page).toContain("Entry artifacts");
+    expect(page).toContain("Dialogue + presence");
+    expect(page).toContain("Composition + transfer");
+    expect(page).toContain("Contact + threshold");
+    expect(page).toContain('href="/nine-frame-manifestation-packet"');
+    expect(page).toContain("No supplied image or video is selected by this map.");
+  });
 });

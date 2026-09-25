@@ -6273,6 +6273,14 @@
 - [x] Add the five latest creator-supplied text records to the Fluidity & Corpus Blueprint as a text-only recovery docket with distinct review states and explicit no-external-state boundaries
 - [x] Preserve the 34 visual references outside the recovery docket until an exact asset and intended use are selected
 
+## Phase 912 — New Dominion × Nine-Frame Story Map
+- [x] Map the New Dominion four-act sequence to the text-only Nine-Frame Manifestation packet: entry artifacts, dialogue/presence, composition/transfer, and contact/threshold
+- [x] Add a direct first-party handoff and verify that the mapping does not select, embed, or publish supplied media
+
+## Phase 913 — Motion and Still Source Receipt
+- [x] Preserve the latest 1,512-line text version, seven motion files, and 23 stills as a distinct source group with current file identifiers and technical metadata only
+- [x] Keep every supplied still and motion file unselected, unopened, unplayed, outside the project bundle, and unavailable for display or release pending an exact source-specific choice
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.
