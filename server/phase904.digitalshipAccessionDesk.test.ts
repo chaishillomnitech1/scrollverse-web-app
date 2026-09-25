@@ -17,4 +17,15 @@ describe("Phase 904 — Digitalship Accession Desk", () => {
     expect(page).toContain("Browser-local record");
     expect(page).toContain("No file upload, external sharing, legal verification, financial action, account access, or publication action occurs here.");
   });
+
+  it("records an exact source-selection decision locally without using or releasing the selected media", () => {
+    const page = readFileSync(pagePath, "utf8");
+
+    expect(page).toContain("EXACT SOURCE-SELECTION DECISION");
+    expect(page).toContain("SOURCE FILENAME OR ID");
+    expect(page).toContain("INTENDED STORY ROUTE");
+    expect(page).toContain("DISPLAY TREATMENT");
+    expect(page).toContain("selection:");
+    expect(page).toContain("No selected file is opened, uploaded, embedded, played, transformed, or released by this record.");
+  });
 });

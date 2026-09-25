@@ -9,6 +9,10 @@ type AccessionValues = {
   sourceSummary: string;
   preservationNote: string;
   creatorContext: string;
+  sourceFilename: string;
+  intendedRoute: string;
+  intendedUse: string;
+  displayTreatment: string;
 };
 
 const METHOD_STEPS = [
@@ -34,6 +38,10 @@ const INITIAL_VALUES: AccessionValues = {
   sourceSummary: "",
   preservationNote: "",
   creatorContext: "",
+  sourceFilename: "",
+  intendedRoute: "not yet selected",
+  intendedUse: "",
+  displayTreatment: "no display selected — planning record only",
 };
 
 function downloadLocalAccession(values: AccessionValues, activeStep: number) {
@@ -43,6 +51,13 @@ function downloadLocalAccession(values: AccessionValues, activeStep: number) {
     method: METHOD_STEPS.map((step) => step.label),
     currentMethodLens: METHOD_STEPS[activeStep].label,
     record: values,
+    selection: {
+      sourceFilenameOrId: values.sourceFilename,
+      intendedStoryRoute: values.intendedRoute,
+      intendedNarrativeUse: values.intendedUse,
+      displayTreatment: values.displayTreatment,
+      displayScope: values.publicScope,
+    },
     boundaries: {
       upload: "No file uploaded",
       sharing: "No external sharing performed",
@@ -109,6 +124,8 @@ export default function DigitalshipAccessionDesk() {
 
             <label className="mt-5 block"><span className="text-[10px] font-mono tracking-[.16em] text-[#C9F3FF]">SOURCE SUMMARY</span><textarea value={values.sourceSummary} onChange={(event) => updateValue("sourceSummary", event.target.value)} placeholder="Describe what is actually available, not what is inferred from it." rows={4} className="mt-2 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 py-3 text-sm leading-7 text-white outline-none placeholder:text-[#788FA4] focus:border-[#D7A7FF] focus:ring-2 focus:ring-[#D7A7FF]/20" /></label>
             <div className="mt-5 grid gap-5 md:grid-cols-2"><label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#C9F3FF]">PRESERVATION NOTE</span><textarea value={values.preservationNote} onChange={(event) => updateValue("preservationNote", event.target.value)} placeholder="Original location, filename, date context, or access caution." rows={4} className="mt-2 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 py-3 text-sm leading-7 text-white outline-none placeholder:text-[#788FA4] focus:border-[#D7A7FF] focus:ring-2 focus:ring-[#D7A7FF]/20" /></label><label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#C9F3FF]">CREATOR CONTEXT</span><textarea value={values.creatorContext} onChange={(event) => updateValue("creatorContext", event.target.value)} placeholder="What role does this record have in the creator’s original world, book, chapter, or planning path?" rows={4} className="mt-2 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 py-3 text-sm leading-7 text-white outline-none placeholder:text-[#788FA4] focus:border-[#D7A7FF] focus:ring-2 focus:ring-[#D7A7FF]/20" /></label></div>
+
+            <div className="mt-6 rounded-2xl border border-[#70D9FF]/35 bg-[#70D9FF]/[.055] p-5 md:p-6"><p className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">EXACT SOURCE-SELECTION DECISION</p><h3 className="mt-2 text-xl font-black text-white">Name one source, then keep its next use visible.</h3><p className="mt-3 max-w-3xl text-sm leading-7 text-[#D6E2EE]">Record an exact filename or identifier, the intended first-party story route, the narrative role, and its display treatment. This does not access the file or convert a planning choice into a public release.</p><div className="mt-5 grid gap-5 md:grid-cols-2"><label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">SOURCE FILENAME OR ID</span><input value={values.sourceFilename} onChange={(event) => updateValue("sourceFilename", event.target.value)} placeholder="Example: source-file.mp4" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20" /></label><label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">INTENDED STORY ROUTE</span><select value={values.intendedRoute} onChange={(event) => updateValue("intendedRoute", event.target.value)} className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20"><option>not yet selected</option><option>New Dominion Story Blueprint</option><option>Nine-Frame Manifestation Planning Packet</option><option>Fluidity &amp; Corpus Blueprint</option><option>Episode Brief Builder</option><option>another first-party planning route</option></select></label><label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">INTENDED NARRATIVE USE</span><textarea value={values.intendedUse} onChange={(event) => updateValue("intendedUse", event.target.value)} placeholder="Example: story reference for New Dominion Act II, not yet a display decision." rows={3} className="mt-2 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 py-3 text-sm leading-7 text-white outline-none placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20" /></label><label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">DISPLAY TREATMENT</span><select value={values.displayTreatment} onChange={(event) => updateValue("displayTreatment", event.target.value)} className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20"><option>no display selected — planning record only</option><option>text-only story reference</option><option>future visual review — no display</option><option>needs source and rights review</option></select></label></div><p className="mt-5 border-t border-[#70D9FF]/20 pt-4 text-xs leading-6 text-[#C7D7E6]">No selected file is opened, uploaded, embedded, played, transformed, or released by this record.</p></div>
 
             <div className="mt-6 flex flex-wrap items-center gap-3"><button type="button" onClick={() => { downloadLocalAccession(values, activeStep); setExported(true); }} className="rounded-xl bg-[#D7A7FF] px-5 py-3 text-sm font-black text-[#070611] transition hover:brightness-110 active:scale-[.98]">Export browser-local record ↓</button><button type="button" onClick={() => { setValues(INITIAL_VALUES); setActiveStep(0); setExported(false); }} className="rounded-xl border border-white/20 bg-white/[.04] px-5 py-3 text-sm font-black text-white transition hover:bg-white/[.1]">Clear draft</button>{exported && <span role="status" className="text-sm font-black text-[#BDEEFF]">Local record exported. No upload or publication occurred.</span>}</div>
           </section>

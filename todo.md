@@ -6281,6 +6281,10 @@
 - [x] Preserve the latest 1,512-line text version, seven motion files, and 23 stills as a distinct source group with current file identifiers and technical metadata only
 - [x] Keep every supplied still and motion file unselected, unopened, unplayed, outside the project bundle, and unavailable for display or release pending an exact source-specific choice
 
+## Phase 914 — Exact Source-Selection Workflow
+- [x] Extend the browser-local Digitalship Accession Desk with exact source filename/ID, intended story route, narrative-use, display-treatment, and display-scope fields
+- [x] Verify the local JSON export retains a selected source decision while preserving no-file-access, no-upload, and no-publication boundaries
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.
