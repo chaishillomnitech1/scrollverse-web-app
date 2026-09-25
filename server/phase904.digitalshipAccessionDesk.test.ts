@@ -28,4 +28,13 @@ describe("Phase 904 — Digitalship Accession Desk", () => {
     expect(page).toContain("selection:");
     expect(page).toContain("No selected file is opened, uploaded, embedded, played, transformed, or released by this record.");
   });
+
+  it("offers only a first-party continuation for a selected narrative route and keeps the local record separate", () => {
+    const page = readFileSync(pagePath, "utf8");
+
+    expect(page).toContain("CONTINUE TO SELECTED STORY ROUTE");
+    expect(page).toContain('href: "/new-dominion-story-blueprint"');
+    expect(page).toContain("The local accession record is not transferred automatically.");
+    expect(page).toContain("ROUTE_DESTINATIONS");
+  });
 });

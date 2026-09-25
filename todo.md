@@ -6285,6 +6285,10 @@
 - [x] Extend the browser-local Digitalship Accession Desk with exact source filename/ID, intended story route, narrative-use, display-treatment, and display-scope fields
 - [x] Verify the local JSON export retains a selected source decision while preserving no-file-access, no-upload, and no-publication boundaries
 
+## Phase 915 — Selected Route Continuation
+- [x] Add a context-aware first-party continuation link for New Dominion, Nine-Frame, Fluidity, and Episode Brief selection records
+- [x] Keep the local accession record separate from the destination route and avoid automatic media transfer, display, or external navigation
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.
