@@ -6297,6 +6297,10 @@
 - [x] Preserve the newest 1,530-line creator-supplied text record with its local identifier, SHA-256, source classification, planning relationship, and external-action boundaries
 - [x] Hold external links, GitHub permission notices, financial/token language, media references, artifacts, deployments, and release statements as non-operative source material pending exact future selections
 
+## Phase 918 — Omniversal Source Ledger
+- [x] Add and register a read-only first-party source-ledger route that summarizes the Phase 917 receipt by narrative, external-reference, account-notice, reported-status, financial, media, and planning categories
+- [x] Add accessible browser-local filtering and JSON export, verify the filtered view and downloaded summary, and retain no external fetch, media access, connector permission, account, payment, token, contract, or release action boundaries
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.

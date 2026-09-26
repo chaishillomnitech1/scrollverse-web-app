@@ -18,6 +18,7 @@ const RebirthLivingCodex = lazy(() => import("@/pages/RebirthLivingCodex")); // 
 const InfininillionaireFilmFoundation = lazy(() => import("@/pages/InfininillionaireFilmFoundation")); // import InfininillionaireFilmFoundation from "@/pages/InfininillionaireFilmFoundation"; deferred route module
 const PlanningAtlas = lazy(() => import("@/pages/PlanningAtlas")); // import PlanningAtlas from "@/pages/PlanningAtlas"; deferred route module
 const DigitalshipAccessionDesk = lazy(() => import("@/pages/DigitalshipAccessionDesk")); // import DigitalshipAccessionDesk from "@/pages/DigitalshipAccessionDesk"; deferred route module
+const OmniversalSourceLedger = lazy(() => import("@/pages/OmniversalSourceLedger")); // import OmniversalSourceLedger from "@/pages/OmniversalSourceLedger"; deferred route module
 const FluidityCorpusBlueprint = lazy(() => import("@/pages/FluidityCorpusBlueprint")); // import FluidityCorpusBlueprint from "@/pages/FluidityCorpusBlueprint"; deferred route module
 const NewDominionStoryBlueprint = lazy(() => import("@/pages/NewDominionStoryBlueprint")); // import NewDominionStoryBlueprint from "@/pages/NewDominionStoryBlueprint"; deferred route module
 const NineFrameManifestationPacket = lazy(() => import("@/pages/NineFrameManifestationPacket")); // import NineFrameManifestationPacket from "@/pages/NineFrameManifestationPacket"; deferred route module
@@ -985,6 +986,7 @@ function Router() {
         <Route path="/infininillionaire-film-foundation" component={InfininillionaireFilmFoundation} />
         <Route path="/planning-atlas" component={PlanningAtlas} />
         <Route path="/digitalship-accession" component={DigitalshipAccessionDesk} />
+        <Route path="/omniversal-source-ledger" component={OmniversalSourceLedger} />
         <Route path="/fluidity-corpus-blueprint" component={FluidityCorpusBlueprint} />
         <Route path="/new-dominion-story-blueprint" component={NewDominionStoryBlueprint} />
         <Route path="/nine-frame-manifestation-packet" component={NineFrameManifestationPacket} />
