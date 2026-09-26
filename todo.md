@@ -6289,6 +6289,14 @@
 - [x] Add a context-aware first-party continuation link for New Dominion, Nine-Frame, Fluidity, and Episode Brief selection records
 - [x] Keep the local accession record separate from the destination route and avoid automatic media transfer, display, or external navigation
 
+## Phase 916 — Selection Readiness Feedback
+- [x] Make the local accession export visibly incomplete until a source filename/ID, intended story route, and narrative-use decision are supplied
+- [x] Keep the completion feedback and disabled export control browser-local, accessible, and independent of media access or release
+
+## Phase 917 — Omniversal Synthesis Source Receipt
+- [x] Preserve the newest 1,530-line creator-supplied text record with its local identifier, SHA-256, source classification, planning relationship, and external-action boundaries
+- [x] Hold external links, GitHub permission notices, financial/token language, media references, artifacts, deployments, and release statements as non-operative source material pending exact future selections
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.

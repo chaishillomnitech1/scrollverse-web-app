@@ -37,4 +37,13 @@ describe("Phase 904 — Digitalship Accession Desk", () => {
     expect(page).toContain("The local accession record is not transferred automatically.");
     expect(page).toContain("ROUTE_DESTINATIONS");
   });
+
+  it("shows when a partially started source selection needs completion before export", () => {
+    const page = readFileSync(pagePath, "utf8");
+
+    expect(page).toContain("SELECTION READY CHECK");
+    expect(page).toContain("selectionNeedsCompletion");
+    expect(page).toContain("Selection incomplete — add a source filename or ID, intended story route, and narrative use before export.");
+    expect(page).toContain("disabled={selectionNeedsCompletion}");
+  });
 });
