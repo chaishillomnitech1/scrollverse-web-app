@@ -6308,4 +6308,4 @@
 
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
-- [ ] External billing or hosting restoration is required before the published domains can be reachable again; rechecked `scrollverse.co` and `scrollport-xkjtdnvi.manus.space` on 2026-09-24 and both still returned “Site unavailable due to unpaid billing.” Recheck after the owner resolves that account-level gate.
+- [ ] External billing or hosting restoration is required before the published domains can be reachable again; fresh checks on 2026-09-27 found `scrollverse.co`, `www.scrollverse.co`, and `scrollport-xkjtdnvi.manus.space` all returning HTTP 200 with the same “Site Unavailable” / “Site unavailable due to unpaid billing” holding page. Recheck after Manus Support or the owner resolves the account-level gate.
