@@ -235,7 +235,7 @@ export default function Dashboard() {
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
                 style={{ background: "#00FF88" }}
               />
-              LIVE
+              AUTHENTICATED VIEW
             </div>
             <div className="text-sm" style={{ color: "#8899AA" }}>
               {user?.name ?? "Guardian"}
@@ -260,10 +260,26 @@ export default function Dashboard() {
             Empire Dashboard
           </h1>
           <p style={{ color: "#8899AA" }}>
-            Real-time metrics for the ScrollVerse Trinity sovereign ecosystem.
-            Updates every 30 seconds.
+            Read-only application metrics for the ScrollVerse Trinity sovereign ecosystem.
+            Refreshes every 30 seconds while this page is open.
           </p>
         </div>
+
+        <section
+          aria-label="SCCC data status"
+          className="rounded-xl p-5 mb-8"
+          style={{ background: "rgba(112,217,255,0.04)", border: "1px solid rgba(112,217,255,0.2)" }}
+        >
+          <div className="text-xs font-mono font-bold tracking-widest" style={{ color: "#BCEEFF" }}>
+            SCCC DATA STATUS · READ-ONLY
+          </div>
+          <p className="mt-2 text-sm leading-7" style={{ color: "#D6E2EE" }}>
+            Portal metrics are displayed as an authenticated application/database snapshot. The treasury line is a public RPC lookup and may be unavailable or stale; it is not a custody, transaction, or deployment confirmation.
+          </p>
+          <p className="mt-2 text-xs font-mono" style={{ color: "#FFCF73" }}>
+            No wallet, token, payment, contract, or release action occurs through this dashboard.
+          </p>
+        </section>
 
         {isLoading ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
@@ -303,8 +319,8 @@ export default function Dashboard() {
               <MetricCard
                 icon="🌌"
                 label="Ecosystem Status"
-                value="LIVE"
-                sub="Portal · Academy · Store"
+                value="READY"
+                sub="Portal · Academy · Store routes"
                 color="#8B5CF6"
               />
             </div>
@@ -314,7 +330,7 @@ export default function Dashboard() {
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: treasuryLoading ? "#8899AA" : "#00FF88" }} />
                 <div>
-                  <div className="text-xs font-mono" style={{ color: "#8899AA" }}>SOVEREIGN TREASURY · POLYGON MAINNET · LIVE</div>
+                  <div className="text-xs font-mono" style={{ color: "#8899AA" }}>PUBLIC RPC LOOKUP · READ-ONLY · POLYGON REFERENCE</div>
                   <div className="text-xl font-black font-mono" style={{ color: "#00FF88" }}>{treasuryBalance}</div>
                 </div>
               </div>
@@ -410,8 +426,8 @@ export default function Dashboard() {
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: "#00FF88" }} />
               <div>
-                <div className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>ECOSYSTEM ASSETS LIVE ON IPFS · POLYGON MAINNET</div>
-                <div className="text-xs mt-0.5" style={{ color: "#667788" }}>All NFTs, media, and sovereign content are pinned and verifiable on-chain.</div>
+                <div className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>SOURCE REFERENCES · READ-ONLY</div>
+                <div className="text-xs mt-0.5" style={{ color: "#667788" }}>These are labeled external references; this dashboard does not verify custody, pinning, ownership, or chain state.</div>
               </div>
             </div>
             <div className="flex gap-2 flex-wrap">

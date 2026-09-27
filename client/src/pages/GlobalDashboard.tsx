@@ -1,6 +1,6 @@
 /**
  * GLOBAL DASHBOARD — ScrollVerse Trinity Sovereign Command Center
- * Live stats from all DB tables, route map, and empire metrics
+ * Read-only stats from the portal database, route map, and source-led metrics
  */
 import { useState } from "react";
 import { Link } from "wouter";
@@ -89,7 +89,7 @@ export default function GlobalDashboard() {
             <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#00D4FF" }}>SOVEREIGN COMMAND CENTER</div>
             <h1 className="text-3xl font-black text-white">Global Dashboard</h1>
             <p className="text-sm mt-1" style={{ color: "#8899AA" }}>
-              Live empire metrics — ScrollVerse Trinity v3.0
+              Read-only database snapshot — ScrollVerse Trinity v3.0
             </p>
           </div>
           <div className="text-right">
@@ -97,11 +97,27 @@ export default function GlobalDashboard() {
             <div className="text-xs font-mono" style={{ color: "#445566" }}>EIN 42-2509570</div>
             {stats && (
               <div className="text-xs font-mono mt-1" style={{ color: "#00FF88" }}>
-                Updated {new Date(stats.timestamp).toLocaleTimeString()}
+                Snapshot updated {new Date(stats.timestamp).toLocaleTimeString()}
               </div>
             )}
           </div>
         </div>
+
+        <section
+          aria-label="Global dashboard data status"
+          className="rounded-xl p-5 mb-8"
+          style={{ background: "rgba(112,217,255,0.04)", border: "1px solid rgba(112,217,255,0.2)" }}
+        >
+          <div className="text-xs font-mono font-bold tracking-widest" style={{ color: "#BCEEFF" }}>
+            DATABASE SNAPSHOT · READ-ONLY
+          </div>
+          <p className="mt-2 text-sm leading-7" style={{ color: "#D6E2EE" }}>
+            Counts and totals below are returned from this portal’s database pathways for planning and visibility. They are not independent confirmation of external hosting, custody, deployment, financial performance, or third-party system state.
+          </p>
+          <p className="mt-2 text-xs font-mono" style={{ color: "#FFCF73" }}>
+            No wallet, token, payment, contract, or release action occurs through this dashboard.
+          </p>
+        </section>
 
         {/* Primary Revenue Stats */}
         {statsLoading ? (
