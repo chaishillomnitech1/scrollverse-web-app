@@ -41,6 +41,7 @@ const TIER_COLORS: Record<string, string> = {
 const timelineMilestones = [
   {
     id: "foundation",
+    category: "Build",
     date: "Established",
     title: "Source-led portal foundation",
     status: "Complete",
@@ -49,6 +50,7 @@ const timelineMilestones = [
   },
   {
     id: "corpus",
+    category: "Content",
     date: "Current arc",
     title: "Corpus and New Dominion planning",
     status: "Active",
@@ -57,6 +59,7 @@ const timelineMilestones = [
   },
   {
     id: "readiness",
+    category: "Readiness",
     date: "Now",
     title: "Current local readiness",
     status: "Verified locally",
@@ -64,6 +67,32 @@ const timelineMilestones = [
     color: "#00FF88",
   },
 ];
+
+const timelineCategories = ["All", ...Array.from(new Set(timelineMilestones.map(({ category }) => category)))];
+
+function exportScccSnapshot(
+  milestones: typeof timelineMilestones,
+  category: string,
+  selectedMilestone: string,
+) {
+  const escapeCsv = (value: string) => `"${value.replace(/"/g, '""')}"`;
+  const rows = [
+    ["SCCC read-only milestone snapshot", new Date().toISOString()],
+    ["Category filter", category],
+    ["Selected milestone", selectedMilestone],
+    [],
+    ["Category", "Date", "Title", "Status", "Detail"],
+    ...milestones.map(({ category: itemCategory, date, title, status, detail }) => [itemCategory, date, title, status, detail]),
+  ];
+  const csv = rows.map((row) => row.map((value) => escapeCsv(String(value ?? ""))).join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "sccc-milestones.csv";
+  link.click();
+  URL.revokeObjectURL(url);
+}
 
 function MetricCard({
   label,
@@ -80,7 +109,7 @@ function MetricCard({
 }) {
   return (
     <div
-      className="rounded-xl p-6"
+      className="sccc-dashboard-card rounded-xl p-6"
       style={{
         background: `${color}08`,
         border: `1px solid ${color}25`,
@@ -149,6 +178,7 @@ export default function Dashboard() {
     if (typeof window === "undefined") return true;
     return window.localStorage.getItem("scrollverse:sccc-dark-mode") !== "false";
   });
+  const [timelineCategory, setTimelineCategory] = useState("All");
   const [selectedMilestone, setSelectedMilestone] = useState("foundation");
   const { balance: treasuryBalance, loading: treasuryLoading } = useTreasuryBalance();
   const { data: metrics, isLoading } = trpc.store.getDashboardMetrics.useQuery(undefined, {
@@ -174,7 +204,13 @@ export default function Dashboard() {
     window.localStorage.setItem("scrollverse:sccc-dark-mode", String(darkMode));
   }, [darkMode]);
 
-  const selectedMilestoneRecord = timelineMilestones.find(({ id }) => id === selectedMilestone) ?? timelineMilestones[0];
+  const filteredTimelineMilestones = useMemo(
+    () => timelineCategory === "All"
+      ? timelineMilestones
+      : timelineMilestones.filter(({ category }) => category === timelineCategory),
+    [timelineCategory],
+  );
+  const selectedMilestoneRecord = filteredTimelineMilestones.find(({ id }) => id === selectedMilestone) ?? filteredTimelineMilestones[0] ?? timelineMilestones[0];
 
   if (loading) {
     return (
@@ -265,7 +301,7 @@ export default function Dashboard() {
               </span>
             </div>
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
             <button
               type="button"
               id="sccc-dashboard-dark-mode"
@@ -276,7 +312,8 @@ export default function Dashboard() {
               title={darkMode ? "Switch to comfort mode" : "Switch to deep dark mode"}
               onClick={() => setDarkMode((current) => !current)}
             >
-              {darkMode ? "☾ DEEP DARK" : "◐ COMFORT"}
+              <span className="hidden sm:inline">{darkMode ? "☾ DEEP DARK" : "◐ COMFORT"}</span>
+              <span className="sm:hidden" aria-hidden="true">{darkMode ? "☾" : "◐"}</span>
             </button>
             <div
               className="flex items-center gap-2 text-xs font-mono"
@@ -286,9 +323,9 @@ export default function Dashboard() {
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
                 style={{ background: "#00FF88" }}
               />
-              AUTHENTICATED VIEW
+              <span className="hidden sm:inline">AUTHENTICATED VIEW</span>
             </div>
-            <div className="text-sm" style={{ color: "#8899AA" }}>
+            <div className="hidden sm:block" style={{ color: "#8899AA" }}>
               {user?.name ?? "Guardian"}
             </div>
           </div>
@@ -381,23 +418,55 @@ export default function Dashboard() {
               />
             </div>
 
-            <section className="rounded-xl p-6 mb-10" aria-labelledby="sccc-timeline-heading">
-              <div className="flex flex-col gap-1 mb-6">
-                <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>SCCC MILESTONE TIMELINE</div>
-                <h2 id="sccc-timeline-heading" className="text-xl font-bold text-white">Build and readiness arc</h2>
-                <p className="text-sm" style={{ color: "#8899AA" }}>A lightweight project view of the work in this portal, not an external deployment or billing ledger.</p>
+            <section className="sccc-dashboard-card rounded-xl p-6 mb-10" aria-labelledby="sccc-timeline-heading">
+              <div className="flex flex-col gap-4 mb-6">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                  <div className="flex flex-col gap-1">
+                    <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>SCCC MILESTONE TIMELINE</div>
+                    <h2 id="sccc-timeline-heading" className="text-xl font-bold text-white">Build and readiness arc</h2>
+                    <p className="text-sm" style={{ color: "#8899AA" }}>A lightweight project view of the work in this portal, not an external deployment or billing ledger.</p>
+                  </div>
+                  <button
+                    type="button"
+                    id="sccc-export-snapshot"
+                    className="min-h-10 rounded-lg px-4 py-2 text-xs font-mono font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    style={{ color: "#BCEEFF", background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.35)" }}
+                    onClick={() => exportScccSnapshot(filteredTimelineMilestones, timelineCategory, selectedMilestoneRecord.title)}
+                    title="Download the visible milestones and read-only status as a CSV"
+                  >
+                    ↓ EXPORT CSV
+                  </button>
+                </div>
+                <div className="flex flex-wrap items-center gap-2" aria-label="Filter milestones by category">
+                  <span className="text-xs font-mono" style={{ color: "#8899AA" }}>FILTER:</span>
+                  {timelineCategories.map((category) => (
+                    <button
+                      key={category}
+                      type="button"
+                      id={category === "All" ? "sccc-timeline-filter" : undefined}
+                      aria-pressed={timelineCategory === category}
+                      className="min-h-9 rounded-full px-3 py-1 text-xs font-mono transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                      style={{ color: timelineCategory === category ? "#050B1A" : "#BCEEFF", background: timelineCategory === category ? "#BCEEFF" : "rgba(255,255,255,0.04)", border: "1px solid rgba(188,238,255,0.35)" }}
+                      onClick={() => setTimelineCategory(category)}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3" role="list" aria-label="Project milestones">
-                {timelineMilestones.map((milestone) => {
+                {filteredTimelineMilestones.map((milestone) => {
                   const active = milestone.id === selectedMilestone;
                   return (
                     <div key={milestone.id} role="listitem">
                       <button
                         type="button"
                         aria-pressed={active}
+                        aria-expanded={active}
+                        aria-controls="sccc-milestone-detail"
                         title={milestone.detail}
                         onClick={() => setSelectedMilestone(milestone.id)}
-                        className="w-full text-left rounded-xl p-4 min-h-28 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                        className="sccc-dashboard-card w-full text-left rounded-xl p-4 min-h-28 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                         style={{ background: active ? `${milestone.color}12` : "rgba(255,255,255,0.02)", border: `1px solid ${active ? `${milestone.color}65` : "rgba(255,255,255,0.08)"}` }}
                       >
                         <div className="flex items-center justify-between gap-3">
@@ -410,8 +479,9 @@ export default function Dashboard() {
                   );
                 })}
               </div>
-              <div className="mt-4 rounded-lg px-4 py-3 text-sm" style={{ background: "rgba(255,255,255,0.03)", color: "#D6E2EE" }} aria-live="polite">
+              <div id="sccc-milestone-detail" className="mt-4 rounded-lg px-4 py-3 text-sm" style={{ background: "rgba(255,255,255,0.03)", color: "#D6E2EE" }} aria-live="polite">
                 <span className="font-mono text-xs" style={{ color: selectedMilestoneRecord.color }}>SELECTED MILESTONE · </span>
+                <span className="font-mono text-xs" style={{ color: "#8899AA" }}>{selectedMilestoneRecord.category} · </span>
                 {selectedMilestoneRecord.detail}
               </div>
             </section>

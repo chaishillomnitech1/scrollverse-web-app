@@ -6312,6 +6312,14 @@
 - [x] Add a reduced-motion-safe fade-in and clearer hover/focus context to the read-only status alert
 - [x] Validate the focused and full suites, TypeScript, production build, desktop/mobile rendering, and whitespace cleanliness
 
+## Phase 922 — SCCC Timeline Filters, Export, and Motion
+- [x] Add category filters and clickable, accessible milestone detail disclosure to the SCCC timeline
+- [x] Add a browser-local CSV export for the current filtered milestone and read-only status snapshot
+- [x] Add reduced-motion-safe hover/focus transitions to SCCC metric and timeline cards
+- [x] Improve the authenticated dashboard header at mobile widths after responsive visual review
+- [x] Create and validate the reusable `/home/ubuntu/skills/sccc-dashboard-workflow` skill
+- [x] Run focused and full tests, TypeScript, memory-safe production build, whitespace checks, and desktop/mobile preview review
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; fresh checks on 2026-09-27 found `scrollverse.co`, `www.scrollverse.co`, and `scrollport-xkjtdnvi.manus.space` all returning HTTP 200 with the same “Site Unavailable” / “Site unavailable due to unpaid billing” holding page. Recheck after Manus Support or the owner resolves the account-level gate.

@@ -37,4 +37,39 @@ describe("Phase 921 — SCCC dashboard interactions", () => {
     expect(styles).toContain(".sccc-status-alert");
     expect(styles).toContain("@media (prefers-reduced-motion: reduce)");
   });
+
+  it("adds category filters and clickable milestone detail disclosure", () => {
+    const dashboard = read("client/src/pages/Dashboard.tsx");
+
+    expect(dashboard).toContain("timelineCategories");
+    expect(dashboard).toContain("sccc-timeline-filter");
+    expect(dashboard).toContain("filteredTimelineMilestones");
+    expect(dashboard).toContain("aria-expanded={active}");
+    expect(dashboard).toContain("sccc-milestone-detail");
+  });
+
+  it("exports the current read-only milestone snapshot as a local CSV", () => {
+    const dashboard = read("client/src/pages/Dashboard.tsx");
+
+    expect(dashboard).toContain("exportScccSnapshot");
+    expect(dashboard).toContain("sccc-export-snapshot");
+    expect(dashboard).toContain("text/csv;charset=utf-8");
+    expect(dashboard).toContain("URL.createObjectURL");
+  });
+
+  it("adds dashboard card transitions with reduced-motion coverage", () => {
+    const dashboard = read("client/src/pages/Dashboard.tsx");
+    const styles = read("client/src/index.css");
+
+    expect(dashboard).toContain("sccc-dashboard-card");
+    expect(styles).toContain(".sccc-dashboard-card");
+    expect(styles).toContain("prefers-reduced-motion: reduce");
+  });
+
+  it("keeps the authenticated SCCC header readable at mobile widths", () => {
+    const dashboard = read("client/src/pages/Dashboard.tsx");
+
+    expect(dashboard).toContain('className="hidden sm:inline"');
+    expect(dashboard).toContain('className="hidden sm:block"');
+  });
 });
