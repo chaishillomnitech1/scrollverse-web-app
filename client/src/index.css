@@ -944,3 +944,17 @@ html[data-scrollverse-signal="quiet"] .sv-signal-control__dot { background: #889
   .badge-plasma { background: rgba(255,51,102,0.1); border-color: rgba(255,51,102,0.4); color: #FF3366; }
   .badge-cosmic { background: rgba(155,89,182,0.1); border-color: rgba(155,89,182,0.4); color: #9B59B6; }
 }
+
+/* Dashboard status notices enter gently and remain still for reduced-motion users. */
+.sccc-status-alert {
+  animation: scccStatusFadeIn 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+@keyframes scccStatusFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sccc-status-alert {
+    animation: none;
+  }
+}

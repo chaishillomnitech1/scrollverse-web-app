@@ -38,6 +38,33 @@ const TIER_COLORS: Record<string, string> = {
   ascendant: "#8B5CF6",
 };
 
+const timelineMilestones = [
+  {
+    id: "foundation",
+    date: "Established",
+    title: "Source-led portal foundation",
+    status: "Complete",
+    detail: "The first-party portal, route registry, and source-aware planning foundation are in place.",
+    color: "#00D4FF",
+  },
+  {
+    id: "corpus",
+    date: "Current arc",
+    title: "Corpus and New Dominion planning",
+    status: "Active",
+    detail: "Fluidity, corpus, New Dominion, and nine-frame planning routes are connected as narrative-only workspaces.",
+    color: "#FFB800",
+  },
+  {
+    id: "readiness",
+    date: "Now",
+    title: "Current local readiness",
+    status: "Verified locally",
+    detail: "The local project is tested and buildable; this status is not a public deployment or billing confirmation.",
+    color: "#00FF88",
+  },
+];
+
 function MetricCard({
   label,
   value,
@@ -118,6 +145,11 @@ function RevenueBar({
 
 export default function Dashboard() {
   const { user, isAuthenticated, loading } = useAuth();
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return window.localStorage.getItem("scrollverse:sccc-dark-mode") !== "false";
+  });
+  const [selectedMilestone, setSelectedMilestone] = useState("foundation");
   const { balance: treasuryBalance, loading: treasuryLoading } = useTreasuryBalance();
   const { data: metrics, isLoading } = trpc.store.getDashboardMetrics.useQuery(undefined, {
     enabled: isAuthenticated,
@@ -137,6 +169,12 @@ export default function Dashboard() {
   const maxTierRevenue = useMemo(() => {
     return Math.max(...(metrics?.byTier?.map((t: any) => Number(t.total)) ?? [0]));
   }, [metrics?.byTier]);
+
+  useEffect(() => {
+    window.localStorage.setItem("scrollverse:sccc-dark-mode", String(darkMode));
+  }, [darkMode]);
+
+  const selectedMilestoneRecord = timelineMilestones.find(({ id }) => id === selectedMilestone) ?? timelineMilestones[0];
 
   if (loading) {
     return (
@@ -190,13 +228,14 @@ export default function Dashboard() {
   return (
     <div
       className="min-h-screen"
-      style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}
+      data-theme={darkMode ? "deep-dark" : "comfort-dark"}
+      style={{ background: darkMode ? "#050B1A" : "#101827", fontFamily: "'Space Grotesk', sans-serif" }}
     >
       {/* Nav */}
       <nav
         className="sticky top-0 z-50 border-b"
         style={{
-          background: "rgba(5,11,26,0.95)",
+          background: darkMode ? "rgba(5,11,26,0.95)" : "rgba(16,24,39,0.95)",
           backdropFilter: "blur(20px)",
           borderColor: "rgba(0,212,255,0.1)",
         }}
@@ -227,6 +266,18 @@ export default function Dashboard() {
             </div>
           </Link>
           <div className="flex items-center gap-4">
+            <button
+              type="button"
+              id="sccc-dashboard-dark-mode"
+              className="min-h-10 rounded-lg px-3 py-2 text-xs font-mono transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ background: darkMode ? "rgba(0,212,255,0.12)" : "rgba(255,184,0,0.14)", color: darkMode ? "#BCEEFF" : "#FFCF73", border: `1px solid ${darkMode ? "rgba(0,212,255,0.35)" : "rgba(255,184,0,0.4)"}` }}
+              aria-pressed={darkMode}
+              aria-label="Toggle SCCC dashboard dark mode"
+              title={darkMode ? "Switch to comfort mode" : "Switch to deep dark mode"}
+              onClick={() => setDarkMode((current) => !current)}
+            >
+              {darkMode ? "☾ DEEP DARK" : "◐ COMFORT"}
+            </button>
             <div
               className="flex items-center gap-2 text-xs font-mono"
               style={{ color: "#00FF88" }}
@@ -267,7 +318,9 @@ export default function Dashboard() {
 
         <section
           aria-label="SCCC data status"
-          className="rounded-xl p-5 mb-8"
+          className="sccc-status-alert rounded-xl p-5 mb-8"
+          aria-describedby="sccc-status-help"
+          title="Read-only source status"
           style={{ background: "rgba(112,217,255,0.04)", border: "1px solid rgba(112,217,255,0.2)" }}
         >
           <div className="text-xs font-mono font-bold tracking-widest" style={{ color: "#BCEEFF" }}>
@@ -279,6 +332,9 @@ export default function Dashboard() {
           <p className="mt-2 text-xs font-mono" style={{ color: "#FFCF73" }}>
             No wallet, token, payment, contract, or release action occurs through this dashboard.
           </p>
+          <span id="sccc-status-help" className="sr-only">
+            Hover or focus this status panel for the read-only source context. Dashboard values do not perform external actions.
+          </span>
         </section>
 
         {isLoading ? (
@@ -324,6 +380,41 @@ export default function Dashboard() {
                 color="#8B5CF6"
               />
             </div>
+
+            <section className="rounded-xl p-6 mb-10" aria-labelledby="sccc-timeline-heading">
+              <div className="flex flex-col gap-1 mb-6">
+                <div className="text-xs font-mono tracking-widest" style={{ color: "#FFB800" }}>SCCC MILESTONE TIMELINE</div>
+                <h2 id="sccc-timeline-heading" className="text-xl font-bold text-white">Build and readiness arc</h2>
+                <p className="text-sm" style={{ color: "#8899AA" }}>A lightweight project view of the work in this portal, not an external deployment or billing ledger.</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3" role="list" aria-label="Project milestones">
+                {timelineMilestones.map((milestone) => {
+                  const active = milestone.id === selectedMilestone;
+                  return (
+                    <div key={milestone.id} role="listitem">
+                      <button
+                        type="button"
+                        aria-pressed={active}
+                        title={milestone.detail}
+                        onClick={() => setSelectedMilestone(milestone.id)}
+                        className="w-full text-left rounded-xl p-4 min-h-28 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                        style={{ background: active ? `${milestone.color}12` : "rgba(255,255,255,0.02)", border: `1px solid ${active ? `${milestone.color}65` : "rgba(255,255,255,0.08)"}` }}
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs font-mono" style={{ color: milestone.color }}>{milestone.date}</span>
+                          <span className="text-[10px] font-mono uppercase" style={{ color: active ? milestone.color : "#667788" }}>{milestone.status}</span>
+                        </div>
+                        <div className="mt-3 text-sm font-bold text-white">{milestone.title}</div>
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-4 rounded-lg px-4 py-3 text-sm" style={{ background: "rgba(255,255,255,0.03)", color: "#D6E2EE" }} aria-live="polite">
+                <span className="font-mono text-xs" style={{ color: selectedMilestoneRecord.color }}>SELECTED MILESTONE · </span>
+                {selectedMilestoneRecord.detail}
+              </div>
+            </section>
 
             {/* On-chain treasury */}
             <div className="rounded-xl p-5 mb-6 flex items-center justify-between" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.2)" }}>

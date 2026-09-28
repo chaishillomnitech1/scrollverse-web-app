@@ -6306,6 +6306,12 @@
 - [x] Refine SCCC and Global Dashboard labels and notices so database/RPC values are clearly presented as read-only snapshots or references rather than unqualified live, custody, deployment, or financial-state claims
 - [x] Add focused regression coverage, run TypeScript validation, and keep billing, domain, account, wallet, token, contract, repository, and external deployment actions outside the local change
 
+## Phase 921 — SCCC Dashboard Comfort and Milestones
+- [x] Add a persistent browser-local dark-mode/comfort toggle with accessible pressed state and a clear tooltip
+- [x] Add an interactive, source-labeled milestone timeline for the portal build and local-readiness arc
+- [x] Add a reduced-motion-safe fade-in and clearer hover/focus context to the read-only status alert
+- [x] Validate the focused and full suites, TypeScript, production build, desktop/mobile rendering, and whitespace cleanliness
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; fresh checks on 2026-09-27 found `scrollverse.co`, `www.scrollverse.co`, and `scrollport-xkjtdnvi.manus.space` all returning HTTP 200 with the same “Site Unavailable” / “Site unavailable due to unpaid billing” holding page. Recheck after Manus Support or the owner resolves the account-level gate.
