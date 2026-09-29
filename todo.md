@@ -6320,6 +6320,11 @@
 - [x] Create and validate the reusable `/home/ubuntu/skills/sccc-dashboard-workflow` skill
 - [x] Run focused and full tests, TypeScript, memory-safe production build, whitespace checks, and desktop/mobile preview review
 
+## Phase 923 — New Creator Source Batch Receipt
+- [x] Preserve `pasted_content_2.txt` and `pasted_content_3.txt` as distinct metadata-only source records with line counts, byte counts, and SHA-256 identifiers
+- [x] Classify narrative, external-reference, marketplace, story-book, media, technical-example, wallet, token, deployment, and telemetry material without treating it as independently verified or operative
+- [x] Record no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, no-deployment, and no-publication boundaries plus exact-source continuation requirements
+
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; fresh checks on 2026-09-27 found `scrollverse.co`, `www.scrollverse.co`, and `scrollport-xkjtdnvi.manus.space` all returning HTTP 200 with the same “Site Unavailable” / “Site unavailable due to unpaid billing” holding page. Recheck after Manus Support or the owner resolves the account-level gate.
