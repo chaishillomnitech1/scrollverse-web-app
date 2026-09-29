@@ -6201,10 +6201,16 @@
 
 ## Phase 891 — Dynasty Visual Source Intake
 - [x] Inventory and accession the creator-supplied Dynasty stills, transparent coin assets, supplied motion samples, and manifesto text with source labels and no inferred technical, legal, identity, or marketplace claims
-- [ ] Prepare a complete next-motion production brief covering duration, sound, text, continuity, exact use target, and creator-approved reference selection before generating new video
+- [x] Prepare a complete browser-local next-motion production brief covering duration, sound, text, continuity, exact use target, and creator-approved reference selection before generating new video
 - [ ] Review the owner-supplied Copilot artifact as a public source and preserve any family contribution only with its exact text, asset, author attribution, and approved display scope
 - [x] Build a source-labeled Dynasty Visual Archive with creator-supplied stills and coin assets, first-party series and episode-planning handoffs, and focused regression coverage
 - [x] Restore the two locally required ScrollVerse skills removed by the environment reset so unrelated source-aware regression tests can run again
+
+## Phase 924 — Dynasty Next-Motion Brief
+- [x] Add a browser-local form for exact motion reference selection, creator approval, duration, sound, on-screen text, continuity, and exact use target
+- [x] Gate local JSON export until every required creator decision is supplied
+- [x] Preserve no-generation, no-playback, no-upload, no-wallet, no-payment, no-release, and no-publication boundaries
+- [x] Validate focused Dynasty coverage, the complete suite, TypeScript, production build, whitespace, and desktop/mobile previews
 
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status

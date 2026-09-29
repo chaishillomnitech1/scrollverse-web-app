@@ -144,15 +144,31 @@ function exportLocalArchive(record: unknown) {
   URL.revokeObjectURL(href);
 }
 
+function exportLocalMotionBrief(record: unknown) {
+  const href = URL.createObjectURL(new Blob([JSON.stringify(record, null, 2)], { type: "application/json" }));
+  const anchor = document.createElement("a");
+  anchor.href = href;
+  anchor.download = "scrollverse-dynasty-next-motion-brief.json";
+  anchor.click();
+  URL.revokeObjectURL(href);
+}
+
 export default function DynastyVisualArchive() {
   useSovereignHeartbeat({ page: "dynasty-visual-archive" });
   const [selectedId, setSelectedId] = useState("titanium-reader");
   const [selectedMotionId, setSelectedMotionId] = useState("royal-portrait");
   const [curationNote, setCurationNote] = useState("");
+  const [motionBriefDuration, setMotionBriefDuration] = useState("");
+  const [motionBriefSound, setMotionBriefSound] = useState("");
+  const [motionBriefText, setMotionBriefText] = useState("");
+  const [motionBriefContinuity, setMotionBriefContinuity] = useState("");
+  const [motionBriefTarget, setMotionBriefTarget] = useState("");
+  const [creatorApprovedReference, setCreatorApprovedReference] = useState(false);
   const selected = useMemo(() => ARCHIVE_ASSETS.find((asset) => asset.id === selectedId) ?? ARCHIVE_ASSETS[0], [selectedId]);
   const selectedMotion = useMemo(() => MOTION_SOURCES.find((source) => source.id === selectedMotionId) ?? MOTION_SOURCES[0], [selectedMotionId]);
   const heroAssets = ARCHIVE_ASSETS.filter((asset) => asset.category === "still");
   const coinAssets = ARCHIVE_ASSETS.filter((asset) => asset.category === "coin");
+  const motionBriefReady = [motionBriefDuration, motionBriefSound, motionBriefText, motionBriefContinuity, motionBriefTarget].every((value) => value.trim().length > 0) && creatorApprovedReference;
 
   const exportArchive = () => {
     exportLocalArchive({
@@ -167,6 +183,23 @@ export default function DynastyVisualArchive() {
       notice: "This local export records creator-supplied visual materials, motion-file metadata, and optional curation notes. The motion references are not embedded, played, or content-verified in this archive. The export does not verify claims, activate a QR code, create a wallet, mint a token, list an item, connect a marketplace, process a payment, generate media, or publish a release.",
     });
     toast.success("Local Dynasty archive record exported. No external action was created.");
+  };
+
+  const exportMotionBrief = () => {
+    if (!motionBriefReady) return;
+    exportLocalMotionBrief({
+      recordType: "ScrollVerse Dynasty next-motion production brief",
+      createdAt: new Date().toISOString(),
+      sourceReference: selectedMotion,
+      duration: motionBriefDuration,
+      sound: motionBriefSound,
+      onScreenText: motionBriefText,
+      continuity: motionBriefContinuity,
+      exactUseTarget: motionBriefTarget,
+      creatorApprovedReference,
+      notice: "Browser-local planning record only. No generation, playback, upload, wallet, payment, external release, or publication occurs from this brief.",
+    });
+    toast.success("Next-motion brief exported locally. No external action was created.");
   };
 
   return (
@@ -203,6 +236,20 @@ export default function DynastyVisualArchive() {
           <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Each record below identifies an available creator-supplied MP4 file by filename and a cautious planning use. No video is embedded or played here, and no runtime, spoken content, character appearance, quality assessment, authorship beyond the supplied-source label, or release status is inferred from a filename.</p>
           <div className="mt-7 grid gap-3 md:grid-cols-2 xl:grid-cols-3">{MOTION_SOURCES.map((source) => { const active = source.id === selectedMotion.id; return <button key={source.id} type="button" aria-pressed={active} onClick={() => setSelectedMotionId(source.id)} className="rounded-2xl border p-4 text-left transition active:scale-[.99]" style={{ borderColor: active ? "rgba(157,235,255,.7)" : "rgba(255,255,255,.10)", background: active ? "rgba(0,212,255,.11)" : "rgba(3,9,20,.30)" }}><span className="text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">SUPPLIED MP4 · METADATA RECORD</span><span className="mt-2 block text-base font-black">{source.title}</span><span className="mt-2 block break-all font-mono text-[10px] leading-5 text-[#B8C7D6]">{source.filename}</span></button>; })}</div>
           <div className="mt-6 rounded-2xl border border-[#9DEBFF]/25 bg-black/20 p-5"><p className="text-[10px] font-mono tracking-[.14em] text-[#9DEBFF]">SELECTED PLANNING RECORD</p><h3 className="mt-2 text-xl font-black">{selectedMotion.title}</h3><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{selectedMotion.planningUse}</p><p className="mt-3 text-xs leading-6 text-[#B8C7D6]">Before any new video generation or public use, a completed creator-approved brief must specify the exact reference selection, permitted use, duration, aspect ratio, story, original-character direction, on-screen text, audio, accessibility, destination, and release decision.</p></div>
+          <div id="dynasty-motion-production-brief" className="mt-6 rounded-2xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.045] p-5">
+            <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-[10px] font-mono tracking-[.14em] text-[#FFE09A]">MOTION BRIEF · BROWSER-LOCAL ONLY</p><h3 className="mt-2 text-2xl font-black">Define the next motion before making it.</h3></div><span className="rounded-full border border-[#FFCC4D]/35 bg-black/20 px-3 py-1 text-[10px] font-mono text-[#FFE09A]">NO GENERATION · NO RELEASE</span></div>
+            <p className="mt-3 text-sm leading-7 text-[#D6E2EE]">Complete the creator decisions for this selected filename. No generation, playback, upload, or release occurs from this planning form.</p>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <label><span className="text-xs font-black text-white">Duration</span><input value={motionBriefDuration} onChange={(event) => setMotionBriefDuration(event.target.value)} placeholder="Example: 10 seconds" className="mt-2 w-full rounded-xl border border-white/15 bg-[#071426] px-3 py-2 text-sm text-white outline-none focus:border-[#FFCC4D]" /></label>
+              <label><span className="text-xs font-black text-white">Sound / audio direction</span><input value={motionBriefSound} onChange={(event) => setMotionBriefSound(event.target.value)} placeholder="Example: instrumental only; no spoken claim" className="mt-2 w-full rounded-xl border border-white/15 bg-[#071426] px-3 py-2 text-sm text-white outline-none focus:border-[#FFCC4D]" /></label>
+              <label><span className="text-xs font-black text-white">On-screen text</span><textarea value={motionBriefText} onChange={(event) => setMotionBriefText(event.target.value)} rows={3} placeholder="Exact text, or write: none" className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-[#071426] px-3 py-2 text-sm text-white outline-none focus:border-[#FFCC4D]" /></label>
+              <label><span className="text-xs font-black text-white">Continuity / story direction</span><textarea value={motionBriefContinuity} onChange={(event) => setMotionBriefContinuity(event.target.value)} rows={3} placeholder="What must remain consistent across the shot?" className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-[#071426] px-3 py-2 text-sm text-white outline-none focus:border-[#FFCC4D]" /></label>
+              <label className="md:col-span-2"><span className="text-xs font-black text-white">Exact use target</span><input value={motionBriefTarget} onChange={(event) => setMotionBriefTarget(event.target.value)} placeholder="Example: original Episode 4 concept trailer, private review" className="mt-2 w-full rounded-xl border border-white/15 bg-[#071426] px-3 py-2 text-sm text-white outline-none focus:border-[#FFCC4D]" /></label>
+            </div>
+            <label className="mt-5 flex items-start gap-3 text-sm leading-6 text-[#D6E2EE]"><input type="checkbox" checked={creatorApprovedReference} onChange={(event) => setCreatorApprovedReference(event.target.checked)} className="mt-1 h-4 w-4 accent-[#FFCC4D]" />I confirm this exact selected filename is the creator-approved reference for this local planning record.</label>
+            <div aria-live="polite" className="mt-4 rounded-xl border border-white/10 bg-black/20 p-3 text-xs leading-6 text-[#B8C7D6]">{motionBriefReady ? "Brief ready for a local JSON export." : "Complete duration, sound, on-screen text, continuity, exact use target, and the creator-approved reference checkbox to enable export."}</div>
+            <button type="button" disabled={!motionBriefReady} onClick={exportMotionBrief} className="mt-5 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition disabled:cursor-not-allowed disabled:opacity-45" style={{ background: "#FFCC4D", color: "#071426" }} title="Export the completed browser-local production brief"> <Download className="h-4 w-4" />Export next-motion brief</button>
+          </div>
         </div>
       </section>
 
