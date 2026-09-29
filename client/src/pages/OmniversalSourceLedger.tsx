@@ -16,6 +16,14 @@ const SOURCE_RECEIPT = {
   lineCount: 1530,
 };
 
+const PHASE923_RECEIPT = {
+  title: "Phase 923 — New Creator Source Batch Receipt",
+  files: [
+    { filename: "pasted_content_2.txt", lineCount: 2174, bytes: 97191, sha256: "3c1d619df1e874d46907e35b6382580e009e6a3fd09b2b7b737fd2d589514d28" },
+    { filename: "pasted_content_3.txt", lineCount: 4582, bytes: 181654, sha256: "e7646709af564b0dadb5f6bfea73193f088f9469728e3e9951cd36d201569f70" },
+  ],
+} as const;
+
 const LEDGER_ENTRIES: LedgerEntry[] = [
   {
     id: "narrative",
@@ -73,14 +81,47 @@ const LEDGER_ENTRIES: LedgerEntry[] = [
     planningTreatment: "Use only after a creator identifies the exact source, first-party destination, and intended use.",
     boundary: "No content is transferred automatically into another route.",
   },
+  {
+    id: "phase923-marketplace",
+    category: "Proposed marketplace and catalog",
+    title: "Asset catalog, exchange, token, and story-book catalog proposals",
+    sourceClass: "Phase 923 creator-supplied text batches",
+    planningTreatment: "Keep as text-only planning context for a future non-transactional catalog review.",
+    boundary: "Does not create a listing, token, wallet connection, contract, payment, exchange, or deployment.",
+  },
+  {
+    id: "phase923-technical",
+    category: "Supplied technical examples",
+    title: "Marketplace React, firewall, wallet hook, deployment, and telemetry examples",
+    sourceClass: "Phase 923 creator-supplied code examples",
+    planningTreatment: "Preserve as unexecuted reference material pending exact local selection and technical review.",
+    boundary: "No supplied code is copied, installed, run, granted permissions, connected to a wallet, or pointed at a live network.",
+  },
+  {
+    id: "phase923-storybooks",
+    category: "Story-book and archive planning",
+    title: "Nine-volume story-book, character-lore, and master-archive proposals",
+    sourceClass: "Phase 923 creator-supplied narrative and archive text",
+    planningTreatment: "Use as source-labeled narrative context for a future first-party story index.",
+    boundary: "Does not recover linked conversations, establish authorship or rights, tokenize a volume, or publish an archive.",
+  },
+  {
+    id: "phase923-media",
+    category: "Phase 923 media references",
+    title: "Audio, video, social, autoplay, and visual-direction references",
+    sourceClass: "Unselected creator-supplied media references",
+    planningTreatment: "Keep metadata-only until one exact source and intended display treatment are selected.",
+    boundary: "No media is opened, downloaded, played, embedded, transformed, uploaded, or released.",
+  },
 ];
 
 function downloadLocalLedger(entries: LedgerEntry[]) {
   const record = {
-    recordType: "scrollverse_omniversal_source_ledger",
-    status: "creator_led_browser_local_summary",
-    sourceReceipt: SOURCE_RECEIPT,
-    visibleEntries: entries,
+      recordType: "scrollverse_omniversal_source_ledger",
+      status: "creator_led_browser_local_summary",
+      sourceReceipt: SOURCE_RECEIPT,
+      additionalReceipts: [PHASE923_RECEIPT],
+      visibleEntries: entries,
     boundaries: {
       externalOperations: "No external source is opened, fetched, embedded, or changed here.",
       consequentialActions: "No connector permission, account, payment, token, contract, or release action occurs here.",
@@ -128,7 +169,7 @@ export default function OmniversalSourceLedger() {
             <div>
               <p className="text-[10px] font-mono tracking-[.18em] text-[#BCEEFF]">SOURCE RECEIPT INDEX</p>
               <h2 className="mt-2 text-3xl font-black">Keep the context legible.</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#D6E2EE]">Receipt: {SOURCE_RECEIPT.title}. The ledger summarizes {SOURCE_RECEIPT.lineCount.toLocaleString()} source-text lines by category; it does not reproduce the supplied text.</p>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#D6E2EE]">Receipt: {SOURCE_RECEIPT.title}. The ledger summarizes {SOURCE_RECEIPT.lineCount.toLocaleString()} source-text lines by category and adds the two-file Phase 923 receipt; it does not reproduce supplied text.</p>
             </div>
             <p aria-live="polite" className="rounded-full border border-white/10 bg-white/[.04] px-3 py-2 text-[10px] font-mono text-[#C9F3FF]">{matchingEntries.length} visible records</p>
           </div>

@@ -6212,6 +6212,11 @@
 - [x] Preserve no-generation, no-playback, no-upload, no-wallet, no-payment, no-release, and no-publication boundaries
 - [x] Validate focused Dynasty coverage, the complete suite, TypeScript, production build, whitespace, and desktop/mobile previews
 
+## Phase 925 — Omniversal Ledger Batch Extension
+- [x] Add the two Phase 923 source receipts, filenames, line counts, byte counts, and SHA-256 identifiers to the browser-local ledger export
+- [x] Add filterable planning categories for marketplace/catalog proposals, supplied technical examples, story-book/archive planning, and media references
+- [x] Keep all Phase 923 references non-operative and verify the focused ledger regression
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
