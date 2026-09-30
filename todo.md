@@ -6217,6 +6217,12 @@
 - [x] Add filterable planning categories for marketplace/catalog proposals, supplied technical examples, story-book/archive planning, and media references
 - [x] Keep all Phase 923 references non-operative and verify the focused ledger regression
 
+## Phase 926 — New Creator Source Batch Receipt
+- [x] Preserve `pasted_content_4.txt` as a distinct metadata-only source record with line count, byte count, and SHA-256 identifier
+- [x] Classify narrative, external references, marketplace/token proposals, supplied deployment/telemetry examples, media, and archive planning without treating them as operative or independently verified
+- [x] Record no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, no-deployment, and no-publication boundaries
+- [x] Add focused receipt regression coverage and verify the new source record
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
