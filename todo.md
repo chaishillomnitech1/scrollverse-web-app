@@ -6223,6 +6223,11 @@
 - [x] Record no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, no-deployment, and no-publication boundaries
 - [x] Add focused receipt regression coverage and verify the new source record
 
+## Phase 927 — Source-Labeled Story-book Index
+- [x] Reserve nine clearly labeled volume slots from the Phase 926 proposal without inventing titles or recovering external artifacts
+- [x] Record exact-source, first-party-route, narrative-use, display-treatment, accessibility, and public-scope requirements for future selection
+- [x] Preserve no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, and no-publication boundaries with focused coverage
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
