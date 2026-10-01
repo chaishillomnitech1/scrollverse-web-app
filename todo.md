@@ -6299,6 +6299,12 @@
 - [x] Create and validate `/home/ubuntu/skills/scrollverse-source-led-portfolio`
 - [x] Pass focused and full tests, TypeScript, memory-safe production build, whitespace checks, skill validation, and desktop/mobile preview review
 
+## Phase 940 — Screen-Recording Intake Register
+- [x] Record the two selected Phase 795 screen recordings and their exact unavailable-in-workspace status without substituting a different upload
+- [x] Preserve the private research lane and required original-source, release-permission, attribution, context, display-treatment, and public-scope inputs
+- [x] Explicitly gate no upload, no embedding, no republication, no playback, no transformation, and no public conclusion
+- [x] Add focused regression coverage and verify the local intake register
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
