@@ -6266,6 +6266,12 @@
 - [x] Preserve external provider, payment, wallet, token, contract, deployment, and publication actions as separate owner-controlled decisions
 - [x] Add focused gateway regression coverage and verify the route alignment
 
+## Phase 934 — Mobile Store Readiness Record
+- [x] Reinstall the locked mobile-companion dependencies locally and pass `pnpm check`
+- [x] Pass the source-only `preflight:release` gate confirming absent store identifiers, absent EAS submission, registered tabs, and first-party handoffs
+- [x] Refresh the owner submission packet reference with a dated local readiness record and explicit no-upload/no-submission boundary
+- [x] Add focused regression coverage and verify the new readiness record
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
