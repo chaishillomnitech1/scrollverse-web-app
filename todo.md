@@ -6136,7 +6136,7 @@
 - [x] Assess the current ScrollVerse web project for reusable native-app routes, content, and service boundaries
 - [x] Define the companion app’s source-led screen map, app identity, privacy/contact content, and store metadata requirements
 - [x] Build a companion native-app project and a visible web-to-app discovery path without submitting to external stores
-- [ ] Validate the mobile experience and prepare the exact Apple App Store and Google Play owner-submission packet
+- [x] Validate the mobile experience and prepare the exact Apple App Store and Google Play owner-submission packet
 - [ ] Hold all store-account, signed-build, listing, and submission actions for final owner confirmation
 - [x] Add a visible in-portal Mobile Companion blueprint and first-party route handoffs while the separate native workspace is prepared
 - [x] Validate the in-portal Mobile Companion blueprint at desktop and phone viewports and preserve the native-build handoff requirements
@@ -6277,6 +6277,12 @@
 - [x] Record the destination as a metadata-only continuation path without opening, embedding, fetching, playing, uploading, or publishing it
 - [x] Preserve exact-source, intended-route, narrative-use, rights, accessibility, and public-scope requirements for any future integration
 - [x] Add focused receipt coverage and verify the record
+
+## Phase 936 — Local Historical Source Catalog
+- [x] Create a local discovery catalog for the source receipts, planning records, mobile readiness record, supplied destinations, and attached-task reference already present in the workspace
+- [x] Preserve catalog-only status and distinguish user-provided labels from independently verified external state
+- [x] Record no external access, media playback, upload, publication, deployment, account, wallet, token, contract, payment, store, or repository action
+- [x] Add focused catalog coverage and verify the record
 
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
