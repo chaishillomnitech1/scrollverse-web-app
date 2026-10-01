@@ -6331,7 +6331,7 @@
 - [x] Show a real debounced-search/filter progress state with reduced-motion-safe shimmer, a result count, and `aria-busy` while pending
 - [x] Replace the Dynasty portfolio poster returning 403 with the already-used Dynasty archive seal artwork; verify the mobile page-one images and card layout
 - [x] Update and validate the reusable `scrollverse-source-led-portfolio` skill; verify focused tests, full suite (388 files, 1,045 tests), TypeScript, guarded build, whitespace, real local API response, and responsive preview
-- [ ] Save a managed local checkpoint; no external publish or account action in this phase
+- [x] Save managed local checkpoint `0f83cdb6`; no external publish or account action in this phase
 
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
