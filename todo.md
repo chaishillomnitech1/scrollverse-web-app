@@ -6305,6 +6305,12 @@
 - [x] Explicitly gate no upload, no embedding, no republication, no playback, no transformation, and no public conclusion
 - [x] Add focused regression coverage and verify the local intake register
 
+## Phase 941 — Remaining Backlog Disposition Register
+- [x] Account for all 31 remaining open tracker items with their exact phase, blocker category, and next required input
+- [x] Separate local preparation from owner/account/provider-gated actions without falsely marking consequential work complete
+- [x] Preserve explicit holds for billing, hosting, repository, wallet, token, contract, payment, store, media publication, schedule, and external-source lanes
+- [x] Add focused register coverage and verify the complete disposition record
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
