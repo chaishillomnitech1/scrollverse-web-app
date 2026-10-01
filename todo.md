@@ -6234,6 +6234,12 @@
 - [x] Keep the route source-labeled, keyboard-reachable, and explicit about unrecovered artifacts and consequential-action boundaries
 - [x] Add focused route coverage before full project verification
 
+## Phase 929 — Creator Source Receipt
+- [x] Preserve `pasted_content_5.txt` as a distinct metadata-only source record with line count, byte count, and SHA-256 identifier
+- [x] Classify creator narrative, external references, marketplace/token and digital-twin proposals, technical examples, media, accession schema, and archive planning
+- [x] Record no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, no-deployment, and no-publication boundaries
+- [x] Add focused receipt coverage and verify the accession record
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
