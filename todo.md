@@ -6253,6 +6253,13 @@
 - [x] Preserve no-experiment, no-data-collection, no-external-publication, no-wallet, no-token, no-contract, no-payment, and no-deployment boundaries
 - [x] Add focused regression coverage and verify the brief
 
+## Phase 932 — Plasma State Map + Main-Page Outlet Gateway
+- [x] Add a responsive browser-local orbit/sine-projection visualization with named phase controls, range slider, accessible text readout, optional play/pause motion, and local JSON export
+- [x] Keep the visualization explicitly geometric and separate from plasma simulation, frequency measurement, physical-law, or experimental-result claims
+- [x] Add a prominent homepage gateway for Gemini storybooks, the nine-volume source-labeled index, visual artifacts, the music/visual public footprint, and the Plasma State Map
+- [x] Keep unselected media out of autoplay and preserve no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, no-deployment, and no-publication boundaries
+- [x] Verify focused and full tests, TypeScript, memory-safe production build, whitespace, desktop/mobile previews, and the existing public-footprint outlet route
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
