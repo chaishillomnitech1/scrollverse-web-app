@@ -6272,6 +6272,12 @@
 - [x] Refresh the owner submission packet reference with a dated local readiness record and explicit no-upload/no-submission boundary
 - [x] Add focused regression coverage and verify the new readiness record
 
+## Phase 935 — Scrollcmd Source Receipt
+- [x] Preserve the supplied `scrollcmd` destination, `manus.im/app` destination, attached task title, and task ID as source-labeled metadata
+- [x] Record the destination as a metadata-only continuation path without opening, embedding, fetching, playing, uploading, or publishing it
+- [x] Preserve exact-source, intended-route, narrative-use, rights, accessibility, and public-scope requirements for any future integration
+- [x] Add focused receipt coverage and verify the record
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
