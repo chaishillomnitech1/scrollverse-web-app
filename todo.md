@@ -6291,6 +6291,14 @@
 - [x] Record the disabled GitHub connector and no-external-repository-action boundary
 - [x] Add focused receipt coverage and verify the record
 
+## Phase 938 — Interactive Creator Portfolio + Reusable Skill
+- [x] Add a filterable, source-labeled homepage portfolio for worlds, artifacts, music, and systems with selected-item details and direct first-party routes
+- [x] Add resilient visual frames with descriptive alt text, lazy loading, `object-contain`/`object-cover` handling, and a readable fallback when a visual fails
+- [x] Add accessible category and item controls with `aria-pressed`, `aria-live`, visible focus treatment, comfortable touch targets, and motion-safe transitions
+- [x] Preserve no-autoplay, no-fetch, no-upload, no-transform, no-mint, no-list, no-price, no-pay, no-publish, and no-release boundaries for unselected media
+- [x] Create and validate `/home/ubuntu/skills/scrollverse-source-led-portfolio`
+- [x] Pass focused and full tests, TypeScript, memory-safe production build, whitespace checks, skill validation, and desktop/mobile preview review
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
