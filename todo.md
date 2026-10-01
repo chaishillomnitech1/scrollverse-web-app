@@ -6318,6 +6318,13 @@
 - [x] Extend and validate the reusable `/home/ubuntu/skills/scrollverse-source-led-portfolio` skill with the date-sorting contract
 - [x] Verify focused and full tests, TypeScript, memory-safe production build, whitespace, skill validation, and desktop/mobile previews
 
+## Phase 943 — Portfolio Keyword Search + Skill Update
+- [x] Add a labeled native keyword search field with the placeholder `Search by title, category, or source label`
+- [x] Search portfolio titles, details, categories, labels, and stable IDs case-insensitively alongside category and date filters
+- [x] Show a readable `No portfolio artifacts match the current filters.` state when the combined filters return no records
+- [x] Extend and validate `/home/ubuntu/skills/scrollverse-source-led-portfolio` with the keyword-search contract
+- [x] Verify focused and full tests, TypeScript, memory-safe production build, whitespace, skill validation, and responsive preview review
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 

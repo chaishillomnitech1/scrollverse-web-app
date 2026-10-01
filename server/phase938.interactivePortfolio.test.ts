@@ -39,4 +39,13 @@ describe("Phase 938 — interactive creator portfolio", () => {
     expect(source).toContain("Sort portfolio by catalog date");
     expect(source).toContain("Cataloged");
   });
+
+  it("supports keyword search across portfolio titles, details, categories, and labels", () => {
+    const source = home();
+    expect(source).toContain("portfolioSearch");
+    expect(source).toContain("Search portfolio artifacts");
+    expect(source).toContain("Search by title, category, or source label");
+    expect(source).toContain("toLowerCase()");
+    expect(source).toContain("No portfolio artifacts match");
+  });
 });

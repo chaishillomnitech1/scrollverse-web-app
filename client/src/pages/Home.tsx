@@ -1050,6 +1050,7 @@ type PortfolioSort = "newest" | "oldest";
 function InteractiveCreatorPortfolio() {
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("All");
   const [sortMode, setSortMode] = useState<PortfolioSort>("newest");
+  const [portfolioSearch, setPortfolioSearch] = useState("");
   const [activeId, setActiveId] = useState("omniland");
   const [failedVisuals, setFailedVisuals] = useState<Record<string, boolean>>({});
   const portfolio = [
@@ -1061,8 +1062,10 @@ function InteractiveCreatorPortfolio() {
     { id: "plasma", category: "Systems" as const, catalogDate: "2026-09-23", title: "Plasma State Map", detail: "Explore a deterministic geometric study with readable state labels and local interaction.", href: "/plasma", image: "/manus-storage/omniland-play-district-v2_f9e35760.png", color: "#70D9FF", label: "GEOMETRIC STUDY" },
   ];
   const categories: PortfolioCategory[] = ["All", "Worlds", "Artifacts", "Music", "Systems"];
+  const normalizedSearch = portfolioSearch.trim().toLowerCase();
   const visiblePortfolio = portfolio
     .filter((item) => activeCategory === "All" || item.category === activeCategory)
+    .filter((item) => !normalizedSearch || [item.title, item.detail, item.category, item.label, item.id].some((value) => value.toLowerCase().includes(normalizedSearch)))
     .sort((a, b) => sortMode === "newest" ? b.catalogDate.localeCompare(a.catalogDate) : a.catalogDate.localeCompare(b.catalogDate));
   const activeItem = visiblePortfolio.find((item) => item.id === activeId) ?? visiblePortfolio[0];
 
@@ -1078,6 +1081,10 @@ function InteractiveCreatorPortfolio() {
         <div className="rounded-2xl border px-5 py-4 text-xs leading-6" style={{ borderColor: "rgba(181,247,204,.3)", background: "rgba(181,247,204,.06)", color: "#D6E2EE" }}><span className="block text-[10px] font-mono tracking-[.16em]" style={{ color: "#B5F7CC" }}>DISPLAY MODE</span><span className="mt-1 block font-black text-white">Source labels stay visible.</span><span className="block">No unselected media autoplay.</span></div>
       </div>
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <label className="flex min-h-11 flex-1 items-center gap-3 rounded-xl border px-3 py-2 text-xs font-black" style={{ borderColor: "rgba(157,235,255,.35)", background: "rgba(157,235,255,.05)", color: "#9DEBFF" }}>
+          <span className="font-mono text-[10px] tracking-[.12em]">SEARCH</span>
+          <input value={portfolioSearch} onChange={(event) => setPortfolioSearch(event.target.value)} type="search" placeholder="Search by title, category, or source label" aria-label="Search portfolio artifacts" className="min-h-8 min-w-0 flex-1 bg-transparent text-sm font-medium text-white outline-none placeholder:text-[#9FB4C9]" />
+        </label>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter creator portfolio by category">
           {categories.map((category) => <button key={category} type="button" className="portfolio-filter min-h-11 rounded-full border px-4 py-2 text-xs font-black transition duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ borderColor: activeCategory === category ? "#FFE09A" : "rgba(255,255,255,.18)", background: activeCategory === category ? "rgba(255,204,77,.18)" : "rgba(255,255,255,.04)", color: activeCategory === category ? "#FFE09A" : "#D6E2EE" }} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}</button>)}
         </div>
@@ -1104,7 +1111,7 @@ function InteractiveCreatorPortfolio() {
             <div className="px-2 pb-2 pt-3"><span className="text-[9px] font-mono tracking-[.13em]" style={{ color: item.color }}>{item.category} · {item.label}</span><span className="mt-1 block text-sm font-black leading-tight text-white">{item.title}</span><span className="mt-2 block text-xs leading-5 text-[#C8D8E7]">{item.detail}</span><span className="mt-2 block text-[10px] font-mono tracking-[.1em] text-[#9FB4C9]">Cataloged {item.catalogDate}</span><Link href={item.href} className="mt-3 inline-flex text-xs font-black" style={{ color: item.color }} onClick={(event) => event.stopPropagation()}>Open route →</Link></div>
           </button>)}
         </div>
-      </div> : null}
+      </div> : <div className="mt-7 rounded-2xl border border-dashed p-8 text-center text-sm text-[#C8D8E7]">No portfolio artifacts match the current filters.</div>}
     </div>
   </section>;
 }
