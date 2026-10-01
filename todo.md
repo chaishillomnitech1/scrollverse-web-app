@@ -6311,6 +6311,13 @@
 - [x] Preserve explicit holds for billing, hosting, repository, wallet, token, contract, payment, store, media publication, schedule, and external-source lanes
 - [x] Add focused register coverage and verify the complete disposition record
 
+## Phase 942 — Portfolio Category and Catalog-Date Filtering
+- [x] Add stable ISO catalog dates to the six interactive portfolio records and label them as catalog timing
+- [x] Add accessible newest-first and oldest-first sorting alongside the existing category filter buttons
+- [x] Show `Cataloged YYYY-MM-DD` on portfolio cards without changing source, route, or release boundaries
+- [x] Extend and validate the reusable `/home/ubuntu/skills/scrollverse-source-led-portfolio` skill with the date-sorting contract
+- [x] Verify focused and full tests, TypeScript, memory-safe production build, whitespace, skill validation, and desktop/mobile previews
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 

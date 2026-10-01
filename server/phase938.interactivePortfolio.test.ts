@@ -29,4 +29,14 @@ describe("Phase 938 — interactive creator portfolio", () => {
       expect(source).toContain(`href: "${route}"`);
     }
   });
+
+  it("supports category filtering plus accessible catalog-date sorting", () => {
+    const source = home();
+    expect(source).toContain("catalogDate");
+    expect(source).toContain("sortMode");
+    expect(source).toContain("Newest first");
+    expect(source).toContain("Oldest first");
+    expect(source).toContain("Sort portfolio by catalog date");
+    expect(source).toContain("Cataloged");
+  });
 });

@@ -1045,21 +1045,25 @@ function LookbookConstellationFrontCenter() {
 }
 
 type PortfolioCategory = "All" | "Worlds" | "Artifacts" | "Music" | "Systems";
+type PortfolioSort = "newest" | "oldest";
 
 function InteractiveCreatorPortfolio() {
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("All");
+  const [sortMode, setSortMode] = useState<PortfolioSort>("newest");
   const [activeId, setActiveId] = useState("omniland");
   const [failedVisuals, setFailedVisuals] = useState<Record<string, boolean>>({});
   const portfolio = [
-    { id: "omniland", category: "Worlds" as const, title: "Omniland Cinematic Gateway", detail: "Original cinema, animation, comic, story, and game-world entry points gathered in one visual gate.", href: "/omniland-cinematic-gateway", image: "/manus-storage/omniland-cinematic-gate-v2_986ca22c.png", color: "#FFCC4D", label: "FIRST-PARTY WORLD" },
-    { id: "dynasty", category: "Artifacts" as const, title: "Dynasty Visual Archive", detail: "A source-labeled room for supplied seals, coins, readers, and the next scene brief.", href: "/dynasty-visual-archive", image: "/manus-storage/scrollverse_black_gold_poster_8f8560c4.webp", color: "#FFB36B", label: "SOURCE-LABELED ARCHIVE" },
-    { id: "fashion", category: "Artifacts" as const, title: "Fashion Portfolio", detail: "Original concept looks and expandable brand worlds with direct first-party continuation paths.", href: "/fashion-portfolio", image: "/manus-storage/creator-digital-dna-hero_41685cb6.png", color: "#FF8A4C", label: "ORIGINAL CONCEPTS" },
-    { id: "music", category: "Music" as const, title: "Music and Visual Outlet", detail: "A single place to reach the creator's music, video, visual, and public footprint routes.", href: "/public-footprint", image: HERO_IMG, color: "#B5F7CC", label: "PUBLIC OUTLET" },
-    { id: "dna", category: "Systems" as const, title: "Creator Digital DNA", detail: "Navigate the creator-authored equation, seal motifs, character lineage, and development record.", href: "/creator-digital-dna", image: SUN_XIX_CDN, color: "#DCC8FF", label: "CREATOR RECORD" },
-    { id: "plasma", category: "Systems" as const, title: "Plasma State Map", detail: "Explore a deterministic geometric study with readable state labels and local interaction.", href: "/plasma", image: "/manus-storage/omniland-play-district-v2_f9e35760.png", color: "#70D9FF", label: "GEOMETRIC STUDY" },
+    { id: "omniland", category: "Worlds" as const, catalogDate: "2026-10-01", title: "Omniland Cinematic Gateway", detail: "Original cinema, animation, comic, story, and game-world entry points gathered in one visual gate.", href: "/omniland-cinematic-gateway", image: "/manus-storage/omniland-cinematic-gate-v2_986ca22c.png", color: "#FFCC4D", label: "FIRST-PARTY WORLD" },
+    { id: "dynasty", category: "Artifacts" as const, catalogDate: "2026-09-29", title: "Dynasty Visual Archive", detail: "A source-labeled room for supplied seals, coins, readers, and the next scene brief.", href: "/dynasty-visual-archive", image: "/manus-storage/scrollverse_black_gold_poster_8f8560c4.webp", color: "#FFB36B", label: "SOURCE-LABELED ARCHIVE" },
+    { id: "fashion", category: "Artifacts" as const, catalogDate: "2026-09-27", title: "Fashion Portfolio", detail: "Original concept looks and expandable brand worlds with direct first-party continuation paths.", href: "/fashion-portfolio", image: "/manus-storage/creator-digital-dna-hero_41685cb6.png", color: "#FF8A4C", label: "ORIGINAL CONCEPTS" },
+    { id: "music", category: "Music" as const, catalogDate: "2026-09-25", title: "Music and Visual Outlet", detail: "A single place to reach the creator's music, video, visual, and public footprint routes.", href: "/public-footprint", image: HERO_IMG, color: "#B5F7CC", label: "PUBLIC OUTLET" },
+    { id: "dna", category: "Systems" as const, catalogDate: "2026-09-24", title: "Creator Digital DNA", detail: "Navigate the creator-authored equation, seal motifs, character lineage, and development record.", href: "/creator-digital-dna", image: SUN_XIX_CDN, color: "#DCC8FF", label: "CREATOR RECORD" },
+    { id: "plasma", category: "Systems" as const, catalogDate: "2026-09-23", title: "Plasma State Map", detail: "Explore a deterministic geometric study with readable state labels and local interaction.", href: "/plasma", image: "/manus-storage/omniland-play-district-v2_f9e35760.png", color: "#70D9FF", label: "GEOMETRIC STUDY" },
   ];
   const categories: PortfolioCategory[] = ["All", "Worlds", "Artifacts", "Music", "Systems"];
-  const visiblePortfolio = portfolio.filter((item) => activeCategory === "All" || item.category === activeCategory);
+  const visiblePortfolio = portfolio
+    .filter((item) => activeCategory === "All" || item.category === activeCategory)
+    .sort((a, b) => sortMode === "newest" ? b.catalogDate.localeCompare(a.catalogDate) : a.catalogDate.localeCompare(b.catalogDate));
   const activeItem = visiblePortfolio.find((item) => item.id === activeId) ?? visiblePortfolio[0];
 
   return <section id="creator-portfolio" aria-labelledby="creator-portfolio-title" className="relative overflow-hidden border-b" style={{ borderColor: "rgba(255,204,77,.28)", background: "radial-gradient(circle at 8% 12%, rgba(255,184,0,.14), transparent 28%), radial-gradient(circle at 92% 80%, rgba(0,212,255,.14), transparent 32%), #050B18" }}>
@@ -1073,8 +1077,17 @@ function InteractiveCreatorPortfolio() {
         </div>
         <div className="rounded-2xl border px-5 py-4 text-xs leading-6" style={{ borderColor: "rgba(181,247,204,.3)", background: "rgba(181,247,204,.06)", color: "#D6E2EE" }}><span className="block text-[10px] font-mono tracking-[.16em]" style={{ color: "#B5F7CC" }}>DISPLAY MODE</span><span className="mt-1 block font-black text-white">Source labels stay visible.</span><span className="block">No unselected media autoplay.</span></div>
       </div>
-      <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter creator portfolio by category">
-        {categories.map((category) => <button key={category} type="button" className="portfolio-filter min-h-11 rounded-full border px-4 py-2 text-xs font-black transition duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ borderColor: activeCategory === category ? "#FFE09A" : "rgba(255,255,255,.18)", background: activeCategory === category ? "rgba(255,204,77,.18)" : "rgba(255,255,255,.04)", color: activeCategory === category ? "#FFE09A" : "#D6E2EE" }} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}</button>)}
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter creator portfolio by category">
+          {categories.map((category) => <button key={category} type="button" className="portfolio-filter min-h-11 rounded-full border px-4 py-2 text-xs font-black transition duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ borderColor: activeCategory === category ? "#FFE09A" : "rgba(255,255,255,.18)", background: activeCategory === category ? "rgba(255,204,77,.18)" : "rgba(255,255,255,.04)", color: activeCategory === category ? "#FFE09A" : "#D6E2EE" }} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}</button>)}
+        </div>
+        <label className="flex min-h-11 items-center gap-3 rounded-xl border px-3 py-2 text-xs font-black" style={{ borderColor: "rgba(255,224,154,.35)", background: "rgba(255,255,255,.04)", color: "#FFE09A" }}>
+          <span className="font-mono text-[10px] tracking-[.12em]">SORT BY DATE</span>
+          <select aria-label="Sort portfolio by catalog date" value={sortMode} onChange={(event) => setSortMode(event.target.value as PortfolioSort)} className="min-h-8 rounded-lg border px-2 text-xs font-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ borderColor: "rgba(255,224,154,.3)", background: "#10182A", color: "#FFFFFF" }}>
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </label>
       </div>
       {activeItem ? <div className="mt-7 grid gap-5 lg:grid-cols-[.8fr_1.2fr]">
         <div className="overflow-hidden rounded-[1.8rem] border p-2 shadow-[0_24px_70px_rgba(0,0,0,.28)]" style={{ borderColor: `${activeItem.color}70`, background: "rgba(255,255,255,.04)" }}>
@@ -1088,7 +1101,7 @@ function InteractiveCreatorPortfolio() {
             <div className="relative h-24 overflow-hidden rounded-xl" style={{ background: `linear-gradient(135deg, ${item.color}22, rgba(3,9,22,.94))` }}>
               {failedVisuals[item.id] ? <div className="flex h-full items-center justify-center text-xs font-mono" style={{ color: item.color }}>Visual unavailable</div> : <img src={item.image} alt="" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" onError={() => setFailedVisuals((current) => ({ ...current, [item.id]: true }))} />}
             </div>
-            <div className="px-2 pb-2 pt-3"><span className="text-[9px] font-mono tracking-[.13em]" style={{ color: item.color }}>{item.category} · {item.label}</span><span className="mt-1 block text-sm font-black leading-tight text-white">{item.title}</span><span className="mt-2 block text-xs leading-5 text-[#C8D8E7]">{item.detail}</span><Link href={item.href} className="mt-3 inline-flex text-xs font-black" style={{ color: item.color }} onClick={(event) => event.stopPropagation()}>Open route →</Link></div>
+            <div className="px-2 pb-2 pt-3"><span className="text-[9px] font-mono tracking-[.13em]" style={{ color: item.color }}>{item.category} · {item.label}</span><span className="mt-1 block text-sm font-black leading-tight text-white">{item.title}</span><span className="mt-2 block text-xs leading-5 text-[#C8D8E7]">{item.detail}</span><span className="mt-2 block text-[10px] font-mono tracking-[.1em] text-[#9FB4C9]">Cataloged {item.catalogDate}</span><Link href={item.href} className="mt-3 inline-flex text-xs font-black" style={{ color: item.color }} onClick={(event) => event.stopPropagation()}>Open route →</Link></div>
           </button>)}
         </div>
       </div> : null}
