@@ -6284,6 +6284,13 @@
 - [x] Record no external access, media playback, upload, publication, deployment, account, wallet, token, contract, payment, store, or repository action
 - [x] Add focused catalog coverage and verify the record
 
+## Phase 937 — Manifest, Skills, and Hosting Observation Receipt
+- [x] Accession the supplied `consolidated_manifest.json` with counts, file size, line count, and SHA-256 identifier
+- [x] Accession both supplied `.skill` archives with hashes and local interpretations without installing or executing them
+- [x] Record read-only HTTP 200 ScrollVerse reachability observed on 2026-10-01 while explicitly separating reachability from billing, credit, entitlement, and future uptime
+- [x] Record the disabled GitHub connector and no-external-repository-action boundary
+- [x] Add focused receipt coverage and verify the record
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
