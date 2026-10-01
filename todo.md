@@ -6246,6 +6246,13 @@
 - [x] Record no-fetch, no-playback, no-upload, no-billing, no-wallet, no-token, no-contract, no-payment, no-deployment, and no-publication boundaries
 - [x] Add focused receipt coverage and verify the accession record
 
+## Phase 931 — Water Acoustics Experiment Brief
+- [x] Convert the Phase 930 water/frequency material into a source-labeled, reproducible research brief
+- [x] Define measurable variables, baselines, randomization, replicate expectations, model comparison, and evidence-chain statuses
+- [x] Keep water memory, intention, Akashic records, ley lines, and consciousness as exploratory hypotheses rather than established physics
+- [x] Preserve no-experiment, no-data-collection, no-external-publication, no-wallet, no-token, no-contract, no-payment, and no-deployment boundaries
+- [x] Add focused regression coverage and verify the brief
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
