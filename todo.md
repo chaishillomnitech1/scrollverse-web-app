@@ -6260,6 +6260,12 @@
 - [x] Keep unselected media out of autoplay and preserve no-fetch, no-playback, no-upload, no-wallet, no-contract, no-payment, no-deployment, and no-publication boundaries
 - [x] Verify focused and full tests, TypeScript, memory-safe production build, whitespace, desktop/mobile previews, and the existing public-footprint outlet route
 
+## Phase 933 — Core Modules Homepage Gateway
+- [x] Add a prominent first-party route rail for Site Map, OmniChess, Sacred Frequencies, Zernio Distribution, Red Diamond Fleet, Knicks NFT, Manifest, CHXToken, Crypto, Library, Global Map, and Codex 1587
+- [x] Align every gateway card with an existing local App route and provide visible labels, descriptions, focus states, and direct navigation
+- [x] Preserve external provider, payment, wallet, token, contract, deployment, and publication actions as separate owner-controlled decisions
+- [x] Add focused gateway regression coverage and verify the route alignment
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
