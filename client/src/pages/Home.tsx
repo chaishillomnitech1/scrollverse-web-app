@@ -6,6 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { paginatePortfolio } from "@/lib/portfolioPagination";
 import NotificationBell from "@/components/NotificationBell";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
@@ -1051,23 +1052,42 @@ function InteractiveCreatorPortfolio() {
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("All");
   const [sortMode, setSortMode] = useState<PortfolioSort>("newest");
   const [portfolioSearch, setPortfolioSearch] = useState("");
+  const [appliedFilters, setAppliedFilters] = useState({ category: "All", query: "", sort: "newest" as PortfolioSort });
+  const [isSettling, setIsSettling] = useState(false);
+  const [page, setPage] = useState(1);
+  const [summaryTarget, setSummaryTarget] = useState<string | null>(null);
+  const summaryTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [activeId, setActiveId] = useState("omniland");
   const [failedVisuals, setFailedVisuals] = useState<Record<string, boolean>>({});
   const portfolio = [
     { id: "omniland", category: "Worlds" as const, catalogDate: "2026-10-01", title: "Omniland Cinematic Gateway", detail: "Original cinema, animation, comic, story, and game-world entry points gathered in one visual gate.", href: "/omniland-cinematic-gateway", image: "/manus-storage/omniland-cinematic-gate-v2_986ca22c.png", color: "#FFCC4D", label: "FIRST-PARTY WORLD" },
-    { id: "dynasty", category: "Artifacts" as const, catalogDate: "2026-09-29", title: "Dynasty Visual Archive", detail: "A source-labeled room for supplied seals, coins, readers, and the next scene brief.", href: "/dynasty-visual-archive", image: "/manus-storage/scrollverse_black_gold_poster_8f8560c4.webp", color: "#FFB36B", label: "SOURCE-LABELED ARCHIVE" },
+    { id: "dynasty", category: "Artifacts" as const, catalogDate: "2026-09-29", title: "Dynasty Visual Archive", detail: "A source-labeled room for supplied seals, coins, readers, and the next scene brief.", href: "/dynasty-visual-archive", image: "/manus-storage/prophet_seal_chais_sabir_allah_311068a2.jpg", color: "#FFB36B", label: "SOURCE-LABELED ARCHIVE" },
     { id: "fashion", category: "Artifacts" as const, catalogDate: "2026-09-27", title: "Fashion Portfolio", detail: "Original concept looks and expandable brand worlds with direct first-party continuation paths.", href: "/fashion-portfolio", image: "/manus-storage/creator-digital-dna-hero_41685cb6.png", color: "#FF8A4C", label: "ORIGINAL CONCEPTS" },
     { id: "music", category: "Music" as const, catalogDate: "2026-09-25", title: "Music and Visual Outlet", detail: "A single place to reach the creator's music, video, visual, and public footprint routes.", href: "/public-footprint", image: HERO_IMG, color: "#B5F7CC", label: "PUBLIC OUTLET" },
     { id: "dna", category: "Systems" as const, catalogDate: "2026-09-24", title: "Creator Digital DNA", detail: "Navigate the creator-authored equation, seal motifs, character lineage, and development record.", href: "/creator-digital-dna", image: SUN_XIX_CDN, color: "#DCC8FF", label: "CREATOR RECORD" },
     { id: "plasma", category: "Systems" as const, catalogDate: "2026-09-23", title: "Plasma State Map", detail: "Explore a deterministic geometric study with readable state labels and local interaction.", href: "/plasma", image: "/manus-storage/omniland-play-district-v2_f9e35760.png", color: "#70D9FF", label: "GEOMETRIC STUDY" },
   ];
   const categories: PortfolioCategory[] = ["All", "Worlds", "Artifacts", "Music", "Systems"];
-  const normalizedSearch = portfolioSearch.trim().toLowerCase();
-  const visiblePortfolio = portfolio
-    .filter((item) => activeCategory === "All" || item.category === activeCategory)
-    .filter((item) => !normalizedSearch || [item.title, item.detail, item.category, item.label, item.id].some((value) => value.toLowerCase().includes(normalizedSearch)))
-    .sort((a, b) => sortMode === "newest" ? b.catalogDate.localeCompare(a.catalogDate) : a.catalogDate.localeCompare(b.catalogDate));
-  const activeItem = visiblePortfolio.find((item) => item.id === activeId) ?? visiblePortfolio[0];
+  useEffect(() => {
+    setIsSettling(true);
+    const timer = setTimeout(() => {
+      setAppliedFilters({ category: activeCategory, query: portfolioSearch, sort: sortMode });
+      setPage(1);
+      setIsSettling(false);
+    }, 160);
+    return () => clearTimeout(timer);
+  }, [activeCategory, portfolioSearch, sortMode]);
+  useEffect(() => () => { if (summaryTimer.current) clearTimeout(summaryTimer.current); }, []);
+  const cancelScheduledSummary = () => {
+    if (summaryTimer.current) clearTimeout(summaryTimer.current);
+  };
+  const scheduleSummary = (id: string) => {
+    cancelScheduledSummary();
+    summaryTimer.current = setTimeout(() => setSummaryTarget(id), 550);
+  };
+  const { items: pageItems, total, page: currentPage, pageCount } = paginatePortfolio(portfolio, { ...appliedFilters, page, pageSize: 2 });
+  const activeItem = pageItems.find(item => item.id === activeId) ?? pageItems[0];
+  const summaryQuery = trpc.portfolioSummary.get.useQuery({ id: (summaryTarget ?? "omniland") as "omniland" }, { enabled: Boolean(summaryTarget), staleTime: Infinity, retry: false });
 
   return <section id="creator-portfolio" aria-labelledby="creator-portfolio-title" className="relative overflow-hidden border-b" style={{ borderColor: "rgba(255,204,77,.28)", background: "radial-gradient(circle at 8% 12%, rgba(255,184,0,.14), transparent 28%), radial-gradient(circle at 92% 80%, rgba(0,212,255,.14), transparent 32%), #050B18" }}>
     <div className="container py-14 md:py-18">
@@ -1096,6 +1116,12 @@ function InteractiveCreatorPortfolio() {
           </select>
         </label>
       </div>
+      <div className="mt-5 flex min-h-7 items-center justify-between gap-3 text-xs font-mono text-[#B5CCDC]" role="status" aria-live="polite">
+        <span>{isSettling ? "Refining collection…" : `${total} ${total === 1 ? "creation" : "creations"} · Page ${currentPage} of ${pageCount}`}</span>
+        <span className="text-[#FFE09A]">{isSettling ? "FILTERING" : "SOURCE-LED"}</span>
+      </div>
+      <div className="relative" aria-busy={isSettling}>
+        {isSettling && <div className="portfolio-loading-shimmer pointer-events-none absolute inset-0 z-10 flex items-start justify-center rounded-2xl border border-[#FFE09A]/30 bg-[#091326]/75 pt-14" aria-hidden="true"><div className="h-1 w-32 rounded-full bg-gradient-to-r from-transparent via-[#FFE09A] to-transparent" /></div>}
       {activeItem ? <div className="mt-7 grid gap-5 lg:grid-cols-[.8fr_1.2fr]">
         <div className="overflow-hidden rounded-[1.8rem] border p-2 shadow-[0_24px_70px_rgba(0,0,0,.28)]" style={{ borderColor: `${activeItem.color}70`, background: "rgba(255,255,255,.04)" }}>
           <div className="relative aspect-[16/10] overflow-hidden rounded-[1.35rem]" style={{ background: `linear-gradient(135deg, ${activeItem.color}24, rgba(3,9,22,.96))` }}>
@@ -1104,14 +1130,24 @@ function InteractiveCreatorPortfolio() {
           </div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2" aria-live="polite">
-          {visiblePortfolio.map((item) => <button key={item.id} type="button" className="group min-h-44 overflow-hidden rounded-[1.4rem] border p-2 text-left transition duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ borderColor: activeItem.id === item.id ? `${item.color}B8` : `${item.color}55`, background: activeItem.id === item.id ? `${item.color}12` : "rgba(255,255,255,.035)", boxShadow: activeItem.id === item.id ? `0 16px 38px ${item.color}16` : "none" }} onClick={() => setActiveId(item.id)} aria-pressed={activeItem.id === item.id}>
+          {pageItems.map((item) => <article key={item.id} className="group overflow-hidden rounded-[1.4rem] border p-2 transition duration-300 hover:-translate-y-1 focus-within:border-[#FFE09A]" style={{ borderColor: activeItem.id === item.id ? `${item.color}B8` : `${item.color}55`, background: activeItem.id === item.id ? `${item.color}12` : "rgba(255,255,255,.035)", boxShadow: activeItem.id === item.id ? `0 16px 38px ${item.color}16` : "none" }}>
+            <button type="button" className="w-full rounded-xl text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" onClick={() => setActiveId(item.id)} onMouseEnter={() => scheduleSummary(item.id)} onMouseLeave={cancelScheduledSummary} onFocus={() => scheduleSummary(item.id)} onBlur={cancelScheduledSummary} aria-pressed={activeItem.id === item.id} aria-label={`Select ${item.title} and preview its details`}>
             <div className="relative h-24 overflow-hidden rounded-xl" style={{ background: `linear-gradient(135deg, ${item.color}22, rgba(3,9,22,.94))` }}>
               {failedVisuals[item.id] ? <div className="flex h-full items-center justify-center text-xs font-mono" style={{ color: item.color }}>Visual unavailable</div> : <img src={item.image} alt="" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" onError={() => setFailedVisuals((current) => ({ ...current, [item.id]: true }))} />}
             </div>
-            <div className="px-2 pb-2 pt-3"><span className="text-[9px] font-mono tracking-[.13em]" style={{ color: item.color }}>{item.category} · {item.label}</span><span className="mt-1 block text-sm font-black leading-tight text-white">{item.title}</span><span className="mt-2 block text-xs leading-5 text-[#C8D8E7]">{item.detail}</span><span className="mt-2 block text-[10px] font-mono tracking-[.1em] text-[#9FB4C9]">Cataloged {item.catalogDate}</span><Link href={item.href} className="mt-3 inline-flex text-xs font-black" style={{ color: item.color }} onClick={(event) => event.stopPropagation()}>Open route →</Link></div>
-          </button>)}
+            <span className="block px-2 pb-2 pt-3"><span className="text-[9px] font-mono tracking-[.13em]" style={{ color: item.color }}>{item.category} · {item.label}</span><span className="mt-1 block text-sm font-black leading-tight text-white">{item.title}</span><span className="mt-2 block text-xs leading-5 text-[#C8D8E7]">{item.detail}</span><span className="mt-2 block text-[10px] font-mono tracking-[.1em] text-[#9FB4C9]">Cataloged {item.catalogDate}</span></span>
+            </button>
+            <div className="flex flex-wrap items-center gap-3 px-2 pb-2"><Link href={item.href} className="inline-flex min-h-11 items-center text-xs font-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ color: item.color }}>Open route →</Link><button type="button" className="min-h-11 rounded-full border border-[#9DEBFF]/40 px-3 text-[11px] font-semibold text-[#9DEBFF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" onClick={() => setSummaryTarget(item.id)}>AI overview</button></div>
+            {summaryTarget === item.id && <p className="mx-2 mb-2 rounded-xl border border-[#9DEBFF]/25 bg-[#0E1E31] p-3 text-xs leading-6 text-[#D6E2EE]" role="status" aria-live="polite"><span className="mr-2 font-mono text-[#9DEBFF]">AI-generated preview</span>{summaryQuery.isLoading ? "Writing a short overview…" : summaryQuery.isError ? "Overview unavailable. The artifact details above remain available." : summaryQuery.data?.summary}</p>}
+          </article>)}
         </div>
       </div> : <div className="mt-7 rounded-2xl border border-dashed p-8 text-center text-sm text-[#C8D8E7]">No portfolio artifacts match the current filters.</div>}
+      </div>
+      {total > 0 && <nav className="mt-6 flex flex-wrap items-center justify-center gap-2" aria-label="Portfolio pagination">
+        <button type="button" className="min-h-11 rounded-xl border border-white/25 px-4 text-sm text-white disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}>Previous</button>
+        {Array.from({ length: pageCount }, (_, i) => i + 1).map(pageNumber => <button key={pageNumber} type="button" className="min-h-11 min-w-11 rounded-xl border px-3 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" style={{ borderColor: pageNumber === currentPage ? "#FFE09A" : "rgba(255,255,255,.25)", color: pageNumber === currentPage ? "#FFE09A" : "#D6E2EE", background: pageNumber === currentPage ? "rgba(255,224,154,.12)" : "transparent" }} aria-label={`Go to portfolio page ${pageNumber}`} aria-current={pageNumber === currentPage ? "page" : undefined} onClick={() => setPage(pageNumber)}>{pageNumber}</button>)}
+        <button type="button" className="min-h-11 rounded-xl border border-white/25 px-4 text-sm text-white disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE09A]" disabled={currentPage === pageCount} onClick={() => setPage(currentPage + 1)}>Next</button>
+      </nav>}
     </div>
   </section>;
 }

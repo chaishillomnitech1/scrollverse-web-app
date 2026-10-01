@@ -6325,6 +6325,14 @@
 - [x] Extend and validate `/home/ubuntu/skills/scrollverse-source-led-portfolio` with the keyword-search contract
 - [x] Verify focused and full tests, TypeScript, memory-safe production build, whitespace, skill validation, and responsive preview review
 
+## Phase 944 — Paginated Portfolio, On-Demand AI Preview, and Loading Feedback
+- [x] Filter/sort before page slicing; mount two cards per page, clamp stale pages, reset to page one after search/category/sort changes, and provide accessible Previous/Next/number controls
+- [x] Add a server-owned, ID-allowlisted AI overview with bounded generated text, in-flight/result caching, keyboard/touch activation, and delayed hover/focus activation; keep authored details readable when generation fails
+- [x] Show a real debounced-search/filter progress state with reduced-motion-safe shimmer, a result count, and `aria-busy` while pending
+- [x] Replace the Dynasty portfolio poster returning 403 with the already-used Dynasty archive seal artwork; verify the mobile page-one images and card layout
+- [x] Update and validate the reusable `scrollverse-source-led-portfolio` skill; verify focused tests, full suite (388 files, 1,045 tests), TypeScript, guarded build, whitespace, real local API response, and responsive preview
+- [ ] Save a managed local checkpoint; no external publish or account action in this phase
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 

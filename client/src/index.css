@@ -961,7 +961,15 @@ html[data-scrollverse-signal="quiet"] .sv-signal-control__dot { background: #889
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.portfolio-loading-shimmer > div {
+  animation: portfolioLoadingPulse 800ms cubic-bezier(0.23, 1, 0.32, 1) infinite alternate;
+}
+@keyframes portfolioLoadingPulse {
+  from { opacity: 0.35; transform: scaleX(0.75); }
+  to { opacity: 1; transform: scaleX(1); }
+}
 @media (prefers-reduced-motion: reduce) {
+  .portfolio-loading-shimmer > div { animation: none; }
   .sccc-status-alert {
     animation: none;
   }

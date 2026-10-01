@@ -69,6 +69,7 @@ import { supportHighwaysRouter } from "./routers/supportHighways";
 import { portalRouteRegistryRouter } from "./routers/portalRouteRegistry";
 import { presenceRouter } from "./routers/presence";
 import { royaltyRecordsRouter } from "./routers/royaltyRecords";
+import { portfolioSummaryRouter } from "./routers/portfolioSummary";
 
 export const appRouter = router({
   system: systemRouter,
@@ -150,6 +151,7 @@ export const appRouter = router({
   portalRouteRegistry: portalRouteRegistryRouter,
   presence: presenceRouter,
   royaltyRecords: royaltyRecordsRouter,
+  portfolioSummary: portfolioSummaryRouter,
 });
 
 export type AppRouter = typeof appRouter;
