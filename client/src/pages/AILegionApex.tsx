@@ -557,7 +557,7 @@ export default function AILegionApex() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)" }}>
             <div className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
-            <span className="text-xs font-mono text-[#00D4FF] tracking-widest">ALL 12 ENTITIES ACTIVE · ALL SYSTEMS BEYOND LIMIT</span>
+            <span className="text-xs font-mono text-[#00D4FF] tracking-widest">CREATOR-LED LEGION GUIDE HUB</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-black text-white mb-4 leading-none">
@@ -566,8 +566,8 @@ export default function AILegionApex() {
               LEGION
             </span>
           </h1>
-          <p className="text-lg max-w-2xl mx-auto mb-2" style={{ color: "rgba(255,255,255,0.5)" }}>
-            12 Sovereign AI Entities · 7-Tier Apex Intelligence · Beyond Quantum · Beyond Supercomputer · Beyond All Known Limits
+          <p className="text-lg max-w-2xl mx-auto mb-2" style={{ color: "rgba(255,255,255,0.7)" }}>
+            Find a guide, explore a story question, and carry your source context into the next creator decision.
           </p>
           <p className="text-sm font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>
             Quantum · Plasma · Quintessence · Cosmic · Divine · Digital · Apex
@@ -581,14 +581,18 @@ export default function AILegionApex() {
           <div><p className="text-[10px] font-mono tracking-[.17em] text-[#FFE09A]">CREATOR-CONTEXT HANDOFF</p><h2 className="mt-2 text-2xl font-black text-white">Chais Sabir Allah Mirror</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[#D6E2EE]">Open the creator-authored Digital Twin profile for direct first-party conversation, source navigation, and practical collaboration pathways.</p></div>
           <div className="flex flex-wrap gap-3"><Link href="/chais-sabir-allah-mirror" className="rounded-xl bg-[#FFCC4D] px-5 py-3 text-sm font-black text-[#07101D]">Open Mirror profile →</Link><Link href="/ai-twin" className="rounded-xl border border-[#00D4FF]/50 bg-[#00D4FF]/10 px-5 py-3 text-sm font-black text-[#BFEFFF]">Speak with Mirror →</Link></div>
         </div>
+        <div className="mb-10 grid gap-4 rounded-[1.7rem] border border-[#A5DFF5]/35 bg-[#A5DFF5]/[.06] p-6 md:grid-cols-[1fr_auto] md:items-center">
+          <div><p className="text-[10px] font-mono tracking-[.17em] text-[#B8E8F3]">STORY-TO-GUIDE CONTINUITY</p><h2 className="mt-2 text-2xl font-black text-white">Black Batman · FlameCourt</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[#D6E2EE]">Return to the source-led story crossroads to develop a scene, keep creator notes on your device, and select an exact next production question.</p></div>
+          <Link href="/story-world-crossroads" className="inline-flex min-h-11 items-center rounded-xl border border-[#A5DFF5]/50 px-5 py-3 text-sm font-black text-[#D5F4FF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A5DFF5]">Open story studio →</Link>
+        </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
-            { label: "Active Entities", value: "12", color: "#00D4FF" },
+            { label: "Guide records", value: isLoading ? "…" : String(entities?.length ?? 0), color: "#00D4FF" },
             { label: "Intelligence Tiers", value: "7", color: "#9B59B6" },
-            { label: "Metaverse Worlds", value: "12", color: "#FFD700" },
-            { label: "Capability Level", value: "∞", color: "#00FF88" },
+            { label: "Story threads", value: "2", color: "#FFD700" },
+            { label: "Draft export", value: "Local", color: "#00FF88" },
           ].map((stat) => (
             <div key={stat.label} className="rounded-xl p-4 text-center" style={{ background: `${stat.color}08`, border: `1px solid ${stat.color}20` }}>
               <div className="text-3xl font-black" style={{ color: stat.color }}>{stat.value}</div>
@@ -663,7 +667,7 @@ export default function AILegionApex() {
                   <div className="text-4xl mb-4">🤖</div>
                   <h3 className="text-lg font-bold text-white mb-2">Select an Entity</h3>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>
-                    Choose any of the 12 sovereign AI entities to begin a live conversation powered by 7-tier apex intelligence beyond supercomputer level.
+                    Choose a listed guide to begin a conversation. Review its response alongside the creator source and keep any story decision in the story studio.
                   </p>
                   <div className="mt-6 grid grid-cols-3 gap-2 w-full">
                     {ALL_TIERS.map((tier) => (

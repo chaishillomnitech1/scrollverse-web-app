@@ -6333,6 +6333,13 @@
 - [x] Update and validate the reusable `scrollverse-source-led-portfolio` skill; verify focused tests, full suite (388 files, 1,045 tests), TypeScript, guarded build, whitespace, real local API response, and responsive preview
 - [x] Save managed local checkpoint `0f83cdb6`; no external publish or account action in this phase
 
+## Phase 945 — Portfolio Favorites and Story-World Crossroads
+- [x] Add independent per-card Save/Remove controls, browser-local reload persistence, cross-tab synchronization, storage-failure feedback, and saved-only filtering before pagination
+- [x] Add the registered Story-World Crossroads for Black Batman and FlameCourt, local scene-note export, New Dominion handoff, and two-way AI Legion navigation
+- [x] Correct the franchise attribution to exact referenced task `rxwWRT5PcDJCiv7GU5i6hG`; no absent external media transferred
+- [x] Extend and validate the reusable portfolio workflow; desktop/mobile browser smoke test passed
+- [x] Fresh verification: 390 test files, 1,052 tests, TypeScript, guarded build, and whitespace checks passed
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 
