@@ -1,0 +1,1691 @@
+{
+  "SOURCE_BATCHES": [
+    {
+      "id": "batch-8",
+      "filename": "pasted_content_8.txt",
+      "bytes": 167221,
+      "sha256": "3841d70ffefa01db292a25f7c842311782c94055b5a86f059c71d6d3db30da9e",
+      "lineCount": 321
+    },
+    {
+      "id": "batch-9",
+      "filename": "pasted_content_9.txt",
+      "bytes": 47464,
+      "sha256": "0042af8857ec3a4aa613ba45ffc1d8ceb88df93fd6dfb0a1adc2e0165cb3cdd5",
+      "lineCount": 562
+    },
+    {
+      "id": "batch-10",
+      "filename": "pasted_content_10.txt",
+      "bytes": 462226,
+      "sha256": "2ed4b59a01523b8066a2e0d13a1823e77dc9bf3c708e909e35f136d9417f8284",
+      "lineCount": 870
+    },
+    {
+      "id": "batch-11",
+      "filename": "pasted_content_11.txt",
+      "bytes": 6319,
+      "sha256": "65f3245fd90427ad1feda3bd72f1a37bbf1beb3c82b2c3058ee0a36524cdc3cf",
+      "lineCount": 365
+    },
+    {
+      "id": "batch-12",
+      "filename": "pasted_content_12.txt",
+      "bytes": 5108,
+      "sha256": "80384f7f8f84bb9c113cf926eea4c2114ddb375d9404a0a26acd070247c476ca",
+      "lineCount": 39
+    },
+    {
+      "id": "batch-13",
+      "filename": "pasted_content_13.txt",
+      "bytes": 633150,
+      "sha256": "c4e6fdaf533ab652194a731d5e921ea4b01b53b896e82126b0d16f56a4673708",
+      "lineCount": 10997
+    },
+    {
+      "id": "batch-14",
+      "filename": "pasted_content_14.txt",
+      "bytes": 162801,
+      "sha256": "c1f2f51cd0009c032c37d272a511842a21e03174480620eead1d137ae5d2ee21",
+      "lineCount": 2532
+    }
+  ],
+  "SOURCE_COLLECTIONS": [
+    {
+      "id": "vortex",
+      "title": "Vortex Lock / Lost Geometry",
+      "category": "Systems",
+      "detail": "A visual-language family for 369, circular diagrams, mirrored numbers and the young-minds theater. Preserve the symbolic design; develop mathematical captions separately.",
+      "href": "/plasma",
+      "sources": [
+        {
+          "batch": "batch-8",
+          "lines": [
+            1,
+            28
+          ]
+        },
+        {
+          "batch": "batch-10",
+          "lines": [
+            2,
+            28
+          ]
+        },
+        {
+          "batch": "batch-12",
+          "lines": [
+            9,
+            15
+          ]
+        }
+      ],
+      "mark": "369",
+      "color": "#8CEEDD",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "haiti",
+      "title": "The Price of Freedom",
+      "category": "Stories",
+      "detail": "Haiti and the double-debt story recur as Film 003, archive key art and a respectful two-clip historical treatment. The next scene pairs the creator direction with documentary-source review.",
+      "href": "/episode-brief-builder",
+      "sources": [
+        {
+          "batch": "batch-8",
+          "lines": [
+            29,
+            40
+          ]
+        },
+        {
+          "batch": "batch-9",
+          "lines": [
+            471,
+            560
+          ]
+        },
+        {
+          "batch": "batch-10",
+          "lines": [
+            29,
+            40
+          ]
+        },
+        {
+          "batch": "batch-12",
+          "lines": [
+            17,
+            19
+          ]
+        }
+      ],
+      "mark": "003",
+      "color": "#FFD18A",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "theater",
+      "title": "Black Atlantic / Omniland Theater",
+      "category": "Stories",
+      "detail": "Connect Black Atlantic City Awakens, the proposed Omniland–Seerah continuation and the daily-film structure through source-attributed story and shot notes.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-9",
+          "lines": [
+            243,
+            262
+          ]
+        },
+        {
+          "batch": "batch-9",
+          "lines": [
+            392,
+            427
+          ]
+        },
+        {
+          "batch": "batch-12",
+          "lines": [
+            21,
+            23
+          ]
+        }
+      ],
+      "mark": "I / II",
+      "color": "#A5DFF5",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "dominion",
+      "title": "New Dominion",
+      "category": "Stories",
+      "detail": "The council, book, comic and museum-plaque directions become one canonical story family, with derivative prompts retained as source references.",
+      "href": "/new-dominion-story-blueprint",
+      "sources": [
+        {
+          "batch": "batch-10",
+          "lines": [
+            442,
+            458
+          ]
+        }
+      ],
+      "mark": "ND",
+      "color": "#FFC88D",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "fluidity",
+      "title": "Fluidity of Existence",
+      "category": "Books",
+      "detail": "The 27-chapter editorial spine, chapter headers, audiobook direction and Human × AI Orchestra language connect to the existing corpus blueprint.",
+      "href": "/fluidity-corpus-blueprint",
+      "sources": [
+        {
+          "batch": "batch-10",
+          "lines": [
+            461,
+            496
+          ]
+        }
+      ],
+      "mark": "XXVII",
+      "color": "#DCC8FF",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "gaia",
+      "title": "GAIA / Fractal Correspondences",
+      "category": "Systems",
+      "detail": "Six-panel correspondences—lungs/tree, veins/storm, fingerprint/rings, palm/leaf, eye/ocean and breath/wind—provide a creator-led ecological exhibit structure.",
+      "href": "/rebirth-living-codex",
+      "sources": [
+        {
+          "batch": "batch-10",
+          "lines": [
+            375,
+            386
+          ]
+        },
+        {
+          "batch": "batch-10",
+          "lines": [
+            697,
+            754
+          ]
+        }
+      ],
+      "mark": "6 : 1",
+      "color": "#B5F7CC",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "lineage",
+      "title": "Oracle / Creator Lineage",
+      "category": "Identity",
+      "detail": "Green Star Oracle, the 7-Node Constellation and family/creator identity motifs stay connected through the Digital DNA route and their original source passages.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-8",
+          "lines": [
+            217,
+            236
+          ]
+        },
+        {
+          "batch": "batch-10",
+          "lines": [
+            517,
+            554
+          ]
+        }
+      ],
+      "mark": "VII",
+      "color": "#DCC8FF",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "heart",
+      "title": "Heart OS / CHASE DREAMZ",
+      "category": "Artifacts",
+      "detail": "Love, fairness and Digitalship form the editorial heart. Black Titanium, museum exhibits and a five-coin motion concept continue into the Dynasty scene brief as design and production directions.",
+      "href": "/dynasty-visual-archive",
+      "sources": [
+        {
+          "batch": "batch-13",
+          "lines": [
+            272,
+            399
+          ]
+        },
+        {
+          "batch": "batch-13",
+          "lines": [
+            6285,
+            6421
+          ]
+        },
+        {
+          "batch": "batch-13",
+          "lines": [
+            6585,
+            6857
+          ]
+        }
+      ],
+      "mark": "HEART",
+      "color": "#FFB36B",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "black-hole-hall",
+      "title": "Hall 11 / Runaway Black Hole Trail",
+      "category": "Systems",
+      "detail": "A museum concept pairs the supplied astronomy account with the creator’s Vortex Lock interpretation. Develop separate astronomy captions and symbolic design notes, then select the exact display plates.",
+      "href": "/sovereign-archive-chronicles",
+      "sources": [
+        {
+          "batch": "batch-14",
+          "lines": [
+            1721,
+            1733
+          ]
+        },
+        {
+          "batch": "batch-14",
+          "lines": [
+            1795,
+            1803
+          ]
+        }
+      ],
+      "mark": "XI",
+      "color": "#8CEEDD",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "mississippi-hall",
+      "title": "Hall 12 / Mississippi, Saturn & Atlantis",
+      "category": "Stories",
+      "detail": "A four-panel exhibit brings together Saturn moon shapes, an Eads Bridge article, Atlantis imagery and Native American mound architecture. Retain the source’s distinct history, interpretation and contextual rebuttal lanes in the next draft.",
+      "href": "/sovereign-archive-chronicles",
+      "sources": [
+        {
+          "batch": "batch-14",
+          "lines": [
+            1856,
+            1900
+          ]
+        },
+        {
+          "batch": "batch-14",
+          "lines": [
+            1911,
+            1918
+          ]
+        }
+      ],
+      "mark": "XII",
+      "color": "#FFD18A",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    },
+    {
+      "id": "soul-evolution-hall",
+      "title": "Hall 13 / Soul Evolution",
+      "category": "Identity",
+      "detail": "Creator mantras, a central silhouette, starfield textures and gold-teal wings become a mirror-twin exhibit direction. Keep the soul-link metaphor and educational entanglement plaque as distinct caption layers.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-14",
+          "lines": [
+            2004,
+            2022
+          ]
+        },
+        {
+          "batch": "batch-14",
+          "lines": [
+            2035,
+            2050
+          ]
+        },
+        {
+          "batch": "batch-14",
+          "lines": [
+            2210,
+            2224
+          ]
+        }
+      ],
+      "mark": "XIII",
+      "color": "#DCC8FF",
+      "label": "Creator collection",
+      "catalogDate": "2026-10-12"
+    }
+  ],
+  "SOURCE_TITLE_INDEX": [
+    {
+      "id": "title-ed3aeea43e18",
+      "title": "Scrollverse Manifesto Full V3",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            4,
+            4
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-d34c6cdc9cfa",
+      "title": "Scrollverse Omniverse Intelligent Portal V2",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            9,
+            9
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-3494bb0bbe1c",
+      "title": "Lost Geometry Vortex Synthesis Theater",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            14,
+            14
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-c3f5ab999f70",
+      "title": "Vortex Lock Educational Theater",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            19,
+            19
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-608d83d15674",
+      "title": "Daily Legion Phase 85",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            24,
+            24
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-7442af523769",
+      "title": "Scrollverse Film003 V2 Retry",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            29,
+            29
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-367ef12fab59",
+      "title": "Scrollverse Film003 Price Of Freedom Theater",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            34,
+            34
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-a4fb6e1b1937",
+      "title": "Svtheater Full Throttle Deployment",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            39,
+            39
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-c205a5c690ae",
+      "title": "Film002 Countdown Phone Test",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            44,
+            44
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-979da0bcdbc9",
+      "title": "Scrollverse Manifesto Of Ages",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            49,
+            49
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-328722526173",
+      "title": "Quantum Leap Theater Lightweight",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            54,
+            54
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            59,
+            59
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-13cff61fa80f",
+      "title": "Abundantia Ix One Click",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            69,
+            69
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-40dda5317f67",
+      "title": "Abundantia Ix Autonomous Manual",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            74,
+            74
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-2027eb6b0cf5",
+      "title": "Scrollverse Sovereign Master Final",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            79,
+            79
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-2e3e68056aa9",
+      "title": "Daily Legion Phase 83",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            84,
+            84
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-4216bd465452",
+      "title": "Nightly Sovereign Codex Preservation",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            89,
+            89
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            134,
+            134
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            159,
+            159
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            184,
+            184
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            319,
+            319
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 5
+    },
+    {
+      "id": "title-b3d29a3d6b26",
+      "title": "Abundantia Ix Vercel Ready",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            94,
+            94
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-746f774aa1ee",
+      "title": "Abundantia Ix Live Vip",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            99,
+            99
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            109,
+            109
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-7ac0ee6469ba",
+      "title": "Phase 82 Gaia Q9",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            104,
+            104
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-dc1277858ca5",
+      "title": "Abundantia Ix Digital Pyramids",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            114,
+            114
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            119,
+            119
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-2dd4d6eb4376",
+      "title": "First Contact Sovereign Vault",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            124,
+            124
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-24a74dbcb29d",
+      "title": "Daily Legion Phase 81",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            129,
+            129
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-8b51dba23bfd",
+      "title": "Daily Legion Phase 80",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            139,
+            139
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-71fc515c8ab3",
+      "title": "Daily Legion Phase 79",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            144,
+            144
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-59b143f05944",
+      "title": "Sun Download Protocol Tokenized",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            149,
+            149
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-fca72cf439a5",
+      "title": "Ac 153 Internet Out",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            154,
+            154
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-9a6a53c4f4f6",
+      "title": "Ac 150 Forbidden Logic",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            164,
+            164
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-44358c676c2e",
+      "title": "10am Omni Push Phase",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            169,
+            169
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-4f38591db69a",
+      "title": "Daily Legion Phase 78",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            174,
+            174
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-e8af011dabef",
+      "title": "Ac 147 148 Special",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            179,
+            179
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-e193186e32df",
+      "title": "Ac 145 Sovereign Archive",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            189,
+            189
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-6cbfd0229163",
+      "title": "Emerald Temple V5 Trinity",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            194,
+            194
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-bbe2878a168d",
+      "title": "6pm Deep Research Sweep",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            199,
+            199
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-9ac9acb292ee",
+      "title": "Grid Sovereign Empire V4",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            204,
+            204
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            209,
+            209
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            214,
+            214
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 3
+    },
+    {
+      "id": "title-b1b359270b5e",
+      "title": "Daily Legion Phase 77",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            219,
+            219
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-8215a1ca042c",
+      "title": "V19 X7q5a96 Legion Sync",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            224,
+            224
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-4896c52693f8",
+      "title": "Scrollverse Podcast Archive Sovereign",
+      "category": "Stories",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniland-cinematic-gateway",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            229,
+            229
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-c0eb8078142e",
+      "title": "Phase 76 Codex Preservation",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            234,
+            234
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-2ac9e249beba",
+      "title": "Nightly Sovereign Codex Phase",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            239,
+            239
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-b0224baafe4c",
+      "title": "Chaisallah Fixed Wonder",
+      "category": "Identity",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            244,
+            244
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-065dbcae2c84",
+      "title": "Chaisallah Ultimate Wonder",
+      "category": "Identity",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            249,
+            249
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            254,
+            254
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-ac7250a892f2",
+      "title": "Chaisallah Manifesto Pdf",
+      "category": "Identity",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            259,
+            259
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            264,
+            264
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-d54d9b01437e",
+      "title": "Phase 64 Final 6pm",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            269,
+            269
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-756c76de0d4e",
+      "title": "Scrollverse Ultimate Archive Super Special",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            274,
+            274
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-0fef27a85472",
+      "title": "Jada Joy 22 Birthday Masterpieces",
+      "category": "Identity",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            279,
+            279
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-56d07d13f6bf",
+      "title": "Tesla Cat Codex Lessons",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            284,
+            284
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-a4938c52bbd3",
+      "title": "Masterpiece Exchange V2 Free",
+      "category": "Artifacts",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/music-creator-release-readiness",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            289,
+            289
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            294,
+            294
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-3d6fe2660a9f",
+      "title": "Scrollverse Integrated Codex",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            299,
+            299
+          ]
+        },
+        {
+          "batch": "batch-11",
+          "lines": [
+            304,
+            304
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 2
+    },
+    {
+      "id": "title-10d8a6ba6bd3",
+      "title": "Daily Legion Phase 75",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            309,
+            309
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-aadb22fefa76",
+      "title": "Scrollverse Soul Altar",
+      "category": "Identity",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/creator-digital-dna",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            314,
+            314
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-43f35c725553",
+      "title": "Acquisitions Legion Dashboard",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            324,
+            324
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-be0503fb9c3d",
+      "title": "Omega Expansion 10 Masterpieces",
+      "category": "Books",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/source-labeled-storybook-index",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            329,
+            329
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-2ed96ef17734",
+      "title": "Treasury Live Panel Phase Infinity",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            334,
+            334
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-f16dbccd1448",
+      "title": "Phase 64 6pm Deep",
+      "category": "Systems",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/omniversal-source-ledger",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            339,
+            339
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-3d1d07750228",
+      "title": "Money Scrollverse Co Omnicurrency",
+      "category": "Artifacts",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/music-creator-release-readiness",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            344,
+            344
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-94f6ec305a81",
+      "title": "Money Scrollverse Co Omnicurrency Final Sealed",
+      "category": "Artifacts",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/music-creator-release-readiness",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            349,
+            349
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-a0b523455575",
+      "title": "Money Scrollverse Co Live V2 Production",
+      "category": "Artifacts",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/music-creator-release-readiness",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            354,
+            354
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    },
+    {
+      "id": "title-1f6552a53007",
+      "title": "Money Scrollverse Facts No Fluff",
+      "category": "Artifacts",
+      "detail": "Title preserved from the supplied artifact index. Open the planning continuation to develop its source record; an HTML body or media file is not included in this title export.",
+      "href": "/music-creator-release-readiness",
+      "sources": [
+        {
+          "batch": "batch-11",
+          "lines": [
+            359,
+            359
+          ]
+        }
+      ],
+      "mark": "INDEX",
+      "color": "#A5DFF5",
+      "label": "Source title",
+      "catalogDate": "2026-10-12",
+      "occurrences": 1
+    }
+  ]
+}

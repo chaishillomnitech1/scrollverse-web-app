@@ -24,6 +24,8 @@ const PlasmaStateMap = lazy(() => import("@/pages/PlasmaStateMap")); // local ge
 const FluidityCorpusBlueprint = lazy(() => import("@/pages/FluidityCorpusBlueprint")); // import FluidityCorpusBlueprint from "@/pages/FluidityCorpusBlueprint"; deferred route module
 const NewDominionStoryBlueprint = lazy(() => import("@/pages/NewDominionStoryBlueprint")); // import NewDominionStoryBlueprint from "@/pages/NewDominionStoryBlueprint"; deferred route module
 const StoryWorldCrossroads = lazy(() => import("@/pages/StoryWorldCrossroads"));
+const SynchronizationVideoLibrary = lazy(() => import("./pages/SynchronizationVideoLibrary"));
+const SourceCollections = lazy(() => import("@/pages/SourceCollections"));
 const NineFrameManifestationPacket = lazy(() => import("@/pages/NineFrameManifestationPacket")); // import NineFrameManifestationPacket from "@/pages/NineFrameManifestationPacket"; deferred route module
 const MobileCompanion = lazy(() => import("@/pages/MobileCompanion")); // import MobileCompanion from "@/pages/MobileCompanion"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
@@ -995,6 +997,7 @@ function Router() {
         <Route path="/fluidity-corpus-blueprint" component={FluidityCorpusBlueprint} />
         <Route path="/new-dominion-story-blueprint" component={NewDominionStoryBlueprint} />
         <Route path="/story-world-crossroads" component={StoryWorldCrossroads} />
+        <Route path="/source-collections" component={SourceCollections} />
         <Route path="/nine-frame-manifestation-packet" component={NineFrameManifestationPacket} />
         <Route path="/mobile-companion" component={MobileCompanion} />
         <Route path="/legion-specialist-profiles" component={LegionSpecialistProfiles} />
@@ -1101,6 +1104,7 @@ function Router() {
         <Route path="/quantum-frequency-research-lab" component={QuantumFrequencyResearchLab} />
         <Route path="/audience-value-leverage" component={AudienceValueLeverage} />
         <Route path="/universal-commons" component={UniversalCommons} />
+        <Route path="/synchronization-video-library" component={SynchronizationVideoLibrary} />
         <Route path="/synchronizations" component={Synchronizations} />
         <Route path="/synchronization-research" component={SynchronizationResearchIndex} />
         <Route path="/chosen-ones-exchange" component={ChosenOnesExperienceExchange} />

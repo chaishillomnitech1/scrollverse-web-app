@@ -6340,6 +6340,22 @@
 - [x] Extend and validate the reusable portfolio workflow; desktop/mobile browser smoke test passed
 - [x] Fresh verification: 390 test files, 1,052 tests, TypeScript, guarded build, and whitespace checks passed
 
+## Phase 946 — October Source Collections and Version-Preserving Accession
+- [x] Register `/source-collections` with 16 editorial families, 482 unique artifact-title records and 619 title occurrences; add homepage and Omniversal Source Ledger handoffs
+- [x] Retain 15 independently identified source versions, preserving old receipts/citations when six same-name uploads change; label unavailable earlier raw bytes explicitly
+- [x] Add category/search filters, six-record pagination, selected source detail, version labels and filtered-set JSON export; exclude private counsel and credential-shaped source content
+- [x] Incorporate batches 14–16, THE DUAT and replacement-file creative directions; accession batch 17 as a duplicate-aware navigation snapshot without fabricating media bodies
+- [x] Verify gallery filtering, title citations, real local download, privacy exclusion, homepage favorites/reload continuity and reduced-motion mobile layout
+
+## Phase 947 — Synchronization Reference Screen and Resilient Homepage Visuals
+- [x] Register `/synchronization-video-library` with six distinct YouTube records from nine supplied occurrences, source citations, search, pagination and homepage/synchronization handoffs
+- [x] Load only a visitor-selected iframe, with no autoplay and an unload/direct-watch path; browser tests intercept media rather than playing it
+- [x] Add source-aware text-led fallbacks for unavailable Living Journey, black-and-gold poster and Penny cover artwork, retaining original URLs, source descriptions and recorded credits
+- [x] Preserve the existing hero-adjacent Omniland discovery sequence; desktop/mobile audits show zero visible broken homepage images and no page errors
+- [x] Update and validate reusable `scrollverse-source-led-portfolio` skill; prepare curated blueprint ZIP and integration record without raw private sources
+- [x] Full verification: 393 test files and 1,070 tests passed; TypeScript, guarded build, whitespace, browser gallery/video checks and public preview HTTP 200 passed
+- [x] Save this verified state as a managed local checkpoint; no external publishing, billing, domain, wallet, contract, token or repository-push action
+
 ## Phase 893 — Dynasty Motion Source Inventory
 - [x] Add source-labeled metadata for the newly supplied Dynasty motion references and a browser-local planning lane that makes no claim about unreviewed footage, voice content, runtime, token, marketplace, payment, or publication status
 

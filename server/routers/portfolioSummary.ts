@@ -10,6 +10,7 @@ const artifacts = {
   dna: { id: "dna", title: "Creator Digital DNA", category: "Systems", label: "CREATOR RECORD", detail: "Navigate the creator-authored equation, seal motifs, character lineage, and development record." },
   plasma: { id: "plasma", title: "Plasma State Map", category: "Systems", label: "GEOMETRIC STUDY", detail: "Explore a deterministic geometric study with readable state labels and local interaction." },
   storyworlds: { id: "storyworlds", title: "Black Batman & FlameCourt", category: "Worlds", label: "CREATOR STORY STUDIO", detail: "Explore source-attributed story lanes and connect their next scene to the AI Legion guide hub." },
+  sourcecollections: { id: "sourcecollections", title: "October Source Collections", category: "Artifacts", label: "TEXT-LED SOURCE GALLERY", detail: "Browse creator collections and a duplicate-aware artifact-title index with source citations and local export." },
 } as const;
 
 export type ArtifactId = keyof typeof artifacts;
@@ -56,6 +57,6 @@ const getArtifactSummary = createArtifactSummaryService(async item => {
 
 export const portfolioSummaryRouter = router({
   get: publicProcedure
-    .input(z.object({ id: z.enum(["omniland", "dynasty", "fashion", "music", "dna", "plasma", "storyworlds"]) }))
+    .input(z.object({ id: z.enum(["omniland", "dynasty", "fashion", "music", "dna", "plasma", "storyworlds", "sourcecollections"]) }))
     .query(async ({ input }) => ({ summary: await getArtifactSummary(input.id) })),
 });

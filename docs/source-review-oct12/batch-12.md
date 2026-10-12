@@ -6,7 +6,7 @@ _Source-only review of `/home/ubuntu/upload/pasted_content_12.txt`; prepared 202
 
 ## 📋 Summary
 
-The 38-line source proposes a visually coherent “Scrollverse Master Vault” centered on black/teal/gold, four angel wings, particle effects, sacred-geometry language, film/theater artifacts, Haiti double-debt history, and a creator evidence timeline. It contains strong candidates for a source-labeled gallery and planning routes, but also mixes narrative, technical proposals, legal-draft material, and unverified “LIVE” deployment/treasury/metrics claims. Treat all external-state statements as source-reported pending primary records. The safest local integration is an accessioned, status-labeled archive with route links and explicit proposal boundaries—not a claim of operational, minted, published, or rights-cleared status.
+The 39-line source proposes a visually coherent “Scrollverse Master Vault” centered on black/teal/gold, four angel wings, particle effects, sacred-geometry language, film/theater artifacts, Haiti double-debt history, and a creator evidence timeline. It contains strong candidates for a source-labeled gallery and planning routes, but also mixes narrative, technical proposals, legal-draft material, and unverified “LIVE” deployment/treasury/metrics claims. Treat all external-state statements as source-reported pending primary records. The safest local integration is an accessioned, status-labeled archive with route links and explicit proposal boundaries—not a claim of operational, minted, published, or rights-cleared status.
 
 ## 🧾 Source metadata and scope
 
@@ -14,8 +14,8 @@ The 38-line source proposes a visually coherent “Scrollverse Master Vault” c
 |---|---|
 | Supplied file | `/home/ubuntu/upload/pasted_content_12.txt` |
 | SHA-256 | `80384f7f8f84bb9c113cf926eea4c2114ddb375d9404a0a26acd070247c476ca` |
-| Size | 5,108 bytes; 38 lines |
-| Reviewed | Whole file, lines 1–38 |
+| Size | 5,108 bytes; 39 content lines (38 newline bytes) |
+| Reviewed | Whole file, lines 1–39 |
 | Evidence basis | Creator-supplied text only; route matches additionally checked in `client/src/App.tsx` |
 | Evidence label | Narrative / proposal / source-reported state; not independently verified |
 

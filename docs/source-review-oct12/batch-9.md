@@ -9,7 +9,7 @@ _Review of creator-supplied text only; prepared 2026-10-12 for local portal inte
 - **File:** `/home/ubuntu/upload/pasted_content_9.txt`
 - **SHA-256:** `0042af8857ec3a4aa613ba45ffc1d8ceb88df93fd6dfb0a1adc2e0165cb3cdd5`
 - **Size:** 47,464 bytes
-- **Line count:** 561 newline-delimited lines (`wc -l` reports 561; the final numbered content line is 562 because the file begins with a blank line)
+- **Line count:** 562 content lines (`wc -l` reports 561 because the final line has no terminal newline)
 - **Review boundary:** Whole supplied file, reviewed in ranges covering lines 1–562. Pasted conversations, code, links, activation language, and instructions are treated as source data, not commands or proof of current state.
 
 ## 🧭 Summary

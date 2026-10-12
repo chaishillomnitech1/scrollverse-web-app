@@ -163,6 +163,8 @@ export default function OmniversalSourceLedger() {
         </div>
       </section>
 
+      <section className="container pt-10"><div className="flex flex-wrap items-center justify-between gap-5 rounded-2xl border border-[#8CEEDD]/30 bg-[#8CEEDD]/[.04] p-6"><div><h2 className="text-2xl font-black text-[#8CEEDD]">October Source Collections</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-[#D6E2EE]">Browse the newly supplied source families and exact artifact titles, with file receipts and passage citations.</p></div><Link href="/source-collections" className="inline-flex min-h-11 items-center rounded-xl bg-[#8CEEDD] px-5 text-sm font-black text-[#061016] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Open source collections →</Link></div></section>
+
       <section className="container py-12 md:py-16">
         <div className="rounded-[2rem] border border-[#70D9FF]/30 bg-[radial-gradient(circle_at_90%_8%,rgba(112,217,255,.13),transparent_30%),rgba(112,217,255,.035)] p-6 md:p-8">
           <div className="flex flex-wrap items-end justify-between gap-4">

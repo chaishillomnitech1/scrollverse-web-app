@@ -9,6 +9,7 @@ import { trpc } from "@/lib/trpc";
 import { paginatePortfolio } from "@/lib/portfolioPagination";
 import { PORTFOLIO_FAVORITES_KEY, readPortfolioFavorites, togglePortfolioFavorite, writePortfolioFavorites } from "@/lib/portfolioFavorites";
 import NotificationBell from "@/components/NotificationBell";
+import SourceVisual from "@/components/SourceVisual";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
@@ -1036,7 +1037,7 @@ function LookbookConstellationFrontCenter() {
   ] as const;
 
   return <section id="lookbook-constellation-front-center" className="relative isolate overflow-hidden border-b" style={{ borderColor: "rgba(255,138,76,.34)", background: "radial-gradient(circle at 13% 19%, rgba(255,138,76,.18), transparent 28%), radial-gradient(circle at 84% 12%, rgba(220,200,255,.18), transparent 30%), radial-gradient(circle at 80% 87%, rgba(0,255,136,.10), transparent 30%), #0B0D18" }}>
-    <img src="/manus-storage/scrollverse_black_gold_poster_8f8560c4.webp" alt="Original ScrollVerse black and gold visual poster" className="absolute inset-y-0 left-0 -z-20 h-full w-full object-cover object-[20%_center] opacity-25 lg:w-[48%]" loading="lazy" />
+    <SourceVisual src="/manus-storage/scrollverse_black_gold_poster_8f8560c4.webp" alt="Original ScrollVerse black and gold visual poster" title="The Lookbook Constellation" mark="VISUAL WORLD" decorative className="absolute inset-y-0 left-0 -z-20 h-full w-full opacity-25 lg:w-[48%]" />
     <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(90deg, rgba(11,13,24,.34) 0%, #0B0D18 40%, #0B0D18 100%)" }} />
     <div className="container relative py-12 md:py-16">
       <div className="flex flex-wrap items-end justify-between gap-6"><div className="max-w-3xl"><div className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-mono tracking-[.16em]" style={{ borderColor: "rgba(255,138,76,.55)", background: "rgba(255,138,76,.1)", color: "#FFBD9C" }}><span className="h-1.5 w-1.5 rounded-full bg-[#FF8A4C]" />META AI ARTIFACTS + LOOKBOOK CONSTELLATION</div><p className="mt-6 text-xs font-mono tracking-[.2em]" style={{ color: "#E6D6FF" }}>VISUAL WORLDS · FRONT AND CENTER</p><h2 className="mt-3 text-4xl font-black leading-[.93] text-white md:text-6xl">Every visual door,<br/><span style={{ color: "#FFBD9C" }}>visible from the start.</span></h2><p className="mt-5 max-w-2xl text-base leading-8" style={{ color: "#D6E2EE" }}>Enter the active lookbook constellation: owner-brand visual studies, immersive fashion worlds, creator catalog context, editorial exhibits, and an owner-provided public source lookbook. Each path names whether it is a first-party experience or an external source.</p></div><Link href="/meta-ai-artifacts-lookbooks" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#FF8A4C", color: "#0B0D18" }}>Open Visual Artifact Room <span>→</span></Link></div>
@@ -1048,7 +1049,7 @@ function LookbookConstellationFrontCenter() {
 
 type PortfolioCategory = "All" | "Worlds" | "Artifacts" | "Music" | "Systems";
 type PortfolioSort = "newest" | "oldest";
-const PORTFOLIO_IDS = ["omniland", "dynasty", "fashion", "music", "dna", "plasma", "storyworlds"];
+const PORTFOLIO_IDS = ["omniland", "dynasty", "fashion", "music", "dna", "plasma", "storyworlds", "sourcecollections"];
 type PortfolioCard = { id: string; category: Exclude<PortfolioCategory, "All">; catalogDate: string; title: string; detail: string; href: string; image?: string; color: string; label: string };
 function portfolioStorage(): Storage | null {
   try { return window.localStorage; } catch { return null; }
@@ -1076,6 +1077,7 @@ function InteractiveCreatorPortfolio() {
     { id: "dna", category: "Systems" as const, catalogDate: "2026-09-24", title: "Creator Digital DNA", detail: "Navigate the creator-authored equation, seal motifs, character lineage, and development record.", href: "/creator-digital-dna", image: SUN_XIX_CDN, color: "#DCC8FF", label: "CREATOR RECORD" },
     { id: "plasma", category: "Systems" as const, catalogDate: "2026-09-23", title: "Plasma State Map", detail: "Explore a deterministic geometric study with readable state labels and local interaction.", href: "/plasma", image: "/manus-storage/omniland-play-district-v2_f9e35760.png", color: "#70D9FF", label: "GEOMETRIC STUDY" },
     { id: "storyworlds", category: "Worlds", catalogDate: "2026-10-01", title: "Black Batman & FlameCourt", detail: "Explore source-attributed story lanes and connect their next scene to the AI Legion guide hub.", href: "/story-world-crossroads", color: "#A5DFF5", label: "CREATOR STORY STUDIO" },
+    { id: "sourcecollections", category: "Artifacts", catalogDate: "2026-10-12", title: "October Source Collections", detail: "Browse creator collections and a duplicate-aware artifact-title index with source citations and local export.", href: "/source-collections", color: "#8CEEDD", label: "TEXT-LED SOURCE GALLERY" },
   ];
   const categories: PortfolioCategory[] = ["All", "Worlds", "Artifacts", "Music", "Systems"];
   useEffect(() => {
@@ -2121,7 +2123,7 @@ export default function Home() {
         <div className="container relative py-14 md:py-20">
           <div className="absolute -right-20 top-8 h-72 w-72 rounded-full bg-[#00D4FF]/10 blur-3xl" aria-hidden="true" />
           <div className="relative grid gap-8 xl:grid-cols-[.94fr_1.06fr] xl:items-center">
-            <div className="overflow-hidden rounded-[2rem] border border-[#FFCC4D]/40 bg-[#050B1A] shadow-[0_28px_90px_rgba(0,0,0,.42)]"><img src="/manus-storage/living-journey-hero_4d6e5190.png" alt="Original ScrollVerse Living Journey artwork showing a luminous path from a book toward music, film, learning, Islamic knowledge, and community." className="min-h-[290px] w-full object-cover" /></div>
+            <div className="overflow-hidden rounded-[2rem] border border-[#FFCC4D]/40 bg-[#050B1A] shadow-[0_28px_90px_rgba(0,0,0,.42)]"><SourceVisual src="/manus-storage/living-journey-hero_4d6e5190.png" alt="Original ScrollVerse Living Journey artwork showing a luminous path from a book toward music, film, learning, Islamic knowledge, and community." title="Walk the Living Journey" mark="BOOK · MUSIC · FILM" className="min-h-[290px] w-full aspect-[1.5/1]" /></div>
             <div>
               <p className="text-xs font-mono tracking-[.18em] text-[#FFCC4D]">NEW FREE EXPERIENCE · ALL DIRECTIONS OPEN</p>
               <h2 className="mt-3 text-4xl font-black leading-tight text-white md:text-5xl">Walk the <span className="text-[#FFCC4D]">Living Journey.</span></h2>
@@ -2468,6 +2470,7 @@ export default function Home() {
       <ProductionWorkbenchBeacon />
       <FeaturedSovereignArchiveVideo />
       <ManusHeroWelcome />
+      <section className="container py-7" aria-label="October synchronization video references"><div className="flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-[#8CEEDD]/30 bg-[#0A1820] p-6"><div><p className="text-xs font-mono tracking-widest text-[#8CEEDD]">THE REFERENCE SCREEN</p><h2 className="mt-3 text-2xl font-black text-white">Your source trail, ready to explore.</h2><p className="mt-3 text-sm leading-7 text-[#D1E4EA]">Browse supplied YouTube references with exact passage citations and a player you choose to load.</p></div><Link href="/synchronization-video-library" className="inline-flex min-h-11 items-center rounded-xl bg-[#8CEEDD] px-5 py-3 text-sm font-black text-[#061016] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Open Video Reference Library →</Link></div></section>
       <SeriesPlannerBeacon />
       <DynastyVisualArchiveBeacon />
       <RebirthLivingCodexBeacon />
@@ -3373,11 +3376,12 @@ export default function Home() {
             <div className="relative max-w-sm mx-auto w-full">
               <div className="absolute -inset-4 rounded-[2rem] blur-2xl opacity-60" style={{ background: "linear-gradient(135deg, rgba(255,184,0,0.45), rgba(0,212,255,0.2), rgba(185,140,255,0.38))" }} />
               <div className="relative rounded-[1.55rem] overflow-hidden" style={{ border: "1px solid rgba(255,184,0,0.56)", boxShadow: "0 24px 64px rgba(0,0,0,0.36), 0 0 38px rgba(255,184,0,0.16)" }}>
-                <img
+                <SourceVisual
                   src={PENNY_FOR_YOUR_THOUGHTS_COVER}
                   alt="Penny For Your Thoughts cover visual: a small reading robot beside a pencil and a stack of books, credited to Chais The Great and Produced By J Do$A"
-                  className="w-full aspect-[0.867/1] object-cover"
-                  loading="lazy"
+                  title="Penny for Your Thoughts"
+                  mark="CHAIS THE GREAT"
+                  className="w-full aspect-[0.867/1]"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-4" style={{ background: "linear-gradient(0deg, rgba(5,11,26,0.94), rgba(5,11,26,0.08))" }}>
                   <div className="flex items-center justify-between gap-3">
@@ -3386,7 +3390,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <p className="mt-3 text-center text-[11px] leading-relaxed" style={{ color: "#93A4B8" }}>Owner-supplied visual source. Visible cover credit retained: <span className="text-white">Produced By J Do$A</span>.</p>
+              <p className="mt-3 text-center text-[11px] leading-relaxed" style={{ color: "#93A4B8" }}>Owner-supplied visual source. Recorded cover credit retained: <span className="text-white">Produced By J Do$A</span>.</p>
             </div>
 
             <div>
