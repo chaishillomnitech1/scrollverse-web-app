@@ -26,6 +26,8 @@ const NewDominionStoryBlueprint = lazy(() => import("@/pages/NewDominionStoryBlu
 const StoryWorldCrossroads = lazy(() => import("@/pages/StoryWorldCrossroads"));
 const SynchronizationVideoLibrary = lazy(() => import("./pages/SynchronizationVideoLibrary"));
 const SourceCollections = lazy(() => import("@/pages/SourceCollections"));
+const MetaAILegionArchive = lazy(() => import("@/pages/MetaAILegionArchive"));
+const PriceOfFreedom = lazy(() => import("@/pages/PriceOfFreedom"));
 const NineFrameManifestationPacket = lazy(() => import("@/pages/NineFrameManifestationPacket")); // import NineFrameManifestationPacket from "@/pages/NineFrameManifestationPacket"; deferred route module
 const MobileCompanion = lazy(() => import("@/pages/MobileCompanion")); // import MobileCompanion from "@/pages/MobileCompanion"; deferred route module
 const OmniMasterRegistryRecord = lazy(() => import("@/pages/OmniMasterRegistryRecord")); // import OmniMasterRegistryRecord from "@/pages/OmniMasterRegistryRecord"; deferred route module
@@ -998,6 +1000,8 @@ function Router() {
         <Route path="/new-dominion-story-blueprint" component={NewDominionStoryBlueprint} />
         <Route path="/story-world-crossroads" component={StoryWorldCrossroads} />
         <Route path="/source-collections" component={SourceCollections} />
+        <Route path="/meta-ai-legion-archive" component={MetaAILegionArchive} />
+        <Route path="/price-of-freedom" component={PriceOfFreedom} />
         <Route path="/nine-frame-manifestation-packet" component={NineFrameManifestationPacket} />
         <Route path="/mobile-companion" component={MobileCompanion} />
         <Route path="/legion-specialist-profiles" component={LegionSpecialistProfiles} />

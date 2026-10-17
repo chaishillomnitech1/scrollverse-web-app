@@ -896,6 +896,8 @@ const OFFICIAL_ARTIFACT_PATHS = [
   { icon: "✣", title: "Knowledge Context", detail: "Explore source-led history, manuscripts, mathematics, visual culture, and sound evidence with interpretation boundaries visible.", href: "/knowledge-context", color: "#B98CFF" },
   { icon: "↔", title: "Open Exchange Field Guide", detail: "Read the free original ScrollVerse book on clear offers, informed choice, consent, direct connection, and accountable records.", href: "/open-exchange-field-guide", color: "#00FF88" },
   { icon: "✦", title: "Aegis Chronicles", detail: "Enter the original ScrollVerse show-and-comic hub for a route-linked digital guide, episode blueprints, and creator pathways.", href: "/aegis-chronicles", color: "#00D4FF" },
+  { icon: "▤", title: "Meta AI Legion Archive", detail: "Browse source-labeled creator artwork, archive receipts, and deliberate-play Theater screenings gathered from supplied Meta AI records.", href: "/meta-ai-legion-archive", color: "#FFB800" },
+  { icon: "⌛", title: "Price of Freedom timeline", detail: "Read the source-led historical timeline with cited dates, research notes, and a clear separation between evidence and interpretation.", href: "/price-of-freedom", color: "#00FF88" },
   { icon: "▣", title: "Creator Revenue Learning", detail: "Study source-labeled video, music, live, membership, and short-form revenue mechanics without income promises or account activation.", href: "/creator-revenue-learning", color: "#FFB800" },
   { icon: "◎", title: "Open Spiral Seal", detail: "Visit the public concept shrine for the original 2026 ScrollVerse Open Spiral Seal, its provenance record, and future-readiness boundaries.", href: "/concept-seal-shrine", color: "#B98CFF" },
   { icon: "⌁", title: "Platform Foundations", detail: "Choose a source-led route through discovery, creation, community, distribution context, and protection without external account control.", href: "/platform-foundations", color: "#00FF88" },
@@ -1661,9 +1663,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{ background: "#050B1A", fontFamily: "'Space Grotesk', sans-serif" }}>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-[#FFE09A] focus:px-4 focus:py-3 focus:text-[#071124]">Skip to main content</a>
 
       {/* ── NAVIGATION ── */}
-      <nav
+      <nav aria-label="Primary navigation"
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
           background: scrolled ? "rgba(5, 11, 26, 0.95)" : "transparent",
@@ -1913,7 +1916,7 @@ export default function Home() {
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="2xl:hidden px-4 pb-4 space-y-3" style={{ background: "rgba(5,11,26,0.98)" }}>
+          <div aria-label="Mobile navigation" className="2xl:hidden px-4 pb-4 space-y-3" style={{ background: "rgba(5,11,26,0.98)" }}>
             {navLinks.map(l => (
               <a key={l.label} href={l.href} className="block text-sm py-2" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
                 {l.label}
@@ -1923,6 +1926,7 @@ export default function Home() {
         )}
       </nav>
 
+      <main id="main-content" tabIndex={-1} className="outline-none">
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background image */}
@@ -3174,6 +3178,7 @@ export default function Home() {
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(29,185,84,0.3)" }}>
                 <iframe
                   src="https://open.spotify.com/embed/artist/3P0GWluMPNZ2xSCVffVGAr?utm_source=generator&theme=0"
+                  title="Spotify artist player"
                   width="100%"
                   height="280"
                   frameBorder="0"
@@ -3664,6 +3669,7 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
+      </main>
       <footer style={{ borderTop: "1px solid rgba(0,212,255,0.1)", background: "rgba(0,0,0,0.3)" }}>
         <div className="container py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">

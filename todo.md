@@ -6478,3 +6478,16 @@
 ## Phase 903 — Public Sharing Access Diagnosis
 - [x] Verify the published ScrollVerse URLs and identify the concrete reason a recipient may be unable to open or share the site
 - [ ] External billing or hosting restoration is required before the published domains can be reachable again; fresh checks on 2026-09-27 found `scrollverse.co`, `www.scrollverse.co`, and `scrollport-xkjtdnvi.manus.space` all returning HTTP 200 with the same “Site Unavailable” / “Site unavailable due to unpaid billing” holding page. Recheck after Manus Support or the owner resolves the account-level gate.
+
+## Phase 948 — Meta AI Legion Archive and Historical Source Intake
+- [x] Add a searchable, source-labeled local Meta AI Legion Archive with deliberate-play Theater screenings.
+- [x] Preserve supplied HTML and pasted-source receipts with byte counts and SHA-256 identifiers.
+- [x] Add the Price of Freedom historical timeline as a cited first-party route, keeping research and interpretation distinct.
+- [x] Add homepage doorways for the archive and timeline routes.
+- [x] Keep external deployment, payment, account, wallet, token, contract, store, and publication actions outside this local phase.
+
+## Phase 949 — Evidence-led Accessibility and Build Quality Pass
+- [x] Add homepage skip navigation, named primary/mobile navigation, and a focusable main landmark.
+- [x] Add the missing Spotify iframe title and remove the zoom-blocking viewport constraint.
+- [x] Enable measured production JavaScript/CSS minification after the bundle audit.
+- [x] Verify focused and full regression suites, TypeScript, guarded production build, and whitespace checks before checkpointing.

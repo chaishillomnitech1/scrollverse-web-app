@@ -178,8 +178,8 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     target: "esnext",
-    minify: false,
-    cssMinify: false,
+    minify: "esbuild",
+    cssMinify: "esbuild",
     assetsInlineLimit: 0,
     reportCompressedSize: false,
     rollupOptions: {

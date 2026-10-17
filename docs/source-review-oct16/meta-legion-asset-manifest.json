@@ -1,0 +1,229 @@
+{
+ "images": [
+  {
+   "src": "legion",
+   "sha": "02a82708f6dfb9b7c2b006068dfa69166744b4319296088bffd9be066103dc59",
+   "w": 1152,
+   "h": 2048,
+   "thumb": "/manus-storage/legion-02a82708f6df-thumb_99403ab9.webp",
+   "full": "/manus-storage/legion-02a82708f6df-full_e17ea757.webp",
+   "tw": 292,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "15251ff79a2176955455b29d6946bff85bf996842ce3b85157dd49d41bf49bcd",
+   "w": 1152,
+   "h": 2048,
+   "thumb": "/manus-storage/legion-15251ff79a21-thumb_3d81de57.webp",
+   "full": "/manus-storage/legion-15251ff79a21-full_362eb90e.webp",
+   "tw": 292,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "6b8a973d5cde60e981704a123ed9db75c8a4db5263e0439f8a9b807158665fe1",
+   "w": 1296,
+   "h": 1888,
+   "thumb": "/manus-storage/legion-6b8a973d5cde-thumb_0de5d2bb.webp",
+   "full": "/manus-storage/legion-6b8a973d5cde-full_827cd060.webp",
+   "tw": 357,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "84d9341ff49c02086d25087e593a65bacabd6261abeee12e4f1fbe73ed1a34ff",
+   "w": 1280,
+   "h": 1920,
+   "thumb": "/manus-storage/legion-84d9341ff49c-thumb_c3955620.webp",
+   "full": "/manus-storage/legion-84d9341ff49c-full_ef565684.webp",
+   "tw": 347,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "d99fca7dfdc1e10cb9f4a732d9f28cff68fcc4a31c528a3bf4b94cc8790d05d7",
+   "w": 1280,
+   "h": 1920,
+   "thumb": "/manus-storage/legion-d99fca7dfdc1-thumb_6042bd81.webp",
+   "full": "/manus-storage/legion-d99fca7dfdc1-full_eca397eb.webp",
+   "tw": 347,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "fd87c0564e15a21f665febbe97e27bea05823355b4ddef596007394fafb5c1fc",
+   "w": 1280,
+   "h": 1920,
+   "thumb": "/manus-storage/legion-fd87c0564e15-thumb_f081e4ae.webp",
+   "full": "/manus-storage/legion-fd87c0564e15-full_c9548424.webp",
+   "tw": 347,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "f639cefc9bf81f7404237db772593dcd0583e188a0dd5adfc91a5bccafd814a8",
+   "w": 1280,
+   "h": 1920,
+   "thumb": "/manus-storage/legion-f639cefc9bf8-thumb_44bd2b12.webp",
+   "full": "/manus-storage/legion-f639cefc9bf8-full_6341e1d2.webp",
+   "tw": 347,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "932c18ec05c9bf808b1e2482eea1440d5fe0204d391036f6210a320bfcb96389",
+   "w": 1152,
+   "h": 2048,
+   "thumb": "/manus-storage/legion-932c18ec05c9-thumb_7ac53535.webp",
+   "full": "/manus-storage/legion-932c18ec05c9-full_caebfd4e.webp",
+   "tw": 292,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "93397ff3b0c67d97d1d19562840e952b33b026c020b8b2a245660f7f086f824a",
+   "w": 1600,
+   "h": 1600,
+   "thumb": "/manus-storage/legion-93397ff3b0c6-thumb_7e951f82.webp",
+   "full": "/manus-storage/legion-93397ff3b0c6-full_861b98aa.webp",
+   "tw": 520,
+   "th": 520
+  },
+  {
+   "src": "legion",
+   "sha": "939223fba6d96252ba426b4e4577cc47a3bc6ffccc6eb9f01d19cee9fa6baad4",
+   "w": 1152,
+   "h": 2048,
+   "thumb": "/manus-storage/legion-939223fba6d9-thumb_d8ee0ca0.webp",
+   "full": "/manus-storage/legion-939223fba6d9-full_c5e8a4b1.webp",
+   "tw": 292,
+   "th": 520
+  },
+  {
+   "src": "svtheater",
+   "sha": "64dcdbc16352a45f6285786ce787c2a04bc012a4e14808d34f649c72e5a247d8",
+   "w": 1920,
+   "h": 1280,
+   "thumb": "/manus-storage/svtheater-64dcdbc16352-thumb_7203eec3.webp",
+   "full": "/manus-storage/svtheater-64dcdbc16352-full_cccf6609.webp",
+   "tw": 520,
+   "th": 347
+  },
+  {
+   "src": "svtheater",
+   "sha": "ea262fbdd7138f2161b6a237b1f54db4e81c857ce5bf9d38b94de2865115941c",
+   "w": 1280,
+   "h": 1920,
+   "thumb": "/manus-storage/svtheater-ea262fbdd713-thumb_086a6501.webp",
+   "full": "/manus-storage/svtheater-ea262fbdd713-full_8c763332.webp",
+   "tw": 347,
+   "th": 520
+  },
+  {
+   "src": "svtheater",
+   "sha": "dcec72e732c4bea98ad49a6cc8a219ad74ae44c144ee52eca803363a4e87434a",
+   "w": 1040,
+   "h": 2272,
+   "thumb": "/manus-storage/svtheater-dcec72e732c4-thumb_ee8fc435.webp",
+   "full": "/manus-storage/svtheater-dcec72e732c4-full_6b2b8b9e.webp",
+   "tw": 238,
+   "th": 520
+  },
+  {
+   "src": "svtheater",
+   "sha": "ce5aff455b33540951c9342caae0bcf348589c8806c55ed18ad98ddf394ab72c",
+   "w": 1920,
+   "h": 1280,
+   "thumb": "/manus-storage/svtheater-ce5aff455b33-thumb_e8bba472.webp",
+   "full": "/manus-storage/svtheater-ce5aff455b33-full_bc8f7d95.webp",
+   "tw": 520,
+   "th": 347
+  },
+  {
+   "src": "svtheater",
+   "sha": "af555a6eecd02febdc2ed9311068de5decbdee6e1b749861f26268b498ae88d3",
+   "w": 1280,
+   "h": 1920,
+   "thumb": "/manus-storage/svtheater-af555a6eecd0-thumb_15bc7e9e.webp",
+   "full": "/manus-storage/svtheater-af555a6eecd0-full_0c92437f.webp",
+   "tw": 347,
+   "th": 520
+  },
+  {
+   "src": "svtheater",
+   "sha": "0cab4a476e0117ab7cbb2711739ea0f32bada2333291516bacfb3a728e4039a2",
+   "w": 1040,
+   "h": 2272,
+   "thumb": "/manus-storage/svtheater-0cab4a476e01-thumb_b1449387.webp",
+   "full": "/manus-storage/svtheater-0cab4a476e01-full_12bbdb74.webp",
+   "tw": 238,
+   "th": 520
+  },
+  {
+   "src": "attached",
+   "sha": "f12b021b438d326a23271667f7ff25835af3a5dcec7f34ed4e4d0e790fb45164",
+   "w": 1600,
+   "h": 1600,
+   "thumb": "/manus-storage/chaisallah-60-360-900-f12b021b438d-thumb_9e318008.webp",
+   "full": "/manus-storage/chaisallah-60-360-900-f12b021b438d-full_c1ead402.webp",
+   "tw": 520,
+   "th": 520
+  }
+ ],
+ "videos": {
+  "ScrollVerse_Daily_Film_001.mp4": {
+   "sha": "a098ad238ed649d2055c7cb1deeb8ff7864edf667611252e2442f0c33882a9f7",
+   "bytes": 28002207,
+   "path": "/manus-storage/ScrollVerse_Daily_Film_001_e78f990e.mp4"
+  },
+  "ScrollVerse_Theater_Promo_16x9.mp4": {
+   "sha": "8b936edeab692edfccde24a47cf35db9a458738fc56285459845e513e387b5e6",
+   "bytes": 12574738,
+   "path": "/manus-storage/ScrollVerse_Theater_Promo_16x9_9fbe01de.mp4"
+  },
+  "ScrollVerse_Theater_Promo_9x16.mp4": {
+   "sha": "0b9d65f9e8c7a7125954736ae637d37f93d7f67c62641147ebfc97526d906fcb",
+   "bytes": 12709347,
+   "path": "/manus-storage/ScrollVerse_Theater_Promo_9x16_b30fe03f.mp4"
+  }
+ },
+ "posters": {
+  "film001-ch-17.webp": "/manus-storage/film001-ch-17_edd64ed0.webp",
+  "film001-ch-2.webp": "/manus-storage/film001-ch-2_f510b924.webp",
+  "film001-ch-33.webp": "/manus-storage/film001-ch-33_10292859.webp",
+  "film001-poster.webp": "/manus-storage/film001-poster_0151db5a.webp",
+  "promo16x9-poster.webp": "/manus-storage/promo16x9-poster_e8eb9e41.webp",
+  "promo9x16-poster.webp": "/manus-storage/promo9x16-poster_9775ad08.webp",
+  "ScrollVerse_Daily_Film_001.mp4": "/manus-storage/ScrollVerse_Daily_Film_001_e78f990e.mp4",
+  "ScrollVerse_Theater_Promo_16x9.mp4": "/manus-storage/ScrollVerse_Theater_Promo_16x9_9fbe01de.mp4",
+  "ScrollVerse_Theater_Promo_9x16.mp4": "/manus-storage/ScrollVerse_Theater_Promo_9x16_b30fe03f.mp4"
+ },
+ "files": {
+  "Scrollverse-Creations-Legion-Archive(1).html": {
+   "sha": "c7e2a7b0247eecdeb0685b44afa02190ad13f0df18b414f0e757da90986895ef",
+   "bytes": 10470482,
+   "lines": 72
+  },
+  "Svtheater-Full-Throttle-Deployment.html": {
+   "sha": "08225f0542fbc484eaf064da9764dc62c950765a4f90694684da64c8163c2983",
+   "bytes": 6332033,
+   "lines": 47
+  },
+  "pasted_content_18.txt": {
+   "sha": "a45a30feabf37d2fa51ba73f0ae2477a521bf1f3611ebaad380059ed59e5ff85",
+   "bytes": 7976,
+   "lines": 62
+  },
+  "pasted_content_19.txt": {
+   "sha": "37552b1964e114059fb4d95f9793d0b5eb6d8f98cace73729018fb5e79758677",
+   "bytes": 40500,
+   "lines": 340
+  },
+  "pasted_content_20.txt": {
+   "sha": "8c04493e633f5121546a0826e2e059c55675a2a523036bb4eb274e3ebc571083",
+   "bytes": 221788,
+   "lines": 3000
+  }
+ }
+}
