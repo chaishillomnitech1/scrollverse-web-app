@@ -6491,3 +6491,21 @@
 - [x] Add the missing Spotify iframe title and remove the zoom-blocking viewport constraint.
 - [x] Enable measured production JavaScript/CSS minification after the bundle audit.
 - [x] Verify focused and full regression suites, TypeScript, guarded production build, and whitespace checks before checkpointing.
+
+## Phase 950 — Theme and Legion Archive Discovery Controls
+- [x] Add a browser-local, accessible light/dark mode toggle to desktop and mobile homepage navigation.
+- [x] Preserve the Legion Archive's title/collection/accession search and collection filters.
+- [x] Add live result-count feedback and a keyboard-reachable clear-filters action.
+- [x] Add focused regression coverage for the theme and archive controls.
+
+## Phase 951 — External Hosting Handoff Package
+- [x] Add a secret-free production packaging helper that runs checks and the guarded build.
+- [x] Add an optional, explicit-confirmation rsync transfer branch without executing external transfer.
+- [x] Document Node runtime, environment, reverse proxy, TLS, DNS, WebSocket, smoke-check, and rollback requirements.
+- [x] Extend and validate the reusable source-led portfolio skill with the new quality and deployment workflow.
+
+## Phase 952 — Latest Creator Upload Accession
+- [x] Preserve the newly supplied pasted records, archives, media, implementation examples, and registry/deployment records with exact byte counts and SHA-256 identifiers.
+- [x] Keep all 72 newly accessioned records metadata-only; no media playback, transformation, upload, embedding, code execution, payment, wallet, contract, deployment, or publication action occurred.
+- [x] Add a source-selection gate requiring an exact filename or ID, intended first-party route, use, treatment, and display scope before any future integration.
+- [x] Add focused regression coverage and verify the manifest and whitespace cleanliness.

@@ -10,6 +10,7 @@ import { paginatePortfolio } from "@/lib/portfolioPagination";
 import { PORTFOLIO_FAVORITES_KEY, readPortfolioFavorites, togglePortfolioFavorite, writePortfolioFavorites } from "@/lib/portfolioFavorites";
 import NotificationBell from "@/components/NotificationBell";
 import SourceVisual from "@/components/SourceVisual";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
@@ -1523,6 +1524,7 @@ function LiveActivityIndicator() {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const { data: omniMetrics } = trpc.metrics.getOmniMetrics.useQuery(undefined, { staleTime: 15000, refetchInterval: 30000 });
   const guardianWaitlistSize = omniMetrics?.guardianWaitlistSize ?? 0;
   const totalBookings = omniMetrics?.totalBookings ?? 0;
@@ -1897,6 +1899,16 @@ export default function Home() {
               🌌 Constellation
             </a>
            <NotificationBell />
+            {toggleTheme && <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-pressed={theme === "dark"}
+              title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              className="hidden min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/15 text-lg text-white transition hover:border-[#00D4FF] focus-visible:outline-2 focus-visible:outline-[#00D4FF] sm:flex"
+            >
+              {theme === "dark" ? "☀" : "☾"}
+            </button>}
             <button className="btn-gold px-4 py-2 rounded-lg text-sm">
               Enter Portal
             </button>
@@ -1917,6 +1929,15 @@ export default function Home() {
         </div>
         {mobileMenuOpen && (
           <div aria-label="Mobile navigation" className="2xl:hidden px-4 pb-4 space-y-3" style={{ background: "rgba(5,11,26,0.98)" }}>
+            {toggleTheme && <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-pressed={theme === "dark"}
+              className="flex min-h-11 w-full items-center justify-between rounded-lg border border-white/15 px-3 text-left text-sm text-white focus-visible:outline-2 focus-visible:outline-[#00D4FF]"
+            >
+              <span>Display mode</span><span aria-hidden="true">{theme === "dark" ? "☀ Light" : "☾ Dark"}</span>
+            </button>}
             {navLinks.map(l => (
               <a key={l.label} href={l.href} className="block text-sm py-2" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
                 {l.label}
