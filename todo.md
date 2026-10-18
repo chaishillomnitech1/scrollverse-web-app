@@ -6509,3 +6509,10 @@
 - [x] Keep all 72 newly accessioned records metadata-only; no media playback, transformation, upload, embedding, code execution, payment, wallet, contract, deployment, or publication action occurred.
 - [x] Add a source-selection gate requiring an exact filename or ID, intended first-party route, use, treatment, and display scope before any future integration.
 - [x] Add focused regression coverage and verify the manifest and whitespace cleanliness.
+
+## Phase 953 — Accession Dashboard Discovery and Profile
+- [x] Add a typed local record index derived from the preserved accession manifest, with case-insensitive filename, classification, display-scope, and hash search.
+- [x] Add truthful local loading/status feedback, reduced-motion-safe loading treatment, result counts, and an accessible no-match state.
+- [x] Add a read-only profile panel showing the selected record's filename, byte count, classification, display scope, accession date, and exact SHA-256 identifier.
+- [x] Extend and validate the reusable source-led portfolio skill with the accession dashboard pattern.
+- [x] Add focused regression coverage for filtering, status summaries, metadata-only boundaries, and profile lookup.

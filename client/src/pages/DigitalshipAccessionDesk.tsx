@@ -1,5 +1,11 @@
 import { useMemo, useState } from "react";
 import { Link } from "wouter";
+import {
+  ACCESSION_RECORDS,
+  filterAccessionRecords,
+  getAccessionProfile,
+  getAccessionStatusSummary,
+} from "@/lib/accessionRecords";
 
 type AccessionValues = {
   recordTitle: string;
@@ -85,6 +91,9 @@ export default function DigitalshipAccessionDesk() {
   const [values, setValues] = useState<AccessionValues>(INITIAL_VALUES);
   const [activeStep, setActiveStep] = useState(0);
   const [exported, setExported] = useState(false);
+  const [recordQuery, setRecordQuery] = useState("");
+  const [selectedRecordFilename, setSelectedRecordFilename] = useState(ACCESSION_RECORDS[0]?.filename ?? "");
+  const [recordsReady, setRecordsReady] = useState(false);
   const completedFields = useMemo(
     () => [values.recordTitle, values.sourceType, values.accessStatus, values.publicScope, values.sourceSummary].filter((value) => value.trim()).length,
     [values],
@@ -92,10 +101,17 @@ export default function DigitalshipAccessionDesk() {
   const activeMethodStep = METHOD_STEPS[activeStep];
   const selectedDestination = ROUTE_DESTINATIONS[values.intendedRoute];
   const selectionNeedsCompletion = !values.sourceFilename.trim() || values.intendedRoute === "not yet selected" || !values.intendedUse.trim();
+  const filteredRecords = useMemo(() => filterAccessionRecords(ACCESSION_RECORDS, recordQuery), [recordQuery]);
+  const accessionSummary = useMemo(() => getAccessionStatusSummary(ACCESSION_RECORDS), []);
+  const selectedRecord = useMemo(() => getAccessionProfile(selectedRecordFilename), [selectedRecordFilename]);
 
   const updateValue = (field: keyof AccessionValues, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
     setExported(false);
+  };
+
+  const revealRecords = () => {
+    setRecordsReady(true);
   };
 
   return (
@@ -123,6 +139,33 @@ export default function DigitalshipAccessionDesk() {
             <p className="text-[10px] font-mono tracking-[.18em] text-[#EBDFFF]">ACTIVE METHOD LENS · {activeMethodStep.label}</p>
             <h2 className="mt-3 text-3xl font-black md:text-4xl">{activeMethodStep.detail}</h2>
             <p className="mt-4 text-sm leading-7 text-[#D6E2EE]">Use this form to record what you have, how it may be handled, and what must remain unresolved. The form creates a browser-local JSON record only.</p>
+
+            <section aria-labelledby="accession-records-heading" className="mt-8 rounded-2xl border border-[#70D9FF]/30 bg-[#70D9FF]/[.045] p-5 md:p-6">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">VERIFIED CREATOR-SUPPLIED RECORDS</p>
+                  <h3 id="accession-records-heading" className="mt-2 text-2xl font-black">Find a local accession profile.</h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-7 text-[#D6E2EE]">Read-only metadata from the 2026-10-18 accession manifest. Hashes identify supplied bytes; they do not establish authorship, rights, or external publication.</p>
+                </div>
+                <div role="status" aria-live="polite" className="rounded-full border border-[#8CEEDD]/30 bg-[#8CEEDD]/[.08] px-3 py-2 text-[10px] font-mono text-[#BDEEFF]">
+                  {recordsReady ? "RECORDS READY · LOCAL ONLY" : "READY TO LOAD · LOCAL ONLY"}
+                </div>
+              </div>
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end">
+                <label className="block flex-1"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">SEARCH FILENAME, TYPE, OR HASH</span><input aria-label="Search accessioned records" value={recordQuery} onChange={(event) => { setRecordQuery(event.target.value); setRecordsReady(true); }} placeholder="Example: mp4, implementation, or sha256 prefix" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20" /></label>
+                <button type="button" onClick={revealRecords} className="min-h-12 rounded-xl border border-[#70D9FF]/40 bg-[#70D9FF]/[.08] px-4 text-sm font-black text-[#BCEEFF] transition hover:bg-[#70D9FF]/[.16] focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/40">{recordsReady ? "Refresh local index" : "Load local index"}</button>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-[#C7D7E6]" aria-live="polite">
+                <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">{recordsReady ? `${filteredRecords.length} matching records` : "Index not loaded"}</span>
+                <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">{accessionSummary.metadataOnly} metadata-only</span>
+                <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">No external actions</span>
+              </div>
+              <div className="mt-5 grid gap-3 md:grid-cols-2" aria-busy={!recordsReady}>
+                {!recordsReady ? <div className="md:col-span-2 rounded-xl border border-white/10 bg-white/[.025] p-5 text-sm text-[#AFC2D3] motion-safe:animate-pulse">Local accession index is ready to load. Nothing is fetched or played.</div> : filteredRecords.slice(0, 12).map((record) => <button type="button" key={record.filename} onClick={() => setSelectedRecordFilename(record.filename)} aria-pressed={selectedRecordFilename === record.filename} className="min-h-16 rounded-xl border p-3 text-left transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/50" style={{ borderColor: selectedRecordFilename === record.filename ? "rgba(112,217,255,.72)" : "rgba(255,255,255,.1)", background: selectedRecordFilename === record.filename ? "rgba(112,217,255,.1)" : "rgba(255,255,255,.025)" }}><span className="block truncate text-sm font-black text-white">{record.filename}</span><span className="mt-1 block text-[11px] text-[#AFC2D3]">{record.classification} · {record.bytes.toLocaleString()} bytes</span></button>)}
+                {recordsReady && filteredRecords.length === 0 && <p className="md:col-span-2 rounded-xl border border-[#FFCF73]/30 bg-[#FFCF73]/[.08] p-4 text-sm font-bold text-[#FFE7B3]">No accessioned record matches that search.</p>}
+              </div>
+              {recordsReady && selectedRecord && <div className="mt-5 rounded-xl border border-[#D7A7FF]/35 bg-[#D7A7FF]/[.06] p-5" aria-live="polite"><p className="text-[10px] font-mono tracking-[.16em] text-[#EBDFFF]">READ-ONLY RECORD PROFILE</p><h4 className="mt-2 break-words text-lg font-black text-white">{selectedRecord.filename}</h4><dl className="mt-4 grid gap-3 text-xs sm:grid-cols-2"><div><dt className="text-[#B9A5D5]">Classification</dt><dd className="mt-1 text-[#F0E9FF]">{selectedRecord.classification}</dd></div><div><dt className="text-[#B9A5D5]">Display scope</dt><dd className="mt-1 text-[#F0E9FF]">{selectedRecord.displayScope}</dd></div><div><dt className="text-[#B9A5D5]">Bytes</dt><dd className="mt-1 text-[#F0E9FF]">{selectedRecord.bytes.toLocaleString()}</dd></div><div className="sm:col-span-2"><dt className="text-[#B9A5D5]">SHA-256</dt><dd className="mt-1 break-all font-mono text-[#F0E9FF]">{selectedRecord.sha256}</dd></div></dl><p className="mt-4 text-xs leading-6 text-[#C7D7E6]">Accessioned {selectedRecord.accessionDate}. This profile does not open, upload, transform, publish, or validate the source.</p></div>}
+            </section>
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               <label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#C9F3FF]">RECORD TITLE</span><input value={values.recordTitle} onChange={(event) => updateValue("recordTitle", event.target.value)} placeholder="Example: Digitalship conversation chapter" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#D7A7FF] focus:ring-2 focus:ring-[#D7A7FF]/20" /></label>

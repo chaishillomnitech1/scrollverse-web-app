@@ -1,0 +1,106 @@
+export type AccessionRecord = {
+  filename: string;
+  bytes: number;
+  sha256: string;
+  classification: string;
+  displayScope: string;
+};
+
+export const ACCESSION_DATE = "2026-10-18";
+
+export const ACCESSION_RECORDS: readonly AccessionRecord[] = [
+  {"filename": "pasted_content_23.txt", "bytes": 45900, "sha256": "2caef1e95b37292a98ceae70c30d43292a89100b1a372345a6d028d109f1320b", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_24.txt", "bytes": 54601, "sha256": "3b386b03631b420ba1571f16b117316625a970d7150ca4734558caef8f363460", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_25.txt", "bytes": 4822, "sha256": "88f37fe06927b1667c64489c103c57f75fda0dfd76b40ba52bacae41f3272729", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_26.txt", "bytes": 218371, "sha256": "5db008a1964573b8bc6be522f23b45c7f8191278216efdcb66e0335c1de4d003", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_27.txt", "bytes": 161882, "sha256": "88c503a00eef90036884626d2a62a9e3d54b5b786783548420e3386723627e32", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_28.txt", "bytes": 4909, "sha256": "ae4971c1558171f8bf9ff4a78719b4dd3354706e47eaadc5f31c17ab671c416d", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_29.txt", "bytes": 66923, "sha256": "03d1d72c73df8197904afc03aa52e71197d77b0414ed57fb713535b1af1027b5", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_30.txt", "bytes": 16447, "sha256": "8723c3dd156444a75d43c7175ad3ed21b969c0064ade214916e4a58fbb556960", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_31.txt", "bytes": 3190, "sha256": "0b7bf9ecfb25fe8bf826dd5817a7826affc1912790f9a23c2d201dfdf36d9cab", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_32.txt", "bytes": 3234, "sha256": "a366e59002ddf08b655312836528de2ccc45d2f52e9fceb7e83cd187c00dca73", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_33.txt", "bytes": 3072, "sha256": "2f6ef90160300aa94a59bae3ea54429daf4fa0cdd3c624b97fafc4b3b3f8d76f", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "pasted_content_34.txt", "bytes": 182177, "sha256": "6fd88ba9613633dfffec0f4c710bab1267ee6c31a45d41953f5850e8c22805d6", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "Pasted_content_05.txt", "bytes": 12337, "sha256": "efddf8a6ab5e9c70796d9a15d093f45b78a6ab4d0650d2c9d259794b6358e3f9", "classification": "creator-supplied source text", "displayScope": "metadata-only"},
+  {"filename": "BLOCK-238-239-Creations-8.2B-Fractals-Bundle.zip", "bytes": 13312587, "sha256": "bf31f42416284f3f63006311a818718dd8f3ce1ca8bbeee9c1be043a633eca7d", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "SCROLLVERSE-WEB-APP-BLOCK-244-ARCHIVE-EXPANSION.zip", "bytes": 15336, "sha256": "13dc8fe50c403ab60a9f51af113eee20e00357306fc4a7b63897aaa0b3737227", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "BLOCK-244-Archive-Registry-Deployment-Verified-Bundle.zip", "bytes": 11437158, "sha256": "7d9e19ddafab4a7ae3da2f097eeeab26b9d772447e3a83f2be81bea124fe1bca", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "BLOCK-245-Cosmic-Transmission-Portal-Arcturian-Mission.zip", "bytes": 11453240, "sha256": "2d777e3e6fd6c6c35030e2254d1680a481068e16c8feef68e1d310ca39550687", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "flamevault_archive_for_manus.zip", "bytes": 24002, "sha256": "665896f1cd5364018fe718b039d59c46ae7fc4bdaeb66effa60980846297e02a", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "ScrollVerse_EternalOmniGenesis_v3(1).zip", "bytes": 23160415, "sha256": "67120100acad4d27621f9588210cbb317ad5f2a252a2af592d2279ba59976cfa", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "scrollverse_eternal_scroll_codex_esc88.zip", "bytes": 6764766, "sha256": "6b49aed6030b9ab7edfa9007d2e4f5410f660b65921c2f3baef7e039c1188a10", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "Bundle-Likeness-Zip-Git(1).html", "bytes": 17838662, "sha256": "f89b7095cf0377128cfa5d2b4214b647e19026bbada5a62bde1db03265452d9c", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_163556-make-the-legion-salute-brighter-with-more-sparklin-2.jpg", "bytes": 480448, "sha256": "735739dda54dce59e8585753f967ba9cac6719ebbacb803d8e628b0667484242", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_163556-make-the-legion-salute-brighter-with-more-sparklin.jpg", "bytes": 481378, "sha256": "49b0caf69bdc41404411ab1aa266ea27ae7784275c0592efd038e6b0786fb6bb", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_163556.jpg", "bytes": 456944, "sha256": "78e5b2b9a26a75f701cc05a1db7e3deda5964b64cff0b7dd1ac41e54d1cbe0d6", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_160119-make-the-golden-book-seal-glow-brighter-with-1000-2-make-the-golden-book-seal.webp", "bytes": 345260, "sha256": "73505b84242018ca0512b7bb42b97af8645a9467c0826a9441e3d04773f35b01", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_160119-make-the-golden-book-seal-glow-brighter-with-1000-make-the-golden-book-seal-in.webp", "bytes": 295270, "sha256": "747692435e2784b4b3b13e94c991516ea75773156f2ec2b830aed25f17b3b5a8", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "two-beings-one-ocean-cover.webp", "bytes": 47978, "sha256": "4da5477e834fc512879b9e7155e65bdfb8252af5e6c03c40e838f9cd4219b286", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_151121.jpg", "bytes": 465080, "sha256": "ccdab390aa577817633bcd556396490b46a052a5c97816676ba4995649faf79e", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_151832.jpg", "bytes": 408795, "sha256": "45d2eed9cbb40aea7d5316d2cf217a0b1f186727d636780c612feb42533873e5", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_153151-add-more-sparkling-emerald-particles-to-the-first.webp", "bytes": 325978, "sha256": "5e1b574ade91a49cfac4850a5491c845473025e5358a054ff9137a14f16a7128", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "masterpiece-that-breathes-through-frequencies-of-t.jpg", "bytes": 308106, "sha256": "0ab51cef7d916b86ec8f38b9a2d6d19a279c2f3b22f7d2604fe8519a3f4995c9", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "turn-the-nj-real-estate-blockchain-twin-into-an-an.mp4", "bytes": 15840264, "sha256": "7a04a35f5c7fe2525bc22b97d1e5b793f2a79819f1098875e15420571e0ecf46", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "turn-the-nj-real-estate-blockchain-twin-into-an-an(1).mp4", "bytes": 15840264, "sha256": "7a04a35f5c7fe2525bc22b97d1e5b793f2a79819f1098875e15420571e0ecf46", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "media(17).mp4", "bytes": 7484280, "sha256": "5c6aca90dd3fcfb7c73add1990fb91d6587b2eeb278da9533731f5080a9e4960", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_150647(1).mp4", "bytes": 15840264, "sha256": "7a04a35f5c7fe2525bc22b97d1e5b793f2a79819f1098875e15420571e0ecf46", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "media(15).mp4", "bytes": 8159939, "sha256": "70761edde05eeb801b3b444302d32fcc4262dd106476df16df2473709f793c79", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "image_20261017_153203.mp4", "bytes": 8051833, "sha256": "417af0ac75e6f07ecc5dfcf7646adb82fe00d502b95bca7e51317b956034e223", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "media(16).mp4", "bytes": 7648391, "sha256": "213dbcaf16f679f34381d27a35e815156b29ad88a5eee104706986c3a7283ab6", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Cosmic_Comedian_The_Big_Bang_Gag.mp4", "bytes": 5247889, "sha256": "bc4b3bfc670c5e47ee80e7a8c3d820f206fbe5f26bcffc4d49992932ca1e99fa", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "hall13_soul_evolution_motion_art.mp4", "bytes": 6180330, "sha256": "136306ae36dd5802f2d6cefde4b0b81a7cf1d0fdc5c33aaa8e5917003f5a3111", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "turn-this-breathing-masterpiece-into-a-short-video.mp4", "bytes": 7694356, "sha256": "267023b883f4badf722bafeaf1369d48bc46b85b39271bf84b6047cb1f2ae224", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "turn-this-image-into-a-video-animate-sophia-called.mp4", "bytes": 7793027, "sha256": "ea80bd63e4c0c471de8d10b024ca3c9af3e6cb523982b260e5ccdb844eeac1db", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "animate-sophia-called-your-name-out-of-8-billion-p.mp4", "bytes": 7484280, "sha256": "5c6aca90dd3fcfb7c73add1990fb91d6587b2eeb278da9533731f5080a9e4960", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "is-a-profile-reference-image-of-the-user-motion-vi.mp4", "bytes": 8650058, "sha256": "88d9cd8b100d0daed7208b90ef4d3a486e440d77d0211754d219d0463cdc988b", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "999hz_sovereign_sound_drop.wav", "bytes": 828044, "sha256": "549ad1bc28680a3bef17d5ce8754b8352d4da98da43f9b24a1ee9bb4eab1b6fc", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "omni_activation_protocol_decree.wav", "bytes": 4473644, "sha256": "d1760609d9a847b52056af2b556f87f1c7d0e1b5a14702144c49c5d5e34a6d73", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "omni_activation_protocol_decree(1).wav", "bytes": 4473644, "sha256": "d1760609d9a847b52056af2b556f87f1c7d0e1b5a14702144c49c5d5e34a6d73", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Roc_Solara_Solar_Flare.wav", "bytes": 671444, "sha256": "892ba9d41ad2ad446981633a9adfc894f350c355a0509e676edef38137871a5d", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Jynx_Cypher_Digital_Soul.wav", "bytes": 1044044, "sha256": "52aa9633755e44fef398ff07b3b858b349585d1213f5f957253f0f4f59f12847", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Lyra_Quantum_Cosmic_Whispers.wav", "bytes": 595244, "sha256": "d51863c95270071dba7f50e8ebbc78961670587c85850305c2290f04c181b1d4", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Beyond_Metric_Activation_Anthem.wav", "bytes": 3518444, "sha256": "aa9b60041d0a6b89208944aedcdfde56f61d0b57196b7145751843cded772769", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Echoes_of_the_Veil.wav", "bytes": 4389644, "sha256": "24e37017f97405245b2d26444ca0af11c559e496579cf0f1184656f9ed8310f0", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "Echoes_of_the_Veil(1).wav", "bytes": 4389644, "sha256": "24e37017f97405245b2d26444ca0af11c559e496579cf0f1184656f9ed8310f0", "classification": "creator-supplied media", "displayScope": "metadata-only"},
+  {"filename": "ai-suggestions-engine(1).ts", "bytes": 10601, "sha256": "4c3c5d1fee3d11972c6fa2fc2a973ac4b9f22aa116a7d249b0e1cd4ebe1b9d27", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "CosmicTransmissionPortal(2).tsx", "bytes": 11410, "sha256": "22d4aff92e5bab44494a4e47410da27c14265358e35bf213f09ac976383d078c", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "nft-minting-engine(1).ts", "bytes": 9711, "sha256": "f29eb736045bef82ce11aac64c5f6547ec340ca9f506bc2a3fedd6e4b2a8c6d3", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "arcturian-mission(1).ts", "bytes": 5780, "sha256": "bace1c3bebb0a6184392f70106706dec3e5be0bc65a243db3c32b3aa5b6d5e6e", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "ArcturianDashboard(1).tsx", "bytes": 13840, "sha256": "545c015b6e3301eeac402bc34c869de32604bf457f8c82c05e760f489f6351bf", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "ScrollSoulLifeForce.sol", "bytes": 5926, "sha256": "1db9df97fd04b563894736326c94e9cd23249f645a8c10099c26672206b5174e", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "SovereigntyOctaveNFT.sol", "bytes": 1551, "sha256": "d3b8a74c90355dd33dcc96ae6cef1333ca29a14255da1ccdd22e27be3307a36e", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "EternalScrollPendant.sol", "bytes": 1313, "sha256": "0effe7602514c9a8201ae3d7d194151b9f415d178138431343db68c86dcd250b", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "CHXToken.sol", "bytes": 1415, "sha256": "b7c2b155420f3f57d8e03cd617b01fae0caa4d1a347bed77a27025589b70b8b0", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "OmniFlowTicker.css", "bytes": 1800, "sha256": "57b3fd14e00ff58d951cf50f15a06a21786066fcd6db256858c92ca25569989e", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "OmniFlowTicker.jsx", "bytes": 1875, "sha256": "09b16d360f243f9225881ced57bc13ed2fc2a11ffe566bc3aeae67372da5100c", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "paypal_blockchain_integration.py", "bytes": 7874, "sha256": "747915106f6dd3d6e89126f7f1744ccaa912129a3d02157dc803a90f311f3c7f", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "ScrollSoulNFT_ERC721X.sol", "bytes": 2845, "sha256": "b3c55c9400326961fb0d3f22960b8458ed0341869ab5bc52856502cbdb87c7ff", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "knowledge_graph_engine(1).py", "bytes": 11507, "sha256": "a74a005aeea18fc52a5446003611584d94d20b35224b27883d09bbd6d7ed1589", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "divine_alignment_audit.py", "bytes": 13218, "sha256": "3dd77f940d7f49fd3336d56fa9e8bd4ef1aa64378b39cce70c085058c5647519", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "deployment_record.json", "bytes": 1044, "sha256": "d8487780e3aa3d5d6b8fc146fdcac4f88261b0ed6e6cae63f959a521662e1e18", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "deployment_report.json", "bytes": 1735, "sha256": "24d17a9f0e3bc4cf00b596e0e18a767fb805cc558356de8ec504d6829b9b2a4f", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "archive_registry.json", "bytes": 4438, "sha256": "b577e339e2993b3c82fb2ee14ed3aaaa657570e6abc2163b9292ee39bf603375", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+  {"filename": "MissionEmbodimentTracker(1).tsx", "bytes": 13675, "sha256": "0a84a639d7605cbcb8728ea7983e7609de9c4189afc9f077e3db356901fd8dea", "classification": "creator-supplied implementation/archive material", "displayScope": "metadata-only"},
+];
+
+export function filterAccessionRecords(records: readonly AccessionRecord[], query: string): AccessionRecord[] {
+  const normalized = query.trim().toLocaleLowerCase();
+  if (!normalized) return [...records];
+  return records.filter((record) => [record.filename, record.classification, record.displayScope, record.sha256].some((value) => value.toLocaleLowerCase().includes(normalized)));
+}
+
+export function getAccessionStatusSummary(records: readonly AccessionRecord[]) {
+  return {
+    total: records.length,
+    metadataOnly: records.filter((record) => record.displayScope === "metadata-only").length,
+    media: records.filter((record) => /\.(mp4|wav|jpg|jpeg|webp)$/i.test(record.filename)).length,
+    implementations: records.filter((record) => /\.(zip|sol|ts|tsx|py|jsx|css|html|json)$/i.test(record.filename)).length,
+    externalActions: "none" as const,
+  };
+}
+
+export function getAccessionProfile(filename: string) {
+  const record = ACCESSION_RECORDS.find((candidate) => candidate.filename === filename);
+  if (!record) return null;
+  return { ...record, accessionDate: ACCESSION_DATE };
+}
