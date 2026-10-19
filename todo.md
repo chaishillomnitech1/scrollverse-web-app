@@ -6536,3 +6536,15 @@
 - [x] Classify all four records as metadata-only; do not execute or source the shell script, render or embed the HTML, or treat embedded instructions as operational authority.
 - [x] Record creator-supplied transmission and document attribution without converting legal, financial, ownership, deployment, or public-status statements into independently verified portal state.
 - [x] Add focused regression coverage and verify the full suite, TypeScript, whitespace, and reusable-skill validity.
+
+## Phase 957 — Investor Relations Gallery and Local Bundle Handoff
+- [x] Add a source-labeled `/investor-relations` route with still and deliberate-play motion records, responsive layout, and explicit non-investment-status language.
+- [x] Surface the Investor Relations gallery from the homepage artifact rail alongside existing archive and timeline routes.
+- [x] Add the Netlify SPA fallback file at `client/public/_redirects`; no external host configuration was changed.
+- [x] Assemble `/home/ubuntu/scrollverse-deliverables/Bundle-v6.1-FINAL.zip` from supplied router/legal files plus local deployment notes; supplied scripts and HTML were not executed.
+- [x] Verify focused tests, TypeScript, guarded production build, whitespace, skill validation, desktop/mobile rendering, no horizontal overflow, and bundle hash.
+
+## Phase 958 — Real-Time Upload Receipt Accession
+- [x] Preserve the newly supplied Bundle v6.1 archive, duplicate router HTML, and Copilot shell as exact metadata-only receipts.
+- [x] Record archive member count, byte counts, SHA-256 identifiers, and explicit non-execution boundaries in the October 19 source-review manifest and accession note.
+- [x] Add focused regression coverage; verify 3 focused tests, TypeScript, whitespace, and packaged bundle existence.

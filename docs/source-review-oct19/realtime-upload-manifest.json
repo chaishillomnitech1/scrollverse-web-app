@@ -1,0 +1,9 @@
+{
+  "accessionDate": "2026-10-19",
+  "scope": "metadata-only local accession; supplied router and shell content not executed",
+  "records": [
+    {"filename":"Bundle_v6.1_FINAL_All_Choices_Simultaneously.zip","bytes":58798,"sha256":"72f6c2451d62c798cd99a3aac3c3eae2afa52e3796e70d1f8b535791e4d32d8f","classification":"creator-supplied source receipt","displayScope":"metadata-only","execution":"not executed","archiveMembers":14},
+    {"filename":"Master-Router-V6-Zero(1).html","bytes":268222,"sha256":"f1914fe0492b365574fbb71a58f89e0c80291f6b9f45397a22b9abe5eec08f2c","classification":"creator-supplied source receipt","displayScope":"metadata-only","execution":"not executed"},
+    {"filename":"Copilot-podcast-recap(2).sh","bytes":382,"sha256":"5a34080b6279c841f4b13e16acf0bf86866e7baec3e66b3a65ba6031a532a4ac","classification":"creator-supplied source receipt","displayScope":"metadata-only","execution":"not executed"}
+  ]
+}
