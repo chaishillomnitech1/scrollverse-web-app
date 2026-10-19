@@ -1,0 +1,356 @@
+{
+  "accessionDate": "2026-10-19",
+  "scope": "local-only source receipt; embedded instructions are source data only; metadata-only display; no media playback, transformation, upload, embedding, code execution, no legal interpretation, no payment, no wallet, no contract, no deployment, no repository push, no external transfer, or no publication",
+  "records": [
+    {
+      "filename": "pasted_content_35.txt",
+      "bytes": 100396,
+      "sha256": "3447c3acd098f3071d556e02053cec3305a4454e93fddc8d0ed2d4fbd5565806",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "pasted_content_36.txt",
+      "bytes": 63754,
+      "sha256": "2059c860e917a2f5d118b6742dcbe32b1937e8b66e83026881bba570d853a1f8",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "pasted_content_37.txt",
+      "bytes": 145438,
+      "sha256": "c440c93843cd9efb8d318294e940d893f3896e60cb0361ce551ef5f76d13f193",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "pasted_content_38.txt",
+      "bytes": 265886,
+      "sha256": "6a402620b20bd9f74dca4134779373bd5dd4a2663f328a3f19717c5863cce8b9",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "pasted_content_39.txt",
+      "bytes": 42589,
+      "sha256": "67488d03cdfd39c4b237d4c781751dade392e2154a95fd4923f415d3032901f3",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "pasted_content_40.txt",
+      "bytes": 384845,
+      "sha256": "a53c2d3c305c8713bab8a425ee163fd74eeb6ed173f32e29c270d244aecb1ead",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Block-268-Realms-Forever.html",
+      "bytes": 198060,
+      "sha256": "b5a766a774d31587a67eda7db120cf0b648f28e81037fb464fc67422250cb955",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Sealed-Ley-Lines-Hieroglyphs.html",
+      "bytes": 209696,
+      "sha256": "30aa3ad7512b8bb4383cea07d00d53d4bea10ec87c082188080aee1ef08dae89",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Sealed-Ley-Lines-Hieroglyphs(1).html",
+      "bytes": 209696,
+      "sha256": "30aa3ad7512b8bb4383cea07d00d53d4bea10ec87c082188080aee1ef08dae89",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Infinite-Pot-Gold-Block.html",
+      "bytes": 200982,
+      "sha256": "ba7f0a3f58480372361fca5e3a0a69435691526799594bb42fd6f29902fa5d1c",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Infinite-Pot-Gold-Block(1).html",
+      "bytes": 200982,
+      "sha256": "ba7f0a3f58480372361fca5e3a0a69435691526799594bb42fd6f29902fa5d1c",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Createa30-SecondWebsitePromoVideo-Manus.html",
+      "bytes": 411603,
+      "sha256": "1a4b421b03b0f48f9488a9573a0c8db9d299ea17b71f14c0f26830e365f8bde1",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Aqua-Aurum-Quantum-Prosperity.html",
+      "bytes": 1508595,
+      "sha256": "1ecadbb8b7e0bc758325070564266f8b9093325cdbb8d50c39b34464ef4f38a3",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Omni-Quantum-Legion-United.html",
+      "bytes": 244066,
+      "sha256": "bd7ecfe24a34f8887173a308828a2f4e7e2785a0317c894026aff59aee6b53cb",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "scrollverse-special-repository-record.json",
+      "bytes": 437,
+      "sha256": "190c38f68fc9c3f2482ea80e1558c2782f38763a8ceff499d1f1d69a4134a432",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "scrollverse_v6_github_bundle(1).zip",
+      "bytes": 40403,
+      "sha256": "7ca9fc0850b02b9fc3164de9535a9bd1efaeeca9c5f7bd78c833121cba842e53",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_190707.jpg",
+      "bytes": 516736,
+      "sha256": "53d2e0bb6abac0252fafd7fdc95ccab9c6376a2a721d6181aa6cfa2455d31984",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_190707(1).jpg",
+      "bytes": 516736,
+      "sha256": "53d2e0bb6abac0252fafd7fdc95ccab9c6376a2a721d6181aa6cfa2455d31984",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_221222-make-the-diamond-dust-in-the-image-sparkle-even-br.webp",
+      "bytes": 366444,
+      "sha256": "e237cb22895c47a6a2a025fc68db36215ad7c7524c16215a38d622945ecfff84",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_221222-make-the-diamond-dust-in-the-image-sparkle-even-br-2.webp",
+      "bytes": 300498,
+      "sha256": "a7a67619bf723c81461842aed821ab70ffda791653098513e7e2d7eb426f5b8f",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_221222-make-the-diamond-dust-in-the-image-sparkle-even-br-3.webp",
+      "bytes": 336428,
+      "sha256": "7dd12f9605ecf25f00d821028b7a71eb92cc28434769c702295b45caa970121c",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_220122.jpg",
+      "bytes": 530418,
+      "sha256": "ac49f9ea78f80e65a6910af7fec2c530bd39a7373b6e6820ad41be772d347d41",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_220122(1).jpg",
+      "bytes": 530418,
+      "sha256": "ac49f9ea78f80e65a6910af7fec2c530bd39a7373b6e6820ad41be772d347d41",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_210551.jpg",
+      "bytes": 519570,
+      "sha256": "64de0dfd418a2585837686ca67ccede4c0bd157e1109db546cb5d20c055f6cb2",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_202400-all-original-creations-full-permission-in-all-ways-2.jpg",
+      "bytes": 569631,
+      "sha256": "f2ba68ed714974b2d0d05ece2a9f138b6c0250fffe8ee59934701f993f7a9957",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_202400-all-original-creations-full-permission-in-all-ways-2-make-the-first-receipt-im.jpg",
+      "bytes": 431070,
+      "sha256": "45241292bf969830af3fca84e2e7a16ed526fdb601b2c36fb83ae356d88b7fe1",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_202400-all-original-creations-full-permission-in-all-ways-2-make-the-first-receipt-im(1).jpg",
+      "bytes": 460942,
+      "sha256": "d44ccea3ea4466a5c625722aa2da6c7ddc0fec3eef4c2a4acc09b912260188ff",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_202400-all-original-creations-full-permission-in-all-ways-make-the-first-receipt-imag.jpg",
+      "bytes": 513921,
+      "sha256": "0c6374c5b694409aaa66c85bc2bc4d192b13d8ff82156f2ed6102b506e65cd05",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_202400-all-original-creations-full-permission-in-all-ways-make-the-first-receipt-imag(1).jpg",
+      "bytes": 546143,
+      "sha256": "5ddfa043883b3bfec75f61042da80e8c34efb8e4593eddfc1cd36a76572dfd5c",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_183932.jpg",
+      "bytes": 488320,
+      "sha256": "8aac8c8eedc26adff8b15b6e4508daf7cc9fbe97260e66572afdc01b0e7e5bc2",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_180252.jpg",
+      "bytes": 541408,
+      "sha256": "9a35cf728e81220aeec8bc3ff15f6e4aa5f1aa0a791c5bf051eeb384189e65a9",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_170845.jpg",
+      "bytes": 483923,
+      "sha256": "02949ec8682ebab1543001216db70dad406d2d88c79889f456d8c3865cfa0b49",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_170903.jpg",
+      "bytes": 456945,
+      "sha256": "ce0dbc7662b6aa23bf4925410ae9e11aeb3538a8961dbd249250768e771a8bf2",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_163213.jpg",
+      "bytes": 428013,
+      "sha256": "f8a83c346dbdb45d9bc7c7c06f78c1af62f26e620e0d0c2acb20376dda3b464a",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_163212.jpg",
+      "bytes": 460204,
+      "sha256": "1e5cdc0826e6fc6d37d9315f8a97f74121d55e3266efa4d588f2eb1066013636",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_163228.jpg",
+      "bytes": 544217,
+      "sha256": "d976c88f21b8f72c76af1450ff4827ac5c97701fce02789e0db03d624495fdaa",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_170452.jpg",
+      "bytes": 509037,
+      "sha256": "49dd4f393de1721630f309cb14a859b53f129cbafc70b14169630f33db888abd",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_EF575B08-3599-49B3-9B5F-824298C1E3C9-turn-the-phase-lock-3-6-9-oscillators-into-a-louvr.webp",
+      "bytes": 244982,
+      "sha256": "7991683828fb3da32f8d1ae8530eaadd30954dd738c2cb3ace67964178e4de2c",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_D79D4373-B87C-4E40-A120-1C5D5B7983AC-turn-the-phase-lock-3-6-9-oscillators-into-a-louvr.webp",
+      "bytes": 254872,
+      "sha256": "9dcac0e8a1fb029d4c77bd63e4de59ddbd3fd08675a2decde77ebe684a560aa4",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "masterpiece-that-breathes-through-frequencies-of-t.jpg",
+      "bytes": 308106,
+      "sha256": "0ab51cef7d916b86ec8f38b9a2d6d19a279c2f3b22f7d2604fe8519a3f4995c9",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_184352.mp4",
+      "bytes": 9575455,
+      "sha256": "2bcc34e981ad5136c140e4ec268d03452350ae26115078ed0125718e31df5b36",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "media(18).mp4",
+      "bytes": 13984062,
+      "sha256": "9a691d27bf46c93eea4da6e2786533acc44dec1c3ccab91ffa877610e3b69e3a",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "turn-the-nj-real-estate-blockchain-twin-into-an-an(1).mp4",
+      "bytes": 15840264,
+      "sha256": "7a04a35f5c7fe2525bc22b97d1e5b793f2a79819f1098875e15420571e0ecf46",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "download.mp4",
+      "bytes": 5247889,
+      "sha256": "bc4b3bfc670c5e47ee80e7a8c3d820f206fbe5f26bcffc4d49992932ca1e99fa",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "image_20261018_215439.mp4",
+      "bytes": 11524017,
+      "sha256": "2418fa238b4c6cba1a0554d714966c41ec6460d94a69630ca9fde6b67963ebf4",
+      "classification": "creator-supplied media",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "SCROLL_VERSE_LLC_Operating_Agreement_FINAL_2026_EIN_42-2509570(1).pdf",
+      "bytes": 7463,
+      "sha256": "aa30b567d6568ca75183ea2ac79a316630459d0640e6a9ca43c9f60950c0783f",
+      "classification": "creator-supplied legal document",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "SCROLL_VERSE_LLC_Operating_Agreement_FINAL_2026_EIN_42-2509570(1).docx",
+      "bytes": 19346,
+      "sha256": "04f96137a8e121dcc6bfc51830970be830350c5f9c8e4bca42be626807797c9b",
+      "classification": "creator-supplied legal document",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "SCROLL_VERSE_LLC_Operating_Agreement_FINAL_2026_EIN_42-2509570.pdf",
+      "bytes": 7463,
+      "sha256": "aa30b567d6568ca75183ea2ac79a316630459d0640e6a9ca43c9f60950c0783f",
+      "classification": "creator-supplied legal document",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "SCROLL_VERSE_LLC_Operating_Agreement_FINAL_2026_EIN_42-2509570.docx",
+      "bytes": 19346,
+      "sha256": "04f96137a8e121dcc6bfc51830970be830350c5f9c8e4bca42be626807797c9b",
+      "classification": "creator-supplied legal document",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Scrollverse-V6-Legal-Bundle.html",
+      "bytes": 225093,
+      "sha256": "0b4f1b9d7f45d8857343714663f76592699a6b07750d6ebf2275f347b2e5ae90",
+      "classification": "creator-supplied legal document",
+      "displayScope": "metadata-only"
+    }
+  ]
+}

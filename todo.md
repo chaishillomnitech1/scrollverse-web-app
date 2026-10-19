@@ -6516,3 +6516,17 @@
 - [x] Add a read-only profile panel showing the selected record's filename, byte count, classification, display scope, accession date, and exact SHA-256 identifier.
 - [x] Extend and validate the reusable source-led portfolio skill with the accession dashboard pattern.
 - [x] Add focused regression coverage for filtering, status summaries, metadata-only boundaries, and profile lookup.
+
+## Phase 954 — Accession Export, Pagination, and Detail Modal
+- [x] Add escaped CSV export for the complete filtered accession set with a stable metadata header.
+- [x] Add bounded, filter-aware pagination with clamped pages, disabled boundaries, and accessible page navigation.
+- [x] Add a keyboard-reachable metadata detail modal with preserved history and a non-playback file-type preview placeholder.
+- [x] Extend the reusable source-led portfolio skill with export, pagination, and metadata-only modal guidance.
+- [x] Add focused regression coverage for CSV output, pagination, and preview classification.
+
+## Phase 955 — October 19 Source Accession and Legal-Record Boundary
+- [x] Accession the October 19 creator-supplied source batch with exact byte counts, SHA-256 identifiers, classifications, and metadata-only display scope.
+- [x] Add the newly delivered `Scrollverse-V6-Legal-Bundle.html` as a separate legal-document receipt without opening or interpreting its contents.
+- [x] Preserve creator and family attribution as source provenance while keeping legal, financial, on-chain, rights, and public-status statements separate from independent verification.
+- [x] Add an explicit source-selection gate and legal-document boundary note; no playback, execution, payment, wallet, contract, deployment, repository push, transfer, or publication action occurred.
+- [x] Update the reusable source-led portfolio skill and verify focused/full tests, TypeScript, guarded build, whitespace, and skill validation.

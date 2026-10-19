@@ -30,6 +30,18 @@ describe("Phase 953 — accession records dashboard", () => {
       classification: record.classification,
       displayScope: "metadata-only",
       accessionDate: "2026-10-18",
+      metadataHistory: [
+        {
+          date: "2026-10-18",
+          event: "Accessioned from creator-supplied upload",
+          detail: "Exact filename, byte count, and SHA-256 recorded.",
+        },
+        {
+          date: "2026-10-18",
+          event: "Display boundary assigned",
+          detail: "Classified as metadata-only; source body remains unopened here.",
+        },
+      ],
     });
     expect(getAccessionProfile("missing-record")).toBeNull();
   });

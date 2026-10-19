@@ -102,5 +102,50 @@ export function getAccessionStatusSummary(records: readonly AccessionRecord[]) {
 export function getAccessionProfile(filename: string) {
   const record = ACCESSION_RECORDS.find((candidate) => candidate.filename === filename);
   if (!record) return null;
-  return { ...record, accessionDate: ACCESSION_DATE };
+  return {
+    ...record,
+    accessionDate: ACCESSION_DATE,
+    metadataHistory: [
+      { date: ACCESSION_DATE, event: "Accessioned from creator-supplied upload", detail: "Exact filename, byte count, and SHA-256 recorded." },
+      { date: ACCESSION_DATE, event: "Display boundary assigned", detail: `Classified as ${record.displayScope}; source body remains unopened here.` },
+    ],
+  };
+}
+
+export type AccessionPage = {
+  records: AccessionRecord[];
+  page: number;
+  pageSize: number;
+  totalPages: number;
+  totalRecords: number;
+};
+
+export function paginateAccessionRecords(records: readonly AccessionRecord[], page: number, pageSize: number): AccessionPage {
+  const safePageSize = Math.max(1, Math.floor(pageSize));
+  const totalPages = Math.max(1, Math.ceil(records.length / safePageSize));
+  const safePage = Math.min(Math.max(1, Math.floor(page)), totalPages);
+  const start = (safePage - 1) * safePageSize;
+  return { records: records.slice(start, start + safePageSize), page: safePage, pageSize: safePageSize, totalPages, totalRecords: records.length };
+}
+
+function csvCell(value: string | number) {
+  const text = String(value);
+  return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+}
+
+export function buildAccessionCsv(records: readonly AccessionRecord[]) {
+  const header = ["filename", "bytes", "sha256", "classification", "displayScope", "accessionDate"];
+  const rows = records.map((record) => [record.filename, record.bytes, record.sha256, record.classification, record.displayScope, ACCESSION_DATE].map(csvCell).join(","));
+  return [header.join(","), ...rows].join("\n");
+}
+
+export type AccessionPreviewKind = "image" | "video" | "audio" | "text" | "archive" | "metadata";
+
+export function getAccessionPreviewKind(filename: string): AccessionPreviewKind {
+  if (/\.(jpg|jpeg|png|webp)$/i.test(filename)) return "image";
+  if (/\.(mp4|mov|webm)$/i.test(filename)) return "video";
+  if (/\.(wav|mp3|m4a|ogg)$/i.test(filename)) return "audio";
+  if (/\.(txt|md|json|html|css|ts|tsx|js|jsx|py|sol)$/i.test(filename)) return "text";
+  if (/\.zip$/i.test(filename)) return "archive";
+  return "metadata";
 }

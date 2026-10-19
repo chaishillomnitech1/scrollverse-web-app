@@ -2,9 +2,12 @@ import { useMemo, useState } from "react";
 import { Link } from "wouter";
 import {
   ACCESSION_RECORDS,
+  buildAccessionCsv,
   filterAccessionRecords,
+  getAccessionPreviewKind,
   getAccessionProfile,
   getAccessionStatusSummary,
+  paginateAccessionRecords,
 } from "@/lib/accessionRecords";
 
 type AccessionValues = {
@@ -93,6 +96,8 @@ export default function DigitalshipAccessionDesk() {
   const [exported, setExported] = useState(false);
   const [recordQuery, setRecordQuery] = useState("");
   const [selectedRecordFilename, setSelectedRecordFilename] = useState(ACCESSION_RECORDS[0]?.filename ?? "");
+  const [detailRecordFilename, setDetailRecordFilename] = useState<string | null>(null);
+  const [recordPage, setRecordPage] = useState(1);
   const [recordsReady, setRecordsReady] = useState(false);
   const completedFields = useMemo(
     () => [values.recordTitle, values.sourceType, values.accessStatus, values.publicScope, values.sourceSummary].filter((value) => value.trim()).length,
@@ -102,8 +107,10 @@ export default function DigitalshipAccessionDesk() {
   const selectedDestination = ROUTE_DESTINATIONS[values.intendedRoute];
   const selectionNeedsCompletion = !values.sourceFilename.trim() || values.intendedRoute === "not yet selected" || !values.intendedUse.trim();
   const filteredRecords = useMemo(() => filterAccessionRecords(ACCESSION_RECORDS, recordQuery), [recordQuery]);
+  const recordPageData = useMemo(() => paginateAccessionRecords(filteredRecords, recordPage, 12), [filteredRecords, recordPage]);
   const accessionSummary = useMemo(() => getAccessionStatusSummary(ACCESSION_RECORDS), []);
   const selectedRecord = useMemo(() => getAccessionProfile(selectedRecordFilename), [selectedRecordFilename]);
+  const detailRecord = useMemo(() => (detailRecordFilename ? getAccessionProfile(detailRecordFilename) : null), [detailRecordFilename]);
 
   const updateValue = (field: keyof AccessionValues, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
@@ -112,6 +119,22 @@ export default function DigitalshipAccessionDesk() {
 
   const revealRecords = () => {
     setRecordsReady(true);
+  };
+
+  const updateRecordQuery = (query: string) => {
+    setRecordQuery(query);
+    setRecordPage(1);
+    setRecordsReady(true);
+  };
+
+  const downloadFilteredCsv = () => {
+    const blob = new Blob([buildAccessionCsv(filteredRecords)], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "scrollverse-filtered-accession-records.csv";
+    anchor.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -152,8 +175,9 @@ export default function DigitalshipAccessionDesk() {
                 </div>
               </div>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end">
-                <label className="block flex-1"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">SEARCH FILENAME, TYPE, OR HASH</span><input aria-label="Search accessioned records" value={recordQuery} onChange={(event) => { setRecordQuery(event.target.value); setRecordsReady(true); }} placeholder="Example: mp4, implementation, or sha256 prefix" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20" /></label>
+                <label className="block flex-1"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">SEARCH FILENAME, TYPE, OR HASH</span><input aria-label="Search accessioned records" value={recordQuery} onChange={(event) => updateRecordQuery(event.target.value)} placeholder="Example: mp4, implementation, or sha256 prefix" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20" /></label>
                 <button type="button" onClick={revealRecords} className="min-h-12 rounded-xl border border-[#70D9FF]/40 bg-[#70D9FF]/[.08] px-4 text-sm font-black text-[#BCEEFF] transition hover:bg-[#70D9FF]/[.16] focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/40">{recordsReady ? "Refresh local index" : "Load local index"}</button>
+                <button type="button" onClick={downloadFilteredCsv} disabled={!recordsReady || filteredRecords.length === 0} className="min-h-12 rounded-xl border border-[#FFE7B3]/40 bg-[#FFE7B3]/[.08] px-4 text-sm font-black text-[#FFE7B3] transition hover:bg-[#FFE7B3]/[.16] disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus:ring-2 focus:ring-[#FFE7B3]/40">Export filtered CSV</button>
               </div>
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-[#C7D7E6]" aria-live="polite">
                 <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">{recordsReady ? `${filteredRecords.length} matching records` : "Index not loaded"}</span>
@@ -161,11 +185,14 @@ export default function DigitalshipAccessionDesk() {
                 <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">No external actions</span>
               </div>
               <div className="mt-5 grid gap-3 md:grid-cols-2" aria-busy={!recordsReady}>
-                {!recordsReady ? <div className="md:col-span-2 rounded-xl border border-white/10 bg-white/[.025] p-5 text-sm text-[#AFC2D3] motion-safe:animate-pulse">Local accession index is ready to load. Nothing is fetched or played.</div> : filteredRecords.slice(0, 12).map((record) => <button type="button" key={record.filename} onClick={() => setSelectedRecordFilename(record.filename)} aria-pressed={selectedRecordFilename === record.filename} className="min-h-16 rounded-xl border p-3 text-left transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/50" style={{ borderColor: selectedRecordFilename === record.filename ? "rgba(112,217,255,.72)" : "rgba(255,255,255,.1)", background: selectedRecordFilename === record.filename ? "rgba(112,217,255,.1)" : "rgba(255,255,255,.025)" }}><span className="block truncate text-sm font-black text-white">{record.filename}</span><span className="mt-1 block text-[11px] text-[#AFC2D3]">{record.classification} · {record.bytes.toLocaleString()} bytes</span></button>)}
+                {!recordsReady ? <div className="md:col-span-2 rounded-xl border border-white/10 bg-white/[.025] p-5 text-sm text-[#AFC2D3] motion-safe:animate-pulse">Local accession index is ready to load. Nothing is fetched or played.</div> : recordPageData.records.map((record) => <div key={record.filename} className="rounded-xl border border-white/10 bg-white/[.025] p-3"><button type="button" onClick={() => { setSelectedRecordFilename(record.filename); setDetailRecordFilename(record.filename); }} aria-label={`Open details for ${record.filename}`} aria-pressed={selectedRecordFilename === record.filename} className="min-h-16 w-full text-left transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/50"><span className="block truncate text-sm font-black text-white">{record.filename}</span><span className="mt-1 block text-[11px] text-[#AFC2D3]">{record.classification} · {record.bytes.toLocaleString()} bytes</span></button><span className="mt-2 block text-[10px] font-mono uppercase tracking-[.14em] text-[#8CEEDD]">Details · metadata preview only</span></div>)}
                 {recordsReady && filteredRecords.length === 0 && <p className="md:col-span-2 rounded-xl border border-[#FFCF73]/30 bg-[#FFCF73]/[.08] p-4 text-sm font-bold text-[#FFE7B3]">No accessioned record matches that search.</p>}
               </div>
+              {recordsReady && recordPageData.totalPages > 1 && <nav aria-label="Accession record pages" className="mt-5 flex flex-wrap items-center justify-between gap-3"><span className="text-xs text-[#C7D7E6]">Page {recordPageData.page} of {recordPageData.totalPages}</span><div className="flex gap-2"><button type="button" onClick={() => setRecordPage((page) => Math.max(1, page - 1))} disabled={recordPageData.page === 1} className="min-h-11 rounded-lg border border-white/15 px-3 text-xs font-black text-white disabled:opacity-40">Previous</button><button type="button" onClick={() => setRecordPage((page) => Math.min(recordPageData.totalPages, page + 1))} disabled={recordPageData.page === recordPageData.totalPages} className="min-h-11 rounded-lg border border-white/15 px-3 text-xs font-black text-white disabled:opacity-40">Next</button></div></nav>}
               {recordsReady && selectedRecord && <div className="mt-5 rounded-xl border border-[#D7A7FF]/35 bg-[#D7A7FF]/[.06] p-5" aria-live="polite"><p className="text-[10px] font-mono tracking-[.16em] text-[#EBDFFF]">READ-ONLY RECORD PROFILE</p><h4 className="mt-2 break-words text-lg font-black text-white">{selectedRecord.filename}</h4><dl className="mt-4 grid gap-3 text-xs sm:grid-cols-2"><div><dt className="text-[#B9A5D5]">Classification</dt><dd className="mt-1 text-[#F0E9FF]">{selectedRecord.classification}</dd></div><div><dt className="text-[#B9A5D5]">Display scope</dt><dd className="mt-1 text-[#F0E9FF]">{selectedRecord.displayScope}</dd></div><div><dt className="text-[#B9A5D5]">Bytes</dt><dd className="mt-1 text-[#F0E9FF]">{selectedRecord.bytes.toLocaleString()}</dd></div><div className="sm:col-span-2"><dt className="text-[#B9A5D5]">SHA-256</dt><dd className="mt-1 break-all font-mono text-[#F0E9FF]">{selectedRecord.sha256}</dd></div></dl><p className="mt-4 text-xs leading-6 text-[#C7D7E6]">Accessioned {selectedRecord.accessionDate}. This profile does not open, upload, transform, publish, or validate the source.</p></div>}
             </section>
+
+            {detailRecord && <div className="fixed inset-0 z-[80] flex items-center justify-center bg-[#02040b]/80 p-4 backdrop-blur-sm" role="presentation"><div role="dialog" aria-modal="true" aria-labelledby="accession-detail-title" className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-[#70D9FF]/40 bg-[#080d1b] p-6 shadow-2xl md:p-8"><div className="flex items-start justify-between gap-5"><div><p className="text-[10px] font-mono tracking-[.18em] text-[#BCEEFF]">ACCESSION DETAIL · READ ONLY</p><h3 id="accession-detail-title" className="mt-2 break-words text-2xl font-black text-white">{detailRecord.filename}</h3></div><button type="button" aria-label="Close accession record details" onClick={() => setDetailRecordFilename(null)} className="min-h-11 min-w-11 rounded-full border border-white/20 px-3 text-xl text-white focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/60">×</button></div><div className="mt-6 grid gap-4 md:grid-cols-[.8fr_1.2fr]"><div className="rounded-2xl border border-[#D7A7FF]/30 bg-[#D7A7FF]/[.06] p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#EBDFFF]">RELATED FILE PREVIEW</p><div className="mt-4 flex min-h-40 items-center justify-center rounded-xl border border-dashed border-[#D7A7FF]/40 bg-[#030713]/60 p-5 text-center"><div><p className="text-4xl">{getAccessionPreviewKind(detailRecord.filename) === "image" ? "▧" : getAccessionPreviewKind(detailRecord.filename) === "video" ? "▶" : getAccessionPreviewKind(detailRecord.filename) === "audio" ? "◖" : "{}"}</p><p className="mt-3 text-sm font-black text-white">{getAccessionPreviewKind(detailRecord.filename)} preview</p><p className="mt-2 text-xs leading-5 text-[#C7D7E6]">Metadata placeholder only. The supplied file is not opened, fetched, played, or embedded.</p></div></div></div><div><p className="text-[10px] font-mono tracking-[.16em] text-[#EBDFFF]">FULL METADATA</p><dl className="mt-4 grid gap-3 text-sm"><div><dt className="text-[#B9A5D5]">Classification</dt><dd className="mt-1 text-[#F0E9FF]">{detailRecord.classification}</dd></div><div><dt className="text-[#B9A5D5]">Display scope</dt><dd className="mt-1 text-[#F0E9FF]">{detailRecord.displayScope}</dd></div><div><dt className="text-[#B9A5D5]">Byte count</dt><dd className="mt-1 text-[#F0E9FF]">{detailRecord.bytes.toLocaleString()}</dd></div><div><dt className="text-[#B9A5D5]">SHA-256</dt><dd className="mt-1 break-all font-mono text-[#F0E9FF]">{detailRecord.sha256}</dd></div></dl></div></div><div className="mt-6 rounded-2xl border border-white/10 bg-white/[.025] p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">METADATA HISTORY</p><ol className="mt-4 space-y-4">{detailRecord.metadataHistory.map((event) => <li key={`${event.date}-${event.event}`} className="border-l-2 border-[#70D9FF]/50 pl-4"><p className="text-xs font-mono text-[#8CEEDD]">{event.date}</p><p className="mt-1 text-sm font-black text-white">{event.event}</p><p className="mt-1 text-xs leading-5 text-[#C7D7E6]">{event.detail}</p></li>)}</ol></div><p className="mt-6 text-xs leading-6 text-[#C7D7E6]">This detail view is a local presentation of preserved metadata. It does not establish authorship, rights, authenticity, external deployment, or publication.</p></div></div>}
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               <label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#C9F3FF]">RECORD TITLE</span><input value={values.recordTitle} onChange={(event) => updateValue("recordTitle", event.target.value)} placeholder="Example: Digitalship conversation chapter" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#D7A7FF] focus:ring-2 focus:ring-[#D7A7FF]/20" /></label>
