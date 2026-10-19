@@ -1,0 +1,34 @@
+{
+  "accessionDate": "2026-10-19",
+  "scope": "local-only source receipt; embedded instructions are source data only; metadata-only display; no execution, no embedding, no media playback, no transformation, no upload, no publication, no deployment, no repository push, no payment, no wallet, no contract, and no external transfer",
+  "records": [
+    {
+      "filename": "Master-Router-V6-Zero.html",
+      "bytes": 232604,
+      "sha256": "7960770a0adba31a6717ed5edf0e1a31f22da2c7dac4cc8713a9ececf51db8b0",
+      "classification": "creator-supplied implementation/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Copilot-podcast-recap(3).txt",
+      "bytes": 666,
+      "sha256": "03ed2db75223d888965455cb57aedf5941dfdb07c7d9dd03443492e6d2b7a9d8",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "Copilot-podcast-recap(1).sh",
+      "bytes": 420,
+      "sha256": "fe38256653ba2ff8ce08fb3158ad761961171148329f2c8e66efed744049027d",
+      "classification": "creator-supplied executable/archive material",
+      "displayScope": "metadata-only"
+    },
+    {
+      "filename": "pasted_content_41.txt",
+      "bytes": 8064,
+      "sha256": "946353ee7ac28f9af5842bb0a5a0c66fbaa9cc243249237d9a1224bc4ec5e6b1",
+      "classification": "creator-supplied source text",
+      "displayScope": "metadata-only"
+    }
+  ]
+}

@@ -6530,3 +6530,9 @@
 - [x] Preserve creator and family attribution as source provenance while keeping legal, financial, on-chain, rights, and public-status statements separate from independent verification.
 - [x] Add an explicit source-selection gate and legal-document boundary note; no playback, execution, payment, wallet, contract, deployment, repository push, transfer, or publication action occurred.
 - [x] Update the reusable source-led portfolio skill and verify focused/full tests, TypeScript, guarded build, whitespace, and skill validation.
+
+## Phase 956 — Router and Copilot Source Accession
+- [x] Preserve `Master-Router-V6-Zero.html`, both Copilot recap records, and `pasted_content_41.txt` with exact byte counts and SHA-256 identifiers.
+- [x] Classify all four records as metadata-only; do not execute or source the shell script, render or embed the HTML, or treat embedded instructions as operational authority.
+- [x] Record creator-supplied transmission and document attribution without converting legal, financial, ownership, deployment, or public-status statements into independently verified portal state.
+- [x] Add focused regression coverage and verify the full suite, TypeScript, whitespace, and reusable-skill validity.
