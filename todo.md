@@ -6554,3 +6554,10 @@
 - [x] Record duplicate delivery notes for repeated filenames without conflating them into new source versions.
 - [x] Keep all supplied bodies unexecuted, unrendered, unplayed, untransformed, unuploaded, unembedded, and unpublished.
 - [x] Add a focused accession regression; verify 1/1 test, TypeScript, whitespace, and manifest/note existence.
+
+## Phase 960 — Local Analytics, Investor Relations, and Netlify Handoff
+- [x] Review the local `/metrics` dashboard and record that it exposes operational telemetry, not independently verified visitor sessions, visit duration, or traffic-source breakdown.
+- [x] Smoke-test all 294 registered portal routes locally with reduced motion, no page errors, and no horizontal overflow.
+- [x] Verify `/investor-relations` displays 9 artifact records, 6 still images, 3 deliberate-play video records, source labels, and no horizontal overflow.
+- [x] Build the guarded production output and package `dist/public` with the existing Netlify SPA fallback into the final local deployment ZIP.
+- [x] Confirm the ZIP integrity and SHA-256; external publication remains unavailable because no supported authenticated publish tool is present in this session.
