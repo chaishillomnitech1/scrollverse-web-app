@@ -6548,3 +6548,9 @@
 - [x] Preserve the newly supplied Bundle v6.1 archive, duplicate router HTML, and Copilot shell as exact metadata-only receipts.
 - [x] Record archive member count, byte counts, SHA-256 identifiers, and explicit non-execution boundaries in the October 19 source-review manifest and accession note.
 - [x] Add focused regression coverage; verify 3 focused tests, TypeScript, whitespace, and packaged bundle existence.
+
+## Phase 959 — October 20 Creator Upload Accession
+- [x] Preserve the supplied text, HTML, CSS, still-image, and video records as exact metadata-only receipts with byte counts and SHA-256 identifiers.
+- [x] Record duplicate delivery notes for repeated filenames without conflating them into new source versions.
+- [x] Keep all supplied bodies unexecuted, unrendered, unplayed, untransformed, unuploaded, unembedded, and unpublished.
+- [x] Add a focused accession regression; verify 1/1 test, TypeScript, whitespace, and manifest/note existence.
