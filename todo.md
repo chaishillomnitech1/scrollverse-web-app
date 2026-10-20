@@ -6561,3 +6561,8 @@
 - [x] Verify `/investor-relations` displays 9 artifact records, 6 still images, 3 deliberate-play video records, source labels, and no horizontal overflow.
 - [x] Build the guarded production output and package `dist/public` with the existing Netlify SPA fallback into the final local deployment ZIP.
 - [x] Confirm the ZIP integrity and SHA-256; external publication remains unavailable because no supported authenticated publish tool is present in this session.
+
+## Phase 961 — Comprehensive Local Checkpoint Summary
+- [x] Compile a source-labeled summary of local telemetry, visitor-observation boundaries, source collections, video references, accession manifests, Investor Relations records, accessibility work, and route coverage.
+- [x] Record fresh evidence for 294 routes, zero route-matrix failures, zero page errors, zero overflow findings, and the Investor Relations still/motion counts.
+- [x] Verify the Netlify ZIP contents and SHA-256 in the summary without publishing or executing supplied source files.
