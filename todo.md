@@ -6566,3 +6566,10 @@
 - [x] Compile a source-labeled summary of local telemetry, visitor-observation boundaries, source collections, video references, accession manifests, Investor Relations records, accessibility work, and route coverage.
 - [x] Record fresh evidence for 294 routes, zero route-matrix failures, zero page errors, zero overflow findings, and the Investor Relations still/motion counts.
 - [x] Verify the Netlify ZIP contents and SHA-256 in the summary without publishing or executing supplied source files.
+
+## Phase 962 — Investor Gallery and Visitor Observation Controls
+- [x] Add an interactive motion-to-still gallery with kind filters, title/type sorting, selected-record detail, accessible live feedback, hover states, and reduced-motion-safe transitions.
+- [x] Add a filterable and sortable visitor-observation records section to the local telemetry dashboard with source labels and bounded interpretations.
+- [x] Add truthful refresh/loading semantics, accessible labels, disabled refresh state, and mobile overflow protection.
+- [x] Preserve the newly supplied 2026-10-20 screenshot values as a separate owner-shared observation batch: 724 page views, 15 visits, 12 visitors, 7m01s average duration, and 53.3% bounce rate.
+- [x] Verify focused tests and real-browser desktop/mobile reduced-motion flows with no page errors or horizontal overflow.

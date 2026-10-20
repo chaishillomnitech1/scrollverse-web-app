@@ -1,9 +1,26 @@
+import { useMemo, useState, useTransition } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ExternalLink, Film, Image as ImageIcon, ShieldCheck } from "lucide-react";
-import { INVESTOR_RELATIONS_RECORDS, getInvestorRelationSummary } from "@/lib/investorRelations";
+import {
+  filterInvestorRelationRecords,
+  INVESTOR_RELATIONS_RECORDS,
+  getInvestorRelationSummary,
+  sortInvestorRelationRecords,
+} from "@/lib/investorRelations";
 
 export default function InvestorRelations() {
   const summary = getInvestorRelationSummary(INVESTOR_RELATIONS_RECORDS);
+  const [kind, setKind] = useState<"all" | "still" | "motion">("all");
+  const [sort, setSort] = useState<"title-asc" | "title-desc" | "kind">("title-asc");
+  const [selectedId, setSelectedId] = useState(INVESTOR_RELATIONS_RECORDS[0]?.id ?? "");
+  const [isPending, startTransition] = useTransition();
+  const visibleRecords = useMemo(
+    () => sortInvestorRelationRecords(filterInvestorRelationRecords(kind), sort),
+    [kind, sort],
+  );
+  const selectedRecord = visibleRecords.find((record) => record.id === selectedId) ?? visibleRecords[0];
+
+  const updateGallery = (update: () => void) => startTransition(update);
 
   return (
     <main className="min-h-screen bg-[#050b1a] px-4 py-10 text-white sm:px-6 lg:px-10">
@@ -46,9 +63,31 @@ export default function InvestorRelations() {
               Open accession records <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {INVESTOR_RELATIONS_RECORDS.map((record) => (
-              <article key={record.id} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] shadow-2xl shadow-black/20">
+          <div className="mt-6 flex flex-wrap items-end gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
+            <div>
+              <label htmlFor="investor-kind" className="text-xs font-mono uppercase tracking-[0.16em] text-slate-400">View type</label>
+              <select id="investor-kind" value={kind} onChange={(event) => updateGallery(() => setKind(event.target.value as typeof kind))} className="mt-2 block min-h-11 rounded-xl border border-cyan-300/25 bg-[#071124] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                <option value="all">All masterworks</option><option value="still">Still masterpieces</option><option value="motion">Motion references</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="investor-sort" className="text-xs font-mono uppercase tracking-[0.16em] text-slate-400">Sort</label>
+              <select id="investor-sort" value={sort} onChange={(event) => updateGallery(() => setSort(event.target.value as typeof sort))} className="mt-2 block min-h-11 rounded-xl border border-amber-300/25 bg-[#071124] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">
+                <option value="title-asc">Title A–Z</option><option value="title-desc">Title Z–A</option><option value="kind">Group by type</option>
+              </select>
+            </div>
+            <p className="text-sm text-slate-300" aria-live="polite">{isPending ? "Recomposing gallery…" : `${visibleRecords.length} source-labeled records shown`}</p>
+          </div>
+          {selectedRecord && (
+            <div className="mt-6 rounded-2xl border border-emerald-300/25 bg-emerald-300/[0.06] p-5" aria-live="polite">
+              <p className="text-xs font-mono uppercase tracking-[0.18em] text-emerald-200">Selected gallery record</p>
+              <h3 className="mt-2 text-2xl font-black">{selectedRecord.title}</h3>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">{selectedRecord.description}</p>
+            </div>
+          )}
+          <div className={`mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3 ${isPending ? "opacity-60" : "opacity-100"} transition-opacity duration-300`}>
+            {visibleRecords.map((record) => (
+              <article key={record.id} className={`group overflow-hidden rounded-3xl border bg-white/[0.035] shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-cyan-950/40 motion-reduce:transform-none motion-reduce:transition-none ${selectedRecord?.id === record.id ? "border-emerald-300/60" : "border-white/10"}`}>
                 <div className="aspect-[16/10] bg-black/30">
                   {record.kind === "still" && record.image ? (
                     <img src={record.image} alt={record.title} loading="lazy" className="h-full w-full object-cover" />
@@ -63,7 +102,7 @@ export default function InvestorRelations() {
                     {record.kind === "still" ? <ImageIcon className="h-4 w-4" aria-hidden="true" /> : <Film className="h-4 w-4" aria-hidden="true" />}
                     {record.kind}
                   </div>
-                  <h3 className="mt-3 text-xl font-bold">{record.title}</h3>
+                  <button type="button" aria-pressed={selectedRecord?.id === record.id} onClick={() => setSelectedId(record.id)} className="mt-3 rounded-lg text-left text-xl font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">{record.title}</button>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{record.description}</p>
                   <p className="mt-4 border-t border-white/10 pt-3 text-xs text-slate-400">Source: {record.sourceLabel}</p>
                 </div>

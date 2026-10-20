@@ -45,3 +45,18 @@ export function getInvestorRelationSummary(records: readonly InvestorRelationRec
     externalActions: "none" as const,
   };
 }
+
+export function filterInvestorRelationRecords(kind: "all" | InvestorRelationRecord["kind"]) {
+  return INVESTOR_RELATIONS_RECORDS.filter((record) => kind === "all" || record.kind === kind);
+}
+
+export function sortInvestorRelationRecords(
+  records: readonly InvestorRelationRecord[],
+  sort: "title-asc" | "title-desc" | "kind",
+) {
+  return [...records].sort((a, b) => {
+    if (sort === "kind") return a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title);
+    const comparison = a.title.localeCompare(b.title);
+    return sort === "title-desc" ? -comparison : comparison;
+  });
+}

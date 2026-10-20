@@ -4,9 +4,10 @@
  * Real-time counts: bookings, revenue, guardians, active users, Seerah scrolls
  * Frequency: 44:OMNI · KUN FAYAKŪN × ∞
  */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { filterVisitorObservations, sortVisitorObservations } from "@/lib/visitorObservations";
 
 // ── Animated counter ──────────────────────────────────────────────────────────
 function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number; prefix?: string; suffix?: string }) {
@@ -47,7 +48,7 @@ function MetricCard({
 }) {
   return (
     <div
-      className="rounded-xl p-5 relative overflow-hidden"
+      className="group rounded-xl p-5 relative overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none"
       style={{
         background: `${color}06`,
         border: `1px solid ${color}20`,
@@ -122,7 +123,7 @@ function StatusBadge({ status }: { status: string }) {
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function OmniMetrics() {
-  const { data, isLoading, refetch } = trpc.metrics.getOmniMetrics.useQuery(undefined, {
+  const { data, isLoading, isFetching, refetch } = trpc.metrics.getOmniMetrics.useQuery(undefined, {
     refetchInterval: 30_000, // auto-refresh every 30s
   });
 
@@ -137,10 +138,16 @@ export default function OmniMetrics() {
     signature: "#8B5CF6",
     fleet: "#FF6B35",
   };
+  const [observationCategory, setObservationCategory] = useState<"all" | "reach" | "engagement" | "quality">("all");
+  const [observationSort, setObservationSort] = useState<"value-desc" | "value-asc" | "label-asc">("value-desc");
+  const observations = useMemo(
+    () => sortVisitorObservations(filterVisitorObservations(observationCategory), observationSort),
+    [observationCategory, observationSort],
+  );
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen overflow-x-hidden"
       style={{ background: "#030810", fontFamily: "'Space Grotesk', sans-serif", color: "#E8EDF2" }}
     >
       <style>{`
@@ -181,11 +188,15 @@ export default function OmniMetrics() {
           <div className="flex items-center gap-3">
             <StatusBadge status={data?.status ?? "OPERATIONAL"} />
             <button
+              type="button"
+              aria-label={isFetching ? "Refreshing telemetry" : "Refresh telemetry"}
+              aria-busy={isFetching}
+              disabled={isFetching}
               onClick={() => refetch()}
-              className="text-xs px-3 py-1.5 rounded-lg transition-all duration-200"
+              className="min-h-11 text-xs px-3 py-1.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-60 motion-reduce:transform-none"
               style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.15)", color: "#00D4FF" }}
             >
-              ↻ Refresh
+              {isFetching ? "Refreshing…" : "↻ Refresh"}
             </button>
           </div>
         </div>
@@ -200,8 +211,8 @@ export default function OmniMetrics() {
           <h1 className="text-3xl md:text-4xl font-black text-white mb-2">
             Live <span style={{ color: "#00D4FF" }}>Telemetry</span> Dashboard
           </h1>
-          <p className="text-sm" style={{ color: "#5a6a7a" }}>
-            Last updated: {lastRefresh.toLocaleTimeString()} · Auto-refresh: 30s · Frequency: 44:OMNI Hz
+          <p className="text-sm" style={{ color: "#5a6a7a" }} aria-live="polite">
+            Last updated: {lastRefresh.toLocaleTimeString()} · Auto-refresh: 30s · Frequency: 44:OMNI Hz {isFetching ? "· Refresh in progress" : ""}
           </p>
         </div>
 
@@ -353,6 +364,43 @@ export default function OmniMetrics() {
                   <div className="text-xs" style={{ color: "#5a6a7a" }}>
                     {data?.seerahScrollsLive ?? 3} of {data?.seerahScrollsTotal ?? 5} scrolls complete
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="mb-10" aria-labelledby="visitor-observation-heading">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-xs font-mono tracking-widest" style={{ color: "#B98CFF" }}>SOURCE-LABELED OBSERVATIONS</div>
+                <div className="flex-1 h-px" style={{ background: "rgba(185,140,255,0.1)" }} />
+              </div>
+              <div className="rounded-2xl p-5" style={{ background: "rgba(185,140,255,0.035)", border: "1px solid rgba(185,140,255,0.16)" }}>
+                <div className="flex flex-wrap items-end justify-between gap-4">
+                  <div>
+                    <h2 id="visitor-observation-heading" className="text-2xl font-black text-white">Visitor observation records</h2>
+                    <p className="mt-2 max-w-3xl text-sm leading-6" style={{ color: "#AABACB" }}>Owner-shared aggregate dashboard observations are presented for route and experience review. Individual identity, attribution, conversion, and revenue are not inferred.</p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <label className="text-xs font-mono" style={{ color: "#AABACB" }}>Category
+                      <select aria-label="Filter observations by category" value={observationCategory} onChange={(event) => setObservationCategory(event.target.value as typeof observationCategory)} className="mt-1 block min-h-11 rounded-lg border border-white/15 bg-[#071124] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B98CFF]">
+                        <option value="all">All</option><option value="reach">Reach</option><option value="engagement">Engagement</option><option value="quality">Quality</option>
+                      </select>
+                    </label>
+                    <label className="text-xs font-mono" style={{ color: "#AABACB" }}>Sort observations
+                      <select aria-label="Sort observations" value={observationSort} onChange={(event) => setObservationSort(event.target.value as typeof observationSort)} className="mt-1 block min-h-11 rounded-lg border border-white/15 bg-[#071124] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B98CFF]">
+                        <option value="value-desc">Value high to low</option><option value="value-asc">Value low to high</option><option value="label-asc">Metric A–Z</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+                <p className="mt-4 text-xs font-mono" style={{ color: "#D6C4FF" }} aria-live="polite">{observations.length} observation records shown · browser-local filtering</p>
+                <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                  {observations.map((observation) => (
+                    <article key={observation.id} className="rounded-xl border border-white/10 bg-black/20 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-[#B98CFF]/50 motion-reduce:transform-none motion-reduce:transition-none">
+                      <div className="flex items-start justify-between gap-3"><div><p className="text-xs font-mono uppercase" style={{ color: "#D6C4FF" }}>{observation.category}</p><h3 className="mt-2 font-bold text-white">{observation.label}</h3></div><strong className="text-xl" style={{ color: "#B98CFF" }}>{observation.displayValue}</strong></div>
+                      <p className="mt-3 text-xs leading-5" style={{ color: "#AABACB" }}>{observation.detail}</p>
+                      <p className="mt-3 text-[11px] leading-5" style={{ color: "#7F95A8" }}>{observation.sourceLabel} · {observation.observationWindow}</p>
+                    </article>
+                  ))}
                 </div>
               </div>
             </section>
