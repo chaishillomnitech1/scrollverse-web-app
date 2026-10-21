@@ -15,6 +15,10 @@ export default function InvestorRelations() {
   const [selectedId, setSelectedId] = useState(INVESTOR_RELATIONS_RECORDS[0]?.id ?? "");
   const [previewId, setPreviewId] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const composition = [
+    { kind: "still" as const, label: "Still masterpieces", value: summary.stills, color: "#6ee7b7" },
+    { kind: "motion" as const, label: "Motion references", value: summary.motion, color: "#67e8f9" },
+  ];
   const visibleRecords = useMemo(
     () => sortInvestorRelationRecords(filterInvestorRelationRecords(kind), sort),
     [kind, sort],
@@ -57,6 +61,26 @@ export default function InvestorRelations() {
               <p className="mt-1 text-sm text-slate-400">{detail}</p>
             </div>
           ))}
+        </section>
+
+        <section aria-label="Catalog composition chart" className="mt-8 rounded-2xl border border-cyan-300/15 bg-white/[0.035] p-5 sm:p-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-cyan-300">Catalog composition</p>
+              <h2 className="mt-2 text-2xl font-black">Source-labeled records by format</h2>
+            </div>
+            <p className="text-sm text-slate-400">A display inventory, not a financial performance claim.</p>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2" role="group" aria-label="Show only catalog format">
+            {composition.map((item) => {
+              const width = summary.total ? Math.max(12, Math.round((item.value / summary.total) * 100)) : 0;
+              return <button key={item.kind} type="button" aria-pressed={kind === item.kind} onClick={() => updateGallery(() => setKind(kind === item.kind ? "all" : item.kind))} className="rounded-xl border border-white/10 p-4 text-left transition hover:border-cyan-300/50 hover:bg-cyan-300/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 motion-reduce:transition-none">
+                <span className="flex items-center justify-between gap-3 text-sm font-semibold"><span>{item.label}</span><span className="text-slate-300">{item.value}</span></span>
+                <span className="mt-3 block h-3 overflow-hidden rounded-full bg-white/10" aria-hidden="true"><span className="bar block h-full rounded-full transition-[width] duration-500 motion-reduce:transition-none" style={{ width: `${width}%`, backgroundColor: item.color }} /></span>
+                <span className="mt-2 block text-xs text-slate-400">Show only {item.label.toLowerCase()}</span>
+              </button>;
+            })}
+          </div>
         </section>
 
         <div className="mt-10 flex items-start gap-3 rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.06] p-5 text-sm text-emerald-100" role="status">

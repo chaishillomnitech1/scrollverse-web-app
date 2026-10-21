@@ -6584,3 +6584,10 @@
 - [x] Verify the production build, server startup, SPA fallback, and key local route responses.
 - [x] Capture the managed deployment error showing Railway deploys are temporarily paused and the domain list is unchanged.
 - [x] Classify the failure as provider-side rather than a local code defect; do not perform repeated publish retries or external account changes.
+
+## Phase 965 — Discovery Search, Catalog Visualization, and Navigation Loading
+- [x] Add an explicit Source Collections clear-filters control and polite live result-count feedback.
+- [x] Add an accessible interactive catalog-composition visualization to Investor Relations with still/motion filter buttons, proportional bars, and a clear inventory-not-financial-performance label.
+- [x] Upgrade the shared lazy-route fallback with status semantics, a loading indicator, and reduced-motion support.
+- [x] Verify focused coverage, full suite (407 files / 1106 tests), TypeScript, whitespace, guarded production build, and reusable-skill validation.
+- [x] Record the remaining build advisory: React runtime remains above the 500 kB chunk warning threshold; route-level lazy loading remains active and no broad refactor was made without a measured bottleneck.
