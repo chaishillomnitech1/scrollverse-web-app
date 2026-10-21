@@ -6573,3 +6573,9 @@
 - [x] Add truthful refresh/loading semantics, accessible labels, disabled refresh state, and mobile overflow protection.
 - [x] Preserve the newly supplied 2026-10-20 screenshot values as a separate owner-shared observation batch: 724 page views, 15 visits, 12 visitors, 7m01s average duration, and 53.3% bounce rate.
 - [x] Verify focused tests and real-browser desktop/mobile reduced-motion flows with no page errors or horizontal overflow.
+
+## Phase 963 — Full-size Gallery Preview and Observation Quick Search
+- [x] Add keyboard-safe full-size lightbox previews for still and deliberate-play motion records, including Escape dismissal, explicit close control, source metadata, and reduced-motion-safe gallery transitions.
+- [x] Add case-insensitive visitor-observation quick search across stable record fields.
+- [x] Add non-color-only elevated/watch/context status tags to observation cards.
+- [x] Verify focused regressions, full suite (406 files / 1103 tests), TypeScript, guarded build, whitespace, skill validation, and desktop/mobile browser smoke with reduced motion.

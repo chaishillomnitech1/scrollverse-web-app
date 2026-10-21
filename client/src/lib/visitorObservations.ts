@@ -12,6 +12,8 @@ export type VisitorObservation = {
   detail: string;
 };
 
+export type VisitorObservationStatus = "elevated" | "watch" | "context";
+
 export const VISITOR_OBSERVATIONS: readonly VisitorObservation[] = [
   { id: "oct20-views-724", label: "Page views", metric: "page-views", category: "reach", value: 724, displayValue: "724", sourceLabel: "owner-shared analytics screenshot · IMG_1568.jpeg · 2026-10-20", observationWindow: "Last 24 hours shown in the capture", detail: "Aggregate page-view value visibly displayed in the supplied first-party dashboard screenshot." },
   { id: "oct20-visits-15", label: "Visits", metric: "visits", category: "reach", value: 15, displayValue: "15", sourceLabel: "owner-shared analytics screenshot · IMG_1568.jpeg · 2026-10-20", observationWindow: "Last 24 hours shown in the capture", detail: "Aggregate visit value visibly displayed in the supplied first-party dashboard screenshot." },
@@ -27,8 +29,31 @@ export const VISITOR_OBSERVATIONS: readonly VisitorObservation[] = [
   { id: "bounce-490", label: "Bounce rate", metric: "bounce-rate", category: "quality", value: 49, displayValue: "49%", sourceLabel: "owner-shared aggregate dashboard capture · Phase 539", observationWindow: "Later displayed capture", detail: "Later displayed aggregate bounce-rate value; no cause or attribution is inferred." },
 ];
 
-export function filterVisitorObservations(category: "all" | VisitorObservationCategory) {
-  return VISITOR_OBSERVATIONS.filter((observation) => category === "all" || observation.category === category);
+export function filterVisitorObservations(category: "all" | VisitorObservationCategory, query = "") {
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+  return VISITOR_OBSERVATIONS.filter((observation) => {
+    if (category !== "all" && observation.category !== category) return false;
+    if (!normalizedQuery) return true;
+    return [
+      observation.id,
+      observation.label,
+      observation.metric,
+      observation.category,
+      observation.displayValue,
+      observation.sourceLabel,
+      observation.observationWindow,
+      observation.detail,
+    ].some((field) => field.toLocaleLowerCase().includes(normalizedQuery));
+  });
+}
+
+export function getVisitorObservationStatus(observation: VisitorObservation): VisitorObservationStatus {
+  if (observation.metric === "bounce-rate") return observation.value >= 50 ? "watch" : "context";
+  if (observation.metric === "duration") return observation.value >= 480 ? "elevated" : "context";
+  if (observation.metric === "page-views") return observation.value >= 700 ? "elevated" : "context";
+  if (observation.metric === "visits") return observation.value >= 15 ? "elevated" : "context";
+  if (observation.metric === "visitors") return observation.value >= 12 ? "elevated" : "context";
+  return "context";
 }
 
 export function sortVisitorObservations(

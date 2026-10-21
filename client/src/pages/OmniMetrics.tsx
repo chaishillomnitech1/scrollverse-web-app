@@ -7,7 +7,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { filterVisitorObservations, sortVisitorObservations } from "@/lib/visitorObservations";
+import { filterVisitorObservations, getVisitorObservationStatus, sortVisitorObservations } from "@/lib/visitorObservations";
 
 // ── Animated counter ──────────────────────────────────────────────────────────
 function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number; prefix?: string; suffix?: string }) {
@@ -140,9 +140,10 @@ export default function OmniMetrics() {
   };
   const [observationCategory, setObservationCategory] = useState<"all" | "reach" | "engagement" | "quality">("all");
   const [observationSort, setObservationSort] = useState<"value-desc" | "value-asc" | "label-asc">("value-desc");
+  const [observationQuery, setObservationQuery] = useState("");
   const observations = useMemo(
-    () => sortVisitorObservations(filterVisitorObservations(observationCategory), observationSort),
-    [observationCategory, observationSort],
+    () => sortVisitorObservations(filterVisitorObservations(observationCategory, observationQuery), observationSort),
+    [observationCategory, observationQuery, observationSort],
   );
 
   return (
@@ -380,6 +381,9 @@ export default function OmniMetrics() {
                     <p className="mt-2 max-w-3xl text-sm leading-6" style={{ color: "#AABACB" }}>Owner-shared aggregate dashboard observations are presented for route and experience review. Individual identity, attribution, conversion, and revenue are not inferred.</p>
                   </div>
                   <div className="flex flex-wrap gap-3">
+                    <label className="text-xs font-mono" style={{ color: "#AABACB" }}>Search observation records
+                      <input type="search" value={observationQuery} onChange={(event) => setObservationQuery(event.target.value)} placeholder="Search metric, source, or detail" aria-label="Search observation records" className="mt-1 block min-h-11 w-56 rounded-lg border border-white/15 bg-[#071124] px-3 text-sm text-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B98CFF]" />
+                    </label>
                     <label className="text-xs font-mono" style={{ color: "#AABACB" }}>Category
                       <select aria-label="Filter observations by category" value={observationCategory} onChange={(event) => setObservationCategory(event.target.value as typeof observationCategory)} className="mt-1 block min-h-11 rounded-lg border border-white/15 bg-[#071124] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B98CFF]">
                         <option value="all">All</option><option value="reach">Reach</option><option value="engagement">Engagement</option><option value="quality">Quality</option>
@@ -396,7 +400,7 @@ export default function OmniMetrics() {
                 <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                   {observations.map((observation) => (
                     <article key={observation.id} className="rounded-xl border border-white/10 bg-black/20 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-[#B98CFF]/50 motion-reduce:transform-none motion-reduce:transition-none">
-                      <div className="flex items-start justify-between gap-3"><div><p className="text-xs font-mono uppercase" style={{ color: "#D6C4FF" }}>{observation.category}</p><h3 className="mt-2 font-bold text-white">{observation.label}</h3></div><strong className="text-xl" style={{ color: "#B98CFF" }}>{observation.displayValue}</strong></div>
+                      <div className="flex items-start justify-between gap-3"><div><p className="text-xs font-mono uppercase" style={{ color: "#D6C4FF" }}>{observation.category}</p><h3 className="mt-2 font-bold text-white">{observation.label}</h3></div><div className="text-right"><span className={`inline-flex rounded-full border px-2 py-1 text-[10px] font-mono uppercase tracking-wide ${getVisitorObservationStatus(observation) === "elevated" ? "border-emerald-300/40 text-emerald-200" : getVisitorObservationStatus(observation) === "watch" ? "border-amber-300/40 text-amber-200" : "border-slate-300/25 text-slate-300"}`} aria-label={`Observation status tag: ${getVisitorObservationStatus(observation)}`}>{getVisitorObservationStatus(observation)}</span><strong className="mt-2 block text-xl" style={{ color: "#B98CFF" }}>{observation.displayValue}</strong></div></div>
                       <p className="mt-3 text-xs leading-5" style={{ color: "#AABACB" }}>{observation.detail}</p>
                       <p className="mt-3 text-[11px] leading-5" style={{ color: "#7F95A8" }}>{observation.sourceLabel} · {observation.observationWindow}</p>
                     </article>

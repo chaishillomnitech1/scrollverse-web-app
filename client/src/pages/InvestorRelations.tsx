@@ -1,4 +1,4 @@
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ExternalLink, Film, Image as ImageIcon, ShieldCheck } from "lucide-react";
 import {
@@ -13,12 +13,23 @@ export default function InvestorRelations() {
   const [kind, setKind] = useState<"all" | "still" | "motion">("all");
   const [sort, setSort] = useState<"title-asc" | "title-desc" | "kind">("title-asc");
   const [selectedId, setSelectedId] = useState(INVESTOR_RELATIONS_RECORDS[0]?.id ?? "");
+  const [previewId, setPreviewId] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const visibleRecords = useMemo(
     () => sortInvestorRelationRecords(filterInvestorRelationRecords(kind), sort),
     [kind, sort],
   );
   const selectedRecord = visibleRecords.find((record) => record.id === selectedId) ?? visibleRecords[0];
+  const previewRecord = INVESTOR_RELATIONS_RECORDS.find((record) => record.id === previewId);
+
+  useEffect(() => {
+    if (!previewRecord) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setPreviewId(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [previewRecord]);
 
   const updateGallery = (update: () => void) => startTransition(update);
 
@@ -90,7 +101,9 @@ export default function InvestorRelations() {
               <article key={record.id} className={`group overflow-hidden rounded-3xl border bg-white/[0.035] shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-cyan-950/40 motion-reduce:transform-none motion-reduce:transition-none ${selectedRecord?.id === record.id ? "border-emerald-300/60" : "border-white/10"}`}>
                 <div className="aspect-[16/10] bg-black/30">
                   {record.kind === "still" && record.image ? (
-                    <img src={record.image} alt={record.title} loading="lazy" className="h-full w-full object-cover" />
+                    <button type="button" onClick={() => setPreviewId(record.id)} className="block h-full w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-300" aria-label={`View full-size ${record.title}`}>
+                      <img src={record.image} alt={record.title} loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02] motion-reduce:transform-none" />
+                    </button>
                   ) : record.video ? (
                     <video controls preload="none" poster={record.poster} className="h-full w-full object-cover" aria-label={`${record.title} motion reference`}>
                       <source src={record.video} />
@@ -104,6 +117,7 @@ export default function InvestorRelations() {
                   </div>
                   <button type="button" aria-pressed={selectedRecord?.id === record.id} onClick={() => setSelectedId(record.id)} className="mt-3 rounded-lg text-left text-xl font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">{record.title}</button>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{record.description}</p>
+                  <button type="button" onClick={() => setPreviewId(record.id)} className="mt-4 min-h-11 rounded-lg border border-cyan-300/30 px-3 text-sm text-cyan-100 transition hover:border-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 motion-reduce:transition-none">View full-size</button>
                   <p className="mt-4 border-t border-white/10 pt-3 text-xs text-slate-400">Source: {record.sourceLabel}</p>
                 </div>
               </article>
@@ -111,6 +125,30 @@ export default function InvestorRelations() {
           </div>
         </section>
       </div>
+      {previewRecord && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="investor-preview-title" onMouseDown={(event) => { if (event.currentTarget === event.target) setPreviewId(null); }}>
+          <div className="max-h-[92vh] w-full max-w-5xl overflow-auto rounded-2xl border border-cyan-300/30 bg-[#071124] p-4 shadow-2xl shadow-cyan-950/40 sm:p-6">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-cyan-300">Full-size source preview</p>
+                <h2 id="investor-preview-title" className="mt-2 text-2xl font-black">{previewRecord.title}</h2>
+              </div>
+              <button type="button" autoFocus onClick={() => setPreviewId(null)} aria-label="Close full-size preview" className="min-h-11 rounded-lg border border-white/20 px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Close</button>
+            </div>
+            <div className="mt-5 overflow-hidden rounded-xl bg-black/40">
+              {previewRecord.kind === "still" && previewRecord.image ? (
+                <img src={previewRecord.image} alt={previewRecord.title} className="mx-auto max-h-[68vh] w-full object-contain" />
+              ) : previewRecord.video ? (
+                <video controls preload="none" poster={previewRecord.poster} className="mx-auto max-h-[68vh] w-full" aria-label={`${previewRecord.title} full-size motion reference`}>
+                  <source src={previewRecord.video} />
+                </video>
+              ) : null}
+            </div>
+            <p className="mt-4 text-sm leading-6 text-slate-300">{previewRecord.description}</p>
+            <p className="mt-3 text-xs text-slate-400">Source: {previewRecord.sourceLabel} · Display: {previewRecord.displayScope}</p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
