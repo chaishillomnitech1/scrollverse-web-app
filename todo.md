@@ -6579,3 +6579,8 @@
 - [x] Add case-insensitive visitor-observation quick search across stable record fields.
 - [x] Add non-color-only elevated/watch/context status tags to observation cards.
 - [x] Verify focused regressions, full suite (406 files / 1103 tests), TypeScript, guarded build, whitespace, skill validation, and desktop/mobile browser smoke with reduced motion.
+
+## Phase 964 — Managed Deployment Provider Diagnosis
+- [x] Verify the production build, server startup, SPA fallback, and key local route responses.
+- [x] Capture the managed deployment error showing Railway deploys are temporarily paused and the domain list is unchanged.
+- [x] Classify the failure as provider-side rather than a local code defect; do not perform repeated publish retries or external account changes.
