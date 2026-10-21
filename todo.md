@@ -6591,3 +6591,11 @@
 - [x] Upgrade the shared lazy-route fallback with status semantics, a loading indicator, and reduced-motion support.
 - [x] Verify focused coverage, full suite (407 files / 1106 tests), TypeScript, whitespace, guarded production build, and reusable-skill validation.
 - [x] Record the remaining build advisory: React runtime remains above the 500 kB chunk warning threshold; route-level lazy loading remains active and no broad refactor was made without a measured bottleneck.
+
+## Phase 966 — Collection Favorites, Chart Exports, Tooltips, and Smooth Scroll
+- [x] Add browser-local favorites and saved-only filtering to Source Collections.
+- [x] Add accessible CSV and PDF-ready chart/catalog exports to Investor Relations.
+- [x] Add descriptive chart-control tooltips and preserve keyboard-reachable controls.
+- [x] Add smooth scrolling with an explicit reduced-motion override.
+- [x] Verify focused and full regressions, TypeScript, guarded production build, whitespace, reusable-skill validation, and responsive production-browser smoke for favorites, exports, tooltips, reduced motion, and overflow.
+- [x] Diagnose the concurrent managed deployment failure as provider-side; no code rollback or repeated external publish attempt was performed.

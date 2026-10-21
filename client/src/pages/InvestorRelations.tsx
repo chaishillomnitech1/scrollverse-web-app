@@ -6,6 +6,8 @@ import {
   INVESTOR_RELATIONS_RECORDS,
   getInvestorRelationSummary,
   sortInvestorRelationRecords,
+  buildInvestorRelationsCsv,
+  buildInvestorRelationsPdfText,
 } from "@/lib/investorRelations";
 
 export default function InvestorRelations() {
@@ -36,6 +38,17 @@ export default function InvestorRelations() {
   }, [previewRecord]);
 
   const updateGallery = (update: () => void) => startTransition(update);
+  const downloadCsv = () => {
+    const url = URL.createObjectURL(new Blob([buildInvestorRelationsCsv(visibleRecords)], { type: "text/csv;charset=utf-8" }));
+    const anchor = document.createElement("a"); anchor.href = url; anchor.download = "scrollverse-investor-relations.csv"; anchor.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+  const printPdf = () => {
+    const popup = window.open("", "_blank", "noopener,noreferrer");
+    if (!popup) return;
+    popup.document.write(`<pre style="white-space:pre-wrap;font:14px system-ui;padding:32px">${buildInvestorRelationsPdfText(visibleRecords).replaceAll("&", "&amp;").replaceAll("<", "&lt;")}</pre>`);
+    popup.document.close(); popup.focus(); popup.print();
+  };
 
   return (
     <main className="min-h-screen bg-[#050b1a] px-4 py-10 text-white sm:px-6 lg:px-10">
@@ -74,12 +87,16 @@ export default function InvestorRelations() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2" role="group" aria-label="Show only catalog format">
             {composition.map((item) => {
               const width = summary.total ? Math.max(12, Math.round((item.value / summary.total) * 100)) : 0;
-              return <button key={item.kind} type="button" aria-pressed={kind === item.kind} onClick={() => updateGallery(() => setKind(kind === item.kind ? "all" : item.kind))} className="rounded-xl border border-white/10 p-4 text-left transition hover:border-cyan-300/50 hover:bg-cyan-300/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 motion-reduce:transition-none">
+              return <button key={item.kind} type="button" aria-describedby={`chart-tip-${item.kind}`} title={`Filter catalog to ${item.label.toLowerCase()}`} aria-pressed={kind === item.kind} onClick={() => updateGallery(() => setKind(kind === item.kind ? "all" : item.kind))} className="rounded-xl border border-white/10 p-4 text-left transition hover:border-cyan-300/50 hover:bg-cyan-300/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 motion-reduce:transition-none">
                 <span className="flex items-center justify-between gap-3 text-sm font-semibold"><span>{item.label}</span><span className="text-slate-300">{item.value}</span></span>
                 <span className="mt-3 block h-3 overflow-hidden rounded-full bg-white/10" aria-hidden="true"><span className="bar block h-full rounded-full transition-[width] duration-500 motion-reduce:transition-none" style={{ width: `${width}%`, backgroundColor: item.color }} /></span>
-                <span className="mt-2 block text-xs text-slate-400">Show only {item.label.toLowerCase()}</span>
+                <span id={`chart-tip-${item.kind}`} className="mt-2 block text-xs text-slate-400">Show only {item.label.toLowerCase()}</span>
               </button>;
             })}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3" aria-label="Catalog chart exports">
+            <button type="button" onClick={downloadCsv} className="min-h-11 rounded-xl border border-cyan-300/30 px-4 text-sm text-cyan-100 transition hover:border-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Download CSV</button>
+            <button type="button" onClick={printPdf} className="min-h-11 rounded-xl border border-amber-300/30 px-4 text-sm text-amber-100 transition hover:border-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Download PDF</button>
           </div>
         </section>
 

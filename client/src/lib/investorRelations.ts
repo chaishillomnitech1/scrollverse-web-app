@@ -60,3 +60,24 @@ export function sortInvestorRelationRecords(
     return sort === "title-desc" ? -comparison : comparison;
   });
 }
+
+function csvCell(value: string) {
+  return `"${value.replaceAll('"', '""')}"`;
+}
+
+export function buildInvestorRelationsCsv(records: readonly InvestorRelationRecord[] = INVESTOR_RELATIONS_RECORDS) {
+  const header = ["id", "kind", "title", "description", "sourceLabel", "displayScope", "href"];
+  const rows = records.map((record) => [record.id, record.kind, record.title, record.description, record.sourceLabel, record.displayScope, record.href]);
+  return [header, ...rows].map((row) => row.map(csvCell).join(",")).join("\n");
+}
+
+export function buildInvestorRelationsPdfText(records: readonly InvestorRelationRecord[] = INVESTOR_RELATIONS_RECORDS) {
+  const summary = getInvestorRelationSummary(records);
+  return [
+    "ScrollVerse Investor Relations Catalog",
+    "Source-labeled local display",
+    `Records: ${summary.total} · Still: ${summary.stills} · Motion: ${summary.motion}`,
+    "",
+    ...records.map((record) => `${record.title} | ${record.kind} | ${record.sourceLabel}`),
+  ].join("\n");
+}
