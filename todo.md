@@ -6599,3 +6599,12 @@
 - [x] Add smooth scrolling with an explicit reduced-motion override.
 - [x] Verify focused and full regressions, TypeScript, guarded production build, whitespace, reusable-skill validation, and responsive production-browser smoke for favorites, exports, tooltips, reduced motion, and overflow.
 - [x] Diagnose the concurrent managed deployment failure as provider-side; no code rollback or repeated external publish attempt was performed.
+
+## Phase 967 — Share Metrics, Export Status, and Saved-Category Cues
+- [x] Add a keyboard-reachable Share performance metrics control with native Web Share and clipboard fallback.
+- [x] Add truthful local CSV/PDF export status messages for preparing, ready, blocked-popup, and cancellation outcomes.
+- [x] Make saved-favorites category filtering explicit while preserving composable search/category/saved-only behavior.
+- [x] Extend the reusable source-led portfolio skill with these interaction patterns.
+- [x] Run focused regressions, full Vitest, TypeScript, guarded production build, whitespace, and skill validation.
+- [x] Confirm local route HTTP 200 responses for `/`, `/source-collections`, and `/investor-relations`.
+- [x] Accession 25 new Oct 22 creator uploads as metadata-only receipts in `docs/source-review-oct22/oct22-upload-manifest.json`; no media or supplied HTML/JSON was executed or published.

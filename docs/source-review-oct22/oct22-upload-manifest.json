@@ -1,0 +1,208 @@
+{
+  "manifestId": "oct22-creator-upload-accession-2026-10-22",
+  "accessionDate": "2026-10-22",
+  "recordCount": 25,
+  "boundary": "Metadata-only receipts. Creator-supplied statements remain source data; hashes identify bytes and do not establish authenticity, rights, financial status, publication, or deployment.",
+  "records": [
+    {
+      "filename": "image_20261022_001002.jpg",
+      "bytes": 365651,
+      "sha256": "d26ba8e9d63d5e88a673ab440ea898e860dda591931a609512105f835a8bd446",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/image_20261022_001002.jpg"
+    },
+    {
+      "filename": "slot-02-neon-magenta-mystical-pyramid-temple-water.jpg",
+      "bytes": 429333,
+      "sha256": "4c844fa4fbc1196a8977499564185b996d0fc1994071912c5fa957f49cf48c1d",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/slot-02-neon-magenta-mystical-pyramid-temple-water.jpg"
+    },
+    {
+      "filename": "enhance-this-glass-floor-feast-image-at-night-with.jpg",
+      "bytes": 417652,
+      "sha256": "727c8f959192e909d598d1a3040f7761c564fcb78db87e59d28da1ea757e9a3f",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/enhance-this-glass-floor-feast-image-at-night-with.jpg"
+    },
+    {
+      "filename": "slot-03-ring-alien-spacecraft-9-worlds-infinite-ha.jpg",
+      "bytes": 544033,
+      "sha256": "d47df62117d195e6d2327a2c466aeeb3c066ffa18ca1934b45a49fd91eedc4ca",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/slot-03-ring-alien-spacecraft-9-worlds-infinite-ha.jpg"
+    },
+    {
+      "filename": "PERMANENT_SKILL_MANIFESTO.txt",
+      "bytes": 147,
+      "sha256": "92a55e22f83a8094956c18a9c7cdc1272d9cc55cb75eab7ee7f333ac9bb7b9cb",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/PERMANENT_SKILL_MANIFESTO.txt"
+    },
+    {
+      "filename": "ATLAS_COMBINED_158s_MASTER_manifest(1).json",
+      "bytes": 336,
+      "sha256": "0ac8a51b3af748a2509bd676fba4b6b1cc46eeacb344ad229f02c4cad3eba015",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/ATLAS_COMBINED_158s_MASTER_manifest(1).json"
+    },
+    {
+      "filename": "PERMANENT_SKILL_ATLAS_CINEMA_COMPLETE.json",
+      "bytes": 264,
+      "sha256": "168765b04f6a0963a6c3d782f92b1579ecd24160944bdc0a3d53f30943b45235",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/PERMANENT_SKILL_ATLAS_CINEMA_COMPLETE.json"
+    },
+    {
+      "filename": "BUSINESS_CARD_GOLD_FOIL.txt",
+      "bytes": 74,
+      "sha256": "589470ae3d31944555df1a32d6448d1128f54abc17c1de0dec14649e6033f185",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/BUSINESS_CARD_GOLD_FOIL.txt"
+    },
+    {
+      "filename": "FOIL_MASTER_01_PYRAMID_true_alpha_1600(1).png",
+      "bytes": 157,
+      "sha256": "51450f89a6379ef3f2132096ee2e7a5f53d699b3d8e7523c371a62a9edccb4e3",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/FOIL_MASTER_01_PYRAMID_true_alpha_1600(1).png"
+    },
+    {
+      "filename": "PATCH_MOCKUP_DENIM_JACKET.txt",
+      "bytes": 76,
+      "sha256": "a943e16be963349af4c67ec19d969820e1d29758047feb39535da2969257c4c1",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/PATCH_MOCKUP_DENIM_JACKET.txt"
+    },
+    {
+      "filename": "FOIL_MASTER_01_PYRAMID_true_alpha_1600.png",
+      "bytes": 157,
+      "sha256": "51450f89a6379ef3f2132096ee2e7a5f53d699b3d8e7523c371a62a9edccb4e3",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/FOIL_MASTER_01_PYRAMID_true_alpha_1600.png"
+    },
+    {
+      "filename": "BLACK_FOIL_DST_14847st.dst",
+      "bytes": 156,
+      "sha256": "fc0c91e5714a8295061034ed61ee2b5ff632ee1758498d4be367fdd52bb1180e",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/BLACK_FOIL_DST_14847st.dst"
+    },
+    {
+      "filename": "Haitian_Drum_Frame6_14s(2).wav",
+      "bytes": 189,
+      "sha256": "6278b1fa5de9fa1ac5c41d26c2863e1b8c35f9c5da94a8c9bade926349ee4c9c",
+      "classification": "audio source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/Haitian_Drum_Frame6_14s(2).wav"
+    },
+    {
+      "filename": "Haitian_Drum_Frame6_14s(1).wav",
+      "bytes": 189,
+      "sha256": "6278b1fa5de9fa1ac5c41d26c2863e1b8c35f9c5da94a8c9bade926349ee4c9c",
+      "classification": "audio source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/Haitian_Drum_Frame6_14s(1).wav"
+    },
+    {
+      "filename": "Black-Foil-Dst-Studio(1).html",
+      "bytes": 192534,
+      "sha256": "f12a3e803ed810a70122a24bdc9f35e07bc76f42bcfa8d6a0f926e7f28e54076",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/Black-Foil-Dst-Studio(1).html"
+    },
+    {
+      "filename": "158s-Combined-Atlas-Film.html",
+      "bytes": 3815849,
+      "sha256": "972a1f227fd563c4d4d45c32e01a89e2e17f45e744d82d85280dd14a568f6ab7",
+      "classification": "text or structured manifest",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/158s-Combined-Atlas-Film.html"
+    },
+    {
+      "filename": "image_20261021_235401-add-moving-stars-and-bright-moon-reflection-to-the-make-the-second-image-glass.jpg",
+      "bytes": 465878,
+      "sha256": "797ba8b97630b5e6c66623d6f878752e781829d8e5bac9984efc40f23b4124c0",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/image_20261021_235401-add-moving-stars-and-bright-moon-reflection-to-the-make-the-second-image-glass.jpg"
+    },
+    {
+      "filename": "image_20261021_235354-add-moving-stars-and-bright-moon-reflection-to-the-make-the-second-image-glass.jpg",
+      "bytes": 417652,
+      "sha256": "727c8f959192e909d598d1a3040f7761c564fcb78db87e59d28da1ea757e9a3f",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/image_20261021_235354-add-moving-stars-and-bright-moon-reflection-to-the-make-the-second-image-glass.jpg"
+    },
+    {
+      "filename": "image_20261021_235352-add-moving-stars-and-bright-moon-reflection-to-the-make-the-second-image-glass.jpg",
+      "bytes": 456276,
+      "sha256": "fe3a7305c286bc63dfcf613ee6bc3e55d010e9951b3ed900e15da151430e4bea",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/image_20261021_235352-add-moving-stars-and-bright-moon-reflection-to-the-make-the-second-image-glass.jpg"
+    },
+    {
+      "filename": "STILL_LIGHT_FIELD_EMERALD_TRUE_ALPHA_560x560.png",
+      "bytes": 57554,
+      "sha256": "05599c4e64b5b3caf70032df5d27d771e6c1706ce91d5e7bbe7f641fe26a419a",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/STILL_LIGHT_FIELD_EMERALD_TRUE_ALPHA_560x560.png"
+    },
+    {
+      "filename": "STILL_LIGHT_FIELD_PYRAMID_TRUE_ALPHA_560x560.png",
+      "bytes": 62466,
+      "sha256": "efc748596fd8fee1264ee1902fbc301e0e5d73becc5687d93cb8f4bc1e14a7ad",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/STILL_LIGHT_FIELD_PYRAMID_TRUE_ALPHA_560x560.png"
+    },
+    {
+      "filename": "STILL_LIGHT_FIELD_BADGE_TRUE_ALPHA_560x560.png",
+      "bytes": 174490,
+      "sha256": "56c6a931063b83622d7f245c662908f66098f4b648eefe639eca890b403d431f",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/STILL_LIGHT_FIELD_BADGE_TRUE_ALPHA_560x560.png"
+    },
+    {
+      "filename": "image_20261021_235401-add-moving-stars-and-bright-moon-reflection-to-the.jpg",
+      "bytes": 447975,
+      "sha256": "85a159fc167552c72a49bb6baba9b23e2433677a91a981079b4de412ee01d55a",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/image_20261021_235401-add-moving-stars-and-bright-moon-reflection-to-the.jpg"
+    },
+    {
+      "filename": "image_20261021_235354-add-moving-stars-and-bright-moon-reflection-to-the.jpg",
+      "bytes": 402920,
+      "sha256": "de20ad5d399a4a51992ef22938df0f8024fc62f4f0e12d74a848be26f0429416",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/image_20261021_235354-add-moving-stars-and-bright-moon-reflection-to-the.jpg"
+    },
+    {
+      "filename": "pasted_file_3821i3_image.png",
+      "bytes": 4719704,
+      "sha256": "0e82c231c07145988f5f84d21f3b5771ec5909e7971298c27e81245c4d3f48ff",
+      "classification": "visual or media source",
+      "displayScope": "metadata-only local accession; not rendered, played, embedded, transformed, uploaded, or published",
+      "sourcePath": "/home/ubuntu/upload/pasted_file_3821i3_image.png"
+    }
+  ]
+}

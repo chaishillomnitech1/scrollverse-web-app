@@ -10,6 +10,7 @@ describe("Phase 966 favorites, exports, and scroll polish", () => {
     expect(page).toContain("readPortfolioFavorites");
     expect(page).toContain("Save to favorites");
     expect(page).toContain("savedOnly");
+    expect(page).toContain("Saved favorites by category");
   });
 
   it("exports investor catalog data in CSV and PDF-ready text formats", () => {
@@ -29,5 +30,11 @@ describe("Phase 966 favorites, exports, and scroll polish", () => {
     expect(page).toContain("aria-describedby");
     expect(page).toContain("Download CSV");
     expect(page).toContain("Download PDF");
+    expect(page).toContain("Share performance metrics");
+    expect(page).toContain("navigator.share");
+    expect(page).toContain("Preparing CSV export");
+    expect(page).toContain("Preparing PDF export");
+    expect(page).toContain("Preview unavailable");
+    expect(page).toContain("onError");
   });
 });

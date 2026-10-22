@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, ExternalLink, Film, Image as ImageIcon, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ExternalLink, Film, Image as ImageIcon, Share2, ShieldCheck } from "lucide-react";
 import {
   filterInvestorRelationRecords,
   INVESTOR_RELATIONS_RECORDS,
@@ -16,7 +16,9 @@ export default function InvestorRelations() {
   const [sort, setSort] = useState<"title-asc" | "title-desc" | "kind">("title-asc");
   const [selectedId, setSelectedId] = useState(INVESTOR_RELATIONS_RECORDS[0]?.id ?? "");
   const [previewId, setPreviewId] = useState<string | null>(null);
+  const [unavailableVisuals, setUnavailableVisuals] = useState<Set<string>>(() => new Set());
   const [isPending, startTransition] = useTransition();
+  const [exportStatus, setExportStatus] = useState("");
   const composition = [
     { kind: "still" as const, label: "Still masterpieces", value: summary.stills, color: "#6ee7b7" },
     { kind: "motion" as const, label: "Motion references", value: summary.motion, color: "#67e8f9" },
@@ -39,15 +41,31 @@ export default function InvestorRelations() {
 
   const updateGallery = (update: () => void) => startTransition(update);
   const downloadCsv = () => {
+    setExportStatus("Preparing CSV export…");
     const url = URL.createObjectURL(new Blob([buildInvestorRelationsCsv(visibleRecords)], { type: "text/csv;charset=utf-8" }));
     const anchor = document.createElement("a"); anchor.href = url; anchor.download = "scrollverse-investor-relations.csv"; anchor.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setExportStatus(`CSV export ready: ${visibleRecords.length} records downloaded.`);
   };
   const printPdf = () => {
+    setExportStatus("Preparing PDF export…");
     const popup = window.open("", "_blank", "noopener,noreferrer");
-    if (!popup) return;
+    if (!popup) { setExportStatus("PDF export could not open a print window. Allow pop-ups and try again."); return; }
     popup.document.write(`<pre style="white-space:pre-wrap;font:14px system-ui;padding:32px">${buildInvestorRelationsPdfText(visibleRecords).replaceAll("&", "&amp;").replaceAll("<", "&lt;")}</pre>`);
     popup.document.close(); popup.focus(); popup.print();
+    setExportStatus(`PDF print view ready: ${visibleRecords.length} records prepared.`);
+  };
+  const shareMetrics = async () => {
+    const shareData = { title: "ScrollVerse catalog composition", text: `Source-labeled catalog: ${summary.stills} still references and ${summary.motion} motion references.`, url: window.location.href };
+    const canShare = typeof navigator !== "undefined" && typeof navigator.share === "function";
+    try {
+      if (canShare) await navigator.share(shareData);
+      else if (navigator.clipboard) await navigator.clipboard.writeText(`${shareData.title}\n${shareData.text}\n${shareData.url}`);
+      else throw new Error("No share method available");
+      setExportStatus(canShare ? "Performance metrics shared." : "Performance metrics copied to the clipboard.");
+    } catch {
+      setExportStatus("Share was cancelled; no data was changed.");
+    }
   };
 
   return (
@@ -97,7 +115,9 @@ export default function InvestorRelations() {
           <div className="mt-5 flex flex-wrap gap-3" aria-label="Catalog chart exports">
             <button type="button" onClick={downloadCsv} className="min-h-11 rounded-xl border border-cyan-300/30 px-4 text-sm text-cyan-100 transition hover:border-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Download CSV</button>
             <button type="button" onClick={printPdf} className="min-h-11 rounded-xl border border-amber-300/30 px-4 text-sm text-amber-100 transition hover:border-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Download PDF</button>
+            <button type="button" onClick={shareMetrics} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-emerald-300/30 px-4 text-sm text-emerald-100 transition hover:border-emerald-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300" aria-label="Share performance metrics"><Share2 className="h-4 w-4" aria-hidden="true" /> Share performance metrics</button>
           </div>
+          <p className="mt-3 text-sm text-slate-300" role="status" aria-live="polite">{exportStatus || "Exports are prepared locally from the currently filtered catalog."}</p>
         </section>
 
         <div className="mt-10 flex items-start gap-3 rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.06] p-5 text-sm text-emerald-100" role="status">
@@ -141,15 +161,15 @@ export default function InvestorRelations() {
             {visibleRecords.map((record) => (
               <article key={record.id} className={`group overflow-hidden rounded-3xl border bg-white/[0.035] shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-cyan-950/40 motion-reduce:transform-none motion-reduce:transition-none ${selectedRecord?.id === record.id ? "border-emerald-300/60" : "border-white/10"}`}>
                 <div className="aspect-[16/10] bg-black/30">
-                  {record.kind === "still" && record.image ? (
+                  {record.kind === "still" && record.image && !unavailableVisuals.has(record.id) ? (
                     <button type="button" onClick={() => setPreviewId(record.id)} className="block h-full w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-300" aria-label={`View full-size ${record.title}`}>
-                      <img src={record.image} alt={record.title} loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02] motion-reduce:transform-none" />
+                      <img src={record.image} alt={record.title} loading="lazy" onError={() => setUnavailableVisuals((current) => new Set(current).add(record.id))} className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02] motion-reduce:transform-none" />
                     </button>
-                  ) : record.video ? (
-                    <video controls preload="none" poster={record.poster} className="h-full w-full object-cover" aria-label={`${record.title} motion reference`}>
+                  ) : record.video && !unavailableVisuals.has(record.id) ? (
+                    <video controls preload="none" poster={record.poster} onError={() => setUnavailableVisuals((current) => new Set(current).add(record.id))} className="h-full w-full object-cover" aria-label={`${record.title} motion reference`}>
                       <source src={record.video} />
                     </video>
-                  ) : null}
+                  ) : <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center"><p className="text-sm font-semibold text-amber-200">Preview unavailable</p><p className="text-xs leading-5 text-slate-400">The source label and catalog record remain available without substituting unrelated media.</p></div>}
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cyan-300">
@@ -177,13 +197,13 @@ export default function InvestorRelations() {
               <button type="button" autoFocus onClick={() => setPreviewId(null)} aria-label="Close full-size preview" className="min-h-11 rounded-lg border border-white/20 px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Close</button>
             </div>
             <div className="mt-5 overflow-hidden rounded-xl bg-black/40">
-              {previewRecord.kind === "still" && previewRecord.image ? (
-                <img src={previewRecord.image} alt={previewRecord.title} className="mx-auto max-h-[68vh] w-full object-contain" />
-              ) : previewRecord.video ? (
-                <video controls preload="none" poster={previewRecord.poster} className="mx-auto max-h-[68vh] w-full" aria-label={`${previewRecord.title} full-size motion reference`}>
+              {previewRecord.kind === "still" && previewRecord.image && !unavailableVisuals.has(previewRecord.id) ? (
+                <img src={previewRecord.image} alt={previewRecord.title} onError={() => setUnavailableVisuals((current) => new Set(current).add(previewRecord.id))} className="mx-auto max-h-[68vh] w-full object-contain" />
+              ) : previewRecord.video && !unavailableVisuals.has(previewRecord.id) ? (
+                <video controls preload="none" poster={previewRecord.poster} onError={() => setUnavailableVisuals((current) => new Set(current).add(previewRecord.id))} className="mx-auto max-h-[68vh] w-full" aria-label={`${previewRecord.title} full-size motion reference`}>
                   <source src={previewRecord.video} />
                 </video>
-              ) : null}
+              ) : <div className="flex min-h-48 flex-col items-center justify-center gap-2 p-8 text-center"><p className="text-base font-semibold text-amber-200">Preview unavailable</p><p className="text-sm text-slate-400">The catalog record is preserved with its source label; no substitute asset is shown.</p></div>}
             </div>
             <p className="mt-4 text-sm leading-6 text-slate-300">{previewRecord.description}</p>
             <p className="mt-3 text-xs text-slate-400">Source: {previewRecord.sourceLabel} · Display: {previewRecord.displayScope}</p>
