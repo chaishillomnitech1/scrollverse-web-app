@@ -15,18 +15,21 @@ export default function SourceCollections() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [feedback, setFeedback] = useState("");
   const [savedOnly, setSavedOnly] = useState(false);
+  const [favoriteCategory, setFavoriteCategory] = useState("All");
   const [favorites, setFavorites] = useState<string[]>([]);
   const records = mode === "collections" ? SOURCE_COLLECTIONS : SOURCE_TITLE_INDEX;
   const allowedIds = useMemo(() => records.map(record => record.id), [records]);
   useEffect(() => {
     if (typeof window !== "undefined") setFavorites(readPortfolioFavorites(window.localStorage, allowedIds));
   }, [allowedIds]);
-  const filteredRecords = savedOnly ? records.filter(record => favorites.includes(record.id)) : records;
+  const filteredRecords = savedOnly
+    ? records.filter(record => favorites.includes(record.id) && (favoriteCategory === "All" || record.category === favoriteCategory))
+    : records;
   const options = { query, category, page, pageSize: 6, sort: "newest" as const };
   const results = paginatePortfolio(filteredRecords, options);
   const selected = results.items.find(item => item.id === selectedId) ?? results.items[0];
   const reset = () => { setPage(1); setSelectedId(null); setFeedback(""); };
-  const clearFilters = () => { setQuery(""); setCategory("All"); reset(); };
+  const clearFilters = () => { setQuery(""); setCategory("All"); setFavoriteCategory("All"); reset(); };
   const toggleFavorite = (id: string) => {
     const next = togglePortfolioFavorite(favorites, id, allowedIds);
     setFavorites(next);
@@ -77,7 +80,7 @@ export default function SourceCollections() {
     </section>
 
     <section className="container py-10 md:py-14" aria-label="Browse source records">
-      <div className="flex flex-wrap items-center justify-between gap-5"><div role="group" aria-label="Source record view" className="flex flex-wrap rounded-2xl border border-white/20 p-1">{([['collections', 'Collections'], ['titles', 'Artifact titles']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={mode === value} onClick={() => { setMode(value); reset(); }} className={`${control} border-transparent ${mode === value ? 'bg-[#8CEEDD] text-[#061016]' : 'text-[#D1E4EA]'}`}>{label}</button>)}<button type="button" aria-pressed={savedOnly} onClick={() => { setSavedOnly(value => !value); reset(); }} className={`${control} border-transparent ${savedOnly ? 'bg-[#FFD18A] text-[#061016]' : 'text-[#FFD18A]'}`}>Saved favorites ({favorites.length})</button></div><div className="flex flex-col items-start gap-2"><span className="text-xs font-mono uppercase tracking-[.14em] text-[#FFD18A]">Saved favorites by category</span><button type="button" className={`${control} text-[#FFD18A]`} onClick={download}>Download filtered JSON ↓</button></div></div>
+      <div className="flex flex-wrap items-center justify-between gap-5"><div role="group" aria-label="Source record view" className="flex flex-wrap rounded-2xl border border-white/20 p-1">{([['collections', 'Collections'], ['titles', 'Artifact titles']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={mode === value} onClick={() => { setMode(value); reset(); }} className={`${control} border-transparent ${mode === value ? 'bg-[#8CEEDD] text-[#061016]' : 'text-[#D1E4EA]'}`}>{label}</button>)}<button type="button" aria-pressed={savedOnly} onClick={() => { setSavedOnly(value => !value); reset(); }} className={`${control} border-transparent ${savedOnly ? 'bg-[#FFD18A] text-[#061016]' : 'text-[#FFD18A]'}`}>Saved favorites ({favorites.length})</button></div><div className="flex flex-col items-start gap-2"><span className="text-xs font-mono uppercase tracking-[.14em] text-[#FFD18A]">Saved favorites by category</span>{savedOnly && <div role="group" aria-label="Saved favorites category tags" className="flex flex-wrap gap-2">{categories.map(value => <button key={value} type="button" aria-pressed={favoriteCategory === value} onClick={() => { setFavoriteCategory(value); reset(); }} className={`favorite-tag rounded-full border px-3 py-1.5 text-xs font-semibold transition motion-reduce:transition-none ${favoriteCategory === value ? 'border-[#FFD18A] bg-[#FFD18A]/15 text-[#FFD18A]' : 'border-white/20 text-[#D1E4EA] hover:border-[#FFD18A]/60'}`}>{value}</button>)}</div>}<button type="button" className={`${control} text-[#FFD18A]`} onClick={download}>Download filtered JSON ↓</button></div></div>
       <p className="mt-5 text-sm leading-7 text-[#A3C3CD]">{mode === 'titles' ? 'Exact titles from the supplied HTML artifact index. Repeated occurrences are grouped; artifact bodies are separate sources.' : 'Repeated visual and story directions are grouped into canonical collections, with their source passages retained.'}</p>
       <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_auto]"><label className="flex min-h-12 items-center gap-4 rounded-xl border border-[#8CEEDD]/35 bg-[#0A1820] px-4 focus-within:ring-2 focus-within:ring-[#8CEEDD]/40"><span className="text-[11px] font-mono tracking-[.1em] text-[#8CEEDD]">SEARCH</span><input aria-label="Search source collections" type="search" value={query} onChange={event => { setQuery(event.target.value); reset(); }} placeholder="Find a title, story, or source family" className="min-w-0 flex-1 bg-transparent py-3 text-base text-white outline-none placeholder:text-[#A3C3CD]" /></label><div role="group" aria-label="Filter source category" className="flex flex-wrap gap-2">{categories.map(value => <button key={value} type="button" aria-pressed={category === value} onClick={() => { setCategory(value); reset(); }} className={`${control} ${category === value ? 'border-[#FFD18A] bg-[#FFD18A]/10 text-[#FFD18A]' : 'text-[#D1E4EA]'}`}>{value}</button>)}{(query || category !== "All") && <button type="button" className={`${control} border-[#8CEEDD]/50 text-[#8CEEDD]`} onClick={clearFilters}>Clear filters</button>}</div></div>
       <p role="status" aria-live="polite" className="mt-5 text-xs font-mono text-[#A3C3CD]">{results.total} matching records · Page {results.page} of {results.pageCount}</p>

@@ -11,6 +11,7 @@ import { PORTFOLIO_FAVORITES_KEY, readPortfolioFavorites, togglePortfolioFavorit
 import NotificationBell from "@/components/NotificationBell";
 import SourceVisual from "@/components/SourceVisual";
 import { useTheme } from "@/contexts/ThemeContext";
+import { theaterScreenings } from "@/lib/metaLegionArchive";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
@@ -1397,6 +1398,49 @@ function FeaturedSovereignArchiveVideo() {
   return <section id="featured-scrollverse-video" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.32)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.15), transparent 30%), radial-gradient(circle at 88% 76%, rgba(0,212,255,.14), transparent 30%), #071124" }}><div className="container py-14"><div className="grid gap-8 xl:grid-cols-[.9fr_1.1fr] xl:items-center"><div><p className="text-xs font-mono tracking-[.18em]" style={{ color: "#FFE09A" }}>FEATURED SCROLLVERSE VIDEO</p><h2 className="mt-3 text-4xl font-black leading-tight text-white">A signal from<br/><span style={{ color: "#FFE09A" }}>Black Atlantic City.</span></h2><p className="mt-5 max-w-xl text-sm leading-7" style={{ color: "#D6E2EE" }}>A creator-selected public YouTube source, featured beside the restored Sovereign Archive Chronicles and the original fictional Black Atlantic City concept world. The video plays from YouTube; its channel, title, availability, and account context remain with the source platform.</p><div className="mt-7 flex flex-wrap gap-3"><a href="https://www.youtube.com/watch?v=SqK0RJTobNI" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#FFCC4D", color: "#07101D" }}>Watch on YouTube <span>↗</span></a><Link href="/sovereign-archive-chronicles#black-atlantic-city" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black text-white transition hover:border-[#00D4FF]" style={{ borderColor: "rgba(0,212,255,.55)", background: "rgba(0,212,255,.08)" }}>Enter Black Atlantic City <span>→</span></Link></div><p className="mt-5 text-[11px] leading-5" style={{ color: "#B8C7D6" }}>Source label: creator-supplied public YouTube link. The browser review encountered YouTube’s automated-traffic interstitial, so no unverified title, channel, duration, or video-content description is reproduced here.</p></div><div className="overflow-hidden rounded-[2rem] border p-2 shadow-[0_24px_70px_rgba(255,204,77,.12)]" style={{ borderColor: "rgba(255,204,77,.48)", background: "#030914" }}><div className="relative aspect-video overflow-hidden rounded-[1.45rem] bg-[#030914]"><iframe className="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/SqK0RJTobNI" title="Creator-selected ScrollVerse YouTube video" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="flex items-center justify-between gap-3 px-3 py-3"><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>CREATOR-SELECTED YOUTUBE SOURCE</span><span className="text-[10px] font-mono" style={{ color: "#9DEBFF" }}>BLACK ATLANTIC CITY · EXTERNAL PLAYER</span></div></div></div></div></section>;
 }
 
+function CreatorMotionShelf() {
+  return (
+    <section id="creator-motion-shelf" aria-labelledby="creator-motion-shelf-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(157,235,255,.24)", background: "radial-gradient(circle at 15% 18%, rgba(0,212,255,.13), transparent 30%), radial-gradient(circle at 84% 78%, rgba(0,255,136,.1), transparent 28%), #06101D" }}>
+      <div className="container py-14">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-mono tracking-[.18em]" style={{ color: "#9DEBFF" }}>SOURCE-LABELED LOCAL MOTION SHELF</p>
+            <h2 id="creator-motion-shelf-title" className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">Motion belongs on the front door.</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7" style={{ color: "#C8D8E7" }}>Play the existing hosted Theater references here when you choose. The supplied two-minute ant reference is accessioned as a named intake record without copying a large private upload into the app bundle.</p>
+          </div>
+          <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(157,235,255,.5)", color: "#BCEEFF", background: "rgba(0,212,255,.07)" }}>Open motion accession desk →</Link>
+        </div>
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          <article className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(255,204,77,.42)", background: "rgba(255,204,77,.055)" }}>
+            <div className="flex min-h-56 items-center justify-center bg-[radial-gradient(circle_at_50%_38%,rgba(255,204,77,.23),transparent_42%),#07111F] p-8 text-center">
+              <div>
+                <p className="text-5xl" aria-hidden="true">◉</p>
+                <p className="mt-4 text-xs font-mono tracking-[.16em]" style={{ color: "#FFE09A" }}>LONG-FORM MOTION INTAKE</p>
+                <p className="mt-2 text-lg font-black text-white">Ant Nation · 2:08 creator-supplied motion reference</p>
+                <p className="mt-3 text-xs leading-6" style={{ color: "#D6E2EE" }}>Source file: [STRIPPED106bytes].mp4 · 128.54 seconds. The original upload remains outside the production bundle until a deployment-safe hosted URL is supplied.</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t px-5 py-4" style={{ borderColor: "rgba(255,204,77,.22)" }}><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>METADATA-ONLY SOURCE RECEIPT</span><Link href="/digitalship-accession" className="text-xs font-black" style={{ color: "#BCEEFF" }}>Review local record →</Link></div>
+          </article>
+          <div className="grid gap-5">
+            {theaterScreenings.map(screening => (
+              <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
+                <div className="grid gap-4 p-4 sm:grid-cols-[.82fr_1.18fr] sm:items-center">
+                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title}>
+                    <source src={screening.video} type="video/mp4" />
+                    Your browser does not support this video. Open the Theater reference instead.
+                  </video>
+                  <div><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#9DEBFF" }}>DELIBERATE-PLAY THEATER REFERENCE</p><h3 className="mt-2 text-lg font-black text-white">{screening.title}</h3><p className="mt-2 text-xs leading-6" style={{ color: "#B8C7D6" }}>{screening.description}</p><Link href="/meta-ai-legion-archive" className="mt-4 inline-flex text-xs font-black" style={{ color: "#BCEEFF" }}>Open full source archive →</Link></div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const CENTRAL_LIBRARY_FEATURES = [
   {
     kind: "PLAY",
@@ -2489,6 +2533,7 @@ export default function Home() {
         </div>
       </section>
       <OmnilandFrontCenter />
+      <CreatorMotionShelf />
       <CreatorDigitalDNABeacon />
       <LookbookConstellationFrontCenter />
       <InteractiveCreatorPortfolio />

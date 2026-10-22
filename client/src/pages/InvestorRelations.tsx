@@ -17,6 +17,7 @@ export default function InvestorRelations() {
   const [selectedId, setSelectedId] = useState(INVESTOR_RELATIONS_RECORDS[0]?.id ?? "");
   const [previewId, setPreviewId] = useState<string | null>(null);
   const [unavailableVisuals, setUnavailableVisuals] = useState<Set<string>>(() => new Set());
+  const [exportPreview, setExportPreview] = useState<"csv" | "pdf" | null>(null);
   const [isPending, startTransition] = useTransition();
   const [exportStatus, setExportStatus] = useState("");
   const composition = [
@@ -31,13 +32,13 @@ export default function InvestorRelations() {
   const previewRecord = INVESTOR_RELATIONS_RECORDS.find((record) => record.id === previewId);
 
   useEffect(() => {
-    if (!previewRecord) return;
+    if (!previewRecord && !exportPreview) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setPreviewId(null);
+      if (event.key === "Escape") { setPreviewId(null); setExportPreview(null); }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [previewRecord]);
+  }, [previewRecord, exportPreview]);
 
   const updateGallery = (update: () => void) => startTransition(update);
   const downloadCsv = () => {
@@ -113,8 +114,8 @@ export default function InvestorRelations() {
             })}
           </div>
           <div className="mt-5 flex flex-wrap gap-3" aria-label="Catalog chart exports">
-            <button type="button" onClick={downloadCsv} className="min-h-11 rounded-xl border border-cyan-300/30 px-4 text-sm text-cyan-100 transition hover:border-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Download CSV</button>
-            <button type="button" onClick={printPdf} className="min-h-11 rounded-xl border border-amber-300/30 px-4 text-sm text-amber-100 transition hover:border-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Download PDF</button>
+            <button type="button" onClick={() => setExportPreview("csv")} className="min-h-11 rounded-xl border border-cyan-300/30 px-4 text-sm text-cyan-100 transition hover:border-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Download CSV</button>
+            <button type="button" onClick={() => setExportPreview("pdf")} className="min-h-11 rounded-xl border border-amber-300/30 px-4 text-sm text-amber-100 transition hover:border-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Download PDF</button>
             <button type="button" onClick={shareMetrics} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-emerald-300/30 px-4 text-sm text-emerald-100 transition hover:border-emerald-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300" aria-label="Share performance metrics"><Share2 className="h-4 w-4" aria-hidden="true" /> Share performance metrics</button>
           </div>
           <p className="mt-3 text-sm text-slate-300" role="status" aria-live="polite">{exportStatus || "Exports are prepared locally from the currently filtered catalog."}</p>
@@ -169,7 +170,7 @@ export default function InvestorRelations() {
                     <video controls preload="none" poster={record.poster} onError={() => setUnavailableVisuals((current) => new Set(current).add(record.id))} className="h-full w-full object-cover" aria-label={`${record.title} motion reference`}>
                       <source src={record.video} />
                     </video>
-                  ) : <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center"><p className="text-sm font-semibold text-amber-200">Preview unavailable</p><p className="text-xs leading-5 text-slate-400">The source label and catalog record remain available without substituting unrelated media.</p></div>}
+                  ) : <div className="flex h-full animate-pulse flex-col items-center justify-center gap-2 p-6 text-center motion-reduce:animate-none"><p className="text-sm font-semibold text-amber-200">Preview unavailable</p><p className="text-xs leading-5 text-slate-400">The source label and catalog record remain available without substituting unrelated media.</p></div>}
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cyan-300">
@@ -207,6 +208,20 @@ export default function InvestorRelations() {
             </div>
             <p className="mt-4 text-sm leading-6 text-slate-300">{previewRecord.description}</p>
             <p className="mt-3 text-xs text-slate-400">Source: {previewRecord.sourceLabel} · Display: {previewRecord.displayScope}</p>
+          </div>
+        </div>
+      )}
+      {exportPreview && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setExportPreview(null); }}>
+          <div role="dialog" aria-modal="true" aria-labelledby="export-preview-title" className="max-h-[88vh] w-full max-w-3xl overflow-auto rounded-2xl border border-cyan-300/30 bg-[#071124] p-5 shadow-2xl shadow-cyan-950/40 sm:p-6">
+            <div className="flex items-start justify-between gap-4">
+              <div><p className="text-xs font-mono uppercase tracking-[0.18em] text-cyan-300">Preview export</p><h2 id="export-preview-title" className="mt-2 text-2xl font-black">Review {exportPreview.toUpperCase()} before confirming</h2></div>
+              <button type="button" autoFocus onClick={() => setExportPreview(null)} aria-label="Close export preview" className="min-h-11 rounded-lg border border-white/20 px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Close</button>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">{[["Records", visibleRecords.length], ["Still references", visibleRecords.filter(record => record.kind === "still").length], ["Motion references", visibleRecords.filter(record => record.kind === "motion").length]].map(([label, value]) => <div key={label} className="rounded-xl border border-white/10 bg-white/[0.04] p-4"><p className="text-xs uppercase tracking-[0.15em] text-slate-400">{label}</p><p className="mt-2 text-2xl font-black text-emerald-300">{value}</p></div>)}</div>
+            <pre className="mt-5 max-h-64 overflow-auto rounded-xl border border-white/10 bg-black/30 p-4 text-xs leading-5 text-slate-300">{exportPreview === "csv" ? buildInvestorRelationsCsv(visibleRecords) : buildInvestorRelationsPdfText(visibleRecords)}</pre>
+            <p className="mt-4 text-sm text-slate-300">This local preview uses the current catalog filter. Confirm only if this is the intended source-labeled set.</p>
+            <div className="mt-5 flex flex-wrap justify-end gap-3"><button type="button" onClick={() => setExportPreview(null)} className="min-h-11 rounded-xl border border-white/20 px-4 text-sm text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Cancel</button>{exportPreview === "csv" ? <button type="button" onClick={() => { setExportPreview(null); downloadCsv(); }} className="min-h-11 rounded-xl bg-cyan-300 px-4 text-sm font-bold text-[#071124] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100">Confirm CSV export</button> : <button type="button" onClick={() => { setExportPreview(null); printPdf(); }} className="min-h-11 rounded-xl bg-amber-300 px-4 text-sm font-bold text-[#071124] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-100">Confirm PDF export</button>}</div>
           </div>
         </div>
       )}

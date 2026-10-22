@@ -6608,3 +6608,16 @@
 - [x] Run focused regressions, full Vitest, TypeScript, guarded production build, whitespace, and skill validation.
 - [x] Confirm local route HTTP 200 responses for `/`, `/source-collections`, and `/investor-relations`.
 - [x] Accession 25 new Oct 22 creator uploads as metadata-only receipts in `docs/source-review-oct22/oct22-upload-manifest.json`; no media or supplied HTML/JSON was executed or published.
+
+## Phase 968 — Saved Tags, Export Preview, and Fallback Motion
+- [x] Add visual saved-favorites category tags that remain composable with saved-only filtering and expose `aria-pressed` state.
+- [x] Add a subtle unavailable-media pulse with reduced-motion suppression while preserving the source-labeled fallback.
+- [x] Add a keyboard-reachable CSV/PDF preview dialog with filtered record counts, bounded text preview, Cancel, Confirm CSV, Confirm PDF, and Escape dismissal.
+- [x] Update and validate the reusable source-led portfolio skill with these interaction patterns.
+- [x] Verify focused and full Vitest (408 files / 1109 tests), TypeScript, guarded production build, whitespace, browser interaction smoke, and responsive screenshots.
+
+## Phase 969 — Front-Center Creator Motion Theater
+- [x] Add a front-center homepage motion shelf immediately after Omniland, with three existing hosted Theater references using deliberate-play controls and no autoplay.
+- [x] Add a prominent source-labeled card for the supplied `[STRIPPED106bytes].mp4` ant reference, verified by metadata at 128.54 seconds (2:08), without copying the large upload into `client/public` or executing it.
+- [x] Preserve a clear local-accession path until a deployment-safe hosted URL is available for the long-form upload.
+- [x] Add focused coverage for the motion shelf and update the existing homepage-order regressions; full Vitest now passes 409 files / 1111 tests.

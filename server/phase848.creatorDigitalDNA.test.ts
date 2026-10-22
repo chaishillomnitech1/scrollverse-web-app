@@ -33,6 +33,6 @@ describe("Phase 848 — Creator Digital DNA experience", () => {
     const home = readFileSync(resolve(import.meta.dirname, "../client/src/pages/Home.tsx"), "utf8");
     expect(home).toContain("THE CREATOR SIGNAL, MADE NAVIGABLE");
     expect(home).toContain("Open Creator Digital DNA");
-    expect(home).toContain("<OmnilandFrontCenter />\n      <CreatorDigitalDNABeacon />");
+    expect(home).toContain("<OmnilandFrontCenter />\n      <CreatorMotionShelf />\n      <CreatorDigitalDNABeacon />");
   });
 });
