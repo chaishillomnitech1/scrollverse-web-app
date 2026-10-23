@@ -6621,3 +6621,10 @@
 - [x] Add a prominent source-labeled card for the supplied `[STRIPPED106bytes].mp4` ant reference, verified by metadata at 128.54 seconds (2:08), without copying the large upload into `client/public` or executing it.
 - [x] Preserve a clear local-accession path until a deployment-safe hosted URL is available for the long-form upload.
 - [x] Add focused coverage for the motion shelf and update the existing homepage-order regressions; full Vitest now passes 409 files / 1111 tests.
+
+## Phase 970 — Facebook Motion Source and Full-Audio Playback
+- [x] Add the supplied Facebook reel as a source-labeled front-door motion reference with a direct source link and accessible iframe title.
+- [x] Preserve full-audio playback for the Facebook provider and native Theater clips; no forced mute is applied. Autoplay remains subject to browser policy and is disabled for reduced-motion preferences.
+- [x] Add focused coverage for source inclusion, autoplay policy parameters, `playsInline`, reduced-motion handling, and absence of forced mute.
+- [x] Verify focused regressions (4/4), TypeScript, guarded production build, whitespace, and reusable-skill validation.
+- [ ] Account-wide Manus-chat aggregation, new repository creation, and external pushing remain outside this local verified scope; no such external actions were performed.

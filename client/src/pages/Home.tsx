@@ -1399,6 +1399,18 @@ function FeaturedSovereignArchiveVideo() {
 }
 
 function CreatorMotionShelf() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReducedMotion(mediaQuery.matches);
+    updatePreference();
+    mediaQuery.addEventListener?.("change", updatePreference);
+    return () => mediaQuery.removeEventListener?.("change", updatePreference);
+  }, []);
+
+  const facebookEmbedUrl = `https://www.facebook.com/plugins/video.php?height=476&href=${encodeURIComponent("https://www.facebook.com/reel/2042773263104950/")}&show_text=false&width=267&autoplay=${reducedMotion ? 0 : 1}`;
+
   return (
     <section id="creator-motion-shelf" aria-labelledby="creator-motion-shelf-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(157,235,255,.24)", background: "radial-gradient(circle at 15% 18%, rgba(0,212,255,.13), transparent 30%), radial-gradient(circle at 84% 78%, rgba(0,255,136,.1), transparent 28%), #06101D" }}>
       <div className="container py-14">
@@ -1411,6 +1423,17 @@ function CreatorMotionShelf() {
           <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(157,235,255,.5)", color: "#BCEEFF", background: "rgba(0,212,255,.07)" }}>Open motion accession desk →</Link>
         </div>
         <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          <article className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(0,212,255,.38)", background: "rgba(0,212,255,.045)" }}>
+            <div className="relative aspect-[9/16] max-h-[34rem] overflow-hidden bg-[#030914]">
+              <iframe src={facebookEmbedUrl} title="Creator-supplied Facebook reel motion reference" className="absolute inset-0 h-full w-full" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen />
+            </div>
+            <div className="border-t px-5 py-4" style={{ borderColor: "rgba(0,212,255,.2)" }}>
+              <p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#9DEBFF" }}>CREATOR-SUPPLIED FACEBOOK REEL</p>
+              <h3 className="mt-2 text-lg font-black text-white">Facebook motion reference</h3>
+              <p className="mt-2 text-xs leading-6" style={{ color: "#B8C7D6" }}>Full audio remains available through the provider’s player. Autoplay follows browser policy and is disabled when reduced motion is requested.</p>
+              <a href="https://www.facebook.com/reel/2042773263104950/" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex text-xs font-black" style={{ color: "#BCEEFF" }}>Open source on Facebook ↗</a>
+            </div>
+          </article>
           <article className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(255,204,77,.42)", background: "rgba(255,204,77,.055)" }}>
             <div className="flex min-h-56 items-center justify-center bg-[radial-gradient(circle_at_50%_38%,rgba(255,204,77,.23),transparent_42%),#07111F] p-8 text-center">
               <div>
@@ -1426,7 +1449,7 @@ function CreatorMotionShelf() {
             {theaterScreenings.map(screening => (
               <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
                 <div className="grid gap-4 p-4 sm:grid-cols-[.82fr_1.18fr] sm:items-center">
-                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title}>
+                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} autoPlay={!reducedMotion} loop playsInline>
                     <source src={screening.video} type="video/mp4" />
                     Your browser does not support this video. Open the Theater reference instead.
                   </video>
