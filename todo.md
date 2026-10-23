@@ -6622,9 +6622,16 @@
 - [x] Preserve a clear local-accession path until a deployment-safe hosted URL is available for the long-form upload.
 - [x] Add focused coverage for the motion shelf and update the existing homepage-order regressions; full Vitest now passes 409 files / 1111 tests.
 
-## Phase 970 — Facebook Motion Source and Full-Audio Playback
+## Phase 970 — Facebook Motion Source and Full-Audio Click-to-Play
 - [x] Add the supplied Facebook reel as a source-labeled front-door motion reference with a direct source link and accessible iframe title.
-- [x] Preserve full-audio playback for the Facebook provider and native Theater clips; no forced mute is applied. Autoplay remains subject to browser policy and is disabled for reduced-motion preferences.
+- [x] Preserve full-audio playback for the Facebook provider and native Theater clips; no forced mute or autoplay is applied, so visitors start playback explicitly with the visible player controls.
 - [x] Add focused coverage for source inclusion, autoplay policy parameters, `playsInline`, reduced-motion handling, and absence of forced mute.
 - [x] Verify focused regressions (4/4), TypeScript, guarded production build, whitespace, and reusable-skill validation.
 - [ ] Account-wide Manus-chat aggregation, new repository creation, and external pushing remain outside this local verified scope; no such external actions were performed.
+
+## Phase 971 — ScrollCast and Local AI Legion Broadcast Deck
+- [x] Add a front-door ScrollCast doorway and AI Legion Apex doorway using existing first-party routes.
+- [x] Add four avatar-led, source-labeled idea cards with individual browser-local voice playback.
+- [x] Add an opt-in continuous voice sequence with Stop control, `aria-live` feedback, cleanup on unmount, and no recording or external voice service.
+- [x] Add focused coverage for the podcast route, Legion route, avatar cards, voice sequence, accessibility status, and browser-local boundary.
+- [x] Update affected homepage-order regressions; full Vitest passes 411 files / 1115 tests, TypeScript passes, guarded build passes, and whitespace is clean.

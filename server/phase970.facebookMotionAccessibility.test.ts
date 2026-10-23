@@ -12,11 +12,12 @@ describe("Phase 970 Facebook motion accessibility", () => {
     expect(home).toContain("allowFullScreen");
   });
 
-  it("keeps full-audio playback available while respecting reduced motion", () => {
-    expect(home).toContain("autoPlay={!reducedMotion}");
+  it("keeps full-audio click-to-play available while respecting reduced motion", () => {
+    expect(home).toContain("autoplay=0");
+    expect(home).not.toContain("autoPlay={!reducedMotion}");
     expect(home).toContain("playsInline");
     expect(home).toContain('prefers-reduced-motion: reduce');
-    expect(home).toContain("autoplay=${reducedMotion ? 0 : 1}");
     expect(home).not.toContain("mute=1");
+    expect(home).toContain("data-reduced-motion");
   });
 });

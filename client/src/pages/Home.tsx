@@ -1409,10 +1409,10 @@ function CreatorMotionShelf() {
     return () => mediaQuery.removeEventListener?.("change", updatePreference);
   }, []);
 
-  const facebookEmbedUrl = `https://www.facebook.com/plugins/video.php?height=476&href=${encodeURIComponent("https://www.facebook.com/reel/2042773263104950/")}&show_text=false&width=267&autoplay=${reducedMotion ? 0 : 1}`;
+  const facebookEmbedUrl = `https://www.facebook.com/plugins/video.php?height=476&href=${encodeURIComponent("https://www.facebook.com/reel/2042773263104950/")}&show_text=false&width=267&autoplay=0`;
 
   return (
-    <section id="creator-motion-shelf" aria-labelledby="creator-motion-shelf-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(157,235,255,.24)", background: "radial-gradient(circle at 15% 18%, rgba(0,212,255,.13), transparent 30%), radial-gradient(circle at 84% 78%, rgba(0,255,136,.1), transparent 28%), #06101D" }}>
+    <section id="creator-motion-shelf" aria-labelledby="creator-motion-shelf-title" data-reduced-motion={reducedMotion ? "true" : "false"} className="relative overflow-hidden border-y" style={{ borderColor: "rgba(157,235,255,.24)", background: "radial-gradient(circle at 15% 18%, rgba(0,212,255,.13), transparent 30%), radial-gradient(circle at 84% 78%, rgba(0,255,136,.1), transparent 28%), #06101D" }}>
       <div className="container py-14">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div>
@@ -1430,7 +1430,7 @@ function CreatorMotionShelf() {
             <div className="border-t px-5 py-4" style={{ borderColor: "rgba(0,212,255,.2)" }}>
               <p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#9DEBFF" }}>CREATOR-SUPPLIED FACEBOOK REEL</p>
               <h3 className="mt-2 text-lg font-black text-white">Facebook motion reference</h3>
-              <p className="mt-2 text-xs leading-6" style={{ color: "#B8C7D6" }}>Full audio remains available through the provider’s player. Autoplay follows browser policy and is disabled when reduced motion is requested.</p>
+              <p className="mt-2 text-xs leading-6" style={{ color: "#B8C7D6" }}>Click the provider’s play control to start full-audio playback. Nothing is hidden or forced to autoplay, and the source stays attached.</p>
               <a href="https://www.facebook.com/reel/2042773263104950/" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex text-xs font-black" style={{ color: "#BCEEFF" }}>Open source on Facebook ↗</a>
             </div>
           </article>
@@ -1449,7 +1449,7 @@ function CreatorMotionShelf() {
             {theaterScreenings.map(screening => (
               <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
                 <div className="grid gap-4 p-4 sm:grid-cols-[.82fr_1.18fr] sm:items-center">
-                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} autoPlay={!reducedMotion} loop playsInline>
+                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} loop playsInline>
                     <source src={screening.video} type="video/mp4" />
                     Your browser does not support this video. Open the Theater reference instead.
                   </video>
@@ -1458,6 +1458,74 @@ function CreatorMotionShelf() {
               </article>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const LEGION_AVATARS = [
+  { name: "Luma Vale", role: "Access Architect", avatar: "LV", color: "#00FF88", idea: "Make every doorway readable, playable, and welcoming across devices." },
+  { name: "Orin Bridge", role: "Sound Courier", avatar: "OB", color: "#B98CFF", idea: "Let every visual carry a source label, a quiet mode, and a voice-ready path." },
+  { name: "Kairo Sol", role: "World Builder", avatar: "KS", color: "#FFCC4D", idea: "Turn the portal into a free studio where story, research, and play meet." },
+  { name: "Mira Thread", role: "Provenance Keeper", avatar: "MT", color: "#9DEBFF", idea: "Keep the creator trail visible while each idea remains open to thoughtful collaboration." },
+] as const;
+
+function LegionBroadcastDeck() {
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  useEffect(() => () => window.speechSynthesis?.cancel(), []);
+
+  const stopSequence = () => {
+    window.speechSynthesis?.cancel();
+    setIsSpeaking(false);
+    setActiveIndex(null);
+  };
+
+  const speakFrom = (index: number) => {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    setIsSpeaking(true);
+    setActiveIndex(index);
+    const current = LEGION_AVATARS[index];
+    const utterance = new SpeechSynthesisUtterance(`${current.name}. ${current.role}. ${current.idea}`);
+    utterance.onend = () => {
+      const nextIndex = index + 1;
+      if (nextIndex < LEGION_AVATARS.length) speakFrom(nextIndex);
+      else stopSequence();
+    };
+    utterance.onerror = stopSequence;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  return (
+    <section id="legion-broadcast-deck" aria-labelledby="legion-broadcast-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(185,140,255,.24)", background: "radial-gradient(circle at 16% 18%, rgba(185,140,255,.13), transparent 28%), radial-gradient(circle at 86% 78%, rgba(0,255,136,.09), transparent 28%), #070D1D" }}>
+      <div className="container py-14">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-mono tracking-[.18em]" style={{ color: "#DCC8FF" }}>AI LEGION BROADCAST DECK</p>
+            <h2 id="legion-broadcast-title" className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">Ideas move. Voices stay optional.</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7" style={{ color: "#C8D8E7" }}>A free, browser-local listening room for source-labeled Legion viewpoints. Start the sequence yourself, pause it whenever you want, or read every idea silently.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/podcast" className="inline-flex min-h-11 items-center rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#FFCC4D", color: "#07101D" }}>🎙 Open ScrollCast</Link>
+            <Link href="/ai-legion-apex" className="inline-flex min-h-11 items-center rounded-xl border px-5 py-3 text-sm font-black" style={{ borderColor: "rgba(0,255,136,.45)", color: "#9AFFC5", background: "rgba(0,255,136,.06)" }}>Meet the AI Legion →</Link>
+          </div>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {LEGION_AVATARS.map((legion, index) => (
+            <article key={legion.name} className="rounded-[1.6rem] border p-5 transition-transform hover:-translate-y-1" style={{ borderColor: `${legion.color}44`, background: `${legion.color}08` }}>
+              <div className="flex items-start gap-3"><div className="flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black" style={{ color: legion.color, background: `${legion.color}18`, border: `1px solid ${legion.color}55` }} aria-label={`${legion.name} avatar`}>{legion.avatar}</div><div><h3 className="text-base font-black text-white">{legion.name}</h3><p className="text-[10px] font-mono" style={{ color: legion.color }}>{legion.role}</p></div></div>
+              <p className="mt-4 text-sm leading-6" style={{ color: "#D6E2EE" }}>{legion.idea}</p>
+              <button type="button" onClick={() => speakFrom(index)} className="mt-4 min-h-10 rounded-xl border px-3 py-2 text-xs font-black" style={{ borderColor: `${legion.color}55`, color: legion.color }}>Speak this idea</button>
+              {activeIndex === index ? <span className="ml-3 text-[10px] font-mono" style={{ color: legion.color }} aria-live="polite">{isSpeaking ? "Speaking" : "Ready"}</span> : null}
+            </article>
+          ))}
+        </div>
+        <div className="mt-5 flex flex-wrap items-center gap-3 rounded-2xl border p-4" style={{ borderColor: "rgba(255,255,255,.12)", background: "rgba(255,255,255,.035)" }} aria-live="polite">
+          <button type="button" onClick={() => isSpeaking ? stopSequence() : speakFrom(0)} className="min-h-11 rounded-xl px-4 py-2.5 text-sm font-black" style={{ background: isSpeaking ? "#FF8A9B" : "#00FF88", color: "#07101D" }}>{isSpeaking ? "Stop voice sequence" : "Start voice sequence"}</button>
+          <span className="text-xs" style={{ color: "#B8C7D6" }}>{isSpeaking ? `Now voicing ${LEGION_AVATARS[activeIndex ?? 0].name}.` : "Browser-local voice is opt-in; no recording or external voice service is used."}</span>
         </div>
       </div>
     </section>
@@ -2557,6 +2625,7 @@ export default function Home() {
       </section>
       <OmnilandFrontCenter />
       <CreatorMotionShelf />
+      <LegionBroadcastDeck />
       <CreatorDigitalDNABeacon />
       <LookbookConstellationFrontCenter />
       <InteractiveCreatorPortfolio />
