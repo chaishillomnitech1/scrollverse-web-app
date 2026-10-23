@@ -6635,3 +6635,8 @@
 - [x] Add an opt-in continuous voice sequence with Stop control, `aria-live` feedback, cleanup on unmount, and no recording or external voice service.
 - [x] Add focused coverage for the podcast route, Legion route, avatar cards, voice sequence, accessibility status, and browser-local boundary.
 - [x] Update affected homepage-order regressions; full Vitest passes 411 files / 1115 tests, TypeScript passes, guarded build passes, and whitespace is clean.
+
+## Phase 972 — Oct 23 Metadata-Only Source Accession
+- [x] Generate `docs/source-review-oct23/oct23-upload-manifest.json` and its accession note with exact byte counts, MIME guesses, SHA-256 identifiers, classifications, and metadata-only display scope for 650 locally supplied files.
+- [x] Preserve explicit non-execution boundaries for supplied media, HTML, JSON, and text; no source body was played, rendered, interpreted, transformed, uploaded, embedded, or published.
+- [x] Add and pass the focused accession regression for manifest presence, hash shape, and metadata-only scope.
