@@ -6,6 +6,7 @@ import { readPortfolioFavorites, togglePortfolioFavorite, writePortfolioFavorite
 
 const categories = ["All", "Stories", "Books", "Systems", "Identity", "Artifacts"];
 const control = "min-h-11 rounded-xl border border-white/25 px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8CEEDD]";
+const latestAccession = { label: "OCT 23 UPLOAD ACCESSION", count: 650, scope: "metadata-only" };
 
 export default function SourceCollections() {
   const [mode, setMode] = useState<"collections" | "titles">("collections");
@@ -76,6 +77,17 @@ export default function SourceCollections() {
           <div><p className="text-xs font-mono uppercase tracking-[.24em] text-[#8CEEDD]">The creator archive / October accession</p><h1 className="mt-5 text-5xl font-black leading-[.96] tracking-tight md:text-7xl">Ideas become<br /><span className="text-[#FFD18A]">collections.</span></h1><p className="mt-6 max-w-2xl text-base leading-8 text-[#D1E4EA]">Follow the story families, preserve the original titles, and carry a precise source into the next creator tool. {SOURCE_BATCHES.length} separately identified source versions, one connected reading room.</p></div>
           <div className="border-l border-[#FFD18A]/40 pl-6"><span className="text-6xl font-light text-[#FFD18A]">{SOURCE_COLLECTIONS.length.toString().padStart(2, "0")}</span><p className="mt-2 text-xs font-mono uppercase tracking-[.16em] text-[#A3C3CD]">Editorial collections</p><p className="mt-5 text-sm leading-7 text-[#D1E4EA]">{SOURCE_TITLE_INDEX.length} unique source titles<br />{SOURCE_BATCHES.length} byte-identified receipts</p></div>
         </div>
+      </div>
+    </section>
+
+    <section className="container pt-8" aria-labelledby="latest-accession-title">
+      <div className="flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-[#8CEEDD]/30 bg-[#8CEEDD]/[.04] p-6">
+        <div>
+          <p className="text-[11px] font-mono uppercase tracking-[.18em] text-[#8CEEDD]">{latestAccession.label}</p>
+          <h2 id="latest-accession-title" className="mt-2 text-2xl font-black text-white">Latest creator source batch is indexed.</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#D1E4EA]">{latestAccession.count.toLocaleString()} {latestAccession.scope} receipts are preserved locally with exact hashes. Source bodies remain outside the deployable portal.</p>
+        </div>
+        <Link href="/source-collections" className={`${control} inline-flex items-center border-[#8CEEDD]/50 text-[#8CEEDD]`}>Browse indexed records →</Link>
       </div>
     </section>
 

@@ -1,0 +1,189 @@
+{
+  "manifestType": "scrollverse_creator_source_accession",
+  "batch": "oct24-newest-upload-batch",
+  "generatedAt": "2026-10-24",
+  "count": 20,
+  "scope": "Metadata-only local accession. Supplied bodies are not executed, rendered, played, transformed, uploaded, embedded, published, or treated as independent evidence.",
+  "records": [
+    {
+      "filename": "image_20261023_174904.mp4",
+      "bytes": 7020051,
+      "sha256": "bc2690c2460a5f8f0be9dba0cb24abc18ebd291910c210f3373ab30557d13b19",
+      "mime": "video/mp4",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_174904.mp4"
+    },
+    {
+      "filename": "image_20261023_174906(1).mp4",
+      "bytes": 7760258,
+      "sha256": "3380569109effb9851b591a38d278890f0892b796d7f34512eca2b60c93878af",
+      "mime": "video/mp4",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_174906(1).mp4"
+    },
+    {
+      "filename": "image_20261023_174906.mp4",
+      "bytes": 7760258,
+      "sha256": "3380569109effb9851b591a38d278890f0892b796d7f34512eca2b60c93878af",
+      "mime": "video/mp4",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_174906.mp4"
+    },
+    {
+      "filename": "image_20261023_174907(1).mp4",
+      "bytes": 5502481,
+      "sha256": "26780002b61343a82aaedebf3ffea044e7f6cb6c8647c7b05e66bf0b36929896",
+      "mime": "video/mp4",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_174907(1).mp4"
+    },
+    {
+      "filename": "image_20261023_174907.mp4",
+      "bytes": 5502481,
+      "sha256": "26780002b61343a82aaedebf3ffea044e7f6cb6c8647c7b05e66bf0b36929896",
+      "mime": "video/mp4",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_174907.mp4"
+    },
+    {
+      "filename": "image_20261023_175354.jpg",
+      "bytes": 332182,
+      "sha256": "2641d93da4c3e1b9b916036a80ce89944ac966cd113cf58cd027c02fa0c58e02",
+      "mime": "image/jpeg",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_175354.jpg"
+    },
+    {
+      "filename": "image_20261023_193339.mp4",
+      "bytes": 6204651,
+      "sha256": "f4c4ba9e8038ea4581ce857efb83fee757a1ac47a363aee0c22d07c3bba7f0c5",
+      "mime": "video/mp4",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_193339.mp4"
+    },
+    {
+      "filename": "image_20261023_194522.jpg",
+      "bytes": 158773,
+      "sha256": "dee9098eaf146d9330c32da1f85a6a3722e921a558638392779f409c07e3f37a",
+      "mime": "image/jpeg",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261023_194522.jpg"
+    },
+    {
+      "filename": "image_20261024_000400-add-golden-sparkles-to-the-cartoon-throne-masterpi.jpg",
+      "bytes": 537922,
+      "sha256": "b48b24f4da84d22bfafa35091195ed1756c49ce90d7dc9aa4304bd7a2d2629c9",
+      "mime": "image/jpeg",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261024_000400-add-golden-sparkles-to-the-cartoon-throne-masterpi.jpg"
+    },
+    {
+      "filename": "image_20261024_000632.jpg",
+      "bytes": 266479,
+      "sha256": "753b8f2be33ec336c1317b625369405939fdc3192b9aec71f2d7a7e06d63a32f",
+      "mime": "image/jpeg",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/image_20261024_000632.jpg"
+    },
+    {
+      "filename": "Londc-Block-0002-Mint.html",
+      "bytes": 191207,
+      "sha256": "4a1b942957f90102ec89a2d0e34cd59fb8296d12ff91763a33faf6e39a115dcc",
+      "mime": "text/html",
+      "classification": "html-artifact",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/Londc-Block-0002-Mint.html"
+    },
+    {
+      "filename": "Londc-Block-0003-0005-Patch-Set-Mint.html",
+      "bytes": 3324911,
+      "sha256": "09500e531d8b20536d841e64347ab0e11793c5e0cf4c5a36d86ebaa6c2cb5430",
+      "mime": "text/html",
+      "classification": "html-artifact",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/Londc-Block-0003-0005-Patch-Set-Mint.html"
+    },
+    {
+      "filename": "Londc-Block-Mint-0001(1).html",
+      "bytes": 190182,
+      "sha256": "6519ea58d9ae0df77a9fd09bf4151d8540f007262db7e304f7a82f353c19871f",
+      "mime": "text/html",
+      "classification": "html-artifact",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/Londc-Block-Mint-0001(1).html"
+    },
+    {
+      "filename": "pasted_content_96.txt",
+      "bytes": 4650,
+      "sha256": "3a8f9fca3a06b1a49e34078a765a0996726d9b0397f4fa0ce1deffc713dd8c3a",
+      "mime": "text/plain",
+      "classification": "creator-text",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_96.txt"
+    },
+    {
+      "filename": "pasted_content_97.txt",
+      "bytes": 151230,
+      "sha256": "bcd5370b0258fad83026da0f2aaaa6b154a6fcd3bc516918a55c93e13b01df2d",
+      "mime": "text/plain",
+      "classification": "creator-text",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_97.txt"
+    },
+    {
+      "filename": "pasted_content_98.txt",
+      "bytes": 10083,
+      "sha256": "c11a74e04c8b7c1ca9037f7e7970bc56d1eb39418dcb115f31389a311cc85b32",
+      "mime": "text/plain",
+      "classification": "creator-text",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_98.txt"
+    },
+    {
+      "filename": "pasted_content_99.txt",
+      "bytes": 140266,
+      "sha256": "ba6e8761b9f723ae1e6d7e358b77574c0ad7bb2ace87e378f4465a4a26d52db8",
+      "mime": "text/plain",
+      "classification": "creator-text",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_99.txt"
+    },
+    {
+      "filename": "pasted_file_YQ5zc3_image.png",
+      "bytes": 5081475,
+      "sha256": "e167e248f83e851da7d2f51efa5c07f65b429c0f686f6e38745be1a5fd5c7c19",
+      "mime": "image/png",
+      "classification": "media",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/pasted_file_YQ5zc3_image.png"
+    },
+    {
+      "filename": "Scrollverse-30day-Calendar(1).html",
+      "bytes": 192744,
+      "sha256": "bf2eed6654771e0fad41b0d4425bbbdfaf6dae94b9a20139b4934cb14b737038",
+      "mime": "text/html",
+      "classification": "html-artifact",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/Scrollverse-30day-Calendar(1).html"
+    },
+    {
+      "filename": "Scrollverse-30day-Calendar.html",
+      "bytes": 192744,
+      "sha256": "bf2eed6654771e0fad41b0d4425bbbdfaf6dae94b9a20139b4934cb14b737038",
+      "mime": "text/html",
+      "classification": "html-artifact",
+      "displayScope": "metadata-only local receipt",
+      "sourcePath": "/home/ubuntu/upload/Scrollverse-30day-Calendar.html"
+    }
+  ]
+}

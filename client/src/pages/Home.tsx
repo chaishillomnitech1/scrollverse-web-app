@@ -1532,6 +1532,38 @@ function LegionBroadcastDeck() {
   );
 }
 
+const META_LOOKBOOK_DOORWAYS = [
+  { href: "/meta-ai-artifacts-lookbooks", title: "Meta AI Artifacts", detail: "Open the source-led Meta AI artifact and lookbook index.", mark: "META AI", src: HERO_IMG, accent: "#9DEBFF" },
+  { href: "/crypto-artifact-lookbook", title: "Crypto Artifact Lookbook", detail: "Browse exchange, evolution, and visual artifact pathways.", mark: "ARTIFACTS", src: THRONE_IMG, accent: "#FFCC4D" },
+  { href: "/evolution-lookbook", title: "Evolution Lookbook", detail: "Move through the visual language of change, motion, and form.", mark: "EVOLUTION", src: SUN_XIX_CDN, accent: "#9AFFC5" },
+  { href: "/visual-story-worlds", title: "Visual Story Worlds", detail: "Enter the story-world shelf for film, animation, and worldbuilding.", mark: "STORY WORLDS", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#DCC8FF" },
+] as const;
+
+function MetaLookbookDoorways() {
+  return (
+    <section id="meta-ai-lookbooks" aria-labelledby="meta-ai-lookbooks-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.24)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.13), transparent 30%), radial-gradient(circle at 88% 80%, rgba(157,235,255,.12), transparent 30%), #07101D" }}>
+      <div className="container py-14">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-mono tracking-[.18em]" style={{ color: "#FFCC4D" }}>META AI ARTIFACTS &amp; LOOKBOOKS</p>
+            <h2 id="meta-ai-lookbooks-title" className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">The vivid shelf is open.</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7" style={{ color: "#C8D8E7" }}>Jump from the main page into the Meta AI artifact register, visual lookbooks, and story-world routes. Thumbnails are resilient source visuals with text fallbacks, so no doorway is left blank.</p>
+          </div>
+          <Link href="/meta-ai-artifacts-lookbooks" className="inline-flex min-h-11 items-center rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#FFCC4D", color: "#07101D" }}>Open the full Meta AI index →</Link>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {META_LOOKBOOK_DOORWAYS.map((doorway) => (
+            <Link key={doorway.href} href={doorway.href} className="group overflow-hidden rounded-[1.7rem] border transition duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style={{ borderColor: `${doorway.accent}55`, background: `${doorway.accent}08` }}>
+              <SourceVisual src={doorway.src} alt={`${doorway.title} source thumbnail`} title={doorway.title} mark={doorway.mark} className="aspect-[4/3] w-full" />
+              <div className="p-5"><p className="text-[10px] font-mono uppercase tracking-[.16em]" style={{ color: doorway.accent }}>Vivid source thumbnails</p><h3 className="mt-2 text-xl font-black text-white">{doorway.title}</h3><p className="mt-2 text-sm leading-6" style={{ color: "#C8D8E7" }}>{doorway.detail}</p><span className="mt-4 inline-flex text-sm font-black" style={{ color: doorway.accent }}>Open lookbook →</span></div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const CENTRAL_LIBRARY_FEATURES = [
   {
     kind: "PLAY",
@@ -2626,6 +2658,7 @@ export default function Home() {
       <OmnilandFrontCenter />
       <CreatorMotionShelf />
       <LegionBroadcastDeck />
+      <MetaLookbookDoorways />
       <CreatorDigitalDNABeacon />
       <LookbookConstellationFrontCenter />
       <InteractiveCreatorPortfolio />

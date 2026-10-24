@@ -6640,3 +6640,18 @@
 - [x] Generate `docs/source-review-oct23/oct23-upload-manifest.json` and its accession note with exact byte counts, MIME guesses, SHA-256 identifiers, classifications, and metadata-only display scope for 650 locally supplied files.
 - [x] Preserve explicit non-execution boundaries for supplied media, HTML, JSON, and text; no source body was played, rendered, interpreted, transformed, uploaded, embedded, or published.
 - [x] Add and pass the focused accession regression for manifest presence, hash shape, and metadata-only scope.
+
+## Phase 973 — Latest Accession Visibility Panel
+- [x] Add the source-labeled Oct 23 accession panel to Source Collections with 650 metadata-only receipts, exact-hash language, and a direct indexed-record doorway.
+- [x] Add and pass focused regression coverage for the panel and its typed accession expression.
+
+## Phase 974 — Meta AI Artifacts and Lookbook Doorways
+- [x] Add a vivid, source-labeled homepage strip with resilient SourceVisual thumbnails and complete text fallbacks.
+- [x] Link visitors directly to `/meta-ai-artifacts-lookbooks`, `/crypto-artifact-lookbook`, `/evolution-lookbook`, and `/visual-story-worlds` without nesting interactive elements.
+- [x] Keep discovery visitor-controlled: the strip highlights masterworks and route choices without initiating purchases, payments, exchange, minting, or external publication.
+- [x] Add focused coverage and update affected homepage-order regressions; full Vitest passes 414 files / 1118 tests, TypeScript passes, guarded production build passes, skill validation passes, and desktop/mobile screenshots were captured.
+
+## Phase 975 — Oct 24 Newest Upload Accession
+- [x] Accession 20 newest creator-supplied calendar, mint, baby, apparel, image, motion, and HTML records in `docs/source-review-oct24/oct24-newest-upload-manifest.json` with exact byte counts and SHA-256 receipts.
+- [x] Preserve metadata-only boundaries; no supplied body was executed, rendered, played, transformed, uploaded, embedded, or published.
+- [x] Focused regression passes 1/1; TypeScript passes; full Vitest passes 415 files / 1119 tests; whitespace is clean.
