@@ -6655,3 +6655,8 @@
 - [x] Accession 20 newest creator-supplied calendar, mint, baby, apparel, image, motion, and HTML records in `docs/source-review-oct24/oct24-newest-upload-manifest.json` with exact byte counts and SHA-256 receipts.
 - [x] Preserve metadata-only boundaries; no supplied body was executed, rendered, played, transformed, uploaded, embedded, or published.
 - [x] Focused regression passes 1/1; TypeScript passes; full Vitest passes 415 files / 1119 tests; whitespace is clean.
+
+## Phase 976 — Central-Library Preparation Regression
+- [x] Add focused regression coverage for the screen-recording preparation record, private disposition, source labels, and original-source/permission gate.
+- [x] Focused regression passes 1/1; TypeScript passes; whitespace is clean.
+- [ ] Keep integrated media publication and external verification as a separate owner/provider-controlled lane; no publication action was requested or performed in this local-only continuation.
