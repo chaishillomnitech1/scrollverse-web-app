@@ -8,6 +8,7 @@ import {
   getAccessionProfile,
   getAccessionStatusSummary,
   paginateAccessionRecords,
+  sortAccessionRecords,
 } from "@/lib/accessionRecords";
 
 type AccessionValues = {
@@ -95,6 +96,7 @@ export default function DigitalshipAccessionDesk() {
   const [activeStep, setActiveStep] = useState(0);
   const [exported, setExported] = useState(false);
   const [recordQuery, setRecordQuery] = useState("");
+  const [recordSort, setRecordSort] = useState<"filename" | "largest" | "type">("filename");
   const [selectedRecordFilename, setSelectedRecordFilename] = useState(ACCESSION_RECORDS[0]?.filename ?? "");
   const [detailRecordFilename, setDetailRecordFilename] = useState<string | null>(null);
   const [recordPage, setRecordPage] = useState(1);
@@ -106,7 +108,7 @@ export default function DigitalshipAccessionDesk() {
   const activeMethodStep = METHOD_STEPS[activeStep];
   const selectedDestination = ROUTE_DESTINATIONS[values.intendedRoute];
   const selectionNeedsCompletion = !values.sourceFilename.trim() || values.intendedRoute === "not yet selected" || !values.intendedUse.trim();
-  const filteredRecords = useMemo(() => filterAccessionRecords(ACCESSION_RECORDS, recordQuery), [recordQuery]);
+  const filteredRecords = useMemo(() => sortAccessionRecords(filterAccessionRecords(ACCESSION_RECORDS, recordQuery), recordSort), [recordQuery, recordSort]);
   const recordPageData = useMemo(() => paginateAccessionRecords(filteredRecords, recordPage, 12), [filteredRecords, recordPage]);
   const accessionSummary = useMemo(() => getAccessionStatusSummary(ACCESSION_RECORDS), []);
   const selectedRecord = useMemo(() => getAccessionProfile(selectedRecordFilename), [selectedRecordFilename]);
@@ -176,6 +178,7 @@ export default function DigitalshipAccessionDesk() {
               </div>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end">
                 <label className="block flex-1"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">SEARCH FILENAME, TYPE, OR HASH</span><input aria-label="Search accessioned records" value={recordQuery} onChange={(event) => updateRecordQuery(event.target.value)} placeholder="Example: mp4, implementation, or sha256 prefix" className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#030713]/65 px-4 text-sm text-white outline-none placeholder:text-[#788FA4] focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20" /></label>
+                <label className="block"><span className="text-[10px] font-mono tracking-[.16em] text-[#BCEEFF]">SORT ACCESSION RECORDS</span><select aria-label="Sort accession records" value={recordSort} onChange={(event) => { setRecordSort(event.target.value as typeof recordSort); setRecordPage(1); setRecordsReady(true); }} className="mt-2 min-h-12 rounded-xl border border-white/15 bg-[#030713]/65 px-3 text-sm text-white outline-none focus:border-[#70D9FF] focus:ring-2 focus:ring-[#70D9FF]/20"><option value="filename">Filename A–Z</option><option value="largest">Largest first</option><option value="type">Type A–Z</option></select></label>
                 <button type="button" onClick={revealRecords} className="min-h-12 rounded-xl border border-[#70D9FF]/40 bg-[#70D9FF]/[.08] px-4 text-sm font-black text-[#BCEEFF] transition hover:bg-[#70D9FF]/[.16] focus:outline-none focus:ring-2 focus:ring-[#70D9FF]/40">{recordsReady ? "Refresh local index" : "Load local index"}</button>
                 <button type="button" onClick={downloadFilteredCsv} disabled={!recordsReady || filteredRecords.length === 0} className="min-h-12 rounded-xl border border-[#FFE7B3]/40 bg-[#FFE7B3]/[.08] px-4 text-sm font-black text-[#FFE7B3] transition hover:bg-[#FFE7B3]/[.16] disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus:ring-2 focus:ring-[#FFE7B3]/40">Export filtered CSV</button>
               </div>

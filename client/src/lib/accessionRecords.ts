@@ -89,6 +89,16 @@ export function filterAccessionRecords(records: readonly AccessionRecord[], quer
   return records.filter((record) => [record.filename, record.classification, record.displayScope, record.sha256].some((value) => value.toLocaleLowerCase().includes(normalized)));
 }
 
+export type AccessionSort = "filename" | "largest" | "type";
+
+export function sortAccessionRecords(records: readonly AccessionRecord[], sort: AccessionSort): AccessionRecord[] {
+  return [...records].sort((left, right) => {
+    if (sort === "largest") return right.bytes - left.bytes || left.filename.localeCompare(right.filename);
+    if (sort === "type") return left.classification.localeCompare(right.classification) || left.filename.localeCompare(right.filename);
+    return left.filename.localeCompare(right.filename);
+  });
+}
+
 export function getAccessionStatusSummary(records: readonly AccessionRecord[]) {
   return {
     total: records.length,

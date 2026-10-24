@@ -6660,3 +6660,10 @@
 - [x] Add focused regression coverage for the screen-recording preparation record, private disposition, source labels, and original-source/permission gate.
 - [x] Focused regression passes 1/1; TypeScript passes; whitespace is clean.
 - [ ] Keep integrated media publication and external verification as a separate owner/provider-controlled lane; no publication action was requested or performed in this local-only continuation.
+
+## Phase 977 — Theater, Accession, and Lookbook Interaction Polish
+- [x] Add a subtle `motion-safe` theater loading/readiness pulse with an explicit reduced-motion override while keeping click-to-play controls unobstructed.
+- [x] Add allowlisted accession sorting by filename, byte size, or classification after search filtering, with page reset and a labeled native select.
+- [x] Add a keyboard-reachable “Open full metadata” lookbook thumbnail modal with stable accession, state, source note, next-record detail, Close, and backdrop dismissal.
+- [x] Update the reusable source-led portfolio skill with all three interaction patterns.
+- [x] Verification passed: focused 3/3, full Vitest 417 files / 1123 tests, TypeScript, guarded production build, skill validation, and `git diff --check`.

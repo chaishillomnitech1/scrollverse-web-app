@@ -1449,10 +1449,10 @@ function CreatorMotionShelf() {
             {theaterScreenings.map(screening => (
               <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
                 <div className="grid gap-4 p-4 sm:grid-cols-[.82fr_1.18fr] sm:items-center">
-                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} loop playsInline>
+                  <div className="relative overflow-hidden rounded-xl"><div className="pointer-events-none absolute inset-0 z-10 rounded-xl border border-[#9DEBFF]/20 bg-[linear-gradient(110deg,transparent,rgba(157,235,255,.12),transparent)] motion-safe:animate-pulse motion-reduce:animate-none" aria-label="THEATER LOADING visual readiness" /><video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} loop playsInline>
                     <source src={screening.video} type="video/mp4" />
                     Your browser does not support this video. Open the Theater reference instead.
-                  </video>
+                  </video></div>
                   <div><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#9DEBFF" }}>DELIBERATE-PLAY THEATER REFERENCE</p><h3 className="mt-2 text-lg font-black text-white">{screening.title}</h3><p className="mt-2 text-xs leading-6" style={{ color: "#B8C7D6" }}>{screening.description}</p><Link href="/meta-ai-legion-archive" className="mt-4 inline-flex text-xs font-black" style={{ color: "#BCEEFF" }}>Open full source archive →</Link></div>
                 </div>
               </article>
