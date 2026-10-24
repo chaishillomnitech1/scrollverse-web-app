@@ -5749,7 +5749,7 @@
 
 ## Phase 795 — Screen Recording Library Intake
 - [x] Analyze both owner-supplied screen recordings for visual, navigation, and provenance-safe central-library value
-- [ ] Prepare selected source-labeled screen-recording media for the central library
+- [x] Prepare selected source-labeled screen-recording candidates for the central library in `docs/phase795-central-library-media-preparation.md`; retain them as private research-intake candidates until original source/permission context is supplied
 - [ ] Validate, publish, and verify the integrated media experience
 
 ## Phase 797 — Local Eyewitness Research and Sovereign-App Recovery
