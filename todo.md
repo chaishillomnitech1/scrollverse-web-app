@@ -6072,7 +6072,8 @@
 
 ## Phase 864 — Omnitech Source Review
 - [x] Review `https://omnitech-mwws68ge.manus.space` for visible creator context, route scope, and suitable source-labeled discovery paths
-- [ ] Add a source-record entry or first-party link only after confirming a compatible visible destination and current operating state
+- [x] Add the owner-identified Omnitech source-record entry to the local First-Party Sites Register with `research` operating state and no inferred provider availability
+- [x] Verify focused first-party/source-led regressions (6/6), TypeScript, guarded production build, and whitespace.
 
 ## Phase 865 — Attached Royalty Task Source Review
 - [x] Retrieve the visible conversation, files, and project context from the attached *Transforming Blockchain Royalties into Global Wealth* task
