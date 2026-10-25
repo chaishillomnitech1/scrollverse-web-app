@@ -3,9 +3,19 @@ import { ArrowRight, BookOpen, CheckCircle2, Eye, FileImage, Layers3, LockKeyhol
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
+import SourceVisual from "@/components/SourceVisual";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 
-const visualBoards = [
+const visualBoards: Array<{
+  id: string;
+  title: string;
+  eyebrow: string;
+  image?: string;
+  accent: string;
+  state: string;
+  note: string;
+  next: string;
+}> = [
   {
     id: "SV-VIS-490-001",
     title: "Sovereign Form Studies",
@@ -45,6 +55,33 @@ const visualBoards = [
     state: "Display-ready reference",
     note: "An owner-provided ScrollVerse poster reference for lookbook atmosphere, campaign world-building, and first-party visual discovery.",
     next: "Campaign context, rights record, and owner-approved publishing destination",
+  },
+  {
+    id: "SV-GFW-024-001",
+    title: "CIRCLE ZERO OUROBOROS",
+    eyebrow: "GOD FLOW WORKSHOP · 963HZ GENESIS",
+    accent: "#FFCC4D",
+    state: "Creator-supplied workshop concept",
+    note: "Phoenix Ash Ouroboros cycle hoodie, waterproof MOLLE pants, and a QR patch arranged as a golden-ring origin system.",
+    next: "Thumbnail source, product record, accessibility copy, and approved commerce destination",
+  },
+  {
+    id: "SV-GFW-024-002",
+    title: "PRETTY PAPER PAPER MAN",
+    eyebrow: "GOD FLOW WORKSHOP · 999HZ ORIGAMI SPIRIT",
+    accent: "#00FF88",
+    state: "Creator-supplied workshop concept",
+    note: "Twin Phoenix Ouroboros, stretch Raider pants, and a QR USA flag patch framed by a blueprint-grid Paper Man mascot.",
+    next: "Thumbnail source, product record, accessibility copy, and approved commerce destination",
+  },
+  {
+    id: "SV-GFW-024-003",
+    title: "DUAL HARMONIC DIGITAL TWIN QR",
+    eyebrow: "GOD FLOW WORKSHOP · 963/999 LIVING SYSTEM",
+    accent: "#DCC8FF",
+    state: "Creator-supplied workshop concept",
+    note: "A dual QR workshop table with mirrored infinity reflection and a proposed living digital-twin direction.",
+    next: "Thumbnail source, product record, accessibility copy, and approved commerce destination",
   },
 ] as const;
 
@@ -95,14 +132,14 @@ export default function MetaAIArtifactsLookbooks() {
       </section>
 
       <section className="container py-10">
-        <PortalTrustLens lane="Meta AI Artifacts & Lookbooks" source="Phase 490 owner-brand visual catalog; accessions SV-VIS-490-001 through SV-VIS-490-004." readiness="Four owner-authorized visual display references are available for browser-local discovery and concept direction." boundary="This page does not create a product, garment, license, campaign, media publication, player, checkout, payment, token, listing, or provider action." />
+        <PortalTrustLens lane="Meta AI Artifacts & Lookbooks" source="Phase 490 visual catalog plus creator-supplied God Flow Workshop concept records SV-GFW-024-001 through SV-GFW-024-003." readiness="Seven source-labeled visual references are available for browser-local discovery and concept direction." boundary="This page does not create a product, garment, license, campaign, media publication, player, checkout, payment, token, listing, or provider action." />
       </section>
 
       <section className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.16em] text-[#FFCC4D]">SELECT A VISUAL BOARD</p><h2 className="mt-3 text-4xl font-black">The artifact room.</h2></div><p className="max-w-lg text-sm leading-7 text-[#B8C7D6]">Use the board selector to explore an existing owner-provided visual direction in this browser. Selection is not a request, release, or media action.</p></div>
         <div className="mt-7 grid gap-4 lg:grid-cols-[.9fr_1.1fr]">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">{visualBoards.map((board) => <button key={board.id} type="button" onClick={() => selectBoard(board.id)} className="rounded-2xl border p-5 text-left transition-all hover:-translate-y-0.5" style={{ borderColor: selectedId === board.id ? `${board.accent}AA` : `${board.accent}40`, background: selectedId === board.id ? `${board.accent}14` : "rgba(255,255,255,0.025)" }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: board.accent }}>{board.eyebrow}</p><h3 className="mt-2 text-lg font-black text-white">{board.title}</h3><p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{board.state}</p></button>)}</div>
-          <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] p-6 md:p-8"><div className="grid gap-7 md:grid-cols-[.85fr_1.15fr]"><div><button type="button" onClick={() => setShowMetadata(true)} className="group relative flex min-h-72 w-full items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/30 p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" aria-label={`Open full metadata for ${selected.title}`}><img src={selected.image} alt={`${selected.title} — selected owner-provided visual reference`} className="max-h-80 w-full object-contain transition duration-300 group-hover:scale-[1.02]" /><span className="absolute bottom-4 rounded-full border border-white/20 bg-black/70 px-3 py-2 text-xs font-black text-white">Open full metadata</span></button><p className="mt-2 text-center text-[10px] font-mono tracking-[.12em] text-[#B8C7D6]">CLICK THUMBNAIL · METADATA PREVIEW</p></div><div><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: selected.accent }}>{selected.id} · {selected.eyebrow}</p><h3 className="mt-4 text-3xl font-black">{selected.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{selected.note}</p><div className="mt-6 rounded-2xl border border-white/10 bg-black/25 p-5"><p className="text-[10px] font-mono tracking-[.14em] text-[#AFC0CF]">NEXT LOOKBOOK RECORD</p><p className="mt-2 text-sm font-black text-white">{selected.next}</p><p className="mt-3 text-xs leading-6 text-[#B8C7D6]">The visual concept remains a display reference until its selected use, accessibility treatment, rights context, public destination, terms, and exact owner release are recorded.</p></div></div></div></article>
+          <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] p-6 md:p-8"><div className="grid gap-7 md:grid-cols-[.85fr_1.15fr]"><div><button type="button" onClick={() => setShowMetadata(true)} className="group relative flex min-h-72 w-full items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/30 p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" aria-label={`Open full metadata for ${selected.title}`}><SourceVisual src={selected.image} alt={`${selected.title} — selected owner-provided visual reference`} title={selected.title} mark={selected.id} className="h-full min-h-72 w-full rounded-[1.5rem] transition duration-300 group-hover:scale-[1.02]" /><span className="absolute bottom-4 rounded-full border border-white/20 bg-black/70 px-3 py-2 text-xs font-black text-white">Open full metadata</span></button><p className="mt-2 text-center text-[10px] font-mono tracking-[.12em] text-[#B8C7D6]">CLICK THUMBNAIL · METADATA PREVIEW</p></div><div><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: selected.accent }}>{selected.id} · {selected.eyebrow}</p><h3 className="mt-4 text-3xl font-black">{selected.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{selected.note}</p><div className="mt-6 rounded-2xl border border-white/10 bg-black/25 p-5"><p className="text-[10px] font-mono tracking-[.14em] text-[#AFC0CF]">NEXT LOOKBOOK RECORD</p><p className="mt-2 text-sm font-black text-white">{selected.next}</p><p className="mt-3 text-xs leading-6 text-[#B8C7D6]">The visual concept remains a display reference until its selected use, accessibility treatment, rights context, public destination, terms, and exact owner release are recorded.</p></div></div></div></article>
         </div>
       </section>
 
