@@ -3160,7 +3160,7 @@
 - [x] Add regression coverage and validate the Media World navigation update before forward-only publication
 ## Phase 272 — Knicks Campaign Asset Reference
 - [x] Inspect the supplied non-image clipboard metadata for a complete Pinata/CID or public asset-reference URL without exposing the owner’s personal address
-- [ ] Add a verified campaign asset-reference record only if the full public URL, provenance, and intended-use scope are clear; preserve no-mint, no-sale, no-wallet, no-transfer, and no investment behavior
+- [x] Add the local Facebook motion campaign reference at `docs/phase272-facebook-motion-campaign-reference.md`; full supplied URLs, owner-provided provenance, and visitor-directed display scope are recorded while preserving no-mint, no-sale, no-wallet, no-transfer, and no-investment behavior
 - [x] Keep third-party athlete, team, league, and brand likeness/affiliation statements in a rights-aware review lane with direct operating-state labels
 - [x] Add focused regression coverage and validate before forward-only publication
 ## Phase 273 — Granddaughter Main Page Interaction Repair
@@ -6683,3 +6683,7 @@
 - [x] Accession 61 later-supplied creator files in `docs/source-review-oct24/oct24-late-upload-manifest.json` with exact byte counts, SHA-256 identifiers, MIME guesses, classifications, and metadata-only display scope.
 - [x] Preserve explicit non-execution and duplicate-handling notes in `oct24-late-upload-accession.md`; no supplied body was opened, executed, rendered, played, transformed, uploaded, embedded, or published.
 - [x] Verification passed: focused 2/2, full Vitest 420 files / 1129 tests, TypeScript, receipt existence, and `git diff --check`.
+
+## Phase 981 — Visitor-Directed Facebook Campaign Reference
+- [x] Add `docs/phase272-facebook-motion-campaign-reference.md` with the supplied share/reel URLs, source provenance, visitor-directed display scope, and explicit no-commerce/no-wallet boundary.
+- [x] Verify the record exists, focused Facebook motion regression passes 2/2, and `git diff --check` is clean.
