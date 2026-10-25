@@ -6687,3 +6687,7 @@
 ## Phase 981 — Visitor-Directed Facebook Campaign Reference
 - [x] Add `docs/phase272-facebook-motion-campaign-reference.md` with the supplied share/reel URLs, source provenance, visitor-directed display scope, and explicit no-commerce/no-wallet boundary.
 - [x] Verify the record exists, focused Facebook motion regression passes 2/2, and `git diff --check` is clean.
+
+## Phase 982 — Visitor-Directed Campaign Skill Pattern
+- [x] Add reusable guidance for preserving exact external share/canonical URLs as source-labeled visitor-directed references while separating display from commerce and rights claims.
+- [x] Validate `scrollverse-source-led-portfolio` successfully and confirm clean repository whitespace.
