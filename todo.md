@@ -6678,3 +6678,8 @@
 - [x] Give every selected board a resilient `SourceVisual` frame so absent thumbnails become vivid text-led visual compositions rather than broken-image states.
 - [x] Keep the existing click-to-select and full-metadata modal path, with source-labeled state and next-record detail for each new board.
 - [x] Verification passed: focused 2/2, full Vitest 419 files / 1127 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 980 — Late Oct 24 Upload Accession
+- [x] Accession 61 later-supplied creator files in `docs/source-review-oct24/oct24-late-upload-manifest.json` with exact byte counts, SHA-256 identifiers, MIME guesses, classifications, and metadata-only display scope.
+- [x] Preserve explicit non-execution and duplicate-handling notes in `oct24-late-upload-accession.md`; no supplied body was opened, executed, rendered, played, transformed, uploaded, embedded, or published.
+- [x] Verification passed: focused 2/2, full Vitest 420 files / 1129 tests, TypeScript, receipt existence, and `git diff --check`.
