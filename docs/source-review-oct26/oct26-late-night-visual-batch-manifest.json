@@ -1,0 +1,497 @@
+{
+  "manifestVersion": "oct26-late-night-visual-batch-v1",
+  "recordCount": 49,
+  "metadataOnly": true,
+  "records": [
+    {
+      "filename": "pasted_content_106.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_106.txt",
+      "bytes": 37191,
+      "sha256": "fd2b7f9b538d27b5b86ccca7cb6fe4775e9957800c09044cd169b134191255ab",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_file_9fhPKS_image.png",
+      "sourcePath": "/home/ubuntu/upload/pasted_file_9fhPKS_image.png",
+      "bytes": 4666278,
+      "sha256": "bfab91c0c207df07004d99a3e99e778826a3d209e63571f5dda826cde736da66",
+      "mime": "image/png",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_107.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_107.txt",
+      "bytes": 89940,
+      "sha256": "bc1c725928f1028fae9063014ac916222fbbe656045889b26c6088c7254102e6",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_108.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_108.txt",
+      "bytes": 4076,
+      "sha256": "d98f6f6c02b215280d1a08727b68c39f825c9eaf963684d0522c613448d99dfe",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3.jpg",
+      "bytes": 232808,
+      "sha256": "8e1f7b8384c824d24933f6a65a1e8b9c26f5e2e586244d78ea721e9e5f7d82b8",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-2.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-2.jpg",
+      "bytes": 228807,
+      "sha256": "48ac1fbafd502cf39d18118039a125aa85030b116e4e6630c25605c64a3bb395",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-3.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-3.jpg",
+      "bytes": 206811,
+      "sha256": "7fc0dab477d5fd0c9522064f4de6ea83e4d3554f4ce7326b5156bf7e6007201f",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-4.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-4.jpg",
+      "bytes": 187064,
+      "sha256": "e6198bafefc5c816105d96cd830939eb9608ea5205b2bfe0cc8fb9d8f7aa9312",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-5.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-ow-generate-your-solo-character-sheet-same-face-3-5.jpg",
+      "bytes": 396046,
+      "sha256": "a236f04c8e1ce11b689f5377025213fe2e79d3b105db400a9ba95a18259ece9a",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_003230-make-the-first-image-torus-glow-even-more-intense.jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_003230-make-the-first-image-torus-glow-even-more-intense.jpg",
+      "bytes": 290828,
+      "sha256": "971332c4780b94a9345e7d9636bdcdb5a862002fce4d7654da986982d73fea70",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_231601.jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_231601.jpg",
+      "bytes": 459662,
+      "sha256": "14a1c54e232d935e7b2db5898769aea9b99101c3d9570eb78b893c203dc3e99f",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_003231-make-the-first-image-torus-glow-even-more-intense.jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_003231-make-the-first-image-torus-glow-even-more-intense.jpg",
+      "bytes": 351956,
+      "sha256": "f46e3b816d405df3e6ddb0fef34ebdf1b00cfb4ce43f2606df0a5f71335fdd63",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_003233-make-the-first-image-torus-glow-even-more-intense.jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_003233-make-the-first-image-torus-glow-even-more-intense.jpg",
+      "bytes": 445176,
+      "sha256": "213384828a1829907dbeff95e8869ca74f230c77039d400403b4321505e3c62c",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_002944.webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_002944.webp",
+      "bytes": 274014,
+      "sha256": "0b73d89a4cd2bb8f5392c64c789a8a3fdcc792828268e0914045a9db65d74ea8",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_002913.jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_002913.jpg",
+      "bytes": 466975,
+      "sha256": "2daa994b7e051281f6b1280a4b524349056d4d44d32c37c7fa2659722fd75407",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_003233(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_003233(1).jpg",
+      "bytes": 416513,
+      "sha256": "b0bab6d877250f22f104873cbeb7868e59f89cfb02251b45a8ca3cfb8c044744",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_003231(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_003231(1).jpg",
+      "bytes": 337332,
+      "sha256": "926ef0905b8199c9a219cc936fc1a3f18faeeb24663cc4c56a4524f43106eeba",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261026_003230(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261026_003230(1).jpg",
+      "bytes": 312467,
+      "sha256": "05db9c230146969156cd86e8dfee7058a4d26756a1605b3c99ace1302ad0fea6",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan-2(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan-2(1).jpg",
+      "bytes": 250187,
+      "sha256": "a402f8ebd5403d66b6feabfea486eaaf5e84ca8f4f784457fc6a166fef8973b5",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan(1).jpg",
+      "bytes": 285651,
+      "sha256": "62d0004377eccbd21b8045622b89ab3dee3ee1b2c989acb4a8a4f3f708a92967",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-i-also-wanna-make-a-nano-suit-the-come-off-and-on.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-i-also-wanna-make-a-nano-suit-the-come-off-and-on.jpg",
+      "bytes": 141799,
+      "sha256": "d06b7dd390cb2a29e7ca5a86bb7a5cb41179fa67fe023e92633ed27cc1464d89",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-i-also-wanna-make-a-nano-suit-the-come-off-and-on-2.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-i-also-wanna-make-a-nano-suit-the-come-off-and-on-2.jpg",
+      "bytes": 418505,
+      "sha256": "3fd2d94c0ce6b7e789ca890af3a2dca310b6e2155bfb213a953373653d143815",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-i-also-wanna-make-a-nano-suit-the-come-off-and-on-3.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-i-also-wanna-make-a-nano-suit-the-come-off-and-on-3.jpg",
+      "bytes": 282464,
+      "sha256": "2bfea72e328d5b694b84a85f1f3428a6bfecf6aae3c74480e70543c428cfc950",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan-2.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan-2.jpg",
+      "bytes": 250187,
+      "sha256": "a402f8ebd5403d66b6feabfea486eaaf5e84ca8f4f784457fc6a166fef8973b5",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-xlviiblocks-on-the-suit-back-and-front-with-atalan.jpg",
+      "bytes": 285651,
+      "sha256": "62d0004377eccbd21b8045622b89ab3dee3ee1b2c989acb4a8a4f3f708a92967",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "ref_image_user_profile-it-was-made-on-meta-just-mirror-match-exceed-it-an.jpg",
+      "sourcePath": "/home/ubuntu/upload/ref_image_user_profile-it-was-made-on-meta-just-mirror-match-exceed-it-an.jpg",
+      "bytes": 370619,
+      "sha256": "95e60e18db93d035ba05c03a5ae3dac5f10fddb70aed325a8e06110bc019a822",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_210924.jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_210924.jpg",
+      "bytes": 559760,
+      "sha256": "9bd1f194debc22efec7989b52155874d00a79eddfd31000d5096d1883ce3c2d4",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_222819.webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_222819.webp",
+      "bytes": 740374,
+      "sha256": "6f675761b9229a77124735b136bc8d8c1e6a295df6d302183a1eb07bea7a90aa",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_222818.webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_222818.webp",
+      "bytes": 845176,
+      "sha256": "182b2f97c58d81c0473780c96288c5cc913629e16516f60d3ea26495f0bac712",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_215234(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_215234(1).jpg",
+      "bytes": 260998,
+      "sha256": "f4ded72089e487631d419a9b00cf9f140649322788fe9f5218a7e1788633eb68",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_215303(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_215303(1).jpg",
+      "bytes": 480860,
+      "sha256": "a243c9a02930cbde5cf29ed5813f4eeb8db498962582aaf461d8a3dea94cbf63",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_215337(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_215337(1).jpg",
+      "bytes": 418185,
+      "sha256": "ccb9328c2eb1c0d769ced358a18f425ac144fff96f40a9c05d99f4c1c5109a92",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_215455(1).mp4",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_215455(1).mp4",
+      "bytes": 3617691,
+      "sha256": "1173a2957e67765875d591c7c46d31494e19746cfce82e7d2500665c7a9cfae6",
+      "mime": "video/mp4",
+      "classification": "supplied motion media (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "Free-Comic-Book-Series-Block131.html",
+      "sourcePath": "/home/ubuntu/upload/Free-Comic-Book-Series-Block131.html",
+      "bytes": 7004636,
+      "sha256": "d35b24b12417ca6e1531abeaf5d5396e7beddf0b4a6d2fa0802020f02cf978b6",
+      "mime": "text/html",
+      "classification": "supplied code/html artifact (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_222104(1).jpg",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_222104(1).jpg",
+      "bytes": 568979,
+      "sha256": "1e779219f55d8cae3f505412f73aed485a664918d223f1c2acc80980b275b2fb",
+      "mime": "image/jpeg",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_220338(1).webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_220338(1).webp",
+      "bytes": 1043906,
+      "sha256": "a4c557e249a42adba90f78e1c0df901fb4bba35f326a49dd2fc132cacf8149cd",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_220338_1(1).webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_220338_1(1).webp",
+      "bytes": 1013988,
+      "sha256": "762eccf62d01bce162c2d0527a2cd0e2aeddb4fce482a8d2797361ac96ed2d3f",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_220341(1).webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_220341(1).webp",
+      "bytes": 1068020,
+      "sha256": "159e7dd516175f233645e0b05820e4f9dca75005f52bfeb6cdef935f382c5060",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "image_20261025_220347(1).webp",
+      "sourcePath": "/home/ubuntu/upload/image_20261025_220347(1).webp",
+      "bytes": 349320,
+      "sha256": "27bfd874fdd6e9fe96ba4ebdb339823601b8d26800fe604a5a556c236bd2f074",
+      "mime": "image/webp",
+      "classification": "supplied still image (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_109.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_109.txt",
+      "bytes": 3951,
+      "sha256": "c5e83695a046748e753d868dc8bfea09457ab2b80cac9ef46c2b7c99b7e24f4b",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_110.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_110.txt",
+      "bytes": 7183,
+      "sha256": "ce69f66ff331ec086086096a54cf9a7d08f5bf040b378722887198a50b73abce",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_111.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_111.txt",
+      "bytes": 10122,
+      "sha256": "acc8be07e7eeade1720c7fb66871740944b66d9a2abef94bff5c3b4a6e6de00e",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_112.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_112.txt",
+      "bytes": 3575,
+      "sha256": "61e17c7468ece32e0ef1b83ed2a06b733508e28fbd53bc0c8abe5f6241b1d492",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "Chais-Great-Sovereign-Video.html",
+      "sourcePath": "/home/ubuntu/upload/Chais-Great-Sovereign-Video.html",
+      "bytes": 187179,
+      "sha256": "7b30d80d953f4f57c05fcd39dbcea917b5635ae382061b7cc67f5f9d8cb6b2b6",
+      "mime": "text/html",
+      "classification": "supplied code/html artifact (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "Scrollverse-Trinity-Portfolio-Lightbox-Tags-V2.html",
+      "sourcePath": "/home/ubuntu/upload/Scrollverse-Trinity-Portfolio-Lightbox-Tags-V2.html",
+      "bytes": 198262,
+      "sha256": "2f1a0f1ebe524fd75ba99ea1d4b89cbfd111a8ff797f8a5e25864cef873c33a3",
+      "mime": "text/html",
+      "classification": "supplied code/html artifact (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_113.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_113.txt",
+      "bytes": 4121,
+      "sha256": "ccfbff58666cad75683c9a8cf292cdb1f74724750f64444b54bea689409f397c",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "Motherload-Omniverse-Theatre-Block128-V2.html",
+      "sourcePath": "/home/ubuntu/upload/Motherload-Omniverse-Theatre-Block128-V2.html",
+      "bytes": 226423,
+      "sha256": "2cf4f684b95fcff3150360211ae219b9673c173c26fc49df7b625f20dee2738e",
+      "mime": "text/html",
+      "classification": "supplied code/html artifact (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "pasted_content_114.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_114.txt",
+      "bytes": 15981,
+      "sha256": "1b029962b50b432342cf31556231b2c0e0cea803514d248a34d5d3f361eae9f8",
+      "mime": "text/plain",
+      "classification": "supplied text source (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    },
+    {
+      "filename": "Motherload-Omniverse-Theatre-Block128-V2(1).html",
+      "sourcePath": "/home/ubuntu/upload/Motherload-Omniverse-Theatre-Block128-V2(1).html",
+      "bytes": 226423,
+      "sha256": "2cf4f684b95fcff3150360211ae219b9673c173c26fc49df7b625f20dee2738e",
+      "mime": "text/html",
+      "classification": "supplied code/html artifact (metadata-only)",
+      "displayScope": "local source receipt; not embedded or published",
+      "accessionedAt": "2026-10-26T01:25:00-04:00"
+    }
+  ]
+}

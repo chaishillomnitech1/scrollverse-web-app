@@ -6719,3 +6719,8 @@
 - [x] Preserve the exact Copilot artifact URL and sign-in-only access result in `docs/source-review-copilot-access.md`.
 - [x] Explicitly avoid inventing family contribution, author attribution, rights, public availability, or external status when the artifact body is inaccessible.
 - [x] Verify focused regression 2/2 and keep the held research reference separate from portal display state.
+
+## Phase 988 — Late-Night Visual and Theatre Batch Accession
+- [x] Accession 49 newly supplied Oct 25–26 visual, theatre, HTML, still-image, motion, and text records in `docs/source-review-oct26/oct26-late-night-visual-batch-manifest.json` with SHA-256 receipts.
+- [x] Add `oct26-late-night-visual-batch-accession.md` with exact metadata-only, source-claim, and visitor-controlled display boundaries.
+- [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; build retains only the existing non-blocking >500 kB chunk warning.
