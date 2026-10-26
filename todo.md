@@ -6203,7 +6203,7 @@
 ## Phase 891 — Dynasty Visual Source Intake
 - [x] Inventory and accession the creator-supplied Dynasty stills, transparent coin assets, supplied motion samples, and manifesto text with source labels and no inferred technical, legal, identity, or marketplace claims
 - [x] Prepare a complete browser-local next-motion production brief covering duration, sound, text, continuity, exact use target, and creator-approved reference selection before generating new video
-- [ ] Review the owner-supplied Copilot artifact as a public source and preserve any family contribution only with its exact text, asset, author attribution, and approved display scope
+- [x] Review the owner-supplied Copilot artifact as a public-source candidate; record the sign-in-only result in `docs/source-review-copilot-access.md` and preserve no family contribution because no exact text, asset, author attribution, or approved display scope was accessible
 - [x] Build a source-labeled Dynasty Visual Archive with creator-supplied stills and coin assets, first-party series and episode-planning handoffs, and focused regression coverage
 - [x] Restore the two locally required ScrollVerse skills removed by the environment reset so unrelated source-aware regression tests can run again
 
@@ -6714,3 +6714,8 @@
 - [x] Add homepage highlight cards for Marie Sophia 721, God Flow Workshop, Free Comic Book Series · Block 131, and Motherload Omniverse Theatre · Block 128.
 - [x] Keep each highlight click-through, source-labeled, visitor-controlled, and resilient through the existing `SourceVisual` fallback path; no autoplay, checkout, upload, mint, or external publish action was added.
 - [x] Verification passed: focused 2/2, full Vitest 424 files / 1137 tests, TypeScript, guarded production build, and clean `git diff --check`.
+
+## Phase 987 — Copilot Public-Source Access Boundary
+- [x] Preserve the exact Copilot artifact URL and sign-in-only access result in `docs/source-review-copilot-access.md`.
+- [x] Explicitly avoid inventing family contribution, author attribution, rights, public availability, or external status when the artifact body is inaccessible.
+- [x] Verify focused regression 2/2 and keep the held research reference separate from portal display state.
