@@ -6709,3 +6709,8 @@
 - [x] Preserve the supplied query string on the direct reference URL and avoid autoplay, account authentication, upload, publication, and platform analytics retrieval.
 - [x] Update and validate the reusable source-led skill with the synchronization-reference pattern.
 - [x] Verification passed: focused 2/2, full Vitest 423 files / 1135 tests, TypeScript, guarded production build, clean whitespace, and desktop/mobile full-page screenshots for `/chais-videos` and `/meta-ai-artifacts-lookbooks`.
+
+## Phase 986 — Homepage Source Highlights
+- [x] Add homepage highlight cards for Marie Sophia 721, God Flow Workshop, Free Comic Book Series · Block 131, and Motherload Omniverse Theatre · Block 128.
+- [x] Keep each highlight click-through, source-labeled, visitor-controlled, and resilient through the existing `SourceVisual` fallback path; no autoplay, checkout, upload, mint, or external publish action was added.
+- [x] Verification passed: focused 2/2, full Vitest 424 files / 1137 tests, TypeScript, guarded production build, and clean `git diff --check`.

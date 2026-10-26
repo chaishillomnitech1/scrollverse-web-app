@@ -1537,6 +1537,10 @@ const META_LOOKBOOK_DOORWAYS = [
   { href: "/crypto-artifact-lookbook", title: "Crypto Artifact Lookbook", detail: "Browse exchange, evolution, and visual artifact pathways.", mark: "ARTIFACTS", src: THRONE_IMG, accent: "#FFCC4D" },
   { href: "/evolution-lookbook", title: "Evolution Lookbook", detail: "Move through the visual language of change, motion, and form.", mark: "EVOLUTION", src: SUN_XIX_CDN, accent: "#9AFFC5" },
   { href: "/visual-story-worlds", title: "Visual Story Worlds", detail: "Enter the story-world shelf for film, animation, and worldbuilding.", mark: "STORY WORLDS", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#DCC8FF" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Marie Sophia 721 Lookbook", detail: "Open the STILL LIGHT FIELD CYBER, SOPHIA 8 BILLION SEALED, and OMNI-MERGE INFINITE PROTOCOL concept boards.", mark: "MARIE SOPHIA", src: THRONE_IMG, accent: "#F6D365" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "God Flow Workshop", detail: "Enter the CIRCLE ZERO OUROBOROS, PRETTY PAPER PAPER MAN, and DUAL HARMONIC DIGITAL TWIN QR concept shelf.", mark: "GOD FLOW", src: HERO_IMG, accent: "#FF8A4C" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Free Comic Book Series", detail: "Open the creator-supplied source theater reference for Free Comic Book Series · Block 131.", mark: "BLOCK 131", src: SUN_XIX_CDN, accent: "#FFCC4D" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Motherload Omniverse Theatre", detail: "Open the creator-supplied source theater reference for Motherload Omniverse Theatre · Block 128.", mark: "BLOCK 128", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#00D4FF" },
 ] as const;
 
 function MetaLookbookDoorways() {
@@ -1555,7 +1559,7 @@ function MetaLookbookDoorways() {
           {META_LOOKBOOK_DOORWAYS.map((doorway) => (
             <Link key={doorway.href} href={doorway.href} className="group overflow-hidden rounded-[1.7rem] border transition duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style={{ borderColor: `${doorway.accent}55`, background: `${doorway.accent}08` }}>
               <SourceVisual src={doorway.src} alt={`${doorway.title} source thumbnail`} title={doorway.title} mark={doorway.mark} className="aspect-[4/3] w-full" />
-              <div className="p-5"><p className="text-[10px] font-mono uppercase tracking-[.16em]" style={{ color: doorway.accent }}>Vivid source thumbnails</p><h3 className="mt-2 text-xl font-black text-white">{doorway.title}</h3><p className="mt-2 text-sm leading-6" style={{ color: "#C8D8E7" }}>{doorway.detail}</p><span className="mt-4 inline-flex text-sm font-black" style={{ color: doorway.accent }}>Open lookbook →</span></div>
+              <div className="p-5"><p className="text-[10px] font-mono uppercase tracking-[.16em]" style={{ color: doorway.accent }}>Vivid source thumbnails</p><h3 className="mt-2 text-xl font-black text-white">{doorway.title}</h3><p className="mt-2 text-sm leading-6" style={{ color: "#C8D8E7" }}>{doorway.detail}</p><span className="mt-4 inline-flex text-sm font-black" style={{ color: doorway.accent }}>Open source lookbook →</span></div>
             </Link>
           ))}
         </div>
