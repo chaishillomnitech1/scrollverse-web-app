@@ -6691,3 +6691,21 @@
 ## Phase 982 — Visitor-Directed Campaign Skill Pattern
 - [x] Add reusable guidance for preserving exact external share/canonical URLs as source-labeled visitor-directed references while separating display from commerce and rights claims.
 - [x] Validate `scrollverse-source-led-portfolio` successfully and confirm clean repository whitespace.
+
+## Phase 983 — Campaign Gallery Lightbox and Media Tags
+- [x] Add allowlisted media-type filter tags (All media, Images, Motion concepts, Workshop concepts) with `aria-pressed` state and live result counts.
+- [x] Add direct provenance overlays to every visible portfolio card: `CREATOR-SUPPLIED · BROWSER-LOCAL` and a source-labeled display-reference boundary.
+- [x] Add a keyboard-safe full-size visual lightbox with `role="dialog"`, `aria-modal`, accessible title, Close/backdrop dismissal, Escape handling, resilient `SourceVisual` fallback, and canonical-source link only when available.
+- [x] Extend and validate the reusable source-led skill with campaign-gallery guidance.
+- [x] Verification passed: focused 2/2, full Vitest 421 files / 1131 tests, TypeScript, guarded production build, responsive desktop/mobile screenshots, skill validation, and clean `git diff --check`.
+
+## Phase 984 — Marie Sophia and Motherload Theatre Discovery
+- [x] Add source-labeled lookbook records for `STILL LIGHT FIELD CYBER`, `SOPHIA 8 BILLION SEALED`, and `OMNI-MERGE INFINITE PROTOCOL`.
+- [x] Add source-labeled discovery records for `Free Comic Book Series — Block 131` and `Motherload Omniverse Theatre — Block 128`, preserving the supplied canonical source URLs without embedding or autoplaying them.
+- [x] Add optional canonical-source links to the metadata lightbox; verification passed focused 2/2 and TypeScript.
+
+## Phase 985 — YouTube Synchronization Reference Strip
+- [x] Add the two exact owner-supplied YouTube synchronization references to `/chais-videos` as visible, source-labeled, visitor-controlled direct handoffs.
+- [x] Preserve the supplied query string on the direct reference URL and avoid autoplay, account authentication, upload, publication, and platform analytics retrieval.
+- [x] Update and validate the reusable source-led skill with the synchronization-reference pattern.
+- [x] Verification passed: focused 2/2, full Vitest 423 files / 1135 tests, TypeScript, guarded production build, clean whitespace, and desktop/mobile full-page screenshots for `/chais-videos` and `/meta-ai-artifacts-lookbooks`.

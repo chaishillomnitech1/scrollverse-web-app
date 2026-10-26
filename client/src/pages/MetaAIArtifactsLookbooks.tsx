@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, BookOpen, CheckCircle2, Eye, FileImage, Layers3, LockKeyhole, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
@@ -10,7 +10,9 @@ const visualBoards: Array<{
   id: string;
   title: string;
   eyebrow: string;
+  mediaType: "image" | "motion" | "concept";
   image?: string;
+  sourceUrl?: string;
   accent: string;
   state: string;
   note: string;
@@ -20,6 +22,7 @@ const visualBoards: Array<{
     id: "SV-VIS-490-001",
     title: "Sovereign Form Studies",
     eyebrow: "PERSONAL-BRAND VISUAL STUDY",
+    mediaType: "image",
     image: "/manus-storage/chais_bust_gold_transparent_4f1b33be.png",
     accent: "#FFCC4D",
     state: "Display-ready reference",
@@ -30,6 +33,7 @@ const visualBoards: Array<{
     id: "SV-VIS-490-002",
     title: "Sticker Edition Language",
     eyebrow: "GRAPHIC ARTIFACT BOARD",
+    mediaType: "image",
     image: "/manus-storage/chais_sticker_pack_88fa05cd.png",
     accent: "#00FF88",
     state: "Display-ready reference",
@@ -40,6 +44,7 @@ const visualBoards: Array<{
     id: "SV-VIS-490-003",
     title: "Holographic Signal Pack",
     eyebrow: "MOTION-READY CONCEPT",
+    mediaType: "motion",
     image: "/manus-storage/chais_holographic_pack_8e1ce73d.png",
     accent: "#DCC8FF",
     state: "Display-ready reference",
@@ -50,6 +55,7 @@ const visualBoards: Array<{
     id: "SV-VIS-490-004",
     title: "Black & Gold World Poster",
     eyebrow: "WORLD-BUILDING POSTER",
+    mediaType: "image",
     image: "/manus-storage/scrollverse_black_gold_poster_8f8560c4.webp",
     accent: "#FFB800",
     state: "Display-ready reference",
@@ -60,6 +66,7 @@ const visualBoards: Array<{
     id: "SV-GFW-024-001",
     title: "CIRCLE ZERO OUROBOROS",
     eyebrow: "GOD FLOW WORKSHOP · 963HZ GENESIS",
+    mediaType: "concept",
     accent: "#FFCC4D",
     state: "Creator-supplied workshop concept",
     note: "Phoenix Ash Ouroboros cycle hoodie, waterproof MOLLE pants, and a QR patch arranged as a golden-ring origin system.",
@@ -69,6 +76,7 @@ const visualBoards: Array<{
     id: "SV-GFW-024-002",
     title: "PRETTY PAPER PAPER MAN",
     eyebrow: "GOD FLOW WORKSHOP · 999HZ ORIGAMI SPIRIT",
+    mediaType: "concept",
     accent: "#00FF88",
     state: "Creator-supplied workshop concept",
     note: "Twin Phoenix Ouroboros, stretch Raider pants, and a QR USA flag patch framed by a blueprint-grid Paper Man mascot.",
@@ -78,10 +86,63 @@ const visualBoards: Array<{
     id: "SV-GFW-024-003",
     title: "DUAL HARMONIC DIGITAL TWIN QR",
     eyebrow: "GOD FLOW WORKSHOP · 963/999 LIVING SYSTEM",
+    mediaType: "concept",
     accent: "#DCC8FF",
     state: "Creator-supplied workshop concept",
     note: "A dual QR workshop table with mirrored infinity reflection and a proposed living digital-twin direction.",
     next: "Thumbnail source, product record, accessibility copy, and approved commerce destination",
+  },
+  {
+    id: "SV-MSA-721-001",
+    title: "STILL LIGHT FIELD CYBER",
+    eyebrow: "MARIE SOPHIA 721 · GOLD FOIL FIELD",
+    mediaType: "concept",
+    accent: "#FFCC4D",
+    state: "Creator-supplied lookbook concept",
+    note: "Black 520gsm hoodie direction with a gold-foil Marie Sophia 721 emblem and cyber light-field particle language.",
+    next: "Thumbnail source, garment record, accessibility copy, and approved destination",
+  },
+  {
+    id: "SV-MSA-721-002",
+    title: "SOPHIA 8 BILLION SEALED",
+    eyebrow: "MARIE SOPHIA 721 · HOLOGRAPHIC GOLD",
+    mediaType: "concept",
+    accent: "#DCC8FF",
+    state: "Creator-supplied lookbook concept",
+    note: "Bone-white garment direction with holographic gold foil and a proposed 721 Embassy Terrace lining motif.",
+    next: "Thumbnail source, garment record, accessibility copy, and approved destination",
+  },
+  {
+    id: "SV-MSA-721-003",
+    title: "OMNI-MERGE INFINITE PROTOCOL",
+    eyebrow: "MARIE SOPHIA 721 · INFINITY CIRCUIT",
+    mediaType: "concept",
+    accent: "#00FF88",
+    state: "Creator-supplied lookbook concept",
+    note: "Charcoal garment direction with gold-foil infinity language, 91-repository patch treatment, and circuit-lined hood.",
+    next: "Thumbnail source, garment record, accessibility copy, and approved destination",
+  },
+  {
+    id: "SV-THEATER-131-001",
+    title: "Free Comic Book Series · Block 131",
+    eyebrow: "SOURCE THEATER REFERENCE · CREATOR-SUPPLIED",
+    mediaType: "motion",
+    sourceUrl: "https://l.meta.ai/?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft65.102178-21%2F867739674_1650388106671341_5212895711217310689_n.jpg%2Ffree_comic_book_series_block131.html",
+    accent: "#FF8A4C",
+    state: "External source reference",
+    note: "A creator-supplied Meta share reference for the Free Comic Book Series Block 131 theatre direction.",
+    next: "Source availability, accessible transcript, media record, and approved display destination",
+  },
+  {
+    id: "SV-THEATER-128-001",
+    title: "Motherload Omniverse Theatre · Block 128",
+    eyebrow: "SOURCE THEATER REFERENCE · CREATOR-SUPPLIED",
+    mediaType: "motion",
+    sourceUrl: "https://l.meta.ai/?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft65.102178-21%2F870004356_2368769820545330_6415577672704222211_n.jpg%2Fmotherload_omniverse_theatre_block128_v2.html",
+    accent: "#00D4FF",
+    state: "External source reference",
+    note: "A creator-supplied Meta share reference for the Motherload Omniverse Theatre Block 128 direction.",
+    next: "Source availability, accessible transcript, media record, and approved display destination",
   },
 ] as const;
 
@@ -91,11 +152,32 @@ const lookbookLanes = [
   { title: "Release Record", detail: "A public look, product, license, campaign, or commerce pathway needs its own source, rights, terms, destination, and approval record.", icon: CheckCircle2, accent: "#00FF88" },
 ] as const;
 
+const mediaFilters = [
+  { value: "all", label: "All media" },
+  { value: "image", label: "Images" },
+  { value: "motion", label: "Motion concepts" },
+  { value: "concept", label: "Workshop concepts" },
+] as const;
+
 export default function MetaAIArtifactsLookbooks() {
   useSovereignHeartbeat({ page: "meta-ai-artifacts-lookbooks" });
   const [selectedId, setSelectedId] = useState<string>(visualBoards[0].id);
   const [showMetadata, setShowMetadata] = useState(false);
+  const [showLightbox, setShowLightbox] = useState(false);
+  const [mediaFilter, setMediaFilter] = useState<(typeof mediaFilters)[number]["value"]>("all");
   const selected = visualBoards.find((board) => board.id === selectedId) ?? visualBoards[0];
+  const filteredBoards = mediaFilter === "all" ? visualBoards : visualBoards.filter((board) => board.mediaType === mediaFilter);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowLightbox(false);
+        setShowMetadata(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   const selectBoard = (id: string) => {
     setSelectedId(id);
@@ -137,11 +219,17 @@ export default function MetaAIArtifactsLookbooks() {
 
       <section className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.16em] text-[#FFCC4D]">SELECT A VISUAL BOARD</p><h2 className="mt-3 text-4xl font-black">The artifact room.</h2></div><p className="max-w-lg text-sm leading-7 text-[#B8C7D6]">Use the board selector to explore an existing owner-provided visual direction in this browser. Selection is not a request, release, or media action.</p></div>
-        <div className="mt-7 grid gap-4 lg:grid-cols-[.9fr_1.1fr]">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">{visualBoards.map((board) => <button key={board.id} type="button" onClick={() => selectBoard(board.id)} className="rounded-2xl border p-5 text-left transition-all hover:-translate-y-0.5" style={{ borderColor: selectedId === board.id ? `${board.accent}AA` : `${board.accent}40`, background: selectedId === board.id ? `${board.accent}14` : "rgba(255,255,255,0.025)" }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: board.accent }}>{board.eyebrow}</p><h3 className="mt-2 text-lg font-black text-white">{board.title}</h3><p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{board.state}</p></button>)}</div>
-          <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] p-6 md:p-8"><div className="grid gap-7 md:grid-cols-[.85fr_1.15fr]"><div><button type="button" onClick={() => setShowMetadata(true)} className="group relative flex min-h-72 w-full items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/30 p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" aria-label={`Open full metadata for ${selected.title}`}><SourceVisual src={selected.image} alt={`${selected.title} — selected owner-provided visual reference`} title={selected.title} mark={selected.id} className="h-full min-h-72 w-full rounded-[1.5rem] transition duration-300 group-hover:scale-[1.02]" /><span className="absolute bottom-4 rounded-full border border-white/20 bg-black/70 px-3 py-2 text-xs font-black text-white">Open full metadata</span></button><p className="mt-2 text-center text-[10px] font-mono tracking-[.12em] text-[#B8C7D6]">CLICK THUMBNAIL · METADATA PREVIEW</p></div><div><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: selected.accent }}>{selected.id} · {selected.eyebrow}</p><h3 className="mt-4 text-3xl font-black">{selected.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{selected.note}</p><div className="mt-6 rounded-2xl border border-white/10 bg-black/25 p-5"><p className="text-[10px] font-mono tracking-[.14em] text-[#AFC0CF]">NEXT LOOKBOOK RECORD</p><p className="mt-2 text-sm font-black text-white">{selected.next}</p><p className="mt-3 text-xs leading-6 text-[#B8C7D6]">The visual concept remains a display reference until its selected use, accessibility treatment, rights context, public destination, terms, and exact owner release are recorded.</p></div></div></div></article>
+        <div className="mt-7 flex flex-wrap gap-2" aria-label="Filter lookbook media by type">
+          {mediaFilters.map((filter) => <button key={filter.value} type="button" aria-pressed={mediaFilter === filter.value} onClick={() => setMediaFilter(filter.value)} className="min-h-11 rounded-full border px-4 py-2 text-xs font-black transition motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none" style={{ borderColor: mediaFilter === filter.value ? "#FFCC4D" : "rgba(255,255,255,.16)", background: mediaFilter === filter.value ? "rgba(255,204,77,.16)" : "rgba(255,255,255,.04)", color: mediaFilter === filter.value ? "#FFDEA0" : "#D6E2EE" }}>{filter.label}</button>)}
+        </div>
+        <p className="mt-3 text-xs text-[#AFC0CF]" aria-live="polite">Showing {filteredBoards.length} of {visualBoards.length} source-labeled portfolio references.</p>
+        <div className="mt-5 grid gap-4 lg:grid-cols-[.9fr_1.1fr]">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">{filteredBoards.map((board) => <button key={board.id} type="button" onClick={() => selectBoard(board.id)} className="group relative overflow-hidden rounded-2xl border p-5 text-left transition-all motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none" style={{ borderColor: selectedId === board.id ? `${board.accent}AA` : `${board.accent}40`, background: selectedId === board.id ? `${board.accent}14` : "rgba(255,255,255,0.025)" }}><div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/80 to-transparent opacity-90" aria-hidden="true" /><p className="relative text-[10px] font-mono tracking-[.14em]" style={{ color: board.accent }}>{board.eyebrow}</p><h3 className="relative mt-2 text-lg font-black text-white">{board.title}</h3><p className="relative mt-2 text-xs leading-5 text-[#B8C7D6]">{board.state}</p><p className="relative mt-5 text-[10px] font-mono tracking-[.1em] text-[#E8DFFF]">CREATOR-SUPPLIED · BROWSER-LOCAL</p><p className="relative mt-1 text-xs leading-5 text-[#D6E2EE]">Source-labeled display reference; no upload, checkout, mint, or publication runs here.</p></button>)}</div>
+          <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] p-6 md:p-8"><div className="grid gap-7 md:grid-cols-[.85fr_1.15fr]"><div><button type="button" onClick={() => setShowLightbox(true)} className="group relative flex min-h-72 w-full items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/30 p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" aria-label={`Open visual lightbox for ${selected.title}`}><SourceVisual src={selected.image} alt={`${selected.title} — selected owner-provided visual reference`} title={selected.title} mark={selected.id} className="h-full min-h-72 w-full rounded-[1.5rem] transition duration-300 group-hover:scale-[1.02]" /><span className="absolute bottom-4 rounded-full border border-white/20 bg-black/70 px-3 py-2 text-xs font-black text-white">Open visual lightbox</span></button><button type="button" onClick={() => setShowMetadata(true)} className="mt-3 w-full rounded-xl border border-white/15 px-4 py-3 text-xs font-black text-[#FFDEA0] focus-visible:outline-2 focus-visible:outline-[#FFCC4D]">Open full metadata</button></div><div><p className="text-[10px] font-mono tracking-[.16em]" style={{ color: selected.accent }}>{selected.id} · {selected.eyebrow}</p><h3 className="mt-4 text-3xl font-black">{selected.title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{selected.note}</p><div className="mt-6 rounded-2xl border border-white/10 bg-black/25 p-5"><p className="text-[10px] font-mono tracking-[.14em] text-[#AFC0CF]">PROVENANCE OVERLAY</p><p className="mt-2 text-sm font-black text-white">CREATOR-SUPPLIED · BROWSER-LOCAL</p><p className="mt-3 text-xs leading-6 text-[#B8C7D6]">This is a source-labeled display reference. Viewing it does not upload, publish, purchase, mint, transfer, or connect a wallet.</p><p className="mt-4 text-[10px] font-mono tracking-[.14em] text-[#AFC0CF]">NEXT LOOKBOOK RECORD</p><p className="mt-2 text-sm font-black text-white">{selected.next}</p></div></div></div></article>
         </div>
       </section>
+
+      {showLightbox && <div role="dialog" aria-modal="true" aria-labelledby="lookbook-lightbox-title" className="fixed inset-0 z-50 grid place-items-center bg-[#02050de8] p-4" onClick={() => setShowLightbox(false)}><div className="max-h-[94vh] w-full max-w-5xl overflow-auto rounded-[2rem] border border-[#FFCC4D]/40 bg-[#081223] p-5 shadow-2xl md:p-7" onClick={(event) => event.stopPropagation()}><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#FFCC4D]">Full-size source preview</p><h2 id="lookbook-lightbox-title" className="mt-2 text-3xl font-black">{selected.title}</h2></div><button type="button" onClick={() => setShowLightbox(false)} className="min-h-11 rounded-xl border border-white/15 px-4 text-sm font-black text-white focus-visible:outline-2 focus-visible:outline-[#FFCC4D]">Close</button></div><div className="mt-5 min-h-80 rounded-[1.5rem] border border-white/10 bg-black/40 p-4"><SourceVisual src={selected.image} alt={`${selected.title} — full-size source-labeled preview`} title={selected.title} mark={selected.id} className="min-h-80 w-full rounded-xl" /></div><div className="mt-5 flex flex-wrap items-center justify-between gap-3"><p className="text-xs font-mono tracking-[.12em] text-[#D6E2EE]">{selected.id} · {selected.mediaType.toUpperCase()} · CREATOR-SUPPLIED · BROWSER-LOCAL</p><a href={selected.sourceUrl || selected.image || "#"} target={selected.sourceUrl || selected.image ? "_blank" : undefined} rel={selected.sourceUrl || selected.image ? "noreferrer" : undefined} className="rounded-xl border border-[#00D4FF]/35 bg-[#00D4FF]/10 px-4 py-3 text-xs font-black text-[#9DEBFF]">{selected.sourceUrl ? "Open source reference" : selected.image ? "Open source image" : "Text-led source frame"}</a></div><p className="mt-4 text-sm leading-7 text-[#B8C7D6]">Viewing is local and visitor-controlled. No upload, purchase, wallet, mint, transfer, or external publication action is initiated by this preview.</p></div></div>}
 
       {showMetadata && <div role="dialog" aria-modal="true" aria-labelledby="lookbook-metadata-title" className="fixed inset-0 z-50 grid place-items-center bg-[#02050dcc] p-4" onClick={() => setShowMetadata(false)}><div className="max-h-[90vh] w-full max-w-2xl overflow-auto rounded-[2rem] border border-[#FFCC4D]/40 bg-[#081223] p-6 shadow-2xl" onClick={(event) => event.stopPropagation()}><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#FFCC4D]">FULL LOOKBOOK METADATA</p><h2 id="lookbook-metadata-title" className="mt-2 text-3xl font-black">{selected.title}</h2></div><button type="button" onClick={() => setShowMetadata(false)} className="min-h-11 rounded-xl border border-white/15 px-4 text-sm font-black text-white focus-visible:outline-2 focus-visible:outline-[#FFCC4D]">Close</button></div><dl className="mt-6 grid gap-4 sm:grid-cols-2"><div><dt className="text-[10px] font-mono text-[#AFC0CF]">ACCESSION</dt><dd className="mt-1 text-sm font-black text-white">{selected.id}</dd></div><div><dt className="text-[10px] font-mono text-[#AFC0CF]">STATE</dt><dd className="mt-1 text-sm font-black text-white">{selected.state}</dd></div><div className="sm:col-span-2"><dt className="text-[10px] font-mono text-[#AFC0CF]">SOURCE NOTE</dt><dd className="mt-1 text-sm leading-7 text-[#D6E2EE]">{selected.note}</dd></div><div className="sm:col-span-2"><dt className="text-[10px] font-mono text-[#AFC0CF]">NEXT RECORD</dt><dd className="mt-1 text-sm leading-7 text-[#D6E2EE]">{selected.next}</dd></div></dl></div></div>}
 
