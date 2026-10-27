@@ -17,4 +17,9 @@ describe("homepage source highlights", () => {
     expect(home).toContain("creator-supplied source theater reference");
     expect(home).toContain("/meta-ai-artifacts-lookbooks");
   });
+
+  it("uses a stable unique key for repeated destination routes", () => {
+    expect(home).toContain('key={`${doorway.href}-${doorway.mark}`}');
+    expect(home).not.toContain("key={doorway.href}");
+  });
 });

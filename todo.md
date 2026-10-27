@@ -6724,3 +6724,8 @@
 - [x] Accession 49 newly supplied Oct 25–26 visual, theatre, HTML, still-image, motion, and text records in `docs/source-review-oct26/oct26-late-night-visual-batch-manifest.json` with SHA-256 receipts.
 - [x] Add `oct26-late-night-visual-batch-accession.md` with exact metadata-only, source-claim, and visitor-controlled display boundaries.
 - [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; build retains only the existing non-blocking >500 kB chunk warning.
+
+## Phase 989 — Homepage Duplicate-Key Repair
+- [x] Fix the reported React warning by changing the homepage lookbook-doorway key from route-only `doorway.href` to the deterministic unique key `${doorway.href}-${doorway.mark}`.
+- [x] Add regression coverage preventing route-only keys and preserving repeated destination routes safely.
+- [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.

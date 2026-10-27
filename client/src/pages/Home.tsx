@@ -1557,7 +1557,7 @@ function MetaLookbookDoorways() {
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {META_LOOKBOOK_DOORWAYS.map((doorway) => (
-            <Link key={doorway.href} href={doorway.href} className="group overflow-hidden rounded-[1.7rem] border transition duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style={{ borderColor: `${doorway.accent}55`, background: `${doorway.accent}08` }}>
+            <Link key={`${doorway.href}-${doorway.mark}`} href={doorway.href} className="group overflow-hidden rounded-[1.7rem] border transition duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style={{ borderColor: `${doorway.accent}55`, background: `${doorway.accent}08` }}>
               <SourceVisual src={doorway.src} alt={`${doorway.title} source thumbnail`} title={doorway.title} mark={doorway.mark} className="aspect-[4/3] w-full" />
               <div className="p-5"><p className="text-[10px] font-mono uppercase tracking-[.16em]" style={{ color: doorway.accent }}>Vivid source thumbnails</p><h3 className="mt-2 text-xl font-black text-white">{doorway.title}</h3><p className="mt-2 text-sm leading-6" style={{ color: "#C8D8E7" }}>{doorway.detail}</p><span className="mt-4 inline-flex text-sm font-black" style={{ color: doorway.accent }}>Open source lookbook →</span></div>
             </Link>
