@@ -6729,3 +6729,9 @@
 - [x] Fix the reported React warning by changing the homepage lookbook-doorway key from route-only `doorway.href` to the deterministic unique key `${doorway.href}-${doorway.mark}`.
 - [x] Add regression coverage preventing route-only keys and preserving repeated destination routes safely.
 - [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 990 — Block 145 OmniGaze Source Discovery
+- [x] Add the Block 145 OmniGaze Resurrection Comic as a source-labeled lookbook record with the supplied PDF filename preserved in the source note.
+- [x] Add the Block 145 highlight to the homepage source shelf with a resilient thumbnail fallback and click-through to the lookbook gallery.
+- [x] Preserve metadata-only receipts in `docs/source-review-oct27/oct27-late-upload-manifest.json`; no supplied PDF, HTML, image, CSV, or text body was executed, rendered, played, transformed, uploaded, or published.
+- [x] Verification passed: focused 2/2, full Vitest 427 files / 1144 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.

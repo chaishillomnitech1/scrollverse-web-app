@@ -144,6 +144,16 @@ const visualBoards: Array<{
     note: "A creator-supplied Meta share reference for the Motherload Omniverse Theatre Block 128 direction.",
     next: "Source availability, accessible transcript, media record, and approved display destination",
   },
+  {
+    id: "SV-BLOCK-145-001",
+    title: "ScrollVerse Block 145 · OmniGaze Resurrection Comic",
+    eyebrow: "BLOCK 145 · CREATOR-SUPPLIED SOURCE ARTIFACT",
+    mediaType: "motion",
+    accent: "#FFCC4D",
+    state: "Local document and source-artifact reference",
+    note: "A creator-supplied five-page Block 145 comic bundle (`ScrollVerse_Block145_OmniGaze_Resurrection_Comic.pdf`) with cover art, golden certificate, free-comic sequence, theatre plate, and flying-sneaker colorways.",
+    next: "Source review, accessible text alternative, media record, and approved display destination",
+  },
 ] as const;
 
 const lookbookLanes = [

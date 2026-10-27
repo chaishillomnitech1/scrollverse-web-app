@@ -1541,6 +1541,7 @@ const META_LOOKBOOK_DOORWAYS = [
   { href: "/meta-ai-artifacts-lookbooks", title: "God Flow Workshop", detail: "Enter the CIRCLE ZERO OUROBOROS, PRETTY PAPER PAPER MAN, and DUAL HARMONIC DIGITAL TWIN QR concept shelf.", mark: "GOD FLOW", src: HERO_IMG, accent: "#FF8A4C" },
   { href: "/meta-ai-artifacts-lookbooks", title: "Free Comic Book Series", detail: "Open the creator-supplied source theater reference for Free Comic Book Series · Block 131.", mark: "BLOCK 131", src: SUN_XIX_CDN, accent: "#FFCC4D" },
   { href: "/meta-ai-artifacts-lookbooks", title: "Motherload Omniverse Theatre", detail: "Open the creator-supplied source theater reference for Motherload Omniverse Theatre · Block 128.", mark: "BLOCK 128", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#00D4FF" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Block 145 OmniGaze Resurrection Comic", detail: "Open the source-labeled Block 145 comic, theatre, and museum-plate reference in the visual archive.", mark: "BLOCK 145", src: THRONE_IMG, accent: "#FFCC4D" },
 ] as const;
 
 function MetaLookbookDoorways() {
