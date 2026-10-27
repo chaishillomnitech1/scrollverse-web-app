@@ -6735,3 +6735,8 @@
 - [x] Add the Block 145 highlight to the homepage source shelf with a resilient thumbnail fallback and click-through to the lookbook gallery.
 - [x] Preserve metadata-only receipts in `docs/source-review-oct27/oct27-late-upload-manifest.json`; no supplied PDF, HTML, image, CSV, or text body was executed, rendered, played, transformed, uploaded, or published.
 - [x] Verification passed: focused 2/2, full Vitest 427 files / 1144 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 991 — Copilot Podcast Recap Metadata Receipt
+- [x] Accession `Copilot-podcast-recap.md` as a local metadata-only receipt with 560 bytes and SHA-256 `4dedc979c86107b8dbcf9442fb112d7816e8e4945e68075f0a70577a8803e0b4`.
+- [x] Preserve the source-claim boundary: the recap body was not executed, rendered, interpreted, uploaded, embedded, or published, and no authorship, rights, public availability, or external deployment claim was inferred.
+- [x] Fresh verification passed: focused 1/1, full Vitest 428 files / 1145 tests, TypeScript, guarded production build, skill validation, and `git diff --check`.
