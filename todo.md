@@ -6757,3 +6757,15 @@
 - [x] Accession `pasted_content_117.txt`, `pasted_content_118.txt`, `pasted_content_119.txt`, the three Copilot recap records, and `Scrollverse+Campaign+Gallery+V2.tar.gz` with exact local byte counts and SHA-256 receipts.
 - [x] Preserve `docs/source-review-oct27/oct27-latest-creator-materials-accession.md` with explicit metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; creator claims remain source-labeled rather than independently verified.
 - [x] Verification passed: focused 2/2, full Vitest 431 files / 1152 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB chunk warning.
+
+## Phase 995 — Gallery Hover Feedback and Stable Orbit Loading
+- [x] Add keyboard-visible hover/focus glow feedback to the Block 145 artifact gallery with reduced-motion-safe transitions.
+- [x] Add a dimensionally stable orbit loading fallback to the global route boundary with an explicit frame, accessible status, and reduced-motion-safe animation.
+- [x] Extend `scrollverse-source-led-portfolio` with layout-shift, 60fps-friendly animation, and focus-visible guidance.
+- [x] Verification passed: focused 3/3, full Vitest 432 files / 1155 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 996 — Chais Mirror Voice Presentation Profile
+- [x] Add an opt-in browser-local Chais mirror voice presentation profile labeled “New Jersey / New York urban cadence.”
+- [x] Keep playback interruptible with visible “Play Chais mirror cue” and “Stop voice” controls, `aria-live` status, unmount cancellation, and a visible transcript path.
+- [x] Extend `scrollverse-source-led-portfolio` with the named-style presentation boundary: no biometric identity, recording, clone, background listener, or external voice-service claim.
+- [x] Verification passed: focused 2/2, full Vitest 433 files / 1157 tests, strict TypeScript, skill validation, and `git diff --check`.

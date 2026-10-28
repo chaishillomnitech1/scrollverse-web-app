@@ -584,7 +584,18 @@ const IPO = lazy(() => import("./pages/IPO")); // import IPO from "./pages/IPO";
 const DSPIntelligence = lazy(() => import("./pages/DSPIntelligence"));
 
 function RouteLoadingFallback() {
-  return <main aria-busy="true" aria-live="polite" className="min-h-screen bg-[#050B1A] px-6 py-24 text-center text-white"><div role="status" className="mx-auto max-w-md rounded-2xl border border-[#00D4FF]/20 bg-white/[0.03] p-8 shadow-2xl shadow-cyan-950/20"><span aria-hidden="true" className="mx-auto block h-10 w-10 animate-spin rounded-full border-2 border-[#00D4FF]/20 border-t-[#00D4FF] motion-reduce:animate-none" /><p className="mt-6 text-xs font-mono tracking-[0.2em] text-[#00D4FF]">SCROLLVERSE ROUTE LOADING</p><p className="mt-4 text-sm text-[#C8D8E7]">Loading first-party route…</p></div></main>;
+  return (
+    <main aria-busy="true" aria-live="polite" aria-label="Loading ScrollVerse route" className="min-h-screen bg-[#050B1A] px-6 py-24 text-center text-white">
+      <div role="status" className="mx-auto max-w-md rounded-2xl border border-[#00D4FF]/20 bg-white/[0.03] p-8 shadow-2xl shadow-cyan-950/20">
+        <div className="scrollverse-orbit-loader mx-auto aspect-square w-16" aria-hidden="true">
+          <span className="scrollverse-orbit-loader__ring motion-safe:animate-spin motion-reduce:animate-none" />
+          <span className="scrollverse-orbit-loader__core" />
+        </div>
+        <p className="mt-6 text-xs font-mono tracking-[0.2em] text-[#00D4FF]">SCROLLVERSE ROUTE LOADING</p>
+        <p className="mt-4 text-sm text-[#C8D8E7]">Loading first-party route…</p>
+      </div>
+    </main>
+  );
 }
 
 // ── Mobile Bottom Navigation ──────────────────────────────────────────────────

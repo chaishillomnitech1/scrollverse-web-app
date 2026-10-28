@@ -213,6 +213,28 @@
   }
 }
 
+.scrollverse-orbit-loader {
+  position: relative;
+  contain: layout paint;
+}
+.scrollverse-orbit-loader__ring,
+.scrollverse-orbit-loader__core {
+  position: absolute;
+  inset: 12%;
+  border-radius: 999px;
+}
+.scrollverse-orbit-loader__ring {
+  border: 2px solid rgba(0, 212, 255, 0.25);
+  border-top-color: #00D4FF;
+  border-right-color: #FFCF70;
+  transform: rotate(20deg);
+}
+.scrollverse-orbit-loader__core {
+  inset: 35%;
+  background: radial-gradient(circle, #FFCF70 0 18%, #00D4FF 42%, rgba(0, 212, 255, 0.08) 72%);
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.45);
+}
+
 /* ── LIVING SIGNAL SYSTEM ────────────────────────────────────────────────
  * The palette movement is a visual design language only. It makes no sonic,
  * physiological, medical, or therapeutic claim.
