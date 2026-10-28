@@ -1,0 +1,77 @@
+{
+  "manifest_id": "scrollverse-oct27-latest-creator-materials-v1",
+  "created_at_utc": "2026-10-28T10:40:45Z",
+  "source_root": "/home/ubuntu/upload",
+  "count": 7,
+  "missing_requested_files": [],
+  "records": [
+    {
+      "filename": "pasted_content_117.txt",
+      "source_path": "/home/ubuntu/upload/pasted_content_117.txt",
+      "bytes": 19100,
+      "sha256": "cd609be21b6db01dbc47d98f5b625f456eeadabfb9717351c851936cc89f3091",
+      "mime_guess": "text/plain",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    },
+    {
+      "filename": "pasted_content_118.txt",
+      "source_path": "/home/ubuntu/upload/pasted_content_118.txt",
+      "bytes": 4331,
+      "sha256": "6892befa9f580f42e37b2a129aca56116101c3e629b983a734e2cf3f1d557bd2",
+      "mime_guess": "text/plain",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    },
+    {
+      "filename": "pasted_content_119.txt",
+      "source_path": "/home/ubuntu/upload/pasted_content_119.txt",
+      "bytes": 9589,
+      "sha256": "7551e24d600af47a9b0820e132618ebacc7f146445c2a28b8ab37b0d5e75a9ce",
+      "mime_guess": "text/plain",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    },
+    {
+      "filename": "Copilot-podcast-recap(12).txt",
+      "source_path": "/home/ubuntu/upload/Copilot-podcast-recap(12).txt",
+      "bytes": 1071,
+      "sha256": "d7b15d3929b21c7b0cd4a45edf9003c3d3307e87ce4b3c99303abe7df681b376",
+      "mime_guess": "text/plain",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    },
+    {
+      "filename": "Copilot-podcast-recap.md",
+      "source_path": "/home/ubuntu/upload/Copilot-podcast-recap.md",
+      "bytes": 560,
+      "sha256": "4dedc979c86107b8dbcf9442fb112d7816e8e4945e68075f0a70577a8803e0b4",
+      "mime_guess": "text/markdown",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    },
+    {
+      "filename": "Copilot-podcast-recap(13).txt",
+      "source_path": "/home/ubuntu/upload/Copilot-podcast-recap(13).txt",
+      "bytes": 1662,
+      "sha256": "2365e0fff9c77e0af33048e9ad1b62182c4ee355998b2ac7dbd2e127860c0747",
+      "mime_guess": "text/plain",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    },
+    {
+      "filename": "Scrollverse+Campaign+Gallery+V2.tar.gz",
+      "source_path": "/home/ubuntu/upload/Scrollverse+Campaign+Gallery+V2.tar.gz",
+      "bytes": 5296814,
+      "sha256": "b7fa5dbcec020787bc1180c17eb1f132609ed78f44cbd1496890ac13c07672f2",
+      "mime_guess": "application/gzip",
+      "classification": "creator-supplied source receipt",
+      "display_scope": "metadata-only local accession; not embedded or published"
+    }
+  ],
+  "boundaries": [
+    "Metadata-only local accession. No supplied body was executed, rendered, interpreted, played, transformed, uploaded, embedded, or published.",
+    "Creator claims and narrative context remain source-labeled and are not treated as independently verified technical, legal, financial, on-chain, rights, or public-availability evidence.",
+    "No external repository, wallet, token, contract, billing, payment, hosting, or publication action is represented by this manifest."
+  ]
+}

@@ -6745,3 +6745,15 @@
 - [x] Create `docs/source-review-oct27/oct27-block145-blueprints-manifest.json` for 25 latest Block 145/Oct 27 source files with exact bytes, MIME guesses, and SHA-256 identifiers.
 - [x] Create the companion accession note with explicit metadata-only, no-execution, no-upload, no-embed, and no-publication boundaries.
 - [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 993 — Receipt Viewer, Block 145 Gallery, and Profile Vault Feedback
+- [x] Add the reusable SHA-256 receipt viewer to the main dashboard with manifest identity, exact hashes, byte counts, and live-region status.
+- [x] Add the dedicated source-labeled Block 145 image gallery with resilient fallbacks, keyboard-reachable selection, hover feedback, and metadata-only boundaries.
+- [x] Add local vault success indicators and truthful Sonner toast feedback to the Guardian profile without implying upload, publication, or rights clearance.
+- [x] Update `scrollverse-source-led-portfolio` with reusable receipt-viewer, gallery-fallback, and vault-feedback patterns.
+- [x] Verification passed: focused 3/3, full Vitest 431 files / 1150 tests at checkpoint, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 994 — Latest Creator-Material Receipt Batch
+- [x] Accession `pasted_content_117.txt`, `pasted_content_118.txt`, `pasted_content_119.txt`, the three Copilot recap records, and `Scrollverse+Campaign+Gallery+V2.tar.gz` with exact local byte counts and SHA-256 receipts.
+- [x] Preserve `docs/source-review-oct27/oct27-latest-creator-materials-accession.md` with explicit metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; creator claims remain source-labeled rather than independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 431 files / 1152 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB chunk warning.
