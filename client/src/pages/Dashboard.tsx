@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import ReceiptViewer from "@/components/ReceiptViewer";
+import { BLOCK145_MANIFEST_ID, BLOCK145_RECEIPTS } from "@/data/block145Receipts";
 
 const SOVEREIGN_WALLET = "0x377956c1471d9ce142df6932895839243da23a2c";
 
@@ -373,6 +375,11 @@ export default function Dashboard() {
             Hover or focus this status panel for the read-only source context. Dashboard values do not perform external actions.
           </span>
         </section>
+
+        <div aria-label="SHA-256 metadata-only local accession" aria-live="polite" className="sr-only">
+          SHA-256 receipt set scrollverse-oct27-block145-blueprints-v1 ({BLOCK145_MANIFEST_ID}); browser-local metadata-only local accession.
+        </div>
+        <ReceiptViewer manifestId={BLOCK145_MANIFEST_ID} receipts={BLOCK145_RECEIPTS} />
 
         {isLoading ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">

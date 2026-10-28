@@ -8,6 +8,7 @@ import { Link, useParams } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { toast } from "sonner";
 
 const TIER_CONFIG: Record<string, { color: string; label: string; icon: string; glow: string }> = {
   visitor:   { color: "#8899AA", label: "Visitor",   icon: "◌", glow: "rgba(136,153,170,0.3)" },
@@ -61,6 +62,7 @@ export default function GuardianProfile() {
   const [editMode, setEditMode] = useState(false);
   const [bio, setBio] = useState("");
   const [frequency, setFrequency] = useState<string>("528Hz");
+  const [receiptAcknowledged, setReceiptAcknowledged] = useState(false);
 
   const { data: profileData, isLoading, refetch } = trpc.guardianProfile.getPublicProfile.useQuery(
     { handle: handle ?? "" },
@@ -80,6 +82,11 @@ export default function GuardianProfile() {
 
   const profile = profileData?.profile;
   const isOwnProfile = isAuthenticated && myProfileData?.profile?.handle === handle;
+
+  const acknowledgeLocalReceipt = () => {
+    setReceiptAcknowledged(true);
+    toast.success("Vault receipt ready — local metadata receipt acknowledged.");
+  };
 
   if (isLoading) {
     return (
@@ -259,6 +266,20 @@ export default function GuardianProfile() {
           </div>
         </div>
       )}
+
+      <section className="container py-6" aria-labelledby="profile-vault-heading" aria-live="polite">
+        <div className="rounded-2xl border border-[#00FF88]/25 bg-[#00FF88]/[.045] p-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="text-[10px] font-mono tracking-[.16em] text-[#A7F3C1]">LOCAL RECEIPT STATUS</p>
+              <h2 id="profile-vault-heading" className="mt-2 text-2xl font-black text-white">{receiptAcknowledged ? "Vault receipt ready" : "Receipt access is ready"}</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-[#D6E2EE]">Review and acknowledge the local metadata receipt surface from your profile. This does not upload, publish, mint, transfer, or change an external vault.</p>
+            </div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#00FF88]/35 bg-[#00FF88]/10 px-3 py-2 text-xs font-mono text-[#A7F3C1]">{receiptAcknowledged ? "✓ ACKNOWLEDGED" : "● READY"}</span>
+          </div>
+          <button type="button" onClick={acknowledgeLocalReceipt} className="mt-5 min-h-11 rounded-xl border border-[#00FF88]/40 bg-[#00FF88]/10 px-4 py-2 text-xs font-black text-[#B5F7CC] transition motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">{receiptAcknowledged ? "Receipt acknowledged" : "Acknowledge local receipt"}</button>
+        </div>
+      </section>
 
       {/* STATS */}
       <div className="container py-8">
