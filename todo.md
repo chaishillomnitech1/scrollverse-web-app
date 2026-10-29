@@ -6780,3 +6780,9 @@
 - [x] Add a source-labeled `Zebra Brand · Free Name Toggle` front-door card linking to the existing Meta AI lookbook route, with a resilient thumbnail path and no autoplay or commerce action.
 - [x] Extend `scrollverse-source-led-portfolio` with reusable front-door motion/brand doorway guidance and unique route-plus-mark keys.
 - [x] Verification passed: focused 2/2, full Vitest 435 files / 1161 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 999 — Agent 25 Convergence Master Vault Panel
+- [x] Add a browser-local, source-labeled 25-record Legion convergence registry to the existing AI Legion Apex route, covering the supplied 8 core, 16 expansion, and Agent 25 perpetual-archive roles.
+- [x] Display the Block 176 Legion 24 → Convergence Master Vault lineage, truthful record count, and explicit metadata-only/no-external-action boundary.
+- [x] Extend `scrollverse-source-led-portfolio` with a reusable Legion/sub-Legion registry pattern using stable keys, readable text, and truthful browser-local status.
+- [x] Verification passed: focused 2/2; full Vitest 436 files / 1163 tests; strict TypeScript; guarded production build (exit 0, existing non-blocking >500 kB React runtime warning); skill validation; and `git diff --check`.
