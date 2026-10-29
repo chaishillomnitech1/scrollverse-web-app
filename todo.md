@@ -6786,3 +6786,11 @@
 - [x] Display the Block 176 Legion 24 → Convergence Master Vault lineage, truthful record count, and explicit metadata-only/no-external-action boundary.
 - [x] Extend `scrollverse-source-led-portfolio` with a reusable Legion/sub-Legion registry pattern using stable keys, readable text, and truthful browser-local status.
 - [x] Verification passed: focused 2/2; full Vitest 436 files / 1163 tests; strict TypeScript; guarded production build (exit 0, existing non-blocking >500 kB React runtime warning); skill validation; and `git diff --check`.
+
+## Phase 1000 — Legion Search, Hover, Browser-Local Export, and YouTube Sync Rail
+- [x] Add a keyboard-accessible search field for the 25-record Agent 25 convergence registry with truthful filtered counts and a no-match state.
+- [x] Add progressive hover/focus glow feedback to convergence records without making color the only information channel.
+- [x] Add a browser-local text summary export for the currently filtered vault records with truthful status feedback and no remote write.
+- [x] Surface the existing typed YouTube references in a named homepage “YouTube synchronization rail” with “Source-labeled · visitor chooses the player” copy and direct handoff links; no autoplay or hidden embed was added.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable Legion convergence search/export and synchronized YouTube reference rail patterns.
+- [x] Verification passed: focused 4/4, full Vitest 437 files / 1167 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB chunk warning.
