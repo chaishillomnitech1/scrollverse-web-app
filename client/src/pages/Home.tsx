@@ -1542,6 +1542,8 @@ const META_LOOKBOOK_DOORWAYS = [
   { href: "/meta-ai-artifacts-lookbooks", title: "Free Comic Book Series", detail: "Open the creator-supplied source theater reference for Free Comic Book Series · Block 131.", mark: "BLOCK 131", src: SUN_XIX_CDN, accent: "#FFCC4D" },
   { href: "/meta-ai-artifacts-lookbooks", title: "Motherload Omniverse Theatre", detail: "Open the creator-supplied source theater reference for Motherload Omniverse Theatre · Block 128.", mark: "BLOCK 128", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#00D4FF" },
   { href: "/meta-ai-artifacts-lookbooks", title: "Block 145 OmniGaze Resurrection Comic", detail: "Open the source-labeled Block 145 comic, theatre, and museum-plate reference in the visual archive.", mark: "BLOCK 145", src: THRONE_IMG, accent: "#FFCC4D" },
+  { href: "/chais-videos", title: "Back to the Future · 88MPH", detail: "Open the source-labeled motion theater and choose Play to view the creator-supplied Back to the Future / Café 88 references.", mark: "Click to play", src: HERO_IMG, accent: "#EC4899" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Zebra Brand · Free Name Toggle", detail: "Enter the source-labeled Zebra / ZER(B)RA artifact shelf with the voiced, both, and silent presentation concepts.", mark: "ZEBRA", src: SUN_XIX_CDN, accent: "#F4F4F5" },
 ] as const;
 
 function MetaLookbookDoorways() {

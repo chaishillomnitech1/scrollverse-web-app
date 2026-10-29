@@ -6769,3 +6769,14 @@
 - [x] Keep playback interruptible with visible “Play Chais mirror cue” and “Stop voice” controls, `aria-live` status, unmount cancellation, and a visible transcript path.
 - [x] Extend `scrollverse-source-led-portfolio` with the named-style presentation boundary: no biometric identity, recording, clone, background listener, or external voice-service claim.
 - [x] Verification passed: focused 2/2, full Vitest 433 files / 1157 tests, strict TypeScript, skill validation, and `git diff --check`.
+
+## Phase 997 — Legion and Omni-Convergence Receipt Batch
+- [x] Accession the eight newly supplied Legion, recruitment, DNA-mirror, motion, archive, and narrative files in `docs/source-review-oct29/oct29-legion-omni-batch-manifest.json` with exact local byte counts and SHA-256 receipts.
+- [x] Preserve `oct29-legion-omni-batch-accession.md` with metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; creator-supplied claims remain source-labeled and not independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 435 files / 1161 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB chunk warning.
+
+## Phase 998 — Homepage Back to the Future and Zebra Doorways
+- [x] Add a source-labeled `Back to the Future · 88MPH` front-door card linking to `/chais-videos` with deliberate visitor-controlled `Click to play` discovery.
+- [x] Add a source-labeled `Zebra Brand · Free Name Toggle` front-door card linking to the existing Meta AI lookbook route, with a resilient thumbnail path and no autoplay or commerce action.
+- [x] Extend `scrollverse-source-led-portfolio` with reusable front-door motion/brand doorway guidance and unique route-plus-mark keys.
+- [x] Verification passed: focused 2/2, full Vitest 435 files / 1161 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
