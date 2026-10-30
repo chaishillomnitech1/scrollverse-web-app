@@ -6805,3 +6805,8 @@
 - [x] Accession 17 newly supplied text, HTML, archive, console, and narrative source records in `docs/source-review-oct29/oct29-latest-manus-omni-manifest.json` with exact local byte counts, conservative MIME guesses, and SHA-256 receipts.
 - [x] Preserve `oct29-latest-manus-omni-accession.md` with explicit metadata-only, no-execution, no-extraction, no-render, no-play, no-upload, no-embed, and no-publication boundaries; source claims remain not independently verified.
 - [x] Verification passed: focused 2/2, full Vitest 439 files / 1171 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1003 — Deferred External-Lane Register
+- [x] Add a local register documenting remaining owner/provider-controlled account, payment, wallet, contract, repository, publishing, production-media, and store-account lanes.
+- [x] State explicitly that local preparation does not imply external completion and that no external action was performed.
+- [x] Verification passed: focused 2/2, full Vitest 440 files / 1173 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
