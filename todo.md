@@ -6794,3 +6794,9 @@
 - [x] Surface the existing typed YouTube references in a named homepage “YouTube synchronization rail” with “Source-labeled · visitor chooses the player” copy and direct handoff links; no autoplay or hidden embed was added.
 - [x] Extend `scrollverse-source-led-portfolio` with the reusable Legion convergence search/export and synchronized YouTube reference rail patterns.
 - [x] Verification passed: focused 4/4, full Vitest 437 files / 1167 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB chunk warning.
+
+## Phase 1001 — Manus and Omni Mixed-Source Receipt Batch
+- [x] Accession 17 newly supplied Manus, Meta, Omni, Legion, console, narrative, archive, and HTML records in `docs/source-review-oct29/oct29-manus-omni-batch-manifest.json` with exact local byte lengths, conservative MIME guesses, and SHA-256 digests.
+- [x] Preserve `oct29-manus-omni-batch-accession.md` with explicit metadata-only, no-execution, no-extraction, no-rendering, no-playback, no-upload, no-embed, and no-publication boundaries; creator claims remain source-labeled and not independently verified.
+- [x] Extend `scrollverse-source-led-portfolio` with mixed-file accession guardrails plus exact performance, Legion convergence, browser-local text export, and synchronized YouTube reference rail patterns.
+- [x] Verification passed: focused Phase 1001 2/2, Phase 995 3/3, Phase 1000 4/4; full Vitest 438 files / 1169 tests; strict TypeScript; guarded production build exit 0; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
