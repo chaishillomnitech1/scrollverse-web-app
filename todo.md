@@ -6800,3 +6800,8 @@
 - [x] Preserve `oct29-manus-omni-batch-accession.md` with explicit metadata-only, no-execution, no-extraction, no-rendering, no-playback, no-upload, no-embed, and no-publication boundaries; creator claims remain source-labeled and not independently verified.
 - [x] Extend `scrollverse-source-led-portfolio` with mixed-file accession guardrails plus exact performance, Legion convergence, browser-local text export, and synchronized YouTube reference rail patterns.
 - [x] Verification passed: focused Phase 1001 2/2, Phase 995 3/3, Phase 1000 4/4; full Vitest 438 files / 1169 tests; strict TypeScript; guarded production build exit 0; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
+
+## Phase 1002 — Latest Manus and Omni Mixed-Source Receipt Batch
+- [x] Accession 17 newly supplied text, HTML, archive, console, and narrative source records in `docs/source-review-oct29/oct29-latest-manus-omni-manifest.json` with exact local byte counts, conservative MIME guesses, and SHA-256 receipts.
+- [x] Preserve `oct29-latest-manus-omni-accession.md` with explicit metadata-only, no-execution, no-extraction, no-render, no-play, no-upload, no-embed, and no-publication boundaries; source claims remain not independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 439 files / 1171 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
