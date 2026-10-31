@@ -6823,3 +6823,8 @@
 - [x] Distinguish local readiness records from generated or published videos; preserve no-provider, no-upload, no-payment, and no-publication behavior.
 - [x] Extend `scrollverse-source-led-portfolio` with the catalog discovery and validated production-records pattern.
 - [x] Verification passed: focused 2/2, full Vitest 442 files / 1177 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1006 — Oct 30 Latest Source Batch Accession
+- [x] Create `docs/source-review-oct30/oct30-latest-source-batch-manifest.json` for 21 supplied text, HTML, image, and video files with exact local byte counts, conservative MIME guesses, and SHA-256 receipts.
+- [x] Create the companion accession note with explicit metadata-only, not-executed, not-extracted, not-rendered, not-played, not-uploaded, not-embedded, and not-published boundaries; source claims remain not independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 443 files / 1179 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
