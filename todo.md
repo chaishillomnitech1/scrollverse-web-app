@@ -3766,7 +3766,7 @@
 - [x] Inventory the owner-provided Spotify artist catalog as a music discovery source with per-song source and release boundaries
 - [ ] Gather and confirm per-song purpose, narrative, duration, aspect ratio, visual style, references, language, recurring elements, voice or narration, and music-use authorization before any video generation
 - [ ] Create per-song epic-video production packets and a reference-image plan only after the production brief is confirmed
-- [ ] Add the catalog discovery and validated production records to the portal without implying generated or published videos before release
+- [x] Add the catalog discovery and validated production records to the portal without implying generated or published videos before release
 
 ## Protected Catalog and Staging Reference Intake
 - [x] Inventory the two newly supplied `Pasted_content_100` materials as protected, non-executable reference inputs
