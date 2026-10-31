@@ -6810,3 +6810,10 @@
 - [x] Add a local register documenting remaining owner/provider-controlled account, payment, wallet, contract, repository, publishing, production-media, and store-account lanes.
 - [x] State explicitly that local preparation does not imply external completion and that no external action was performed.
 - [x] Verification passed: focused 2/2, full Vitest 440 files / 1173 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1004 — Per-Song Epic-Video Slate
+- [x] Add a browser-local, accessible per-song brief surface to Music Creator Release Readiness with fields for purpose/narrative, duration/aspect ratio, visual style/references, language/voice/narration, music-use authorization, and reference-image planning.
+- [x] Add visible local-save, copy, status, and fail-closed boundary feedback; no generation, upload, publication, distribution, provider, rights, wallet, payment, or account action occurs.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable per-song slate pattern.
+- [ ] Populate actual per-song production packets only after creator-supplied song briefs and reference decisions are entered; no song-specific facts were invented by this phase.
+- [x] Verification passed: focused 2/2, full Vitest 441 files / 1175 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
