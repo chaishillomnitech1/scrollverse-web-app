@@ -6828,3 +6828,10 @@
 - [x] Create `docs/source-review-oct30/oct30-latest-source-batch-manifest.json` for 21 supplied text, HTML, image, and video files with exact local byte counts, conservative MIME guesses, and SHA-256 receipts.
 - [x] Create the companion accession note with explicit metadata-only, not-executed, not-extracted, not-rendered, not-played, not-uploaded, not-embedded, and not-published boundaries; source claims remain not independently verified.
 - [x] Verification passed: focused 2/2, full Vitest 443 files / 1179 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1007 — Latest Batch Metadata Receipt Viewer
+- [x] Add a typed, searchable Oct 30 receipt index to the Digitalship Accession Desk using metadata from the preserved manifest only.
+- [x] Display filename, conservative type, byte count, exact SHA-256, manifest identity, accession date, matching counts, copy-hash feedback, and explicit metadata-only/source-body boundary text.
+- [x] Keep supplied HTML, media, archive, and executable-looking source bodies outside the UI; no opening, rendering, playback, execution, extraction, upload, embedding, publication, or rights-clearance implication is performed.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable latest-batch receipt viewer pattern.
+- [x] Verification passed: focused 2/2; full Vitest 444 files / 1181 tests; strict TypeScript; guarded production build (exit 0, existing non-blocking >500 kB React runtime warning); skill validation; and `git diff --check`.
