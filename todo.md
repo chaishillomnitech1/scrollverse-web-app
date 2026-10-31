@@ -6817,3 +6817,9 @@
 - [x] Extend `scrollverse-source-led-portfolio` with the reusable per-song slate pattern.
 - [ ] Populate actual per-song production packets only after creator-supplied song briefs and reference decisions are entered; no song-specific facts were invented by this phase.
 - [x] Verification passed: focused 2/2, full Vitest 441 files / 1175 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1005 — Catalog Discovery and Validated Production Records
+- [x] Add a browser-local source-labeled catalog discovery surface to Direct-to-Fan Catalog with search, state filtering, visible counts, empty-state recovery, and medium/status tags.
+- [x] Distinguish local readiness records from generated or published videos; preserve no-provider, no-upload, no-payment, and no-publication behavior.
+- [x] Extend `scrollverse-source-led-portfolio` with the catalog discovery and validated production-records pattern.
+- [x] Verification passed: focused 2/2, full Vitest 442 files / 1177 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
