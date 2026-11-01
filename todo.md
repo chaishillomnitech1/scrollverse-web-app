@@ -6841,3 +6841,8 @@
 - [x] Add a regression for the exact missing-table query message, unrelated database errors, and stable static catalog output.
 - [x] Make `getBooks`, `getBook`, and `getStats` fail soft only for a missing `scrollverse_books` table, while preserving unrelated database failures for visibility.
 - [x] Verification passed: focused 3/3, full Vitest 445 files / 1184 tests, strict TypeScript, guarded production build exit 0, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1009 — Nov 1 Source Batch Accession
+- [x] Accession the supplied Nov 1 source materials with exact local byte counts, MIME metadata, and SHA-256 receipts in `docs/source-review-nov1/nov1-latest-source-batch-manifest.json`.
+- [x] Preserve the companion note with metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; source claims remain creator-supplied and source-labeled.
+- [x] Verification passed: focused accession regression, full Vitest 446 files / 1186 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; only the existing non-blocking >500 kB runtime chunk warning remains.

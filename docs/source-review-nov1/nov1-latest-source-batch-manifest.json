@@ -1,0 +1,12 @@
+{
+  "batch_id": "nov1-latest-source-batch-2026-11-01",
+  "accession_date": "2026-11-01",
+  "boundary": "metadata-only",
+  "records": [
+    {"filename":"pasted_content_177.txt","bytes":15700,"mime":"text/plain","sha256":"388d7e8c119dc1feef772fd2f9a4467ecc581aa17c062b16cacfc59f35d340a4","boundary":"metadata-only"},
+    {"filename":"Scrollverse-Sovereign-Motion-Scenes.html","bytes":1841560,"mime":"text/html","sha256":"6f29b49fcc212acedd7ca31c4fe815746640df6bf92cf04175c2d2994334f7b2","boundary":"metadata-only"},
+    {"filename":"Black-Batman-Chronicles-Ep.html","bytes":3167624,"mime":"text/html","sha256":"b05ab467a640742a954b84ff07557b6fc9722898f5e33aec2ac00f7f992ebce7","boundary":"metadata-only"},
+    {"filename":"Playable-Game-Ui-Sovereign.html","bytes":4874590,"mime":"text/html","sha256":"656e5c5503312c1f599351326e51a08bdb6b7ec3af3bb74784a6842f20f18c79","boundary":"metadata-only"},
+    {"filename":"pasted_content_178.txt","bytes":15700,"mime":"text/plain","sha256":"388d7e8c119dc1feef772fd2f9a4467ecc581aa17c062b16cacfc59f35d340a4","boundary":"metadata-only"}
+  ]
+}
