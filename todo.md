@@ -6835,3 +6835,9 @@
 - [x] Keep supplied HTML, media, archive, and executable-looking source bodies outside the UI; no opening, rendering, playback, execution, extraction, upload, embedding, publication, or rights-clearance implication is performed.
 - [x] Extend `scrollverse-source-led-portfolio` with the reusable latest-batch receipt viewer pattern.
 - [x] Verification passed: focused 2/2; full Vitest 444 files / 1181 tests; strict TypeScript; guarded production build (exit 0, existing non-blocking >500 kB React runtime warning); skill validation; and `git diff --check`.
+
+## Phase 1008 — Optional Books Table Fallback
+- [x] Trace the `/` TRPC error to `seedBooksIfEmpty()` querying the optional `scrollverse_books` table before the public read path could fall back.
+- [x] Add a regression for the exact missing-table query message, unrelated database errors, and stable static catalog output.
+- [x] Make `getBooks`, `getBook`, and `getStats` fail soft only for a missing `scrollverse_books` table, while preserving unrelated database failures for visibility.
+- [x] Verification passed: focused 3/3, full Vitest 445 files / 1184 tests, strict TypeScript, guarded production build exit 0, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
