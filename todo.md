@@ -6846,3 +6846,21 @@
 - [x] Accession the supplied Nov 1 source materials with exact local byte counts, MIME metadata, and SHA-256 receipts in `docs/source-review-nov1/nov1-latest-source-batch-manifest.json`.
 - [x] Preserve the companion note with metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; source claims remain creator-supplied and source-labeled.
 - [x] Verification passed: focused accession regression, full Vitest 446 files / 1186 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; only the existing non-blocking >500 kB runtime chunk warning remains.
+
+## Phase 1010 — Homepage Motion-Reference Shelf
+- [x] Surface the newly supplied video batch as visible, source-labeled homepage cards with exact filenames and stable typographic fallbacks.
+- [x] Keep each card browser-local and visitor-controlled with direct accession-desk routing, no autoplay, and explicit metadata-only/raw-upload boundaries.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable homepage motion-reference shelf pattern.
+- [x] Verification passed: focused motion-shelf regression, full Vitest, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 1011 — Nov 1 Creator Reference Batch
+- [x] Add source-labeled homepage cards for `Scrollverse-Sovereign-Motion-Scenes.html`, `Black-Batman-Chronicles-Ep.html`, and `Playable-Game-Ui-Sovereign.html` using manifest filenames only.
+- [x] Preserve metadata-only labeling, direct accession-desk routing, no rendering/execution, and HTML source bodies outside the UI.
+- [x] Extend `scrollverse-source-led-portfolio` with the manifest-to-homepage next-batch integration pattern.
+- [x] Verification passed: Phase 1010 and 1011 regressions, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; only the existing non-blocking large runtime chunk warning remains.
+
+## Phase 1012 — Complete Motion Shelf Coverage and Integration Report
+- [x] Add the five Oct 30 video receipt records (`video(19).mp4` through `video(15).mp4`) so the homepage covers the complete Phase 1010 video subset.
+- [x] Review the reusable `scrollverse-source-led-portfolio` workflow and preserve metadata-only/no-autoplay guidance.
+- [x] Write `docs/source-review-nov1/phase1010-1011-creator-reference-integration-report.md` with all integrated reference filenames, boundaries, and verification metrics.
+- [x] Verification passed: full Vitest 448 files / 1190 tests, strict TypeScript, guarded build exit 0, portable build metrics, skill validation, and `git diff --check`.

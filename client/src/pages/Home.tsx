@@ -1394,6 +1394,32 @@ const SYNCHRONIZATION_MEDIA_REFERENCES = [
   },
 ] as const;
 
+const PHASE1011_CREATOR_REFERENCES = [
+  { file: "Scrollverse-Sovereign-Motion-Scenes.html", label: "ScrollVerse Sovereign Motion Scenes", detail: "Creator-supplied motion-scene reference" },
+  { file: "Black-Batman-Chronicles-Ep.html", label: "Black Batman Chronicles · Episode reference", detail: "Creator-supplied episode reference" },
+  { file: "Playable-Game-Ui-Sovereign.html", label: "Playable Game UI · Sovereign", detail: "Creator-supplied playable-interface reference" },
+] as const;
+const NEWLY_SUPPLIED_MOTION_REFERENCES = [
+  { file: "video(29).mp4", label: "Motion reference 29" },
+  { file: "video(28).mp4", label: "Motion reference 28" },
+  { file: "video(27).mp4", label: "Motion reference 27" },
+  { file: "video(26).mp4", label: "Motion reference 26" },
+  { file: "video(25).mp4", label: "Motion reference 25" },
+  { file: "882624278_1137936855357590_1709471996901120998_n.mp4", label: "Creator motion reference · 01" },
+  { file: "873077734_2707400746443699_1752729865478908705_n.mp4", label: "Creator motion reference · 02" },
+  { file: "874290506_4968869606732428_6941326134607094375_n.mp4", label: "Creator motion reference · 03" },
+  { file: "877259154_1097818406405878_6667997333274932338_n.mp4", label: "Creator motion reference · 04" },
+  { file: "media(35).mp4", label: "Media reference 35" },
+  { file: "video(24).mp4", label: "Motion reference 24" },
+  { file: "video(23).mp4", label: "Motion reference 23" },
+  { file: "video(22).mp4", label: "Motion reference 22" },
+  { file: "video(21).mp4", label: "Motion reference 21" },
+  { file: "video(19).mp4", label: "Motion reference 19 · Oct 30 receipt" },
+  { file: "video(18).mp4", label: "Motion reference 18 · Oct 30 receipt" },
+  { file: "video(17).mp4", label: "Motion reference 17 · Oct 30 receipt" },
+  { file: "video(16).mp4", label: "Motion reference 16 · Oct 30 receipt" },
+  { file: "video(15).mp4", label: "Motion reference 15 · Oct 30 receipt" },
+] as const;
 function FeaturedSovereignArchiveVideo() {
   return <section id="featured-scrollverse-video" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.32)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.15), transparent 30%), radial-gradient(circle at 88% 76%, rgba(0,212,255,.14), transparent 30%), #071124" }}><div className="container py-14"><div className="grid gap-8 xl:grid-cols-[.9fr_1.1fr] xl:items-center"><div><p className="text-xs font-mono tracking-[.18em]" style={{ color: "#FFE09A" }}>FEATURED SCROLLVERSE VIDEO</p><h2 className="mt-3 text-4xl font-black leading-tight text-white">A signal from<br/><span style={{ color: "#FFE09A" }}>Black Atlantic City.</span></h2><p className="mt-5 max-w-xl text-sm leading-7" style={{ color: "#D6E2EE" }}>A creator-selected public YouTube source, featured beside the restored Sovereign Archive Chronicles and the original fictional Black Atlantic City concept world. The video plays from YouTube; its channel, title, availability, and account context remain with the source platform.</p><div className="mt-7 flex flex-wrap gap-3"><a href="https://www.youtube.com/watch?v=SqK0RJTobNI" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#FFCC4D", color: "#07101D" }}>Watch on YouTube <span>↗</span></a><Link href="/sovereign-archive-chronicles#black-atlantic-city" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black text-white transition hover:border-[#00D4FF]" style={{ borderColor: "rgba(0,212,255,.55)", background: "rgba(0,212,255,.08)" }}>Enter Black Atlantic City <span>→</span></Link></div><p className="mt-5 text-[11px] leading-5" style={{ color: "#B8C7D6" }}>Source label: creator-supplied public YouTube link. The browser review encountered YouTube’s automated-traffic interstitial, so no unverified title, channel, duration, or video-content description is reproduced here.</p></div><div className="overflow-hidden rounded-[2rem] border p-2 shadow-[0_24px_70px_rgba(255,204,77,.12)]" style={{ borderColor: "rgba(255,204,77,.48)", background: "#030914" }}><div className="relative aspect-video overflow-hidden rounded-[1.45rem] bg-[#030914]"><iframe className="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/SqK0RJTobNI" title="Creator-selected ScrollVerse YouTube video" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="flex items-center justify-between gap-3 px-3 py-3"><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>CREATOR-SELECTED YOUTUBE SOURCE</span><span className="text-[10px] font-mono" style={{ color: "#9DEBFF" }}>BLACK ATLANTIC CITY · EXTERNAL PLAYER</span></div></div></div></div></section>;
 }
@@ -1445,6 +1471,49 @@ function CreatorMotionShelf() {
             </div>
             <div className="flex flex-wrap items-center justify-between gap-3 border-t px-5 py-4" style={{ borderColor: "rgba(255,204,77,.22)" }}><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>METADATA-ONLY SOURCE RECEIPT</span><Link href="/digitalship-accession" className="text-xs font-black" style={{ color: "#BCEEFF" }}>Review local record →</Link></div>
           </article>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#D7A7FF]/30 bg-[#D7A7FF]/[.045] p-5" aria-labelledby="newly-supplied-motion-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#EBDFFF]">SOURCE-RECEIPT GALLERY · OCT 31</p>
+                <h3 id="newly-supplied-motion-title" className="mt-2 text-2xl font-black text-white">NEWLY SUPPLIED MOTION REFERENCES</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">Choose a source record to review. These creator-supplied video files are displayed as metadata-only cards until a deployment-safe hosted URL is selected. No autoplay; the raw upload remains outside the production bundle.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#D7A7FF]/50 px-4 py-3 text-xs font-black text-[#F0E4FF] transition hover:bg-[#D7A7FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]">Open accession desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {NEWLY_SUPPLIED_MOTION_REFERENCES.map((reference) => (
+                <Link key={reference.file} href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#D7A7FF]/60 hover:bg-[#D7A7FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]">
+                  <div className="flex aspect-video items-center justify-center rounded-xl border border-[#D7A7FF]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(215,167,255,.2),transparent_48%),#020611] text-3xl text-[#EBDFFF] transition group-hover:shadow-[0_0_28px_rgba(215,167,255,.2)]" aria-hidden="true">▶</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#D7A7FF]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#F0E4FF]">Choose a source record to review →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.045] p-5" aria-labelledby="phase1011-creator-reference-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">NOV 1 ACCESSION · PHASE 1011</p>
+                <h3 id="phase1011-creator-reference-title" className="mt-2 text-2xl font-black text-white">PHASE 1011 CREATOR REFERENCE BATCH</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">HTML source bodies remain outside the UI. No rendering or execution occurs here; each card preserves the supplied filename and routes to the local receipt desk for visitor-controlled review.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#FFCC4D]/50 px-4 py-3 text-xs font-black text-[#FFE9B0] transition hover:bg-[#FFCC4D]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE9B0]">Review receipt desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              {PHASE1011_CREATOR_REFERENCES.map((reference) => (
+                <Link key={reference.file} href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#FFCC4D]/60 hover:bg-[#FFCC4D]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE9B0]">
+                  <div className="flex aspect-video items-center justify-center rounded-xl border border-[#FFCC4D]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(255,204,77,.2),transparent_48%),#020611] text-3xl text-[#FFE09A] transition group-hover:shadow-[0_0_28px_rgba(255,204,77,.2)]" aria-hidden="true">◈</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#FFE09A]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+                  <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{reference.detail}</p>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#FFE9B0]">Review receipt →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
           <div className="grid gap-5">
             {theaterScreenings.map(screening => (
               <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
