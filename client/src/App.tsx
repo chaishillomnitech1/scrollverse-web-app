@@ -537,6 +537,7 @@ const SovereigntyInfrastructureRecord = lazy(() => import("./pages/SovereigntyIn
 const EmpirePowerIndex = lazy(() => import("./pages/EmpirePowerIndex")); // import EmpirePowerIndex from "./pages/EmpirePowerIndex"; deferred route module
 const ProtectedVisualIntake = lazy(() => import("./pages/ProtectedVisualIntake")); // import ProtectedVisualIntake from "./pages/ProtectedVisualIntake"; deferred route module
 const SuppliedPublicReferences = lazy(() => import("./pages/SuppliedPublicReferences")); // import SuppliedPublicReferences from "./pages/SuppliedPublicReferences"; deferred route module
+const Mother10OriginDoesntMatter = lazy(() => import("./pages/Mother10OriginDoesntMatter")); // deferred route module
 const ManusOriginHistoricalRecoveryGate = lazy(() => import("./pages/ManusOriginHistoricalRecoveryGate")); // import ManusOriginHistoricalRecoveryGate from "./pages/ManusOriginHistoricalRecoveryGate"; deferred route module
 const Omega267PriorHubRecoveryGate = lazy(() => import("./pages/Omega267PriorHubRecoveryGate")); // import Omega267PriorHubRecoveryGate from "./pages/Omega267PriorHubRecoveryGate"; deferred route module
 const CreatorStickerIntake = lazy(() => import("./pages/CreatorStickerIntake")); // import CreatorStickerIntake from "./pages/CreatorStickerIntake"; deferred route module
@@ -1190,6 +1191,7 @@ function Router() {
         <Route path="/empire-power-index" component={EmpirePowerIndex} />
         <Route path="/protected-visual-intake" component={ProtectedVisualIntake} />
         <Route path="/supplied-public-references" component={SuppliedPublicReferences} />
+        <Route path="/mother-10-origin-doesnt-matter" component={Mother10OriginDoesntMatter} />
         <Route path="/manus-origin-historical-recovery" component={ManusOriginHistoricalRecoveryGate} />
         <Route path="/omega-267-prior-hub-recovery" component={Omega267PriorHubRecoveryGate} />
         <Route path="/creator-sticker-intake" component={CreatorStickerIntake} />

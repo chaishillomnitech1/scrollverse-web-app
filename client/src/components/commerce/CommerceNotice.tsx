@@ -1,12 +1,13 @@
 import { ShieldAlert } from "lucide-react";
 
 const ITEMS: Array<[string, string]> = [
-  ["Original work", "Everything offered here is original ScrollVerse work."],
-  ["Voluntary purchase", "Purchases are optional and made of your own free will."],
-  ["Delivery", "Delivery terms are confirmed at checkout; digital items are delivered to the email or wallet you provide."],
-  ["Refunds", "Refund terms are confirmed at checkout; on-chain transfers are final once confirmed."],
-  ["Payment rails", "Card (USD) via Stripe, or wallet (MATIC) on Polygon."],
-  ["Proof / receipt", "Keep your Stripe receipt or transaction hash as proof of purchase."],
+  ["Original work", "Products sold here are creator-authored, and the creator sets the price."],
+  ["Your choice", "Purchase is always voluntary. Browsing and free content never require payment."],
+  ["Delivery", "Each product listing states what is included and how and when it is delivered."],
+  ["Refunds", "Refund eligibility follows the product listing and applicable law. Confirmed blockchain transfers generally cannot be reversed."],
+  ["Payments", "USD checkout uses Stripe; wallet checkout uses MATIC on Polygon when the payment configuration is enabled."],
+  ["Proof", "Keep your payment receipt or transaction hash. Payment confirmation alone is not proof of delivery."],
+  ["Not financial advice", "Items are art and access products, not investments, and no returns are promised."],
 ];
 
 export function CommerceNotice({ className = "" }: { className?: string }) {
@@ -20,7 +21,7 @@ export function CommerceNotice({ className = "" }: { className?: string }) {
       </ul>
       <p className="mt-4 flex items-start gap-2 text-sm font-bold text-red-200">
         <ShieldAlert className="mt-1 h-4 w-4 shrink-0" />
-        Never share your seed phrase or private keys with anyone. We will never ask for them.
+        Security: Never share your seed phrase or private keys with anyone. We will never ask for them.
       </p>
     </aside>
   );

@@ -16,6 +16,25 @@ import {
 
 type Eip1193 = { request: (args: { method: string; params?: unknown[] }) => Promise<unknown> };
 
+async function ensurePolygon(wallet: Eip1193) {
+  const chainHex = await wallet.request({ method: "eth_chainId" });
+  if (typeof chainHex !== "string") throw new Error("Wallet returned an invalid network identifier.");
+  if (parseInt(chainHex, 16) !== POLYGON_CHAIN_ID) {
+    try {
+      await wallet.request({ method: "wallet_switchEthereumChain", params: [{ chainId: POLYGON_CHAIN_PARAMS.chainId }] });
+    } catch (switchErr) {
+      if ((switchErr as { code?: number }).code !== 4902) throw switchErr;
+      await wallet.request({ method: "wallet_addEthereumChain", params: [POLYGON_CHAIN_PARAMS] });
+      await wallet.request({ method: "wallet_switchEthereumChain", params: [{ chainId: POLYGON_CHAIN_PARAMS.chainId }] });
+    }
+  }
+
+  const activeChain = await wallet.request({ method: "eth_chainId" });
+  if (typeof activeChain !== "string" || parseInt(activeChain, 16) !== POLYGON_CHAIN_ID) {
+    throw new Error("Please switch your wallet to Polygon to continue.");
+  }
+}
+
 export function ExchangeButtons({ className = "" }: { className?: string }) {
   const [status, setStatus] = useState<TxStatus>({ kind: "idle" });
   const inFlight = ["connecting", "checking-network", "pending"].includes(status.kind);
@@ -45,15 +64,7 @@ export function ExchangeButtons({ className = "" }: { className?: string }) {
       await wallet.request({ method: "eth_requestAccounts" });
 
       setStatus({ kind: "checking-network" });
-      const chainHex = (await wallet.request({ method: "eth_chainId" })) as string;
-      if (parseInt(chainHex, 16) !== POLYGON_CHAIN_ID) {
-        try {
-          await wallet.request({ method: "wallet_switchEthereumChain", params: [{ chainId: POLYGON_CHAIN_PARAMS.chainId }] });
-        } catch (switchErr) {
-          if ((switchErr as { code?: number }).code !== 4902) throw switchErr;
-          await wallet.request({ method: "wallet_addEthereumChain", params: [POLYGON_CHAIN_PARAMS] });
-        }
-      }
+      await ensurePolygon(wallet);
 
       const provider = new BrowserProvider(wallet);
       const signer = await provider.getSigner();
