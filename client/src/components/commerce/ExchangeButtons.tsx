@@ -11,6 +11,10 @@ import {
   isStripeConfigured,
 } from "@/lib/commerceConfig";
 
+type Eip1193Provider = {
+  request: (args: { method: string; params?: unknown[] }) => Promise<unknown>;
+};
+
 type Tone = "idle" | "warn" | "error" | "ok";
 
 const TONE_CLASS: Record<Tone, string> = {
@@ -20,15 +24,30 @@ const TONE_CLASS: Record<Tone, string> = {
   ok: "text-emerald-400",
 };
 
-async function ensurePolygon(eth: any) {
+async function ensurePolygon(eth: Eip1193Provider) {
   const current = await eth.request({ method: "eth_chainId" });
-  if (current === POLYGON_CHAIN_ID) return;
+  if (typeof current !== "string") throw new Error("Wallet returned an invalid network identifier.");
+  if (current.toLowerCase() === POLYGON_CHAIN_ID) return;
   try {
     await eth.request({ method: "wallet_switchEthereumChain", params: [{ chainId: POLYGON_CHAIN_ID }] });
-  } catch (err: any) {
-    if (err?.code !== 4902) throw err;
+  } catch (err: unknown) {
+    const code = typeof err === "object" && err !== null && "code" in err ? err.code : undefined;
+    if (code !== 4902) throw err;
     await eth.request({ method: "wallet_addEthereumChain", params: [POLYGON_CHAIN_PARAMS] });
   }
+
+  const switchedChain = await eth.request({ method: "eth_chainId" });
+  if (typeof switchedChain !== "string" || switchedChain.toLowerCase() !== POLYGON_CHAIN_ID) {
+    throw new Error("Please switch your wallet to Polygon to continue.");
+  }
+}
+
+function getErrorMessage(error: unknown): string {
+  if (typeof error !== "object" || error === null) return "Unknown error.";
+
+  const details = error as { code?: number | string; shortMessage?: string; message?: string };
+  if (details.code === 4001 || details.code === "ACTION_REJECTED") return "You rejected the request in your wallet.";
+  return details.shortMessage ?? details.message ?? "Unknown error.";
 }
 
 export function ExchangeButtons() {
@@ -39,10 +58,14 @@ export function ExchangeButtons() {
   const stripeReady = isStripeConfigured();
   const contractReady = isContractConfigured();
 
+  function handleBuyUsd() {
+    if (stripeReady) window.open(STRIPE_PAYMENT_LINK, "_blank", "noopener,noreferrer");
+  }
+
   async function handleBuyMatic() {
     setBusy(true);
     try {
-      const eth = (window as any).ethereum;
+      const eth = (window as Window & { ethereum?: Eip1193Provider }).ethereum;
       if (!eth) throw new Error("No wallet found. Install MetaMask.");
 
       setTone("warn");
@@ -52,10 +75,8 @@ export function ExchangeButtons() {
       setStatus("Checking network...");
       await ensurePolygon(eth);
 
-      // New provider after the chain switch so the signer reflects Polygon.
       const signer = await new BrowserProvider(eth).getSigner();
-      const addr = await signer.getAddress();
-      setStatus(`Connected: ${addr.slice(0, 6)}...${addr.slice(-4)}. Confirm in wallet...`);
+      setStatus("Confirm the purchase in your wallet...");
 
       const contract = new Contract(SALE_CONTRACT_ADDRESS, SALE_CONTRACT_ABI, signer);
       const tx = await contract.buy({ value: parseEther(PRICE_MATIC) });
@@ -65,10 +86,9 @@ export function ExchangeButtons() {
       if (receipt?.status !== 1) throw new Error("Transaction reverted.");
       setTone("ok");
       setStatus(`Success: ${tx.hash}`);
-    } catch (e: any) {
+    } catch (e: unknown) {
       setTone("error");
-      const msg = e?.code === "ACTION_REJECTED" ? "You rejected the transaction." : e?.shortMessage || e?.message || "Unknown error";
-      setStatus(`Error: ${msg}`);
+      setStatus(`Error: ${getErrorMessage(e)}`);
     } finally {
       setBusy(false);
     }
@@ -82,13 +102,9 @@ export function ExchangeButtons() {
       <p className="mb-4 text-zinc-300">Choose card (USD) or wallet (MATIC).</p>
 
       <div className="flex flex-wrap gap-3">
-        {stripeReady ? (
-          <a href={STRIPE_PAYMENT_LINK} target="_blank" rel="noreferrer noopener" className={`${btn} bg-indigo-600 hover:bg-indigo-500`}>
-            Buy with USD (Stripe)
-          </a>
-        ) : (
-          <button type="button" disabled className={`${btn} bg-indigo-600`}>Buy with USD (Stripe)</button>
-        )}
+        <button type="button" onClick={handleBuyUsd} disabled={busy || !stripeReady} className={`${btn} bg-indigo-600 hover:bg-indigo-500`}>
+          Buy with USD (Stripe)
+        </button>
         <button
           type="button"
           onClick={handleBuyMatic}
@@ -104,7 +120,8 @@ export function ExchangeButtons() {
           Checkout is not yet enabled: payment details are pending owner configuration.
         </p>
       )}
-      <p role="status" className={`mt-3 text-sm ${TONE_CLASS[tone]}`}>{status}</p>
+      <p className="mt-2 text-xs text-zinc-400">Placeholder amount: {PRICE_MATIC} MATIC. Verify sale terms before enabling checkout.</p>
+      <p role="status" aria-live="polite" className={`mt-3 break-all text-sm ${TONE_CLASS[tone]}`}>{status}</p>
     </section>
   );
 }

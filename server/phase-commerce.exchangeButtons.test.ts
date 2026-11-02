@@ -16,6 +16,7 @@ describe("commerce config placeholders", () => {
 
   it("accepts real-looking values", () => {
     expect(isStripeConfigured("https://buy.stripe.com/abc123")).toBe(true);
+    expect(isStripeConfigured("https://buy.stripe.com.evil.example/abc123")).toBe(false);
     expect(isContractConfigured("0x" + "a".repeat(40))).toBe(true);
     expect(isContractConfigured("0x123")).toBe(false);
   });

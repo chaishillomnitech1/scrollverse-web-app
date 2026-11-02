@@ -11,10 +11,10 @@ export function CommerceNotice() {
       <ul className="list-disc space-y-2 pl-5">
         <li><strong>Original work.</strong> Products sold here are creator-authored, and the creator sets the price.</li>
         <li><strong>Your choice.</strong> Purchase is always voluntary. Browsing and free content never require payment.</li>
-        <li><strong>Delivery.</strong> Digital items are delivered after payment confirms. The product page lists exactly what you receive.</li>
-        <li><strong>Refunds.</strong> Card purchases that are undelivered or not as described are reviewed through support. Crypto transactions are final on-chain, so check the network, amount and address before confirming.</li>
-        <li><strong>Payments.</strong> Card payments are processed by Stripe. Crypto payments go from your wallet to the contract shown on the page.</li>
-        <li><strong>Proof.</strong> Receipts and verifiable records are kept for delivery integrity.</li>
+        <li><strong>Delivery.</strong> Each product listing states what is included and how and when it is delivered.</li>
+        <li><strong>Refunds.</strong> Refund eligibility follows the product listing and applicable law. Confirmed blockchain transfers generally cannot be reversed.</li>
+        <li><strong>Payments.</strong> USD checkout uses Stripe; wallet checkout uses MATIC on Polygon when the payment configuration is enabled.</li>
+        <li><strong>Proof.</strong> Keep your payment receipt or transaction hash. Payment confirmation alone is not proof of delivery.</li>
         <li><strong>Security.</strong> Never share your seed phrase or private keys with anyone.</li>
         <li><strong>Not financial advice.</strong> Items are art and access products, not investments, and no returns are promised.</li>
       </ul>
