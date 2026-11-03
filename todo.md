@@ -6864,3 +6864,11 @@
 - [x] Review the reusable `scrollverse-source-led-portfolio` workflow and preserve metadata-only/no-autoplay guidance.
 - [x] Write `docs/source-review-nov1/phase1010-1011-creator-reference-integration-report.md` with all integrated reference filenames, boundaries, and verification metrics.
 - [x] Verification passed: full Vitest 448 files / 1190 tests, strict TypeScript, guarded build exit 0, portable build metrics, skill validation, and `git diff --check`.
+
+## Phase 1013 — Sana · Agent 25 Reference Batch + AI Communication Resilience
+- [x] Add the seven newly supplied MP4 references and two HTML references to the homepage as source-labeled, keyboard-reachable metadata-only cards with direct accession-desk routes.
+- [x] Preserve exact local byte counts, conservative MIME guesses, and SHA-256 receipts in `docs/source-review-nov1/phase1013-sana-agent25-manifest.json`; supplied bodies remain outside the production bundle.
+- [x] Improve AI Twin failure communication with truthful provider-unavailable copy, an `aria-live` status region, a visible retry action, and preserved request payloads so no user message is silently lost.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable new-batch accession and Legion convergence communication patterns.
+- [x] Verification passed: focused 8/8; full Vitest 450 files / 1194 tests; strict TypeScript; guarded production build exit 0 in 17.74s; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
+- [x] Boundary retained: no supplied HTML or media was opened, rendered, executed, extracted, transformed, uploaded, embedded, published, or treated as independently verified; no external repository, wallet, billing, payment, contract, account, hosting, or publication action was performed.

@@ -1,0 +1,21 @@
+{
+  "manifest": "phase1013-sana-agent25-reference-batch",
+  "accessionDate": "2026-11-02",
+  "scope": "local-only metadata receipt",
+  "boundary": {
+    "sourceBodies": "not opened, rendered, executed, extracted, transformed, uploaded, embedded, published, or treated as independently verified",
+    "playback": "no autoplay; visitor-controlled playback requires a separately selected hosted source",
+    "technicalEvidence": "filename, byteCount, mimeGuess, and sha256 identify the supplied local bytes only"
+  },
+  "records": [
+    {"filename":"video(30).mp4","byteCount":5845778,"mimeGuess":"video/mp4","sha256":"66197a799118374d9d623cad6107ff3597e0735dfa660cf7e18b77be19fcdd01"},
+    {"filename":"video(31).mp4","byteCount":6412867,"mimeGuess":"video/mp4","sha256":"de18f8fb482ea674c3eb129109565a8b973968d86430702d922b16998babcfbd"},
+    {"filename":"video(32).mp4","byteCount":3576637,"mimeGuess":"video/mp4","sha256":"d2d35090f4d352007eead4a28846c8485e7899918ac28239e40661c014f7f165"},
+    {"filename":"video(33).mp4","byteCount":7095148,"mimeGuess":"video/mp4","sha256":"c5371b79ff245662c65689eaf3fae386903eda76f7e87c611ca9c119355b5b97"},
+    {"filename":"image_20261102_104644.mp4","byteCount":6703123,"mimeGuess":"video/mp4","sha256":"dc2abca05457fcfe684ab2bd04dc57233d2dbd51f4912ce91bffd1aa129118b3"},
+    {"filename":"image_20261102_104646.mp4","byteCount":9454959,"mimeGuess":"video/mp4","sha256":"287d9d2d67ab913384fd9a62a25a712554a507d6148acbb2f18be7bdc28542b2"},
+    {"filename":"image_20261102_104641.mp4","byteCount":4681989,"mimeGuess":"video/mp4","sha256":"563ef30bbf0d86e8140915d02cdb1f9dd654c960896ae83457c3a99fa02f1a51"},
+    {"filename":"Agent-25-Omni-Sana.html","byteCount":6099212,"mimeGuess":"text/html","sha256":"9b07c692025fffba093034c4098dec8f5fb36fba6a87856d935b125a175b2d36"},
+    {"filename":"ReactArtifact.html","byteCount":7428616,"mimeGuess":"text/html","sha256":"e065111a1d74cfb7ae9d67556a17a4cad7a939e59ecd70d0b174159d8c227b19"}
+  ]
+}

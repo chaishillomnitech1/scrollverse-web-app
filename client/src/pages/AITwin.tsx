@@ -98,6 +98,7 @@ export default function AITwin() {
   const [messages, setMessages] = useState<Message[]>([WELCOME_MSG]);
   const [input, setInput] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const [retryRequest, setRetryRequest] = useState<{ message: string; history: Array<{ role: "user" | "assistant"; content: string }> } | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const utils = trpc.useUtils();
 
@@ -154,14 +155,16 @@ export default function AITwin() {
         return updated;
       });
       setIsThinking(false);
+      setRetryRequest(null);
     },
-    onError: () => {
+    onError: (_error, variables) => {
+      setRetryRequest({ message: variables.message, history: variables.history ?? [] });
       setMessages(m => [
         ...m,
         {
           id: Date.now().toString(),
           role: "assistant" as const,
-          content: "The frequency was disrupted momentarily. Please try again. KUN FAYAKŪN × ∞",
+          content: "The AI channel is temporarily unavailable. No message was lost. You can retry this response or continue when the channel is ready.",
           timestamp: new Date(),
         },
       ]);
@@ -196,6 +199,12 @@ export default function AITwin() {
     createSession.mutate({ title: "New Consultation", guestId });
   };
 
+  const retryLastRequest = () => {
+    if (!retryRequest || isThinking) return;
+    setIsThinking(true);
+    askTwinMutation.mutate(retryRequest);
+  };
+
   const sendMessage = () => {
     if (!input.trim() || isThinking) return;
 
@@ -220,10 +229,12 @@ export default function AITwin() {
     };
     setMessages(m => [...m, userMsg]);
     setIsThinking(true);
-    askTwinMutation.mutate({
+    const request = {
       message: input,
       history: messages.slice(-6).map(m => ({ role: m.role, content: m.content })),
-    });
+    };
+    setRetryRequest(request);
+    askTwinMutation.mutate(request);
     setInput("");
   };
 
@@ -391,6 +402,10 @@ export default function AITwin() {
                 </div>
               </div>
 
+              <div className="sr-only" aria-live="polite" aria-atomic="true">
+                {isThinking ? "The AI Twin is preparing a response." : retryRequest ? "The AI channel is temporarily unavailable. A retry is available." : "The AI Twin is ready."}
+              </div>
+
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4" style={{ maxHeight: "520px" }}>
                 {messages.map(msg => (
@@ -431,6 +446,13 @@ export default function AITwin() {
                         <span className="text-xs font-mono" style={{ color: "#8899AA" }}>Channeling the Master Codex...</span>
                       </div>
                     </div>
+                  </div>
+                )}
+                {retryRequest && !isThinking && (
+                  <div className="flex justify-start">
+                    <button type="button" onClick={retryLastRequest} className="min-h-11 rounded-xl border px-4 py-2 text-xs font-black transition hover:bg-[#00D4FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BCEEFF]" style={{ borderColor: "rgba(0,212,255,0.35)", color: "#BCEEFF" }}>
+                      Retry response
+                    </button>
                   </div>
                 )}
                 <div ref={messagesEndRef} />

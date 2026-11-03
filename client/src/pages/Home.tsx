@@ -1399,6 +1399,17 @@ const PHASE1011_CREATOR_REFERENCES = [
   { file: "Black-Batman-Chronicles-Ep.html", label: "Black Batman Chronicles · Episode reference", detail: "Creator-supplied episode reference" },
   { file: "Playable-Game-Ui-Sovereign.html", label: "Playable Game UI · Sovereign", detail: "Creator-supplied playable-interface reference" },
 ] as const;
+const PHASE1013_SANA_REFERENCES = [
+  { file: "video(30).mp4", label: "Sana learning-world motion reference · 30" },
+  { file: "video(31).mp4", label: "Sana learning-world motion reference · 31" },
+  { file: "video(32).mp4", label: "Sana learning-world motion reference · 32" },
+  { file: "video(33).mp4", label: "Sana learning-world motion reference · 33" },
+  { file: "image_20261102_104644.mp4", label: "Agent 25 Omni · Sana motion reference · 01" },
+  { file: "image_20261102_104646.mp4", label: "Agent 25 Omni · Sana motion reference · 02" },
+  { file: "image_20261102_104641.mp4", label: "Agent 25 Omni · Sana motion reference · 03" },
+  { file: "Agent-25-Omni-Sana.html", label: "Agent 25 Omni Sana · HTML source receipt" },
+  { file: "ReactArtifact.html", label: "Sana React artifact · HTML source receipt" },
+] as const;
 const NEWLY_SUPPLIED_MOTION_REFERENCES = [
   { file: "video(29).mp4", label: "Motion reference 29" },
   { file: "video(28).mp4", label: "Motion reference 28" },
@@ -1510,6 +1521,27 @@ function CreatorMotionShelf() {
                   <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{reference.detail}</p>
                   <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
                   <span className="mt-3 inline-block text-xs font-black text-[#FFE9B0]">Review receipt →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#00FF88]/30 bg-[#00FF88]/[.04] p-5" aria-labelledby="phase1013-sana-reference-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#B5F7CC]">NOV 2 ACCESSION · PHASE 1013</p>
+                <h3 id="phase1013-sana-reference-title" className="mt-2 text-2xl font-black text-white">PHASE 1013 SANA · AGENT 25 REFERENCE BATCH</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">Creator-supplied Sana and Agent 25 references are surfaced as source-labeled receipt cards. No autoplay; supplied media remains outside the production bundle. HTML source bodies remain outside the UI with no rendering or execution.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#00FF88]/50 px-4 py-3 text-xs font-black text-[#B5F7CC] transition hover:bg-[#00FF88]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">Review receipt desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {PHASE1013_SANA_REFERENCES.map((reference) => (
+                <Link key={reference.file} href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">
+                  <div className="flex aspect-video items-center justify-center rounded-xl border border-[#00FF88]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(0,255,136,.18),transparent_48%),#020611] text-3xl text-[#B5F7CC] transition group-hover:shadow-[0_0_28px_rgba(0,255,136,.2)]" aria-hidden="true">◉</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#B5F7CC]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#B5F7CC]">Choose a source record to review →</span>
                 </Link>
               ))}
             </div>
