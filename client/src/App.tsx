@@ -97,6 +97,7 @@ const SalesDashboard = lazy(() => import("./pages/SalesDashboard")); // import S
 const CreatorPlatform = lazy(() => import("./pages/CreatorPlatform")); // import CreatorPlatform from "./pages/CreatorPlatform"; deferred route module
 const SystemStatus = lazy(() => import("./pages/SystemStatus")); // import SystemStatus from "./pages/SystemStatus"; deferred route module
 const KYCVerification = lazy(() => import("./pages/KYCVerification")); // import KYCVerification from "./pages/KYCVerification"; deferred route module
+const Mother10 = lazy(() => import("./pages/mother-10-origin-doesnt-matter"));
 const Exchange = lazy(() => import("./pages/Exchange")); // import Exchange from "./pages/Exchange"; deferred route module
 const ExchangeCrypto = lazy(() => import("./pages/ExchangeCrypto")); // import ExchangeCrypto from "./pages/ExchangeCrypto"; deferred route module
 const TradingReadiness = lazy(() => import("./pages/TradingReadiness")); // import TradingReadiness from "./pages/TradingReadiness"; deferred route module
@@ -693,6 +694,7 @@ function Router() {
       <Route path={"/status"} component={SystemStatus} />
       <Route path={"/kyc"} component={KYCVerification} />
       <Route path={"/exchange"} component={Exchange} />
+      <Route path={"/mother-10"} component={Mother10} />
       <Route path={"/exchange/crypto"} component={ExchangeCrypto} />
       <Route path={"/trading-readiness"} component={TradingReadiness} />
       <Route path={"/exchange/stocks"} component={ExchangeStocks} />
