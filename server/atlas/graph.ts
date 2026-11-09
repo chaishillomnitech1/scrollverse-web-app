@@ -78,7 +78,7 @@ export function traverseAtlasGraph(
   return {
     root,
     nodes: orderedNodes,
-    relationships: [...includedEdges.values()].sort((a, b) => a.id - b.id),
+    relationships: Array.from(includedEdges.values()).sort((a, b) => a.id - b.id),
     depthReached,
   };
 }
