@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { and, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { evidenceLedger, atlasEntities, atlasRelationships } from "../../drizzle/schema";
 import { getDb } from "../db";
 
@@ -118,7 +118,7 @@ export function atlasEvidenceIdentity(source: AtlasEvidenceSource) {
     contentSha256: source.contentSha256 ?? null,
   }));
   return {
-    vaultId: `atlas:${source.sourceKey}`,
+    vaultId: `atlas:${sha256(source.sourceKey).slice(0, 32)}:${fingerprint}`,
     manifestStamp: fingerprint,
     contentSha256: source.contentSha256 ?? fingerprint,
   };
@@ -139,8 +139,8 @@ export async function ingestAtlasBatch(batch: AtlasImportBatch) {
     const evidenceIds = new Map<string, number>();
 
     const allSources = new Map<string, AtlasEvidenceSource>();
-    for (const entity of batch.entities) allSources.set(entity.source.sourceKey, entity.source);
-    for (const edge of batch.relationships) allSources.set(edge.source.sourceKey, edge.source);
+    for (const entity of batch.entities) allSources.set(atlasEvidenceIdentity(entity.source).vaultId, entity.source);
+    for (const edge of batch.relationships) allSources.set(atlasEvidenceIdentity(edge.source).vaultId, edge.source);
 
     for (const source of allSources.values()) {
       const identity = atlasEvidenceIdentity(source);
@@ -164,12 +164,12 @@ export async function ingestAtlasBatch(batch: AtlasImportBatch) {
       const [evidence] = await tx.select({ id: evidenceLedger.id })
         .from(evidenceLedger).where(eq(evidenceLedger.vaultId, identity.vaultId)).limit(1);
       if (!evidence) throw new Error(`Evidence row could not be resolved: ${source.sourceKey}`);
-      evidenceIds.set(source.sourceKey, evidence.id);
+      evidenceIds.set(identity.vaultId, evidence.id);
     }
 
     const entityIds = new Map<string, number>();
     for (const entity of batch.entities) {
-      const sourceEvidenceId = evidenceIds.get(entity.source.sourceKey);
+      const sourceEvidenceId = evidenceIds.get(atlasEvidenceIdentity(entity.source).vaultId);
       if (!sourceEvidenceId) throw new Error(`Missing evidence for entity: ${entity.slug}`);
       await tx.insert(atlasEntities).values({
         slug: entity.slug,
@@ -201,9 +201,19 @@ export async function ingestAtlasBatch(batch: AtlasImportBatch) {
 
     let relationshipCount = 0;
     for (const edge of batch.relationships) {
-      const sourceEntityId = entityIds.get(edge.sourceSlug);
-      const targetEntityId = entityIds.get(edge.targetSlug);
-      const sourceEvidenceId = evidenceIds.get(edge.source.sourceKey);
+      let sourceEntityId = entityIds.get(edge.sourceSlug);
+      let targetEntityId = entityIds.get(edge.targetSlug);
+      if (!sourceEntityId) {
+        const [existingSource] = await tx.select({ id: atlasEntities.id }).from(atlasEntities)
+          .where(eq(atlasEntities.slug, edge.sourceSlug)).limit(1);
+        sourceEntityId = existingSource?.id;
+      }
+      if (!targetEntityId) {
+        const [existingTarget] = await tx.select({ id: atlasEntities.id }).from(atlasEntities)
+          .where(eq(atlasEntities.slug, edge.targetSlug)).limit(1);
+        targetEntityId = existingTarget?.id;
+      }
+      const sourceEvidenceId = evidenceIds.get(atlasEvidenceIdentity(edge.source).vaultId);
       if (!sourceEntityId || !targetEntityId || !sourceEvidenceId) {
         throw new Error(`Relationship endpoints or evidence are missing: ${edge.sourceSlug} -> ${edge.targetSlug}`);
       }
