@@ -1940,3 +1940,35 @@ export const portalRouteRefreshRuns = mysqlTable("portal_route_refresh_runs", {
   index("portal_route_refresh_runs_task_created_idx").on(table.taskUid, table.createdAt),
 ]);
 export type PortalRouteRefreshRun = typeof portalRouteRefreshRuns.$inferSelect;
+
+
+// ── Source-backed evidence ledger ───────────────────────────────────────────
+// These rows record artifact provenance and workflow state. A VERIFIED_MAINNET
+// label must only be written by a separate verifier after independent chain
+// checks; storing that enum value is not itself proof of a chain event.
+export const evidenceLedger = mysqlTable("evidence_ledger", {
+  id: int("id").autoincrement().primaryKey(),
+  vaultId: varchar("vault_id", { length: 255 }).notNull().unique(),
+  workCopyPath: varchar("work_copy_path", { length: 512 }).notNull(),
+  manifestStamp: varchar("manifest_stamp", { length: 64 }).notNull().unique(),
+  status: mysqlEnum("status", ["QUEUED", "SEALED", "VERIFIED_MAINNET", "REVOKED"])
+    .default("QUEUED")
+    .notNull(),
+  repoName: varchar("repo_name", { length: 255 }),
+  filePath: varchar("file_path", { length: 512 }),
+  contentSha256: varchar("content_sha256", { length: 64 }),
+  commitSha: varchar("commit_sha", { length: 40 }),
+  commitDate: timestamp("commit_date"),
+  commitMessage: text("commit_message"),
+  proofLink: varchar("proof_link", { length: 1024 }),
+  txHash: varchar("tx_hash", { length: 66 }),
+  contractAddress: varchar("contract_address", { length: 42 }),
+  fileSizeBytes: bigint("file_size_bytes", { mode: "number" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("evidence_ledger_status_created_idx").on(table.status, table.createdAt),
+  index("evidence_ledger_repo_path_idx").on(table.repoName, table.filePath),
+]);
+export type EvidenceLedgerRecord = typeof evidenceLedger.$inferSelect;
+export type InsertEvidenceLedgerRecord = typeof evidenceLedger.$inferInsert;
