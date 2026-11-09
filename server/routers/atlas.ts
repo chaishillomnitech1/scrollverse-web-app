@@ -99,6 +99,8 @@ export const atlasRouter = router({
         summary: atlasEntities.summary,
         provenance: atlasEntities.provenance,
         sourceLabel: atlasEntities.sourceLabel,
+        sourceUrl: atlasEntities.sourceUrl,
+        updatedAt: atlasEntities.updatedAt,
       }).from(atlasEntities)
         .where(and(
           publicEntityFilter,
