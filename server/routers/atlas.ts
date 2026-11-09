@@ -2,6 +2,7 @@ import { and, desc, eq, like, or } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { atlasEntities, atlasRelationships } from "../../drizzle/schema";
+import type { AtlasEntity, AtlasRelationship } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { traverseAtlasGraph } from "../atlas/graph";
@@ -21,6 +22,8 @@ async function requireDb() {
   return db;
 }
 
+type AtlasPublicEntity = Pick<AtlasEntity, "id" | "slug" | "title" | "kind" | "summary" | "provenance" | "sourceLabel" | "sourceUrl" | "updatedAt">;
+
 const publicEntityFilter = and(
   eq(atlasEntities.status, "PUBLISHED"),
   eq(atlasEntities.visibility, "PUBLIC"),
@@ -36,14 +39,16 @@ async function loadPublicGraph() {
     db.select().from(atlasEntities).where(publicEntityFilter).orderBy(desc(atlasEntities.updatedAt)).limit(500),
     db.select().from(atlasRelationships).where(publicRelationshipFilter).orderBy(desc(atlasRelationships.updatedAt)).limit(2000),
   ]);
+  const typedEntities = entities as AtlasEntity[];
+  const typedRelationships = relationships as AtlasRelationship[];
   return {
-    nodes: entities.map(entity => ({
+    nodes: typedEntities.map((entity: AtlasEntity) => ({
       id: entity.id,
       slug: entity.slug,
       title: entity.title,
       kind: entity.kind,
     })),
-    edges: relationships.map(edge => ({
+    edges: typedRelationships.map((edge: AtlasRelationship) => ({
       id: edge.id,
       sourceEntityId: edge.sourceEntityId,
       targetEntityId: edge.targetEntityId,
@@ -64,7 +69,7 @@ export const atlasRouter = router({
       const filter = input.kind
         ? and(publicEntityFilter, eq(atlasEntities.kind, input.kind))
         : publicEntityFilter;
-      return db.select({
+      const rows = await db.select({
         id: atlasEntities.id,
         slug: atlasEntities.slug,
         title: atlasEntities.title,
@@ -78,6 +83,7 @@ export const atlasRouter = router({
         .orderBy(desc(atlasEntities.updatedAt))
         .limit(input.limit)
         .offset(input.offset);
+      return rows as AtlasPublicEntity[];
     }),
 
   search: publicProcedure
@@ -85,7 +91,7 @@ export const atlasRouter = router({
     .query(async ({ input }) => {
       const db = await requireDb();
       const pattern = `%${input.query}%`;
-      return db.select({
+      const rows = await db.select({
         id: atlasEntities.id,
         slug: atlasEntities.slug,
         title: atlasEntities.title,
@@ -104,6 +110,7 @@ export const atlasRouter = router({
         ))
         .orderBy(desc(atlasEntities.updatedAt))
         .limit(input.limit);
+      return rows as AtlasPublicEntity[];
     }),
 
   getLineage: publicProcedure
@@ -226,7 +233,8 @@ export const atlasRouter = router({
           eq(atlasEntities.id, relationship.sourceEntityId),
           eq(atlasEntities.id, relationship.targetEntityId),
         ));
-      if (endpoints.length !== 2 || endpoints.some(entity => entity.status !== "PUBLISHED" || entity.visibility !== "PUBLIC")) {
+      const typedEndpoints = endpoints as Array<{ id: number; status: "DRAFT" | "PUBLISHED" | "ARCHIVED"; visibility: "PUBLIC" | "PRIVATE" }>;
+      if (typedEndpoints.length !== 2 || typedEndpoints.some((entity) => entity.status !== "PUBLISHED" || entity.visibility !== "PUBLIC")) {
         throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Publish both endpoint entities before publishing their relationship." });
       }
 
