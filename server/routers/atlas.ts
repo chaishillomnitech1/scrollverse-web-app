@@ -6,6 +6,8 @@ import type { AtlasEntity, AtlasRelationship } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { traverseAtlasGraph } from "../atlas/graph";
+import { ingestAtlasBatch } from "../atlas/ingest";
+import { atlasFoundationBatch } from "../../data/atlas/foundation.v1";
 
 const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
   if (ctx.user.role !== "admin") {
@@ -58,6 +60,13 @@ async function loadPublicGraph() {
 }
 
 export const atlasRouter = router({
+  ingestFoundation: adminProcedure
+    .input(z.object({
+      batchId: z.literal(atlasFoundationBatch.batchId),
+      confirmDraftPrivate: z.literal(true),
+    }))
+    .mutation(async () => ingestAtlasBatch(atlasFoundationBatch)),
+
   listEntities: publicProcedure
     .input(z.object({
       kind: z.enum(["PROJECT", "REPOSITORY", "CONVERSATION", "ARTIFACT", "DISCOVERY", "PERSON", "PLATFORM", "CONCEPT", "DEPLOYMENT"]).optional(),
