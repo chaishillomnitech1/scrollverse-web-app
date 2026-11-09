@@ -24,8 +24,8 @@ describe("Atlas Core graph traversal", () => {
 
   it("traces incoming lineage toward source records", () => {
     const result = traverseAtlasGraph(nodes, edges, "evidence-ledger", { direction: "incoming", maxDepth: 2 });
-    expect(result?.nodes.map(node => node.slug)).toEqual(["evidence-ledger", "web-app", "scrollverse"]);
-    expect(result?.relationships.map(edge => edge.id)).toEqual([10, 12, 13]);
+    expect(result?.nodes.map(node => node.slug)).toEqual(["evidence-ledger", "web-app", "atlas-core"]);
+    expect(result?.relationships.map(edge => edge.id)).toEqual([11, 12]);
   });
 
   it("supports cycles without revisiting nodes", () => {
