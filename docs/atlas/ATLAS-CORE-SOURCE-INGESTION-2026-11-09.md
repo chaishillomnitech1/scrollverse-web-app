@@ -45,3 +45,19 @@ Static review against the Drizzle schema and migration journal confirms that mig
 **Important preflight:** the TypeScript schema already declares `evidence_ledger`, while the prior migration sequence inspected in this branch did not show an earlier migration creating it. The live database may nevertheless contain a manually created or separately provisioned table. Before running 0049, inspect `information_schema.tables`, `information_schema.columns`, and `information_schema.statistics` for `evidence_ledger`, `atlas_entities`, and `atlas_relationships`. If `evidence_ledger` already exists, compare every column, enum, index, and constraint with the migration and reconcile the migration plan rather than blindly rerunning the CREATE TABLE statement.
 
 Also inspect the Drizzle migration journal table and any partially applied DDL. MySQL DDL may commit independently of the surrounding migration transaction; a failed partial run must be reconciled before retrying. Take a restorable backup and verify rollback/recovery procedures before production execution.
+
+
+## Protected database execution
+
+A manual GitHub Actions workflow is provided at `.github/workflows/atlas-protected-migration.yml`.
+
+Before using it:
+1. In repository Settings → Environments, create `atlas-production`.
+2. Require at least one designated owner/reviewer approval for that environment.
+3. Add `DATABASE_URL` as an environment secret for `atlas-production`; never place it in repository files, workflow inputs, logs, or chat.
+4. Confirm the environment points to the intended database and that a restorable backup exists.
+5. Dispatch **Atlas Core Protected Migration and Foundation Ingestion** with input `APPLY`. The default `NO` path performs no database work.
+
+The workflow runs a fail-closed live preflight. It stops if any of `evidence_ledger`, `atlas_entities`, or `atlas_relationships` already exists, requiring manual schema and migration-journal reconciliation. If all are absent, it applies only committed Drizzle migrations, then runs the foundation importer twice and verifies persisted entity/relationship/evidence counts, DRAFT + PRIVATE visibility, QUEUED evidence state, and lineage from stored database rows.
+
+The seed verification does not publish records. A successful workflow run is the evidence required before calling migration, ingestion, or stored-record lineage complete. The workflow cannot run until this branch is merged into the repository's default branch and the protected environment and secret are configured.
