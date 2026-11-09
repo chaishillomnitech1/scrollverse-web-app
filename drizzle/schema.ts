@@ -1,4 +1,4 @@
-import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
+import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -1972,3 +1972,54 @@ export const evidenceLedger = mysqlTable("evidence_ledger", {
 ]);
 export type EvidenceLedgerRecord = typeof evidenceLedger.$inferSelect;
 export type InsertEvidenceLedgerRecord = typeof evidenceLedger.$inferInsert;
+
+
+// ── Atlas Core: source-aware entity and relationship graph ───────────────────
+// Public traversal only exposes PUBLISHED + PUBLIC records. New records begin
+// as DRAFT + PRIVATE so an administrator can review provenance before release.
+export const atlasEntities = mysqlTable("atlas_entities", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 160 }).notNull().unique(),
+  title: varchar("title", { length: 240 }).notNull(),
+  kind: mysqlEnum("kind", ["PROJECT", "REPOSITORY", "CONVERSATION", "ARTIFACT", "DISCOVERY", "PERSON", "PLATFORM", "CONCEPT", "DEPLOYMENT"]).notNull(),
+  summary: text("summary"),
+  visibility: mysqlEnum("visibility", ["PUBLIC", "PRIVATE"]).notNull().default("PRIVATE"),
+  status: mysqlEnum("status", ["DRAFT", "PUBLISHED", "ARCHIVED"]).notNull().default("DRAFT"),
+  provenance: mysqlEnum("provenance", ["SOURCE_LINKED", "OWNER_REPORTED", "UNVERIFIED"]).notNull().default("UNVERIFIED"),
+  sourceLabel: varchar("source_label", { length: 255 }),
+  sourceUrl: varchar("source_url", { length: 1024 }),
+  sourceEvidenceId: int("source_evidence_id").references(() => evidenceLedger.id, { onDelete: "set null" }),
+  createdByUserId: int("created_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("atlas_entities_status_visibility_idx").on(table.status, table.visibility, table.updatedAt),
+  index("atlas_entities_kind_idx").on(table.kind, table.status),
+  index("atlas_entities_evidence_idx").on(table.sourceEvidenceId),
+]);
+export type AtlasEntity = typeof atlasEntities.$inferSelect;
+export type InsertAtlasEntity = typeof atlasEntities.$inferInsert;
+
+export const atlasRelationships = mysqlTable("atlas_relationships", {
+  id: int("id").autoincrement().primaryKey(),
+  sourceEntityId: int("source_entity_id").notNull().references(() => atlasEntities.id, { onDelete: "cascade" }),
+  targetEntityId: int("target_entity_id").notNull().references(() => atlasEntities.id, { onDelete: "cascade" }),
+  relationType: varchar("relation_type", { length: 96 }).notNull(),
+  description: text("description"),
+  visibility: mysqlEnum("visibility", ["PUBLIC", "PRIVATE"]).notNull().default("PRIVATE"),
+  status: mysqlEnum("status", ["DRAFT", "PUBLISHED", "ARCHIVED"]).notNull().default("DRAFT"),
+  provenance: mysqlEnum("provenance", ["SOURCE_LINKED", "OWNER_REPORTED", "UNVERIFIED"]).notNull().default("UNVERIFIED"),
+  sourceLabel: varchar("source_label", { length: 255 }),
+  sourceUrl: varchar("source_url", { length: 1024 }),
+  sourceEvidenceId: int("source_evidence_id").references(() => evidenceLedger.id, { onDelete: "set null" }),
+  createdByUserId: int("created_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("atlas_relationships_source_idx").on(table.sourceEntityId, table.status, table.visibility),
+  index("atlas_relationships_target_idx").on(table.targetEntityId, table.status, table.visibility),
+  index("atlas_relationships_evidence_idx").on(table.sourceEvidenceId),
+  uniqueIndex("atlas_relationships_edge_unique").on(table.sourceEntityId, table.targetEntityId, table.relationType),
+]);
+export type AtlasRelationship = typeof atlasRelationships.$inferSelect;
+export type InsertAtlasRelationship = typeof atlasRelationships.$inferInsert;

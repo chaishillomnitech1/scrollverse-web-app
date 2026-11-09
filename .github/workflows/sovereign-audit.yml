@@ -1,6 +1,10 @@
 name: Sovereign System Invariant Audit
 
 on:
+  push:
+    branches:
+      - main
+      - feature/atlas-core-graph-lineage
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:

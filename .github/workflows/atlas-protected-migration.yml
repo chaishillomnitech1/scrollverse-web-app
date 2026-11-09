@@ -1,0 +1,56 @@
+name: Atlas Core Protected Migration and Foundation Ingestion
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Explicitly authorize the protected Atlas database migration and draft/private seed"
+        required: true
+        type: choice
+        options:
+          - NO
+          - APPLY
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-core-protected-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate-seed-lineage:
+    if: inputs.confirm == 'APPLY'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: atlas-production
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Fail-closed live schema preflight
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: pnpm exec tsx scripts/atlas-db-preflight.ts
+
+      - name: Apply committed Drizzle migrations only
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: pnpm exec drizzle-kit migrate
+
+      - name: Ingest foundation twice and verify stored lineage
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: pnpm exec tsx scripts/atlas-foundation-ingest.ts
