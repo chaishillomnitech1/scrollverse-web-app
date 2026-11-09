@@ -1,4 +1,4 @@
-import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
+import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -2019,6 +2019,7 @@ export const atlasRelationships = mysqlTable("atlas_relationships", {
   index("atlas_relationships_source_idx").on(table.sourceEntityId, table.status, table.visibility),
   index("atlas_relationships_target_idx").on(table.targetEntityId, table.status, table.visibility),
   index("atlas_relationships_evidence_idx").on(table.sourceEvidenceId),
+  uniqueIndex("atlas_relationships_edge_unique").on(table.sourceEntityId, table.targetEntityId, table.relationType),
 ]);
 export type AtlasRelationship = typeof atlasRelationships.$inferSelect;
 export type InsertAtlasRelationship = typeof atlasRelationships.$inferInsert;
