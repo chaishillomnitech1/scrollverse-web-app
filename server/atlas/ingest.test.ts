@@ -46,6 +46,7 @@ describe("Atlas source ingestion", () => {
   it("changes the evidence fingerprint when the source revision changes", () => {
     const revised = { ...source, commitSha: "0123456789abcdef0123456789abcdef01234567" };
     expect(atlasEvidenceIdentity(source).manifestStamp).not.toBe(atlasEvidenceIdentity(revised).manifestStamp);
+    expect(atlasEvidenceIdentity(source).vaultId).not.toBe(atlasEvidenceIdentity(revised).vaultId);
   });
 
   it("does not invent a content hash when only source metadata is available", () => {
