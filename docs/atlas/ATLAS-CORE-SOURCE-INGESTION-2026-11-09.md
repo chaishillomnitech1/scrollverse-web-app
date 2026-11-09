@@ -58,6 +58,6 @@ Before using it:
 4. Confirm the environment points to the intended database and that a restorable backup exists.
 5. Dispatch **Atlas Core Protected Migration and Foundation Ingestion** with input `APPLY`. The default `NO` path performs no database work.
 
-The workflow runs a fail-closed live preflight. It stops if any of `evidence_ledger`, `atlas_entities`, or `atlas_relationships` already exists, requiring manual schema and migration-journal reconciliation. If all are absent, it applies only committed Drizzle migrations, then runs the foundation importer twice and verifies persisted entity/relationship/evidence counts, DRAFT + PRIVATE visibility, QUEUED evidence state, and lineage from stored database rows.
+The workflow runs a fail-closed live preflight. It proceeds only when all three Atlas tables are absent and migration 0049 is not recorded, or when all three tables exist and migration 0049 is already recorded. Any partial-table state or journal/schema mismatch stops for manual reconciliation. It applies only committed Drizzle migrations, then runs the foundation importer twice and verifies persisted entity/relationship/evidence counts, DRAFT + PRIVATE visibility, QUEUED evidence state, and lineage from stored database rows.
 
 The seed verification does not publish records. A successful workflow run is the evidence required before calling migration, ingestion, or stored-record lineage complete. The workflow cannot run until this branch is merged into the repository's default branch and the protected environment and secret are configured.
