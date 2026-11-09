@@ -63,7 +63,7 @@ function canonicalJson(value: unknown): string {
       .sort(([a], [b]) => a.localeCompare(b));
     return `{${entries.map(([key, item]) => `${JSON.stringify(key)}:${canonicalJson(item)}`).join(",")}}`;
   }
-  return JSON.stringify(value);
+  return JSON.stringify(value) ?? "null";
 }
 
 export function validateAtlasImportBatch(batch: AtlasImportBatch): void {
