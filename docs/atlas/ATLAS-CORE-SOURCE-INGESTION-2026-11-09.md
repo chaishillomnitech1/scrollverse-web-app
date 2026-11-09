@@ -16,7 +16,7 @@ Create the first repeatable, source-linked Atlas population path. The importer i
 
 ## Foundation collection
 
-`data/atlas/foundation.v1.ts` contains a deliberately small initial set of six entities and seven documented relationships, sourced from the ScrollVerse Web App repository, the Master Ecosystem Hub, Atlas architecture record, PR #7, and migration 0049. This is a starter collection, not a complete archive import.
+`data/atlas/foundation.v1.ts` contains a deliberately small initial set of 47 entities and 48 documented relationships, including 37 explicitly provisional conversation-title candidates from the existing recovery-index CSV, sourced from the ScrollVerse Web App repository, the Master Ecosystem Hub, Atlas architecture record, PR #7, and migration 0049. This is a starter collection, not a complete archive import.
 
 ## Runbook
 
@@ -28,7 +28,7 @@ Create the first repeatable, source-linked Atlas population path. The importer i
 6. Verify counts and lineage by reading persisted rows, not by relying on the importer return value.
 7. Review each evidence record and graph record. Publish only after human review.
 
-The repository connector does not expose the application's production database or a database migration execution interface. Therefore this change prepares and validates the migration/import path; it does not claim that migration 0049 has been applied or that rows have been inserted into a live database.
+The current connected Dropbox search returned no matching archive files; the ChatGPT Library search surfaced the Foundation Edition, OmniCodex synthesis, Master Document Collection, and Master Conversation Recovery Index Part I. The repository connector does not expose the application's production database or a database migration execution interface. Therefore this change prepares and validates the migration/import path; it does not claim that migration 0049 has been applied or that rows have been inserted into a live database.
 
 ## Cross-platform expansion
 
