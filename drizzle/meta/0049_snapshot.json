@@ -11771,6 +11771,15 @@
             "source_evidence_id"
           ],
           "isUnique": false
+        },
+        "atlas_relationships_edge_unique": {
+          "name": "atlas_relationships_edge_unique",
+          "columns": [
+            "source_entity_id",
+            "target_entity_id",
+            "relation_type"
+          ],
+          "isUnique": true
         }
       },
       "foreignKeys": {
