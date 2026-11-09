@@ -52,3 +52,6 @@ CREATE INDEX `atlas_relationships_source_idx` ON `atlas_relationships` (`source_
 CREATE INDEX `atlas_relationships_target_idx` ON `atlas_relationships` (`target_entity_id`,`status`,`visibility`);
 --> statement-breakpoint
 CREATE INDEX `atlas_relationships_evidence_idx` ON `atlas_relationships` (`source_evidence_id`);
+
+--> statement-breakpoint
+CREATE UNIQUE INDEX `atlas_relationships_edge_unique` ON `atlas_relationships` (`source_entity_id`,`target_entity_id`,`relation_type`);
