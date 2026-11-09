@@ -45,6 +45,7 @@ export function traverseAtlasGraph(
   const visited = new Set<number>([root.id]);
   const includedEdges = new Map<number, AtlasGraphEdge>();
   const queue: Array<{ node: AtlasGraphNode; depth: number }> = [{ node: root, depth: 0 }];
+  const orderedNodes: AtlasGraphNode[] = [root];
   let depthReached = 0;
 
   while (queue.length > 0) {
@@ -67,14 +68,13 @@ export function traverseAtlasGraph(
       const nextNode = nodeById.get(nextId);
       if (!nextNode || visited.has(nextId)) continue;
       visited.add(nextId);
+      orderedNodes.push(nextNode);
       const nextDepth = current.depth + 1;
       depthReached = Math.max(depthReached, nextDepth);
       queue.push({ node: nextNode, depth: nextDepth });
     }
   }
 
-  const orderedNodes = [root, ...queue.map(item => item.node)];
-  // Queue contains each newly discovered node exactly once, in BFS order.
   return {
     root,
     nodes: orderedNodes,
