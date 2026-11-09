@@ -16,7 +16,7 @@ Create the first repeatable, source-linked Atlas population path. The importer i
 
 ## Foundation collection
 
-`data/atlas/foundation.v1.ts` contains a deliberately small initial set of 47 entities and 48 documented relationships, including 37 explicitly provisional conversation-title candidates from the existing recovery-index CSV, sourced from the ScrollVerse Web App repository, the Master Ecosystem Hub, Atlas architecture record, PR #7, and migration 0049. This is a starter collection, not a complete archive import.
+`data/atlas/foundation.v1.ts` contains a deliberately small initial set of 139 entities and 141 documented relationships, including 93 eligible public GitHub repository inventory records and 37 explicitly provisional conversation-title candidates from the existing recovery-index CSV, sourced from the ScrollVerse Web App repository, the Master Ecosystem Hub, Atlas architecture record, PR #7, and migration 0049. The connected GitHub inventory returned 96 repositories (95 public, 1 private, 0 archived). The initial catalog includes 93 public repositories; it excludes the one private repository and two public repositories previously flagged for privacy review. This is an inventory snapshot, not a 96-repository code audit or a complete archive import.
 
 ## Runbook
 
