@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { atlasEvidenceIdentity, validateAtlasImportBatch, type AtlasImportBatch } from "./ingest";
 import { normalizeAtlasExternalDocument } from "./adapters";
 import { atlasFoundationBatch } from "../../data/atlas/foundation.v1";
+import { githubRepositoryInventory } from "../../data/atlas/github-repository-inventory.v1";
 
 const source = {
   sourceKey: "github:repo:file",
@@ -32,11 +33,16 @@ describe("Atlas source ingestion", () => {
 
   it("keeps the archive recovery candidates explicitly provisional", () => {
     expect(() => validateAtlasImportBatch(atlasFoundationBatch)).not.toThrow();
-    expect(atlasFoundationBatch.entities).toHaveLength(47);
-    expect(atlasFoundationBatch.relationships).toHaveLength(48);
+    expect(atlasFoundationBatch.entities).toHaveLength(139);
+    expect(atlasFoundationBatch.relationships).toHaveLength(141);
     const candidates = atlasFoundationBatch.entities.filter(entity => entity.slug.startsWith("chat-cand-"));
     expect(candidates).toHaveLength(37);
     expect(candidates.every(entity => entity.summary?.includes("not a recovered original title"))).toBe(true);
+    expect(atlasFoundationBatch.entities.filter(entity => entity.kind === "REPOSITORY")).toHaveLength(93);
+    expect(githubRepositoryInventory.repositories).toHaveLength(93);
+    expect(githubRepositoryInventory.repositories.every(repo => repo.visibility === "public")).toBe(true);
+    expect(githubRepositoryInventory.repositories.some(repo => repo.name === "scrollverse-evidence-archive-private")).toBe(false);
+    expect(githubRepositoryInventory.repositories.some(repo => repo.name === "scrollverse-continuity-vault")).toBe(false);
   });
 
   it("produces deterministic evidence identities across replays", () => {
