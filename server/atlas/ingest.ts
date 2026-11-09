@@ -135,14 +135,14 @@ export async function ingestAtlasBatch(batch: AtlasImportBatch) {
   const db = await getDb();
   if (!db) throw new Error("Atlas ingestion requires the configured MySQL database.");
 
-  return db.transaction(async (tx) => {
+  return db.transaction(async (tx: any) => {
     const evidenceIds = new Map<string, number>();
 
     const allSources = new Map<string, AtlasEvidenceSource>();
     for (const entity of batch.entities) allSources.set(atlasEvidenceIdentity(entity.source).vaultId, entity.source);
     for (const edge of batch.relationships) allSources.set(atlasEvidenceIdentity(edge.source).vaultId, edge.source);
 
-    for (const source of allSources.values()) {
+    for (const source of Array.from(allSources.values())) {
       const identity = atlasEvidenceIdentity(source);
       await tx.insert(evidenceLedger).values({
         vaultId: identity.vaultId,
