@@ -34,15 +34,102 @@ const migrationSource = {
   url: `${appRepo}/blob/${head}/drizzle/0049_atlas_core.sql`,
 };
 
+const foundationPdfSource = {
+  sourceKey: "user_upload:library:libfile_8fd0d881a4408191ad4e43546c0d1644",
+  kind: "user_upload" as const,
+  label: "ScrollVerse × Omnitech1 Story Archive Foundation Edition",
+  filePath: "Library/ScrollVerse_Omnitech1_Story_Archive_Foundation(1).pdf",
+};
+
+const omniCodexSource = {
+  sourceKey: "user_upload:library:libfile_ec4251bdf5f481918f41e8184fb7c70a",
+  kind: "user_upload" as const,
+  label: "ScrollVerse OmniCodex Synthesis",
+  filePath: "Library/ScrollVerse_OmniCodex_Synthesis.pdf",
+};
+
+const masterCollectionSource = {
+  sourceKey: "user_upload:library:libfile_8fe9d45484d08191be55c17d68eae8a9",
+  kind: "user_upload" as const,
+  label: "ScrollVerse Master Document Collection",
+  filePath: "Library/ScrollVerse_Master_Document_Collection.pdf",
+};
+
+const recoveryIndexSource = {
+  sourceKey: "user_upload:library:libfile_7793f54c8d608191b75c6ecda9e781d9",
+  kind: "user_upload" as const,
+  label: "Master Conversation Recovery Index Part I CSV",
+  filePath: "Library/Master_Conversation_Recovery_Index_Part_I.csv",
+};
+
+const candidateTitles = [
+  ["CHAT-CAND-001", "ScrollVerse Chat Codex"],
+  ["CHAT-CAND-002", "Final Utterance options"],
+  ["CHAT-CAND-003", "Unity Festival Ascension"],
+  ["CHAT-CAND-004", "Omni-execution confirmation"],
+  ["CHAT-CAND-005", "Omnichoice Singularity Manifesto"],
+  ["CHAT-CAND-006", "Divine system deployment"],
+  ["CHAT-CAND-007", "Cosmic Sovereign Proclamation"],
+  ["CHAT-CAND-008", "Scrollverse Concept and Tech"],
+  ["CHAT-CAND-009", "Omega-level detonation script"],
+  ["CHAT-CAND-010", "Omega suite assembly"],
+  ["CHAT-CAND-011", "Immortalize Chats as Book"],
+  ["CHAT-CAND-012", "Crowd Energy Enhancement"],
+  ["CHAT-CAND-013", "Export and Merge Chats"],
+  ["CHAT-CAND-014", "GitHub Deep Dive Analysis"],
+  ["CHAT-CAND-015", "View ChatGPT Memory"],
+  ["CHAT-CAND-016", "Chai Sign In Help"],
+  ["CHAT-CAND-017", "Manus sign in guide"],
+  ["CHAT-CAND-018", "Mansu Meaning Clarification"],
+  ["CHAT-CAND-019", "Perplexity explanation"],
+  ["CHAT-CAND-020", "Perplexity in NLP"],
+  ["CHAT-CAND-021", "Perplexity meaning explained"],
+  ["CHAT-CAND-022", "Perplexity in language models"],
+  ["CHAT-CAND-023", "Ernie 5.0 Link"],
+  ["CHAT-CAND-024", "Clarify Freya Rey"],
+  ["CHAT-CAND-025", "Explain perplexity"],
+  ["CHAT-CAND-026", "Telemetry data overview"],
+  ["CHAT-CAND-027", "GitHub Launched Status Meaning / Profile Summary"],
+  ["CHAT-CAND-028", "Spiritual purpose and grounding"],
+  ["CHAT-CAND-029", "Quantum accension ritual"],
+  ["CHAT-CAND-030", "Accidental Selfie Request"],
+  ["CHAT-CAND-031", "Photo Request Description"],
+  ["CHAT-CAND-032", "Vineland Movie Theaters"],
+  ["CHAT-CAND-033", "Movies near me Philly"],
+  ["CHAT-CAND-034", "Inappropriate Content"],
+  ["CHAT-CAND-035", "TikTok overview"],
+  ["CHAT-CAND-036", "Upyrau, acebook app"],
+  ["CHAT-CAND-037", "Abso opening gave me from my cache-r content"],
+] as const;
+
+const slugify = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 110);
+
+const candidateEntities = candidateTitles.map(([recordId, candidateTitle]) => ({
+  slug: `${recordId.toLowerCase()}-${slugify(candidateTitle)}`,
+  title: `Candidate — ${candidateTitle}`,
+  kind: "CONVERSATION" as const,
+  summary: `Preliminary title candidate listed as ${recordId} in Master_Conversation_Recovery_Index_Part_I.csv. The index marks this entry as unverified; conversation_id and created_at are blank. This is not a recovered original title. Verify against the original ChatGPT export or screenshot before upgrading its recovery status.`,
+  source: recoveryIndexSource,
+}));
+
+const candidateRelationships = candidateTitles.map(([recordId, candidateTitle]) => ({
+  sourceSlug: `${recordId.toLowerCase()}-${slugify(candidateTitle)}`,
+  targetSlug: "master-conversation-recovery-index",
+  relationType: "CANDIDATE_LISTED_IN",
+  description: `The recovery index lists ${recordId} with the candidate title “${candidateTitle}”; the index explicitly says to verify the title against the original export or screenshot.`,
+  source: recoveryIndexSource,
+}));
+
 export const atlasFoundationBatch: AtlasImportBatch = {
-  batchId: "atlas-foundation-2026-11-09-v1",
+  batchId: "atlas-foundation-2026-11-09-v2",
   entities: [
     {
       slug: "scrollverse",
       title: "ScrollVerse",
       kind: "PROJECT",
       summary: "Umbrella project represented by the ScrollVerse application and its documented ecosystem records.",
-      source: architectureSource,
+      source: foundationPdfSource,
     },
     {
       slug: "scrollverse-web-app",
@@ -88,9 +175,38 @@ export const atlasFoundationBatch: AtlasImportBatch = {
       slug: "atlas-core-migration-0049",
       title: "Atlas Core Database Migration 0049",
       kind: "ARTIFACT",
-      summary: "Reviewed migration candidate creating the evidence ledger and Atlas entity and relationship tables; not yet applied to a database.",
+      summary: "Migration candidate creating the evidence ledger and Atlas entity and relationship tables; not yet applied to a database.",
       source: migrationSource,
     },
+    {
+      slug: "story-archive-foundation",
+      title: "ScrollVerse × Omnitech1 Story Archive Foundation Edition",
+      kind: "ARTIFACT",
+      summary: "Five-page foundation draft defining archive purpose, project landscape, master conversation index fields, evidence rules, and collection/review phases. It explicitly states that it is not a complete archive.",
+      source: foundationPdfSource,
+    },
+    {
+      slug: "scrollverse-omnicodex-synthesis",
+      title: "ScrollVerse OmniCodex Synthesis",
+      kind: "ARTIFACT",
+      summary: "Creative, technical, philosophical, and preservation synthesis describing the ScrollVerse archive as an evolving framework.",
+      source: omniCodexSource,
+    },
+    {
+      slug: "scrollverse-master-document-collection",
+      title: "ScrollVerse Master Document Collection",
+      kind: "ARTIFACT",
+      summary: "PDF index describing a collection of codices, declarations, scripts, and a master covenant archive; the listed files themselves require separate recovery.",
+      source: masterCollectionSource,
+    },
+    {
+      slug: "master-conversation-recovery-index",
+      title: "Master Conversation Recovery Index Part I",
+      kind: "ARTIFACT",
+      summary: "CSV containing 37 preliminary ChatGPT conversation-title candidates. The rows lack conversation IDs and created_at values and are explicitly marked unverified / awaiting source.",
+      source: recoveryIndexSource,
+    },
+    ...candidateEntities,
   ],
   relationships: [
     {
@@ -142,5 +258,34 @@ export const atlasFoundationBatch: AtlasImportBatch = {
       description: "The Atlas architecture decision record is maintained in the master ecosystem hub.",
       source: architectureSource,
     },
+    {
+      sourceSlug: "story-archive-foundation",
+      targetSlug: "scrollverse",
+      relationType: "DOCUMENTS",
+      description: "The foundation edition documents the ScrollVerse and Omnitech1 project landscape and archive principles.",
+      source: foundationPdfSource,
+    },
+    {
+      sourceSlug: "scrollverse-omnicodex-synthesis",
+      targetSlug: "scrollverse",
+      relationType: "SYNTHESIZES",
+      description: "The OmniCodex describes a unified creative, technical, and philosophical ScrollVerse framework.",
+      source: omniCodexSource,
+    },
+    {
+      sourceSlug: "scrollverse-master-document-collection",
+      targetSlug: "scrollverse",
+      relationType: "CATALOGS_DELIVERABLES_FOR",
+      description: "The master document collection indexes named ScrollVerse deliverables and archive bundles.",
+      source: masterCollectionSource,
+    },
+    {
+      sourceSlug: "master-conversation-recovery-index",
+      targetSlug: "story-archive-foundation",
+      relationType: "ADVANCES_ARCHIVE_INDEX",
+      description: "The CSV is a preliminary recovery index aligned with the foundation edition's required conversation-index fields.",
+      source: recoveryIndexSource,
+    },
+    ...candidateRelationships,
   ],
 };
