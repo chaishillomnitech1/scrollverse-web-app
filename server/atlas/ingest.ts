@@ -120,7 +120,7 @@ export function atlasEvidenceIdentity(source: AtlasEvidenceSource) {
   return {
     vaultId: `atlas:${sha256(source.sourceKey).slice(0, 32)}:${fingerprint}`,
     manifestStamp: fingerprint,
-    contentSha256: source.contentSha256 ?? fingerprint,
+    contentSha256: source.contentSha256 ?? null,
   };
 }
 
