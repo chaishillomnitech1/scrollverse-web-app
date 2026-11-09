@@ -37,3 +37,11 @@ The current connected Dropbox search returned no matching archive files; the Cha
 ## Verification
 
 Unit tests cover stable evidence identity, revision-sensitive fingerprints, HTTPS-only source links, duplicate rejection, self-edge rejection, and normalization of an exported ChatGPT document. Database integration tests and production lineage verification remain gated on migration execution and a connected test database.
+
+## Migration 0049 review notes
+
+Static review against the Drizzle schema and migration journal confirms that migration 0049 creates `evidence_ledger` before the two Atlas tables that reference it, then adds the expected foreign keys, lookup indexes, and directed-edge uniqueness constraint. The journal and snapshot are present in the branch. This is a code review only; no live database state was inspected.
+
+**Important preflight:** the TypeScript schema already declares `evidence_ledger`, while the prior migration sequence inspected in this branch did not show an earlier migration creating it. The live database may nevertheless contain a manually created or separately provisioned table. Before running 0049, inspect `information_schema.tables`, `information_schema.columns`, and `information_schema.statistics` for `evidence_ledger`, `atlas_entities`, and `atlas_relationships`. If `evidence_ledger` already exists, compare every column, enum, index, and constraint with the migration and reconcile the migration plan rather than blindly rerunning the CREATE TABLE statement.
+
+Also inspect the Drizzle migration journal table and any partially applied DDL. MySQL DDL may commit independently of the surrounding migration transaction; a failed partial run must be reconciled before retrying. Take a restorable backup and verify rollback/recovery procedures before production execution.
