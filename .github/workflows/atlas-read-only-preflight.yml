@@ -1,0 +1,43 @@
+name: Atlas Core Read-Only Database Preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-core-read-only-preflight
+  cancel-in-progress: false
+
+jobs:
+  read-only-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: atlas-production
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Inspect live Atlas schema without changing it
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: pnpm exec tsx scripts/atlas-db-preflight.ts
+
+# SAFETY CONTRACT:
+# - This workflow performs read-only SELECT queries through atlas-db-preflight.ts.
+# - It does not run drizzle-kit migrate, ingestion, seed writes, or publication.
+# - The separate atlas-protected-migration workflow remains the only APPLY path.
+# - Keep atlas-production environment protection and required reviewers enabled.
