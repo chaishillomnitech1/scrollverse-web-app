@@ -1,4 +1,5 @@
 import type { AtlasImportBatch } from "../../server/atlas/ingest";
+import { githubRepositoryInventory, githubRepositorySlug } from "./github-repository-inventory.v1";
 
 const appRepo = "https://github.com/chaishillomnitech1/scrollverse-web-app";
 const masterRepo = "https://github.com/chaishillomnitech1/scrollverse-master-ecosystem-hub";
@@ -105,6 +106,42 @@ const candidateTitles = [
 const slugify = (value: string) =>
   value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 110);
 
+
+const repositoryInventorySource = {
+  sourceKey: "github:account-inventory:2026-11-09",
+  kind: "github" as const,
+  label: "Connected GitHub repository inventory snapshot captured 2026-11-09",
+  url: "https://github.com/chaishillomnitech1",
+};
+
+const repositoryEntities = githubRepositoryInventory.repositories
+  .filter(repo => repo.name !== "scrollverse-web-app" && repo.name !== "scrollverse-master-ecosystem-hub")
+  .map(repo => ({
+    slug: githubRepositorySlug(repo),
+    title: repo.name,
+    kind: "REPOSITORY" as const,
+    summary: "GitHub inventory snapshot captured 2026-11-09: visibility=" + repo.visibility + "; default branch=" + repo.defaultBranch + "; archived=" + repo.archived + ". This is repository metadata, not a full code audit, deployment check, or verification of repository contents.",
+    source: {
+      sourceKey: "github:repo:" + repo.id,
+      kind: "github" as const,
+      label: "GitHub repository " + repo.fullName,
+      repository: repo.fullName,
+      url: repo.url,
+    },
+  }));
+
+const repositoryRelationships = githubRepositoryInventory.repositories.map(repo => ({
+  sourceSlug: repo.name === "scrollverse-web-app"
+    ? "scrollverse-web-app"
+    : repo.name === "scrollverse-master-ecosystem-hub"
+      ? "scrollverse-master-ecosystem-hub"
+      : githubRepositorySlug(repo),
+  targetSlug: "github-account-chaishillomnitech1",
+  relationType: "INVENTORY_ENTRY_OF",
+  description: "The connected GitHub account inventory returned " + repo.fullName + " as a " + repo.visibility + " repository with default branch " + repo.defaultBranch + " and archived=" + repo.archived + " on 2026-11-09.",
+  source: repositoryInventorySource,
+}));
+
 const candidateEntities = candidateTitles.map(([recordId, candidateTitle]) => ({
   slug: `${recordId.toLowerCase()}-${slugify(candidateTitle)}`,
   title: `Candidate — ${candidateTitle}`,
@@ -135,7 +172,7 @@ export const atlasFoundationBatch: AtlasImportBatch = {
       slug: "scrollverse-web-app",
       title: "ScrollVerse Web App",
       kind: "REPOSITORY",
-      summary: "Application repository containing the Creator Atlas explorer and Atlas Core implementation branch.",
+      summary: "Public GitHub repository (default branch main; not archived in the 2026-11-09 inventory snapshot). Contains the Creator Atlas explorer and Atlas Core implementation branch. This inventory metadata is not a full code audit.",
       source: {
         sourceKey: "github:scrollverse-web-app:repository",
         kind: "github",
@@ -148,7 +185,7 @@ export const atlasFoundationBatch: AtlasImportBatch = {
       slug: "scrollverse-master-ecosystem-hub",
       title: "ScrollVerse Master Ecosystem Hub",
       kind: "REPOSITORY",
-      summary: "Master documentation repository holding Atlas architecture and implementation records.",
+      summary: "Public GitHub repository (default branch main; not archived in the 2026-11-09 inventory snapshot). Holds Atlas architecture and implementation records. This inventory metadata is not a full code audit.",
       source: {
         sourceKey: "github:master-hub:repository",
         kind: "github",
@@ -156,6 +193,13 @@ export const atlasFoundationBatch: AtlasImportBatch = {
         repository: "chaishillomnitech1/scrollverse-master-ecosystem-hub",
         url: masterRepo,
       },
+    },
+    {
+      slug: "github-account-chaishillomnitech1",
+      title: "GitHub Account — chaishillomnitech1",
+      kind: "PLATFORM",
+      summary: "Connected GitHub inventory snapshot captured 2026-11-09: 96 repositories returned, 95 public, 1 private, 0 archived. 93 public repositories are eligible for the initial Atlas catalog; one private repository and two privacy-flagged public repositories are excluded pending review.",
+      source: repositoryInventorySource,
     },
     {
       slug: "atlas-core",
@@ -207,6 +251,7 @@ export const atlasFoundationBatch: AtlasImportBatch = {
       source: recoveryIndexSource,
     },
     ...candidateEntities,
+    ...repositoryEntities,
   ],
   relationships: [
     {
@@ -287,5 +332,6 @@ export const atlasFoundationBatch: AtlasImportBatch = {
       source: recoveryIndexSource,
     },
     ...candidateRelationships,
+    ...repositoryRelationships,
   ],
 };
