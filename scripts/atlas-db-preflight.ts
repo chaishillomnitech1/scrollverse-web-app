@@ -5,18 +5,16 @@ if (!databaseUrl) throw new Error("DATABASE_URL is required; no database was con
 
 const connection = await mysql2.createConnection(databaseUrl);
 try {
-  const [databaseRows] = await connection.query<Array<{ databaseName: string | null }>>(
-    "SELECT DATABASE() AS databaseName",
-  );
-  const databaseName = databaseRows[0]?.databaseName;
+  const [databaseRows] = await connection.query("SELECT DATABASE() AS databaseName");
+  const databaseName = (databaseRows as Array<{ databaseName: string | null }>)[0]?.databaseName;
   if (!databaseName) throw new Error("DATABASE_URL did not resolve a selected database.");
 
   const requiredTables = ["evidence_ledger", "atlas_entities", "atlas_relationships"];
-  const [tableRows] = await connection.query<Array<{ TABLE_NAME: string }>>(
+  const [tableRows] = await connection.query(
     "SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME IN (?, ?, ?)",
     requiredTables,
   );
-  const present = tableRows.map(row => row.TABLE_NAME).sort();
+  const present = (tableRows as Array<{ TABLE_NAME: string }>).map(row => row.TABLE_NAME).sort();
 
   if (present.length !== 0) {
     throw new Error(
