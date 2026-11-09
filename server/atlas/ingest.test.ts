@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { atlasEvidenceIdentity, validateAtlasImportBatch, type AtlasImportBatch } from "./ingest";
 import { normalizeAtlasExternalDocument } from "./adapters";
+import { atlasFoundationBatch } from "../../data/atlas/foundation.v1";
 
 const source = {
   sourceKey: "github:repo:file",
@@ -29,6 +30,15 @@ describe("Atlas source ingestion", () => {
     expect(() => validateAtlasImportBatch(batch)).not.toThrow();
   });
 
+  it("keeps the archive recovery candidates explicitly provisional", () => {
+    expect(() => validateAtlasImportBatch(atlasFoundationBatch)).not.toThrow();
+    expect(atlasFoundationBatch.entities).toHaveLength(47);
+    expect(atlasFoundationBatch.relationships).toHaveLength(48);
+    const candidates = atlasFoundationBatch.entities.filter(entity => entity.slug.startsWith("chat-cand-"));
+    expect(candidates).toHaveLength(37);
+    expect(candidates.every(entity => entity.summary?.includes("not a recovered original title"))).toBe(true);
+  });
+
   it("produces deterministic evidence identities across replays", () => {
     expect(atlasEvidenceIdentity(source)).toEqual(atlasEvidenceIdentity({ ...source }));
   });
@@ -36,6 +46,10 @@ describe("Atlas source ingestion", () => {
   it("changes the evidence fingerprint when the source revision changes", () => {
     const revised = { ...source, commitSha: "0123456789abcdef0123456789abcdef01234567" };
     expect(atlasEvidenceIdentity(source).manifestStamp).not.toBe(atlasEvidenceIdentity(revised).manifestStamp);
+  });
+
+  it("does not invent a content hash when only source metadata is available", () => {
+    expect(atlasEvidenceIdentity(source).contentSha256).toBeNull();
   });
 
   it("rejects insecure source URLs", () => {
