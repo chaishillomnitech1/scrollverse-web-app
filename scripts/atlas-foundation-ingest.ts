@@ -18,6 +18,31 @@ try {
     throw new Error("Seed stopped before writes: one or more foundation slugs already exist outside DRAFT + PRIVATE. Review those records first.");
   }
 
+  const existingIdBySlug = new Map(existingEntities.map((row: typeof atlasEntities.$inferSelect) => [row.slug, row.id]));
+  const existingRelationships = await db.select().from(atlasRelationships);
+  const existingEdgeByKey = new Map(existingRelationships.map((row: typeof atlasRelationships.$inferSelect) =>
+    [`${row.sourceEntityId}:${row.targetEntityId}:${row.relationType}`, row]
+  ));
+  for (const edge of atlasFoundationBatch.relationships) {
+    const sourceId = existingIdBySlug.get(edge.sourceSlug);
+    const targetId = existingIdBySlug.get(edge.targetSlug);
+    if (!sourceId || !targetId) continue;
+    const existing = existingEdgeByKey.get(`${sourceId}:${targetId}:${edge.relationType}`);
+    if (existing && (existing.status !== "DRAFT" || existing.visibility !== "PRIVATE")) {
+      throw new Error("Seed stopped before writes: a matching relationship already exists outside DRAFT + PRIVATE.");
+    }
+  }
+
+  const expectedEvidenceIds = Array.from(new Set([
+    ...atlasFoundationBatch.entities.map(entity => atlasEvidenceIdentity(entity.source).vaultId),
+    ...atlasFoundationBatch.relationships.map(edge => atlasEvidenceIdentity(edge.source).vaultId),
+  ]));
+  const existingEvidence = await db.select().from(evidenceLedger)
+    .where(inArray(evidenceLedger.vaultId, expectedEvidenceIds));
+  if (existingEvidence.some((row: typeof evidenceLedger.$inferSelect) => row.status !== "QUEUED")) {
+    throw new Error("Seed stopped before writes: matching evidence exists outside QUEUED. Review evidence state first.");
+  }
+
   const first = await ingestAtlasBatch(atlasFoundationBatch);
   const replay = await ingestAtlasBatch(atlasFoundationBatch);
 
