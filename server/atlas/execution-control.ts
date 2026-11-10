@@ -126,22 +126,29 @@ const REQUIRED_READ_CAPABILITY: Record<CapabilityProvider, string> = {
  * AUTHORIZED snapshot. AUTHENTICATED alone is deliberately insufficient.
  * The result is routing metadata, not an instruction to execute a write.
  */
+export const CAPABILITY_SNAPSHOT_MAX_AGE_MS = 15 * 60 * 1000;
+
 export function routeWorkWithCapabilities(
   request: WorkRequest,
   snapshots: readonly CapabilitySnapshot[],
+  now: Date = new Date(),
 ): CapabilityAwareSpecialistRoute | null {
   const base = routeWorkToSpecialist(request);
   if (!base) return null;
 
   const isAuthorized = (provider: CapabilityProvider) => {
     const requiredId = REQUIRED_READ_CAPABILITY[provider];
-    return snapshots.find(snapshot =>
-      snapshot.provider === provider &&
-      snapshot.capabilityId === requiredId &&
-      snapshot.state === "AUTHORIZED" &&
-      Boolean(snapshot.checkedAt) &&
-      Boolean(snapshot.evidenceRef),
-    );
+    return snapshots.find(snapshot => {
+      if (
+        snapshot.provider !== provider ||
+        snapshot.capabilityId !== requiredId ||
+        snapshot.state !== "AUTHORIZED" ||
+        !snapshot.checkedAt ||
+        !snapshot.evidenceRef
+      ) return false;
+      const ageMs = now.getTime() - Date.parse(snapshot.checkedAt);
+      return Number.isFinite(ageMs) && ageMs >= 0 && ageMs <= CAPABILITY_SNAPSHOT_MAX_AGE_MS;
+    });
   };
 
   const primary = isAuthorized(base.primaryProvider);
@@ -159,7 +166,7 @@ export function routeWorkWithCapabilities(
     fallbackProvidersAuthorized: authorizedFallbacks,
     blockedReason: selectedProvider
       ? null
-      : "No provider has a timestamped AUTHORIZED snapshot for the required read action. Refresh provider evidence or connect the exact capability.",
+      : "No provider has a fresh (15-minute), timestamped AUTHORIZED snapshot for the required read action. Refresh provider evidence or connect the exact capability.",
   };
 }
 
