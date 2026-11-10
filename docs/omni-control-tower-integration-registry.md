@@ -84,3 +84,6 @@ The follow-up branch must pass `pnpm check`, `pnpm test`, and `pnpm build` throu
 ## Main-branch Vercel status observation — 2026-11-10
 
 After PR #24 merged as `10bc330ed89be638390e609098debc950477e668`, GitHub's commit status API returned the Vercel context as `success`. The returned status target is recorded in the observation ledger. The status response does not state whether the deployment is Preview or Production and does not return the production alias or direct deployed-site URL. The separate PR #24 Vercel bot comment identifies its deployment as a Ready Preview and includes a direct preview URL and deployment ID.
+
+
+The latest Vercel bot update on PR #24 reports Preview deployment `6QXsrRbZRi4rHAPD2FRmXNq1HdFB` as Ready at the same preview URL. This newer deployment observation is appended separately; the earlier preview record is preserved as history.
