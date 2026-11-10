@@ -1,4 +1,4 @@
-export type ObservationSource = "github-api" | "github-commit-status" | "owner-confirmed";
+export type ObservationSource = "github-api" | "github-commit-status" | "owner-confirmed" | "vercel-github-comment";
 export type ObservationEnvironment = "main" | "preview" | "unspecified";
 
 export type ControlTowerObservation = {
@@ -52,5 +52,19 @@ export const controlTowerObservations: ControlTowerObservation[] = [
     environment: "preview",
     commitSha: "39777ad7b088adbd233ea1a22365cd43b6da154b",
     details: "The PR activity record reports the Vercel Preview deployment as Ready. The deployment ID and direct preview URL were not included in the supplied record.",
+  },
+  {
+    id: "vercel-pr-24-preview-ready",
+    provider: "Vercel",
+    observedAt: "2026-11-10T16:19:53.072Z",
+    source: "vercel-github-comment",
+    sourceLabel: "Vercel deployment comment on PR #24",
+    sourceUrl: "https://github.com/chaishillomnitech1/scrollverse-web-app/pull/24",
+    status: "ready",
+    environment: "preview",
+    commitSha: "0cdea6fc6b48f5709dcd1fd99cd21477a1d82182",
+    deploymentId: "EnC54eaKzEBk6juACrQquqqNPVix",
+    deploymentUrl: "https://voltron-omni-hq-uxtq-git-c-c2b288-chaishill999hz-5342s-projects.vercel.app",
+    details: "Vercel's GitHub bot reports the Preview deployment as Ready for the follow-up branch. This is a Preview deployment, not a claim that the Production alias has been promoted.",
   },
 ];
