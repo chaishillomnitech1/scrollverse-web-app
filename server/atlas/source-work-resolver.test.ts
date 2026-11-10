@@ -38,8 +38,8 @@ const batches: ResolverSourceBatch[] = [
 ];
 
 const accessions: ResolverAccession[] = [
-  { filename: "pasted_content_1.txt", bytes: 100, sha256: "c".repeat(64), classification: "creator-supplied source text", displayScope: "metadata-only" },
-  { filename: "pasted_content_1.txt", bytes: 120, sha256: "d".repeat(64), classification: "creator-supplied source text", displayScope: "metadata-only" },
+  { filename: "pasted_content_1.txt", bytes: 100, sha256: "a".repeat(64), classification: "creator-supplied source text", displayScope: "metadata-only" },
+  { filename: "pasted_content_1.txt", bytes: 120, sha256: "b".repeat(64), classification: "creator-supplied source text", displayScope: "metadata-only" },
 ];
 
 const workReferences: ResolverWorkReference[] = [
@@ -71,6 +71,12 @@ describe("read-only source-to-work resolver", () => {
     const results = resolveSourceCollectionsToWork({ collections, batches, accessions, workReferences });
     expect(results[1].resolution).toBe("LINKED_BY_EXACT_TITLE");
     expect(results.every(result => result.reviewRequired)).toBe(true);
+  });
+
+  it("does not attach a same-filename accession with a different fingerprint", () => {
+    const mismatched = accessions.map(item => ({ ...item, sha256: "f".repeat(64) }));
+    const [alpha] = resolveSourceCollectionsToWork({ collections, batches, accessions: mismatched, workReferences });
+    expect(alpha.citations.every(citation => citation.accessions.length === 0)).toBe(true);
   });
 
   it("returns deterministic IDs and ordering regardless of input order", () => {
