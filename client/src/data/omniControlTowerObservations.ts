@@ -67,4 +67,16 @@ export const controlTowerObservations: ControlTowerObservation[] = [
     deploymentUrl: "https://voltron-omni-hq-uxtq-git-c-c2b288-chaishill999hz-5342s-projects.vercel.app",
     details: "Vercel's GitHub bot reports the Preview deployment as Ready for the follow-up branch. This is a Preview deployment, not a claim that the Production alias has been promoted.",
   },
+  {
+    id: "vercel-main-commit-ready",
+    provider: "Vercel",
+    observedAt: "2026-11-10",
+    source: "github-commit-status",
+    sourceLabel: "Vercel context returned by GitHub status on main",
+    sourceUrl: "https://vercel.com/chaishill999hz-5342s-projects/voltron-omni-hq-uxtq/8XNGuDwiMBeEHhQuLJNGc8X68ocP",
+    status: "success",
+    environment: "unspecified",
+    commitSha: "10bc330ed89be638390e609098debc950477e668",
+    details: "The Vercel status context returned success for the PR #24 merge commit on main. The status response does not expose the deployment environment, production alias, or direct deployed-site URL.",
+  },
 ];
