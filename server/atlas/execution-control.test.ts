@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   appendExecutionEvidence,
   routeWorkToSpecialist,
+  routeWorkWithCapabilities,
   validateCapabilitySnapshot,
   validateDeploymentObservation,
   type ExecutionEvidenceEvent,
@@ -97,4 +98,69 @@ describe("execution control capability and evidence contracts", () => {
       observedAt: "2026-11-10T14:00:00.000Z", sourceRef: "check",
     })).toThrow(/HTTPS/);
   });
+  it("routes only through timestamped AUTHORIZED capability snapshots", () => {
+    const github = {
+      capabilityId: "github.repository.commit-checks.read",
+      provider: "github" as const,
+      domain: "source_control" as const,
+      action: "read repository metadata, commit metadata, and commit check runs",
+      state: "AUTHORIZED" as const,
+      checkedAt: "2026-11-10T15:00:00.000Z",
+      evidenceRef: "https://github.com/chaishillomnitech1/scrollverse-web-app/commit/abc1234",
+      limitation: null,
+    };
+    const authenticatedOnly = { ...github, state: "AUTHENTICATED" as const };
+    const route = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [github]);
+    expect(route?.selectedProvider).toBe("github");
+    expect(route?.selectedCapabilityState).toBe("AUTHORIZED");
+    expect(route?.blockedReason).toBeNull();
+
+    const blocked = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [authenticatedOnly]);
+    expect(blocked?.selectedProvider).toBeNull();
+    expect(blocked?.blockedReason).toContain("AUTHORISED");
+  });
+
+  it("uses an authorized fallback only when the primary provider is not authorized", () => {
+    const vercel = {
+      capabilityId: "vercel.project.deployments.read",
+      provider: "vercel" as const,
+      domain: "deployment" as const,
+      action: "read recent deployment status for the configured Vercel project",
+      state: "AUTHORIZED" as const,
+      checkedAt: "2026-11-10T15:00:00.000Z",
+      evidenceRef: "https://api.vercel.com/v6/deployments?projectId=prj_example",
+      limitation: null,
+    };
+    const github = {
+      capabilityId: "github.repository.commit-checks.read",
+      provider: "github" as const,
+      domain: "source_control" as const,
+      action: "read repository metadata, commit metadata, and commit check runs",
+      state: "AUTHORIZED" as const,
+      checkedAt: "2026-11-10T15:00:00.000Z",
+      evidenceRef: "https://github.com/chaishillomnitech1/scrollverse-web-app",
+      limitation: null,
+    };
+    const route = routeWorkWithCapabilities({ task: "check deployment preview" }, [github, vercel]);
+    expect(route?.primaryProvider).toBe("vercel");
+    expect(route?.selectedProvider).toBe("vercel");
+    expect(route?.selectedCapabilityId).toBe("vercel.project.deployments.read");
+  });
+
+  it("does not treat stale or evidence-free authorization claims as routable", () => {
+    const stale = {
+      capabilityId: "github.repository.commit-checks.read",
+      provider: "github" as const,
+      domain: "source_control" as const,
+      action: "read checks",
+      state: "AUTHORIZED" as const,
+      checkedAt: null,
+      evidenceRef: null,
+      limitation: null,
+    };
+    const route = routeWorkWithCapabilities({ task: "review GitHub pull request" }, [stale]);
+    expect(route?.selectedProvider).toBeNull();
+    expect(route?.selectedCapabilityState).toBe("NOT_CHECKED");
+  });
+
 });
