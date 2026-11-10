@@ -53,7 +53,8 @@ describe("read-only source-to-work resolver", () => {
     expect(alpha.resolution).toBe("LINKED_BY_EXACT_ROUTE");
     expect(alpha.matches.map(match => match.workReferenceId)).toEqual(["route-alpha"]);
     expect(alpha.citations).toHaveLength(2);
-    expect(alpha.citations[0].accessions).toHaveLength(2);
+    expect(alpha.citations[0].accessions).toHaveLength(1);
+    expect(alpha.citations[1].accessions).toHaveLength(1);
   });
 
   it("does not collapse same-filename source versions with different batch IDs", () => {
