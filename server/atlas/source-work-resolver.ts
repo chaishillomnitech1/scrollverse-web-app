@@ -93,7 +93,7 @@ function normalizeTitle(value: string): string {
 function normalizeRoute(value: string): string {
   const path = value.trim().split(/[?#]/, 1)[0] || "/";
   const leading = path.startsWith("/") ? path : `/${path}`;
-  return leading.length > 1 ? leading.replace(/\\/+$/, "") : leading;
+  return leading.length > 1 ? leading.replace(/\/+$/, "") : leading;
 }
 
 function stableId(value: string): string {
