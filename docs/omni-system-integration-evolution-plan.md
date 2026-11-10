@@ -33,7 +33,11 @@
 
 ### GitHub inventory
 
-- The connected GitHub listing returned **96 repositories accessible to the authenticated account** on 2026-11-10.
+- The connected GitHub listing returned **96 repositories accessible to the authenticated account** on 2026-11-10: **95 public, 1 private, and 0 archived**.
+- **94 repositories were code-search indexed; 2 were not indexed** (`chais-hill-portfolio` and `scrollverse-trinity-sovereign`). A missing search index is not evidence that a repository has no content.
+- The only repository reported private in this snapshot is `partner`.
+- Two repositories have names/README descriptions that imply private continuity or evidence material but are currently reported as **public**: `scrollverse-evidence-archive-private` and `scrollverse-continuity-vault`. This is a visibility-label mismatch requiring owner review; no setting was changed and no claim is made that a secret is present. Review their contents, Git history, forks, and any previously committed sensitive material before deciding whether to change visibility.
+- The full dated metadata list is preserved in [GitHub Repository Inventory — 2026-11-10](github-repository-inventory-2026-11-10.md).
 - This is an inventory snapshot, not a complete review of every repository's code, deployment, secrets, or external integrations.
 - The primary web application repository is public, uses `main` as its default branch, and the connected account has admin permissions.
 - Selected ecosystem repositories reviewed by README or source include `OmniBuilderZero`, `omnitech1-portal`, `scrollverse-ai-legion`, `eternal-scrollverse`, `scrollverse-master-ecosystem-hub`, `ScrollVerse_Sovereign_Archive`, `scrollverse-story-studio`, `scrollverse-continuity-vault`, and `scrollverse-evidence-archive-private`. These have different purposes and maturity levels; they should not be merged blindly.
