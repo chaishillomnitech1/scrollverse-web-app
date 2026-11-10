@@ -276,7 +276,8 @@ export async function readVercelEvidence(options: {
     }
     const candidateSha = typeof item.meta?.githubCommitSha === "string" ? item.meta.githubCommitSha : null;
     const commitSha = candidateSha && /^[a-f0-9]{7,40}$/i.test(candidateSha) ? candidateSha : null;
-    const createdAt = item.createdAt ? new Date(item.createdAt).toISOString() : checkedAt;
+    const parsedCreatedAt = item.createdAt ? new Date(item.createdAt) : new Date(checkedAt);
+    const createdAt = Number.isNaN(parsedCreatedAt.getTime()) ? checkedAt : parsedCreatedAt.toISOString();
     const observation: DeploymentObservation = {
       provider: "vercel",
       environment,
