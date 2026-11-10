@@ -54,14 +54,26 @@ export const integrationRecords: IntegrationRecord[] = [
   { id: "automations", name: "ChatGPT Automations", category: "ChatGPT connector", state: "verified-access", evidence: "Existing weekly Omniverse Fusion readiness automation is recorded", note: "This is a ChatGPT-side scheduled report, not a ScrollVerse production integration. No duplicate schedule was created.", productionActive: "not-applicable" },
 ];
 
-export const engineRecords = [
+export type EngineState = "blocked" | "partial" | "review";
+
+export type EngineRecord = {
+  id: string;
+  name: string;
+  focus: string;
+  state: EngineState;
+  evidence: string;
+  href?: string;
+  next: string;
+};
+
+export const engineRecords: EngineRecord[] = [
   { id: "atlas", name: "Sovereign Atlas", focus: "Entities, relationships, source lineage and approval-gated handoffs", state: "blocked", evidence: "Atlas migration 0049 is present; prior protected preflight stopped because DATABASE_URL was empty.", href: "https://github.com/chaishillomnitech1/scrollverse-web-app/actions/runs/42836859687", next: "Restore environment configuration and pass the read-only preflight before any protected migration." },
   { id: "nexus", name: "Integration Nexus", focus: "Provider inventory, authentication, exact capabilities and health", state: "partial", evidence: "Provider code, dependencies and documentation have mixed evidence states.", next: "Connect safe provider observations to this registry; never infer authentication from connector availability." },
   { id: "deployment", name: "Deployment Intelligence", focus: "Repositories, branches, Actions, Vercel and public routes", state: "partial", evidence: "GitHub read access and route source were inspected; Vercel commit checks succeeded, but live production snapshot is pending.", href: "https://github.com/chaishillomnitech1/scrollverse-web-app", next: "Capture current deployment ID, environment, alias, commit SHA and timestamp." },
   { id: "legion", name: "AI Legion Router", focus: "Specialist capabilities, scoped authorization and freshness", state: "partial", evidence: "Capability registry and 15-minute freshness policy exist; live runtime capability observations were not retrieved.", next: "Expose exact capability evidence with timestamps and action-level scopes." },
   { id: "creator", name: "Creator & Commerce", focus: "Books, music, Academy, membership, NFTs and payments", state: "partial", evidence: "Product surfaces and provider code exist; Stripe audit identifies test-mode configuration.", href: "https://github.com/chaishillomnitech1/scrollverse-web-app/blob/main/docs/phase782-financial-route-verification.md", next: "Map each customer journey to its actual provider, environment and release gate." },
   { id: "archive", name: "Eternal Archive", focus: "Original conversations, files, hashes, screenshots and provenance", state: "review", evidence: "Archive repositories exist; archive-named repositories were observed as public and Issue #13 remains the review record.", href: "https://github.com/chaishillomnitech1/scrollverse-web-app/issues/13", next: "Complete content and history review without changing repository visibility." },
-] as const;
+];
 
 export const approvalBoundaries = [
   { action: "Read source, metadata and public provider evidence", gate: "Allowed within current read-only scope" },

@@ -62,3 +62,20 @@ The registry records source references and limitations. When new evidence change
 ## Validation status
 
 This branch has not yet been run through the repository's `pnpm check`, `pnpm test`, or `pnpm build` commands in a local checkout. GitHub Actions must provide the first CI result. No deployment or production change is authorized by this implementation.
+
+## Owner confirmation and observation provenance
+
+Owner-confirmed implementation and test history is preserved as first-class project provenance. Provider-returned observations, source inspection, implementation tests, and production observations are recorded as distinct evidence types; a missing CI record does not erase owner-confirmed work, and a CI failure is scoped to the check and commit that produced it.
+
+The Control Tower now includes a versioned observation ledger for the PR #22 merge and the associated Vercel status evidence:
+
+- GitHub confirms PR #22 merged to `main` at merge commit `6594fdb04190263aa3edf81c6ab78d5270907873`.
+- The GitHub commit status API reports a successful Vercel context for that merge commit. The returned target is a Vercel dashboard/status URL, not a deployment URL or deployment ID.
+- The PR activity supplied by the owner reports a Vercel Preview deployment as Ready. This is retained as owner-confirmed evidence; no deployment ID or public deployment URL was supplied in that record.
+- The GitHub Actions run `42850790851` ("Sovereign System Invariant Audit") failed at `pnpm check` because `engineRecords` inferred a union that did not expose optional `href` on every record. The invariant-test step was skipped after type-check failure. The follow-up branch adds an explicit `EngineRecord` contract to resolve this compile-time issue.
+
+The observation ledger does not claim a direct Vercel API connection or live polling. It deliberately leaves unavailable deployment identifiers and URLs unset. GitHub Actions and Vercel status checks remain separate signals.
+
+## Follow-up validation
+
+The follow-up branch must pass `pnpm check`, `pnpm test`, and `pnpm build` through repository CI before its review is considered complete. Atlas remains blocked pending a successful, non-mutating database preflight; no database URL or credential is placed in frontend code or the observation ledger.

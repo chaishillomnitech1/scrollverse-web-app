@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   Workflow,
 } from "lucide-react";
+import { controlTowerObservations } from "@/data/omniControlTowerObservations";
 import {
   approvalBoundaries,
   engineRecords,
@@ -209,6 +210,34 @@ export default function OmniControlTower() {
             {visibleIntegrations.length === 0 && <div className="p-10 text-center text-sm text-slate-400">No providers match this filter.</div>}
           </div>
           <p className="mt-3 text-xs text-slate-500">The registry is a dated evidence baseline. Provider state must be refreshed by safe, scoped checks before any live authorization or production claim.</p>
+        </div>
+      </section>
+
+      <section className="border-y border-cyan-300/10 bg-[#061020]">
+        <div className="container py-12 md:py-16">
+          <p className="font-mono text-[10px] tracking-[.2em] text-cyan-200">03 / OBSERVATION LEDGER</p>
+          <h2 className="mt-3 text-3xl font-black md:text-4xl">Read-only system observations</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">Timestamped evidence from repository and deployment checks. Owner-confirmed records remain visible alongside provider-returned observations; missing deployment identifiers or URLs are intentionally left blank rather than inferred.</p>
+          <div className="mt-7 grid gap-4 lg:grid-cols-3">
+            {controlTowerObservations.map((observation) => (
+              <article key={observation.id} className="rounded-2xl border border-white/10 bg-white/[.035] p-5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-sm font-bold">{observation.provider}</span>
+                  <span className="rounded-full border border-emerald-300/25 bg-emerald-300/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.1em] text-emerald-100">{observation.status}</span>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-slate-200">{observation.details}</p>
+                <dl className="mt-4 space-y-1 border-t border-white/10 pt-3 text-[11px] text-slate-400">
+                  <div><dt className="inline text-slate-500">Observed: </dt><dd className="inline">{observation.observedAt}</dd></div>
+                  <div><dt className="inline text-slate-500">Scope: </dt><dd className="inline">{observation.environment}</dd></div>
+                  <div><dt className="inline text-slate-500">Evidence: </dt><dd className="inline">{observation.sourceLabel}</dd></div>
+                  {observation.commitSha && <div><dt className="inline text-slate-500">Commit: </dt><dd className="inline break-all font-mono">{observation.commitSha.slice(0, 12)}</dd></div>}
+                  {observation.deploymentId && <div><dt className="inline text-slate-500">Deployment ID: </dt><dd className="inline">{observation.deploymentId}</dd></div>}
+                </dl>
+                <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-cyan-200 hover:text-white">Open source <ArrowUpRight size={14} /></a>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-slate-500">This ledger is a versioned observation snapshot, not a polling service. A GitHub-hosted Vercel check is not represented as a direct Vercel API session.</p>
         </div>
       </section>
 
