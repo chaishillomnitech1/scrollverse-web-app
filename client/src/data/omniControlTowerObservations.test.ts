@@ -34,6 +34,14 @@ describe("Control Tower observation ledger", () => {
     expect(preview?.deploymentUrl).toBe("https://voltron-omni-hq-uxtq-git-c-c2b288-chaishill999hz-5342s-projects.vercel.app");
   });
 
+  it("records the latest ready Preview deployment with its exact source reference", () => {
+    const preview = controlTowerObservations.find((item) => item.id === "vercel-pr-24-latest-preview-ready");
+    expect(preview?.status).toBe("ready");
+    expect(preview?.environment).toBe("preview");
+    expect(preview?.deploymentId).toBe("6QXsrRbZRi4rHAPD2FRmXNq1HdFB");
+    expect(preview?.deploymentUrl).toBe("https://voltron-omni-hq-uxtq-git-c-c2b288-chaishill999hz-5342s-projects.vercel.app");
+  });
+
   it("records successful Vercel status on the merged main commit without inferring environment", () => {
     const mainDeployment = controlTowerObservations.find((item) => item.id === "vercel-main-commit-ready");
     expect(mainDeployment?.status).toBe("success");
