@@ -498,12 +498,17 @@ function LiveStatsBar() {
   const { data: guardianData } = trpc.guardian.getCount.useQuery(undefined, { staleTime: 30000, refetchInterval: 60000 });
   const { data: libraryData } = trpc.library.getStats.useQuery(undefined, { staleTime: 60000 });
   const { data: academyData } = trpc.academy.getStats.useQuery(undefined, { staleTime: 60000 });
-  const guardianCount = guardianData?.displayCount ?? 1247;
-  const isLive = guardianData?.isLive ?? false;
+  const guardianCount = guardianData?.displayCount ?? null;
+  const guardianCountLabel = guardianData?.countSource === "on_chain"
+    ? "On-chain Guardians"
+    : guardianData?.countSource === "database"
+      ? "Waitlist registrations"
+      : "Guardian count unavailable";
+  const isLive = guardianData?.countSource === "on_chain";
   const downloads = libraryData?.totalDownloads ?? 0;
   const enrollments = academyData?.totalEnrollments ?? 0;
   const stats = [
-    { value: guardianCount >= 1000 ? `${(guardianCount / 1000).toFixed(1)}K` : guardianCount.toString(), label: "Guardian Nodes", color: "#00FF88", live: isLive },
+    { value: guardianCount === null ? "Not verified" : guardianCount >= 1000 ? `${(guardianCount / 1000).toFixed(1)}K` : guardianCount.toString(), label: guardianCountLabel, color: "#00FF88", live: isLive },
     { value: downloads > 0 ? downloads.toLocaleString() : "1,005+", label: "Library Downloads", color: "#00D4FF", live: downloads > 0 },
     { value: enrollments > 0 ? enrollments.toLocaleString() : "500+", label: "Academy Enrollments", color: "#FFB800", live: enrollments > 0 },
     { value: "7.77%", label: "Zakat Flow Rate", color: "#9B59B6", live: false },
@@ -703,8 +708,12 @@ function GuardianWaitlist() {
     subscribeMutation.mutate({ email });
   };
 
-  const displayCount = countData?.displayCount ?? 1247;
-  const isLive = countData?.isLive ?? false;
+  const displayCount = countData?.displayCount ?? null;
+  const countLabel = countData?.countSource === "on_chain"
+    ? "on-chain Guardians"
+    : countData?.countSource === "database"
+      ? "waitlist registrations"
+      : "count unavailable";
 
   return (
     <div className="sv-card rounded-2xl p-8 max-w-xl mx-auto text-center" style={{ border: "1px solid rgba(0,255,136,0.2)", background: "rgba(0,255,136,0.03)" }}>
@@ -713,12 +722,12 @@ function GuardianWaitlist() {
       <p className="text-sm mb-2" style={{ color: "#8899AA" }}>Be among the first Guardians when $LONDC launches on Polygon Mainnet.</p>
       <div className="flex items-center justify-center gap-2 mb-6">
         <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: isLive ? "#00FF88" : "#FFB800" }} />
-        <span className="text-sm font-mono" style={{ color: "#00FF88" }}>
-          {displayCount.toLocaleString()} Guardians registered
+        <span className="text-sm font-mono" style={{ color: displayCount === null ? "#FFB800" : "#00FF88" }}>
+          {displayCount === null ? "Guardian count unavailable" : `${displayCount.toLocaleString()} ${countLabel}`}
         </span>
-        {isLive && (
+        {displayCount !== null && (
           <span className="text-xs font-mono px-1.5 py-0.5 rounded" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
-            ON-CHAIN
+            {countData?.countSource === "on_chain" ? "ON-CHAIN" : "DATABASE"}
           </span>
         )}
       </div>
