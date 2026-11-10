@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { controlTowerObservations } from "./omniControlTowerObservations";
+import { engineRecords } from "./omniControlTowerRegistry";
 
 describe("Control Tower observation ledger", () => {
   it("uses unique observation IDs and valid observation dates", () => {
@@ -11,6 +12,11 @@ describe("Control Tower observation ledger", () => {
       expect(item.sourceUrl).toMatch(/^https:\/\//);
       expect(Number.isNaN(Date.parse(item.observedAt))).toBe(false);
     }
+  });
+
+  it("keeps optional evidence links type-safe across all engine records", () => {
+    const nexus = engineRecords.find((engine) => engine.id === "nexus");
+    expect(nexus?.href).toBeUndefined();
   });
 
   it("preserves the merged main commit as a GitHub API observation", () => {
