@@ -110,12 +110,12 @@ describe("execution control capability and evidence contracts", () => {
       limitation: null,
     };
     const authenticatedOnly = { ...github, state: "AUTHENTICATED" as const };
-    const route = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [github]);
+    const route = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [github], new Date("2026-11-10T15:00:00.000Z"));
     expect(route?.selectedProvider).toBe("github");
     expect(route?.selectedCapabilityState).toBe("AUTHORIZED");
     expect(route?.blockedReason).toBeNull();
 
-    const blocked = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [authenticatedOnly]);
+    const blocked = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [authenticatedOnly], new Date("2026-11-10T15:00:00.000Z"));
     expect(blocked?.selectedProvider).toBeNull();
     expect(blocked?.blockedReason).toContain("AUTHORIZED");
   });
@@ -131,7 +131,7 @@ describe("execution control capability and evidence contracts", () => {
       evidenceRef: "files://library/search/receipt-001",
       limitation: null,
     };
-    const route = routeWorkWithCapabilities({ task: "review GitHub pull request" }, [files]);
+    const route = routeWorkWithCapabilities({ task: "review GitHub pull request" }, [files], new Date("2026-11-10T15:00:00.000Z"));
     expect(route?.primaryProvider).toBe("github");
     expect(route?.selectedProvider).toBe("files");
     expect(route?.selectedCapabilityId).toBe("files.library.search.read");
@@ -149,9 +149,29 @@ describe("execution control capability and evidence contracts", () => {
       evidenceRef: null,
       limitation: null,
     };
-    const route = routeWorkWithCapabilities({ task: "review GitHub pull request" }, [stale]);
+    const route = routeWorkWithCapabilities({ task: "review GitHub pull request" }, [stale], new Date("2026-11-10T15:00:00.000Z"));
     expect(route?.selectedProvider).toBeNull();
     expect(route?.selectedCapabilityState).toBe("NOT_CHECKED");
+  });
+
+  it("rejects capability snapshots older than the 15-minute freshness window", () => {
+    const expired = {
+      capabilityId: "github.repository.commit-checks.read",
+      provider: "github" as const,
+      domain: "source_control" as const,
+      action: "read checks",
+      state: "AUTHORIZED" as const,
+      checkedAt: "2026-11-10T14:00:00.000Z",
+      evidenceRef: "https://github.com/chaishillomnitech1/scrollverse-web-app",
+      limitation: null,
+    };
+    const route = routeWorkWithCapabilities(
+      { task: "review GitHub pull request" },
+      [expired],
+      new Date("2026-11-10T15:00:00.000Z"),
+    );
+    expect(route?.selectedProvider).toBeNull();
+    expect(route?.blockedReason).toContain("15-minute");
   });
 
 });
