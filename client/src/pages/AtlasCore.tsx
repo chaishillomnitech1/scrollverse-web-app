@@ -41,7 +41,13 @@ export default function AtlasCore() {
               <input id="atlas-search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search projects, artifacts, repositories…" className="h-12 w-full bg-transparent text-sm outline-none placeholder:text-[#718096]" />
             </div>
             <div className="mt-5 flex items-center justify-between text-[10px] font-mono tracking-[.12em] text-[#AFC0CF]"><span>{query.trim().length >= 2 ? "SEARCH RESULTS" : "RECENTLY UPDATED"}</span><span>{entities.length} SHOWN</span></div>
-            {search.isError || recent.isError ? <p className="mt-5 rounded-xl border border-[#FFB800]/30 bg-[#FFB800]/[.07] p-4 text-sm leading-6 text-[#FFE09A]">Atlas storage is not available yet. The schema and migration are prepared in the feature branch; database migration and deployment are still required before live records can appear.</p> : null}
+            {search.isError || recent.isError ? (
+              <div role="alert" className="mt-5 rounded-xl border border-[#FFB800]/30 bg-[#FFB800]/[.07] p-4 text-sm leading-6 text-[#FFE09A]">
+                <p className="font-bold">Atlas storage is not available to this page right now.</p>
+                <p className="mt-2">The Atlas schema, graph explorer, and source-ingestion implementation are merged into the main branch. Database connectivity and migration state are separate deployment gates. Check the protected read-only preflight and database configuration before any migration action.</p>
+                <p className="mt-2">Source-backed foundation records are intentionally imported as DRAFT and PRIVATE. They do not appear in this public explorer until an administrator reviews and publishes them.</p>
+              </div>
+            ) : null}
             {(search.isLoading || recent.isLoading) && <p className="mt-5 text-sm text-[#9DEBFF]">Loading Atlas records…</p>}
             <div className="mt-4 space-y-2">
               {entities.map(entity => (
@@ -51,7 +57,11 @@ export default function AtlasCore() {
                   {entity.summary ? <span className="mt-2 block text-sm leading-6 text-[#AFC0CF]">{entity.summary}</span> : null}
                 </button>
               ))}
-              {!search.isLoading && !recent.isLoading && !search.isError && !recent.isError && entities.length === 0 ? <p className="rounded-xl border border-white/10 p-4 text-sm text-[#AFC0CF]">{query.trim().length >= 2 ? "No published entities match that search." : "No published entities are registered yet."}</p> : null}
+              {!search.isLoading && !recent.isLoading && !search.isError && !recent.isError && entities.length === 0 ? (
+                <p className="rounded-xl border border-white/10 p-4 text-sm leading-6 text-[#AFC0CF]">
+                  No PUBLISHED and PUBLIC entities are currently available. The curated foundation batch is designed to remain DRAFT and PRIVATE until human review; those records are not missing simply because they are not publicly listed.
+                </p>
+              ) : null}
             </div>
           </div>
 
@@ -59,7 +69,7 @@ export default function AtlasCore() {
             <div className="flex items-center gap-3 text-[#DCC8FF]"><GitBranch className="h-6 w-6" /><h2 className="text-xl font-black">Relationship & lineage trace</h2></div>
             {!selectedSlug ? <div className="mt-8 rounded-2xl border border-dashed border-white/15 p-8 text-center"><Network className="mx-auto h-10 w-10 text-[#B98CFF]" /><p className="mt-4 text-lg font-bold">Select an entity to explore its neighborhood.</p><p className="mt-2 text-sm leading-6 text-[#AFC0CF]">Atlas will trace incoming and outgoing published relationships up to two hops.</p></div> : null}
             {lineage.isLoading ? <p className="mt-6 text-sm text-[#9DEBFF]">Traversing relationship graph…</p> : null}
-            {lineage.error ? <p className="mt-6 rounded-xl border border-[#FFB800]/30 p-4 text-sm text-[#FFE09A]">{lineage.error.message}</p> : null}
+            {lineage.error ? <p role="alert" className="mt-6 rounded-xl border border-[#FFB800]/30 p-4 text-sm text-[#FFE09A]">{lineage.error.message}</p> : null}
             {lineage.data ? <div className="mt-6">
               <div className="rounded-xl border border-[#FFE09A]/35 bg-[#FFE09A]/[.06] p-4"><p className="text-[10px] font-mono tracking-[.14em] text-[#FFE09A]">ROOT ENTITY</p><h3 className="mt-2 text-2xl font-black">{lineage.data.root.title}</h3><p className="mt-1 text-xs font-mono text-[#AFC0CF]">{lineage.data.root.slug} · {lineage.data.root.kind}</p></div>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
