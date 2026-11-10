@@ -405,8 +405,8 @@ export default function Dashboard() {
               <MetricCard
                 icon="🛡️"
                 label="Total Guardians"
-                value={(guardianData?.dbCount ?? metrics?.guardianCount ?? 0).toLocaleString()}
-                sub={guardianData?.isLive ? "On-chain verified" : "Platform users"}
+                value={guardianData?.displayCount?.toLocaleString() ?? "Unavailable"}
+                sub={guardianData?.countSource === "on_chain" ? "On-chain contract read" : guardianData?.countSource === "database" ? "Database waitlist records" : "Count unavailable"}
                 color="#00D4FF"
               />
               <MetricCard

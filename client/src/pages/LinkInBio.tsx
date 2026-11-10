@@ -6,6 +6,7 @@
  */
 
 import { useState, useEffect } from "react";
+import { trpc } from "@/lib/trpc";
 import { ExternalLink, Zap, Shield, Globe, BookOpen, Award, Music, TrendingUp, Users, Lock, Brain, Compass, Star } from "lucide-react";
 
 const SOVEREIGN_LINKS = [
@@ -125,18 +126,6 @@ const SOCIAL_LINKS = [
   { label: "Polygon", handle: "$LONDC on Polygon", href: "https://polygon.technology", color: "#8247E5" },
 ];
 
-// Simulated live guardian count
-function useGuardianCount() {
-  const [count, setCount] = useState(1247);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(c => c + Math.floor(Math.random() * 2));
-    }, 7000);
-    return () => clearInterval(interval);
-  }, []);
-  return count;
-}
-
 // Simulated $LONDC price
 function useLONDCPrice() {
   const [price, setPrice] = useState("0.0144");
@@ -213,7 +202,7 @@ function LinkCard({ link }: { link: typeof SOVEREIGN_LINKS[0] }) {
 }
 
 export default function LinkInBio() {
-  const guardianCount = useGuardianCount();
+  const { data: guardianData } = trpc.guardian.getCount.useQuery(undefined, { refetchInterval: 60000 });
   const { price, change } = useLONDCPrice();
   const isPositive = change >= 0;
 
@@ -270,8 +259,12 @@ export default function LinkInBio() {
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono"
               style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.2)" }}
             >
-              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-              <span style={{ color: "#00FF88" }}>{guardianCount.toLocaleString()} Guardians</span>
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: guardianData?.displayCount == null ? "#FFB800" : "#00FF88" }} />
+              <span style={{ color: guardianData?.displayCount == null ? "#FFB800" : "#00FF88" }}>
+                {guardianData?.displayCount == null
+                  ? "Guardian count unavailable"
+                  : `${guardianData.displayCount.toLocaleString()} ${guardianData.countSource === "on_chain" ? "on-chain Guardians" : "waitlist registrations"}`}
+              </span>
             </div>
 
             {/* $LONDC Price */}

@@ -82,10 +82,24 @@ export const guardianRouter = router({
    */
   getCount: publicProcedure.query(async () => {
     const db = await getDb();
-    let dbCount = 0;
-    if (db) { try { dbCount = (await db.select().from(guardianWaitlist)).length; } catch { dbCount = 0; } }
+    let dbCount: number | null = null;
+    let databaseAvailable = false;
+    if (db) {
+      try {
+        dbCount = (await db.select().from(guardianWaitlist)).length;
+        databaseAvailable = true;
+      } catch {
+        // A failed read is unavailable, not a verified zero.
+      }
+    }
     const onChainCount = await getOnChainGuardianCount();
-    return { dbCount, onChainCount, displayCount: onChainCount !== null ? onChainCount : dbCount + 1247, isLive: onChainCount !== null };
+    const countSource = onChainCount !== null
+      ? "on_chain"
+      : databaseAvailable
+        ? "database"
+        : "unavailable";
+    const displayCount = onChainCount ?? dbCount;
+    return { dbCount, databaseAvailable, onChainCount, displayCount, countSource, isLive: onChainCount !== null };
   }),
 
   /**
