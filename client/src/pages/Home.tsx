@@ -721,7 +721,7 @@ function GuardianWaitlist() {
       <h3 className="text-2xl font-black text-white mb-2">Join the 144,000</h3>
       <p className="text-sm mb-2" style={{ color: "#8899AA" }}>Be among the first Guardians when $LONDC launches on Polygon Mainnet.</p>
       <div className="flex items-center justify-center gap-2 mb-6">
-        <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: isLive ? "#00FF88" : "#FFB800" }} />
+        <div className="w-2 h-2 rounded-full" style={{ background: displayCount !== null ? "#00FF88" : "#FFB800" }} />
         <span className="text-sm font-mono" style={{ color: displayCount === null ? "#FFB800" : "#00FF88" }}>
           {displayCount === null ? "Guardian count unavailable" : `${displayCount.toLocaleString()} ${countLabel}`}
         </span>
