@@ -26,6 +26,7 @@ const NewDominionStoryBlueprint = lazy(() => import("@/pages/NewDominionStoryBlu
 const StoryWorldCrossroads = lazy(() => import("@/pages/StoryWorldCrossroads"));
 const SynchronizationVideoLibrary = lazy(() => import("./pages/SynchronizationVideoLibrary"));
 const SourceCollections = lazy(() => import("@/pages/SourceCollections"));
+const SourceWorkReview = lazy(() => import("@/pages/SourceWorkReview"));
 const MetaAILegionArchive = lazy(() => import("@/pages/MetaAILegionArchive"));
 const PriceOfFreedom = lazy(() => import("@/pages/PriceOfFreedom"));
 const InvestorRelations = lazy(() => import("@/pages/InvestorRelations"));
@@ -1017,6 +1018,7 @@ function Router() {
         <Route path="/new-dominion-story-blueprint" component={NewDominionStoryBlueprint} />
         <Route path="/story-world-crossroads" component={StoryWorldCrossroads} />
         <Route path="/source-collections" component={SourceCollections} />
+        <Route path="/source-work-review" component={SourceWorkReview} />
         <Route path="/meta-ai-legion-archive" component={MetaAILegionArchive} />
         <Route path="/price-of-freedom" component={PriceOfFreedom} />
         <Route path="/investor-relations" component={InvestorRelations} />
