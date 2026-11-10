@@ -2,7 +2,7 @@
 
 **Status:** additive implementation on `feat/omni-control-tower-integration-registry`  
 **Evidence baseline:** 2026-11-10  
-**Public route proposed:** `/omni-control-tower`
+**Branch routes:** `/omni-control-tower` and `/integration-registry`
 
 ## Purpose
 
@@ -21,7 +21,7 @@ The Integration Registry separates provider implementation evidence from authent
 
 - `client/src/data/omniControlTowerRegistry.ts`: typed, dated baseline for six engines, provider evidence states, and approval boundaries.
 - `client/src/pages/OmniControlTower.tsx`: responsive Control Tower page with six engine cards, searchable/filterable provider registry, evidence notes, and approval boundary presentation.
-- `client/src/App.tsx`: lazy-loaded `/omni-control-tower` route.
+- `client/src/App.tsx`: lazy-loaded `/omni-control-tower` and `/integration-registry` routes.
 
 ## Evidence-state vocabulary
 
