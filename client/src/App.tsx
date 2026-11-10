@@ -39,6 +39,7 @@ const MediaReleaseConceptBoard = lazy(() => import("@/pages/MediaReleaseConceptB
 const CommerceFinancialReadinessBoard = lazy(() => import("@/pages/CommerceFinancialReadinessBoard")); // import CommerceFinancialReadinessBoard from "@/pages/CommerceFinancialReadinessBoard"; deferred route module
 const ActivePathwaysReleaseGatesAudit = lazy(() => import("@/pages/ActivePathwaysReleaseGatesAudit")); // import ActivePathwaysReleaseGatesAudit from "@/pages/ActivePathwaysReleaseGatesAudit"; deferred route module
 const AtlasCore = lazy(() => import("@/pages/AtlasCore"));
+const OmniControlTower = lazy(() => import("@/pages/OmniControlTower"));
 const NotFound = lazy(() => import("@/pages/NotFound")); // import NotFound from "@/pages/NotFound"; deferred route module
 import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -839,6 +840,7 @@ function Router() {
       <Route path={"/evolution-lookbook"} component={EvolutionLookbook} />
       <Route path={"/creator-atlas"} component={CreatorAtlas} />
       <Route path={"/atlas-core"} component={AtlasCore} />
+      <Route path={"/omni-control-tower"} component={OmniControlTower} />
       <Route path={"/visual-story-worlds"} component={VisualStoryWorlds} />
       <Route path={"/sovereign-archive-chronicles"} component={SovereignArchiveChronicles} />
       <Route path={"/creator-digital-dna"} component={CreatorDigitalDNA} />
