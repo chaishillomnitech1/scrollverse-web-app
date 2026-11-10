@@ -35,7 +35,7 @@ describe("Omni Control Tower registry baseline", () => {
   });
 
   it("keeps the evidence baseline explicitly dated", () => {
-    expect(evidenceSnapshotAt).toMatch(/^\d{4}-\\d{2}-\\d{2}$/);
+    expect(evidenceSnapshotAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
   it("defines approval boundaries for consequential actions", () => {
