@@ -79,4 +79,18 @@ export const controlTowerObservations: ControlTowerObservation[] = [
     commitSha: "10bc330ed89be638390e609098debc950477e668",
     details: "The Vercel status context returned success for the PR #24 merge commit on main. The status response does not expose the deployment environment, production alias, or direct deployed-site URL.",
   },
+  {
+    id: "vercel-pr-24-latest-preview-ready",
+    provider: "Vercel",
+    observedAt: "2026-11-10T16:20:58.822Z",
+    source: "vercel-github-comment",
+    sourceLabel: "Latest Vercel deployment comment on PR #24",
+    sourceUrl: "https://github.com/chaishillomnitech1/scrollverse-web-app/pull/24",
+    status: "ready",
+    environment: "preview",
+    commitSha: "df754087b1ce90f06d4f006540b298f9c0d976ad",
+    deploymentId: "6QXsrRbZRi4rHAPD2FRmXNq1HdFB",
+    deploymentUrl: "https://voltron-omni-hq-uxtq-git-c-c2b288-chaishill999hz-5342s-projects.vercel.app",
+    details: "Vercel's latest PR #24 bot update reports this Preview deployment as Ready. It includes the merged Control Tower app and CI-coverage changes; it is not a Production alias confirmation.",
+  },
 ];
