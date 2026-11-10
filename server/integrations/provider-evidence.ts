@@ -1,5 +1,6 @@
 import {
   validateCapabilitySnapshot,
+  validateDeploymentObservation,
   type CapabilitySnapshot,
   type DeploymentObservation,
 } from "../atlas/execution-control";
@@ -69,22 +70,28 @@ async function getJson(
   token: string,
   provider: "github" | "vercel",
 ): Promise<{ ok: true; data: any } | { ok: false; status: number }> {
-  const response = await fetchImpl(url, {
-    method: "GET",
-    headers: provider === "github"
-      ? {
-          Accept: "application/vnd.github+json",
-          Authorization: `Bearer ${token}`,
-          "X-GitHub-Api-Version": "2022-11-28",
-        }
-      : {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-    signal: AbortSignal.timeout(12_000),
-  });
-  if (!response.ok) return { ok: false, status: response.status };
-  return { ok: true, data: await response.json() };
+  try {
+    const response = await fetchImpl(url, {
+      method: "GET",
+      headers: provider === "github"
+        ? {
+            Accept: "application/vnd.github+json",
+            Authorization: `Bearer ${token}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+          }
+        : {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+      signal: AbortSignal.timeout(12_000),
+    });
+    if (!response.ok) return { ok: false, status: response.status };
+    return { ok: true, data: await response.json() };
+  } catch {
+    // Provider bodies, headers, and network exceptions are deliberately not
+    // returned to callers because they may contain implementation details.
+    return { ok: false, status: 0 };
+  }
 }
 
 /**
@@ -258,18 +265,29 @@ export async function readVercelEvidence(options: {
     const environment: DeploymentObservation["environment"] =
       target === "production" ? "production" :
       target === "preview" ? "preview" : "unknown";
-    const domain = typeof item.url === "string" && item.url.length > 0
-      ? (item.url.startsWith("http") ? item.url : `https://${item.url}`)
-      : null;
-    return {
+    let domain: string | null = null;
+    if (typeof item.url === "string" && item.url.length > 0) {
+      try {
+        const parsed = new URL(item.url.startsWith("http") ? item.url : `https://${item.url}`);
+        if (parsed.protocol === "https:" && !parsed.username && !parsed.password) domain = parsed.toString();
+      } catch {
+        domain = null;
+      }
+    }
+    const candidateSha = typeof item.meta?.githubCommitSha === "string" ? item.meta.githubCommitSha : null;
+    const commitSha = candidateSha && /^[a-f0-9]{7,40}$/i.test(candidateSha) ? candidateSha : null;
+    const createdAt = item.createdAt ? new Date(item.createdAt).toISOString() : checkedAt;
+    const observation: DeploymentObservation = {
       provider: "vercel",
       environment,
       state,
       url: domain,
-      commitSha: typeof item.meta?.githubCommitSha === "string" ? item.meta.githubCommitSha : null,
-      observedAt: item.createdAt ? new Date(item.createdAt).toISOString() : checkedAt,
+      commitSha,
+      observedAt: createdAt,
       sourceRef: `vercel:deployment:${String(item.uid ?? item.id ?? "unknown")}`,
     };
+    validateDeploymentObservation(observation);
+    return observation;
   });
 
   return {
