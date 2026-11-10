@@ -1,4 +1,6 @@
 import { TRPCError } from "@trpc/server";
+import { z } from "zod";
+import { routeWorkWithCapabilities } from "../atlas/execution-control";
 import { protectedProcedure, router } from "../_core/trpc";
 import { readGitHubEvidence, readVercelEvidence } from "../integrations/provider-evidence";
 
@@ -27,4 +29,23 @@ export const executionEvidenceRouter = router({
       vercel,
     };
   }),
+  routeTask: adminReadProcedure
+    .input(z.object({
+      task: z.string().trim().min(1).max(500),
+      requiresProductionWrite: z.boolean().optional(),
+      containsSensitiveData: z.boolean().optional(),
+    }))
+    .query(async ({ input }) => {
+      const [github, vercel] = await Promise.all([
+        readGitHubEvidence(),
+        readVercelEvidence(),
+      ]);
+      const route = routeWorkWithCapabilities(input, [github.capability, vercel.capability]);
+      return {
+        mode: "ROUTING_ONLY" as const,
+        route,
+        providerStates: [github.capability, vercel.capability],
+        note: "No task was executed. Only timestamped AUTHORIZED read capabilities can be selected; writes remain approval-gated.",
+      };
+    }),
 });
