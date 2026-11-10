@@ -9,7 +9,6 @@ import {
   CircleHelp,
   Cloud,
   Database,
-  GitBranch,
   Layers3,
   LockKeyhole,
   Network,
