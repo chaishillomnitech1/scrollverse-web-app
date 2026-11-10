@@ -87,7 +87,7 @@ export type SourceWorkResolution = {
 };
 
 function normalizeTitle(value: string): string {
-  return value.normalize("NFKC").trim().replace(/\\s+/g, " ").toLocaleLowerCase("en-US");
+  return value.normalize("NFKC").trim().replace(/\s+/g, " ").toLocaleLowerCase("en-US");
 }
 
 function normalizeRoute(value: string): string {
