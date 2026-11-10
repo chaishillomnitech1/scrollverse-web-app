@@ -71,6 +71,7 @@ import { presenceRouter } from "./routers/presence";
 import { royaltyRecordsRouter } from "./routers/royaltyRecords";
 import { portfolioSummaryRouter } from "./routers/portfolioSummary";
 import { atlasRouter } from "./routers/atlas";
+import { executionEvidenceRouter } from "./routers/executionEvidence";
 
 export const appRouter = router({
   system: systemRouter,
@@ -154,6 +155,7 @@ export const appRouter = router({
   royaltyRecords: royaltyRecordsRouter,
   portfolioSummary: portfolioSummaryRouter,
   atlas: atlasRouter,
+  executionEvidence: executionEvidenceRouter,
 });
 
 export type AppRouter = typeof appRouter;
