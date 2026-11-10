@@ -94,6 +94,75 @@ export function routeWorkToSpecialist(request: WorkRequest): SpecialistRoute | n
   };
 }
 
+export type CapabilityAwareSpecialistRoute = SpecialistRoute & {
+  selectedProvider: CapabilityProvider | null;
+  selectedCapabilityId: string | null;
+  selectedCapabilityState: CapabilityState;
+  fallbackProvidersAuthorized: CapabilityProvider[];
+  blockedReason: string | null;
+};
+
+const REQUIRED_READ_CAPABILITY: Record<CapabilityProvider, string> = {
+  github: "github.repository.commit-checks.read",
+  vercel: "vercel.project.deployments.read",
+  digitalocean: "digitalocean.droplets.read",
+  dropbox: "dropbox.files.metadata.read",
+  files: "files.library.search.read",
+  figma: "figma.files.read",
+  canva: "canva.designs.read",
+  clickup: "clickup.tasks.read",
+  hubspot: "hubspot.crm.read",
+  shopify: "shopify.store.read",
+  wix: "wix.site.read",
+  stripe: "stripe.balance.read",
+  quickbooks: "quickbooks.accounting.read",
+  docusign: "docusign.envelopes.read",
+  honeybook: "honeybook.projects.read",
+  sequel: "sequel.webinars.read",
+};
+
+/**
+ * Selects a provider only when the exact read capability has a current
+ * AUTHORIZED snapshot. AUTHENTICATED alone is deliberately insufficient.
+ * The result is routing metadata, not an instruction to execute a write.
+ */
+export function routeWorkWithCapabilities(
+  request: WorkRequest,
+  snapshots: readonly CapabilitySnapshot[],
+): CapabilityAwareSpecialistRoute | null {
+  const base = routeWorkToSpecialist(request);
+  if (!base) return null;
+
+  const isAuthorized = (provider: CapabilityProvider) => {
+    const requiredId = REQUIRED_READ_CAPABILITY[provider];
+    return snapshots.find(snapshot =>
+      snapshot.provider === provider &&
+      snapshot.capabilityId === requiredId &&
+      snapshot.state === "AUTHORIZED" &&
+      Boolean(snapshot.checkedAt) &&
+      Boolean(snapshot.evidenceRef),
+    );
+  };
+
+  const primary = isAuthorized(base.primaryProvider);
+  const authorizedFallbacks = base.fallbackProviders.filter(provider => Boolean(isAuthorized(provider)));
+  const selectedProvider = primary ? base.primaryProvider : authorizedFallbacks[0] ?? null;
+  const selectedSnapshot = selectedProvider
+    ? isAuthorized(selectedProvider)
+    : undefined;
+
+  return {
+    ...base,
+    selectedProvider,
+    selectedCapabilityId: selectedSnapshot?.capabilityId ?? null,
+    selectedCapabilityState: selectedSnapshot?.state ?? "NOT_CHECKED",
+    fallbackProvidersAuthorized: authorizedFallbacks,
+    blockedReason: selectedProvider
+      ? null
+      : "No provider has a timestamped AUTHORIZED snapshot for the required read action. Refresh provider evidence or connect the exact capability.",
+  };
+}
+
 export type EvidenceStage =
   | "USER_REPORTED" | "SOURCE_LOCATED" | "INSPECTED" | "IMPLEMENTED"
   | "TESTED" | "CI_PASSED" | "PREVIEW_READY"
