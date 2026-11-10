@@ -841,6 +841,7 @@ function Router() {
       <Route path={"/creator-atlas"} component={CreatorAtlas} />
       <Route path={"/atlas-core"} component={AtlasCore} />
       <Route path={"/omni-control-tower"} component={OmniControlTower} />
+      <Route path={"/integration-registry"} component={OmniControlTower} />
       <Route path={"/visual-story-worlds"} component={VisualStoryWorlds} />
       <Route path={"/sovereign-archive-chronicles"} component={SovereignArchiveChronicles} />
       <Route path={"/creator-digital-dna"} component={CreatorDigitalDNA} />
