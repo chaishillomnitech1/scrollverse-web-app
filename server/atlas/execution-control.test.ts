@@ -117,34 +117,25 @@ describe("execution control capability and evidence contracts", () => {
 
     const blocked = routeWorkWithCapabilities({ task: "review GitHub pull request and tests" }, [authenticatedOnly]);
     expect(blocked?.selectedProvider).toBeNull();
-    expect(blocked?.blockedReason).toContain("AUTHORISED");
+    expect(blocked?.blockedReason).toContain("AUTHORIZED");
   });
 
   it("uses an authorized fallback only when the primary provider is not authorized", () => {
-    const vercel = {
-      capabilityId: "vercel.project.deployments.read",
-      provider: "vercel" as const,
-      domain: "deployment" as const,
-      action: "read recent deployment status for the configured Vercel project",
+    const files = {
+      capabilityId: "files.library.search.read",
+      provider: "files" as const,
+      domain: "archive" as const,
+      action: "search indexed source files",
       state: "AUTHORIZED" as const,
       checkedAt: "2026-11-10T15:00:00.000Z",
-      evidenceRef: "https://api.vercel.com/v6/deployments?projectId=prj_example",
+      evidenceRef: "files://library/search/receipt-001",
       limitation: null,
     };
-    const github = {
-      capabilityId: "github.repository.commit-checks.read",
-      provider: "github" as const,
-      domain: "source_control" as const,
-      action: "read repository metadata, commit metadata, and commit check runs",
-      state: "AUTHORIZED" as const,
-      checkedAt: "2026-11-10T15:00:00.000Z",
-      evidenceRef: "https://github.com/chaishillomnitech1/scrollverse-web-app",
-      limitation: null,
-    };
-    const route = routeWorkWithCapabilities({ task: "check deployment preview" }, [github, vercel]);
-    expect(route?.primaryProvider).toBe("vercel");
-    expect(route?.selectedProvider).toBe("vercel");
-    expect(route?.selectedCapabilityId).toBe("vercel.project.deployments.read");
+    const route = routeWorkWithCapabilities({ task: "review GitHub pull request" }, [files]);
+    expect(route?.primaryProvider).toBe("github");
+    expect(route?.selectedProvider).toBe("files");
+    expect(route?.selectedCapabilityId).toBe("files.library.search.read");
+    expect(route?.fallbackProvidersAuthorized).toEqual(["files"]);
   });
 
   it("does not treat stale or evidence-free authorization claims as routable", () => {
