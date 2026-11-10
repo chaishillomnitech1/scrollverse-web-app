@@ -152,8 +152,16 @@ export function resolveSourceCollectionsToWork(input: {
         })
         .map(citation => {
           const batch = batchById.get(citation.batch);
-          const accessionMatches = batch
+          const filenameMatches = batch
             ? accessionsByFilename.get(batch.filename.normalize("NFKC").toLocaleLowerCase("en-US")) ?? []
+            : [];
+          // A repeated filename is not enough to identify a version. Join only
+          // when both recorded byte count and SHA-256 match the source receipt.
+          const accessionMatches = batch
+            ? filenameMatches.filter(accession =>
+                accession.bytes === batch.bytes &&
+                accession.sha256.toLowerCase() === batch.sha256.toLowerCase(),
+              )
             : [];
           return {
             batchId: citation.batch,
