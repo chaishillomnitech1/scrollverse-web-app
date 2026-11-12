@@ -1419,6 +1419,12 @@ const PHASE1013_SANA_REFERENCES = [
   { file: "Agent-25-Omni-Sana.html", label: "Agent 25 Omni Sana · HTML source receipt" },
   { file: "ReactArtifact.html", label: "Sana React artifact · HTML source receipt" },
 ] as const;
+const PHASE1016_ATTACHMENT_RECEIPTS = [
+  { file: "pasted_content_182.txt", label: "New source context receipt · 182", detail: "Creator-attached source context; exact local receipt recorded" },
+  { file: "pasted_content_183.txt", label: "New source context receipt · 183", detail: "Creator-attached source context; exact local receipt recorded" },
+  { file: "pasted_content_184.txt", label: "New source context receipt · 184", detail: "Creator-attached source context; exact local receipt recorded" },
+  { file: "pasted_content_185.txt", label: "New source context receipt · 185", detail: "Creator-attached source context; exact local receipt recorded" },
+] as const;
 const AURELLION_FEDERATION_RECORD = {
   title: "AURELLION · Intelligence of Connected Light",
   detail: "A source-led doorway into the independent Legion world, federated coordination, and evidence-based maturity states.",
@@ -1604,6 +1610,28 @@ function CreatorMotionShelf() {
             </div>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {PHASE1013_SANA_REFERENCES.filter(reference => reference.file.endsWith(".mp4")).map((reference) => <SanaMotionPreviewCard key={reference.file} reference={reference} />)}
+            </div>
+          </section>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.035] p-5" aria-labelledby="phase1016-attachment-receipts-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#9DEBFF]">NOV 12 ACCESSION · METADATA REGISTER</p>
+                <h3 id="phase1016-attachment-receipts-title" className="mt-2 text-2xl font-black text-white">PHASE 1016 · NOV 12 ATTACHMENT RECEIPTS</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">SOURCE CONTEXT ONLY. These four creator-attached text files are represented by exact local byte counts and SHA-256 receipts. No execution, extraction, or rendering occurs here; choose a receipt to open the local accession desk.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#9DEBFF]/50 px-4 py-3 text-xs font-black text-[#C9F4FF] transition hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">Open receipt desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {PHASE1016_ATTACHMENT_RECEIPTS.map((receipt) => (
+                <Link key={receipt.file} href={`/digitalship-accession?source=${encodeURIComponent(receipt.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#9DEBFF]/60 hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-[#9DEBFF]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(157,235,255,.2),transparent_48%),#020611] text-3xl text-[#C9F4FF] transition group-hover:shadow-[0_0_28px_rgba(157,235,255,.2)]" aria-hidden="true">⌁</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{receipt.label}</h4>
+                  <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{receipt.detail}</p>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{receipt.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#C9F4FF]">Review local receipt →</span>
+                </Link>
+              ))}
             </div>
           </section>
           <AurellionFederationDoorway />

@@ -1,0 +1,36 @@
+{
+  "batch": "Phase 1016 · Nov 12 attachment batch",
+  "sourceReceivedAt": "2026-11-12",
+  "mode": "metadata-only",
+  "records": [
+    {
+      "file": "pasted_content_182.txt",
+      "bytes": 227065,
+      "mime": "text/plain",
+      "sha256": "f607af647eee852d4d74f5e3816361c9406e6f9b1de99e24ff6facf824b69eaa",
+      "boundary": "metadata-only"
+    },
+    {
+      "file": "pasted_content_183.txt",
+      "bytes": 90293,
+      "mime": "text/plain",
+      "sha256": "1275089ca18cd0e9acc2a1baf4f9d712f24e877afd496fa8ae09dd249dfe8de5",
+      "boundary": "metadata-only"
+    },
+    {
+      "file": "pasted_content_184.txt",
+      "bytes": 24058,
+      "mime": "text/plain",
+      "sha256": "72ea89a5921e362cb3aaeaf83014a9674efbf371905dd65e73628c78e4904f9f",
+      "boundary": "metadata-only"
+    },
+    {
+      "file": "pasted_content_185.txt",
+      "bytes": 8889,
+      "mime": "text/plain",
+      "sha256": "adf450e6cf1a7d7c7b320c6b5cea2689378537a7afbea7fc552b3367b2bb1b07",
+      "boundary": "metadata-only"
+    }
+  ],
+  "boundary": "Source context only: files were not executed, opened for interpretation, not extracted, not rendered, not transformed, not uploaded, not embedded, not published, or treated as independently verified."
+}
