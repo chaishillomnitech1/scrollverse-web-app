@@ -47,6 +47,12 @@ The existing repository already contains an Atlas Core foundation. This doctrine
 
 The current graph implementation supports deterministic traversal with a maximum depth of five hops. The public Atlas API is documented as exposing only PUBLISHED + PUBLIC records. Foundation ingestion is designed to leave graph records DRAFT + PRIVATE and evidence QUEUED; ingestion does not itself publish records.
 
+### Historical architecture record
+
+The earlier [Atlas Architecture Decision Record V2](https://github.com/chaishillomnitech1/scrollverse-master-ecosystem-hub/blob/main/docs/atlas/ATLAS-ARCHITECTURE-DECISION-RECORD-V2.md), recorded 2026-11-09, described Atlas Core as proposed and not yet implemented at that snapshot. It correctly required preserving Creator Atlas, source-backed seed data, provenance, bounded traversal, and no premature graph-database adoption. Subsequent source now present on `main` includes the Atlas schema, graph traversal, ingestion adapters, foundation batch, API, and explorer. Treat the V2 ADR's implementation-status paragraph as a historical snapshot, not the current source-tree inventory. Preserve the ADR unchanged as historical evidence; this document records the later reconciliation rather than rewriting it.
+
+The earlier ADR's proposed `atlas-seed.json` and `atlas_phase3_api_seed.ts` are not to be reconstructed or relabeled as recovered originals. The later `data/atlas/foundation.v1.ts` is a separate, source-labelled foundation batch with its own history and review boundaries.
+
 **Operational boundary:** Source code and workflow definitions do not prove that a live database migration, seed, production route, or current service is active. The current repository documentation says the live database state is not confirmed and migration/seed execution remains separately gated. Do not promote these capabilities to ACTIVE without current operational evidence.
 
 ## 4. Canonical entity model — additive mapping
