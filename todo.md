@@ -6881,3 +6881,11 @@
 - [x] Focused Phase 1014 regression: 4/4; skill validation passed; `git diff --check` passed.
 - [x] Run the fresh full Vitest, strict TypeScript, guarded production build, and checkpoint the combined local state: 452 files / 1201 tests passed; TypeScript passed; build passed in 16.68s; skill validation passed; `git diff --check` passed.
 - Boundary: supplied shared HTML/media and chat claims remain source context; no credentials, provider calls, wallet, contract, payment, account, repository write, or external publication action is performed by this phase.
+
+## Phase 1016 — Nov 12 Attachment Receipt Shelf
+- [x] Accession `pasted_content_182.txt` through `pasted_content_185.txt` as exact local byte-count and SHA-256 metadata-only receipts in `docs/source-review-nov12/nov12-attachment-batch-manifest.json`.
+- [x] Add a visible homepage receipt shelf with SOURCE CONTEXT ONLY labeling and direct Digitalship Accession Desk routes for all four records.
+- [x] Preserve the explicit boundary: no execution, interpretation, extraction, rendering, transformation, upload, embedding, publication, or independent verification of supplied bodies.
+- [x] Verification passed: Phase 1016 + Phase 1014 focused regressions, strict TypeScript, guarded production build, and `git diff --check`; existing non-blocking >500 kB runtime chunk warning remains.
+- [x] Saved checkpoint `74ceb1c3`; managed WebDev reported deployment successful and read-only checks returned HTTP 200 for both ScrollVerse domains.
+- Boundary: no wallet, billing, payment, contract, account, provider, repository-write, or external media action was performed.
