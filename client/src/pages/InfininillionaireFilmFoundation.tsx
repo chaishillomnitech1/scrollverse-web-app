@@ -13,6 +13,55 @@ type FilmChapter = {
   developmentFocus: string;
 };
 
+type LearningModule = {
+  id: string;
+  title: string;
+  status: "ready" | "building" | "planned";
+  detail: string;
+  accent: string;
+};
+
+const LEARNING_MODULES: LearningModule[] = [
+  { id: "source-led", title: "Source-Led Storycraft", status: "ready", detail: "Provenance labels, creator context, and review questions are mapped locally.", accent: "#9BEA9B" },
+  { id: "world-building", title: "Quantum World-Building", status: "building", detail: "Rooms, thresholds, and accessibility prompts are being assembled as a local draft.", accent: "#D7A7FF" },
+  { id: "release-readiness", title: "Release Readiness", status: "planned", detail: "A future checklist for captions, rights notes, destinations, and owner review.", accent: "#FFCF73" },
+];
+
+function LearningModuleDashboard() {
+  const [moduleStatusFilter, setModuleStatusFilter] = useState<"all" | LearningModule["status"]>("all");
+  const filteredModules = useMemo(
+    () => moduleStatusFilter === "all" ? LEARNING_MODULES : LEARNING_MODULES.filter(module => module.status === moduleStatusFilter),
+    [moduleStatusFilter],
+  );
+
+  return (
+    <section aria-labelledby="learning-module-dashboard-title" className="mt-8 rounded-[2rem] border border-[#9BEA9B]/30 bg-[radial-gradient(circle_at_88%_12%,rgba(155,234,155,.12),transparent_32%),rgba(155,234,155,.035)] p-6 md:p-8">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-[10px] font-mono tracking-[.18em] text-[#B9F4B9]">BLACK MANSION · BROWSER-LOCAL STATUS</p>
+          <h2 id="learning-module-dashboard-title" className="mt-2 text-3xl font-black text-white">Learning Module Dashboard</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#E2DEEF]">Auto-generated learning modules are tracked as local planning records. Nothing is published, scheduled, or deployed from this dashboard.</p>
+        </div>
+        <div role="group" aria-label="Filter learning modules by status" className="flex flex-wrap gap-2">
+          {(["all", "ready", "building", "planned"] as const).map(status => (
+            <button key={status} type="button" aria-pressed={moduleStatusFilter === status} onClick={() => setModuleStatusFilter(status)} className="min-h-10 rounded-full border px-3 py-2 text-[10px] font-black uppercase tracking-[.12em] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B9F4B9]" style={{ borderColor: moduleStatusFilter === status ? "rgba(185,244,185,.7)" : "rgba(255,255,255,.15)", background: moduleStatusFilter === status ? "rgba(155,234,155,.15)" : "rgba(255,255,255,.03)", color: moduleStatusFilter === status ? "#B9F4B9" : "#B9C7D6" }}>{status}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mt-6 grid gap-4 md:grid-cols-3" aria-live="polite">
+        {filteredModules.map(module => (
+          <article key={module.id} className="rounded-2xl border border-white/10 bg-[#070611]/65 p-5 transition hover:-translate-y-1" style={{ boxShadow: `0 14px 30px ${module.accent}12` }}>
+            <div className="flex items-center justify-between gap-3"><span className="h-3 w-3 rounded-full" aria-hidden="true" style={{ background: module.accent, boxShadow: `0 0 14px ${module.accent}` }} /><span className="text-[10px] font-mono uppercase tracking-[.14em]" style={{ color: module.accent }}>{module.status}</span></div>
+            <h3 className="mt-4 text-lg font-black text-white">{module.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-[#E2DEEF]">{module.detail}</p>
+          </article>
+        ))}
+      </div>
+      <p className="mt-4 text-xs font-mono text-[#B9C7D6]">Showing {filteredModules.length} of {LEARNING_MODULES.length} local module records.</p>
+    </section>
+  );
+}
+
 const FILM_CHAPTERS: FilmChapter[] = [
   {
     id: "queensbridge",
@@ -142,6 +191,7 @@ export default function InfininillionaireFilmFoundation() {
             <button type="button" onClick={() => downloadFilmRecord(activeChapter)} className="mt-6 rounded-xl px-5 py-3 text-sm font-black text-[#080611] transition hover:brightness-110 active:scale-[.98]" style={{ background: activeChapter.color }}>Export local {activeChapter.title} record ↓</button>
           </section>
         </div>
+        <LearningModuleDashboard />
       </section>
 
       <section className="border-y border-white/10 bg-[#0A0913]">

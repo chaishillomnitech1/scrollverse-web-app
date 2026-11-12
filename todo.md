@@ -6872,3 +6872,12 @@
 - [x] Extend `scrollverse-source-led-portfolio` with the reusable new-batch accession and Legion convergence communication patterns.
 - [x] Verification passed: focused 8/8; full Vitest 450 files / 1194 tests; strict TypeScript; guarded production build exit 0 in 17.74s; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
 - [x] Boundary retained: no supplied HTML or media was opened, rendered, executed, extracted, transformed, uploaded, embedded, published, or treated as independently verified; no external repository, wallet, billing, payment, contract, account, hosting, or publication action was performed.
+
+## Phase 1015 — AURELLION Federation Doorway + Evidence Constitution
+- [x] Add a visible homepage doorway for AURELLION / Intelligence of Connected Light with first-party repository and merged PR #4, #5, and #6 links.
+- [x] Preserve the independent-world federation pattern and show DOCUMENTED / IMPLEMENTED / VERIFIED / ACTIVE maturity states without overstating provider, peer, staging, or production activation.
+- [x] Save the dated source review at `docs/source-review-nov12/aurellion-federation-source-review.md` using current GitHub and live-domain checks alongside shared-reference context.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable federated-intelligence and evidence-maturity pattern.
+- [x] Focused Phase 1014 regression: 4/4; skill validation passed; `git diff --check` passed.
+- [x] Run the fresh full Vitest, strict TypeScript, guarded production build, and checkpoint the combined local state: 452 files / 1201 tests passed; TypeScript passed; build passed in 16.68s; skill validation passed; `git diff --check` passed.
+- Boundary: supplied shared HTML/media and chat claims remain source context; no credentials, provider calls, wallet, contract, payment, account, repository write, or external publication action is performed by this phase.

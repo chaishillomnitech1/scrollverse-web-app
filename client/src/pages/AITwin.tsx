@@ -98,6 +98,7 @@ export default function AITwin() {
   const [messages, setMessages] = useState<Message[]>([WELCOME_MSG]);
   const [input, setInput] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const [retryStatus, setRetryStatus] = useState<"idle" | "retrying" | "success">("idle");
   const [retryRequest, setRetryRequest] = useState<{ message: string; history: Array<{ role: "user" | "assistant"; content: string }> } | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const utils = trpc.useUtils();
@@ -155,6 +156,7 @@ export default function AITwin() {
         return updated;
       });
       setIsThinking(false);
+      setRetryStatus(prev => (prev === "retrying" ? "success" : "idle"));
       setRetryRequest(null);
     },
     onError: (_error, variables) => {
@@ -169,8 +171,15 @@ export default function AITwin() {
         },
       ]);
       setIsThinking(false);
+      setRetryStatus("idle");
     },
   });
+
+  useEffect(() => {
+    if (retryStatus !== "success") return;
+    const timeout = window.setTimeout(() => setRetryStatus("idle"), 3200);
+    return () => window.clearTimeout(timeout);
+  }, [retryStatus]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -201,6 +210,7 @@ export default function AITwin() {
 
   const retryLastRequest = () => {
     if (!retryRequest || isThinking) return;
+    setRetryStatus("retrying");
     setIsThinking(true);
     askTwinMutation.mutate(retryRequest);
   };
@@ -403,8 +413,15 @@ export default function AITwin() {
               </div>
 
               <div className="sr-only" aria-live="polite" aria-atomic="true">
-                {isThinking ? "The AI Twin is preparing a response." : retryRequest ? "The AI channel is temporarily unavailable. A retry is available." : "The AI Twin is ready."}
+                {retryStatus === "retrying" ? "Retrying response." : retryStatus === "success" ? "Response restored." : isThinking ? "The AI Twin is preparing a response." : retryRequest ? "The AI channel is temporarily unavailable. A retry is available." : "The AI Twin is ready."}
               </div>
+
+              {retryStatus === "success" && (
+                <div role="status" className="mx-6 mt-4 flex items-center gap-3 rounded-xl border border-[#00FF88]/35 bg-[#00FF88]/10 px-4 py-3 text-xs font-black text-[#B5F7CC]">
+                  <span aria-hidden="true" className="flex h-6 w-6 items-center justify-center rounded-full bg-[#00FF88]/20 text-sm">✓</span>
+                  <span>Response restored · the AI Twin is back in conversation.</span>
+                </div>
+              )}
 
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4" style={{ maxHeight: "520px" }}>
@@ -451,7 +468,7 @@ export default function AITwin() {
                 {retryRequest && !isThinking && (
                   <div className="flex justify-start">
                     <button type="button" onClick={retryLastRequest} className="min-h-11 rounded-xl border px-4 py-2 text-xs font-black transition hover:bg-[#00D4FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BCEEFF]" style={{ borderColor: "rgba(0,212,255,0.35)", color: "#BCEEFF" }}>
-                      Retry response
+                      {retryStatus === "retrying" ? <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-3 w-3 animate-spin rounded-full border-2 border-[#BCEEFF]/30 border-t-[#BCEEFF]" />Retrying response</span> : "Retry response"}
                     </button>
                   </div>
                 )}

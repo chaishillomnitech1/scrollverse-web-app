@@ -1419,6 +1419,65 @@ const PHASE1013_SANA_REFERENCES = [
   { file: "Agent-25-Omni-Sana.html", label: "Agent 25 Omni Sana · HTML source receipt" },
   { file: "ReactArtifact.html", label: "Sana React artifact · HTML source receipt" },
 ] as const;
+const AURELLION_FEDERATION_RECORD = {
+  title: "AURELLION · Intelligence of Connected Light",
+  detail: "A source-led doorway into the independent Legion world, federated coordination, and evidence-based maturity states.",
+  repository: "https://github.com/chaishillomnitech1/scrollverse-ai-legion",
+  prs: [
+    { label: "Foundation · PR #4", href: "https://github.com/chaishillomnitech1/scrollverse-ai-legion/pull/4", state: "MERGED" },
+    { label: "Runtime + federation · PR #5", href: "https://github.com/chaishillomnitech1/scrollverse-ai-legion/pull/5", state: "MERGED" },
+    { label: "Governed context · PR #6", href: "https://github.com/chaishillomnitech1/scrollverse-ai-legion/pull/6", state: "MERGED" },
+  ],
+  evidence: "Current GitHub read-only review · recent Foundation Checks successful",
+} as const;
+
+function AurellionFederationDoorway() {
+  const maturity = [
+    ["DOCUMENTED", "Doctrine, architecture, and source record"],
+    ["IMPLEMENTED", "Provider-neutral runtime and retrieval foundations"],
+    ["VERIFIED", "Recorded repository checks for the reviewed commits"],
+    ["ACTIVE", "Shown only when current operational evidence exists"],
+  ] as const;
+  return (
+    <section aria-labelledby="aurellion-federation-title" className="lg:col-span-2 rounded-[1.7rem] border border-[#B98CFF]/35 bg-[radial-gradient(circle_at_12%_12%,rgba(185,140,255,.16),transparent_34%),rgba(185,140,255,.045)] p-5 md:p-7">
+      <div className="flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p className="text-[10px] font-mono tracking-[.16em] text-[#D9C1FF]">CONNECTED LIGHT · FEDERATION DOORWAY</p>
+          <h3 id="aurellion-federation-title" className="mt-2 text-2xl font-black text-white md:text-3xl">{AURELLION_FEDERATION_RECORD.title}</h3>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[#D6E2EE]">{AURELLION_FEDERATION_RECORD.detail} Each world keeps its own identity; coordination records pathways without absorbing the source.</p>
+        </div>
+        <a href={AURELLION_FEDERATION_RECORD.repository} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-[#D9C1FF]/50 bg-[#B98CFF]/10 px-4 py-3 text-xs font-black text-[#F0E4FF] transition hover:bg-[#B98CFF]/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]">Open Legion repository ↗</a>
+      </div>
+      <div className="mt-5 grid gap-3 md:grid-cols-4" aria-label="AURELLION evidence maturity states">
+        {maturity.map(([label, text]) => <div key={label} className="rounded-2xl border border-white/10 bg-[#050A16]/70 p-4"><p className="text-[10px] font-mono tracking-[.12em] text-[#D9C1FF]">{label}</p><p className="mt-2 text-xs leading-5 text-[#C8D8E7]">{text}</p></div>)}
+      </div>
+      <div className="mt-5 grid gap-3 md:grid-cols-3">
+        {AURELLION_FEDERATION_RECORD.prs.map((pr) => <a key={pr.href} href={pr.href} target="_blank" rel="noreferrer" className="rounded-2xl border border-[#D9C1FF]/20 bg-[#050A16]/60 p-4 transition hover:-translate-y-1 hover:border-[#D9C1FF]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]"><div className="flex items-center justify-between gap-3"><span className="text-sm font-black text-white">{pr.label}</span><span className="text-[10px] font-mono text-[#B5F7CC]">{pr.state}</span></div><span className="mt-3 inline-block text-xs font-black text-[#D9C1FF]">Open source record ↗</span></a>)}
+      </div>
+      <p className="mt-5 text-[10px] leading-5 text-[#AEBFD0]">{AURELLION_FEDERATION_RECORD.evidence}. Provider credentials, live model traffic, peer keys, staging, and production activation are not represented by this display card.</p>
+    </section>
+  );
+}
+function SanaMotionPreviewCard({ reference }: { reference: (typeof PHASE1013_SANA_REFERENCES)[number] }) {
+  const [previewOpen, setPreviewOpen] = useState(false);
+  return (
+    <article className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/10 focus-within:border-[#00FF88]/60">
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-[#00FF88]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(0,255,136,.18),transparent_48%),#020611] text-3xl text-[#B5F7CC] transition duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_28px_rgba(0,255,136,.2)]" aria-label="Sana video preview placeholder">
+        <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(181,247,204,.16),transparent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <span aria-hidden="true">◉</span>
+        {previewOpen && <span className="absolute bottom-2 left-2 rounded-full border border-[#B5F7CC]/30 bg-[#020611]/85 px-2 py-1 text-[9px] font-mono text-[#B5F7CC]">PREVIEW SELECTED</span>}
+      </div>
+      <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#B5F7CC]">METADATA-ONLY SOURCE RECEIPT</p>
+      <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+      <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <button type="button" onClick={() => setPreviewOpen(open => !open)} aria-pressed={previewOpen} className="min-h-10 rounded-xl border border-[#00FF88]/40 px-3 py-2 text-xs font-black text-[#B5F7CC] transition hover:bg-[#00FF88]/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">{previewOpen ? "Close preview" : "Play when hosted"}</button>
+        <Link href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="min-h-10 rounded-xl px-2 py-2 text-xs font-black text-[#F0FFF5] transition hover:text-[#B5F7CC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">Review receipt →</Link>
+      </div>
+      <p className="mt-2 text-[10px] leading-5 text-[#9DB0C1]">No autoplay. The preview is a browser-local selection state; playback waits for a separately hosted source.</p>
+    </article>
+  );
+}
 const NEWLY_SUPPLIED_MOTION_REFERENCES = [
   { file: "video(29).mp4", label: "Motion reference 29" },
   { file: "video(28).mp4", label: "Motion reference 28" },
@@ -1544,17 +1603,10 @@ function CreatorMotionShelf() {
               <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#00FF88]/50 px-4 py-3 text-xs font-black text-[#B5F7CC] transition hover:bg-[#00FF88]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">Review receipt desk →</Link>
             </div>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {PHASE1013_SANA_REFERENCES.map((reference) => (
-                <Link key={reference.file} href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">
-                  <div className="flex aspect-video items-center justify-center rounded-xl border border-[#00FF88]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(0,255,136,.18),transparent_48%),#020611] text-3xl text-[#B5F7CC] transition group-hover:shadow-[0_0_28px_rgba(0,255,136,.2)]" aria-hidden="true">◉</div>
-                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#B5F7CC]">METADATA-ONLY SOURCE RECEIPT</p>
-                  <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
-                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
-                  <span className="mt-3 inline-block text-xs font-black text-[#B5F7CC]">Choose a source record to review →</span>
-                </Link>
-              ))}
+              {PHASE1013_SANA_REFERENCES.filter(reference => reference.file.endsWith(".mp4")).map((reference) => <SanaMotionPreviewCard key={reference.file} reference={reference} />)}
             </div>
           </section>
+          <AurellionFederationDoorway />
           <div className="grid gap-5">
             {theaterScreenings.map(screening => (
               <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
