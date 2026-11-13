@@ -467,9 +467,12 @@ export default function AITwin() {
                 )}
                 {retryRequest && !isThinking && (
                   <div className="flex justify-start">
-                    <button type="button" onClick={retryLastRequest} className="min-h-11 rounded-xl border px-4 py-2 text-xs font-black transition hover:bg-[#00D4FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BCEEFF]" style={{ borderColor: "rgba(0,212,255,0.35)", color: "#BCEEFF" }}>
-                      {retryStatus === "retrying" ? <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-3 w-3 animate-spin rounded-full border-2 border-[#BCEEFF]/30 border-t-[#BCEEFF]" />Retrying response</span> : "Retry response"}
-                    </button>
+                    <div className="group relative">
+                      <button type="button" onClick={retryLastRequest} aria-label="Retry the last AI Twin request" title="Retry the last AI Twin request" className="min-h-11 rounded-xl border px-4 py-2 text-xs font-black transition duration-200 hover:-translate-y-0.5 hover:bg-[#00D4FF]/10 hover:shadow-[0_0_22px_rgba(0,212,255,.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BCEEFF]" style={{ borderColor: "rgba(0,212,255,0.35)", color: "#BCEEFF" }}>
+                        {retryStatus === "retrying" ? <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-3 w-3 animate-spin rounded-full border-2 border-[#BCEEFF]/30 border-t-[#BCEEFF]" />Retrying response</span> : "Retry response"}
+                      </button>
+                      <span role="tooltip" className="pointer-events-none absolute bottom-full left-0 z-10 mb-2 w-max max-w-[16rem] -translate-y-1 rounded-lg border border-[#BCEEFF]/30 bg-[#06101D] px-3 py-2 text-[11px] text-[#D6F7FF] opacity-0 shadow-xl transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">Retry the last AI Twin request</span>
+                    </div>
                   </div>
                 )}
                 <div ref={messagesEndRef} />

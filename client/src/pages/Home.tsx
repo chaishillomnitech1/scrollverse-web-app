@@ -1511,6 +1511,8 @@ function FeaturedSovereignArchiveVideo() {
 
 function CreatorMotionShelf() {
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [receiptQuery, setReceiptQuery] = useState("");
+  const [receiptSort, setReceiptSort] = useState<"newest" | "oldest">("newest");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1521,6 +1523,11 @@ function CreatorMotionShelf() {
   }, []);
 
   const facebookEmbedUrl = `https://www.facebook.com/plugins/video.php?height=476&href=${encodeURIComponent("https://www.facebook.com/reel/2042773263104950/")}&show_text=false&width=267&autoplay=0`;
+  const normalizedReceiptQuery = receiptQuery.trim().toLowerCase();
+  const filteredPhase1016Receipts = PHASE1016_ATTACHMENT_RECEIPTS
+    .filter(receipt => `${receipt.file} ${receipt.label} ${receipt.detail}`.toLowerCase().includes(normalizedReceiptQuery))
+    .slice()
+    .sort((a, b) => receiptSort === "newest" ? b.file.localeCompare(a.file) : a.file.localeCompare(b.file));
 
   return (
     <section id="creator-motion-shelf" aria-labelledby="creator-motion-shelf-title" data-reduced-motion={reducedMotion ? "true" : "false"} className="relative overflow-hidden border-y" style={{ borderColor: "rgba(157,235,255,.24)", background: "radial-gradient(circle at 15% 18%, rgba(0,212,255,.13), transparent 30%), radial-gradient(circle at 84% 78%, rgba(0,255,136,.1), transparent 28%), #06101D" }}>
@@ -1619,10 +1626,28 @@ function CreatorMotionShelf() {
                 <h3 id="phase1016-attachment-receipts-title" className="mt-2 text-2xl font-black text-white">PHASE 1016 · NOV 12 ATTACHMENT RECEIPTS</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">SOURCE CONTEXT ONLY. These four creator-attached text files are represented by exact local byte counts and SHA-256 receipts. No execution, extraction, or rendering occurs here; choose a receipt to open the local accession desk.</p>
               </div>
-              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#9DEBFF]/50 px-4 py-3 text-xs font-black text-[#C9F4FF] transition hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">Open receipt desk →</Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="rounded-2xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/10 px-4 py-3 text-right" aria-label="Attached context source summary">
+                  <p className="text-2xl font-black text-[#C9F4FF]">{PHASE1016_ATTACHMENT_RECEIPTS.length}</p>
+                  <p className="text-[10px] font-mono tracking-[.12em] text-[#B8EFFF]">Attached context sources</p>
+                </div>
+                <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#9DEBFF]/50 px-4 py-3 text-xs font-black text-[#C9F4FF] transition hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">Open receipt desk →</Link>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-white/10 bg-[#050A16]/55 p-3 sm:flex-row sm:items-end" aria-label="Receipt shelf controls">
+              <label className="flex-1 text-xs font-black text-[#C9F4FF]">Filter receipts
+                <input value={receiptQuery} onChange={event => setReceiptQuery(event.target.value)} placeholder="Search filename or label" className="mt-2 min-h-11 w-full rounded-xl border border-[#9DEBFF]/25 bg-[#020611] px-3 text-sm font-normal text-white outline-none transition focus:border-[#C9F4FF] focus:ring-2 focus:ring-[#9DEBFF]/30" />
+              </label>
+              <label className="text-xs font-black text-[#C9F4FF]">Sort receipts
+                <select value={receiptSort} onChange={event => setReceiptSort(event.target.value as "newest" | "oldest")} className="mt-2 min-h-11 rounded-xl border border-[#9DEBFF]/25 bg-[#020611] px-3 text-sm font-normal text-white outline-none transition focus:border-[#C9F4FF] focus:ring-2 focus:ring-[#9DEBFF]/30">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                </select>
+              </label>
+              <p className="text-xs text-[#B8C7D6]" aria-live="polite">Showing {filteredPhase1016Receipts.length} of {PHASE1016_ATTACHMENT_RECEIPTS.length}</p>
             </div>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {PHASE1016_ATTACHMENT_RECEIPTS.map((receipt) => (
+              {filteredPhase1016Receipts.map((receipt) => (
                 <Link key={receipt.file} href={`/digitalship-accession?source=${encodeURIComponent(receipt.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#9DEBFF]/60 hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">
                   <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-[#9DEBFF]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(157,235,255,.2),transparent_48%),#020611] text-3xl text-[#C9F4FF] transition group-hover:shadow-[0_0_28px_rgba(157,235,255,.2)]" aria-hidden="true">⌁</div>
                   <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">METADATA-ONLY SOURCE RECEIPT</p>
@@ -1633,6 +1658,7 @@ function CreatorMotionShelf() {
                 </Link>
               ))}
             </div>
+            {filteredPhase1016Receipts.length === 0 && <p className="mt-4 rounded-xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/10 p-4 text-sm text-[#FFE9B0]" role="status">No matching receipt. Clear the filter to restore the full shelf.</p>}
           </section>
           <AurellionFederationDoorway />
           <div className="grid gap-5">

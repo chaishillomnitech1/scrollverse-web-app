@@ -6889,3 +6889,12 @@
 - [x] Verification passed: Phase 1016 + Phase 1014 focused regressions, strict TypeScript, guarded production build, and `git diff --check`; existing non-blocking >500 kB runtime chunk warning remains.
 - [x] Saved checkpoint `74ceb1c3`; managed WebDev reported deployment successful and read-only checks returned HTTP 200 for both ScrollVerse domains.
 - Boundary: no wallet, billing, payment, contract, account, provider, repository-write, or external media action was performed.
+
+## Phase 1017 — Receipt Organization + AI Twin Retry Polish
+- [x] Add browser-local case-insensitive filtering across Phase 1016 receipt filenames, labels, and details.
+- [x] Add newest-first and oldest-first receipt sorting without mutating the source registry.
+- [x] Add an accessible result count, no-match recovery state, and a dynamic “Attached context sources” counter beside the receipt shelf.
+- [x] Add smooth reduced-motion-safe hover/focus feedback, accessible naming, native title fallback, and a visible tooltip to the AI Twin retry control.
+- [x] Add `server/phase1017.receiptAndRetryPolish.test.ts`; focused regression passed 2/2.
+- [x] Full verification passed: Vitest, strict TypeScript, guarded production build in 17.05s, reusable-skill validation, and `git diff --check`.
+- Boundary: no supplied attachment body was executed, interpreted, extracted, rendered, transformed, uploaded, embedded, or treated as independently verified; no wallet, billing, payment, contract, account, provider, or repository write was performed.
