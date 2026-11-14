@@ -1916,6 +1916,21 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
+  const contactValidation = contactEmail.length === 0
+    ? ""
+    : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)
+      ? "Email format looks good."
+      : "Enter a valid email address.";
+  const contactReady = Boolean(contactName.trim() && contactMessage.trim() && contactValidation === "Email format looks good.");
+  const prepareContactEmail = () => {
+    if (!contactReady) return;
+    const subject = encodeURIComponent(`ScrollVerse contact from ${contactName.trim()}`);
+    const body = encodeURIComponent(`${contactMessage.trim()}\n\nFrom: ${contactName.trim()} (${contactEmail.trim()})`);
+    window.location.href = `mailto:chaisthegreatsabir@gmail.com?subject=${subject}&body=${body}`;
+  };
   const { data: omniMetrics } = trpc.metrics.getOmniMetrics.useQuery(undefined, { staleTime: 15000, refetchInterval: 30000 });
   const guardianWaitlistSize = omniMetrics?.guardianWaitlistSize ?? 0;
   const totalBookings = omniMetrics?.totalBookings ?? 0;
@@ -2086,7 +2101,7 @@ export default function Home() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-sm font-medium transition-colors duration-200 hover:text-[#00D4FF]"
+                className="sv-nav-link text-sm font-medium transition-colors duration-200 hover:text-[#00D4FF] focus-visible:outline-2 focus-visible:outline-[#00D4FF]"
                 style={{ color: "#8899AA" }}
               >
                 {l.label}
@@ -2330,7 +2345,7 @@ export default function Home() {
               <span>Display mode</span><span aria-hidden="true">{theme === "dark" ? "☀ Light" : "☾ Dark"}</span>
             </button>}
             {navLinks.map(l => (
-              <a key={l.label} href={l.href} className="block text-sm py-2" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
+              <a key={l.label} href={l.href} className="sv-nav-link block text-sm py-2 hover:text-[#00D4FF] focus-visible:outline-2 focus-visible:outline-[#00D4FF]" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
                 {l.label}
               </a>
             ))}
@@ -3722,6 +3737,32 @@ export default function Home() {
               )
             ))}
           </div>
+          <form id="scrollverse-contact-form" onSubmit={(event) => { event.preventDefault(); prepareContactEmail(); }} className="mx-auto mb-8 max-w-3xl rounded-2xl border border-[#00D4FF]/25 bg-[#00D4FF]/[.04] p-5 text-left md:p-6">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">DIRECT CONTACT · PREPARE LOCALLY</p>
+                <h3 className="mt-2 text-2xl font-black text-white">Open the conversation.</h3>
+              </div>
+              <span className="text-[11px] text-[#9AAFC1]">No message is sent until you choose your mail app.</span>
+            </div>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <label className="text-xs font-mono text-[#BCEEFF]">Name
+                <input value={contactName} onChange={(event) => setContactName(event.target.value)} required autoComplete="name" className="mt-2 min-h-11 w-full rounded-xl border border-white/15 bg-[#061226] px-3 py-2.5 text-sm text-white outline-none transition focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/30" placeholder="Your name" />
+              </label>
+              <label className="text-xs font-mono text-[#BCEEFF]">Email
+                <input value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} required type="email" autoComplete="email" aria-describedby="contact-email-status" className="mt-2 min-h-11 w-full rounded-xl border border-white/15 bg-[#061226] px-3 py-2.5 text-sm text-white outline-none transition focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/30" placeholder="you@example.com" />
+              </label>
+            </div>
+            <label className="mt-4 block text-xs font-mono text-[#BCEEFF]">Message
+              <textarea value={contactMessage} onChange={(event) => setContactMessage(event.target.value)} required rows={4} className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-[#061226] px-3 py-2.5 text-sm leading-6 text-white outline-none transition focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/30" placeholder="What would you like to build together?" />
+            </label>
+            <div id="contact-email-status" aria-live="polite" className={`mt-3 text-xs ${contactValidation.includes("good") ? "text-[#7CFFBB]" : "text-[#FFCC4D]"}`}>
+              {contactValidation || "Enter your email to validate the contact path."}
+            </div>
+            <button type="submit" disabled={!contactReady} title={contactReady ? "Open a prepared email in your mail app" : "Complete the form to prepare an email"} className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#071426] transition hover:-translate-y-0.5 hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45 focus-visible:outline-2 focus-visible:outline-[#00D4FF]">
+              Prepare email <span className="ml-2" aria-hidden="true">→</span>
+            </button>
+          </form>
           <div className="text-center">
             <Link href="/connect">
               <button className="btn-sovereign px-8 py-3 rounded-xl text-sm font-bold">
