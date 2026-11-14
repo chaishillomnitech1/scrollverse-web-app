@@ -75,7 +75,7 @@ const ROUTES: Array<{ terms: string[]; route: SpecialistRoute }> = [
   { terms: ["archive", "conversation", "source", "accession", "export"], route: { specialist: "SOURCE_ARCHIVE", primaryProvider: "dropbox", fallbackProviders: ["files", "github"], approvalRequired: false } },
   { terms: ["figma", "component", "design system"], route: { specialist: "DESIGN_SYSTEMS", primaryProvider: "figma", fallbackProviders: ["canva"], approvalRequired: false } },
   { terms: ["poster", "social", "visual", "creative"], route: { specialist: "CREATIVE_PRODUCTION", primaryProvider: "canva", fallbackProviders: ["figma"], approvalRequired: false } },
-  { terms: ["task", "project", "milestone", "workflow"], route: { specialist: "PROJECT_OPERATIONS", primaryProvider: "clickup", fallbackProviders: ["github"], approvalRequired: false } },
+  { terms: ["project", "milestone", "workflow"], route: { specialist: "PROJECT_OPERATIONS", primaryProvider: "clickup", fallbackProviders: ["github"], approvalRequired: false } },
   { terms: ["contact", "lead", "customer", "crm"], route: { specialist: "CUSTOMER_RELATIONSHIPS", primaryProvider: "hubspot", fallbackProviders: ["clickup"], approvalRequired: false } },
   { terms: ["store", "product", "catalog", "commerce"], route: { specialist: "COMMERCE", primaryProvider: "shopify", fallbackProviders: ["wix"], approvalRequired: true } },
   { terms: ["payment", "invoice", "accounting", "reconcile"], route: { specialist: "PAYMENTS_ACCOUNTING", primaryProvider: "quickbooks", fallbackProviders: ["stripe"], approvalRequired: true } },

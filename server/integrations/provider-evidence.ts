@@ -269,7 +269,10 @@ export async function readVercelEvidence(options: {
     if (typeof item.url === "string" && item.url.length > 0) {
       try {
         const parsed = new URL(item.url.startsWith("http") ? item.url : `https://${item.url}`);
-        if (parsed.protocol === "https:" && !parsed.username && !parsed.password) domain = parsed.toString();
+        if (parsed.protocol === "https:" && !parsed.username && !parsed.password) {
+          const pathname = parsed.pathname === "/" ? "" : parsed.pathname;
+          domain = `${parsed.origin}${pathname}${parsed.search}${parsed.hash}`;
+        }
       } catch {
         domain = null;
       }
