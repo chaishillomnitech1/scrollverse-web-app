@@ -1,0 +1,54 @@
+# Dependencies and package-manager state
+node_modules
+**/node_modules
+.pnpm-store
+
+# Source-control and local tooling metadata
+.git
+.github
+.manus
+.manus-logs
+.webdev
+.project-config.json
+
+# Generated build and test output
+dist
+build
+coverage
+.nyc_output
+.vite
+.turbo
+*.tsbuildinfo
+
+# Local companion and non-runtime production projects
+mobile-companion
+blockchain
+contracts
+scripts
+patches
+
+# Documentation, evidence, planning, and source-review archives
+docs
+*.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+!SECURITY.md
+
+# Test-only material
+**/*.test.ts
+**/*.test.tsx
+**/__tests__
+vitest.config.ts
+
+# Local data and media-analysis notes
+data
+attached_assets
+
+# Editor and OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+*.log
+*.bak
