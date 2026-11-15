@@ -106,6 +106,11 @@ export function PaymentRailOptions() {
             <p className="mt-3 text-xs uppercase tracking-wider text-cyan-200">{stateLabel(data.card.state)}</p>
           </article>
           <article className="rounded-2xl border border-white/10 bg-white/[.03] p-4">
+            <h3 className="font-bold">Stablecoin payment acceptance</h3>
+            <p className="mt-1 text-xs text-slate-400">Coinbase Developer Platform Payment Acceptance · USDC. Separate from Coinbase Wallet connection.</p>
+            <p className="mt-3 text-xs uppercase tracking-wider text-cyan-200">{stateLabel(data.coinbasePayments.state)}</p>
+          </article>
+          <article className="rounded-2xl border border-white/10 bg-white/[.03] p-4">
             <h3 className="font-bold">Bank transfer / ACH</h3>
             <p className="mt-1 text-xs text-slate-400">Direct merchant settlement through an approved bank or ACH partner.</p>
             <p className="mt-3 text-xs uppercase tracking-wider text-cyan-200">{stateLabel(data.bankTransfer.state)}</p>
