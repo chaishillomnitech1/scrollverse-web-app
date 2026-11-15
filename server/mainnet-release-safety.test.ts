@@ -37,6 +37,23 @@ describe("ScrollVerse Polygon release safety", () => {
     }
   });
 
+  it("classifies staking compounding as off-chain ledger accounting", () => {
+    const job = read("server/jobs/compoundRewards.ts");
+    const router = read("server/routers/staking.ts");
+    const heartbeat = read("server/jobs/heartbeat.ts");
+    expect(job).toContain("off-chain ledger accounting");
+    expect(job).toContain("No token transfer or on-chain staking transaction was performed.");
+    expect(router).toContain('executionMode: "off_chain_ledger"');
+    expect(heartbeat).toContain("Estimated rewards recorded in the off-chain application ledger");
+  });
+
+  it("labels the staking interface as off-chain application-ledger mode", () => {
+    const source = read("client/src/pages/Staking.tsx");
+    expect(source).toContain("Application-ledger mode");
+    expect(source).toContain("does not transfer CHX or $LONDC");
+    expect(source).toContain("not guaranteed payouts");
+  });
+
   it("keeps Amoy and Polygon mainnet on their correct chain IDs", () => {
     const source = read("blockchain/scripts/deployment-preflight.cjs");
     expect(source).toContain("amoy: 80002");
