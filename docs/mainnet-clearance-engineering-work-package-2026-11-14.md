@@ -100,3 +100,19 @@ The AI Legion manifest defines 25 specialist roles. This routing matrix keeps ea
 - Polygon Amoy network announcement: https://polygon.technology/blog/polygon-pos-and-polygon-zkevm-new-testnets-for-polygon-protocols
 - Polygon's July 2026 public RPC retirement notice: https://forum.polygon.technology/t/deprecation-of-polygons-public-rpc-endpoints-mainnet-amoy/22014
 - Stripe compromised-key response: https://support.stripe.com/questions/protecting-against-compromised-api-keys
+
+
+## Additional runtime and interface safeguards added in this branch
+
+- The nested Hardhat reference config no longer falls back to retired public Polygon RPC URLs.
+- Browser-side Polygon chain configuration now reads the public, origin-restricted VITE_POLYGON_RPC_URL build setting; the server-side Guardian count reads only the secure POLYGON_RPC_URL setting.
+- The treasury dashboard no longer calls the retired public Polygon RPC endpoint directly.
+- Polygon native currency labels in the reviewed commerce and Guardian surfaces are POL.
+- The Gate Keys page no longer submits a placeholder transaction or invents a token ID. Minting is explicitly preview-only until a deployed, verified contract and production mint ABI are configured.
+- Guardian tier activation is explicitly a preview. The UI no longer claims a transaction was submitted when no transaction exists.
+- Monthly Guardian reward figures are labeled as illustrative planning values, not guaranteed returns or current payout terms.
+- Bridge metadata no longer advertises the retired Polygon RPC endpoint.
+
+## Environment configuration note
+
+VITE_POLYGON_RPC_URL is browser-visible by design because wallet network-add flows require a client RPC URL. Use a dedicated public RPC key restricted by allowed origins, quotas, and provider controls. Keep POLYGON_RPC_URL server-side for backend reads. Do not put private keys, Stripe secrets, or unrestricted provider credentials in VITE-prefixed variables.
