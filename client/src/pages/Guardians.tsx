@@ -213,9 +213,8 @@ const DAO_PROPOSALS = [
 export default function Guardians() {
   const [selectedTier, setSelectedTier] = useState(TIERS[0]);
   const [activeTab, setActiveTab] = useState<"tiers" | "dao" | "nft">("tiers");
-  const [activating, setActivating] = useState(false);
   const [activationStatus, setActivationStatus] = useState<"idle" | "preview" | "error">("idle");
-  const { wallet, connect, disconnect, switchToPolygon } = useWallet();
+  const { wallet, connect, disconnect } = useWallet();
 
   const handleActivateTier = () => {
     setActivationStatus("preview");
@@ -386,11 +385,11 @@ export default function Guardians() {
                 )}
                 <button
                   onClick={handleActivateTier}
-                  disabled={activating}
+                  disabled={activationStatus === "preview"}
                   className="btn-gold px-6 py-3 rounded-xl text-sm font-bold transition-all"
                   style={{ opacity: activating ? 0.7 : 1 }}
                 >
-                  {activating ? "Activating..." : !wallet.connected ? "Connect Wallet to Activate" : wallet.chainId !== 137 ? "Switch to Polygon" : "Preview activation"}
+                  {activationStatus === "preview" ? "Preview shown" : "Preview activation"}
                 </button>
               </div>
             </div>
