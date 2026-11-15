@@ -1,12 +1,13 @@
 /**
  * Compound Rewards Heartbeat Job
- * Runs daily to compound staking rewards for all active positions.
+ * Runs daily to calculate and record estimated rewards in the application database.
+ * This is off-chain ledger accounting; it does not transfer tokens or call a staking contract.
  *
  * Formula: dailyRate = apyRate / 365 / 100
  * newRewards = (chxStaked + rewardsEarned) * dailyRate
  * rewardsEarned += newRewards
  *
- * Also fires in-app notifications to users when rewards are compounded.
+ * Also fires in-app notifications when off-chain ledger estimates are updated.
  */
 import { getDb } from "../db";
 import { stakingPositions, notifications } from "../../drizzle/schema";
@@ -16,6 +17,7 @@ export async function compoundStakingRewards(): Promise<{
   processed: number;
   totalNewRewards: number;
   errors: string[];
+  executionMode: "off_chain_ledger";
 }> {
   const db = await getDb();
   const errors: string[] = [];
@@ -60,8 +62,8 @@ export async function compoundStakingRewards(): Promise<{
 
       await db.insert(notifications).values({
         userId: position.userId,
-        title: "⚡ Staking Rewards Compounded",
-        message: `Your ${poolLabel} pool position earned +${newRewards.toFixed(4)} CHX today. Total rewards: ${updatedRewards.toFixed(4)} CHX. Sovereignty compounds daily. 🔥`,
+        title: "⚡ Staking Ledger Updated",
+        message: `Your ${poolLabel} pool position recorded an estimated +${newRewards.toFixed(4)} CHX in the off-chain application ledger. Ledger total: ${updatedRewards.toFixed(4)} CHX. No token transfer or on-chain staking transaction was performed.`,
         type: "staking",
         link: "/staking",
       });
@@ -73,5 +75,5 @@ export async function compoundStakingRewards(): Promise<{
     }
   }
 
-  return { processed, totalNewRewards, errors };
+  return { processed, totalNewRewards, errors, executionMode: "off_chain_ledger" };
 }
