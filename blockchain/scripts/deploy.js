@@ -57,6 +57,28 @@ async function main() {
   console.log("Multisig contract code: present");
   console.log("No private key or API key will be printed.");
 
+  const outputPath = path.resolve(__dirname, "../config/deployment.json");
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  const deployment = {
+    schemaVersion: 1,
+    status: "DEPLOYMENT_IN_PROGRESS",
+    network: hre.network.name,
+    chainId: network.chainId.toString(),
+    timestamp: new Date().toISOString(),
+    deployer: deployer.address,
+    ownerMultisig: config.ownerMultisigAddress,
+    platformWallet: config.platformWalletAddress,
+    metadataBaseUri: config.codexBaseUri,
+    contracts: {},
+    deploymentTransactions: {},
+    setupTransactions: {},
+    verification: "PENDING — verify exact compiler, optimizer, constructor arguments, and source on the selected explorer",
+  };
+  const persistDeployment = () => {
+    fs.writeFileSync(outputPath, JSON.stringify(deployment, null, 2) + "\n", { mode: 0o600 });
+  };
+  persistDeployment();
+
   // Deploy with the deployer as temporary owner so setup can finish;
   // ownership is transferred to the multisig before completion.
   const LONDCToken = await ethers.getContractFactory("LONDCToken");
@@ -67,14 +89,22 @@ async function main() {
   );
   await londc.waitForDeployment();
   const londcAddress = await londc.getAddress();
+  deployment.contracts.LONDCToken = londcAddress;
+  deployment.deploymentTransactions.LONDCToken = londc.deploymentTransaction()?.hash || null;
+  persistDeployment();
 
   const ZakatDistribution = await ethers.getContractFactory("ZakatDistribution");
   const zakat = await ZakatDistribution.deploy(londcAddress, deployer.address);
   await zakat.waitForDeployment();
   const zakatAddress = await zakat.getAddress();
+  deployment.contracts.ZakatDistribution = zakatAddress;
+  deployment.deploymentTransactions.ZakatDistribution = zakat.deploymentTransaction()?.hash || null;
+  persistDeployment();
 
   const vaultUpdate = await londc.setZakatVault(zakatAddress);
   await vaultUpdate.wait();
+  deployment.setupTransactions.setZakatVault = vaultUpdate.hash;
+  persistDeployment();
 
   const MetatronCodex = await ethers.getContractFactory("MetatronCodex");
   const codex = await MetatronCodex.deploy(
@@ -84,41 +114,26 @@ async function main() {
   );
   await codex.waitForDeployment();
   const codexAddress = await codex.getAddress();
+  deployment.contracts.MetatronCodex = codexAddress;
+  deployment.deploymentTransactions.MetatronCodex = codex.deploymentTransaction()?.hash || null;
+  persistDeployment();
 
   const tokenOwnership = await londc.transferOwnership(config.ownerMultisigAddress);
   await tokenOwnership.wait();
+  deployment.setupTransactions.tokenOwnership = tokenOwnership.hash;
+  persistDeployment();
+
   const zakatOwnership = await zakat.transferOwnership(config.ownerMultisigAddress);
   await zakatOwnership.wait();
+  deployment.setupTransactions.zakatOwnership = zakatOwnership.hash;
+  persistDeployment();
+
   const codexOwnership = await codex.transferOwnership(config.ownerMultisigAddress);
   await codexOwnership.wait();
-
-  const deployment = {
-    schemaVersion: 1,
-    status: "DEPLOYED_PENDING_EXTERNAL_VERIFICATION",
-    network: hre.network.name,
-    chainId: network.chainId.toString(),
-    timestamp: new Date().toISOString(),
-    deployer: deployer.address,
-    ownerMultisig: config.ownerMultisigAddress,
-    platformWallet: config.platformWalletAddress,
-    metadataBaseUri: config.codexBaseUri,
-    contracts: {
-      LONDCToken: londcAddress,
-      ZakatDistribution: zakatAddress,
-      MetatronCodex: codexAddress,
-    },
-    setupTransactions: {
-      setZakatVault: vaultUpdate.hash,
-      tokenOwnership: tokenOwnership.hash,
-      zakatOwnership: zakatOwnership.hash,
-      codexOwnership: codexOwnership.hash,
-    },
-    verification: "PENDING — verify exact compiler, optimizer, constructor arguments, and source on the selected explorer",
-  };
-
-  const outputPath = path.resolve(__dirname, "../config/deployment.json");
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, JSON.stringify(deployment, null, 2) + "\n", { mode: 0o600 });
+  deployment.setupTransactions.codexOwnership = codexOwnership.hash;
+  deployment.status = "DEPLOYED_PENDING_EXTERNAL_VERIFICATION";
+  deployment.ownershipStatus = "TRANSFERRED_TO_MULTISIG";
+  persistDeployment();
 
   console.log("\nDeployment record written:", outputPath);
   console.log("LONDC:", londcAddress);
