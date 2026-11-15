@@ -14,7 +14,7 @@ const networks = {
 
 // Never silently fall back to retired public Polygon RPC endpoints.
 if (process.env.AMOY_RPC_URL) {
-  networks.amoy = {
+  networks.polygonAmoy = {
     url: process.env.AMOY_RPC_URL,
     accounts: DEPLOYER_ACCOUNTS,
     chainId: 80002,
