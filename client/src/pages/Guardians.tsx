@@ -387,7 +387,7 @@ export default function Guardians() {
                   onClick={handleActivateTier}
                   disabled={activationStatus === "preview"}
                   className="btn-gold px-6 py-3 rounded-xl text-sm font-bold transition-all"
-                  style={{ opacity: activating ? 0.7 : 1 }}
+                  style={{ opacity: activationStatus === "preview" ? 0.7 : 1 }}
                 >
                   {activationStatus === "preview" ? "Preview shown" : "Preview activation"}
                 </button>
