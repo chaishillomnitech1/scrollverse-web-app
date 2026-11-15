@@ -4,6 +4,8 @@ export type PaymentRailState =
   | "live-key-present-unverified"
   | "partner-required"
   | "configured-unverified"
+  | "coinbase-cdp-credentials-required"
+  | "coinbase-cdp-configured-unverified"
   | "mainnet-contract-required"
   | "mainnet-contract-present-needs-independent-verification"
   | "walletconnect-project-id-required"
@@ -17,6 +19,7 @@ export type PaymentRailSnapshot = {
   model: "merchant-direct-provider-orchestration";
   card: { state: PaymentRailState; provider: "Stripe"; secretValuesExposed: false };
   bankTransfer: { state: PaymentRailState; provider: string | null; settlement: "merchant-bank-account-via-approved-bank-partner" };
+  coinbasePayments: { state: PaymentRailState; provider: "Coinbase Developer Platform Payment Acceptance"; settlement: "merchant-directed USDC"; credentialsPresent: boolean };
   onchain: { state: PaymentRailState; chainId: number | null; contractAddressPresent: boolean; signing: "customer-wallet-only" };
   walletConnect: { state: PaymentRailState; projectIdConfigured: boolean; wallets: string[] };
   storefront: { state: PaymentRailState; credentialsPresent: boolean };
@@ -53,6 +56,13 @@ export function getPaymentRailSnapshot(
     present(env.SV_ACH_WEBHOOK_SECRET),
   );
 
+  const coinbaseConfigured = Boolean(
+    present(env.COINBASE_CDP_API_KEY_ID) &&
+    present(env.COINBASE_CDP_API_KEY_SECRET) &&
+    present(env.COINBASE_PAYMENT_OPERATOR_ID) &&
+    present(env.COINBASE_PAYMENT_WEBHOOK_SECRET),
+  );
+
   const rawChainId = Number(env.SV_CHECKOUT_CHAIN_ID);
   const chainId = Number.isSafeInteger(rawChainId) && rawChainId > 0 ? rawChainId : null;
   const contractAddressPresent = EVM_ADDRESS.test(env.SV_CHECKOUT_CONTRACT_ADDRESS ?? "");
@@ -83,6 +93,12 @@ export function getPaymentRailSnapshot(
       state: achConfigured ? "configured-unverified" : "partner-required",
       provider: achProvider,
       settlement: "merchant-bank-account-via-approved-bank-partner",
+    },
+    coinbasePayments: {
+      state: coinbaseConfigured ? "coinbase-cdp-configured-unverified" : "coinbase-cdp-credentials-required",
+      provider: "Coinbase Developer Platform Payment Acceptance",
+      settlement: "merchant-directed USDC",
+      credentialsPresent: coinbaseConfigured,
     },
     onchain: {
       state: onchainConfigured

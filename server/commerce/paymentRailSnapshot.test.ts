@@ -25,6 +25,24 @@ describe("sovereign payment rail snapshot", () => {
     expect(snapshot.executionEnabled).toBe(false);
   });
 
+  it("requires complete Coinbase Payment Acceptance configuration", () => {
+    const partial = getPaymentRailSnapshot({
+      COINBASE_CDP_API_KEY_ID: "configured",
+      COINBASE_CDP_API_KEY_SECRET: "configured",
+      COINBASE_PAYMENT_OPERATOR_ID: "operator-1",
+    });
+    expect(partial.coinbasePayments.state).toBe("coinbase-cdp-credentials-required");
+
+    const complete = getPaymentRailSnapshot({
+      COINBASE_CDP_API_KEY_ID: "configured",
+      COINBASE_CDP_API_KEY_SECRET: "configured",
+      COINBASE_PAYMENT_OPERATOR_ID: "operator-1",
+      COINBASE_PAYMENT_WEBHOOK_SECRET: "configured",
+    });
+    expect(complete.coinbasePayments.state).toBe("coinbase-cdp-configured-unverified");
+    expect(complete.executionEnabled).toBe(false);
+  });
+
   it("requires all ACH partner configuration fields", () => {
     const partial = getPaymentRailSnapshot({
       SV_ACH_PROVIDER: "bank-partner",
