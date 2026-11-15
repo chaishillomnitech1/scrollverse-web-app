@@ -11,7 +11,7 @@ const DEPLOYER_ACCOUNTS = DEPLOYER_KEY ? [DEPLOYER_KEY] : [];
 const PROJECT_ROOT = path.resolve(__dirname, "../..");
 
 const networks = { hardhat: { chainId: 31337 } };
-if (process.env.AMOY_RPC_URL) networks.amoy = { url: process.env.AMOY_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 80002, gasPrice: "auto" };
+if (process.env.AMOY_RPC_URL) networks.polygonAmoy = { url: process.env.AMOY_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 80002, gasPrice: "auto" };
 if (process.env.POLYGON_RPC_URL) networks.polygon = { url: process.env.POLYGON_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 137, gasPrice: "auto" };
 if (process.env.BASE_RPC_URL) networks.base = { url: process.env.BASE_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 8453 };
 if (process.env.ETH_RPC_URL) networks.ethereum = { url: process.env.ETH_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 1 };
