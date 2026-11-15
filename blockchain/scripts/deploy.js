@@ -1,97 +1,134 @@
 /**
- * ScrollVerse Mainnet Deployment Script
- * Author: Chais "Sabir Kajir" Hill the Great × Manus AI
+ * ScrollVerse controlled deployment script.
  *
- * USAGE:
- *   Testnet (Amoy):  npx hardhat run scripts/deploy.js --network amoy
- *   Mainnet:         npx hardhat run scripts/deploy.js --network polygon
+ * Amoy is the required Polygon PoS rehearsal network (chain ID 80002).
+ * Polygon mainnet is chain ID 137 and remains separately gated.
  *
- * REQUIRED ENV VARS (in .env):
- *   DEPLOYER_PRIVATE_KEY=0x...
- *   ZAKAT_VAULT_ADDRESS=0x...
- *   PLATFORM_WALLET_ADDRESS=0x...
- *   CODEX_BASE_URI=ipfs://...
- *   POLYGONSCAN_API_KEY=...
+ * Required secure environment:
+ *   DEPLOYER_PRIVATE_KEY
+ *   AMOY_RPC_URL or POLYGON_RPC_URL (selected network only)
+ *   OWNER_MULTISIG_ADDRESS (must contain deployed contract code)
+ *   PLATFORM_WALLET_ADDRESS
+ *   CODEX_BASE_URI (ipfs://, ar://, or https://; never a placeholder)
+ *   POLYGONSCAN_API_KEY
+ *   MAINNET_RELEASE_CONFIRMATION (mainnet only; exact phrase below)
  *
- * KUN FAYAKUN x Infinity
+ * This script does not create a Safe, perform an audit, or replace owner approval.
  */
 
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
+const { ethers } = hre;
 const fs = require("fs");
+const path = require("path");
+const { validateDeploymentConfig } = require("./deployment-preflight.cjs");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
-  console.log("\n🕋 ScrollVerse Sovereign Deployment");
-  console.log("====================================");
-  console.log(`Deployer: ${deployer.address}`);
+  if (!deployer) {
+    throw new Error("No deployer signer is configured. Set DEPLOYER_PRIVATE_KEY in the secure environment.");
+  }
+
+  const network = await ethers.provider.getNetwork();
+  const config = validateDeploymentConfig({
+    networkName: hre.network.name,
+    chainId: network.chainId.toString(),
+    deployerAddress: deployer.address,
+    ownerMultisigAddress: process.env.OWNER_MULTISIG_ADDRESS,
+    platformWalletAddress: process.env.PLATFORM_WALLET_ADDRESS,
+    codexBaseUri: process.env.CODEX_BASE_URI,
+    polygonscanApiKey: process.env.POLYGONSCAN_API_KEY,
+    mainnetConfirmation: process.env.MAINNET_RELEASE_CONFIRMATION,
+  });
+
+  const ownerCode = await ethers.provider.getCode(config.ownerMultisigAddress);
+  if (!ownerCode || ownerCode === "0x") {
+    throw new Error("OWNER_MULTISIG_ADDRESS has no contract code on the selected network. Deploy and verify the multisig first.");
+  }
+
   const balance = await ethers.provider.getBalance(deployer.address);
-  console.log(`Balance: ${ethers.formatEther(balance)} MATIC\n`);
+  console.log("\nScrollVerse controlled deployment preflight");
+  console.log("============================================");
+  console.log("Network:", hre.network.name);
+  console.log("Chain ID:", network.chainId.toString());
+  console.log("Deployer:", deployer.address);
+  console.log("Owner multisig:", config.ownerMultisigAddress);
+  console.log("Platform wallet:", config.platformWalletAddress);
+  console.log("Deployer balance:", ethers.formatEther(balance), "POL");
+  console.log("Multisig contract code: present");
+  console.log("No private key or API key will be printed.");
 
-  const ZAKAT_VAULT = process.env.ZAKAT_VAULT_ADDRESS || deployer.address;
-  const PLATFORM_WALLET = process.env.PLATFORM_WALLET_ADDRESS || deployer.address;
-  const CODEX_BASE_URI = process.env.CODEX_BASE_URI || "ipfs://QmPlaceholder/";
-
-  // ── 1. Deploy LONDC Token ─────────────────────────────────────────────────
-  console.log("⚡ Deploying LONDC Token...");
+  // Deploy with the deployer as temporary owner so setup can finish;
+  // ownership is transferred to the multisig before completion.
   const LONDCToken = await ethers.getContractFactory("LONDCToken");
-  const londc = await LONDCToken.deploy(ZAKAT_VAULT, PLATFORM_WALLET, deployer.address);
+  const londc = await LONDCToken.deploy(
+    config.ownerMultisigAddress,
+    config.platformWalletAddress,
+    deployer.address
+  );
   await londc.waitForDeployment();
   const londcAddress = await londc.getAddress();
-  console.log(`✅ LONDC Token: ${londcAddress}`);
 
-  // ── 2. Deploy ZakatDistribution ───────────────────────────────────────────
-  console.log("⚡ Deploying ZakatDistribution...");
   const ZakatDistribution = await ethers.getContractFactory("ZakatDistribution");
   const zakat = await ZakatDistribution.deploy(londcAddress, deployer.address);
   await zakat.waitForDeployment();
   const zakatAddress = await zakat.getAddress();
-  console.log(`✅ ZakatDistribution: ${zakatAddress}`);
 
-  // Update LONDC to point to real Zakat vault
-  await londc.setZakatVault(zakatAddress);
-  console.log(`✅ LONDC Zakat vault updated to: ${zakatAddress}`);
+  const vaultUpdate = await londc.setZakatVault(zakatAddress);
+  await vaultUpdate.wait();
 
-  // ── 3. Deploy MetatronCodex NFT ───────────────────────────────────────────
-  console.log("⚡ Deploying MetatronCodex NFT...");
   const MetatronCodex = await ethers.getContractFactory("MetatronCodex");
-  const codex = await MetatronCodex.deploy(PLATFORM_WALLET, deployer.address, CODEX_BASE_URI);
+  const codex = await MetatronCodex.deploy(
+    config.platformWalletAddress,
+    deployer.address,
+    config.codexBaseUri
+  );
   await codex.waitForDeployment();
   const codexAddress = await codex.getAddress();
-  console.log(`✅ MetatronCodex: ${codexAddress}`);
 
-  // ── 4. Save deployment addresses ─────────────────────────────────────────
+  const tokenOwnership = await londc.transferOwnership(config.ownerMultisigAddress);
+  await tokenOwnership.wait();
+  const zakatOwnership = await zakat.transferOwnership(config.ownerMultisigAddress);
+  await zakatOwnership.wait();
+  const codexOwnership = await codex.transferOwnership(config.ownerMultisigAddress);
+  await codexOwnership.wait();
+
   const deployment = {
-    network: (await ethers.provider.getNetwork()).name,
-    chainId: (await ethers.provider.getNetwork()).chainId.toString(),
+    schemaVersion: 1,
+    status: "DEPLOYED_PENDING_EXTERNAL_VERIFICATION",
+    network: hre.network.name,
+    chainId: network.chainId.toString(),
     timestamp: new Date().toISOString(),
     deployer: deployer.address,
+    ownerMultisig: config.ownerMultisigAddress,
+    platformWallet: config.platformWalletAddress,
+    metadataBaseUri: config.codexBaseUri,
     contracts: {
       LONDCToken: londcAddress,
       ZakatDistribution: zakatAddress,
       MetatronCodex: codexAddress,
     },
+    setupTransactions: {
+      setZakatVault: vaultUpdate.hash,
+      tokenOwnership: tokenOwnership.hash,
+      zakatOwnership: zakatOwnership.hash,
+      codexOwnership: codexOwnership.hash,
+    },
+    verification: "PENDING — verify exact compiler, optimizer, constructor arguments, and source on the selected explorer",
   };
 
-  fs.writeFileSync(
-    "./blockchain/config/deployment.json",
-    JSON.stringify(deployment, null, 2)
-  );
-  console.log("\n📄 Deployment saved to blockchain/config/deployment.json");
+  const outputPath = path.resolve(__dirname, "../config/deployment.json");
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, JSON.stringify(deployment, null, 2) + "\n", { mode: 0o600 });
 
-  // ── 5. Verification commands ──────────────────────────────────────────────
-  console.log("\n🔍 Verify on PolygonScan:");
-  console.log(`npx hardhat verify --network polygon ${londcAddress} "${ZAKAT_VAULT}" "${PLATFORM_WALLET}" "${deployer.address}"`);
-  console.log(`npx hardhat verify --network polygon ${zakatAddress} "${londcAddress}" "${deployer.address}"`);
-  console.log(`npx hardhat verify --network polygon ${codexAddress} "${PLATFORM_WALLET}" "${deployer.address}" "${CODEX_BASE_URI}"`);
-
-  console.log("\n🕋 KUN FAYAKUN x Infinity — Deployment Complete");
-  console.log("==============================================");
-  console.log(`LONDC:    ${londcAddress}`);
-  console.log(`Zakat:    ${zakatAddress}`);
-  console.log(`Codex:    ${codexAddress}`);
+  console.log("\nDeployment record written:", outputPath);
+  console.log("LONDC:", londcAddress);
+  console.log("ZakatDistribution:", zakatAddress);
+  console.log("MetatronCodex:", codexAddress);
+  console.log("Ownership transferred to multisig:", config.ownerMultisigAddress);
+  console.log("Status remains pending external source verification and independent review.");
 }
 
 main().catch((error) => {
-  console.error(error);
+  console.error("Deployment stopped:", error.message);
   process.exitCode = 1;
 });
