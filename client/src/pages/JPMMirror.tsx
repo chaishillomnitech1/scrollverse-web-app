@@ -177,7 +177,7 @@ export default function JPMMirror() {
       icon: <TrendingUp size={20} />,
       title: "Yield Generation",
       jpm: "Offers 0.01% APY on savings accounts while earning 5%+ on your deposits.",
-      sv: "Genesis Pool 432%, Celestial Pool 528%, Infinity Pool 999% — all on-chain, all verifiable.",
+      sv: "Genesis, Celestial, and Infinity pool figures are currently tracked in an off-chain application ledger. On-chain staking and independent verification remain pending contract deployment.",
       color: "#00FF88",
     },
     {
