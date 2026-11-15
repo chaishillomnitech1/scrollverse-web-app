@@ -15,6 +15,7 @@ ScrollVerse owns the customer experience, product/order model, routing policy, p
 | Route | Customer choice | Settlement design | Current release condition |
 |---|---|---|---|
 | Card / local payment methods | Card, eligible wallet-based card method, or local method shown at checkout | A contracted acquirer or processor settles to the merchant's approved account | Merchant underwriting, live account status, live credentials, pricing, refund/dispute rules, webhook verification, and production test |
+| Stablecoin payment acceptance | Customer chooses a USDC payment route | Coinbase Developer Platform Payment Acceptance provides a payment API with authorization/capture, instant settlement, refunds, and webhook resources | CDP credentials, operator configuration, merchant onboarding, supported jurisdictions/assets, webhook verification, reconciliation, and production approval |
 | Bank transfer / ACH | Customer-authorized bank payment | Approved ODFI / bank / ACH processor sends settlement to the named merchant account | Executed bank-partner agreement, merchant underwriting, ACH authorization, return handling, reconciliation, and applicable legal review |
 | Self-custody wallet | Customer selects a compatible wallet and asset | Customer signs from their own wallet; payment goes directly to the merchant's verified address or audited checkout contract | Mainnet contract/address verification, exact asset and amount, network fee disclosure, customer receipt, refund policy, security review, and explicit customer signature |
 | Wallet connection | MetaMask, Coinbase Wallet, Robinhood Wallet, or another compatible wallet | Connection only; does not itself charge, trade, custody, or transfer | WalletConnect / injected-provider SDK, chain allowlist, permission minimization, disconnect controls, and privacy review |
@@ -43,7 +44,9 @@ A merchant payment-processing exception is fact-specific. FinCEN guidance descri
 
 - **MetaMask:** use the current MetaMask Connect SDK or standard EIP-6963 / EIP-1193 provider discovery. Ask for account access only after the customer chooses Connect.
 - **Coinbase Wallet:** support injected provider discovery and WalletConnect where supported. Do not assume a wallet connection means Coinbase exchange access or fiat on-ramp approval.
+- **Coinbase Payment Acceptance:** a separate stablecoin commerce adapter; the official Payment Acceptance API describes USDC payment authorization/capture, instant settlement, refunds, and webhook resources. This is a payment-provider route, not the same capability as connecting Coinbase Wallet.
 - **Robinhood Wallet:** expose its WalletConnect route. Robinhood's own support describes dapp connection through its Web3 browser or WalletConnect; the user must approve the connection and any subsequent permission separately.
+- **Robinhood Connect:** treat as a customer-directed crypto on-ramp/off-ramp option where supported, not as a ScrollVerse merchant acquiring account. It has its own account, identity, asset, network, and jurisdiction eligibility requirements.
 - **WalletConnect:** treat as a connection transport, not a payment processor, custody provider, exchange, or proof of payment.
 - **Other wallets:** use capability-based discovery rather than a hard-coded brand whitelist. Display chain and asset compatibility before any signature.
 
@@ -71,4 +74,7 @@ This phase extends rather than replaces the existing Exchange, CommerceNotice, S
 - FinCEN, virtual currency payment system ruling: https://www.fincen.gov/resources/statutes-regulations/administrative-rulings/request-administrative-ruling-application
 - New Jersey DOBI, money transmitter licensing: https://www.nj.gov/dobi/banklicensing/formontrans.html
 - MetaMask Connect: https://docs.metamask.io/metamask-connect/
+- Coinbase Payment Acceptance API: https://docs.cdp.coinbase.com/api-reference/payment-acceptance/overview
+- Coinbase Wallet SDK: https://docs.cdp.coinbase.com/wallet-sdk/docs
 - Robinhood Wallet dapp connections: https://robinhood.com/us/en/support/articles/connect-to-dapps/
+- Robinhood Connect: https://robinhood.com/us/en/support/articles/robinhood-connect/
