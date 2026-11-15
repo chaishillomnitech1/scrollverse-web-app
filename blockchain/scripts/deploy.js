@@ -118,6 +118,20 @@ async function main() {
   deployment.deploymentTransactions.MetatronCodex = codex.deploymentTransaction()?.hash || null;
   persistDeployment();
 
+  // The token constructor mints the initial supply to the deployer while setup is in progress.
+  // Move the complete initial supply to the multisig before transferring contract ownership.
+  const initialSupply = await londc.totalSupply();
+  const supplyTransfer = await londc.transfer(config.ownerMultisigAddress, initialSupply);
+  await supplyTransfer.wait();
+  deployment.setupTransactions.initialSupplyTransfer = supplyTransfer.hash;
+  persistDeployment();
+
+  const multisigTokenBalance = await londc.balanceOf(config.ownerMultisigAddress);
+  const deployerTokenBalance = await londc.balanceOf(deployer.address);
+  if (multisigTokenBalance !== initialSupply || deployerTokenBalance !== 0n) {
+    throw new Error("Initial LONDC supply was not transferred completely to the owner multisig.");
+  }
+
   const tokenOwnership = await londc.transferOwnership(config.ownerMultisigAddress);
   await tokenOwnership.wait();
   deployment.setupTransactions.tokenOwnership = tokenOwnership.hash;
@@ -131,6 +145,28 @@ async function main() {
   const codexOwnership = await codex.transferOwnership(config.ownerMultisigAddress);
   await codexOwnership.wait();
   deployment.setupTransactions.codexOwnership = codexOwnership.hash;
+
+  const [londcOwner, zakatOwner, codexOwner] = await Promise.all([
+    londc.owner(),
+    zakat.owner(),
+    codex.owner(),
+  ]);
+  for (const [label, owner] of [
+    ["LONDCToken", londcOwner],
+    ["ZakatDistribution", zakatOwner],
+    ["MetatronCodex", codexOwner],
+  ]) {
+    if (owner.toLowerCase() !== config.ownerMultisigAddress.toLowerCase()) {
+      throw new Error(label + " ownership verification failed; expected the configured multisig.");
+    }
+  }
+  deployment.ownershipVerification = {
+    LONDCToken: londcOwner,
+    ZakatDistribution: zakatOwner,
+    MetatronCodex: codexOwner,
+    initialSupplyHeldByMultisig: multisigTokenBalance.toString(),
+    deployerInitialSupplyBalance: deployerTokenBalance.toString(),
+  };
   deployment.status = "DEPLOYED_PENDING_EXTERNAL_VERIFICATION";
   deployment.ownershipStatus = "TRANSFERRED_TO_MULTISIG";
   persistDeployment();
