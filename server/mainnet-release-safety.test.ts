@@ -54,6 +54,17 @@ describe("ScrollVerse Polygon release safety", () => {
     expect(source).toContain("not guaranteed payouts");
   });
 
+  it("transfers initial token supply to the multisig and verifies final contract ownership", () => {
+    const source = read("blockchain/scripts/deploy.js");
+    expect(source).toContain("londc.transfer(config.ownerMultisigAddress, initialSupply)");
+    expect(source).toContain("multisigTokenBalance !== initialSupply");
+    expect(source).toContain("deployerTokenBalance !== 0n");
+    expect(source).toContain("londc.owner()");
+    expect(source).toContain("zakat.owner()");
+    expect(source).toContain("codex.owner()");
+    expect(source).toContain("ownershipVerification");
+  });
+
   it("keeps Amoy and Polygon mainnet on their correct chain IDs", () => {
     const source = read("blockchain/scripts/deployment-preflight.cjs");
     expect(source).toContain("amoy: 80002");
