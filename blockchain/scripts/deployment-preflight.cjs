@@ -1,5 +1,6 @@
 const EXPECTED_CHAIN_IDS = Object.freeze({
   amoy: 80002,
+  polygonAmoy: 80002,
   polygon: 137,
 });
 
