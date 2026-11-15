@@ -132,3 +132,22 @@ The current application staking path is a live database-backed ledger process, n
 
 The archived Manus Team screenshots indexed in the repository show 49 positions and visible totals of 19,736.5906 CHX on August 16 and 20,275.6372 CHX on August 17, 2026. The handoff's August 29 value of 18,972 CHX and November 15 value of 60,922 CHX were not independently located in the current GitHub evidence or a live Manus workspace during this review. The arithmetic increase from 18,972 to 60,922 is approximately 221.1%; the later values remain owner-reported until matched to the relevant ledger export.
 
+
+
+## Deployment ownership and initial supply control
+
+The controlled deployment script now performs the following sequence:
+
+1. Require explicit, non-zero deployer, multisig, platform-wallet and metadata values; reject unsupported chain IDs.
+2. Confirm the nominated multisig address contains deployed contract code on the selected network.
+3. Deploy the contracts with the deployer as temporary owner only where setup calls require it.
+4. Set the LONDC Zakat vault to the newly deployed ZakatDistribution contract.
+5. Transfer the entire initial LONDC supply from the deployer to the nominated multisig.
+6. Read back the multisig and deployer token balances and stop unless the multisig holds the full initial supply and the deployer holds zero.
+7. Transfer ownership of LONDCToken, ZakatDistribution and MetatronCodex to the multisig.
+8. Read back each contract's owner and stop unless all three resolve to the configured multisig.
+9. Persist deployment addresses and transaction hashes as each step completes. Final status remains pending independent source verification.
+
+This closes a second-order custody issue: changing owner() alone would not move the initial ERC-20 supply minted to the deployer by the LONDC constructor. The release script now verifies both administrative ownership and initial token-supply custody.
+
+The Hardhat network alias used for explorer verification is polygonAmoy, chain ID 80002, matching the configured Polygonscan custom-chain name. The preflight validator accepts both amoy and polygonAmoy labels for chain-ID validation, but the current explorer-verification command should use the configured polygonAmoy alias.
