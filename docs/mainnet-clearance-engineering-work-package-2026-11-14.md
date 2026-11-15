@@ -132,8 +132,3 @@ The current application staking path is a live database-backed ledger process, n
 
 The archived Manus Team screenshots indexed in the repository show 49 positions and visible totals of 19,736.5906 CHX on August 16 and 20,275.6372 CHX on August 17, 2026. The handoff's August 29 value of 18,972 CHX and November 15 value of 60,922 CHX were not independently located in the current GitHub evidence or a live Manus workspace during this review. The arithmetic increase from 18,972 to 60,922 is approximately 221.1%; the later values remain owner-reported until matched to the relevant ledger export.
 
-## Stripe incident evidence boundary
-
-The connected Stripe integration exposes three distinct live accounts. The account whose current API state matches the payout pause is VibeCanvas Legacy Holdings LLC: charges are enabled, payouts are disabled, the account reports a pending verification item, and the API does not expose a specific currently-due or past-due field. The other two connected accounts currently report payouts enabled. The exact blocked amount stated in the handoff was not reconciled to a payout or dispute object in the connected account reads.
-
-A public GitHub commit on November 13, 2026 replaced the exposed live-format secret and webhook signing secret in the tracked scrollverse-trinity environment example with placeholders. The live publishable key was also replaced with a placeholder in this branch. The secret key rotation is recorded in that commit; the webhook signing-secret rotation still requires confirmation in Stripe. The revoked key remains in historical Git history, but it must not be reused. No history rewrite is performed by this PR.
