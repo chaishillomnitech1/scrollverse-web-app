@@ -1,3 +1,7 @@
+> **HISTORICAL REFERENCE — NOT A CURRENT DEPLOYMENT RUNBOOK.** This document predates the current source review and contains legacy network, currency, endpoint, or contract examples. Do not execute deployment commands from this document. The active Polygon release path is being reviewed in the blockchain workspace; Amoy is chain ID 80002 and Polygon mainnet is chain ID 137. No mainnet release is authorized by this historical guide. See docs/mainnet-clearance-engineering-work-package-2026-11-14.md for the current additive readiness record.
+
+---
+
 # ScrollVerseGate.sol — Polygon Mainnet Deployment Guide
 
 ## Contract: `ScrollVerseGate.sol`
