@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserProvider, Contract, parseEther } from "ethers";
 import {
-  DEFAULT_PRICE_MATIC,
+  DEFAULT_PRICE_POL,
   POLYGON_CHAIN_ID,
   POLYGON_CHAIN_PARAMS,
   SALE_ABI,
@@ -24,6 +24,7 @@ async function ensurePolygon(wallet: Eip1193) {
       await wallet.request({ method: "wallet_switchEthereumChain", params: [{ chainId: POLYGON_CHAIN_PARAMS.chainId }] });
     } catch (switchErr) {
       if ((switchErr as { code?: number }).code !== 4902) throw switchErr;
+      if (POLYGON_CHAIN_PARAMS.rpcUrls.length === 0) throw new Error("Polygon RPC is not configured for this build.");
       await wallet.request({ method: "wallet_addEthereumChain", params: [POLYGON_CHAIN_PARAMS] });
       await wallet.request({ method: "wallet_switchEthereumChain", params: [{ chainId: POLYGON_CHAIN_PARAMS.chainId }] });
     }
@@ -56,7 +57,7 @@ export function ExchangeButtons({ className = "" }: { className?: string }) {
       return;
     }
     if (!contractReady) {
-      setStatus({ kind: "error", message: "MATIC checkout is not configured yet (placeholder contract address)." });
+      setStatus({ kind: "error", message: "POL checkout is not configured yet (placeholder contract address)." });
       return;
     }
     try {
@@ -69,7 +70,7 @@ export function ExchangeButtons({ className = "" }: { className?: string }) {
       const provider = new BrowserProvider(wallet);
       const signer = await provider.getSigner();
       const contract = new Contract(SALE_CONTRACT_ADDRESS, SALE_ABI as unknown as string[], signer);
-      const tx = await contract.buy({ value: parseEther(DEFAULT_PRICE_MATIC) });
+      const tx = await contract.buy({ value: parseEther(DEFAULT_PRICE_POL) });
       setStatus({ kind: "pending", hash: tx.hash });
       await tx.wait();
       setStatus({ kind: "success", hash: tx.hash });
@@ -82,17 +83,17 @@ export function ExchangeButtons({ className = "" }: { className?: string }) {
   return (
     <section className={`rounded-3xl border border-cyan-200/25 bg-slate-950/60 p-6 ${className}`} aria-labelledby="direct-exchange-title">
       <h2 id="direct-exchange-title" className="text-2xl font-black">Direct Exchange</h2>
-      <p className="mt-2 text-sm text-slate-300">Choose card (USD) or wallet (MATIC).</p>
+      <p className="mt-2 text-sm text-slate-300">Choose card (USD) or wallet (POL).</p>
       <div className="mt-5 flex flex-wrap gap-3">
         <button type="button" onClick={buyUsd} disabled={inFlight} className={`${btn} border-cyan-200/35 bg-cyan-300/10 text-cyan-50 hover:bg-cyan-300/20`}>
           Buy with USD (Stripe)
         </button>
         <button type="button" onClick={buyMatic} disabled={inFlight} className={`${btn} border-purple-200/35 bg-purple-300/10 text-purple-50 hover:bg-purple-300/20`}>
-          Buy with MATIC
+          Buy with POL
         </button>
       </div>
       <p role="status" aria-live="polite" className="mt-4 break-all font-mono text-xs text-slate-300">{describeStatus(status)}</p>
-      <p className="mt-2 text-[11px] text-slate-500">Placeholder price: {DEFAULT_PRICE_MATIC} MATIC. Checkout activates only after the owner replaces the placeholder Stripe link and contract address.</p>
+      <p className="mt-2 text-[11px] text-slate-500">Placeholder price: {DEFAULT_PRICE_POL} POL. Checkout activates only after the owner replaces the placeholder Stripe link and contract address.</p>
     </section>
   );
 }

@@ -16,7 +16,7 @@ const VALUATION_METRICS = [
   { label: "CHX Market Cap", value: "$144M+", sub: "At $0.0144/CHX launch price", color: "#00D4FF" },
   { label: "Revenue Streams", value: "12+", sub: "All active & compounding", color: "#00FF88" },
   { label: "Guardian Network", value: "144,000", sub: "Target community size", color: "#FF6B6B" },
-  { label: "Daily Compound", value: "~36,724 CHX", sub: "Auto-executing staking", color: "#9B59B6" },
+  { label: "Daily Compound", value: "~36,724 CHX", sub: "Project-reported off-chain ledger estimate", color: "#9B59B6" },
   { label: "Ecosystem Pages", value: "50+", sub: "Live portal features", color: "#E67E22" },
 ];
 

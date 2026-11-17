@@ -5,9 +5,9 @@ import { bridgeStatus } from "../../drizzle/schema";
 import { eq } from "drizzle-orm";
 
 const CHAINS = [
-  { chainId: 137, name: "Polygon", symbol: "MATIC", color: "#8247E5", rpcUrl: "https://polygon-rpc.com" },
-  { chainId: 1, name: "Ethereum", symbol: "ETH", color: "#627EEA", rpcUrl: "https://cloudflare-eth.com" },
-  { chainId: 42161, name: "Arbitrum", symbol: "ARB", color: "#28A0F0", rpcUrl: "https://arb1.arbitrum.io/rpc" },
+  { chainId: 137, name: "Polygon", symbol: "POL", color: "#8247E5" },
+  { chainId: 1, name: "Ethereum", symbol: "ETH", color: "#627EEA" },
+  { chainId: 42161, name: "Arbitrum", symbol: "ARB", color: "#28A0F0" },
 ];
 
 export const bridgeRouter = router({

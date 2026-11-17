@@ -16,7 +16,7 @@ const GATE_TIERS = [
     name: "Gate 44:Omni",
     description: "The convergence point. All 144 Gates unified. Thoth-Hawk court-sanctuary. The rarest key in the empire.",
     price: "0.144",
-    currency: "MATIC",
+    currency: "POL",
     supply: 44,
     remaining: 44,
     frequency: "999Hz",
@@ -30,7 +30,7 @@ const GATE_TIERS = [
     name: "Gate 963 — Crown",
     description: "The crown frequency. Pineal activation. Direct connection to the divine source code.",
     price: "0.063",
-    currency: "MATIC",
+    currency: "POL",
     supply: 963,
     remaining: 963,
     frequency: "963Hz",
@@ -44,7 +44,7 @@ const GATE_TIERS = [
     name: "Gate 528 — Heart",
     description: "The love frequency. DNA repair. The heart of the empire beats at 528Hz.",
     price: "#0.044",
-    currency: "MATIC",
+    currency: "POL",
     supply: 528,
     remaining: 528,
     frequency: "528Hz",
@@ -58,7 +58,7 @@ const GATE_TIERS = [
     name: "Gate 144 — Legion",
     description: "The guardian key. Join the 144,000. The foundation of the sovereign empire.",
     price: "0.0144",
-    currency: "MATIC",
+    currency: "POL",
     supply: 144000,
     remaining: 143753,
     frequency: "432Hz",
@@ -74,13 +74,13 @@ const POLYGON_CHAIN_ID = "0x89"; // 137 in hex
 const POLYGON_CHAIN_CONFIG = {
   chainId: POLYGON_CHAIN_ID,
   chainName: "Polygon Mainnet",
-  nativeCurrency: { name: "MATIC", symbol: "MATIC", decimals: 18 },
-  rpcUrls: ["https://polygon-rpc.com/"],
+  nativeCurrency: { name: "POL", symbol: "POL", decimals: 18 },
+  rpcUrls: import.meta.env.VITE_POLYGON_RPC_URL ? [import.meta.env.VITE_POLYGON_RPC_URL] : [],
   blockExplorerUrls: ["https://polygonscan.com/"],
 };
 
-// Simulated contract address (replace with real deployed contract)
-const GATE_KEYS_CONTRACT = "0x144000ScrollVerseGateKeysSovereignEmpire";
+// Minting remains disabled until a deployed, independently verified contract and ABI are configured.
+const GATE_KEYS_MINT_ENABLED = false;
 
 type MintStatus = "idle" | "connecting" | "switching" | "confirming" | "minting" | "success" | "error";
 
@@ -155,6 +155,11 @@ export default function GateKeys() {
     } catch (err: unknown) {
       // Chain not added — add it
       if ((err as { code: number }).code === 4902) {
+        if (!import.meta.env.VITE_POLYGON_RPC_URL) {
+          setMintError("Polygon RPC is not configured for this build.");
+          setMintStatus("error");
+          return;
+        }
         try {
           await window.ethereum.request({
             method: "wallet_addEthereumChain",
@@ -174,45 +179,9 @@ export default function GateKeys() {
   };
 
   const mintGateKey = async (gate: typeof GATE_TIERS[0]) => {
-    if (!walletAddress) { await connectWallet(); return; }
-    if (chainId !== POLYGON_CHAIN_ID) { await switchToPolygon(); return; }
-
     setSelectedGate(gate);
-    setMintStatus("confirming");
-    setMintError(null);
-
-    try {
-      // Build the mint transaction
-      // In production: call the actual ERC-721 contract's mint() function
-      // For now: send a MATIC transfer as a placeholder (demonstrates the full flow)
-      const priceWei = BigInt(Math.floor(parseFloat(gate.price.replace("#", "")) * 1e18)).toString(16);
-
-      setMintStatus("minting");
-
-      const txParams = {
-        from: walletAddress,
-        to: GATE_KEYS_CONTRACT,
-        value: `0x${priceWei}`,
-        data: "0x6a627842" + walletAddress.slice(2).padStart(64, "0"), // mint(address) ABI encoded
-        gas: "0x30D40", // 200,000 gas
-      };
-
-      const hash = await window.ethereum.request({
-        method: "eth_sendTransaction",
-        params: [txParams],
-      }) as string;
-
-      setTxHash(hash);
-      setMintedTokenId(Math.floor(Math.random() * gate.supply) + 1);
-      setMintStatus("success");
-    } catch (err: unknown) {
-      if ((err as { code: number }).code === 4001) {
-        setMintError("Transaction rejected by user.");
-      } else {
-        setMintError("Mint failed. Please try again.");
-      }
-      setMintStatus("error");
-    }
+    setMintError("Gate Key minting is preview-only. No deployed and verified contract or production mint ABI is configured; no wallet transaction was submitted.");
+    setMintStatus("error");
   };
 
   const isOnPolygon = chainId === POLYGON_CHAIN_ID;
@@ -268,7 +237,7 @@ export default function GateKeys() {
             <span className="text-white">KEYS</span>
           </h1>
           <p className="text-lg max-w-2xl mx-auto mb-8" style={{ color: "#8899AA" }}>
-            Mint your sovereign key on Polygon Mainnet. Each Gate Key unlocks a frequency, a community, and an eternal on-chain record. AgapeCycle 88/12 — 88% flows to Guardians, 12% to Zakat.
+            Explore the Gate Key collection. On-chain minting remains preview-only until its contract is deployed and verified. Each Gate Key unlocks a frequency, a community, and an eternal on-chain record. AgapeCycle 88/12 — 88% flows to Guardians, 12% to Zakat.
           </p>
 
           {/* AgapeCycle display */}
@@ -368,18 +337,18 @@ export default function GateKeys() {
                 {/* Price + Mint */}
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-2xl font-black" style={{ color: gate.color }}>{gate.price.replace("#", "")} MATIC</div>
+                    <div className="text-2xl font-black" style={{ color: gate.color }}>{gate.price.replace("#", "")} POL</div>
                     <div className="text-xs font-mono" style={{ color: "#8899AA" }}>+ gas · Polygon Mainnet</div>
                   </div>
                   <button
                     onClick={() => mintGateKey(gate)}
-                    disabled={mintStatus === "minting" || mintStatus === "confirming" || mintStatus === "connecting" || mintStatus === "switching"}
+                    disabled={!GATE_KEYS_MINT_ENABLED || mintStatus === "minting" || mintStatus === "confirming" || mintStatus === "connecting" || mintStatus === "switching"}
                     className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 hover:opacity-90 disabled:opacity-50"
                     style={{ background: `linear-gradient(135deg, ${gate.color}, ${gate.color}CC)`, color: "#050B1A" }}
                   >
                     {mintStatus !== "idle" && mintStatus !== "success" && mintStatus !== "error" && selectedGate?.id === gate.id
                       ? mintStatus === "connecting" ? "Connecting..." : mintStatus === "switching" ? "Switching..." : mintStatus === "confirming" ? "Confirm in wallet..." : "Minting..."
-                      : "Mint Key"}
+                      : GATE_KEYS_MINT_ENABLED ? "Mint Key" : "Preview Only"}
                   </button>
                 </div>
 
@@ -449,7 +418,7 @@ export default function GateKeys() {
             {[
               { step: "01", title: "Connect", desc: "Connect MetaMask wallet. Polygon Mainnet required.", icon: "🦊" },
               { step: "02", title: "Select", desc: "Choose your Gate frequency. Each tier unlocks different access.", icon: "🗝️" },
-              { step: "03", title: "Confirm", desc: "Sign the transaction in MetaMask. Gas paid in MATIC.", icon: "✍️" },
+              { step: "03", title: "Confirm", desc: "Sign the transaction in MetaMask. Gas paid in POL.", icon: "✍️" },
               { step: "04", title: "Sealed", desc: "Your Gate Key is minted. IPFS metadata permanent. Eternal on-chain.", icon: "🔒" },
             ].map((s) => (
               <div key={s.step} className="text-center">
