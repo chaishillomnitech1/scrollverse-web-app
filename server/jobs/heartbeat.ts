@@ -32,14 +32,15 @@ heartbeatRouter.post("/compound-rewards", async (req, res) => {
 
     // Notify owner of daily compound summary
     await notifyOwner({
-      title: "⚡ Daily Staking Compound Complete",
-      content: `Processed ${result.processed} positions. Total new rewards distributed: ${result.totalNewRewards.toFixed(4)} CHX.${result.errors.length > 0 ? ` Errors: ${result.errors.join(", ")}` : ""}`,
+      title: "⚡ Daily Staking Ledger Updated",
+      content: `Processed ${result.processed} positions. Estimated rewards recorded in the off-chain application ledger: ${result.totalNewRewards.toFixed(4)} CHX. No on-chain transaction or token transfer was performed.${result.errors.length > 0 ? ` Errors: ${result.errors.join(", ")}` : ""}`,
     });
 
     res.json({
       success: true,
       processed: result.processed,
       totalNewRewards: result.totalNewRewards,
+      executionMode: "off_chain_ledger",
       errors: result.errors,
     });
   } catch (err) {

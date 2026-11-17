@@ -6872,3 +6872,29 @@
 - [x] Extend `scrollverse-source-led-portfolio` with the reusable new-batch accession and Legion convergence communication patterns.
 - [x] Verification passed: focused 8/8; full Vitest 450 files / 1194 tests; strict TypeScript; guarded production build exit 0 in 17.74s; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
 - [x] Boundary retained: no supplied HTML or media was opened, rendered, executed, extracted, transformed, uploaded, embedded, published, or treated as independently verified; no external repository, wallet, billing, payment, contract, account, hosting, or publication action was performed.
+
+## Phase 1015 — AURELLION Federation Doorway + Evidence Constitution
+- [x] Add a visible homepage doorway for AURELLION / Intelligence of Connected Light with first-party repository and merged PR #4, #5, and #6 links.
+- [x] Preserve the independent-world federation pattern and show DOCUMENTED / IMPLEMENTED / VERIFIED / ACTIVE maturity states without overstating provider, peer, staging, or production activation.
+- [x] Save the dated source review at `docs/source-review-nov12/aurellion-federation-source-review.md` using current GitHub and live-domain checks alongside shared-reference context.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable federated-intelligence and evidence-maturity pattern.
+- [x] Focused Phase 1014 regression: 4/4; skill validation passed; `git diff --check` passed.
+- [x] Run the fresh full Vitest, strict TypeScript, guarded production build, and checkpoint the combined local state: 452 files / 1201 tests passed; TypeScript passed; build passed in 16.68s; skill validation passed; `git diff --check` passed.
+- Boundary: supplied shared HTML/media and chat claims remain source context; no credentials, provider calls, wallet, contract, payment, account, repository write, or external publication action is performed by this phase.
+
+## Phase 1016 — Nov 12 Attachment Receipt Shelf
+- [x] Accession `pasted_content_182.txt` through `pasted_content_185.txt` as exact local byte-count and SHA-256 metadata-only receipts in `docs/source-review-nov12/nov12-attachment-batch-manifest.json`.
+- [x] Add a visible homepage receipt shelf with SOURCE CONTEXT ONLY labeling and direct Digitalship Accession Desk routes for all four records.
+- [x] Preserve the explicit boundary: no execution, interpretation, extraction, rendering, transformation, upload, embedding, publication, or independent verification of supplied bodies.
+- [x] Verification passed: Phase 1016 + Phase 1014 focused regressions, strict TypeScript, guarded production build, and `git diff --check`; existing non-blocking >500 kB runtime chunk warning remains.
+- [x] Saved checkpoint `74ceb1c3`; managed WebDev reported deployment successful and read-only checks returned HTTP 200 for both ScrollVerse domains.
+- Boundary: no wallet, billing, payment, contract, account, provider, repository-write, or external media action was performed.
+
+## Phase 1017 — Receipt Organization + AI Twin Retry Polish
+- [x] Add browser-local case-insensitive filtering across Phase 1016 receipt filenames, labels, and details.
+- [x] Add newest-first and oldest-first receipt sorting without mutating the source registry.
+- [x] Add an accessible result count, no-match recovery state, and a dynamic “Attached context sources” counter beside the receipt shelf.
+- [x] Add smooth reduced-motion-safe hover/focus feedback, accessible naming, native title fallback, and a visible tooltip to the AI Twin retry control.
+- [x] Add `server/phase1017.receiptAndRetryPolish.test.ts`; focused regression passed 2/2.
+- [x] Full verification passed: Vitest, strict TypeScript, guarded production build in 17.05s, reusable-skill validation, and `git diff --check`.
+- Boundary: no supplied attachment body was executed, interpreted, extracted, rendered, transformed, uploaded, embedded, or treated as independently verified; no wallet, billing, payment, contract, account, provider, or repository write was performed.

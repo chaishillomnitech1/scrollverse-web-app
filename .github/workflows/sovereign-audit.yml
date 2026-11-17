@@ -44,3 +44,9 @@ jobs:
 
       - name: Run deterministic invariant tests
         run: pnpm test:sovereign
+
+      - name: Run Control Tower registry tests
+        run: pnpm exec vitest run client/src/data/omniControlTowerRegistry.test.ts client/src/data/omniControlTowerObservations.test.ts
+
+      - name: Build production bundle
+        run: pnpm build

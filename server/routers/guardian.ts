@@ -39,9 +39,10 @@ async function sendViaSendGrid(subject: string, body: string, recipients: string
 // ── Polygon RPC ───────────────────────────────────────────────────────────────
 async function getOnChainGuardianCount(): Promise<number | null> {
   const contractAddress = process.env.GUARDIAN_CONTRACT_ADDRESS;
-  if (!contractAddress) return null;
+  const polygonRpcUrl = process.env.POLYGON_RPC_URL;
+  if (!contractAddress || !polygonRpcUrl) return null;
   try {
-    const res = await fetch(process.env.POLYGON_RPC_URL ?? "https://polygon-rpc.com", {
+    const res = await fetch(polygonRpcUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ jsonrpc: "2.0", method: "eth_call", params: [{ to: contractAddress, data: "0x18160ddd" }, "latest"], id: 1 }),

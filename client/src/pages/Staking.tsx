@@ -61,7 +61,7 @@ export default function Staking() {
   });
 
   const withdrawFromPool = trpc.staking.withdrawFromPool.useMutation({
-    onSuccess: () => { toast.success("Position withdrawn successfully"); refetchPositions(); refetchPools(); },
+    onSuccess: () => { toast.success("Position marked withdrawn in the application ledger; no on-chain token transfer was initiated."); refetchPositions(); refetchPools(); },
     onError: (err) => toast.error(err.message),
   });
 
@@ -88,7 +88,7 @@ export default function Staking() {
     setStaking(true);
     try {
       await stakeMutation.mutateAsync({ stakerName, walletAddress: walletAddress || undefined, tier: legacyTier, amountLondc: Math.floor(legacyAmtNum) });
-      toast.success("$LONDC staked successfully!");
+      toast.success("$LONDC position recorded in the application ledger; no on-chain transfer was initiated.");
       setLegacyAmount("");
     } catch (e: unknown) {
       toast.error(e instanceof Error ? e.message : "Stake failed");
@@ -110,6 +110,9 @@ export default function Staking() {
       </nav>
 
       <div className="container py-12">
+        <div className="mb-8 rounded-xl border p-4 text-sm" style={{ borderColor: "rgba(255,184,0,0.35)", background: "rgba(255,184,0,0.07)", color: "#E8D7A0" }}>
+          <strong>Application-ledger mode:</strong> this interface records staking positions and estimated rewards in the ScrollVerse database. It does not transfer CHX or $LONDC, custody tokens, or submit on-chain staking transactions. Displayed APY and reward figures are illustrative, not guaranteed payouts. On-chain staking activates only after a deployed and verified contract, wallet integration, audited reward funding, and release approval.
+        </div>
         <div className="text-center mb-12">
           <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SOVEREIGN STAKING PROTOCOL</div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Stake. Earn. <span style={{ color: "#FFB800" }}>Ascend.</span></h1>
