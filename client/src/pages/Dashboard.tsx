@@ -14,15 +14,17 @@ function useTreasuryBalance() {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const res = await fetch("https://polygon-rpc.com", {
+        const polygonRpcUrl = import.meta.env.VITE_POLYGON_RPC_URL;
+        if (!polygonRpcUrl) { setBalance("RPC not configured"); return; }
+        const res = await fetch(polygonRpcUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ jsonrpc: "2.0", method: "eth_getBalance", params: [SOVEREIGN_WALLET, "latest"], id: 1 }),
         });
         const data = await res.json();
         if (data.result) {
-          const matic = Number(BigInt(data.result)) / 1e18;
-          setBalance(matic.toFixed(4) + " MATIC");
+          const pol = Number(BigInt(data.result)) / 1e18;
+          setBalance(pol.toFixed(4) + " POL");
         }
       } catch { setBalance("—"); }
       finally { setLoading(false); }

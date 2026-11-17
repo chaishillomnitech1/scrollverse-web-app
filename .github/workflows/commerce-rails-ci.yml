@@ -1,0 +1,59 @@
+name: Commerce Rails CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "server/commerce/**"
+      - "server/routers/paymentRails.ts"
+      - "server/routers.ts"
+      - "client/src/components/commerce/PaymentRailOptions.tsx"
+      - "client/src/pages/Exchange.tsx"
+      - "docs/phase800-sovereign-commerce-settlement-architecture.md"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/commerce-rails-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "server/commerce/**"
+      - "server/routers/paymentRails.ts"
+      - "server/routers.ts"
+      - "client/src/components/commerce/PaymentRailOptions.tsx"
+      - "client/src/pages/Exchange.tsx"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/commerce-rails-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  payment-rails:
+    name: Typecheck and payment-rail tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.4.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: TypeScript check
+        run: pnpm check
+
+      - name: Payment rail tests
+        run: pnpm exec vitest run server/commerce/paymentRailSnapshot.test.ts

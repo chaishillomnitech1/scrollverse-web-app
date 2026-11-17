@@ -29,8 +29,8 @@ export default function PaymentSuccess() {
   const type = params.get("type") || "nft";
 
   const typeConfig: Record<string, { title: string; subtitle: string; description: string; icon: string; color: string; cta: string; ctaHref: string }> = {
-    nft: { title: "Guardian NFT Minted", subtitle: "Your NFT is being minted on Polygon Mainnet", description: "Welcome to the 144,000. Your Guardian NFT will appear in your wallet within 5-10 minutes.", icon: "🛡️", color: "#00D4FF", cta: "View My NFTs", ctaHref: "/uap" },
-    chx: { title: "CHX Reservation Confirmed", subtitle: "Your CHX tokens are reserved for TGE", description: "Your CHX pre-sale reservation is locked in. When the token launches on Polygon Mainnet, your allocation will be distributed automatically. KUN FAYAKUN x Infinity", icon: "💎", color: "#FFB800", cta: "View CHX Token", ctaHref: "/chx-token" },
+    nft: { title: "Guardian NFT Order Received", subtitle: "On-chain mint pending verified contract integration", description: "Your order has been received. An NFT is confirmed only after a successful on-chain mint transaction; this payment confirmation alone does not mint or transfer a token.", icon: "🛡️", color: "#00D4FF", cta: "View My NFTs", ctaHref: "/uap" },
+    chx: { title: "CHX Reservation Recorded", subtitle: "Application-ledger reservation; token distribution pending", description: "Your CHX reservation has been recorded in the application ledger. No CHX has been minted or transferred by this confirmation. Token delivery requires a separately verified token deployment and distribution transaction. KUN FAYAKUN x Infinity", icon: "💎", color: "#FFB800", cta: "View CHX Token", ctaHref: "/chx-token" },
     staking: { title: "Staking Position Active", subtitle: "Your CHX is now earning sovereign rewards", description: "Your staking position is live. Rewards compound daily at your selected frequency. The Flame Council acknowledges your commitment.", icon: "⚡", color: "#00FF88", cta: "View My Positions", ctaHref: "/staking" },
   };
 

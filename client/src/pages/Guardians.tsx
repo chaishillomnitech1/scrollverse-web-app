@@ -65,14 +65,18 @@ function useWallet() {
         params: [{ chainId: "0x89" }], // Polygon Mainnet
       });
     } catch {
-      // If Polygon not added, add it
+      // If Polygon is not added, require the build-configured provider URL.
+      if (!import.meta.env.VITE_POLYGON_RPC_URL) {
+        setWallet(w => ({ ...w, connecting: false, error: "Polygon RPC is not configured for this build." }));
+        return;
+      }
       await window.ethereum.request({
         method: "wallet_addEthereumChain",
         params: [{
           chainId: "0x89",
           chainName: "Polygon Mainnet",
-          nativeCurrency: { name: "MATIC", symbol: "MATIC", decimals: 18 },
-          rpcUrls: ["https://polygon-rpc.com/"],
+          nativeCurrency: { name: "POL", symbol: "POL", decimals: 18 },
+          rpcUrls: import.meta.env.VITE_POLYGON_RPC_URL ? [import.meta.env.VITE_POLYGON_RPC_URL] : [],
           blockExplorerUrls: ["https://polygonscan.com/"],
         }],
       });
@@ -209,20 +213,11 @@ const DAO_PROPOSALS = [
 export default function Guardians() {
   const [selectedTier, setSelectedTier] = useState(TIERS[0]);
   const [activeTab, setActiveTab] = useState<"tiers" | "dao" | "nft">("tiers");
-  const [activating, setActivating] = useState(false);
-  const [activationStatus, setActivationStatus] = useState<"idle" | "success" | "error">("idle");
-  const { wallet, connect, disconnect, switchToPolygon } = useWallet();
+  const [activationStatus, setActivationStatus] = useState<"idle" | "preview" | "error">("idle");
+  const { wallet, connect, disconnect } = useWallet();
 
-  const handleActivateTier = async () => {
-    if (!wallet.connected) { connect(); return; }
-    if (wallet.chainId !== 137) { await switchToPolygon(); return; }
-    setActivating(true);
-    setActivationStatus("idle");
-    // Simulate tier activation transaction (real tx when $LONDC is deployed)
-    await new Promise(r => setTimeout(r, 2000));
-    setActivating(false);
-    setActivationStatus("success");
-    setTimeout(() => setActivationStatus("idle"), 4000);
+  const handleActivateTier = () => {
+    setActivationStatus("preview");
   };
 
   return (
@@ -347,6 +342,7 @@ export default function Guardians() {
                     </div>
                   ))}
                 </div>
+                <p className="mb-6 text-xs" style={{ color: "#8899AA" }}>Displayed monthly reward figures are illustrative planning values, not guaranteed returns or current payout terms.</p>
                 <div className="mb-6">
                   <div className="text-xs font-mono mb-3" style={{ color: selectedTier.color }}>TIER TRAITS</div>
                   <div className="space-y-2">
@@ -368,9 +364,9 @@ export default function Guardians() {
                   </div>
                 )}
                 {/* Activation success */}
-                {activationStatus === "success" && (
+                {activationStatus === "preview" && (
                   <div className="mb-4 p-3 rounded-lg text-xs" style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.3)", color: "#00FF88" }}>
-                    ✓ Tier {selectedTier.tier} activation initiated! Transaction submitted to Polygon. Your Guardian NFT will appear in your wallet shortly.
+                    Preview only — no staking or activation transaction was submitted. Contract deployment, source verification, and wallet integration are still pending.
                   </div>
                 )}
                 {/* Network warning */}
@@ -383,17 +379,17 @@ export default function Guardians() {
                 {wallet.connected && (
                   <div className="mb-4 p-3 rounded-lg text-xs font-mono" style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)", color: "#8899AA" }}>
                     <span style={{ color: "#00D4FF" }}>Connected:</span> {wallet.address?.slice(0,6)}...{wallet.address?.slice(-4)}
-                    {wallet.balance && <span className="ml-3">{wallet.balance} MATIC</span>}
+                    {wallet.balance && <span className="ml-3">{wallet.balance} POL</span>}
                     {wallet.chainId === 137 && <span className="ml-3" style={{ color: "#00FF88" }}>● Polygon</span>}
                   </div>
                 )}
                 <button
                   onClick={handleActivateTier}
-                  disabled={activating}
+                  disabled={activationStatus === "preview"}
                   className="btn-gold px-6 py-3 rounded-xl text-sm font-bold transition-all"
-                  style={{ opacity: activating ? 0.7 : 1 }}
+                  style={{ opacity: activationStatus === "preview" ? 0.7 : 1 }}
                 >
-                  {activating ? "Activating..." : !wallet.connected ? "Connect Wallet to Activate" : wallet.chainId !== 137 ? "Switch to Polygon" : `Activate Tier ${selectedTier.tier} →`}
+                  {activationStatus === "preview" ? "Preview shown" : "Preview activation"}
                 </button>
               </div>
             </div>

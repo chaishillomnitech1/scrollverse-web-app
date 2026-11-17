@@ -3,14 +3,15 @@ export const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/REPLACE_WITH_YOUR_PAY
 export const SALE_CONTRACT_ADDRESS = "REPLACE_WITH_VERIFIED_SALE_CONTRACT";
 export const SALE_ABI = ["function buy() payable"] as const;
 // Placeholder price in MATIC.
-export const DEFAULT_PRICE_MATIC = "10";
+export const DEFAULT_PRICE_POL = "10";
+export const DEFAULT_PRICE_MATIC = DEFAULT_PRICE_POL; // Backward-compatible legacy export.
 
 export const POLYGON_CHAIN_ID = 137;
 export const POLYGON_CHAIN_PARAMS = {
   chainId: "0x89",
   chainName: "Polygon Mainnet",
   nativeCurrency: { name: "POL", symbol: "POL", decimals: 18 },
-  rpcUrls: ["https://polygon-rpc.com"],
+  rpcUrls: import.meta.env.VITE_POLYGON_RPC_URL ? [import.meta.env.VITE_POLYGON_RPC_URL] : [],
   blockExplorerUrls: ["https://polygonscan.com"],
 };
 

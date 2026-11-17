@@ -94,7 +94,8 @@ export const stakingRouter = router({
         amountStaked: input.amountLondc,
         estimatedReward: periodReward,
         unlocksAt,
-        message: `${input.amountLondc} $LONDC staked at ${tierConfig.apyBasisPoints / 100}% APY. Estimated reward: ${periodReward} $LONDC`,
+        executionMode: "off_chain_ledger",
+        message: `${input.amountLondc} $LONDC position recorded in the application ledger at an illustrative ${tierConfig.apyBasisPoints / 100}% APY. Estimated reward: ${periodReward} $LONDC. No on-chain token transfer was initiated.`,
       };
     }),
 
@@ -133,7 +134,7 @@ export const stakingRouter = router({
         };
       })
     );
-    return { pools };
+    return { pools, executionMode: "off_chain_ledger" as const };
   }),
 
   getMyPositions: protectedProcedure.query(async ({ ctx }) => {
@@ -143,7 +144,7 @@ export const stakingRouter = router({
       .from(stakingPositions)
       .where(and(eq(stakingPositions.userId, ctx.user.id), eq(stakingPositions.status, "active")))
       .orderBy(desc(stakingPositions.stakedAt));
-    return { positions };
+    return { positions, executionMode: "off_chain_ledger" as const };
   }),
 
   stakeInPool: protectedProcedure
@@ -175,8 +176,8 @@ export const stakingRouter = router({
       // Fire in-app notification to the staker
       await db.insert(notifications).values({
         userId: ctx.user.id,
-        title: `${cfg.icon} Staked in ${cfg.name}!`,
-        message: `You've staked ${input.chxAmount.toLocaleString()} CHX in the ${cfg.name} at ${cfg.apy}% APY. Estimated annual reward: ${Math.floor(annualReward).toLocaleString()} CHX. Rewards compound daily. KUN FAYAKŪN × ∞`,
+        title: `${cfg.icon} ${cfg.name} Ledger Position Recorded`,
+        message: `Your ${input.chxAmount.toLocaleString()} CHX position was recorded in the off-chain application ledger for ${cfg.name}. The ${cfg.apy}% APY and estimated annual reward of ${Math.floor(annualReward).toLocaleString()} CHX are illustrative; no token transfer or on-chain staking transaction was initiated.`,
         type: "staking",
         link: "/staking",
       });
@@ -184,17 +185,18 @@ export const stakingRouter = router({
       // Notify owner of new staker
       await notifyOwner({
         title: `⚡ New Staker — ${cfg.name}`,
-        content: `User ${ctx.user.id} staked ${input.chxAmount.toLocaleString()} CHX in ${cfg.name} (${cfg.apy}% APY). Est. annual reward: ${Math.floor(annualReward).toLocaleString()} CHX.`,
+        content: `User ${ctx.user.id} recorded ${input.chxAmount.toLocaleString()} CHX in the off-chain ${cfg.name} application ledger. The ${cfg.apy}% APY and estimated annual reward are illustrative; no token transfer or on-chain staking transaction was initiated.`,
       });
 
       return {
         success: true,
+        executionMode: "off_chain_ledger",
         positionId: row.id,
         pool: input.pool,
         chxStaked: input.chxAmount,
         apy: cfg.apy,
         estimatedAnnualReward: Math.floor(annualReward),
-        message: `${input.chxAmount} CHX staked in ${cfg.name} at ${cfg.apy}% APY. Est. annual reward: ${Math.floor(annualReward)} CHX`,
+        message: `${input.chxAmount} CHX position recorded in the ${cfg.name} application ledger at an illustrative ${cfg.apy}% APY. Estimated annual reward: ${Math.floor(annualReward)} CHX. No on-chain token transfer was initiated.`,
       };
     }),
 
@@ -211,7 +213,7 @@ export const stakingRouter = router({
         .update(stakingPositions)
         .set({ status: "withdrawn", withdrawnAt: new Date() })
         .where(eq(stakingPositions.id, input.positionId));
-      return { success: true, message: "Position withdrawn successfully" };
+      return { success: true, executionMode: "off_chain_ledger", message: "Position marked withdrawn in the application ledger. No on-chain token transfer was initiated." };
     }),
 
   /**
@@ -237,7 +239,7 @@ export const stakingRouter = router({
       const daysSince = (now.getTime() - lastCompound.getTime()) / (1000 * 60 * 60 * 24);
 
       if (daysSince < 0.01) {
-        return { success: false, message: "Already compounded recently. Try again later.", newRewards: 0, totalRewards: parseFloat(pos.rewardsEarned ?? "0") };
+        return { success: false, executionMode: "off_chain_ledger", message: "Ledger was updated recently. Try again later.", newRewards: 0, totalRewards: parseFloat(pos.rewardsEarned ?? "0") };
       }
 
       const chxStaked = parseFloat(pos.chxStaked) || 0;
