@@ -26,6 +26,7 @@ const NewDominionStoryBlueprint = lazy(() => import("@/pages/NewDominionStoryBlu
 const StoryWorldCrossroads = lazy(() => import("@/pages/StoryWorldCrossroads"));
 const SynchronizationVideoLibrary = lazy(() => import("./pages/SynchronizationVideoLibrary"));
 const SourceCollections = lazy(() => import("@/pages/SourceCollections"));
+const SourceWorkReview = lazy(() => import("@/pages/SourceWorkReview"));
 const MetaAILegionArchive = lazy(() => import("@/pages/MetaAILegionArchive"));
 const PriceOfFreedom = lazy(() => import("@/pages/PriceOfFreedom"));
 const InvestorRelations = lazy(() => import("@/pages/InvestorRelations"));
@@ -37,6 +38,8 @@ const OmnilandGameSystemsContribution = lazy(() => import("@/pages/OmnilandGameS
 const MediaReleaseConceptBoard = lazy(() => import("@/pages/MediaReleaseConceptBoard")); // import MediaReleaseConceptBoard from "@/pages/MediaReleaseConceptBoard"; deferred route module
 const CommerceFinancialReadinessBoard = lazy(() => import("@/pages/CommerceFinancialReadinessBoard")); // import CommerceFinancialReadinessBoard from "@/pages/CommerceFinancialReadinessBoard"; deferred route module
 const ActivePathwaysReleaseGatesAudit = lazy(() => import("@/pages/ActivePathwaysReleaseGatesAudit")); // import ActivePathwaysReleaseGatesAudit from "@/pages/ActivePathwaysReleaseGatesAudit"; deferred route module
+const AtlasCore = lazy(() => import("@/pages/AtlasCore"));
+const OmniControlTower = lazy(() => import("@/pages/OmniControlTower"));
 const NotFound = lazy(() => import("@/pages/NotFound")); // import NotFound from "@/pages/NotFound"; deferred route module
 import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -97,6 +100,7 @@ const SalesDashboard = lazy(() => import("./pages/SalesDashboard")); // import S
 const CreatorPlatform = lazy(() => import("./pages/CreatorPlatform")); // import CreatorPlatform from "./pages/CreatorPlatform"; deferred route module
 const SystemStatus = lazy(() => import("./pages/SystemStatus")); // import SystemStatus from "./pages/SystemStatus"; deferred route module
 const KYCVerification = lazy(() => import("./pages/KYCVerification")); // import KYCVerification from "./pages/KYCVerification"; deferred route module
+const Mother10 = lazy(() => import("./pages/mother-10-origin-doesnt-matter"));
 const Exchange = lazy(() => import("./pages/Exchange")); // import Exchange from "./pages/Exchange"; deferred route module
 const ExchangeCrypto = lazy(() => import("./pages/ExchangeCrypto")); // import ExchangeCrypto from "./pages/ExchangeCrypto"; deferred route module
 const TradingReadiness = lazy(() => import("./pages/TradingReadiness")); // import TradingReadiness from "./pages/TradingReadiness"; deferred route module
@@ -536,6 +540,7 @@ const SovereigntyInfrastructureRecord = lazy(() => import("./pages/SovereigntyIn
 const EmpirePowerIndex = lazy(() => import("./pages/EmpirePowerIndex")); // import EmpirePowerIndex from "./pages/EmpirePowerIndex"; deferred route module
 const ProtectedVisualIntake = lazy(() => import("./pages/ProtectedVisualIntake")); // import ProtectedVisualIntake from "./pages/ProtectedVisualIntake"; deferred route module
 const SuppliedPublicReferences = lazy(() => import("./pages/SuppliedPublicReferences")); // import SuppliedPublicReferences from "./pages/SuppliedPublicReferences"; deferred route module
+const Mother10OriginDoesntMatter = lazy(() => import("./pages/Mother10OriginDoesntMatter")); // deferred route module
 const ManusOriginHistoricalRecoveryGate = lazy(() => import("./pages/ManusOriginHistoricalRecoveryGate")); // import ManusOriginHistoricalRecoveryGate from "./pages/ManusOriginHistoricalRecoveryGate"; deferred route module
 const Omega267PriorHubRecoveryGate = lazy(() => import("./pages/Omega267PriorHubRecoveryGate")); // import Omega267PriorHubRecoveryGate from "./pages/Omega267PriorHubRecoveryGate"; deferred route module
 const CreatorStickerIntake = lazy(() => import("./pages/CreatorStickerIntake")); // import CreatorStickerIntake from "./pages/CreatorStickerIntake"; deferred route module
@@ -692,6 +697,7 @@ function Router() {
       <Route path={"/status"} component={SystemStatus} />
       <Route path={"/kyc"} component={KYCVerification} />
       <Route path={"/exchange"} component={Exchange} />
+      <Route path={"/mother-10"} component={Mother10} />
       <Route path={"/exchange/crypto"} component={ExchangeCrypto} />
       <Route path={"/trading-readiness"} component={TradingReadiness} />
       <Route path={"/exchange/stocks"} component={ExchangeStocks} />
@@ -833,6 +839,9 @@ function Router() {
       <Route path={"/tutorial-studio"} component={VisualTutorialStudio} />
       <Route path={"/evolution-lookbook"} component={EvolutionLookbook} />
       <Route path={"/creator-atlas"} component={CreatorAtlas} />
+      <Route path={"/atlas-core"} component={AtlasCore} />
+      <Route path={"/omni-control-tower"} component={OmniControlTower} />
+      <Route path={"/integration-registry"} component={OmniControlTower} />
       <Route path={"/visual-story-worlds"} component={VisualStoryWorlds} />
       <Route path={"/sovereign-archive-chronicles"} component={SovereignArchiveChronicles} />
       <Route path={"/creator-digital-dna"} component={CreatorDigitalDNA} />
@@ -1012,6 +1021,7 @@ function Router() {
         <Route path="/new-dominion-story-blueprint" component={NewDominionStoryBlueprint} />
         <Route path="/story-world-crossroads" component={StoryWorldCrossroads} />
         <Route path="/source-collections" component={SourceCollections} />
+        <Route path="/source-work-review" component={SourceWorkReview} />
         <Route path="/meta-ai-legion-archive" component={MetaAILegionArchive} />
         <Route path="/price-of-freedom" component={PriceOfFreedom} />
         <Route path="/investor-relations" component={InvestorRelations} />
@@ -1188,6 +1198,7 @@ function Router() {
         <Route path="/empire-power-index" component={EmpirePowerIndex} />
         <Route path="/protected-visual-intake" component={ProtectedVisualIntake} />
         <Route path="/supplied-public-references" component={SuppliedPublicReferences} />
+        <Route path="/mother-10-origin-doesnt-matter" component={Mother10OriginDoesntMatter} />
         <Route path="/manus-origin-historical-recovery" component={ManusOriginHistoricalRecoveryGate} />
         <Route path="/omega-267-prior-hub-recovery" component={Omega267PriorHubRecoveryGate} />
         <Route path="/creator-sticker-intake" component={CreatorStickerIntake} />

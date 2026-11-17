@@ -4,6 +4,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { appRouter } from "./routers";
+import { getDb } from "./db";
 import type { TrpcContext } from "./_core/context";
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
@@ -86,22 +87,45 @@ describe("guardian.subscribe", () => {
 });
 
 describe("guardian.getCount", () => {
-  it("returns a valid count response with correct shape", async () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    delete process.env.GUARDIAN_CONTRACT_ADDRESS;
+  });
+
+  it("returns a database-sourced count without calling it on-chain verified", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     const result = await caller.guardian.getCount();
-    expect(typeof result.displayCount).toBe("number");
-    expect(typeof result.dbCount).toBe("number");
-    expect(typeof result.isLive).toBe("boolean");
+    expect(result.databaseAvailable).toBe(true);
+    expect(result.dbCount).toBe(0);
+    expect(result.displayCount).toBe(0);
+    expect(result.countSource).toBe("database");
+    expect(result.isLive).toBe(false);
     expect(result.onChainCount).toBeNull();
   });
 
-  it("returns isLive=false when contract address is not set", async () => {
-    const original = process.env.GUARDIAN_CONTRACT_ADDRESS;
-    delete process.env.GUARDIAN_CONTRACT_ADDRESS;
+  it("returns unavailable when the database connection is unavailable", async () => {
+    vi.mocked(getDb).mockResolvedValueOnce(null);
     const caller = appRouter.createCaller(createPublicContext());
     const result = await caller.guardian.getCount();
+    expect(result.databaseAvailable).toBe(false);
+    expect(result.dbCount).toBeNull();
+    expect(result.displayCount).toBeNull();
+    expect(result.countSource).toBe("unavailable");
     expect(result.isLive).toBe(false);
     expect(result.onChainCount).toBeNull();
-    process.env.GUARDIAN_CONTRACT_ADDRESS = original;
+  });
+
+  it("does not invent a count when the database read fails", async () => {
+    vi.mocked(getDb).mockResolvedValueOnce({
+      select: vi.fn().mockReturnValue({
+        from: vi.fn().mockRejectedValue(new Error("database read failed")),
+      }),
+    } as never);
+    const caller = appRouter.createCaller(createPublicContext());
+    const result = await caller.guardian.getCount();
+    expect(result.databaseAvailable).toBe(false);
+    expect(result.dbCount).toBeNull();
+    expect(result.displayCount).toBeNull();
+    expect(result.countSource).toBe("unavailable");
   });
 });

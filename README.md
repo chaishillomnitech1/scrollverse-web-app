@@ -7,6 +7,9 @@
 
 # ◈ SCROLLVERSE TRINITY EMPIRE ◈
 
+<p align="center"><img src="identity/thumbnail.svg" alt="ScrollVerse Trinity Empire repository identity" width="100%" /></p>
+
+
 ### *The Living Sovereign Digital Ecosystem*
 ### Built by **Chais Kenyatta Hill — Sabir Allah The Great**
 

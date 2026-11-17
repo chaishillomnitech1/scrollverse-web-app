@@ -6846,3 +6846,55 @@
 - [x] Accession the supplied Nov 1 source materials with exact local byte counts, MIME metadata, and SHA-256 receipts in `docs/source-review-nov1/nov1-latest-source-batch-manifest.json`.
 - [x] Preserve the companion note with metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; source claims remain creator-supplied and source-labeled.
 - [x] Verification passed: focused accession regression, full Vitest 446 files / 1186 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; only the existing non-blocking >500 kB runtime chunk warning remains.
+
+## Phase 1010 — Homepage Motion-Reference Shelf
+- [x] Surface the newly supplied video batch as visible, source-labeled homepage cards with exact filenames and stable typographic fallbacks.
+- [x] Keep each card browser-local and visitor-controlled with direct accession-desk routing, no autoplay, and explicit metadata-only/raw-upload boundaries.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable homepage motion-reference shelf pattern.
+- [x] Verification passed: focused motion-shelf regression, full Vitest, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 1011 — Nov 1 Creator Reference Batch
+- [x] Add source-labeled homepage cards for `Scrollverse-Sovereign-Motion-Scenes.html`, `Black-Batman-Chronicles-Ep.html`, and `Playable-Game-Ui-Sovereign.html` using manifest filenames only.
+- [x] Preserve metadata-only labeling, direct accession-desk routing, no rendering/execution, and HTML source bodies outside the UI.
+- [x] Extend `scrollverse-source-led-portfolio` with the manifest-to-homepage next-batch integration pattern.
+- [x] Verification passed: Phase 1010 and 1011 regressions, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; only the existing non-blocking large runtime chunk warning remains.
+
+## Phase 1012 — Complete Motion Shelf Coverage and Integration Report
+- [x] Add the five Oct 30 video receipt records (`video(19).mp4` through `video(15).mp4`) so the homepage covers the complete Phase 1010 video subset.
+- [x] Review the reusable `scrollverse-source-led-portfolio` workflow and preserve metadata-only/no-autoplay guidance.
+- [x] Write `docs/source-review-nov1/phase1010-1011-creator-reference-integration-report.md` with all integrated reference filenames, boundaries, and verification metrics.
+- [x] Verification passed: full Vitest 448 files / 1190 tests, strict TypeScript, guarded build exit 0, portable build metrics, skill validation, and `git diff --check`.
+
+## Phase 1013 — Sana · Agent 25 Reference Batch + AI Communication Resilience
+- [x] Add the seven newly supplied MP4 references and two HTML references to the homepage as source-labeled, keyboard-reachable metadata-only cards with direct accession-desk routes.
+- [x] Preserve exact local byte counts, conservative MIME guesses, and SHA-256 receipts in `docs/source-review-nov1/phase1013-sana-agent25-manifest.json`; supplied bodies remain outside the production bundle.
+- [x] Improve AI Twin failure communication with truthful provider-unavailable copy, an `aria-live` status region, a visible retry action, and preserved request payloads so no user message is silently lost.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable new-batch accession and Legion convergence communication patterns.
+- [x] Verification passed: focused 8/8; full Vitest 450 files / 1194 tests; strict TypeScript; guarded production build exit 0 in 17.74s; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
+- [x] Boundary retained: no supplied HTML or media was opened, rendered, executed, extracted, transformed, uploaded, embedded, published, or treated as independently verified; no external repository, wallet, billing, payment, contract, account, hosting, or publication action was performed.
+
+## Phase 1015 — AURELLION Federation Doorway + Evidence Constitution
+- [x] Add a visible homepage doorway for AURELLION / Intelligence of Connected Light with first-party repository and merged PR #4, #5, and #6 links.
+- [x] Preserve the independent-world federation pattern and show DOCUMENTED / IMPLEMENTED / VERIFIED / ACTIVE maturity states without overstating provider, peer, staging, or production activation.
+- [x] Save the dated source review at `docs/source-review-nov12/aurellion-federation-source-review.md` using current GitHub and live-domain checks alongside shared-reference context.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable federated-intelligence and evidence-maturity pattern.
+- [x] Focused Phase 1014 regression: 4/4; skill validation passed; `git diff --check` passed.
+- [x] Run the fresh full Vitest, strict TypeScript, guarded production build, and checkpoint the combined local state: 452 files / 1201 tests passed; TypeScript passed; build passed in 16.68s; skill validation passed; `git diff --check` passed.
+- Boundary: supplied shared HTML/media and chat claims remain source context; no credentials, provider calls, wallet, contract, payment, account, repository write, or external publication action is performed by this phase.
+
+## Phase 1016 — Nov 12 Attachment Receipt Shelf
+- [x] Accession `pasted_content_182.txt` through `pasted_content_185.txt` as exact local byte-count and SHA-256 metadata-only receipts in `docs/source-review-nov12/nov12-attachment-batch-manifest.json`.
+- [x] Add a visible homepage receipt shelf with SOURCE CONTEXT ONLY labeling and direct Digitalship Accession Desk routes for all four records.
+- [x] Preserve the explicit boundary: no execution, interpretation, extraction, rendering, transformation, upload, embedding, publication, or independent verification of supplied bodies.
+- [x] Verification passed: Phase 1016 + Phase 1014 focused regressions, strict TypeScript, guarded production build, and `git diff --check`; existing non-blocking >500 kB runtime chunk warning remains.
+- [x] Saved checkpoint `74ceb1c3`; managed WebDev reported deployment successful and read-only checks returned HTTP 200 for both ScrollVerse domains.
+- Boundary: no wallet, billing, payment, contract, account, provider, repository-write, or external media action was performed.
+
+## Phase 1017 — Receipt Organization + AI Twin Retry Polish
+- [x] Add browser-local case-insensitive filtering across Phase 1016 receipt filenames, labels, and details.
+- [x] Add newest-first and oldest-first receipt sorting without mutating the source registry.
+- [x] Add an accessible result count, no-match recovery state, and a dynamic “Attached context sources” counter beside the receipt shelf.
+- [x] Add smooth reduced-motion-safe hover/focus feedback, accessible naming, native title fallback, and a visible tooltip to the AI Twin retry control.
+- [x] Add `server/phase1017.receiptAndRetryPolish.test.ts`; focused regression passed 2/2.
+- [x] Full verification passed: Vitest, strict TypeScript, guarded production build in 17.05s, reusable-skill validation, and `git diff --check`.
+- Boundary: no supplied attachment body was executed, interpreted, extracted, rendered, transformed, uploaded, embedded, or treated as independently verified; no wallet, billing, payment, contract, account, provider, or repository write was performed.

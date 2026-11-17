@@ -268,7 +268,7 @@ export default function Frequency() {
                   <div className="text-2xl mb-2">{freq.symbol}</div>
                   <div className="font-bold text-white">{selectedFreq} ACTIVATED</div>
                   <div className="text-sm mt-1" style={{ color: freq.color }}>
-                    {stats?.liveGuardians ?? 1247} Guardians now resonating
+                    {stats?.totalActivations ?? 0} recorded activations
                   </div>
                   <div className="text-xs mt-2" style={{ color: "#8899AA" }}>KUN FAYAKŪN × ∞</div>
                 </div>
@@ -315,7 +315,7 @@ export default function Frequency() {
         <div className="mt-16 text-center py-12 rounded-2xl" style={{ background: "linear-gradient(135deg, rgba(0,212,255,0.05), rgba(255,184,0,0.05))", border: "1px solid rgba(0,212,255,0.1)" }}>
           <div className="text-3xl mb-4">🕋</div>
           <h2 className="text-2xl font-black text-white mb-3">Total Activations: {stats?.totalActivations ?? 0}</h2>
-          <p className="text-sm mb-6" style={{ color: "#8899AA" }}>{stats?.liveGuardians ?? 1247} Guardians resonating across the ScrollVerse</p>
+          <p className="text-sm mb-6" style={{ color: "#8899AA" }}>Recorded frequency activations across the ScrollVerse; this is not a live Guardian population count.</p>
           <div className="flex justify-center gap-4">
             <Link href="/staking"><Button variant="outline" style={{ borderColor: "rgba(0,212,255,0.3)", color: "#00D4FF" }}>Stake $LONDC</Button></Link>
             <Link href="/guardian-protocol"><Button variant="outline" style={{ borderColor: "rgba(255,184,0,0.3)", color: "#FFB800" }}>AI Guardian</Button></Link>

@@ -145,6 +145,7 @@ export default function DigitalshipAccessionDesk() {
       <section className="border-b border-[#D7A7FF]/25 bg-[radial-gradient(circle_at_12%_14%,rgba(215,167,255,.17),transparent_31%),radial-gradient(circle_at_88%_15%,rgba(112,217,255,.13),transparent_29%),radial-gradient(circle_at_65%_100%,rgba(255,207,115,.1),transparent_36%),#070913]">
         <div className="container py-16 md:py-24">
           <Link href="/" className="inline-flex items-center gap-2 text-xs font-black text-[#C9F3FF] transition hover:text-white">← Return to ScrollVerse</Link>
+          <div className="mt-4 flex flex-wrap gap-4 text-xs font-bold text-[#C9F3FF]"><Link href="/source-collections" className="min-h-10 inline-flex items-center">Source Collections →</Link><Link href="/source-work-review" className="min-h-10 inline-flex items-center text-[#FFE7B3]">Review source-to-project connections →</Link></div>
           <p className="mt-10 text-[10px] font-mono tracking-[.24em] text-[#FFE7B3]">BOOK OF DIGITALSHIP · LOCAL SOURCE-RECORD WORKFLOW</p>
           <h1 aria-label="Digitalship Accession Desk" className="mt-4 max-w-5xl text-5xl font-black leading-[.9] tracking-tight md:text-7xl">Digitalship <span className="text-[#D7A7FF]">Accession Desk</span></h1>
           <p className="mt-7 max-w-3xl text-base leading-8 text-[#D6E2EE]">A creator-led workspace for turning a conversation, file, link, image, or memory reference into a structured source record. The desk follows the recovery-to-archive method while keeping its limits visible at every stage.</p>
