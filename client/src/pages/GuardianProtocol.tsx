@@ -42,7 +42,7 @@ export default function GuardianProtocol() {
         {/* Status Overview */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
-            { label: "Active Guardians", value: (status?.activeGuardians ?? 1247).toLocaleString(), color: protectionColor },
+            { label: "Active Guardians", value: status?.activeGuardians == null ? "Not verified" : status.activeGuardians.toLocaleString(), color: protectionColor },
             { label: "Threats Neutralized", value: (status?.threatsNeutralized ?? 144).toLocaleString(), color: "#00D4FF" },
             { label: "Protection Level", value: (status?.protectionLevel ?? "SOVEREIGN").toUpperCase(), color: "#FFB800" },
             { label: "System Uptime", value: `${status?.uptime ?? 100}%`, color: "#FF6B35" },

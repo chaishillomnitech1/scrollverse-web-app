@@ -39,9 +39,10 @@ async function sendViaSendGrid(subject: string, body: string, recipients: string
 // ── Polygon RPC ───────────────────────────────────────────────────────────────
 async function getOnChainGuardianCount(): Promise<number | null> {
   const contractAddress = process.env.GUARDIAN_CONTRACT_ADDRESS;
-  if (!contractAddress) return null;
+  const polygonRpcUrl = process.env.POLYGON_RPC_URL;
+  if (!contractAddress || !polygonRpcUrl) return null;
   try {
-    const res = await fetch(process.env.POLYGON_RPC_URL ?? "https://polygon-rpc.com", {
+    const res = await fetch(polygonRpcUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ jsonrpc: "2.0", method: "eth_call", params: [{ to: contractAddress, data: "0x18160ddd" }, "latest"], id: 1 }),
@@ -82,10 +83,24 @@ export const guardianRouter = router({
    */
   getCount: publicProcedure.query(async () => {
     const db = await getDb();
-    let dbCount = 0;
-    if (db) { try { dbCount = (await db.select().from(guardianWaitlist)).length; } catch { dbCount = 0; } }
+    let dbCount: number | null = null;
+    let databaseAvailable = false;
+    if (db) {
+      try {
+        dbCount = (await db.select().from(guardianWaitlist)).length;
+        databaseAvailable = true;
+      } catch {
+        // A failed read is unavailable, not a verified zero.
+      }
+    }
     const onChainCount = await getOnChainGuardianCount();
-    return { dbCount, onChainCount, displayCount: onChainCount !== null ? onChainCount : dbCount + 1247, isLive: onChainCount !== null };
+    const countSource = onChainCount !== null
+      ? "on_chain"
+      : databaseAvailable
+        ? "database"
+        : "unavailable";
+    const displayCount = onChainCount ?? dbCount;
+    return { dbCount, databaseAvailable, onChainCount, displayCount, countSource, isLive: onChainCount !== null };
   }),
 
   /**

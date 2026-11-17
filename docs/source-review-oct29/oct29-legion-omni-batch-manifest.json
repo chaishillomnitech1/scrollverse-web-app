@@ -1,0 +1,15 @@
+{
+  "manifestId": "oct29-legion-omni-batch-2026-10-29",
+  "accessionDate": "2026-10-29",
+  "scope": "metadata-only local accession",
+  "records": [
+    {"filename":"pasted_content_150.txt","bytes":3393,"sha256":"9ce76a3f7c7a91e153827819194cf2e7a33459d56b3135909df4d6bf536a55e1","mime":"text/plain","classification":"creator-supplied narrative","displayScope":"source-labeled reference only"},
+    {"filename":"pasted_content_151.txt","bytes":29881,"sha256":"884de24d4685200b7f9022cd368724a7ff75ee027ba01924e6a09a9d0b9916f1","mime":"text/plain","classification":"creator-supplied narrative","displayScope":"source-labeled reference only"},
+    {"filename":"Empire-Legion-Recruitment.html","bytes":240197,"sha256":"20abe086067a22c4cb6ee9d3e7e1d67ede35d1a6b5482ea0208bcbb060105df0","mime":"text/html","classification":"creator-supplied interactive artifact","displayScope":"receipt metadata only"},
+    {"filename":"Unified+Command+Ten+Ai.tar.gz","bytes":18522,"sha256":"af70af57139939f282e2deb06c9b5ef73a5570803760c65eb839bb219530d6f4","mime":"application/gzip","classification":"creator-supplied archive","displayScope":"receipt metadata only"},
+    {"filename":"Dna-Mirror-Foundation.html","bytes":216640,"sha256":"ba146743315f123fe45dfdb2183ef113174a98dfb1e233c665482078cc5c19f7","mime":"text/html","classification":"creator-supplied interactive artifact","displayScope":"receipt metadata only"},
+    {"filename":"image_20261028_210737.mp4","bytes":8143191,"sha256":"9e32adb0fa0ce5858cc2ed32fcd052961c172f2d10884b3752250ae17344657f","mime":"video/mp4","classification":"creator-supplied motion reference","displayScope":"receipt metadata only"},
+    {"filename":"ai-design-7701892703511937038.zip","bytes":2096856,"sha256":"c469929d046f2f61322df5bfae98a1cfa3c56caa6b8dd1efb0122904e82b2815","mime":"application/zip","classification":"creator-supplied archive","displayScope":"receipt metadata only"},
+    {"filename":"pasted_content_152.txt","bytes":4045,"sha256":"1d3f110c45088dca8245e09c4bb6b7037528efeebcdc0009679a5b3fa163ad1e","mime":"text/plain","classification":"creator-supplied narrative","displayScope":"source-labeled reference only"}
+  ]
+}

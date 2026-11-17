@@ -498,12 +498,17 @@ function LiveStatsBar() {
   const { data: guardianData } = trpc.guardian.getCount.useQuery(undefined, { staleTime: 30000, refetchInterval: 60000 });
   const { data: libraryData } = trpc.library.getStats.useQuery(undefined, { staleTime: 60000 });
   const { data: academyData } = trpc.academy.getStats.useQuery(undefined, { staleTime: 60000 });
-  const guardianCount = guardianData?.displayCount ?? 1247;
-  const isLive = guardianData?.isLive ?? false;
+  const guardianCount = guardianData?.displayCount ?? null;
+  const guardianCountLabel = guardianData?.countSource === "on_chain"
+    ? "On-chain Guardians"
+    : guardianData?.countSource === "database"
+      ? "Waitlist registrations"
+      : "Guardian count unavailable";
+  const isLive = guardianData?.countSource === "on_chain";
   const downloads = libraryData?.totalDownloads ?? 0;
   const enrollments = academyData?.totalEnrollments ?? 0;
   const stats = [
-    { value: guardianCount >= 1000 ? `${(guardianCount / 1000).toFixed(1)}K` : guardianCount.toString(), label: "Guardian Nodes", color: "#00FF88", live: isLive },
+    { value: guardianCount === null ? "Not verified" : guardianCount >= 1000 ? `${(guardianCount / 1000).toFixed(1)}K` : guardianCount.toString(), label: guardianCountLabel, color: "#00FF88", live: isLive },
     { value: downloads > 0 ? downloads.toLocaleString() : "1,005+", label: "Library Downloads", color: "#00D4FF", live: downloads > 0 },
     { value: enrollments > 0 ? enrollments.toLocaleString() : "500+", label: "Academy Enrollments", color: "#FFB800", live: enrollments > 0 },
     { value: "7.77%", label: "Zakat Flow Rate", color: "#9B59B6", live: false },
@@ -703,8 +708,12 @@ function GuardianWaitlist() {
     subscribeMutation.mutate({ email });
   };
 
-  const displayCount = countData?.displayCount ?? 1247;
-  const isLive = countData?.isLive ?? false;
+  const displayCount = countData?.displayCount ?? null;
+  const countLabel = countData?.countSource === "on_chain"
+    ? "on-chain Guardians"
+    : countData?.countSource === "database"
+      ? "waitlist registrations"
+      : "count unavailable";
 
   return (
     <div className="sv-card rounded-2xl p-8 max-w-xl mx-auto text-center" style={{ border: "1px solid rgba(0,255,136,0.2)", background: "rgba(0,255,136,0.03)" }}>
@@ -712,13 +721,13 @@ function GuardianWaitlist() {
       <h3 className="text-2xl font-black text-white mb-2">Join the 144,000</h3>
       <p className="text-sm mb-2" style={{ color: "#8899AA" }}>Be among the first Guardians when $LONDC launches on Polygon Mainnet.</p>
       <div className="flex items-center justify-center gap-2 mb-6">
-        <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: isLive ? "#00FF88" : "#FFB800" }} />
-        <span className="text-sm font-mono" style={{ color: "#00FF88" }}>
-          {displayCount.toLocaleString()} Guardians registered
+        <div className="w-2 h-2 rounded-full" style={{ background: displayCount !== null ? "#00FF88" : "#FFB800" }} />
+        <span className="text-sm font-mono" style={{ color: displayCount === null ? "#FFB800" : "#00FF88" }}>
+          {displayCount === null ? "Guardian count unavailable" : `${displayCount.toLocaleString()} ${countLabel}`}
         </span>
-        {isLive && (
+        {displayCount !== null && (
           <span className="text-xs font-mono px-1.5 py-0.5 rounded" style={{ background: "rgba(0,255,136,0.1)", color: "#00FF88", border: "1px solid rgba(0,255,136,0.3)" }}>
-            ON-CHAIN
+            {countData?.countSource === "on_chain" ? "ON-CHAIN" : "DATABASE"}
           </span>
         )}
       </div>
@@ -1394,12 +1403,116 @@ const SYNCHRONIZATION_MEDIA_REFERENCES = [
   },
 ] as const;
 
+const PHASE1011_CREATOR_REFERENCES = [
+  { file: "Scrollverse-Sovereign-Motion-Scenes.html", label: "ScrollVerse Sovereign Motion Scenes", detail: "Creator-supplied motion-scene reference" },
+  { file: "Black-Batman-Chronicles-Ep.html", label: "Black Batman Chronicles · Episode reference", detail: "Creator-supplied episode reference" },
+  { file: "Playable-Game-Ui-Sovereign.html", label: "Playable Game UI · Sovereign", detail: "Creator-supplied playable-interface reference" },
+] as const;
+const PHASE1013_SANA_REFERENCES = [
+  { file: "video(30).mp4", label: "Sana learning-world motion reference · 30" },
+  { file: "video(31).mp4", label: "Sana learning-world motion reference · 31" },
+  { file: "video(32).mp4", label: "Sana learning-world motion reference · 32" },
+  { file: "video(33).mp4", label: "Sana learning-world motion reference · 33" },
+  { file: "image_20261102_104644.mp4", label: "Agent 25 Omni · Sana motion reference · 01" },
+  { file: "image_20261102_104646.mp4", label: "Agent 25 Omni · Sana motion reference · 02" },
+  { file: "image_20261102_104641.mp4", label: "Agent 25 Omni · Sana motion reference · 03" },
+  { file: "Agent-25-Omni-Sana.html", label: "Agent 25 Omni Sana · HTML source receipt" },
+  { file: "ReactArtifact.html", label: "Sana React artifact · HTML source receipt" },
+] as const;
+const PHASE1016_ATTACHMENT_RECEIPTS = [
+  { file: "pasted_content_182.txt", label: "New source context receipt · 182", detail: "Creator-attached source context; exact local receipt recorded" },
+  { file: "pasted_content_183.txt", label: "New source context receipt · 183", detail: "Creator-attached source context; exact local receipt recorded" },
+  { file: "pasted_content_184.txt", label: "New source context receipt · 184", detail: "Creator-attached source context; exact local receipt recorded" },
+  { file: "pasted_content_185.txt", label: "New source context receipt · 185", detail: "Creator-attached source context; exact local receipt recorded" },
+] as const;
+const AURELLION_FEDERATION_RECORD = {
+  title: "AURELLION · Intelligence of Connected Light",
+  detail: "A source-led doorway into the independent Legion world, federated coordination, and evidence-based maturity states.",
+  repository: "https://github.com/chaishillomnitech1/scrollverse-ai-legion",
+  prs: [
+    { label: "Foundation · PR #4", href: "https://github.com/chaishillomnitech1/scrollverse-ai-legion/pull/4", state: "MERGED" },
+    { label: "Runtime + federation · PR #5", href: "https://github.com/chaishillomnitech1/scrollverse-ai-legion/pull/5", state: "MERGED" },
+    { label: "Governed context · PR #6", href: "https://github.com/chaishillomnitech1/scrollverse-ai-legion/pull/6", state: "MERGED" },
+  ],
+  evidence: "Current GitHub read-only review · recent Foundation Checks successful",
+} as const;
+
+function AurellionFederationDoorway() {
+  const maturity = [
+    ["DOCUMENTED", "Doctrine, architecture, and source record"],
+    ["IMPLEMENTED", "Provider-neutral runtime and retrieval foundations"],
+    ["VERIFIED", "Recorded repository checks for the reviewed commits"],
+    ["ACTIVE", "Shown only when current operational evidence exists"],
+  ] as const;
+  return (
+    <section aria-labelledby="aurellion-federation-title" className="lg:col-span-2 rounded-[1.7rem] border border-[#B98CFF]/35 bg-[radial-gradient(circle_at_12%_12%,rgba(185,140,255,.16),transparent_34%),rgba(185,140,255,.045)] p-5 md:p-7">
+      <div className="flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p className="text-[10px] font-mono tracking-[.16em] text-[#D9C1FF]">CONNECTED LIGHT · FEDERATION DOORWAY</p>
+          <h3 id="aurellion-federation-title" className="mt-2 text-2xl font-black text-white md:text-3xl">{AURELLION_FEDERATION_RECORD.title}</h3>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[#D6E2EE]">{AURELLION_FEDERATION_RECORD.detail} Each world keeps its own identity; coordination records pathways without absorbing the source.</p>
+        </div>
+        <a href={AURELLION_FEDERATION_RECORD.repository} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-[#D9C1FF]/50 bg-[#B98CFF]/10 px-4 py-3 text-xs font-black text-[#F0E4FF] transition hover:bg-[#B98CFF]/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]">Open Legion repository ↗</a>
+      </div>
+      <div className="mt-5 grid gap-3 md:grid-cols-4" aria-label="AURELLION evidence maturity states">
+        {maturity.map(([label, text]) => <div key={label} className="rounded-2xl border border-white/10 bg-[#050A16]/70 p-4"><p className="text-[10px] font-mono tracking-[.12em] text-[#D9C1FF]">{label}</p><p className="mt-2 text-xs leading-5 text-[#C8D8E7]">{text}</p></div>)}
+      </div>
+      <div className="mt-5 grid gap-3 md:grid-cols-3">
+        {AURELLION_FEDERATION_RECORD.prs.map((pr) => <a key={pr.href} href={pr.href} target="_blank" rel="noreferrer" className="rounded-2xl border border-[#D9C1FF]/20 bg-[#050A16]/60 p-4 transition hover:-translate-y-1 hover:border-[#D9C1FF]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]"><div className="flex items-center justify-between gap-3"><span className="text-sm font-black text-white">{pr.label}</span><span className="text-[10px] font-mono text-[#B5F7CC]">{pr.state}</span></div><span className="mt-3 inline-block text-xs font-black text-[#D9C1FF]">Open source record ↗</span></a>)}
+      </div>
+      <p className="mt-5 text-[10px] leading-5 text-[#AEBFD0]">{AURELLION_FEDERATION_RECORD.evidence}. Provider credentials, live model traffic, peer keys, staging, and production activation are not represented by this display card.</p>
+    </section>
+  );
+}
+function SanaMotionPreviewCard({ reference }: { reference: (typeof PHASE1013_SANA_REFERENCES)[number] }) {
+  const [previewOpen, setPreviewOpen] = useState(false);
+  return (
+    <article className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/10 focus-within:border-[#00FF88]/60">
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-[#00FF88]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(0,255,136,.18),transparent_48%),#020611] text-3xl text-[#B5F7CC] transition duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_28px_rgba(0,255,136,.2)]" aria-label="Sana video preview placeholder">
+        <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(181,247,204,.16),transparent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <span aria-hidden="true">◉</span>
+        {previewOpen && <span className="absolute bottom-2 left-2 rounded-full border border-[#B5F7CC]/30 bg-[#020611]/85 px-2 py-1 text-[9px] font-mono text-[#B5F7CC]">PREVIEW SELECTED</span>}
+      </div>
+      <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#B5F7CC]">METADATA-ONLY SOURCE RECEIPT</p>
+      <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+      <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <button type="button" onClick={() => setPreviewOpen(open => !open)} aria-pressed={previewOpen} className="min-h-10 rounded-xl border border-[#00FF88]/40 px-3 py-2 text-xs font-black text-[#B5F7CC] transition hover:bg-[#00FF88]/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">{previewOpen ? "Close preview" : "Play when hosted"}</button>
+        <Link href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="min-h-10 rounded-xl px-2 py-2 text-xs font-black text-[#F0FFF5] transition hover:text-[#B5F7CC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">Review receipt →</Link>
+      </div>
+      <p className="mt-2 text-[10px] leading-5 text-[#9DB0C1]">No autoplay. The preview is a browser-local selection state; playback waits for a separately hosted source.</p>
+    </article>
+  );
+}
+const NEWLY_SUPPLIED_MOTION_REFERENCES = [
+  { file: "video(29).mp4", label: "Motion reference 29" },
+  { file: "video(28).mp4", label: "Motion reference 28" },
+  { file: "video(27).mp4", label: "Motion reference 27" },
+  { file: "video(26).mp4", label: "Motion reference 26" },
+  { file: "video(25).mp4", label: "Motion reference 25" },
+  { file: "882624278_1137936855357590_1709471996901120998_n.mp4", label: "Creator motion reference · 01" },
+  { file: "873077734_2707400746443699_1752729865478908705_n.mp4", label: "Creator motion reference · 02" },
+  { file: "874290506_4968869606732428_6941326134607094375_n.mp4", label: "Creator motion reference · 03" },
+  { file: "877259154_1097818406405878_6667997333274932338_n.mp4", label: "Creator motion reference · 04" },
+  { file: "media(35).mp4", label: "Media reference 35" },
+  { file: "video(24).mp4", label: "Motion reference 24" },
+  { file: "video(23).mp4", label: "Motion reference 23" },
+  { file: "video(22).mp4", label: "Motion reference 22" },
+  { file: "video(21).mp4", label: "Motion reference 21" },
+  { file: "video(19).mp4", label: "Motion reference 19 · Oct 30 receipt" },
+  { file: "video(18).mp4", label: "Motion reference 18 · Oct 30 receipt" },
+  { file: "video(17).mp4", label: "Motion reference 17 · Oct 30 receipt" },
+  { file: "video(16).mp4", label: "Motion reference 16 · Oct 30 receipt" },
+  { file: "video(15).mp4", label: "Motion reference 15 · Oct 30 receipt" },
+] as const;
 function FeaturedSovereignArchiveVideo() {
   return <section id="featured-scrollverse-video" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.32)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.15), transparent 30%), radial-gradient(circle at 88% 76%, rgba(0,212,255,.14), transparent 30%), #071124" }}><div className="container py-14"><div className="grid gap-8 xl:grid-cols-[.9fr_1.1fr] xl:items-center"><div><p className="text-xs font-mono tracking-[.18em]" style={{ color: "#FFE09A" }}>FEATURED SCROLLVERSE VIDEO</p><h2 className="mt-3 text-4xl font-black leading-tight text-white">A signal from<br/><span style={{ color: "#FFE09A" }}>Black Atlantic City.</span></h2><p className="mt-5 max-w-xl text-sm leading-7" style={{ color: "#D6E2EE" }}>A creator-selected public YouTube source, featured beside the restored Sovereign Archive Chronicles and the original fictional Black Atlantic City concept world. The video plays from YouTube; its channel, title, availability, and account context remain with the source platform.</p><div className="mt-7 flex flex-wrap gap-3"><a href="https://www.youtube.com/watch?v=SqK0RJTobNI" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition hover:-translate-y-0.5" style={{ background: "#FFCC4D", color: "#07101D" }}>Watch on YouTube <span>↗</span></a><Link href="/sovereign-archive-chronicles#black-atlantic-city" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-black text-white transition hover:border-[#00D4FF]" style={{ borderColor: "rgba(0,212,255,.55)", background: "rgba(0,212,255,.08)" }}>Enter Black Atlantic City <span>→</span></Link></div><p className="mt-5 text-[11px] leading-5" style={{ color: "#B8C7D6" }}>Source label: creator-supplied public YouTube link. The browser review encountered YouTube’s automated-traffic interstitial, so no unverified title, channel, duration, or video-content description is reproduced here.</p></div><div className="overflow-hidden rounded-[2rem] border p-2 shadow-[0_24px_70px_rgba(255,204,77,.12)]" style={{ borderColor: "rgba(255,204,77,.48)", background: "#030914" }}><div className="relative aspect-video overflow-hidden rounded-[1.45rem] bg-[#030914]"><iframe className="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/SqK0RJTobNI" title="Creator-selected ScrollVerse YouTube video" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="flex items-center justify-between gap-3 px-3 py-3"><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>CREATOR-SELECTED YOUTUBE SOURCE</span><span className="text-[10px] font-mono" style={{ color: "#9DEBFF" }}>BLACK ATLANTIC CITY · EXTERNAL PLAYER</span></div></div></div></div></section>;
 }
 
 function CreatorMotionShelf() {
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [receiptQuery, setReceiptQuery] = useState("");
+  const [receiptSort, setReceiptSort] = useState<"newest" | "oldest">("newest");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1410,6 +1523,11 @@ function CreatorMotionShelf() {
   }, []);
 
   const facebookEmbedUrl = `https://www.facebook.com/plugins/video.php?height=476&href=${encodeURIComponent("https://www.facebook.com/reel/2042773263104950/")}&show_text=false&width=267&autoplay=0`;
+  const normalizedReceiptQuery = receiptQuery.trim().toLowerCase();
+  const filteredPhase1016Receipts = PHASE1016_ATTACHMENT_RECEIPTS
+    .filter(receipt => `${receipt.file} ${receipt.label} ${receipt.detail}`.toLowerCase().includes(normalizedReceiptQuery))
+    .slice()
+    .sort((a, b) => receiptSort === "newest" ? b.file.localeCompare(a.file) : a.file.localeCompare(b.file));
 
   return (
     <section id="creator-motion-shelf" aria-labelledby="creator-motion-shelf-title" data-reduced-motion={reducedMotion ? "true" : "false"} className="relative overflow-hidden border-y" style={{ borderColor: "rgba(157,235,255,.24)", background: "radial-gradient(circle at 15% 18%, rgba(0,212,255,.13), transparent 30%), radial-gradient(circle at 84% 78%, rgba(0,255,136,.1), transparent 28%), #06101D" }}>
@@ -1445,14 +1563,112 @@ function CreatorMotionShelf() {
             </div>
             <div className="flex flex-wrap items-center justify-between gap-3 border-t px-5 py-4" style={{ borderColor: "rgba(255,204,77,.22)" }}><span className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FFE09A" }}>METADATA-ONLY SOURCE RECEIPT</span><Link href="/digitalship-accession" className="text-xs font-black" style={{ color: "#BCEEFF" }}>Review local record →</Link></div>
           </article>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#D7A7FF]/30 bg-[#D7A7FF]/[.045] p-5" aria-labelledby="newly-supplied-motion-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#EBDFFF]">SOURCE-RECEIPT GALLERY · OCT 31</p>
+                <h3 id="newly-supplied-motion-title" className="mt-2 text-2xl font-black text-white">NEWLY SUPPLIED MOTION REFERENCES</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">Choose a source record to review. These creator-supplied video files are displayed as metadata-only cards until a deployment-safe hosted URL is selected. No autoplay; the raw upload remains outside the production bundle.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#D7A7FF]/50 px-4 py-3 text-xs font-black text-[#F0E4FF] transition hover:bg-[#D7A7FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]">Open accession desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {NEWLY_SUPPLIED_MOTION_REFERENCES.map((reference) => (
+                <Link key={reference.file} href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#D7A7FF]/60 hover:bg-[#D7A7FF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0E4FF]">
+                  <div className="flex aspect-video items-center justify-center rounded-xl border border-[#D7A7FF]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(215,167,255,.2),transparent_48%),#020611] text-3xl text-[#EBDFFF] transition group-hover:shadow-[0_0_28px_rgba(215,167,255,.2)]" aria-hidden="true">▶</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#D7A7FF]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#F0E4FF]">Choose a source record to review →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#FFCC4D]/30 bg-[#FFCC4D]/[.045] p-5" aria-labelledby="phase1011-creator-reference-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">NOV 1 ACCESSION · PHASE 1011</p>
+                <h3 id="phase1011-creator-reference-title" className="mt-2 text-2xl font-black text-white">PHASE 1011 CREATOR REFERENCE BATCH</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">HTML source bodies remain outside the UI. No rendering or execution occurs here; each card preserves the supplied filename and routes to the local receipt desk for visitor-controlled review.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#FFCC4D]/50 px-4 py-3 text-xs font-black text-[#FFE9B0] transition hover:bg-[#FFCC4D]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE9B0]">Review receipt desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              {PHASE1011_CREATOR_REFERENCES.map((reference) => (
+                <Link key={reference.file} href={`/digitalship-accession?source=${encodeURIComponent(reference.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#FFCC4D]/60 hover:bg-[#FFCC4D]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFE9B0]">
+                  <div className="flex aspect-video items-center justify-center rounded-xl border border-[#FFCC4D]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(255,204,77,.2),transparent_48%),#020611] text-3xl text-[#FFE09A] transition group-hover:shadow-[0_0_28px_rgba(255,204,77,.2)]" aria-hidden="true">◈</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#FFE09A]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{reference.label}</h4>
+                  <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{reference.detail}</p>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{reference.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#FFE9B0]">Review receipt →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#00FF88]/30 bg-[#00FF88]/[.04] p-5" aria-labelledby="phase1013-sana-reference-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#B5F7CC]">NOV 2 ACCESSION · PHASE 1013</p>
+                <h3 id="phase1013-sana-reference-title" className="mt-2 text-2xl font-black text-white">PHASE 1013 SANA · AGENT 25 REFERENCE BATCH</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">Creator-supplied Sana and Agent 25 references are surfaced as source-labeled receipt cards. No autoplay; supplied media remains outside the production bundle. HTML source bodies remain outside the UI with no rendering or execution.</p>
+              </div>
+              <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#00FF88]/50 px-4 py-3 text-xs font-black text-[#B5F7CC] transition hover:bg-[#00FF88]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5F7CC]">Review receipt desk →</Link>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {PHASE1013_SANA_REFERENCES.filter(reference => reference.file.endsWith(".mp4")).map((reference) => <SanaMotionPreviewCard key={reference.file} reference={reference} />)}
+            </div>
+          </section>
+          <section className="lg:col-span-2 rounded-[1.7rem] border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.035] p-5" aria-labelledby="phase1016-attachment-receipts-title">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-mono tracking-[.16em] text-[#9DEBFF]">NOV 12 ACCESSION · METADATA REGISTER</p>
+                <h3 id="phase1016-attachment-receipts-title" className="mt-2 text-2xl font-black text-white">PHASE 1016 · NOV 12 ATTACHMENT RECEIPTS</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-6 text-[#D6E2EE]">SOURCE CONTEXT ONLY. These four creator-attached text files are represented by exact local byte counts and SHA-256 receipts. No execution, extraction, or rendering occurs here; choose a receipt to open the local accession desk.</p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="rounded-2xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/10 px-4 py-3 text-right" aria-label="Attached context source summary">
+                  <p className="text-2xl font-black text-[#C9F4FF]">{PHASE1016_ATTACHMENT_RECEIPTS.length}</p>
+                  <p className="text-[10px] font-mono tracking-[.12em] text-[#B8EFFF]">Attached context sources</p>
+                </div>
+                <Link href="/digitalship-accession" className="inline-flex min-h-11 items-center rounded-xl border border-[#9DEBFF]/50 px-4 py-3 text-xs font-black text-[#C9F4FF] transition hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">Open receipt desk →</Link>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-white/10 bg-[#050A16]/55 p-3 sm:flex-row sm:items-end" aria-label="Receipt shelf controls">
+              <label className="flex-1 text-xs font-black text-[#C9F4FF]">Filter receipts
+                <input value={receiptQuery} onChange={event => setReceiptQuery(event.target.value)} placeholder="Search filename or label" className="mt-2 min-h-11 w-full rounded-xl border border-[#9DEBFF]/25 bg-[#020611] px-3 text-sm font-normal text-white outline-none transition focus:border-[#C9F4FF] focus:ring-2 focus:ring-[#9DEBFF]/30" />
+              </label>
+              <label className="text-xs font-black text-[#C9F4FF]">Sort receipts
+                <select value={receiptSort} onChange={event => setReceiptSort(event.target.value as "newest" | "oldest")} className="mt-2 min-h-11 rounded-xl border border-[#9DEBFF]/25 bg-[#020611] px-3 text-sm font-normal text-white outline-none transition focus:border-[#C9F4FF] focus:ring-2 focus:ring-[#9DEBFF]/30">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                </select>
+              </label>
+              <p className="text-xs text-[#B8C7D6]" aria-live="polite">Showing {filteredPhase1016Receipts.length} of {PHASE1016_ATTACHMENT_RECEIPTS.length}</p>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {filteredPhase1016Receipts.map((receipt) => (
+                <Link key={receipt.file} href={`/digitalship-accession?source=${encodeURIComponent(receipt.file)}`} className="group rounded-2xl border border-white/10 bg-[#050A16]/70 p-4 transition duration-200 hover:-translate-y-1 hover:border-[#9DEBFF]/60 hover:bg-[#9DEBFF]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9F4FF]">
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-[#9DEBFF]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(157,235,255,.2),transparent_48%),#020611] text-3xl text-[#C9F4FF] transition group-hover:shadow-[0_0_28px_rgba(157,235,255,.2)]" aria-hidden="true">⌁</div>
+                  <p className="mt-3 text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">METADATA-ONLY SOURCE RECEIPT</p>
+                  <h4 className="mt-2 break-words text-sm font-black text-white">{receipt.label}</h4>
+                  <p className="mt-2 text-xs leading-5 text-[#B8C7D6]">{receipt.detail}</p>
+                  <p className="mt-2 break-all text-[11px] leading-5 text-[#B8C7D6]">{receipt.file}</p>
+                  <span className="mt-3 inline-block text-xs font-black text-[#C9F4FF]">Review local receipt →</span>
+                </Link>
+              ))}
+            </div>
+            {filteredPhase1016Receipts.length === 0 && <p className="mt-4 rounded-xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/10 p-4 text-sm text-[#FFE9B0]" role="status">No matching receipt. Clear the filter to restore the full shelf.</p>}
+          </section>
+          <AurellionFederationDoorway />
           <div className="grid gap-5">
             {theaterScreenings.map(screening => (
               <article key={screening.id} className="overflow-hidden rounded-[1.7rem] border" style={{ borderColor: "rgba(157,235,255,.24)", background: "rgba(255,255,255,.035)" }}>
                 <div className="grid gap-4 p-4 sm:grid-cols-[.82fr_1.18fr] sm:items-center">
-                  <video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} loop playsInline>
+                  <div className="relative overflow-hidden rounded-xl"><div className="pointer-events-none absolute inset-0 z-10 rounded-xl border border-[#9DEBFF]/20 bg-[linear-gradient(110deg,transparent,rgba(157,235,255,.12),transparent)] motion-safe:animate-pulse motion-reduce:animate-none" aria-label="THEATER LOADING visual readiness" /><video className="aspect-video w-full rounded-xl border border-white/10 bg-[#030914] object-cover" controls preload="none" poster={screening.poster} aria-label={screening.title} loop playsInline>
                     <source src={screening.video} type="video/mp4" />
                     Your browser does not support this video. Open the Theater reference instead.
-                  </video>
+                  </video></div>
                   <div><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#9DEBFF" }}>DELIBERATE-PLAY THEATER REFERENCE</p><h3 className="mt-2 text-lg font-black text-white">{screening.title}</h3><p className="mt-2 text-xs leading-6" style={{ color: "#B8C7D6" }}>{screening.description}</p><Link href="/meta-ai-legion-archive" className="mt-4 inline-flex text-xs font-black" style={{ color: "#BCEEFF" }}>Open full source archive →</Link></div>
                 </div>
               </article>
@@ -1532,6 +1748,45 @@ function LegionBroadcastDeck() {
   );
 }
 
+const META_LOOKBOOK_DOORWAYS = [
+  { href: "/meta-ai-artifacts-lookbooks", title: "Meta AI Artifacts", detail: "Open the source-led Meta AI artifact and lookbook index.", mark: "META AI", src: HERO_IMG, accent: "#9DEBFF" },
+  { href: "/crypto-artifact-lookbook", title: "Crypto Artifact Lookbook", detail: "Browse exchange, evolution, and visual artifact pathways.", mark: "ARTIFACTS", src: THRONE_IMG, accent: "#FFCC4D" },
+  { href: "/evolution-lookbook", title: "Evolution Lookbook", detail: "Move through the visual language of change, motion, and form.", mark: "EVOLUTION", src: SUN_XIX_CDN, accent: "#9AFFC5" },
+  { href: "/visual-story-worlds", title: "Visual Story Worlds", detail: "Enter the story-world shelf for film, animation, and worldbuilding.", mark: "STORY WORLDS", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#DCC8FF" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Marie Sophia 721 Lookbook", detail: "Open the STILL LIGHT FIELD CYBER, SOPHIA 8 BILLION SEALED, and OMNI-MERGE INFINITE PROTOCOL concept boards.", mark: "MARIE SOPHIA", src: THRONE_IMG, accent: "#F6D365" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "God Flow Workshop", detail: "Enter the CIRCLE ZERO OUROBOROS, PRETTY PAPER PAPER MAN, and DUAL HARMONIC DIGITAL TWIN QR concept shelf.", mark: "GOD FLOW", src: HERO_IMG, accent: "#FF8A4C" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Free Comic Book Series", detail: "Open the creator-supplied source theater reference for Free Comic Book Series · Block 131.", mark: "BLOCK 131", src: SUN_XIX_CDN, accent: "#FFCC4D" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Motherload Omniverse Theatre", detail: "Open the creator-supplied source theater reference for Motherload Omniverse Theatre · Block 128.", mark: "BLOCK 128", src: "/manus-storage/living-journey-hero_4d6e5190.png", accent: "#00D4FF" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Block 145 OmniGaze Resurrection Comic", detail: "Open the source-labeled Block 145 comic, theatre, and museum-plate reference in the visual archive.", mark: "BLOCK 145", src: THRONE_IMG, accent: "#FFCC4D" },
+  { href: "/chais-videos", title: "Back to the Future · 88MPH", detail: "Open the source-labeled motion theater and choose Play to view the creator-supplied Back to the Future / Café 88 references.", mark: "Click to play", src: HERO_IMG, accent: "#EC4899" },
+  { href: "/meta-ai-artifacts-lookbooks", title: "Zebra Brand · Free Name Toggle", detail: "Enter the source-labeled Zebra / ZER(B)RA artifact shelf with the voiced, both, and silent presentation concepts.", mark: "ZEBRA", src: SUN_XIX_CDN, accent: "#F4F4F5" },
+] as const;
+
+function MetaLookbookDoorways() {
+  return (
+    <section id="meta-ai-lookbooks" aria-labelledby="meta-ai-lookbooks-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.24)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.13), transparent 30%), radial-gradient(circle at 88% 80%, rgba(157,235,255,.12), transparent 30%), #07101D" }}>
+      <div className="container py-14">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-mono tracking-[.18em]" style={{ color: "#FFCC4D" }}>META AI ARTIFACTS &amp; LOOKBOOKS</p>
+            <h2 id="meta-ai-lookbooks-title" className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">The vivid shelf is open.</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7" style={{ color: "#C8D8E7" }}>Jump from the main page into the Meta AI artifact register, visual lookbooks, and story-world routes. Thumbnails are resilient source visuals with text fallbacks, so no doorway is left blank.</p>
+          </div>
+          <Link href="/meta-ai-artifacts-lookbooks" className="inline-flex min-h-11 items-center rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#FFCC4D", color: "#07101D" }}>Open the full Meta AI index →</Link>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {META_LOOKBOOK_DOORWAYS.map((doorway) => (
+            <Link key={`${doorway.href}-${doorway.mark}`} href={doorway.href} className="group overflow-hidden rounded-[1.7rem] border transition duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style={{ borderColor: `${doorway.accent}55`, background: `${doorway.accent}08` }}>
+              <SourceVisual src={doorway.src} alt={`${doorway.title} source thumbnail`} title={doorway.title} mark={doorway.mark} className="aspect-[4/3] w-full" />
+              <div className="p-5"><p className="text-[10px] font-mono uppercase tracking-[.16em]" style={{ color: doorway.accent }}>Vivid source thumbnails</p><h3 className="mt-2 text-xl font-black text-white">{doorway.title}</h3><p className="mt-2 text-sm leading-6" style={{ color: "#C8D8E7" }}>{doorway.detail}</p><span className="mt-4 inline-flex text-sm font-black" style={{ color: doorway.accent }}>Open source lookbook →</span></div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const CENTRAL_LIBRARY_FEATURES = [
   {
     kind: "PLAY",
@@ -1598,8 +1853,8 @@ function LiveDestinationShowcase() {
             ))}
           </div>
         </div>
-        <div className="mt-8 rounded-[1.7rem] border p-5 md:p-6" style={{ borderColor: "rgba(255,85,104,.34)", background: "rgba(255,85,104,.055)" }}>
-          <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-xs font-mono tracking-[.17em]" style={{ color: "#FF8DB5" }}>SYNCHRONIZATION RESEARCH · CREATOR-SUPPLIED MEDIA</p><h3 className="mt-2 text-2xl font-black text-white">Watch the references. Keep the source attached.</h3></div><span className="rounded-full border px-3 py-1.5 text-[10px] font-mono" style={{ borderColor: "rgba(255,141,181,.38)", color: "#FFD3E2" }}>INTERPRETATION ≠ INDEPENDENT VERIFICATION</span></div>
+        <div className="mt-8 rounded-[1.7rem] border p-5 md:p-6" style={{ borderColor: "rgba(255,85,104,.34)", background: "rgba(255,85,104,.055)" }} aria-label="YouTube synchronization rail">
+          <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-xs font-mono tracking-[.17em]" style={{ color: "#FF8DB5" }}>SYNCHRONIZATION RESEARCH · YOUTUBE REFERENCES</p><h3 className="mt-2 text-2xl font-black text-white">Watch the references. Keep the source attached.</h3><p className="mt-2 text-xs font-mono" style={{ color: "#FFD3E2" }}>Source-labeled · visitor chooses the player</p></div><span className="rounded-full border px-3 py-1.5 text-[10px] font-mono" style={{ borderColor: "rgba(255,141,181,.38)", color: "#FFD3E2" }}>INTERPRETATION ≠ INDEPENDENT VERIFICATION</span></div>
           <div className="mt-5 grid gap-3 md:grid-cols-2">{SYNCHRONIZATION_MEDIA_REFERENCES.map(video => <a key={video.href} href={video.href} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border p-4 transition hover:-translate-y-0.5" style={{ borderColor: "rgba(255,255,255,.13)", background: "rgba(5,11,26,.62)" }}><p className="text-[10px] font-mono tracking-[.14em]" style={{ color: "#FF8DB5" }}>{video.label.toUpperCase()}</p><h4 className="mt-2 text-base font-black text-white">{video.title}</h4><p className="mt-2 text-xs leading-relaxed" style={{ color: "#B8C7D6" }}>{video.source}</p><span className="mt-4 inline-block text-xs font-black" style={{ color: "#FF8DB5" }}>Watch source ↗</span></a>)}</div>
           <p className="mt-4 text-[11px] leading-5" style={{ color: "#94A8B9" }}>These links preserve creator-selected media and interpretation for research. They do not establish supernatural, financial, scientific, governmental, or other factual claims without independent, dated sources.</p>
         </div>
@@ -1661,6 +1916,21 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
+  const contactValidation = contactEmail.length === 0
+    ? ""
+    : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)
+      ? "Email format looks good."
+      : "Enter a valid email address.";
+  const contactReady = Boolean(contactName.trim() && contactMessage.trim() && contactValidation === "Email format looks good.");
+  const prepareContactEmail = () => {
+    if (!contactReady) return;
+    const subject = encodeURIComponent(`ScrollVerse contact from ${contactName.trim()}`);
+    const body = encodeURIComponent(`${contactMessage.trim()}\n\nFrom: ${contactName.trim()} (${contactEmail.trim()})`);
+    window.location.href = `mailto:chaisthegreatsabir@gmail.com?subject=${subject}&body=${body}`;
+  };
   const { data: omniMetrics } = trpc.metrics.getOmniMetrics.useQuery(undefined, { staleTime: 15000, refetchInterval: 30000 });
   const guardianWaitlistSize = omniMetrics?.guardianWaitlistSize ?? 0;
   const totalBookings = omniMetrics?.totalBookings ?? 0;
@@ -1831,7 +2101,7 @@ export default function Home() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-sm font-medium transition-colors duration-200 hover:text-[#00D4FF]"
+                className="sv-nav-link text-sm font-medium transition-colors duration-200 hover:text-[#00D4FF] focus-visible:outline-2 focus-visible:outline-[#00D4FF]"
                 style={{ color: "#8899AA" }}
               >
                 {l.label}
@@ -2075,7 +2345,7 @@ export default function Home() {
               <span>Display mode</span><span aria-hidden="true">{theme === "dark" ? "☀ Light" : "☾ Dark"}</span>
             </button>}
             {navLinks.map(l => (
-              <a key={l.label} href={l.href} className="block text-sm py-2" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
+              <a key={l.label} href={l.href} className="sv-nav-link block text-sm py-2 hover:text-[#00D4FF] focus-visible:outline-2 focus-visible:outline-[#00D4FF]" style={{ color: "#8899AA" }} onClick={() => setMobileMenuOpen(false)}>
                 {l.label}
               </a>
             ))}
@@ -2626,6 +2896,7 @@ export default function Home() {
       <OmnilandFrontCenter />
       <CreatorMotionShelf />
       <LegionBroadcastDeck />
+      <MetaLookbookDoorways />
       <CreatorDigitalDNABeacon />
       <LookbookConstellationFrontCenter />
       <InteractiveCreatorPortfolio />
@@ -3466,6 +3737,32 @@ export default function Home() {
               )
             ))}
           </div>
+          <form id="scrollverse-contact-form" onSubmit={(event) => { event.preventDefault(); prepareContactEmail(); }} className="mx-auto mb-8 max-w-3xl rounded-2xl border border-[#00D4FF]/25 bg-[#00D4FF]/[.04] p-5 text-left md:p-6">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="text-xs font-mono tracking-[.16em] text-[#9DEBFF]">DIRECT CONTACT · PREPARE LOCALLY</p>
+                <h3 className="mt-2 text-2xl font-black text-white">Open the conversation.</h3>
+              </div>
+              <span className="text-[11px] text-[#9AAFC1]">No message is sent until you choose your mail app.</span>
+            </div>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <label className="text-xs font-mono text-[#BCEEFF]">Name
+                <input value={contactName} onChange={(event) => setContactName(event.target.value)} required autoComplete="name" className="mt-2 min-h-11 w-full rounded-xl border border-white/15 bg-[#061226] px-3 py-2.5 text-sm text-white outline-none transition focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/30" placeholder="Your name" />
+              </label>
+              <label className="text-xs font-mono text-[#BCEEFF]">Email
+                <input value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} required type="email" autoComplete="email" aria-describedby="contact-email-status" className="mt-2 min-h-11 w-full rounded-xl border border-white/15 bg-[#061226] px-3 py-2.5 text-sm text-white outline-none transition focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/30" placeholder="you@example.com" />
+              </label>
+            </div>
+            <label className="mt-4 block text-xs font-mono text-[#BCEEFF]">Message
+              <textarea value={contactMessage} onChange={(event) => setContactMessage(event.target.value)} required rows={4} className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-[#061226] px-3 py-2.5 text-sm leading-6 text-white outline-none transition focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/30" placeholder="What would you like to build together?" />
+            </label>
+            <div id="contact-email-status" aria-live="polite" className={`mt-3 text-xs ${contactValidation.includes("good") ? "text-[#7CFFBB]" : "text-[#FFCC4D]"}`}>
+              {contactValidation || "Enter your email to validate the contact path."}
+            </div>
+            <button type="submit" disabled={!contactReady} title={contactReady ? "Open a prepared email in your mail app" : "Complete the form to prepare an email"} className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#00D4FF] px-5 py-3 text-sm font-black text-[#071426] transition hover:-translate-y-0.5 hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45 focus-visible:outline-2 focus-visible:outline-[#00D4FF]">
+              Prepare email <span className="ml-2" aria-hidden="true">→</span>
+            </button>
+          </form>
           <div className="text-center">
             <Link href="/connect">
               <button className="btn-sovereign px-8 py-3 rounded-xl text-sm font-bold">

@@ -667,12 +667,13 @@ export default function CHXToken() {
 
             {/* Staking Pools */}
             <div>
-              <h3 className="font-bold text-white text-lg mb-4">🔮 Sovereign Staking Pools</h3>
+              <h3 className="font-bold text-white text-lg mb-2">🔮 Sovereign Staking Pools</h3>
+              <p className="text-xs mb-4" style={{ color: "#8899AA" }}>The displayed APY figures are illustrative project parameters. Current positions and reward estimates are recorded in an off-chain application ledger; on-chain staking and token distribution require a deployed, verified staking contract.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
-                  { name: "Genesis Pool", apy: "432%", hz: "432 Hz", desc: "The frequency of nature, grounding, and truth. Perpetual automatic compounding — no manual claiming.", color: "#00D4FF", icon: "🌱" },
-                  { name: "Celestial Pool", apy: "528%", hz: "528 Hz", desc: "The frequency of love, transformation, and DNA repair. Love-as-Law governs this pool.", color: "#FFB800", icon: "✨" },
-                  { name: "Infinity Pool", apy: "999%", hz: "∞", desc: "Beyond metric. Beyond limit. The Infinity Pool compounds at every nanosecond — no ceiling.", color: "#00FF88", icon: "♾️" },
+                  { name: "Genesis Pool", apy: "432%", hz: "432 Hz", desc: "The frequency of nature, grounding, and truth. Daily reward estimates are recorded in the application ledger; on-chain distribution is pending contract integration.", color: "#00D4FF", icon: "🌱" },
+                  { name: "Celestial Pool", apy: "528%", hz: "528 Hz", desc: "The frequency of love, transformation, and DNA repair. Displayed rewards are illustrative ledger estimates, not guaranteed payouts.", color: "#FFB800", icon: "✨" },
+                  { name: "Infinity Pool", apy: "999%", hz: "∞", desc: "Beyond metric. Beyond limit. The Infinity Pool displays project-defined reward estimates; on-chain compounding is pending contract integration.", color: "#00FF88", icon: "♾️" },
                 ].map((pool) => (
                   <div key={pool.name} className="rounded-xl p-6 relative overflow-hidden" style={{ background: `${pool.color}06`, border: `1px solid ${pool.color}30`, boxShadow: `0 0 20px ${pool.color}10` }}>
                     <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${pool.color}60, transparent)` }} />

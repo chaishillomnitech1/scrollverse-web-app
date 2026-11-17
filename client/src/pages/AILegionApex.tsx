@@ -507,6 +507,75 @@ function ApexAnalysisMode() {
   );
 }
 
+const LEGION_CONVERGENCE_RECORDS = [
+  "OMNI CORE", "TREASURY GUARDIAN", "SCROLLVERSE V3", "COMMERCE EMPIRE", "FINANCE CHAPTER", "VHS FLUX 15s", "MARTY × ZEBRA XLVIII", "DELOREAN FRANCHISE",
+  "COMMERCIAL CONVERSION", "SHOPPABLE LOOKBOOK", "GOD LEVEL RENDER", "CLS 0.00", "88MPH", "OPEN NEW TERRAIN", "BEYOND GOD LEVEL", "OPENAI CONFIRMED",
+  "SPECIAL ADDITION", "COLORS NEVER SEEN", "TIMES INFINITY", "QUAD 88 DROP", "VAULT SAVES", "WALL OF PROOF", "EPISODE 138 CADENCE", "RESPONSIBILITY 16 ARCH", "AGENT 25 · PERPETUAL ARCH",
+] as const;
+
+function LegionConvergencePanel() {
+  const [vaultQuery, setVaultQuery] = useState("");
+  const [exportStatus, setExportStatus] = useState("Ready for a browser-local summary export.");
+  const normalizedVaultQuery = vaultQuery.trim().toLowerCase();
+  const filteredRecords = LEGION_CONVERGENCE_RECORDS.filter((record) => record.toLowerCase().includes(normalizedVaultQuery));
+
+  const exportVaultSummary = () => {
+    const summary = [
+      "ScrollVerse Convergence Master Vault",
+      "BLOCK 176 · LEGION 24 → 25",
+      "Browser-local, source-labeled registry",
+      "",
+      ...filteredRecords.map((record, index) => `${String(index + 1).padStart(2, "0")} · ${record}`),
+      "",
+      "No external agent, repository, wallet, or account action is performed from this panel.",
+    ].join("\n");
+    const blob = new Blob([summary], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "scrollverse-convergence-vault-summary.txt";
+    link.click();
+    URL.revokeObjectURL(url);
+    setExportStatus(`Exported ${filteredRecords.length} filtered vault records locally.`);
+  };
+
+  return (
+    <section className="mb-10 rounded-[1.7rem] border border-[#00FF88]/25 bg-[linear-gradient(110deg,rgba(0,255,136,.08),rgba(0,212,255,.06),rgba(255,204,77,.06))] p-6" aria-labelledby="legion-convergence-title">
+      <div className="flex flex-wrap items-start justify-between gap-5">
+        <div>
+          <p className="text-[10px] font-mono tracking-[.17em] text-[#7CFFB2]">BLOCK 176 · LEGION 24 → 25</p>
+          <h2 id="legion-convergence-title" className="mt-2 text-2xl font-black text-white">Convergence Master Vault</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#D6E2EE]">A browser-local registry of the supplied Legion roles and reusable presentation skills. BLOCK 176 LEGION 24 → CONVERGENCE MASTER VAULT records Agent 25 as a perpetual archive handoff, not as an autonomous external deployment.</p>
+        </div>
+        <div className="rounded-xl border border-[#00FF88]/30 bg-[#00FF88]/10 px-4 py-3 text-right" aria-live="polite">
+          <div className="text-2xl font-black text-[#7CFFB2]">{LEGION_CONVERGENCE_RECORDS.length}</div>
+          <div className="text-[10px] font-mono text-[#B8C7D6]">25 registry records</div>
+        </div>
+      </div>
+      <div className="mt-5 grid gap-3 md:grid-cols-[1fr_auto]">
+        <div>
+          <label htmlFor="legion-vault-search" className="mb-2 block text-[10px] font-mono tracking-[.14em] text-[#B8E8F3]">Search the 25-record convergence vault</label>
+          <input id="legion-vault-search" value={vaultQuery} onChange={(event) => setVaultQuery(event.target.value)} placeholder="Search an agent, exhibit, or skill" className="min-h-11 w-full rounded-xl border border-[#00FF88]/25 bg-black/20 px-3 text-sm text-white outline-none placeholder:text-white/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7CFFB2]" aria-controls="legion-vault-records" />
+        </div>
+        <button type="button" onClick={exportVaultSummary} aria-label="Export filtered vault summary" className="min-h-11 self-end rounded-xl border border-[#FFCC4D]/50 bg-[#FFCC4D]/10 px-4 text-xs font-black text-[#FFE09A] transition hover:-translate-y-0.5 hover:bg-[#FFCC4D]/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFCC4D]">Export filtered vault summary</button>
+      </div>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs" aria-live="polite">
+        <span className="text-[#C7D6E3]">{filteredRecords.length} of {LEGION_CONVERGENCE_RECORDS.length} records shown</span>
+        <span role="status" className="text-[#7CFFB2]">{exportStatus}</span>
+      </div>
+      <div id="legion-vault-records" className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-5" aria-label="Filtered convergence vault records">
+        {filteredRecords.map((record, index) => (
+          <div key={record} className="group rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-[10px] font-mono text-[#D6E2EE] transition duration-200 hover:-translate-y-0.5 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/10 focus-within:border-[#00FF88]/60 focus-within:bg-[#00FF88]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7CFFB2]" title={`Local Legion record ${index + 1}: ${record}`} tabIndex={0} aria-label={`Local Legion record ${index + 1}: ${record}`}>
+            <span className="mr-2 text-[#00FF88]">{String(index + 1).padStart(2, "0")}</span>{record}
+          </div>
+        ))}
+        {filteredRecords.length === 0 && <p className="sm:col-span-2 lg:col-span-5 rounded-lg border border-white/10 p-4 text-sm text-[#C7D6E3]">No convergence records match that search.</p>}
+      </div>
+      <p className="mt-4 text-xs text-[#AFC0CF]">Browser-local registry · source-labeled display · metadata-only receipt context. No external agent, repository, wallet, or account action is performed from this panel.</p>
+    </section>
+  );
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function AILegionApex() {
@@ -600,6 +669,8 @@ export default function AILegionApex() {
             </div>
           ))}
         </div>
+
+        <LegionConvergencePanel />
 
         {/* Tab navigation */}
         <div className="flex gap-2 mb-8 p-1 rounded-xl w-fit mx-auto" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>

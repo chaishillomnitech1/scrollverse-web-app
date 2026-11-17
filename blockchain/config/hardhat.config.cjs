@@ -10,6 +10,12 @@ const DEPLOYER_KEY = process.env.DEPLOYER_PRIVATE_KEY;
 const DEPLOYER_ACCOUNTS = DEPLOYER_KEY ? [DEPLOYER_KEY] : [];
 const PROJECT_ROOT = path.resolve(__dirname, "../..");
 
+const networks = { hardhat: { chainId: 31337 } };
+if (process.env.AMOY_RPC_URL) networks.polygonAmoy = { url: process.env.AMOY_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 80002, gasPrice: "auto" };
+if (process.env.POLYGON_RPC_URL) networks.polygon = { url: process.env.POLYGON_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 137, gasPrice: "auto" };
+if (process.env.BASE_RPC_URL) networks.base = { url: process.env.BASE_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 8453 };
+if (process.env.ETH_RPC_URL) networks.ethereum = { url: process.env.ETH_RPC_URL, accounts: DEPLOYER_ACCOUNTS, chainId: 1 };
+
 module.exports = {
   solidity: {
     compilers: [
@@ -17,34 +23,7 @@ module.exports = {
       { version: "0.8.26", settings: { optimizer: { enabled: true, runs: 200 }, evmVersion: "cancun" } },
     ],
   },
-  networks: {
-    // Polygon Mainnet — PRODUCTION
-    polygon: {
-      url: process.env.POLYGON_RPC_URL || "https://polygon-rpc.com",
-      accounts: DEPLOYER_ACCOUNTS,
-      chainId: 137,
-      gasPrice: "auto",
-    },
-    // Polygon Amoy Testnet — TESTING
-    amoy: {
-      url: process.env.AMOY_RPC_URL || "https://rpc-amoy.polygon.technology",
-      accounts: DEPLOYER_ACCOUNTS,
-      chainId: 80002,
-      gasPrice: "auto",
-    },
-    // Base Mainnet — for Sovereign 9 NFTs
-    base: {
-      url: process.env.BASE_RPC_URL || "https://mainnet.base.org",
-      accounts: DEPLOYER_ACCOUNTS,
-      chainId: 8453,
-    },
-    // Ethereum Mainnet — for Mika-Solara & Allversal Empire
-    ethereum: {
-      url: process.env.ETH_RPC_URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: DEPLOYER_ACCOUNTS,
-      chainId: 1,
-    },
-  },
+  networks,
   etherscan: {
     apiKey: {
       polygon: process.env.POLYGONSCAN_API_KEY || "",

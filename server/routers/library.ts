@@ -209,16 +209,50 @@ const SOVEREIGN_CATALOG = [
   },
 ];
 
-async function seedBooksIfEmpty() {
+export function isMissingOptionalLibraryTableError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  const code = typeof error === "object" && error !== null && "code" in error
+    ? String((error as { code?: unknown }).code)
+    : "";
+  return message.includes("scrollverse_books") && (
+    /failed query|does not exist|doesn't exist|unknown table|no such table/i.test(message)
+    || code === "ER_NO_SUCH_TABLE"
+  );
+}
+
+export function getStaticSovereignCatalog() {
+  return SOVEREIGN_CATALOG.map((book, index) => ({
+    ...book,
+    id: index + 1,
+    subtitle: book.subtitle ?? null,
+    description: book.description ?? null,
+    coverImageUrl: null,
+    pdfUrl: null,
+    audioUrl: null,
+    motionVideoUrl: null,
+    downloadCount: 0,
+    readOnlinePath: null,
+    createdAt: new Date(0),
+  }));
+}
+
+async function seedBooksIfEmpty(): Promise<boolean> {
   const db = await getDb();
-  if (!db) return;
-  const existing = await db.select({ id: scrollverseBooks.id }).from(scrollverseBooks).limit(1);
-  if (existing.length > 0) return;
-  for (const book of SOVEREIGN_CATALOG) {
-    await db.insert(scrollverseBooks).values({
-      ...book,
-      downloadCount: Math.floor(Math.random() * 500) + 50,
-    });
+  if (!db) return false;
+  try {
+    const existing = await db.select({ id: scrollverseBooks.id }).from(scrollverseBooks).limit(1);
+    if (existing.length === 0) {
+      for (const book of SOVEREIGN_CATALOG) {
+        await db.insert(scrollverseBooks).values({
+          ...book,
+          downloadCount: Math.floor(Math.random() * 500) + 50,
+        });
+      }
+    }
+    return true;
+  } catch (error) {
+    if (isMissingOptionalLibraryTableError(error)) return false;
+    throw error;
   }
 }
 
@@ -230,10 +264,23 @@ export const libraryRouter = router({
       tier: z.enum(["all", "free", "guardian", "sovereign", "ascendant"]).optional().default("all"),
     }))
     .query(async ({ input }) => {
-      await seedBooksIfEmpty();
+      const seeded = await seedBooksIfEmpty();
+      if (!seeded) {
+        return getStaticSovereignCatalog().filter((book) => {
+          if (input.category !== "all" && book.category !== input.category) return false;
+          if (input.tier !== "all" && book.tier !== input.tier) return false;
+          return true;
+        });
+      }
       const db = await getDb();
       if (!db) return [];
-      const books = await db.select().from(scrollverseBooks).orderBy(scrollverseBooks.sortOrder);
+      let books;
+      try {
+        books = await db.select().from(scrollverseBooks).orderBy(scrollverseBooks.sortOrder);
+      } catch (error) {
+        if (isMissingOptionalLibraryTableError(error)) return getStaticSovereignCatalog();
+        throw error;
+      }
       return books.filter((b: typeof books[0]) => {
         if (input.category !== "all" && b.category !== input.category) return false;
         if (input.tier !== "all" && b.tier !== input.tier) return false;
@@ -245,11 +292,21 @@ export const libraryRouter = router({
   getBook: publicProcedure
     .input(z.object({ slug: z.string() }))
     .query(async ({ input }) => {
-      await seedBooksIfEmpty();
+      const seeded = await seedBooksIfEmpty();
+      if (!seeded) {
+        return getStaticSovereignCatalog().find((book) => book.slug === input.slug) ?? null;
+      }
       const db = await getDb();
       if (!db) return null;
-      const [book] = await db.select().from(scrollverseBooks).where(eq(scrollverseBooks.slug, input.slug)).limit(1);
-      return book ?? null;
+      try {
+        const [book] = await db.select().from(scrollverseBooks).where(eq(scrollverseBooks.slug, input.slug)).limit(1);
+        return book ?? null;
+      } catch (error) {
+        if (isMissingOptionalLibraryTableError(error)) {
+          return getStaticSovereignCatalog().find((book) => book.slug === input.slug) ?? null;
+        }
+        throw error;
+      }
     }),
 
   // Log an audio listen session
@@ -277,17 +334,23 @@ export const libraryRouter = router({
 
   // Get library stats
   getStats: publicProcedure.query(async () => {
-    await seedBooksIfEmpty();
+    const seeded = await seedBooksIfEmpty();
+    if (!seeded) {
+      return { totalBooks: SOVEREIGN_CATALOG.length, totalDownloads: 0, totalListeners: 0 };
+    }
     const db = await getDb();
     if (!db) return { totalBooks: 8, totalDownloads: 0, totalListeners: 0 };
-    const books = await db.select({ downloadCount: scrollverseBooks.downloadCount }).from(scrollverseBooks);
-    const totalDownloads = books.reduce((sum: number, b: typeof books[0]) => sum + b.downloadCount, 0);
-    const sessions = await db.select({ id: audioSessions.id }).from(audioSessions);
-    return {
-      totalBooks: books.length,
-      totalDownloads,
-      totalListeners: sessions.length,
-    };
+    try {
+      const books = await db.select({ downloadCount: scrollverseBooks.downloadCount }).from(scrollverseBooks);
+      const totalDownloads = books.reduce((sum: number, b: typeof books[0]) => sum + b.downloadCount, 0);
+      const sessions = await db.select({ id: audioSessions.id }).from(audioSessions);
+      return { totalBooks: books.length, totalDownloads, totalListeners: sessions.length };
+    } catch (error) {
+      if (isMissingOptionalLibraryTableError(error)) {
+        return { totalBooks: SOVEREIGN_CATALOG.length, totalDownloads: 0, totalListeners: 0 };
+      }
+      throw error;
+    }
   }),
 
   // Record a book purchase (called after Stripe checkout)

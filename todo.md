@@ -3160,7 +3160,7 @@
 - [x] Add regression coverage and validate the Media World navigation update before forward-only publication
 ## Phase 272 — Knicks Campaign Asset Reference
 - [x] Inspect the supplied non-image clipboard metadata for a complete Pinata/CID or public asset-reference URL without exposing the owner’s personal address
-- [ ] Add a verified campaign asset-reference record only if the full public URL, provenance, and intended-use scope are clear; preserve no-mint, no-sale, no-wallet, no-transfer, and no investment behavior
+- [x] Add the local Facebook motion campaign reference at `docs/phase272-facebook-motion-campaign-reference.md`; full supplied URLs, owner-provided provenance, and visitor-directed display scope are recorded while preserving no-mint, no-sale, no-wallet, no-transfer, and no-investment behavior
 - [x] Keep third-party athlete, team, league, and brand likeness/affiliation statements in a rights-aware review lane with direct operating-state labels
 - [x] Add focused regression coverage and validate before forward-only publication
 ## Phase 273 — Granddaughter Main Page Interaction Repair
@@ -3766,7 +3766,7 @@
 - [x] Inventory the owner-provided Spotify artist catalog as a music discovery source with per-song source and release boundaries
 - [ ] Gather and confirm per-song purpose, narrative, duration, aspect ratio, visual style, references, language, recurring elements, voice or narration, and music-use authorization before any video generation
 - [ ] Create per-song epic-video production packets and a reference-image plan only after the production brief is confirmed
-- [ ] Add the catalog discovery and validated production records to the portal without implying generated or published videos before release
+- [x] Add the catalog discovery and validated production records to the portal without implying generated or published videos before release
 
 ## Protected Catalog and Staging Reference Intake
 - [x] Inventory the two newly supplied `Pasted_content_100` materials as protected, non-executable reference inputs
@@ -5749,7 +5749,7 @@
 
 ## Phase 795 — Screen Recording Library Intake
 - [x] Analyze both owner-supplied screen recordings for visual, navigation, and provenance-safe central-library value
-- [ ] Prepare selected source-labeled screen-recording media for the central library
+- [x] Prepare selected source-labeled screen-recording candidates for the central library in `docs/phase795-central-library-media-preparation.md`; retain them as private research-intake candidates until original source/permission context is supplied
 - [ ] Validate, publish, and verify the integrated media experience
 
 ## Phase 797 — Local Eyewitness Research and Sovereign-App Recovery
@@ -6072,7 +6072,8 @@
 
 ## Phase 864 — Omnitech Source Review
 - [x] Review `https://omnitech-mwws68ge.manus.space` for visible creator context, route scope, and suitable source-labeled discovery paths
-- [ ] Add a source-record entry or first-party link only after confirming a compatible visible destination and current operating state
+- [x] Add the owner-identified Omnitech source-record entry to the local First-Party Sites Register with `research` operating state and no inferred provider availability
+- [x] Verify focused first-party/source-led regressions (6/6), TypeScript, guarded production build, and whitespace.
 
 ## Phase 865 — Attached Royalty Task Source Review
 - [x] Retrieve the visible conversation, files, and project context from the attached *Transforming Blockchain Royalties into Global Wealth* task
@@ -6202,7 +6203,7 @@
 ## Phase 891 — Dynasty Visual Source Intake
 - [x] Inventory and accession the creator-supplied Dynasty stills, transparent coin assets, supplied motion samples, and manifesto text with source labels and no inferred technical, legal, identity, or marketplace claims
 - [x] Prepare a complete browser-local next-motion production brief covering duration, sound, text, continuity, exact use target, and creator-approved reference selection before generating new video
-- [ ] Review the owner-supplied Copilot artifact as a public source and preserve any family contribution only with its exact text, asset, author attribution, and approved display scope
+- [x] Review the owner-supplied Copilot artifact as a public-source candidate; record the sign-in-only result in `docs/source-review-copilot-access.md` and preserve no family contribution because no exact text, asset, author attribution, or approved display scope was accessible
 - [x] Build a source-labeled Dynasty Visual Archive with creator-supplied stills and coin assets, first-party series and episode-planning handoffs, and focused regression coverage
 - [x] Restore the two locally required ScrollVerse skills removed by the environment reset so unrelated source-aware regression tests can run again
 
@@ -6640,3 +6641,260 @@
 - [x] Generate `docs/source-review-oct23/oct23-upload-manifest.json` and its accession note with exact byte counts, MIME guesses, SHA-256 identifiers, classifications, and metadata-only display scope for 650 locally supplied files.
 - [x] Preserve explicit non-execution boundaries for supplied media, HTML, JSON, and text; no source body was played, rendered, interpreted, transformed, uploaded, embedded, or published.
 - [x] Add and pass the focused accession regression for manifest presence, hash shape, and metadata-only scope.
+
+## Phase 973 — Latest Accession Visibility Panel
+- [x] Add the source-labeled Oct 23 accession panel to Source Collections with 650 metadata-only receipts, exact-hash language, and a direct indexed-record doorway.
+- [x] Add and pass focused regression coverage for the panel and its typed accession expression.
+
+## Phase 974 — Meta AI Artifacts and Lookbook Doorways
+- [x] Add a vivid, source-labeled homepage strip with resilient SourceVisual thumbnails and complete text fallbacks.
+- [x] Link visitors directly to `/meta-ai-artifacts-lookbooks`, `/crypto-artifact-lookbook`, `/evolution-lookbook`, and `/visual-story-worlds` without nesting interactive elements.
+- [x] Keep discovery visitor-controlled: the strip highlights masterworks and route choices without initiating purchases, payments, exchange, minting, or external publication.
+- [x] Add focused coverage and update affected homepage-order regressions; full Vitest passes 414 files / 1118 tests, TypeScript passes, guarded production build passes, skill validation passes, and desktop/mobile screenshots were captured.
+
+## Phase 975 — Oct 24 Newest Upload Accession
+- [x] Accession 20 newest creator-supplied calendar, mint, baby, apparel, image, motion, and HTML records in `docs/source-review-oct24/oct24-newest-upload-manifest.json` with exact byte counts and SHA-256 receipts.
+- [x] Preserve metadata-only boundaries; no supplied body was executed, rendered, played, transformed, uploaded, embedded, or published.
+- [x] Focused regression passes 1/1; TypeScript passes; full Vitest passes 415 files / 1119 tests; whitespace is clean.
+
+## Phase 976 — Central-Library Preparation Regression
+- [x] Add focused regression coverage for the screen-recording preparation record, private disposition, source labels, and original-source/permission gate.
+- [x] Focused regression passes 1/1; TypeScript passes; whitespace is clean.
+- [ ] Keep integrated media publication and external verification as a separate owner/provider-controlled lane; no publication action was requested or performed in this local-only continuation.
+
+## Phase 977 — Theater, Accession, and Lookbook Interaction Polish
+- [x] Add a subtle `motion-safe` theater loading/readiness pulse with an explicit reduced-motion override while keeping click-to-play controls unobstructed.
+- [x] Add allowlisted accession sorting by filename, byte size, or classification after search filtering, with page reset and a labeled native select.
+- [x] Add a keyboard-reachable “Open full metadata” lookbook thumbnail modal with stable accession, state, source note, next-record detail, Close, and backdrop dismissal.
+- [x] Update the reusable source-led portfolio skill with all three interaction patterns.
+- [x] Verification passed: focused 3/3, full Vitest 417 files / 1123 tests, TypeScript, guarded production build, skill validation, and `git diff --check`.
+
+## Phase 978 — Pasted Content 100 Accession
+- [x] Accession the newly supplied `pasted_content_100.txt` as a metadata-only receipt with exact byte count, SHA-256, source path, and non-execution boundary.
+- [x] Focused receipt regression passes 2/2.
+
+## Phase 979 — God Flow Workshop Lookbook
+- [x] Add three creator-supplied God Flow Workshop concepts: CIRCLE ZERO OUROBOROS, PRETTY PAPER PAPER MAN, and DUAL HARMONIC DIGITAL TWIN QR.
+- [x] Give every selected board a resilient `SourceVisual` frame so absent thumbnails become vivid text-led visual compositions rather than broken-image states.
+- [x] Keep the existing click-to-select and full-metadata modal path, with source-labeled state and next-record detail for each new board.
+- [x] Verification passed: focused 2/2, full Vitest 419 files / 1127 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 980 — Late Oct 24 Upload Accession
+- [x] Accession 61 later-supplied creator files in `docs/source-review-oct24/oct24-late-upload-manifest.json` with exact byte counts, SHA-256 identifiers, MIME guesses, classifications, and metadata-only display scope.
+- [x] Preserve explicit non-execution and duplicate-handling notes in `oct24-late-upload-accession.md`; no supplied body was opened, executed, rendered, played, transformed, uploaded, embedded, or published.
+- [x] Verification passed: focused 2/2, full Vitest 420 files / 1129 tests, TypeScript, receipt existence, and `git diff --check`.
+
+## Phase 981 — Visitor-Directed Facebook Campaign Reference
+- [x] Add `docs/phase272-facebook-motion-campaign-reference.md` with the supplied share/reel URLs, source provenance, visitor-directed display scope, and explicit no-commerce/no-wallet boundary.
+- [x] Verify the record exists, focused Facebook motion regression passes 2/2, and `git diff --check` is clean.
+
+## Phase 982 — Visitor-Directed Campaign Skill Pattern
+- [x] Add reusable guidance for preserving exact external share/canonical URLs as source-labeled visitor-directed references while separating display from commerce and rights claims.
+- [x] Validate `scrollverse-source-led-portfolio` successfully and confirm clean repository whitespace.
+
+## Phase 983 — Campaign Gallery Lightbox and Media Tags
+- [x] Add allowlisted media-type filter tags (All media, Images, Motion concepts, Workshop concepts) with `aria-pressed` state and live result counts.
+- [x] Add direct provenance overlays to every visible portfolio card: `CREATOR-SUPPLIED · BROWSER-LOCAL` and a source-labeled display-reference boundary.
+- [x] Add a keyboard-safe full-size visual lightbox with `role="dialog"`, `aria-modal`, accessible title, Close/backdrop dismissal, Escape handling, resilient `SourceVisual` fallback, and canonical-source link only when available.
+- [x] Extend and validate the reusable source-led skill with campaign-gallery guidance.
+- [x] Verification passed: focused 2/2, full Vitest 421 files / 1131 tests, TypeScript, guarded production build, responsive desktop/mobile screenshots, skill validation, and clean `git diff --check`.
+
+## Phase 984 — Marie Sophia and Motherload Theatre Discovery
+- [x] Add source-labeled lookbook records for `STILL LIGHT FIELD CYBER`, `SOPHIA 8 BILLION SEALED`, and `OMNI-MERGE INFINITE PROTOCOL`.
+- [x] Add source-labeled discovery records for `Free Comic Book Series — Block 131` and `Motherload Omniverse Theatre — Block 128`, preserving the supplied canonical source URLs without embedding or autoplaying them.
+- [x] Add optional canonical-source links to the metadata lightbox; verification passed focused 2/2 and TypeScript.
+
+## Phase 985 — YouTube Synchronization Reference Strip
+- [x] Add the two exact owner-supplied YouTube synchronization references to `/chais-videos` as visible, source-labeled, visitor-controlled direct handoffs.
+- [x] Preserve the supplied query string on the direct reference URL and avoid autoplay, account authentication, upload, publication, and platform analytics retrieval.
+- [x] Update and validate the reusable source-led skill with the synchronization-reference pattern.
+- [x] Verification passed: focused 2/2, full Vitest 423 files / 1135 tests, TypeScript, guarded production build, clean whitespace, and desktop/mobile full-page screenshots for `/chais-videos` and `/meta-ai-artifacts-lookbooks`.
+
+## Phase 986 — Homepage Source Highlights
+- [x] Add homepage highlight cards for Marie Sophia 721, God Flow Workshop, Free Comic Book Series · Block 131, and Motherload Omniverse Theatre · Block 128.
+- [x] Keep each highlight click-through, source-labeled, visitor-controlled, and resilient through the existing `SourceVisual` fallback path; no autoplay, checkout, upload, mint, or external publish action was added.
+- [x] Verification passed: focused 2/2, full Vitest 424 files / 1137 tests, TypeScript, guarded production build, and clean `git diff --check`.
+
+## Phase 987 — Copilot Public-Source Access Boundary
+- [x] Preserve the exact Copilot artifact URL and sign-in-only access result in `docs/source-review-copilot-access.md`.
+- [x] Explicitly avoid inventing family contribution, author attribution, rights, public availability, or external status when the artifact body is inaccessible.
+- [x] Verify focused regression 2/2 and keep the held research reference separate from portal display state.
+
+## Phase 988 — Late-Night Visual and Theatre Batch Accession
+- [x] Accession 49 newly supplied Oct 25–26 visual, theatre, HTML, still-image, motion, and text records in `docs/source-review-oct26/oct26-late-night-visual-batch-manifest.json` with SHA-256 receipts.
+- [x] Add `oct26-late-night-visual-batch-accession.md` with exact metadata-only, source-claim, and visitor-controlled display boundaries.
+- [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; build retains only the existing non-blocking >500 kB chunk warning.
+
+## Phase 989 — Homepage Duplicate-Key Repair
+- [x] Fix the reported React warning by changing the homepage lookbook-doorway key from route-only `doorway.href` to the deterministic unique key `${doorway.href}-${doorway.mark}`.
+- [x] Add regression coverage preventing route-only keys and preserving repeated destination routes safely.
+- [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 990 — Block 145 OmniGaze Source Discovery
+- [x] Add the Block 145 OmniGaze Resurrection Comic as a source-labeled lookbook record with the supplied PDF filename preserved in the source note.
+- [x] Add the Block 145 highlight to the homepage source shelf with a resilient thumbnail fallback and click-through to the lookbook gallery.
+- [x] Preserve metadata-only receipts in `docs/source-review-oct27/oct27-late-upload-manifest.json`; no supplied PDF, HTML, image, CSV, or text body was executed, rendered, played, transformed, uploaded, or published.
+- [x] Verification passed: focused 2/2, full Vitest 427 files / 1144 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 991 — Copilot Podcast Recap Metadata Receipt
+- [x] Accession `Copilot-podcast-recap.md` as a local metadata-only receipt with 560 bytes and SHA-256 `4dedc979c86107b8dbcf9442fb112d7816e8e4945e68075f0a70577a8803e0b4`.
+- [x] Preserve the source-claim boundary: the recap body was not executed, rendered, interpreted, uploaded, embedded, or published, and no authorship, rights, public availability, or external deployment claim was inferred.
+- [x] Fresh verification passed: focused 1/1, full Vitest 428 files / 1145 tests, TypeScript, guarded production build, skill validation, and `git diff --check`.
+
+## Phase 992 — Block 145 Blueprint Receipt Vault
+- [x] Create `docs/source-review-oct27/oct27-block145-blueprints-manifest.json` for 25 latest Block 145/Oct 27 source files with exact bytes, MIME guesses, and SHA-256 identifiers.
+- [x] Create the companion accession note with explicit metadata-only, no-execution, no-upload, no-embed, and no-publication boundaries.
+- [x] Verification passed: focused 2/2, full Vitest, TypeScript, guarded production build, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 993 — Receipt Viewer, Block 145 Gallery, and Profile Vault Feedback
+- [x] Add the reusable SHA-256 receipt viewer to the main dashboard with manifest identity, exact hashes, byte counts, and live-region status.
+- [x] Add the dedicated source-labeled Block 145 image gallery with resilient fallbacks, keyboard-reachable selection, hover feedback, and metadata-only boundaries.
+- [x] Add local vault success indicators and truthful Sonner toast feedback to the Guardian profile without implying upload, publication, or rights clearance.
+- [x] Update `scrollverse-source-led-portfolio` with reusable receipt-viewer, gallery-fallback, and vault-feedback patterns.
+- [x] Verification passed: focused 3/3, full Vitest 431 files / 1150 tests at checkpoint, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 994 — Latest Creator-Material Receipt Batch
+- [x] Accession `pasted_content_117.txt`, `pasted_content_118.txt`, `pasted_content_119.txt`, the three Copilot recap records, and `Scrollverse+Campaign+Gallery+V2.tar.gz` with exact local byte counts and SHA-256 receipts.
+- [x] Preserve `docs/source-review-oct27/oct27-latest-creator-materials-accession.md` with explicit metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; creator claims remain source-labeled rather than independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 431 files / 1152 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB chunk warning.
+
+## Phase 995 — Gallery Hover Feedback and Stable Orbit Loading
+- [x] Add keyboard-visible hover/focus glow feedback to the Block 145 artifact gallery with reduced-motion-safe transitions.
+- [x] Add a dimensionally stable orbit loading fallback to the global route boundary with an explicit frame, accessible status, and reduced-motion-safe animation.
+- [x] Extend `scrollverse-source-led-portfolio` with layout-shift, 60fps-friendly animation, and focus-visible guidance.
+- [x] Verification passed: focused 3/3, full Vitest 432 files / 1155 tests, TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 996 — Chais Mirror Voice Presentation Profile
+- [x] Add an opt-in browser-local Chais mirror voice presentation profile labeled “New Jersey / New York urban cadence.”
+- [x] Keep playback interruptible with visible “Play Chais mirror cue” and “Stop voice” controls, `aria-live` status, unmount cancellation, and a visible transcript path.
+- [x] Extend `scrollverse-source-led-portfolio` with the named-style presentation boundary: no biometric identity, recording, clone, background listener, or external voice-service claim.
+- [x] Verification passed: focused 2/2, full Vitest 433 files / 1157 tests, strict TypeScript, skill validation, and `git diff --check`.
+
+## Phase 997 — Legion and Omni-Convergence Receipt Batch
+- [x] Accession the eight newly supplied Legion, recruitment, DNA-mirror, motion, archive, and narrative files in `docs/source-review-oct29/oct29-legion-omni-batch-manifest.json` with exact local byte counts and SHA-256 receipts.
+- [x] Preserve `oct29-legion-omni-batch-accession.md` with metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; creator-supplied claims remain source-labeled and not independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 435 files / 1161 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB chunk warning.
+
+## Phase 998 — Homepage Back to the Future and Zebra Doorways
+- [x] Add a source-labeled `Back to the Future · 88MPH` front-door card linking to `/chais-videos` with deliberate visitor-controlled `Click to play` discovery.
+- [x] Add a source-labeled `Zebra Brand · Free Name Toggle` front-door card linking to the existing Meta AI lookbook route, with a resilient thumbnail path and no autoplay or commerce action.
+- [x] Extend `scrollverse-source-led-portfolio` with reusable front-door motion/brand doorway guidance and unique route-plus-mark keys.
+- [x] Verification passed: focused 2/2, full Vitest 435 files / 1161 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 999 — Agent 25 Convergence Master Vault Panel
+- [x] Add a browser-local, source-labeled 25-record Legion convergence registry to the existing AI Legion Apex route, covering the supplied 8 core, 16 expansion, and Agent 25 perpetual-archive roles.
+- [x] Display the Block 176 Legion 24 → Convergence Master Vault lineage, truthful record count, and explicit metadata-only/no-external-action boundary.
+- [x] Extend `scrollverse-source-led-portfolio` with a reusable Legion/sub-Legion registry pattern using stable keys, readable text, and truthful browser-local status.
+- [x] Verification passed: focused 2/2; full Vitest 436 files / 1163 tests; strict TypeScript; guarded production build (exit 0, existing non-blocking >500 kB React runtime warning); skill validation; and `git diff --check`.
+
+## Phase 1000 — Legion Search, Hover, Browser-Local Export, and YouTube Sync Rail
+- [x] Add a keyboard-accessible search field for the 25-record Agent 25 convergence registry with truthful filtered counts and a no-match state.
+- [x] Add progressive hover/focus glow feedback to convergence records without making color the only information channel.
+- [x] Add a browser-local text summary export for the currently filtered vault records with truthful status feedback and no remote write.
+- [x] Surface the existing typed YouTube references in a named homepage “YouTube synchronization rail” with “Source-labeled · visitor chooses the player” copy and direct handoff links; no autoplay or hidden embed was added.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable Legion convergence search/export and synchronized YouTube reference rail patterns.
+- [x] Verification passed: focused 4/4, full Vitest 437 files / 1167 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB chunk warning.
+
+## Phase 1001 — Manus and Omni Mixed-Source Receipt Batch
+- [x] Accession 17 newly supplied Manus, Meta, Omni, Legion, console, narrative, archive, and HTML records in `docs/source-review-oct29/oct29-manus-omni-batch-manifest.json` with exact local byte lengths, conservative MIME guesses, and SHA-256 digests.
+- [x] Preserve `oct29-manus-omni-batch-accession.md` with explicit metadata-only, no-execution, no-extraction, no-rendering, no-playback, no-upload, no-embed, and no-publication boundaries; creator claims remain source-labeled and not independently verified.
+- [x] Extend `scrollverse-source-led-portfolio` with mixed-file accession guardrails plus exact performance, Legion convergence, browser-local text export, and synchronized YouTube reference rail patterns.
+- [x] Verification passed: focused Phase 1001 2/2, Phase 995 3/3, Phase 1000 4/4; full Vitest 438 files / 1169 tests; strict TypeScript; guarded production build exit 0; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
+
+## Phase 1002 — Latest Manus and Omni Mixed-Source Receipt Batch
+- [x] Accession 17 newly supplied text, HTML, archive, console, and narrative source records in `docs/source-review-oct29/oct29-latest-manus-omni-manifest.json` with exact local byte counts, conservative MIME guesses, and SHA-256 receipts.
+- [x] Preserve `oct29-latest-manus-omni-accession.md` with explicit metadata-only, no-execution, no-extraction, no-render, no-play, no-upload, no-embed, and no-publication boundaries; source claims remain not independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 439 files / 1171 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1003 — Deferred External-Lane Register
+- [x] Add a local register documenting remaining owner/provider-controlled account, payment, wallet, contract, repository, publishing, production-media, and store-account lanes.
+- [x] State explicitly that local preparation does not imply external completion and that no external action was performed.
+- [x] Verification passed: focused 2/2, full Vitest 440 files / 1173 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; the only build diagnostic is the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1004 — Per-Song Epic-Video Slate
+- [x] Add a browser-local, accessible per-song brief surface to Music Creator Release Readiness with fields for purpose/narrative, duration/aspect ratio, visual style/references, language/voice/narration, music-use authorization, and reference-image planning.
+- [x] Add visible local-save, copy, status, and fail-closed boundary feedback; no generation, upload, publication, distribution, provider, rights, wallet, payment, or account action occurs.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable per-song slate pattern.
+- [ ] Populate actual per-song production packets only after creator-supplied song briefs and reference decisions are entered; no song-specific facts were invented by this phase.
+- [x] Verification passed: focused 2/2, full Vitest 441 files / 1175 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1005 — Catalog Discovery and Validated Production Records
+- [x] Add a browser-local source-labeled catalog discovery surface to Direct-to-Fan Catalog with search, state filtering, visible counts, empty-state recovery, and medium/status tags.
+- [x] Distinguish local readiness records from generated or published videos; preserve no-provider, no-upload, no-payment, and no-publication behavior.
+- [x] Extend `scrollverse-source-led-portfolio` with the catalog discovery and validated production-records pattern.
+- [x] Verification passed: focused 2/2, full Vitest 442 files / 1177 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1006 — Oct 30 Latest Source Batch Accession
+- [x] Create `docs/source-review-oct30/oct30-latest-source-batch-manifest.json` for 21 supplied text, HTML, image, and video files with exact local byte counts, conservative MIME guesses, and SHA-256 receipts.
+- [x] Create the companion accession note with explicit metadata-only, not-executed, not-extracted, not-rendered, not-played, not-uploaded, not-embedded, and not-published boundaries; source claims remain not independently verified.
+- [x] Verification passed: focused 2/2, full Vitest 443 files / 1179 tests, strict TypeScript, guarded production build exit 0, skill validation, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1007 — Latest Batch Metadata Receipt Viewer
+- [x] Add a typed, searchable Oct 30 receipt index to the Digitalship Accession Desk using metadata from the preserved manifest only.
+- [x] Display filename, conservative type, byte count, exact SHA-256, manifest identity, accession date, matching counts, copy-hash feedback, and explicit metadata-only/source-body boundary text.
+- [x] Keep supplied HTML, media, archive, and executable-looking source bodies outside the UI; no opening, rendering, playback, execution, extraction, upload, embedding, publication, or rights-clearance implication is performed.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable latest-batch receipt viewer pattern.
+- [x] Verification passed: focused 2/2; full Vitest 444 files / 1181 tests; strict TypeScript; guarded production build (exit 0, existing non-blocking >500 kB React runtime warning); skill validation; and `git diff --check`.
+
+## Phase 1008 — Optional Books Table Fallback
+- [x] Trace the `/` TRPC error to `seedBooksIfEmpty()` querying the optional `scrollverse_books` table before the public read path could fall back.
+- [x] Add a regression for the exact missing-table query message, unrelated database errors, and stable static catalog output.
+- [x] Make `getBooks`, `getBook`, and `getStats` fail soft only for a missing `scrollverse_books` table, while preserving unrelated database failures for visibility.
+- [x] Verification passed: focused 3/3, full Vitest 445 files / 1184 tests, strict TypeScript, guarded production build exit 0, and `git diff --check`; build retained only the existing non-blocking >500 kB React runtime chunk warning.
+
+## Phase 1009 — Nov 1 Source Batch Accession
+- [x] Accession the supplied Nov 1 source materials with exact local byte counts, MIME metadata, and SHA-256 receipts in `docs/source-review-nov1/nov1-latest-source-batch-manifest.json`.
+- [x] Preserve the companion note with metadata-only, no-execution, no-extraction, no-upload, no-embed, and no-publication boundaries; source claims remain creator-supplied and source-labeled.
+- [x] Verification passed: focused accession regression, full Vitest 446 files / 1186 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, and `git diff --check`; only the existing non-blocking >500 kB runtime chunk warning remains.
+
+## Phase 1010 — Homepage Motion-Reference Shelf
+- [x] Surface the newly supplied video batch as visible, source-labeled homepage cards with exact filenames and stable typographic fallbacks.
+- [x] Keep each card browser-local and visitor-controlled with direct accession-desk routing, no autoplay, and explicit metadata-only/raw-upload boundaries.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable homepage motion-reference shelf pattern.
+- [x] Verification passed: focused motion-shelf regression, full Vitest, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`.
+
+## Phase 1011 — Nov 1 Creator Reference Batch
+- [x] Add source-labeled homepage cards for `Scrollverse-Sovereign-Motion-Scenes.html`, `Black-Batman-Chronicles-Ep.html`, and `Playable-Game-Ui-Sovereign.html` using manifest filenames only.
+- [x] Preserve metadata-only labeling, direct accession-desk routing, no rendering/execution, and HTML source bodies outside the UI.
+- [x] Extend `scrollverse-source-led-portfolio` with the manifest-to-homepage next-batch integration pattern.
+- [x] Verification passed: Phase 1010 and 1011 regressions, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; only the existing non-blocking large runtime chunk warning remains.
+
+## Phase 1012 — Complete Motion Shelf Coverage and Integration Report
+- [x] Add the five Oct 30 video receipt records (`video(19).mp4` through `video(15).mp4`) so the homepage covers the complete Phase 1010 video subset.
+- [x] Review the reusable `scrollverse-source-led-portfolio` workflow and preserve metadata-only/no-autoplay guidance.
+- [x] Write `docs/source-review-nov1/phase1010-1011-creator-reference-integration-report.md` with all integrated reference filenames, boundaries, and verification metrics.
+- [x] Verification passed: full Vitest 448 files / 1190 tests, strict TypeScript, guarded build exit 0, portable build metrics, skill validation, and `git diff --check`.
+
+## Phase 1013 — Sana · Agent 25 Reference Batch + AI Communication Resilience
+- [x] Add the seven newly supplied MP4 references and two HTML references to the homepage as source-labeled, keyboard-reachable metadata-only cards with direct accession-desk routes.
+- [x] Preserve exact local byte counts, conservative MIME guesses, and SHA-256 receipts in `docs/source-review-nov1/phase1013-sana-agent25-manifest.json`; supplied bodies remain outside the production bundle.
+- [x] Improve AI Twin failure communication with truthful provider-unavailable copy, an `aria-live` status region, a visible retry action, and preserved request payloads so no user message is silently lost.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable new-batch accession and Legion convergence communication patterns.
+- [x] Verification passed: focused 8/8; full Vitest 450 files / 1194 tests; strict TypeScript; guarded production build exit 0 in 17.74s; skill validation; and `git diff --check`. Existing non-blocking >500 kB React runtime chunk warning remains.
+- [x] Boundary retained: no supplied HTML or media was opened, rendered, executed, extracted, transformed, uploaded, embedded, published, or treated as independently verified; no external repository, wallet, billing, payment, contract, account, hosting, or publication action was performed.
+
+## Phase 1015 — AURELLION Federation Doorway + Evidence Constitution
+- [x] Add a visible homepage doorway for AURELLION / Intelligence of Connected Light with first-party repository and merged PR #4, #5, and #6 links.
+- [x] Preserve the independent-world federation pattern and show DOCUMENTED / IMPLEMENTED / VERIFIED / ACTIVE maturity states without overstating provider, peer, staging, or production activation.
+- [x] Save the dated source review at `docs/source-review-nov12/aurellion-federation-source-review.md` using current GitHub and live-domain checks alongside shared-reference context.
+- [x] Extend `scrollverse-source-led-portfolio` with the reusable federated-intelligence and evidence-maturity pattern.
+- [x] Focused Phase 1014 regression: 4/4; skill validation passed; `git diff --check` passed.
+- [x] Run the fresh full Vitest, strict TypeScript, guarded production build, and checkpoint the combined local state: 452 files / 1201 tests passed; TypeScript passed; build passed in 16.68s; skill validation passed; `git diff --check` passed.
+- Boundary: supplied shared HTML/media and chat claims remain source context; no credentials, provider calls, wallet, contract, payment, account, repository write, or external publication action is performed by this phase.
+
+## Phase 1016 — Nov 12 Attachment Receipt Shelf
+- [x] Accession `pasted_content_182.txt` through `pasted_content_185.txt` as exact local byte-count and SHA-256 metadata-only receipts in `docs/source-review-nov12/nov12-attachment-batch-manifest.json`.
+- [x] Add a visible homepage receipt shelf with SOURCE CONTEXT ONLY labeling and direct Digitalship Accession Desk routes for all four records.
+- [x] Preserve the explicit boundary: no execution, interpretation, extraction, rendering, transformation, upload, embedding, publication, or independent verification of supplied bodies.
+- [x] Verification passed: Phase 1016 + Phase 1014 focused regressions, strict TypeScript, guarded production build, and `git diff --check`; existing non-blocking >500 kB runtime chunk warning remains.
+- [x] Saved checkpoint `74ceb1c3`; managed WebDev reported deployment successful and read-only checks returned HTTP 200 for both ScrollVerse domains.
+- Boundary: no wallet, billing, payment, contract, account, provider, repository-write, or external media action was performed.
+
+## Phase 1017 — Receipt Organization + AI Twin Retry Polish
+- [x] Add browser-local case-insensitive filtering across Phase 1016 receipt filenames, labels, and details.
+- [x] Add newest-first and oldest-first receipt sorting without mutating the source registry.
+- [x] Add an accessible result count, no-match recovery state, and a dynamic “Attached context sources” counter beside the receipt shelf.
+- [x] Add smooth reduced-motion-safe hover/focus feedback, accessible naming, native title fallback, and a visible tooltip to the AI Twin retry control.
+- [x] Add `server/phase1017.receiptAndRetryPolish.test.ts`; focused regression passed 2/2.
+- [x] Full verification passed: Vitest, strict TypeScript, guarded production build in 17.05s, reusable-skill validation, and `git diff --check`.
+- Boundary: no supplied attachment body was executed, interpreted, extracted, rendered, transformed, uploaded, embedded, or treated as independently verified; no wallet, billing, payment, contract, account, provider, or repository write was performed.

@@ -1,4 +1,4 @@
-import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, varchar } from "drizzle-orm/mysql-core";
+import { bigint, boolean, index, int, json, mysqlEnum, mysqlTable, text, timestamp, tinyint, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -1940,3 +1940,86 @@ export const portalRouteRefreshRuns = mysqlTable("portal_route_refresh_runs", {
   index("portal_route_refresh_runs_task_created_idx").on(table.taskUid, table.createdAt),
 ]);
 export type PortalRouteRefreshRun = typeof portalRouteRefreshRuns.$inferSelect;
+
+
+// ── Source-backed evidence ledger ───────────────────────────────────────────
+// These rows record artifact provenance and workflow state. A VERIFIED_MAINNET
+// label must only be written by a separate verifier after independent chain
+// checks; storing that enum value is not itself proof of a chain event.
+export const evidenceLedger = mysqlTable("evidence_ledger", {
+  id: int("id").autoincrement().primaryKey(),
+  vaultId: varchar("vault_id", { length: 255 }).notNull().unique(),
+  workCopyPath: varchar("work_copy_path", { length: 512 }).notNull(),
+  manifestStamp: varchar("manifest_stamp", { length: 64 }).notNull().unique(),
+  status: mysqlEnum("status", ["QUEUED", "SEALED", "VERIFIED_MAINNET", "REVOKED"])
+    .default("QUEUED")
+    .notNull(),
+  repoName: varchar("repo_name", { length: 255 }),
+  filePath: varchar("file_path", { length: 512 }),
+  contentSha256: varchar("content_sha256", { length: 64 }),
+  commitSha: varchar("commit_sha", { length: 40 }),
+  commitDate: timestamp("commit_date"),
+  commitMessage: text("commit_message"),
+  proofLink: varchar("proof_link", { length: 1024 }),
+  txHash: varchar("tx_hash", { length: 66 }),
+  contractAddress: varchar("contract_address", { length: 42 }),
+  fileSizeBytes: bigint("file_size_bytes", { mode: "number" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("evidence_ledger_status_created_idx").on(table.status, table.createdAt),
+  index("evidence_ledger_repo_path_idx").on(table.repoName, table.filePath),
+]);
+export type EvidenceLedgerRecord = typeof evidenceLedger.$inferSelect;
+export type InsertEvidenceLedgerRecord = typeof evidenceLedger.$inferInsert;
+
+
+// ── Atlas Core: source-aware entity and relationship graph ───────────────────
+// Public traversal only exposes PUBLISHED + PUBLIC records. New records begin
+// as DRAFT + PRIVATE so an administrator can review provenance before release.
+export const atlasEntities = mysqlTable("atlas_entities", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 160 }).notNull().unique(),
+  title: varchar("title", { length: 240 }).notNull(),
+  kind: mysqlEnum("kind", ["PROJECT", "REPOSITORY", "CONVERSATION", "ARTIFACT", "DISCOVERY", "PERSON", "PLATFORM", "CONCEPT", "DEPLOYMENT"]).notNull(),
+  summary: text("summary"),
+  visibility: mysqlEnum("visibility", ["PUBLIC", "PRIVATE"]).notNull().default("PRIVATE"),
+  status: mysqlEnum("status", ["DRAFT", "PUBLISHED", "ARCHIVED"]).notNull().default("DRAFT"),
+  provenance: mysqlEnum("provenance", ["SOURCE_LINKED", "OWNER_REPORTED", "UNVERIFIED"]).notNull().default("UNVERIFIED"),
+  sourceLabel: varchar("source_label", { length: 255 }),
+  sourceUrl: varchar("source_url", { length: 1024 }),
+  sourceEvidenceId: int("source_evidence_id").references(() => evidenceLedger.id, { onDelete: "set null" }),
+  createdByUserId: int("created_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("atlas_entities_status_visibility_idx").on(table.status, table.visibility, table.updatedAt),
+  index("atlas_entities_kind_idx").on(table.kind, table.status),
+  index("atlas_entities_evidence_idx").on(table.sourceEvidenceId),
+]);
+export type AtlasEntity = typeof atlasEntities.$inferSelect;
+export type InsertAtlasEntity = typeof atlasEntities.$inferInsert;
+
+export const atlasRelationships = mysqlTable("atlas_relationships", {
+  id: int("id").autoincrement().primaryKey(),
+  sourceEntityId: int("source_entity_id").notNull().references(() => atlasEntities.id, { onDelete: "cascade" }),
+  targetEntityId: int("target_entity_id").notNull().references(() => atlasEntities.id, { onDelete: "cascade" }),
+  relationType: varchar("relation_type", { length: 96 }).notNull(),
+  description: text("description"),
+  visibility: mysqlEnum("visibility", ["PUBLIC", "PRIVATE"]).notNull().default("PRIVATE"),
+  status: mysqlEnum("status", ["DRAFT", "PUBLISHED", "ARCHIVED"]).notNull().default("DRAFT"),
+  provenance: mysqlEnum("provenance", ["SOURCE_LINKED", "OWNER_REPORTED", "UNVERIFIED"]).notNull().default("UNVERIFIED"),
+  sourceLabel: varchar("source_label", { length: 255 }),
+  sourceUrl: varchar("source_url", { length: 1024 }),
+  sourceEvidenceId: int("source_evidence_id").references(() => evidenceLedger.id, { onDelete: "set null" }),
+  createdByUserId: int("created_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, table => [
+  index("atlas_relationships_source_idx").on(table.sourceEntityId, table.status, table.visibility),
+  index("atlas_relationships_target_idx").on(table.targetEntityId, table.status, table.visibility),
+  index("atlas_relationships_evidence_idx").on(table.sourceEvidenceId),
+  uniqueIndex("atlas_relationships_edge_unique").on(table.sourceEntityId, table.targetEntityId, table.relationType),
+]);
+export type AtlasRelationship = typeof atlasRelationships.$inferSelect;
+export type InsertAtlasRelationship = typeof atlasRelationships.$inferInsert;

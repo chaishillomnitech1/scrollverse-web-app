@@ -1,0 +1,24 @@
+{
+  "manifestId": "oct29-latest-manus-omni-2026-10-30",
+  "accessionDate": "2026-10-30",
+  "scope": "metadata-only local receipt index",
+  "records": [
+    {"filename":"pasted_content_153.txt","bytes":56692,"mime":"text/plain","sha256":"699e3c22500318272ad06e424b0bb9250081d1dade458c7f79edfd3461c0a290"},
+    {"filename":"Library-Manus.html","bytes":2704046,"mime":"text/html","sha256":"bbf370fa08d86859afd22046f6f4b77a99583da227e40e83434a976daacd38be"},
+    {"filename":"Ultimate_Reality_Activation.html","bytes":13640,"mime":"text/html","sha256":"0f3cd5856599f547a7f13f68a1bf82497fcef49e0a4626dbe0b8d0e3493108e0"},
+    {"filename":"pasted_content_154.txt","bytes":5463,"mime":"text/plain","sha256":"f66da76eb8d00594dcb410e400d86cf4c7b2c315dd2356a5df33e7bab2265f64"},
+    {"filename":"pasted_content_155.txt","bytes":394760,"mime":"text/plain","sha256":"b59b8ef570e2ff27369f49e35e2c5dc37f3986e944c5ec3242ce4ae2d02973fd"},
+    {"filename":"pasted_content_156.txt","bytes":221471,"mime":"text/plain","sha256":"8309c194dca32564a1b8f6482188a47a738a6f56fdaa70a9b79c0eb6e4f28b36"},
+    {"filename":"Omni25-Deep-Research-Synthesis.html","bytes":262651,"mime":"text/html","sha256":"65a35b1b82d3c9c67de7bea2840bed8aecb6b61f310ac77dc60f34159268b2f6"},
+    {"filename":"Omni-Agent-25-Unified(1).html","bytes":8395640,"mime":"text/html","sha256":"af24010d0d3570c6221cd7494ce94347937e1845e83f80337125f79cc5bfa108"},
+    {"filename":"Block-154-V3-Master.html","bytes":207217,"mime":"text/html","sha256":"f88ef44b2ac1bd405cab954bf586412df0ecac677a913934c414270278a9c550"},
+    {"filename":"Block+177+God+Level+Wall(1).tar.gz","bytes":16960,"mime":"application/gzip","sha256":"658d34a2c75f0cf6ee75a91b707de7b448bf910e1027859b2e159fb2a0d128c8"},
+    {"filename":"Omni-Agent-25-Unified.html","bytes":8395640,"mime":"text/html","sha256":"af24010d0d3570c6221cd7494ce94347937e1845e83f80337125f79cc5bfa108"},
+    {"filename":"Cosmic+Comedian+Tokenized(2).tar.gz","bytes":5327821,"mime":"application/gzip","sha256":"c3c184c495ce88832810d8a77bd0c5e0214bd90a9edbff96b4bcf9d32b50f7b2"},
+    {"filename":"pasted_content_157.txt","bytes":6277,"mime":"text/plain","sha256":"eca309f7d0cae794f3b37f074bf090a6ce6a7eee26b9a44b91957d64f3887e58"},
+    {"filename":"Omni-25-Williamstown-Console.html","bytes":208995,"mime":"text/html","sha256":"d9a09c528c6b11863861402c463dde3babc3bc49520cf29a3a4a7e61f949a799"},
+    {"filename":"Block-154-V3-Master(1).html","bytes":207217,"mime":"text/html","sha256":"f88ef44b2ac1bd405cab954bf586412df0ecac677a913934c414270278a9c550"},
+    {"filename":"Omni-25-Deployment-Console(1).html","bytes":211727,"mime":"text/html","sha256":"79f9e98287c0f10f3015a8224cad6d1a7d3905336ce2743bfe0998ce789c4280"},
+    {"filename":"Omni-25-Deployment-Console.html","bytes":211727,"mime":"text/html","sha256":"79f9e98287c0f10f3015a8224cad6d1a7d3905336ce2743bfe0998ce789c4280"}
+  ]
+}

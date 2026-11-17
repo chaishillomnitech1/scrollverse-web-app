@@ -10,7 +10,8 @@
     "check": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
-    "db:push": "drizzle-kit generate && drizzle-kit migrate"
+    "db:push": "drizzle-kit generate && drizzle-kit migrate",
+    "test:sovereign": "vitest run server/atlas/invariants.test.ts server/atlas/graph.test.ts server/atlas/ingest.test.ts server/mainnet-release-safety.test.ts blockchain/scripts/deployment-preflight.test.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",

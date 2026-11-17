@@ -401,6 +401,7 @@ export default function GuardianDashboard() {
               <div>
                 <div className="text-xs font-mono tracking-widest mb-1" style={{ color: "#00D4FF" }}>STAKING POSITIONS</div>
                 <h2 className="text-xl font-black text-white">Active Pools</h2>
+                <p className="mt-2 text-xs" style={{ color: "#8899AA" }}>Off-chain application ledger — no token transfer or on-chain staking transaction is initiated by this dashboard.</p>
               </div>
               <Link href="/staking">
                 <span className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer transition-all hover:scale-105"
@@ -419,7 +420,7 @@ export default function GuardianDashboard() {
               <div className="rounded-2xl p-8 text-center" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <div className="text-3xl mb-3">💎</div>
                 <div className="text-sm font-bold text-white mb-2">No Active Staking Positions</div>
-                <p className="text-xs mb-4" style={{ color: "#8899AA" }}>Stake CHX to earn daily compound rewards at up to 999% APY.</p>
+                <p className="text-xs mb-4" style={{ color: "#8899AA" }}>Create an application-ledger position; displayed reward estimates are illustrative and are not on-chain payouts.</p>
                 <Link href="/staking">
                   <span className="inline-block text-xs font-bold px-4 py-2 rounded-xl cursor-pointer"
                     style={{ background: "linear-gradient(135deg, #00D4FF, #0099BB)", color: "#050B1A" }}>
@@ -433,7 +434,7 @@ export default function GuardianDashboard() {
                   <div
                     className="rounded-xl px-4 py-3 text-xs font-mono"
                     style={{
-                      background: compoundMsg.includes("Compounded") ? "rgba(0,255,136,0.1)" : "rgba(255,68,68,0.1)",
+                      background: compoundMsg.includes("Recorded") ? "rgba(0,255,136,0.1)" : "rgba(255,68,68,0.1)",
                       border: compoundMsg.includes("Compounded") ? "1px solid rgba(0,255,136,0.3)" : "1px solid rgba(255,68,68,0.3)",
                       color: compoundMsg.includes("Compounded") ? "#00FF88" : "#FF4444",
                     }}

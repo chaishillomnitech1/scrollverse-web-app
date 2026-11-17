@@ -1,0 +1,28 @@
+{
+  "manifest_id": "oct30-latest-source-batch",
+  "accession_date": "2026-10-30",
+  "boundary": "metadata-only local accession; supplied bytes were not executed, extracted, rendered, played, uploaded, embedded, or published",
+  "records": [
+    {"filename":"pasted_content_158.txt","bytes":9438,"mime":"text/plain","sha256":"ba5ca6ab7e500e05e21290e47cade880b8e0ce359f2b885aa170a1612fc6928f"},
+    {"filename":"Agent-25-Omni-Element.html","bytes":208374,"mime":"text/html","sha256":"85efbb9f8ad1f2b8e4eb880666166cd06f0ca79cb7ce8b7b19845eff046c62a8"},
+    {"filename":"image_20261030_123207(1).jpg","bytes":561947,"mime":"image/jpeg","sha256":"ac55f560e470309cf2d05cd392389af21e3c4862bba8975fcdd4ee7564220775"},
+    {"filename":"pasted_content_159.txt","bytes":120097,"mime":"text/plain","sha256":"c17ec7421634d239a9f611b985418d9892bb9df693a107f7b14bd14462fc05a0"},
+    {"filename":"pasted_content_160.txt","bytes":18595,"mime":"text/plain","sha256":"f2538d3a234d608846f4c7e8943636474a0961db6a55d8f7e5e59024096f375b"},
+    {"filename":"pasted_content_161.txt","bytes":69395,"mime":"text/plain","sha256":"4a4c65f92a16139e0f9748cc061555e35fe39084d89edfe54c609fe329ed70b0"},
+    {"filename":"pasted_content_162.txt","bytes":16680,"mime":"text/plain","sha256":"76f102913efac3dfc4ae3290d6f5a299473e67965ad1bda6970af68e417de002"},
+    {"filename":"Autonomous-Mint-Infinite-Periodic(2).html","bytes":3076326,"mime":"text/html","sha256":"86ae1561a69bf05b06056739ee4c76311ba28f8b8b446fba180eebf3da1b2038"},
+    {"filename":"Autonomous-Mint-Infinite-Periodic(1).html","bytes":3076326,"mime":"text/html","sha256":"86ae1561a69bf05b06056739ee4c76311ba28f8b8b446fba180eebf3da1b2038"},
+    {"filename":"Autonomous-Mint-Infinite-Periodic.html","bytes":3076326,"mime":"text/html","sha256":"86ae1561a69bf05b06056739ee4c76311ba28f8b8b446fba180eebf3da1b2038"},
+    {"filename":"Glyph-Work-Society-Agent.html","bytes":2079791,"mime":"text/html","sha256":"20894e0d44b58b1f8adddf86c5870a98c082766ab67350e8dae512552518cb71"},
+    {"filename":"Block-165-Master-Vault.html","bytes":208449,"mime":"text/html","sha256":"e3a104d73503cd88a7628c1f61776d475ae8a5c38f815eeffd88c1ad396fb9d8"},
+    {"filename":"Block-184-Infinite(1).html","bytes":3732309,"mime":"text/html","sha256":"c11f26770df22d74b1a0ad7f170414b4c181169c2a4de0c49a145235450c7f4b"},
+    {"filename":"Block-184-Infinite.html","bytes":3732309,"mime":"text/html","sha256":"c11f26770df22d74b1a0ad7f170414b4c181169c2a4de0c49a145235450c7f4b"},
+    {"filename":"video(19).mp4","bytes":4059594,"mime":"video/mp4","sha256":"8b0cc4a583b50c34a4d84bcd9238479cd354e285cd1ac31990509a9b4836205f"},
+    {"filename":"video(18).mp4","bytes":4058893,"mime":"video/mp4","sha256":"4fc76fa9971255f8cb5b5e464d8ea262fab0c451913305c0e0c57c0356a9d1c9"},
+    {"filename":"video(17).mp4","bytes":6952751,"mime":"video/mp4","sha256":"e17dfd2779ff7955e8be0889839e38a12c93ae342529bead60251650392e0f71"},
+    {"filename":"video(16).mp4","bytes":9054925,"mime":"video/mp4","sha256":"c0c55f48ed2d225ace967394f7b9640d94d4bb01bb5806186793706bc9acf81c"},
+    {"filename":"video(15).mp4","bytes":13993454,"mime":"video/mp4","sha256":"da23860c6de0af3249b153e3c768ad0ec3b8ec23061371ed57a4f5401a1c27c2"},
+    {"filename":"Periodic-Scale-Block-155.html","bytes":3622505,"mime":"text/html","sha256":"bb5227b13eff855528d1a913921bb456b8dfae35eaff539456f2748cc345e6d4"},
+    {"filename":"Block-155-God-Mode(1).html","bytes":2637356,"mime":"text/html","sha256":"aeb930eb225c4b864e179858863bd9fc2b7eddda03b4877df3d3df037de709ef"}
+  ]
+}

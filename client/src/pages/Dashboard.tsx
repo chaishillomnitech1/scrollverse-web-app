@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import ReceiptViewer from "@/components/ReceiptViewer";
+import { BLOCK145_MANIFEST_ID, BLOCK145_RECEIPTS } from "@/data/block145Receipts";
 
 const SOVEREIGN_WALLET = "0x377956c1471d9ce142df6932895839243da23a2c";
 
@@ -12,15 +14,17 @@ function useTreasuryBalance() {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const res = await fetch("https://polygon-rpc.com", {
+        const polygonRpcUrl = import.meta.env.VITE_POLYGON_RPC_URL;
+        if (!polygonRpcUrl) { setBalance("RPC not configured"); return; }
+        const res = await fetch(polygonRpcUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ jsonrpc: "2.0", method: "eth_getBalance", params: [SOVEREIGN_WALLET, "latest"], id: 1 }),
         });
         const data = await res.json();
         if (data.result) {
-          const matic = Number(BigInt(data.result)) / 1e18;
-          setBalance(matic.toFixed(4) + " MATIC");
+          const pol = Number(BigInt(data.result)) / 1e18;
+          setBalance(pol.toFixed(4) + " POL");
         }
       } catch { setBalance("—"); }
       finally { setLoading(false); }
@@ -374,6 +378,11 @@ export default function Dashboard() {
           </span>
         </section>
 
+        <div aria-label="SHA-256 metadata-only local accession" aria-live="polite" className="sr-only">
+          SHA-256 receipt set scrollverse-oct27-block145-blueprints-v1 ({BLOCK145_MANIFEST_ID}); browser-local metadata-only local accession.
+        </div>
+        <ReceiptViewer manifestId={BLOCK145_MANIFEST_ID} receipts={BLOCK145_RECEIPTS} />
+
         {isLoading ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {[...Array(4)].map((_, i) => (
@@ -398,8 +407,8 @@ export default function Dashboard() {
               <MetricCard
                 icon="🛡️"
                 label="Total Guardians"
-                value={(guardianData?.dbCount ?? metrics?.guardianCount ?? 0).toLocaleString()}
-                sub={guardianData?.isLive ? "On-chain verified" : "Platform users"}
+                value={guardianData?.displayCount?.toLocaleString() ?? "Unavailable"}
+                sub={guardianData?.countSource === "on_chain" ? "On-chain contract read" : guardianData?.countSource === "database" ? "Database waitlist records" : "Count unavailable"}
                 color="#00D4FF"
               />
               <MetricCard

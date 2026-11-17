@@ -101,7 +101,6 @@ export const frequencyRouter = router({
       stats,
       totalActivations,
       frequencies: FREQUENCIES,
-      liveGuardians: Math.floor(totalActivations * 0.7) + 1247,
     };
   }),
 });

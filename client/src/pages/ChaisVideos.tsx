@@ -105,6 +105,21 @@ const CATEGORIES = [
   { id: "vevo", label: "Vevo Visuals", color: "#FF6B35" },
 ];
 
+const SYNC_REFERENCES = [
+  {
+    title: "Creator YouTube synchronization reference",
+    note: "Owner-supplied source link preserved for cross-reference with the visual archive.",
+    url: "https://youtu.be/0_oCySkU4Jc?is=55sHsCeqVrk8KztP",
+    color: "#DCC8FF",
+  },
+  {
+    title: "Galactic Federation / Jupiter Agreements reference",
+    note: "Owner-supplied YouTube reference retained as an attributed synchronization handoff.",
+    url: "https://youtu.be/rX4frFXGUfs",
+    color: "#00D4FF",
+  },
+] as const;
+
 function VideoCard({
   video,
   onSelect,
@@ -295,9 +310,31 @@ export default function ChaisVideos() {
               >
                 {s === "featured" ? "🔥 Featured" : s === "newest" ? "↓ Newest" : "↑ Oldest"}
               </button>
-            ))}
+              ))}
           </div>
         </div>
+
+        <section className="mb-12 rounded-2xl p-6" style={{ background: "rgba(185,140,255,0.05)", border: "1px solid rgba(185,140,255,0.25)" }} aria-labelledby="sync-references-title">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="text-xs font-mono tracking-widest" style={{ color: "#DCC8FF" }}>SOURCE SYNCHRONIZATION REFERENCES</div>
+              <h2 id="sync-references-title" className="mt-2 text-2xl font-black text-white">Keep the highway connected.</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6" style={{ color: "#AABBCB" }}>Exact owner-supplied YouTube references stay visible as direct, attributed handoffs. Open them by choice; this strip does not autoplay, authenticate, upload, publish, or retrieve platform analytics.</p>
+            </div>
+            <span className="text-xs font-mono" style={{ color: "#8FA3B8" }}>{SYNC_REFERENCES.length} source links</span>
+          </div>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            {SYNC_REFERENCES.map(reference => (
+              <article key={reference.url} className="rounded-2xl p-5" style={{ border: `1px solid ${reference.color}40`, background: `${reference.color}08` }}>
+                <div className="text-xs font-mono tracking-widest" style={{ color: reference.color }}>SOURCE-LABELED · VISITOR-CONTROLLED</div>
+                <h3 className="mt-2 text-lg font-black text-white">{reference.title}</h3>
+                <p className="mt-2 text-sm leading-6" style={{ color: "#C9D8E7" }}>{reference.note}</p>
+                <a href={reference.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center rounded-xl px-4 py-2 text-sm font-black transition hover:brightness-125 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFCC4D]" style={{ background: `${reference.color}18`, border: `1px solid ${reference.color}55`, color: reference.color }}>Open source on YouTube ↗</a>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-xs font-mono" style={{ color: "#71869B" }}>No autoplay or account action is initiated by these references.</p>
+        </section>
 
         {/* Featured player — The City full series */}
         {activeCategory === "all" && (

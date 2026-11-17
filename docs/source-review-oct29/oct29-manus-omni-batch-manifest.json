@@ -1,0 +1,144 @@
+{
+  "manifestId": "oct29-manus-omni-batch",
+  "accessionedAt": "2026-10-30",
+  "scope": "local creator-supplied source receipt metadata",
+  "recordsAreEvidenceOf": "local byte presence and digest computation only",
+  "files": [
+    {
+      "sourceName": "pasted_content_153.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_153.txt",
+      "byteLength": 56692,
+      "sha256": "699e3c22500318272ad06e424b0bb9250081d1dade458c7f79edfd3461c0a290",
+      "mimeType": "text/plain",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Library-Manus.html",
+      "sourcePath": "/home/ubuntu/upload/Library-Manus.html",
+      "byteLength": 2704046,
+      "sha256": "bbf370fa08d86859afd22046f6f4b77a99583da227e40e83434a976daacd38be",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Ultimate_Reality_Activation.html",
+      "sourcePath": "/home/ubuntu/upload/Ultimate_Reality_Activation.html",
+      "byteLength": 13640,
+      "sha256": "0f3cd5856599f547a7f13f68a1bf82497fcef49e0a4626dbe0b8d0e3493108e0",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "pasted_content_154.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_154.txt",
+      "byteLength": 5463,
+      "sha256": "f66da76eb8d00594dcb410e400d86cf4c7b2c315dd2356a5df33e7bab2265f64",
+      "mimeType": "text/plain",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "pasted_content_155.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_155.txt",
+      "byteLength": 394760,
+      "sha256": "b59b8ef570e2ff27369f49e35e2c5dc37f3986e944c5ec3242ce4ae2d02973fd",
+      "mimeType": "text/plain",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "pasted_content_156.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_156.txt",
+      "byteLength": 221471,
+      "sha256": "8309c194dca32564a1b8f6482188a47a738a6f56fdaa70a9b79c0eb6e4f28b36",
+      "mimeType": "text/plain",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Omni25-Deep-Research-Synthesis.html",
+      "sourcePath": "/home/ubuntu/upload/Omni25-Deep-Research-Synthesis.html",
+      "byteLength": 262651,
+      "sha256": "65a35b1b82d3c9c67de7bea2840bed8aecb6b61f310ac77dc60f34159268b2f6",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Omni-Agent-25-Unified(1).html",
+      "sourcePath": "/home/ubuntu/upload/Omni-Agent-25-Unified(1).html",
+      "byteLength": 8395640,
+      "sha256": "af24010d0d3570c6221cd7494ce94347937e1845e83f80337125f79cc5bfa108",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Block-154-V3-Master.html",
+      "sourcePath": "/home/ubuntu/upload/Block-154-V3-Master.html",
+      "byteLength": 207217,
+      "sha256": "f88ef44b2ac1bd405cab954bf586412df0ecac677a913934c414270278a9c550",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Block+177+God+Level+Wall(1).tar.gz",
+      "sourcePath": "/home/ubuntu/upload/Block+177+God+Level+Wall(1).tar.gz",
+      "byteLength": 16960,
+      "sha256": "658d34a2c75f0cf6ee75a91b707de7b448bf910e1027859b2e159fb2a0d128c8",
+      "mimeType": "application/x-tar",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Omni-Agent-25-Unified.html",
+      "sourcePath": "/home/ubuntu/upload/Omni-Agent-25-Unified.html",
+      "byteLength": 8395640,
+      "sha256": "af24010d0d3570c6221cd7494ce94347937e1845e83f80337125f79cc5bfa108",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Cosmic+Comedian+Tokenized(2).tar.gz",
+      "sourcePath": "/home/ubuntu/upload/Cosmic+Comedian+Tokenized(2).tar.gz",
+      "byteLength": 5327821,
+      "sha256": "c3c184c495ce88832810d8a77bd0c5e0214bd90a9edbff96b4bcf9d32b50f7b2",
+      "mimeType": "application/x-tar",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "pasted_content_157.txt",
+      "sourcePath": "/home/ubuntu/upload/pasted_content_157.txt",
+      "byteLength": 6277,
+      "sha256": "eca309f7d0cae794f3b37f074bf090a6ce6a7eee26b9a44b91957d64f3887e58",
+      "mimeType": "text/plain",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Omni-25-Williamstown-Console.html",
+      "sourcePath": "/home/ubuntu/upload/Omni-25-Williamstown-Console.html",
+      "byteLength": 208995,
+      "sha256": "d9a09c528c6b11863861402c463dde3babc3bc49520cf29a3a4a7e61f949a799",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Block-154-V3-Master(1).html",
+      "sourcePath": "/home/ubuntu/upload/Block-154-V3-Master(1).html",
+      "byteLength": 207217,
+      "sha256": "f88ef44b2ac1bd405cab954bf586412df0ecac677a913934c414270278a9c550",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Omni-25-Deployment-Console(1).html",
+      "sourcePath": "/home/ubuntu/upload/Omni-25-Deployment-Console(1).html",
+      "byteLength": 211727,
+      "sha256": "79f9e98287c0f10f3015a8224cad6d1a7d3905336ce2743bfe0998ce789c4280",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    },
+    {
+      "sourceName": "Omni-25-Deployment-Console.html",
+      "sourcePath": "/home/ubuntu/upload/Omni-25-Deployment-Console.html",
+      "byteLength": 211727,
+      "sha256": "79f9e98287c0f10f3015a8224cad6d1a7d3905336ce2743bfe0998ce789c4280",
+      "mimeType": "text/html",
+      "accessionBoundary": "metadata-only"
+    }
+  ]
+}

@@ -38,6 +38,12 @@ const LEGION_GUIDES = [
   { name: "The Carekeeper", role: "Access and audience guide", color: "#00FF88", lens: "How can this work remain accessible, youth-aware, and open to correction?" },
 ] as const;
 
+const CHAI_AI_VOICE_PROFILE = {
+  label: "Chais mirror voice",
+  style: "New Jersey / New York urban cadence",
+  note: "A browser-local voice profile for an opt-in presentation cue; it is not a recording, clone, or background listener.",
+} as const;
+
 export default function DigitalShips() {
   useSovereignHeartbeat({ page: "digital-ships" });
   const [activeMode, setActiveMode] = useState(0);
@@ -66,7 +72,7 @@ export default function DigitalShips() {
     window.speechSynthesis.cancel();
     const speech = new SpeechSynthesisUtterance(narration);
     speech.rate = 0.92;
-    speech.pitch = 1;
+    speech.pitch = 0.96;
     speech.onend = () => setVoiceStatus("Voice cue finished. You can replay it or continue reading.");
     window.speechSynthesis.speak(speech);
     setVoiceStatus("Playing a browser-local narration cue. No recording or external voice service is used.");
@@ -176,9 +182,10 @@ export default function DigitalShips() {
             </div>
 
             <div className="rounded-3xl border border-[#FFB800]/30 bg-[#050C19] p-6 sm:p-8">
-              <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-mono text-xs tracking-[.2em]" style={{ color: selectedMode.accent }}>ACTIVE CUE · {selectedMode.title.toUpperCase()}</p><h3 className="mt-3 text-2xl font-black">{selectedMode.prompt}</h3></div><div className="flex gap-2"><button type="button" onClick={playCue} className="rounded-xl border px-4 py-2 text-xs font-black" style={{ borderColor: `${selectedMode.accent}88`, color: selectedMode.accent }}>Play voice cue</button><button type="button" onClick={stopCue} className="rounded-xl border border-white/15 px-4 py-2 text-xs font-black text-[#D6E2EE]">Stop</button></div></div>
-              <p className="mt-4 text-xs leading-6 text-[#AABCCC]" aria-live="polite">{voiceStatus}</p>
-              <label className="mt-6 block text-sm font-bold text-[#D6E2EE]" htmlFor="digital-ships-response">Your private response brief</label>
+               <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-mono text-xs tracking-[.2em]" style={{ color: selectedMode.accent }}>ACTIVE CUE · {selectedMode.title.toUpperCase()}</p><h3 className="mt-3 text-2xl font-black">{selectedMode.prompt}</h3></div><div className="flex gap-2"><button type="button" onClick={playCue} className="rounded-xl border px-4 py-2 text-xs font-black" style={{ borderColor: `${selectedMode.accent}88`, color: selectedMode.accent }}>Play Chais mirror cue</button><button type="button" onClick={stopCue} className="rounded-xl border border-white/15 px-4 py-2 text-xs font-black text-[#D6E2EE]">Stop voice</button></div></div>
+               <p className="mt-4 text-xs leading-6 text-[#AABCCC]" aria-live="polite">{voiceStatus}</p>
+               <div className="mt-4 rounded-2xl border border-[#00D4FF]/25 bg-[#00D4FF]/[.05] p-4"><p className="font-mono text-[10px] tracking-[.18em] text-[#00D4FF]">{CHAI_AI_VOICE_PROFILE.label.toUpperCase()}</p><p className="mt-2 text-sm font-black text-white">{CHAI_AI_VOICE_PROFILE.style}</p><p className="mt-2 text-xs leading-6 text-[#AABCCC]">{CHAI_AI_VOICE_PROFILE.note}</p><details className="mt-3"><summary className="cursor-pointer text-xs font-black text-[#9DEBFF]">Transcript</summary><p className="mt-2 text-xs leading-6 text-[#D6E2EE]">{narration}</p></details></div>
+               <label className="mt-6 block text-sm font-bold text-[#D6E2EE]" htmlFor="digital-ships-response">Your private response brief</label>
               <textarea id="digital-ships-response" value={response} onChange={(event) => setResponse(event.target.value)} placeholder="Describe the image, dialogue, question, or next panel you want to explore…" className="mt-3 min-h-32 w-full rounded-2xl border border-white/15 bg-white/[.03] p-4 text-sm leading-6 text-white outline-none placeholder:text-[#70859A] focus:border-[#00D4FF]/70" />
               <div className="mt-4 flex flex-wrap gap-3"><button type="button" onClick={buildBrief} className="rounded-xl bg-[#FFB800] px-5 py-3 text-sm font-black text-[#07101F]">Create local story brief</button><Link href="/creator-operations" className="rounded-xl border border-[#00FF88]/50 bg-[#00FF88]/10 px-5 py-3 text-sm font-black text-[#00FF88]">Open protected creator path</Link></div>
               {brief && <pre className="mt-6 whitespace-pre-wrap rounded-2xl border border-[#B98CFF]/40 bg-[#B98CFF]/[.07] p-4 font-mono text-xs leading-6 text-[#E7DFFF]" aria-live="polite">{brief}</pre>}
