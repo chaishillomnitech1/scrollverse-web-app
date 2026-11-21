@@ -3060,7 +3060,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: "🖼️", title: "ScrollSoul NFTs", desc: "Divine NFT system with ERC-2981 royalty mechanisms and cosmic metadata aligned with sacred frequencies. 365,000+ tokenized creations.", color: "#00D4FF", stat: "365K+ NFTs" },
-              { icon: "🪙", title: "$LONDC Token", desc: "ERC-20 sovereign currency with cosmic reserve unlock mechanisms, Chainlink oracle integration, and 7.77% Zakat distribution.", color: "#FFB800", stat: "144,000 Supply" },
+              { icon: "🪙", title: "$LONDC Token", desc: "ERC-20 sovereign currency — contract source in code, deployment pending; folds into CHX per the 21 Nov 2026 CEO decision (one token: CHX, 144,000,000 supply, Polygon).", color: "#FFB800", stat: "144,000,000 max supply" },
               { icon: "🏛️", title: "DAO Governance", desc: "Snapshot and Aragon-based governance for 144,000 Guardians with transparent on-chain decision-making and proposal voting.", color: "#8B5CF6", stat: "144K Guardians" },
               { icon: "🌐", title: "Portal Interface", desc: "React-based sovereign portal with wallet integration, cosmic animations, and Liquid Sovereignty Afrofuturism aesthetics.", color: "#00FF88", stat: "33 Pages Live" },
               { icon: "📡", title: "SCCC Dashboard", desc: "Supreme Commander Control Core for real-time treasury visualization, royalty tracking, and empire-wide analytics.", color: "#EC4899", stat: "Real-Time" },
@@ -3112,11 +3112,11 @@ export default function Home() {
                 $LONDC <span className="gradient-text-gold">Token</span>
               </h2>
               <p className="text-lg mb-8 leading-relaxed" style={{ color: "#8899AA" }}>
-                The sovereign currency of the ScrollVerse ecosystem. 144,000 tokens minted to the Sovereign wallet. 5% passive income on every transfer. Deployed on Polygon Mainnet.
+                The sovereign currency of the ScrollVerse ecosystem. Contract source in code — deployment pending; folds into CHX per the 21 Nov 2026 CEO decision (one token: CHX, 144,000,000 supply, Polygon).
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { label: "Total Supply", value: "144,000" },
+                  { label: "Total Supply", value: "144,000,000" },
                   { label: "Transfer Tax", value: "5%" },
                   { label: "Zakat Rate", value: "7.77%" },
                   { label: "Network", value: "Polygon" },
@@ -3928,17 +3928,17 @@ export default function Home() {
           <div className="text-center mb-12">
             <div className="text-xs font-mono tracking-widest mb-3" style={{ color: "#FFB800" }}>SCROLL VERSE LLC — EIN 42-2509570</div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              The <span style={{ color: "#FFB800" }}>CHX Token</span> Is Live
+              The <span style={{ color: "#FFB800" }}>CHX Token</span> — Not Yet Launched
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: "#8899AA" }}>
-              The sovereign utility token of the ScrollVerse ecosystem. Stake, govern, unlock premium features, and earn royalty distributions — all powered by SCROLL VERSE LLC.
+              The sovereign utility token of the ScrollVerse ecosystem. Stake, govern, unlock premium features, and earn royalty distributions — all powered by SCROLL VERSE LLC. Deployment in preparation — CHX is not yet launched on Polygon Mainnet.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               { icon: "🏛️", label: "Legal Entity", value: "SCROLL VERSE LLC", sub: "NJ State Charter · EIN 42-2509570", color: "#FFB800" },
-              { icon: "🪙", label: "Total Supply", value: "144,000 CHX", sub: "Sovereign-minted · Polygon Mainnet", color: "#00D4FF" },
-              { icon: "💰", label: "Staking APY", value: "14.4%", sub: "Paid in CHX · Monthly distributions", color: "#00FF88" },
+              { icon: "🪙", label: "Total Supply", value: "144,000,000 CHX", sub: "Planned supply · Polygon Mainnet · deployment in preparation", color: "#00D4FF" },
+              { icon: "💰", label: "Staking APY", value: "Illustrative only", sub: "APY figures are illustrative project parameters, not a return — on-chain staking requires a deployed, verified staking contract", color: "#00FF88" },
             ].map((stat) => (
               <div key={stat.label} className="sv-card rounded-xl p-6 text-center" style={{ border: `1px solid ${stat.color}30` }}>
                 <div className="text-3xl mb-2">{stat.icon}</div>
@@ -4211,8 +4211,8 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: "#00FF88" }} />
                 <div>
-                  <div className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>ECOSYSTEM ASSETS VERIFIED ON IPFS · POLYGON MAINNET</div>
-                  <div className="text-xs mt-0.5" style={{ color: "#667788" }}>All NFT assets, media, and sovereign content are pinned on IPFS and verifiable on-chain.</div>
+                  <div className="text-xs font-mono font-bold" style={{ color: "#00FF88" }}>ECOSYSTEM ASSETS · PREVIEW ONLY — NO MINT OR CHECKOUT ACTIVE</div>
+                  <div className="text-xs mt-0.5" style={{ color: "#667788" }}>NFT art and media are previewed here — no mint or checkout active; nothing is on sale or minting right now.</div>
                 </div>
               </div>
               <div className="flex gap-3 flex-wrap justify-center md:justify-end">
