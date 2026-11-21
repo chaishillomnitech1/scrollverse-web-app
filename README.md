@@ -40,10 +40,10 @@
 | Pillar | Description | Status |
 |--------|-------------|--------|
 | **ScrollVerse.co** | Sovereign portal — 100+ pages, full-stack React + tRPC | ✅ LIVE |
-| **$LONDC Token** | Sovereign currency on Polygon Mainnet | ✅ DEPLOYED |
-| **$SOLARA Coin** | Mika Solara ecosystem token | ✅ ACTIVE |
-| **Sovereign 9 NFTs** | Knicks Nation — 9 players, Brunson #11 anchor CID live | ✅ MINTING |
-| **KUN FAYAKŪN NFT** | 1-of-1 Throne NFT — Chais The Great | ✅ LIVE |
+| **$LONDC Token** | Sovereign currency on Polygon (planned) | Contract source in code — deployment pending; folds into CHX per the 21 Nov 2026 CEO decision (one token: CHX, 144,000,000 supply, Polygon) |
+| **$SOLARA Coin** | Mika Solara ecosystem token | Design complete — contract address pending |
+| **Sovereign 9 NFTs** | Knicks Nation — 9 players, Brunson #11 anchor CID live | Art on IPFS — mint contract pending |
+| **KUN FAYAKŪN NFT** | 1-of-1 Throne NFT — Chais The Great | Artwork live — NFT mint pending |
 | **Scroll Academy** | Sovereign education platform | ✅ OPERATIONAL |
 | **Aegis Healing Garden** | AetherWard AI + ScrollVault + AgapeCycle | ✅ LIVE |
 | **Sovereign Cinema** | Films, motion picture storybooks, voice narration | ✅ LIVE |
@@ -52,8 +52,8 @@
 | **SHIFTER** | Mood-based NFT minting experience | ✅ LIVE |
 | **Guardian Protocol** | 144,000 Guardian waitlist | ✅ ACTIVE |
 | **ZakatEngine** | Automated 2.5% Zakat distribution | ✅ OPERATIONAL |
-| **Scroll Exchange** | DeFi exchange, staking, governance | ✅ LIVE |
-| **ScrollPort** | Sovereign NFT marketplace | ✅ LIVE |
+| **Scroll Exchange** | DeFi exchange, staking, governance | Roadmap — no payment/mint active |
+| **ScrollPort** | Sovereign NFT marketplace | Roadmap — no payment/mint active |
 | **Revenue Flywheel** | Autonomous revenue dashboard | ✅ OPERATIONAL |
 
 ---
@@ -96,9 +96,9 @@
 
 | Partner | Category | Status |
 |---------|----------|--------|
-| **Thirdweb** | Smart Contract Deployment — Base, Polygon | ✅ Active |
+| **Thirdweb** | Smart Contract Deployment — Base, Polygon | Documented — no verified deployment |
 | **Pinata** | IPFS Storage — olive-delicate-koi-568 gateway | ✅ Active |
-| **Polygon Network** | $LONDC Token Chain | ✅ Deployed |
+| **Polygon Network** | $LONDC Token Chain | Contract source in code — deployment pending; folds into CHX per the 21 Nov 2026 CEO decision (one token: CHX, 144,000,000 supply, Polygon) |
 | **Scroll Chain** | L2 Blockchain — scrollscan.com | ✅ Active |
 | **Stripe** | Payment Processing — Books, NFTs, Academy | ✅ Integrated |
 | **Mailchimp** | Guardian Waitlist — 144,000 target | ✅ Active |
@@ -249,6 +249,8 @@ $LONDC Token:     Polygon Mainnet
 Sovereign 9:      Base (via Thirdweb)
 ScrollVerse NFT:  Scroll Chain (scrollscan.com)
 ```
+
+> Chais's contract suite exists in code — but nothing is on sale or minting right now. No contract in the suite above is deployed or verified on chain yet.
 
 ---
 

@@ -91,7 +91,7 @@ export default function SolaraCoin() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const contractAddress = "0xSOLARA...APEX (Deploying to Polygon Mainnet)";
+  const contractAddress = "Placeholder — contract address pending deployment";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(contractAddress).catch(() => {});
@@ -234,7 +234,7 @@ export default function SolaraCoin() {
             onClick={handleCopy}
           >
             <span className="text-xs font-mono" style={{ color: "#8899AA" }}>Contract:</span>
-            <span className="text-xs font-mono" style={{ color: "#FFD700" }}>Deploying to Polygon Mainnet</span>
+            <span className="text-xs font-mono" style={{ color: "#FFD700" }}>Contract address pending — placeholder, not deployed</span>
             <span className="text-xs" style={{ color: copiedAddress ? "#00FF88" : "#8899AA" }}>
               {copiedAddress ? "✓ Copied" : "📋"}
             </span>

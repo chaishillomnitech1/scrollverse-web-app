@@ -564,7 +564,7 @@ export default function SaferWay() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { label: "$LONDC Accepted", value: "✅ Live", color: "#00FF88" },
+              { label: "$LONDC Accepted", value: "Not live — pending", color: "#FFB800" },
               { label: "Polygon Network", value: "Mainnet", color: "#8247E5" },
               { label: "Zakat Auto-Route", value: "12%", color: "#FFB800" },
             ].map((item) => (
