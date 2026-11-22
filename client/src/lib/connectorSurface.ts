@@ -7,6 +7,7 @@ export type ConnectorCapability = {
   connectsTo: string;
   canDo: string;
   state: ConnectorState;
+  adminUrl?: string;
 };
 
 const connected: ConnectorState = "CONNECTED";
@@ -16,7 +17,7 @@ const loginRequired: ConnectorState = "LOGIN REQUIRED";
 const readOnly: ConnectorState = "READ-ONLY";
 const parentOnly: ConnectorState = "PARENT-ONLY";
 
-const entries: Array<[string, string, string, string, ConnectorState]> = [
+const entries: Array<[string, string, string, string, ConnectorState, string?]> = [
   ["manus-webdev", "WebDev project control", "Manus WebDev", "init, inspect, build, debug, checkpoint, and restore the local project", connected],
   ["manus-browser", "Stateful browser", "Manus browser", "inspect dynamic pages and perform browser workflows when authorized", available],
   ["manus-media", "Media generation", "Manus media tools", "generate and edit images, video, speech, music, and 3D assets", available],
@@ -94,21 +95,22 @@ const entries: Array<[string, string, string, string, ConnectorState]> = [
   ["workflow-agents", "Agent fan-out", "Workflow", "run structured parallel research units", available],
   ["workflow-reduce", "Result aggregation", "Workflow", "aggregate deterministic subtask results", available],
   ["connector-export", "Connector export", "ScrollVerse local registry", "export the current connector surface as metadata", connected],
+  ["shopify-xlviiiblocks", "Storefront admin", "Shopify · XLVIIIblocks", "review storefront products, orders, discounts, and pre-order or rewards readiness after owner sign-in", ownerAuth, "https://admin.shopify.com/store/juv8tg-1n"],
 ];
 
-export const connectorToolSurface: ConnectorCapability[] = entries.map(([id, name, connector, canDo, state]) => ({ id, name, connector, connectsTo: connector, canDo, state }));
+export const connectorToolSurface: ConnectorCapability[] = entries.map(([id, name, connector, canDo, state, adminUrl]) => ({ id, name, connector, connectsTo: connector, canDo, state, ...(adminUrl ? { adminUrl } : {}) }));
 export const ENUMERATED_TOOL_SURFACE_COUNT = connectorToolSurface.length;
 export const TOOL_SURFACE_COUNT = ENUMERATED_TOOL_SURFACE_COUNT;
 /** Owner-observed All-list count; names for these cards have not been supplied to this local workspace. */
 export const DISCOVERED_TOOL_SURFACE_COUNT = 424;
 export const AWAITING_ENUMERATION_COUNT = DISCOVERED_TOOL_SURFACE_COUNT - ENUMERATED_TOOL_SURFACE_COUNT;
 export const TRUTHFUL_STATE = "TRUTHFUL STATE";
-export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 77 ENUMERATED LOCALLY";
+export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 78 ENUMERATED LOCALLY";
 
 export const CONNECTOR_DIRECTORY_LABELS = [
   "MANUS TOOLS", "GMAIL", "GOOGLE CALENDAR", "OUTLOOK MAIL", "OUTLOOK CALENDAR", "SESSION REFERENCES", "HUBSPOT", "INTERCOM", "SENTRY", "TODOIST", "MINIMAX", "XERO", "NEON", "LINEAR", "WEBFLOW", "PAYPAL FOR BUSINESS", "ASANA", "WIX", "AIRTABLE", "STRIPE", "CLOUDFLARE", "HUGGING FACE", "HEYGEN", "ZAPIER", "PRISMA POSTGRES", "DIFY", "HANDOFF", "MANUS TASKS", "SLIDES", "TRIGGERS", "TRIP", "WORKFLOW",
 ] as const;
 
-if (ENUMERATED_TOOL_SURFACE_COUNT !== 77) {
-  throw new Error(`Connector surface must contain 77 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
+if (ENUMERATED_TOOL_SURFACE_COUNT !== 78) {
+  throw new Error(`Connector surface must contain 78 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
 }

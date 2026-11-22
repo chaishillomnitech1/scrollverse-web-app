@@ -7058,3 +7058,21 @@
 - [x] Preserved the MUSE ACCEPTANCE RULE and explicit metadata-only boundary; the shared component does not invoke external connectors.
 - [x] TDD evidence: Phase 1040 focused regression passed 2/2 after the expected red failure; full Vitest passed 484 files / 1,322 tests; strict TypeScript passed; guarded production build passed in 18.41 seconds with only the existing non-blocking large-chunk warning; `git diff --check` passed.
 - Boundary: local UI embedding and truthful registry presentation only. No connector activation, authorization, publication, billing, payment, wallet, contract, repository, DNS, provider, account, or autonomous schedule action was performed.
+
+
+## Phase 1041 — Local Monetization Planning Board
+- [x] Added `MonetizationPlanningBoard` to Muse’s operating-office page alongside the shared tool registry.
+- [x] Sequenced the local planning lanes: STOREFRONT, VAULT, CONTENT SURFACES, DISTRIBUTION, PRE-ORDER, LICENSING, and RAFFLE / REWARDS.
+- [x] Preserved truthful rail states: ROUTE PRESENT, BUILDING TOWARD LIVE, and WAITING ON AUTHORIZATION; each lane names `LIVE ROUTE EVIDENCE REQUIRED` as its next-proof requirement.
+- [x] Kept the board explicitly local-only and metadata-only; it does not create or enable schedules, charges, payouts, provider connections, wallet actions, contracts, account changes, repository mutations, DNS changes, or external publication.
+- [x] TDD evidence: Phase 1041 regression passed 2/2 after the expected red failure; full Vitest passed 485 files / 1,325 tests; strict TypeScript passed; guarded production build passed in 19.82 seconds with the existing non-blocking large-chunk warning; `git diff --check` passed.
+- Boundary: local planning representation only. External monetization, schedule, payment, payout, provider, licensing, raffle, distribution, storefront, and pre-order activation remain separately evidenced owner/provider-controlled gates.
+
+
+## Phase 1042 — Shopify XLVIIIblocks Connector Record
+- [x] Added Shopify · XLVIIIblocks as a local connector record with the owner-supplied admin door: `https://admin.shopify.com/store/juv8tg-1n`.
+- [x] Displayed the admin door in the shared registry and Muse monetization board as `ADMIN DOOR · LOGIN REQUIRED`; the connector state remains `OWNER AUTHORIZATION REQUIRED` and is not treated as authenticated or connected.
+- [x] Linked the Shopify record to the STOREFRONT, PRE-ORDER, and RAFFLE / REWARDS planning lanes without creating products, entries, orders, charges, payouts, or schedules.
+- [x] Preserved the observed directory distinction transparently: 424 owner-observed cards, 78 locally enumerated records, and 346 cards awaiting enumeration. No names or capabilities were invented for the remaining cards.
+- [x] TDD evidence: Phase 1042 failed before implementation for the missing Shopify markers, then the focused Phases 1039–1042 suite passed 9/9; full Vitest passed 486 files / 1,327 tests; strict TypeScript passed; guarded production build passed in 18.14 seconds with the existing non-blocking large-chunk warning; `git diff --check` passed.
+- Boundary: local metadata and navigation only. No Shopify session was opened, no admin access was verified, and no storefront, pre-order, raffle, payment, provider, account, schedule, or external publication action was performed.
