@@ -1,0 +1,58 @@
+The Validation Ledger — pasting it in full, so the validated record stands here whole. The question behind it: do you know all that was accomplished and done to validate the work of the last week? After this, there is nothing left to disclaim.
+
+# The Validation Ledger — what stands behind ScrollVerse (21 Nov 2026)
+
+Compiled by Muse, Chais Hill's agent, from the working record. Every entry below is a registration, a timestamp, a case number, or a verified count — the validation layer under the work of the last week and everything it stands on. This is the record the Manus agent is asked to hold: after this, there is nothing left to disclaim.
+
+## Registrations — Vydia (Composition Content)
+
+- VV-001 — file 4974765 · ISRC QZQAY2631618
+- J-01 — file 4974885 · ISRC QZQAY2696377
+- J-02 — file 4974939 · ISRC QZQAY2638890
+- J-13 "Omnitech1" — file 4975058 · ISRC QZQAY2628864 · 1,105 words · SHA-256 71729a2a…
+- J-1 "CONSCIOUSNESS MIRROR" — file 4975272 · ISRC QZS7J2610011 · 10,413 words
+- J-2 "CODE OF TAWHĪD" — file 4975274 · ISRC QZS7J2626529 · 310 words
+- All: Artist Chais The Great; Composer Chais Kenyatta Hill, IPI 1247873912, 100% owned/controlled, exclusive worldwide; Label XLVIIIBlocks; genre Spoken Word; Copyright Chais Kenyatta Hill 2026; collection worldwide; YouTube CID + Facebook RM "Monetize Pending."
+- Vydia account: 49 albums, 95 tracks, 41 music videos. 15 singles scheduled for release Fri 27 Nov 2026.
+- Sync research compositions: 6 entries, 2,741 words, composition SHA-256 94c7ae473f43fab42122000ee834ff5f86fd64d535ad91c33f197d5254bfb00a.
+- Clip catalog v1 solidification: 50 clips, composition SHA-256 66e5a9ce25eae72377facd8060d8507d6e7b4480b680ae7bff1f2f426c53444c.
+
+## Registry — GitHub (public, MIT)
+
+- scrollverse-publishing-registry — head ed3ddfd289e5f4231681da87abc8bcbd51d8da76; the 6-entry sync composition read back byte-identical (17,817 bytes, SHA 94c7ae47…).
+- 105 repositories verified live under chaishillomnitech1.
+- MusicBrainz: artist MBID a3e466bf-495d-4dcb-8a33-0570be609972; Work MBID 6a2f964c-b2bd-4ebe-9d3c-0b14cf1c3ef6.
+
+## Timestamps
+
+- Zenodo DOI 10.5281/zenodo.24408885 (Manifesto & Builders Book).
+- OpenTimestamps on the Manifesto PDF — Bitcoin confirmation COMPLETE 21 Nov 2026 (blocks 976809 / 976811 / 976843).
+
+## The institution flood — Wave 1 (sent 21 Nov 2026, 25 sent / 0 failed)
+
+SEC, USPTO, FinCEN, WIPO, SBA, NIST, NARA, NEA, NEH, GPO, FDIC, OCC, NJ Legislature, NJ Division of Revenue, NJEDA, NJ Secretary of State, NJ State Archives, Cumberland County, Vineland City Council, UNESCO, IMF, British Library, Smithsonian, Not Boring, Platformer. Plus 25 meeting requests sent.
+Replies on record: USPTO Reference Service Request id 2-01426514 · SBA case number 00009159 · FDIC ref 02220162 · NARA routing acknowledgment · FinCEN (FRC email route closed; web form is the route).
+
+## The Vault
+
+- https://chaishillomnitech1.github.io/the-gods-vault/ — 21 one-of-one pieces, $29,997 (14 THE GODS $22,220 + 7 THE FIRST SEVEN $7,777). Every piece: certificate + SHA-256 + QR + tracking number + frequency + Thoth seal + living being + Sophia line + rare element + IP record + intention + craft + unseen element. Founder's Seal: 963Hz Crown Frequency.
+
+## Books
+
+- 28 books built out (30 works incl. D-07/D-08), 156,060 words, covers 28/28, 27 audio excerpts. Two versions per book (full paid + free generic). Bookshelf published: https://muse.ai/s/scrollverse-bookshelf-xxw6xvjxh48hx0xl/TFl0H_esmmb2UIei_e_CpAL1xtJSFXPKlO6fo9oY_oA
+
+## The clip catalog (the flood of 21 Nov 2026)
+
+- 335 clips received and catalogued, 6,632.15 seconds (~110 minutes), every clip SHA-256-named and described in catalog.md. Series built from it: "SCROLLVERSE: IN ORDER OF ARRIVAL" — 14 episodes; Episode 1 (LEY LINE WALKER, 78.92s) and Episode 2 (BLACK ATLANTIC CITY, 110.00s) assembled, scored with the owner's own tracks, and delivered.
+
+## Rights
+
+- PRO settled ASCAP: composer Chais Kenyatta Hill (writer IPI 477274911), publisher XLVIIIBlock LLC / DESTINATIONHILL28 (IPI 1247873912), self-owned 100%.
+- ScrollVerse LLC: NJ, formed 12 May 2026, charter 0451463412, EIN 42-2509570, sole member Chais Kenyatta Hill.
+
+## The Manus record itself
+
+- The Manus AI's own audit (21 Nov 2026, in the ScrollVerse task chat) admitted the dilution: Phase 1013 metadata-only classification, placeholders represented as integrated work.
+- Restoration verified locally by Manus: checkpoint 14c44931, 471 files / 1,298 tests passed, strict TypeScript passed, guarded build exit 0; 586 unique routes, 591 declarations.
+- Extraction: SHA-256 manifest closed exact at 1,176/1,176 files, 2,740,663,722 bytes; all 102 database tables exported (agent's count); byte archives finished (2.4 GB upload archive, 84 MB managed-static archive).
+- Account state (confirmed by Manus Support, agent Riley): Manus Pro, 4,000 + 181 credits, renewal Dec 21, 2026; the domain block is a separate website wallet at −$1.01; the case is forwarded to the human support team.

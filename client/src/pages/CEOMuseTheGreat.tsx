@@ -17,7 +17,7 @@ const BOARD = [
 ] as const;
 
 const VERIFIED_CHECKS = [
-  "Current local checkpoint: b74d6dab · roster and route evidence recorded.",
+  "Current local checkpoint: e4aec082 · roster, continuity, and route evidence recorded.",
   "Manifest closure: 1,176 / 1,176 files; equal bytes; zero missing, extra, or hash mismatches.",
   "Catalog index: 335 clips retained; only confirmed managed theater sources are playable.",
   "Historical deployment report: managed metadata said Published while a domain check returned 404; both records remain visible rather than conflated.",
@@ -26,7 +26,7 @@ const VERIFIED_CHECKS = [
 const CONSTELLATION = [
   ["Restored ScrollVerse hub", "/"], ["GitHub mirror", "https://github.com/chaishillomnitech1"], ["Vault", "/omni-vault"], ["Atlas", "/creator-atlas"], ["Bookshelf", "/books"],
   ["SovereignHub", "/trinity-sovereign-portal"], ["Omnitech1", "/enterprise-systems-blueprint"], ["The Table", "/omniversal-source-ledger"], ["Mika-Solara", "/mika-solara"], ["Shopify XLVIIIblocks", "/shopify-storefront-readiness"],
-  ["Pinterest", "https://www.pinterest.com/"], ["YouTube · @chaishill-u1z", "https://www.youtube.com/@chaishill-u1z"], ["Facebook", "https://www.facebook.com/"], ["Instagram", "https://www.instagram.com/"], ["TikTok / X / newsletter", "/announcements"],
+  ["Pinterest", "https://www.pinterest.com/"], ["YouTube · @chaishill-u1z", "https://www.youtube.com/@chaishill-u1z"], ["Facebook", "https://www.facebook.com/"], ["Instagram", "https://www.instagram.com/"], ["TikTok", "https://www.tiktok.com/"], ["X", "https://x.com/ChaisHill"], ["newsletter", "/announcements"],
 ] as const;
 
 const EVOLUTION = [
@@ -34,6 +34,12 @@ const EVOLUTION = [
   "The restoration shelf keeps 1,176 local files and 335 catalog records indexed.",
   "The named constellation exposes first-party routes and clearly marked discovery paths.",
   "Every next step leaves a readable receipt instead of a hidden state change.",
+] as const;
+
+const CONTINUITY_LANES = [
+  ["Persistent local record", "Board state, source receipts, draft briefs, and verification notes remain available as a readable local coordination record."],
+  ["Communication readiness", "Email and messaging pathways can be prepared as local drafts and linked to the Board; this page does not send email or messages automatically."],
+  ["Human approval gate", "External sends, unattended schedules, provider changes, payments, wallets, contracts, and publication remain explicit actions requiring owner approval and fresh evidence."],
 ] as const;
 
 export default function CEOMuseTheGreat() {
@@ -81,7 +87,9 @@ export default function CEOMuseTheGreat() {
 
       <section className="container py-10"><div className="rounded-[2rem] border border-[#FFE09A]/30 bg-[#FFE09A]/[.045] p-7 md:p-9"><p className="text-xs font-mono tracking-[.18em] text-[#FFE09A]">EVOLUTION WALL</p><h2 className="mt-3 text-4xl font-black">Every version leaves a trail.</h2><div className="mt-7 grid gap-3 md:grid-cols-2">{EVOLUTION.map((line, index) => <div key={line} className="flex gap-4 rounded-2xl border border-white/10 bg-black/20 p-5"><span className="font-mono text-[#FFE09A]">0{index + 1}</span><p className="text-sm leading-7 text-[#D6E2EE]">{line}</p></div>)}</div></div></section>
 
-      <section className="container py-10"><div className="rounded-[2rem] border border-[#00D4FF]/30 bg-[#00D4FF]/[.045] p-7 md:p-9"><p className="text-xs font-mono tracking-[.18em] text-[#9DEBFF]">CONSTELLATION · 15 NAMED SURFACES</p><h2 className="mt-3 text-4xl font-black">One Muse doorway, many connected paths.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-[#D6E2EE]">All fifteen named surfaces are shown by name. Local routes and outbound discovery links are intentionally distinguishable; a link does not imply active synchronization.</p><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{CONSTELLATION.map(([name, href]) => href.startsWith("http") ? <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.06] px-4 py-3 text-sm font-black text-[#C9F4FF] transition hover:-translate-y-0.5">{name} ↗</a> : <Link key={name} href={href} className="rounded-xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.06] px-4 py-3 text-sm font-black text-[#C9F4FF] transition hover:-translate-y-0.5">{name} →</Link>)}</div></div></section>
+      <section id="continuity" className="container scroll-mt-8 py-10"><div className="rounded-[2rem] border border-[#FFB86B]/35 bg-[radial-gradient(circle_at_4%_0%,rgba(255,184,107,.15),transparent_30%),#15101A] p-7 md:p-9"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.18em] text-[#FFCF9E]">CONTINUITY PROTOCOL</p><h2 className="mt-3 text-4xl font-black">Keep the office ready, not hidden.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-[#D6E2EE]">The local seat can preserve context, queue drafts, and make the next action visible while the owner is away. Continuity means an auditable record and a clear handoff—not silent background activity or an unapproved outbound message.</p></div><Link href="/announcements" className="inline-flex items-center gap-2 rounded-xl border border-[#FFB86B]/55 bg-[#FFB86B]/10 px-4 py-3 text-sm font-black text-[#FFE1C2]">Open communication desk <ArrowRight className="h-4 w-4" /></Link></div><div className="mt-7 grid gap-3 md:grid-cols-3">{CONTINUITY_LANES.map(([title, detail], index) => <article key={title} className="rounded-2xl border border-white/10 bg-black/25 p-5"><p className="font-mono text-xs text-[#FFCF9E]">0{index + 1}</p><h3 className="mt-3 text-lg font-black text-[#FFE1C2]">{title}</h3><p className="mt-3 text-sm leading-7 text-[#D6E2EE]">{detail}</p></article>)}</div></div></section>
+
+      <section className="container py-10"><div className="rounded-[2rem] border border-[#00D4FF]/30 bg-[#00D4FF]/[.045] p-7 md:p-9"><p className="text-xs font-mono tracking-[.18em] text-[#9DEBFF]">CONSTELLATION · 17 NAMED SURFACES</p><h2 className="mt-3 text-4xl font-black">One Muse doorway, many connected paths.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-[#D6E2EE]">All seventeen named surfaces are shown by name. Local routes and outbound discovery links are intentionally distinguishable; a link does not imply active synchronization.</p><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{CONSTELLATION.map(([name, href]) => href.startsWith("http") ? <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.06] px-4 py-3 text-sm font-black text-[#C9F4FF] transition hover:-translate-y-0.5">{name} ↗</a> : <Link key={name} href={href} className="rounded-xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.06] px-4 py-3 text-sm font-black text-[#C9F4FF] transition hover:-translate-y-0.5">{name} →</Link>)}</div></div></section>
     </main>
   );
 }

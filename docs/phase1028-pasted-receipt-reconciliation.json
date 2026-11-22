@@ -1,0 +1,36 @@
+{
+  "phase": "1028",
+  "title": "Pasted receipt byte reconciliation",
+  "scope": "local-only; no external action",
+  "reason": "The current roots contained shorter derived receipts while the owner-held byte-bearing archive contained the complete original receipt bodies matching the master manifest.",
+  "items": [
+    {
+      "path": "/home/ubuntu/upload/pasted_content_4.txt",
+      "preservedDerivedPath": "/home/ubuntu/scrollverse-portal/docs/source-review-nov22/current-derived-receipts-2026-11-22/pasted_content_4.txt",
+      "derivedBytes": 5041,
+      "derivedSha256": "fb992043e303309b656550ea244c11a107c9ad0340b5984ee1f41fdf14332481",
+      "restoredBytes": 28787,
+      "restoredSha256": "e4a4dfe43b4af023c3eae9f390bcd045cda1ad767d7af04897bc84edc23397d5",
+      "restoredFrom": "/home/ubuntu/scrollverse-owner-export-2026-11-22.tar.gz::media-parts/upload.tar.gz"
+    },
+    {
+      "path": "/home/ubuntu/upload/pasted_content_5.txt",
+      "preservedDerivedPath": "/home/ubuntu/scrollverse-portal/docs/source-review-nov22/current-derived-receipts-2026-11-22/pasted_content_5.txt",
+      "derivedBytes": 3435,
+      "derivedSha256": "72427482bac8b28c5015f24d115a0ff01b440e0a0279fcd7d89ac732dd52fab9",
+      "restoredBytes": 99780,
+      "restoredSha256": "d9867f0f89d9ef7a8402148739dfca0d4a9e6d911adb3af61cbb928e7ff267f4",
+      "restoredFrom": "/home/ubuntu/scrollverse-owner-export-2026-11-22.tar.gz::media-parts/upload.tar.gz"
+    },
+    {
+      "path": "/home/ubuntu/upload/pasted_content_6.txt",
+      "preservedDerivedPath": "/home/ubuntu/scrollverse-portal/docs/source-review-nov22/current-derived-receipts-2026-11-22/pasted_content_6.txt",
+      "derivedBytes": 3059,
+      "derivedSha256": "8b77ef69ff615acd579d08371946df1898f627f9b63db172252cb2b472b4bdea",
+      "restoredBytes": 4948,
+      "restoredSha256": "2d15b214ac3af13505b5c4b90aa79c9c51258dd52cff0786c458ae2f8401aa16",
+      "restoredFrom": "/home/ubuntu/scrollverse-owner-export-2026-11-22.tar.gz::media-parts/upload.tar.gz"
+    }
+  ],
+  "result": "Archived full receipts restored to their manifest paths; shorter current versions preserved as separate local derived records."
+}
