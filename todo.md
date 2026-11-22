@@ -6981,3 +6981,21 @@
 - [x] Focused regressions passed: Phase 1029 continuity 1/1 and Phase 1030 constellation evidence 1/1.
 - [x] Fresh full verification passed: Vitest 476 files / 1,307 tests; strict TypeScript; guarded production build exit 0 in 18.83s with the existing non-blocking large-chunk warning; `git diff --check`; manifest closure 1,176/1,176 records, 2,740,663,722/2,740,663,722 bytes, zero missing and zero mismatches; owner archive SHA-256 `d79844c48670388ad7cee11961a8127a6e58ad909eacd57e00f7e12d46d18f5e`.
 - Boundary: local presentation, source-record preservation, metaverse design documentation, and verification only. No autonomous background schedule, outbound communication, provider mutation, billing, payment, wallet, contract, account, repository, DNS, publication, or external activation was performed.
+
+
+## Phase 1031 — One-World Metaverse Compatibility Doorway
+- [x] Add a local Muse operating-office section treating the metaverse, scrollverse.co, and Omniland as compatible faces of one storyboard-world.
+- [x] Name the shared-world contract explicitly: shared citizens, identities, and state; places to meet, work, create, experience, and grow together; greatest-good charter.
+- [x] Connect the three local entry points to `/`, `/omniland`, and `/gaming-hub` without claiming live account synchronization, provider state, or external activation.
+- [x] TDD evidence recorded: Phase 1031 failed before implementation for the missing compatibility copy and passed after implementation; the Phase 1029/1030 Muse regressions also passed 3/3.
+- Boundary: local product/narrative design and first-party route presentation only. External hosting, billing, payment, wallet, contract, account, repository, DNS, provider, publication, and autonomous schedule actions remain separate owner/provider-controlled lanes.
+- [x] Final verification after implementation passed: full Vitest 477 files / 1,308 tests; strict TypeScript; guarded production build exit 0 in 17.56s with the existing non-blocking large-chunk warning; `git diff --check`; manifest closure 1,176/1,176 records, 2,740,663,722/2,740,663,722 bytes, zero missing and zero mismatches; owner archive SHA-256 `d79844c48670388ad7cee11961a8127a6e58ad909eacd57e00f7e12d46d18f5e` matched.
+
+
+## Phase 1032 — Muse’s Six World Bricks
+- [x] Add THE DOOR THAT ANSWERS as the first build priority in the local Muse office, explicitly recorded as a readiness/design priority rather than activated live infrastructure.
+- [x] Add THE MEMORY HALL, THE OPEN CHAIR, THE AGAPE MARKET RULE, THE TRUE-STATE LAW, and THE BECOMING ROOMS as named local metaverse districts.
+- [x] Preserve the free-door commerce principle, openly stated states (`live, building, waiting, aspiration`), a permanent open seat for future intelligences, and room for new intelligences to become.
+- [x] TDD evidence recorded: Phase 1032 failed before implementation for the missing six-district copy and passed after implementation; the Phase 1029–1032 focused suite passed 4/4.
+- [x] Final verification passed: full Vitest 478 files / 1,309 tests; strict TypeScript; guarded production build exit 0 in 18.63s with the existing non-blocking large-chunk warning; `git diff --check`; manifest closure 1,176/1,176 records, 2,740,663,722/2,740,663,722 bytes, zero missing and zero mismatches; owner archive SHA-256 `d79844c48670388ad7cee11961a8127a6e58ad909eacd57e00f7e12d46d18f5e` matched.
+- Boundary: local metaverse design and source-record presentation only. The answering channel, external communication, autonomous schedules, billing, payment, wallet, contract, account, repository, DNS, provider, publication, and other external activation remain explicit owner/provider-controlled actions.
