@@ -12,6 +12,7 @@ import NotificationBell from "@/components/NotificationBell";
 import SourceVisual from "@/components/SourceVisual";
 import { useTheme } from "@/contexts/ThemeContext";
 import { theaterScreenings } from "@/lib/metaLegionArchive";
+import { LOCAL_MEDIA_CATALOG } from "@/lib/localMediaCatalog";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/hero-main-8gw8MRg69ZEcJWofUHGwHK.webp";
 const THRONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663032498436/XkJtdnvin6DhqjiCQ3fUyz/kun-fayakun-throne_dd083952.png";
@@ -1819,6 +1820,85 @@ function ArtifactFrontDoor() {
   );
 }
 
+type RestorationShelfRecord = {
+  id: string;
+  title: string;
+  detail: string;
+  filename: string;
+  classification: string;
+  sha256: string | null;
+  sourceUrl?: string;
+  poster?: string;
+};
+
+function LocalMediaRestorationShelf() {
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<"ALL" | "PLAYABLE" | "SOURCE RECEIPTS">("ALL");
+  const records: RestorationShelfRecord[] = [
+    ...theaterScreenings.map((screening) => ({
+      id: `managed-${screening.id}`,
+      title: screening.title,
+      detail: `${screening.description} SHA-256 receipt: ${screening.sha256}.`,
+      filename: screening.video.split("/").pop() ?? screening.video,
+      classification: "AVAILABLE MEDIA",
+      sha256: screening.sha256,
+      sourceUrl: screening.video,
+      poster: screening.poster,
+    })),
+    ...LOCAL_MEDIA_CATALOG.map((record) => ({
+      id: record.id,
+      title: record.filename,
+      detail: record.evidenceNote,
+      filename: record.filename,
+      classification: record.classification,
+      sha256: record.sha256,
+    })),
+  ];
+  const normalizedQuery = query.trim().toLowerCase();
+  const filteredRecords = records.filter((record) => {
+    const matchesQuery = !normalizedQuery || `${record.title} ${record.filename} ${record.detail} ${record.classification}`.toLowerCase().includes(normalizedQuery);
+    const matchesFilter = filter === "ALL" || (filter === "PLAYABLE" ? Boolean(record.sourceUrl) : !record.sourceUrl);
+    return matchesQuery && matchesFilter;
+  });
+
+  return (
+    <section id="local-media-restoration" aria-labelledby="local-media-restoration-title" className="relative overflow-hidden border-y border-[#00FF88]/20 bg-[radial-gradient(circle_at_8%_20%,rgba(0,255,136,.1),transparent_28%),radial-gradient(circle_at_92%_80%,rgba(255,204,77,.1),transparent_28%),#050B18]">
+      <div className="container py-14">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-mono tracking-[.18em] text-[#00FF88]">LOCAL MEDIA RESTORATION INVENTORY</p>
+            <h2 id="local-media-restoration-title" className="mt-3 max-w-4xl text-3xl font-black leading-tight text-white md:text-5xl">Every receipt has a visible doorway.</h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[#C8D8E7]">This shelf is generated from the bounded restoration inventory. Connected theater sources have native visitor-controlled playback; local-only and missing bytes remain clearly labeled source receipts instead of receiving fake play controls.</p>
+          </div>
+          <div className="rounded-2xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/10 px-4 py-3 text-xs font-mono text-[#FFE9B0]" aria-live="polite">{filteredRecords.length} of {records.length} records visible</div>
+        </div>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <label className="flex-1"><span className="sr-only">Search restoration records</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search filenames, source notes, or hashes" className="min-h-11 w-full rounded-xl border border-white/15 bg-white/[.05] px-4 text-sm text-white outline-none placeholder:text-[#8495A8] focus-visible:border-[#00FF88]" /></label>
+          <div role="group" aria-label="Restoration record filter" className="flex flex-wrap gap-2">
+            {(["ALL", "PLAYABLE", "SOURCE RECEIPTS"] as const).map((option) => <button key={option} type="button" aria-pressed={filter === option} onClick={() => setFilter(option)} className="min-h-11 rounded-xl border px-3 text-[10px] font-black tracking-[.12em] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-[#FFCC4D]" style={{ borderColor: filter === option ? "#FFCC4D" : "rgba(255,255,255,.16)", color: filter === option ? "#FFE9B0" : "#C8D8E7", background: filter === option ? "rgba(255,204,77,.12)" : "rgba(255,255,255,.03)" }}>{option}</button>)}
+          </div>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {filteredRecords.map((record) => (
+            <article key={record.id} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[.035] transition duration-300 hover:-translate-y-1 hover:border-[#00FF88]/40">
+              <div className="aspect-[4/3] overflow-hidden bg-[#02050D]">
+                {record.sourceUrl ? <video className="h-full w-full object-cover" controls preload="none" poster={record.poster} playsInline aria-label={`${record.title} visitor-controlled video`}><source src={record.sourceUrl} type="video/mp4" />Your browser does not support this video.</video> : <SourceVisual src={undefined} alt={`${record.title} metadata record`} title={record.title} mark="SOURCE RECEIPT" className="h-full w-full" />}
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between gap-2"><span className={`text-[10px] font-mono tracking-[.11em] ${record.sourceUrl ? "text-[#B5F7CC]" : "text-[#FFE9B0]"}`}>{record.classification}</span><span className="text-xs font-black text-white">{record.sourceUrl ? "▶ PLAY" : "OPEN RECORD"}</span></div>
+                <h3 className="mt-2 break-words text-sm font-black text-white">{record.title}</h3>
+                <p className="mt-2 line-clamp-3 text-xs leading-5 text-[#AFC0D0]">{record.detail}</p>
+                {record.sha256 && <p className="mt-3 break-all text-[9px] font-mono text-[#8294A8]">SHA-256 {record.sha256}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+        {filteredRecords.length === 0 && <p className="mt-6 rounded-2xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/10 p-5 text-sm text-[#FFE9B0]" role="status">No matching restoration record. Clear the search or choose ALL.</p>}
+      </div>
+    </section>
+  );
+}
+
 function MetaLookbookDoorways() {
   return (
     <section id="meta-ai-lookbooks" aria-labelledby="meta-ai-lookbooks-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.24)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.13), transparent 30%), radial-gradient(circle at 88% 80%, rgba(157,235,255,.12), transparent 30%), #07101D" }}>
@@ -2951,6 +3031,7 @@ export default function Home() {
         </div>
       </section>
       <ArtifactFrontDoor />
+      <LocalMediaRestorationShelf />
       <OmnilandFrontCenter />
       <CreatorMotionShelf />
       <LegionBroadcastDeck />
