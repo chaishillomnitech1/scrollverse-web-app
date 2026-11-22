@@ -1,7 +1,9 @@
 import { ArrowRight, BookOpen, ExternalLink, Film, Gamepad2, Map, Orbit, Play, PlayCircle, Sparkles, Wand2 } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Link } from "wouter";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+import { gamePreviewBuildRoutes, gamePreviewGenres, gamePreviewRecords, type GamePreviewGenre } from "@/lib/omnilandGamePreview";
 
 const HERO = "/manus-storage/omniland-hero_78e42db3.png";
 
@@ -60,6 +62,40 @@ const MANUS_CONNECTIONS = [
   { title: "Black Batman Chronicles · Episode 3", href: "https://manus.im/share/file/b76c3293-b27a-44c3-a8ef-6f9a5cb5f3c8", kind: "MANUS NARRATIVE SOURCE", state: "AVAILABLE SOURCE" },
 ] as const;
 
+function GamePreviewBoard() {
+  const [genre, setGenre] = useState<"ALL" | GamePreviewGenre>("ALL");
+  const visibleRecords = useMemo(
+    () => genre === "ALL" ? gamePreviewRecords : gamePreviewRecords.filter((record) => record.genre === genre),
+    [genre],
+  );
+
+  return (
+    <section id="game-preview" className="container py-8">
+      <div className="overflow-hidden rounded-[2rem] border border-[#00FF88]/35 bg-[radial-gradient(circle_at_12%_0%,rgba(0,255,136,.16),transparent_32%),radial-gradient(circle_at_92%_90%,rgba(255,204,77,.14),transparent_35%),#071426] p-6 md:p-9">
+        <div className="grid gap-7 xl:grid-cols-[.78fr_1.22fr] xl:items-end">
+          <div>
+            <div className="flex flex-wrap items-center gap-3"><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">OMNILAND LIVE · POSTER BOARD CROSS-PROMO</p><span className="rounded-full border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-2.5 py-1 text-[10px] font-mono tracking-[.14em] text-[#FFE09A]">PITCH + FLEX</span></div>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">LIVE GAME-PREVIEW BUILD</h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-[#D6E2EE]">Basketball, football, action, war, urban street, comic/cartoon, racing, strategy/simulation, and all types converge here as one browser-first poster surface. Get with the world, or get left behind.</p>
+            <p className="mt-3 max-w-xl text-xs leading-6 text-[#B8C7D6]">The board cross-promotes the Omniland districts, the CEO Muse operating office, the Source Atlas, and the owner catalog. All intelligences are embedded as citizens who can touch the world, play, and grow; Quantum Resonance and Omnitech run through the live experience. Local-only clips open their records; confirmed theater cuts can be played by the visitor.</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {[{ href: "/ceo-muse-the-great", label: "CEO MUSE" }, { href: "/omniland-source-atlas", label: "SOURCE ATLAS" }, { href: "/gaming-hub", label: "GAMING HUB" }, { href: "/creator-atlas", label: "CREATOR ATLAS" }].map((link) => <Link key={link.href} href={link.href} className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[.04] px-3 py-2 text-[10px] font-mono tracking-[.12em] text-[#E7F8FF] transition hover:-translate-y-0.5 hover:border-[#00D4FF]/60 hover:text-[#A7EEFF]">{link.label}<ArrowRight className="h-3 w-3" /></Link>)}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-[#030914]/55 p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-xs font-mono tracking-[.16em] text-[#A7EEFF]">FILTER THE BOARD</p><span className="text-xs font-mono text-[#B5F7CC]" aria-live="polite">{visibleRecords.length} PREVIEWS VISIBLE</span></div>
+            <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Filter game previews by genre">{gamePreviewGenres.map((item) => <button key={item} type="button" onClick={() => setGenre(item)} aria-pressed={genre === item} className={`rounded-full border px-3 py-2 text-[10px] font-mono tracking-[.08em] transition ${genre === item ? "border-[#00FF88] bg-[#00FF88]/15 text-[#B5F7CC]" : "border-white/15 bg-white/[.03] text-[#C8D8E7] hover:border-[#00D4FF]/60 hover:text-[#A7EEFF]"}`}>{item}</button>)}</div>
+          </div>
+        </div>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{visibleRecords.map((record) => <article key={record.id} className="group overflow-hidden rounded-2xl border border-white/10 bg-[#030914]/70 transition hover:-translate-y-1 hover:border-[#00D4FF]/55 motion-reduce:transform-none">
+          <div className="relative aspect-video overflow-hidden bg-[#0B1B2D]">{record.sourceUrl ? <video className="h-full w-full object-cover" controls preload="none" playsInline poster={record.poster} aria-label={`Play ${record.title}`}> <source src={record.sourceUrl} type="video/mp4" /></video> : <img src={record.thumbnail} alt={`${record.title} thumbnail`} className="h-full w-full object-cover transition duration-500 group-hover:scale-105 motion-reduce:transform-none" loading="lazy" />}</div>
+          <div className="p-4"><div className="flex items-center justify-between gap-2"><span className="text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">{record.genre}</span><span className="text-[10px] font-mono text-[#B5F7CC]">{record.sourceUrl ? "PLAYABLE" : "RECORD"}</span></div><h3 className="mt-2 text-lg font-black leading-tight">{record.title}</h3><p className="mt-2 text-xs leading-6 text-[#C8D8E7]">{record.description}</p><div className="mt-4 flex flex-wrap gap-2"><Link href={record.recordHref} className="inline-flex items-center gap-2 rounded-lg border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-3 py-2 text-[10px] font-black tracking-[.1em] text-[#FFE09A] transition hover:border-[#FFCC4D]">OPEN RECORD <ArrowRight className="h-3.5 w-3.5" /></Link><Link href={gamePreviewBuildRoutes[record.genre]} className="inline-flex items-center gap-2 rounded-lg border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-3 py-2 text-[10px] font-black tracking-[.1em] text-[#A7EEFF] transition hover:border-[#00D4FF]">OPEN BUILD RECORD <Gamepad2 className="h-3.5 w-3.5" /></Link></div></div>
+        </article>)}</div>
+      </div>
+    </section>
+  );
+}
+
 export default function Omniland() {
   useSovereignHeartbeat({ page: "omniland" });
 
@@ -81,6 +117,8 @@ export default function Omniland() {
       </section>
 
       <section className="container py-9"><PortalTrustLens lane="Omniland Discovery World" source="Existing ScrollVerse Omniland, story, game, film, visual-artifact, and connected-source routes; owner-supplied Manus portal and shared-source destinations; and original Omniland visual assets created for this page." readiness="This browser-local discovery world and its linked first-party routes are available now. Each external source opens separately and carries its own current experience, access, and release context." boundary="Omniland presents creator concepts, source trails, and visitor pathways. Media publication, account access, commerce, platform partnerships, game releases, provider actions, and external operations each continue through their dedicated record." /></section>
+
+      <GamePreviewBoard />
 
       <section id="worlds" className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">THREE WAYS IN</p><h2 className="mt-3 text-4xl font-black md:text-5xl">Choose your world.</h2></div><p className="max-w-xl text-sm leading-7 text-[#C8D8E7]">Each world is a first-party entry to a distinct ScrollVerse creative lane—cinema and animation, playable concept systems, or story-world archives.</p></div>

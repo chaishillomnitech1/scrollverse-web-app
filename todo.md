@@ -6999,3 +6999,16 @@
 - [x] TDD evidence recorded: Phase 1032 failed before implementation for the missing six-district copy and passed after implementation; the Phase 1029–1032 focused suite passed 4/4.
 - [x] Final verification passed: full Vitest 478 files / 1,309 tests; strict TypeScript; guarded production build exit 0 in 18.63s with the existing non-blocking large-chunk warning; `git diff --check`; manifest closure 1,176/1,176 records, 2,740,663,722/2,740,663,722 bytes, zero missing and zero mismatches; owner archive SHA-256 `d79844c48670388ad7cee11961a8127a6e58ad909eacd57e00f7e12d46d18f5e` matched.
 - Boundary: local metaverse design and source-record presentation only. The answering channel, external communication, autonomous schedules, billing, payment, wallet, contract, account, repository, DNS, provider, publication, and other external activation remain explicit owner/provider-controlled actions.
+
+## Phase 1033 — Omniland Capability Research
+- [x] Complete six-track research across runtime, delivery/PWA, input/accessibility, local-first identity and saves, The Door That Answers, and market/ecosystem readiness.
+- [x] Record 28 authoritative references in `docs/phase1033-omniland-capability-research.md` and the six track notes.
+- [x] Preserve the browser-first, console-less, semantic HTML baseline; optional lazy Wasm; WebGL fallback; opportunistic WebGPU; explicit download/import; local-first saves; shared input/accessibility; and The Door That Answers as the first build priority.
+- Boundary: research and local product planning only; no external publication, billing, payment, wallet, contract, account, repository, DNS, provider, or autonomous activation.
+## Phase 1034 — Omniland LIVE Game-Preview Build
+- [x] Add a typed `gamePreviewRecords` catalog with stable IDs, titles, descriptions, thumbnails, record routes, seven requested genre lanes, basketball, football, and an all-sports-types record.
+- [x] Add the prominent `LIVE GAME-PREVIEW BUILD` poster-board cross-promo surface with pitch/flex copy, genre filters, visible result count, and links to CEO Muse, Source Atlas, Gaming Hub, and Creator Atlas.
+- [x] Render native visitor-controlled playback only when a preview record has a confirmed managed theater `sourceUrl`; use `controls`, `preload="none"`, `playsInline`, stable aspect-ratio frames, and no autoplay.
+- [x] Keep local-only records thumbnail-first with `OPEN RECORD`; do not fabricate playable URLs. Keep the Instagram reel as an external visual-reference link only, not a playable source.
+- [x] TDD evidence: focused Phase 1034 regression passed 2/2 after the expected red failure; strict TypeScript passed.
+- Boundary: local UI, typed catalog, metadata/source-record presentation, and verification only. Muse’s parallel sizzle, unhosted catalog clips, Instagram footage, external publication, billing, payment, wallet, contract, account, repository, DNS, provider, and autonomous schedule lanes remain separate and unchecked.
