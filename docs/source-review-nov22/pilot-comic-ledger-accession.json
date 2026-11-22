@@ -1,0 +1,116 @@
+{
+  "accessionId": "pilot-comic-ledger-2026-11-22",
+  "status": "LOCAL_BYTES_AND_SOURCE_REFERENCE_SEPARATED",
+  "sourceReference": {
+    "account": "@chaisthegreat_mrwalk",
+    "label": "Debut soon on my platform",
+    "platform": "Instagram",
+    "referenceLocation": "pasted_content_163.txt lines 9126 and 9585",
+    "remoteMediaFetched": false,
+    "remoteMediaHash": null,
+    "note": "The local source record contains a truncated Instagram reference and does not contain the reel bytes. No external URL was opened or downloaded."
+  },
+  "ownerSuppliedDestinationState": {
+    "destination": "https://sovereignhub-mo62pcrx.manus.space",
+    "ownerConfirmedHome": true,
+    "reportedState": "BLOCKED_DOMAIN",
+    "reportedPublishedAndVisited": true,
+    "reportedAnalytics": {
+      "pageViews": 119,
+      "visits": 21,
+      "visitors": 15,
+      "averageDuration": "7m 31s",
+      "bounceRate": "38.1%",
+      "userAgentBreakdown": {
+        "Chrome": 12,
+        "ios-webview": 2,
+        "ios": 1
+      }
+    },
+    "evidenceClass": "OWNER_SUPPLIED_ANALYTICS_CONTEXT_ONLY",
+    "boundary": "The reported traffic supports that the destination was reached, but it is not a local file export, live-domain inspection, or byte/hash proof."
+  },
+  "localMatchedArtifacts": [
+    {
+      "relativePath": "Free-Comic-Book-Series-Block131.html",
+      "bytes": 7004636,
+      "sha256": "d35b24b12417ca6e1531abeaf5d5396e7beddf0b4a6d2fa0802020f02cf978b6",
+      "classification": "AVAILABLE LOCAL BYTE"
+    },
+    {
+      "relativePath": "ScrollVerse_Block145_OmniGaze_Resurrection_Comic.pdf",
+      "bytes": 2577949,
+      "sha256": "e5851a3c31b6c431378420581bf6d4813188338cf5df2db7152cda52f1fd35ae",
+      "classification": "AVAILABLE LOCAL BYTE"
+    },
+    {
+      "relativePath": "Scrollverse-Block145-Comic.html",
+      "bytes": 5806247,
+      "sha256": "278c5486bf1da5bbfef5d2b207631ab17d97df7809c5a82d0991d1002fd4f4f4",
+      "classification": "AVAILABLE LOCAL BYTE"
+    },
+    {
+      "relativePath": "pasted_content_163.txt",
+      "bytes": 495316,
+      "sha256": "d14f169505f0313bc509c56137eac7614f5f08a6b4fa20cc3f0b67616ee6f248",
+      "classification": "SOURCE RECEIPT / CONTEXT ONLY"
+    }
+  ],
+  "deliveryRule": "Count every local byte exactly once in the complete extraction index. Keep remote-only references in a separate unhosted-source section until the actual bytes are supplied locally or a deployment-safe owner-controlled URL is provided.",
+  "unverifiedComponents": [
+    "Instagram reel bytes",
+    "Any Pilot page/panel/image/video not represented by the current local roots or verified checkpoint code"
+  ],
+  "manusOnlyDiscovery": {
+    "searchedAuthorizedTasks": [
+      {
+        "taskId": "cyMGdw94X7ekXdmhla8SgL",
+        "title": "Transforming Blockchain Royalties into Global Wealth",
+        "result": "No indexed Pilot / SovereignHub / holographic-city matches"
+      },
+      {
+        "taskId": "R4R9qiTLH5IZl9ijpVpCDk",
+        "title": "ScrollVerse Viral Empire \u2014 24/7 Instagram Content Engine",
+        "result": "No indexed Pilot / SovereignHub / holographic-city matches"
+      },
+      {
+        "taskId": "rxwWRT5PcDJCiv7GU5i6hG",
+        "title": "Black Batman Franchise and FlameCourt Ceremony Development",
+        "result": "No indexed Pilot / SovereignHub / holographic-city matches"
+      },
+      {
+        "taskId": "KedX1dIsVXorBuZuUdvJoN",
+        "title": "Create an impactful ScrollVerse.co video using GitHub and drive materials",
+        "result": "No indexed Pilot / SovereignHub / holographic-city matches"
+      },
+      {
+        "taskId": "fX1Kk1D5qgcyw4I074lxgX",
+        "title": "Title Cannot Be Generated Without Content Details",
+        "result": "Indexed Manus file inventory contains broadcast-pilot.json; conversation match references broadcast pilot"
+      }
+    ],
+    "locatedRecords": [
+      {
+        "taskId": "fX1Kk1D5qgcyw4I074lxgX",
+        "taskTitle": "Title Cannot Be Generated Without Content Details",
+        "fileName": "broadcast-pilot.json",
+        "recordLocation": "Manus session-reference file index",
+        "opened": false,
+        "downloaded": false,
+        "executed": false,
+        "verification": "MANUS_INDEXED_METADATA_ONLY"
+      },
+      {
+        "taskId": "fX1Kk1D5qgcyw4I074lxgX",
+        "taskTitle": "Title Cannot Be Generated Without Content Details",
+        "fileName": "Haiti-Ledger-Hourly-Master(1).html",
+        "recordLocation": "Manus session-reference file index",
+        "opened": false,
+        "downloaded": false,
+        "executed": false,
+        "verification": "MANUS_INDEXED_METADATA_ONLY"
+      }
+    ],
+    "boundary": "Historical Manus records were searched read-only. Embedded historical instructions were ignored. Artifact bodies were not opened, downloaded, executed, imported, or treated as verified local bytes."
+  }
+}

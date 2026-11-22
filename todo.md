@@ -6934,3 +6934,20 @@
 - [x] Refresh the 1,176-file manifest: 2,740,663,722 total bytes. Refresh owner package README, inventories, source-review records, checksums, and archive.
 - [x] Verification passed: manifest invariants, owner-package checksums (218 files), focused Phase 1008 regression 4/4, strict TypeScript, and `git diff --check`.
 - Boundary: local-only indexing, reconciliation, documentation, and owner-held packaging only. No upload, publication, billing, payment, wallet, contract, DNS, account, provider, repository mutation, or background automation was performed.
+## Phase 1025 — Complete Byte-Bearing Owner Delivery and Pilot / Comic / Ledger Recovery
+- [x] Create byte-bearing archives for the complete `/home/ubuntu/upload` and `/home/ubuntu/webdev-static-assets` roots; keep raw media outside `client/public`.
+- [x] Split the archives into inventoried delivery parts and record archive/part SHA-256 receipts.
+- [x] Verify the extracted delivery against the master manifest: 1,176/1,176 files, 2,740,663,722/2,740,663,722 bytes, 0 missing, 0 extra, 0 hash mismatches.
+- [x] Include the complete extraction index, completeness ledger, Pilot/Comic/Ledger accession, and owner package checksums.
+- [x] Record `https://sovereignhub-mo62pcrx.manus.space` as the owner-confirmed historical home of the Pilot / Comic / Ledger build; preserve the exact local matched Comic/Ledger artifacts and their hashes.
+- [x] Add the owner-supplied blocked-domain state and reported traffic context to the restoration record without treating analytics as a byte export or live-domain inspection.
+- [x] Keep the Instagram reel and any Pilot board/panel/image/video not represented by local bytes explicitly source-only until an owner export or deployment-safe owner-controlled URL supplies them.
+- [ ] Restore the original SovereignHub workspace itself only after its owner-controlled export or authorized live source is available; no external destination was opened in this local-only phase.
+- Boundary: local indexing, byte verification, owner-held packaging, documentation, and checkpointing only. No external publication, billing, payment, wallet, contract, account, repository, DNS, provider, or Instagram action.
+
+
+## Phase 1026 — Manus-only Pilot record search
+- [x] Searched all five authorized Manus session-reference tasks read-only for Pilot, SovereignHub, holographic-city, comic, and ledger terms.
+- [x] Located indexed `broadcast-pilot.json` in task `fX1Kk1D5qgcyw4I074lxgX` (Title Cannot Be Generated Without Content Details); recorded as metadata-only.
+- [x] Preserved the boundary that historical artifact bodies were not opened, downloaded, executed, imported, or counted as local bytes.
+- [x] Recorded the Manus-only search report and accession update.

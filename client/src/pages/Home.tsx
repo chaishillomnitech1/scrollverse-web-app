@@ -1834,6 +1834,7 @@ type RestorationShelfRecord = {
   sha256: string | null;
   sourceUrl?: string;
   poster?: string;
+  href: string;
 };
 
 function LocalMediaRestorationShelf() {
@@ -1849,6 +1850,7 @@ function LocalMediaRestorationShelf() {
       sha256: screening.sha256,
       sourceUrl: screening.video,
       poster: screening.poster,
+      href: "/chais-videos",
     })),
     ...LOCAL_MEDIA_CATALOG.map((record) => ({
       id: record.id,
@@ -1857,6 +1859,7 @@ function LocalMediaRestorationShelf() {
       filename: record.filename,
       classification: record.classification,
       sha256: record.sha256,
+      href: "/source-collections",
     })),
   ];
   const normalizedQuery = query.trim().toLowerCase();
@@ -1873,7 +1876,13 @@ function LocalMediaRestorationShelf() {
           <div>
             <p className="text-xs font-mono tracking-[.18em] text-[#00FF88]">LOCAL MEDIA RESTORATION INVENTORY</p>
             <h2 id="local-media-restoration-title" className="mt-3 max-w-4xl text-3xl font-black leading-tight text-white md:text-5xl">Every receipt has a visible doorway.</h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-[#C8D8E7]">This shelf is generated from the bounded restoration inventory. Connected theater sources have native visitor-controlled playback; local-only and missing bytes remain clearly labeled source receipts instead of receiving fake play controls.</p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[#C8D8E7]">The complete generated catalog is indexed below. Confirmed theater sources are playable here with native visitor controls; every other catalog entry opens its full source record.</p>
+            <nav aria-label="Catalog destinations" className="mt-5 flex flex-wrap gap-2">
+              <Link href="/meta-ai-artifacts-lookbooks" className="rounded-full border border-[#FFCC4D]/45 bg-[#FFCC4D]/10 px-3 py-2 text-xs font-black text-[#FFE9B0] transition hover:-translate-y-0.5">All lookbooks →</Link>
+              <Link href="/evolution-lookbook" className="rounded-full border border-[#9AFFC5]/45 bg-[#9AFFC5]/10 px-3 py-2 text-xs font-black text-[#C9FFDE] transition hover:-translate-y-0.5">Evolution lookbook →</Link>
+              <Link href="/direct-fan-catalog" className="rounded-full border border-[#00D4FF]/45 bg-[#00D4FF]/10 px-3 py-2 text-xs font-black text-[#BCEEFF] transition hover:-translate-y-0.5">Direct catalog →</Link>
+              <Link href="/shopify-storefront-readiness" className="rounded-full border border-[#D7A7FF]/45 bg-[#D7A7FF]/10 px-3 py-2 text-xs font-black text-[#EBDFFF] transition hover:-translate-y-0.5">Shopify pathway →</Link>
+            </nav>
           </div>
           <div className="rounded-2xl border border-[#FFCC4D]/30 bg-[#FFCC4D]/10 px-4 py-3 text-xs font-mono text-[#FFE9B0]" aria-live="polite">{filteredRecords.length} of {records.length} records visible</div>
         </div>
@@ -1887,10 +1896,10 @@ function LocalMediaRestorationShelf() {
           {filteredRecords.map((record) => (
             <article key={record.id} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[.035] transition duration-300 hover:-translate-y-1 hover:border-[#00FF88]/40">
               <div className="aspect-[4/3] overflow-hidden bg-[#02050D]">
-                {record.sourceUrl ? <video className="h-full w-full object-cover" controls preload="none" poster={record.poster} playsInline aria-label={`${record.title} visitor-controlled video`}><source src={record.sourceUrl} type="video/mp4" />Your browser does not support this video.</video> : <SourceVisual src={undefined} alt={`${record.title} metadata record`} title={record.title} mark="SOURCE RECEIPT" className="h-full w-full" />}
+                {record.sourceUrl ? <video className="h-full w-full object-cover" controls preload="none" poster={record.poster} playsInline aria-label={`${record.title} visitor-controlled video`}><source src={record.sourceUrl} type="video/mp4" />Your browser does not support this video.</video> : <Link href={record.href} aria-label={`Open source record for ${record.title}`} className="block h-full focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#FFCC4D]"><SourceVisual src={undefined} alt={`${record.title} source record thumbnail`} title={record.title} mark="OPEN RECORD" className="h-full w-full" /></Link>}
               </div>
               <div className="p-4">
-                <div className="flex items-center justify-between gap-2"><span className={`text-[10px] font-mono tracking-[.11em] ${record.sourceUrl ? "text-[#B5F7CC]" : "text-[#FFE9B0]"}`}>{record.classification}</span><span className="text-xs font-black text-white">{record.sourceUrl ? "▶ PLAY" : "OPEN RECORD"}</span></div>
+                <div className="flex items-center justify-between gap-2"><span className={`text-[10px] font-mono tracking-[.11em] ${record.sourceUrl ? "text-[#B5F7CC]" : "text-[#FFE9B0]"}`}>{record.classification}</span>{record.sourceUrl ? <span className="text-xs font-black text-white">▶ PLAY</span> : <Link href={record.href} className="text-xs font-black text-[#FFE9B0] underline-offset-4 hover:underline">OPEN RECORD →</Link>}</div>
                 <h3 className="mt-2 break-words text-sm font-black text-white">{record.title}</h3>
                 <p className="mt-2 line-clamp-3 text-xs leading-5 text-[#AFC0D0]">{record.detail}</p>
                 {record.sha256 && <p className="mt-3 break-all text-[9px] font-mono text-[#8294A8]">SHA-256 {record.sha256}</p>}
