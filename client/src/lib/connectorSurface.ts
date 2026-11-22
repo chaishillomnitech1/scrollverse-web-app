@@ -97,15 +97,18 @@ const entries: Array<[string, string, string, string, ConnectorState]> = [
 ];
 
 export const connectorToolSurface: ConnectorCapability[] = entries.map(([id, name, connector, canDo, state]) => ({ id, name, connector, connectsTo: connector, canDo, state }));
-export const TOOL_SURFACE_COUNT = 77;
-export const DISCOVERED_TOOL_SURFACE_COUNT = connectorToolSurface.length;
+export const ENUMERATED_TOOL_SURFACE_COUNT = connectorToolSurface.length;
+export const TOOL_SURFACE_COUNT = ENUMERATED_TOOL_SURFACE_COUNT;
+/** Owner-observed All-list count; names for these cards have not been supplied to this local workspace. */
+export const DISCOVERED_TOOL_SURFACE_COUNT = 424;
+export const AWAITING_ENUMERATION_COUNT = DISCOVERED_TOOL_SURFACE_COUNT - ENUMERATED_TOOL_SURFACE_COUNT;
 export const TRUTHFUL_STATE = "TRUTHFUL STATE";
-export const TOOL_SURFACE_LABEL = "77 CAPABILITY CARDS";
+export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 77 ENUMERATED LOCALLY";
 
 export const CONNECTOR_DIRECTORY_LABELS = [
   "MANUS TOOLS", "GMAIL", "GOOGLE CALENDAR", "OUTLOOK MAIL", "OUTLOOK CALENDAR", "SESSION REFERENCES", "HUBSPOT", "INTERCOM", "SENTRY", "TODOIST", "MINIMAX", "XERO", "NEON", "LINEAR", "WEBFLOW", "PAYPAL FOR BUSINESS", "ASANA", "WIX", "AIRTABLE", "STRIPE", "CLOUDFLARE", "HUGGING FACE", "HEYGEN", "ZAPIER", "PRISMA POSTGRES", "DIFY", "HANDOFF", "MANUS TASKS", "SLIDES", "TRIGGERS", "TRIP", "WORKFLOW",
 ] as const;
 
-if (DISCOVERED_TOOL_SURFACE_COUNT !== TOOL_SURFACE_COUNT) {
-  throw new Error(`Connector surface must contain 77 capability cards; found ${DISCOVERED_TOOL_SURFACE_COUNT}`);
+if (ENUMERATED_TOOL_SURFACE_COUNT !== 77) {
+  throw new Error(`Connector surface must contain 77 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
 }

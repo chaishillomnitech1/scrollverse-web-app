@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
+import { DISCOVERED_TOOL_SURFACE_COUNT, ENUMERATED_TOOL_SURFACE_COUNT } from "../client/src/lib/connectorSurface";
 
 const files = [
   "client/src/components/SharedToolRegistry.tsx",
@@ -20,5 +21,12 @@ describe("Phase 1040 — shared tool registry embedding", () => {
   it("keeps embedding metadata-only and does not activate connectors", () => {
     expect(files[0]).toContain("does not invoke external connectors");
     expect(files[0]).toContain("every Legion citizen inherits this shared layer");
+  });
+
+  it("records the observed 424-card directory separately from the locally enumerated catalog", () => {
+    expect(DISCOVERED_TOOL_SURFACE_COUNT).toBe(424);
+    expect(ENUMERATED_TOOL_SURFACE_COUNT).toBe(77);
+    expect(files[0]).toContain("AWAITING ENUMERATION");
+    expect(files[0]).toContain("424 OBSERVED CARDS");
   });
 });

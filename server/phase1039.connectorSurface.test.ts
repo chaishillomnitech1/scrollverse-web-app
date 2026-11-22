@@ -8,7 +8,7 @@ describe("Phase 1039 — connector surface", () => {
   it("exposes the configured resource families and honest connector states", () => {
     for (const marker of [
       "CONNECTOR SURFACE",
-      "77 CAPABILITY CARDS",
+      "77 ENUMERATED LOCALLY",
       "CONNECTED",
       "OWNER AUTHORIZATION REQUIRED",
       "AVAILABLE",
@@ -23,6 +23,7 @@ describe("Phase 1039 — connector surface", () => {
   });
 
   it("keeps the connector catalog sized to the requested capability surface", () => {
-    expect(catalog).toMatch(/connectorToolSurface\.length\s*=\s*77|TOOL_SURFACE_COUNT\s*=\s*77/);
+    expect(catalog).toMatch(/ENUMERATED_TOOL_SURFACE_COUNT\s*=\s*connectorToolSurface\.length/);
+    expect(catalog).toContain("DISCOVERED_TOOL_SURFACE_COUNT = 424");
   });
 });
