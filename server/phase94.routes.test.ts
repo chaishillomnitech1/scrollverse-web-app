@@ -862,7 +862,7 @@ describe("Phase 94 route map", () => {
     expect(home).toContain("/knicks-nft");
     expect(home).toContain("/deploy");
     expect(home).toContain("without presenting an unverified production contract, coin, mint, sale, payout, or sports result as live");
-    expect(home).toContain("No affiliation with, endorsement by, or rights claim regarding the NBA");
+    expect(home).toContain("contract, mint, sale, payout, and affiliation status are not established here");
     expect(inventory).toContain("Testnet Ready");
   });
   it("registers the respectful Main Page Action Wheel with devotional, regional, creator, and source-first pathways", () => {

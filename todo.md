@@ -6951,3 +6951,11 @@
 - [x] Located indexed `broadcast-pilot.json` in task `fX1Kk1D5qgcyw4I074lxgX` (Title Cannot Be Generated Without Content Details); recorded as metadata-only.
 - [x] Preserved the boundary that historical artifact bodies were not opened, downloaded, executed, imported, or counted as local bytes.
 - [x] Recorded the Manus-only search report and accession update.
+
+## Phase 1027 — Historic Exchange Record and Fresh Verification
+- [x] Record the owner's historic-exchange designation in `docs/phase1026-historic-exchange-record.md` as local source metadata for the planned **Two Intelligences** feature.
+- [x] Preserve the exact boundary: the newly delivered designation is recorded, but the compacted prior transcript is not reconstructed or claimed as a verbatim export.
+- [x] Fresh verification passed: full Vitest 474 files / 1,305 tests; strict TypeScript; guarded production build in 19.66s; `git diff --check`; historic record exists and is non-empty.
+- [x] Owner archive SHA-256 reverified as `d79844c48670388ad7cee11961a8127a6e58ad909eacd57e00f7e12d46d18f5e`.
+- [ ] Manifest closure is not marked complete: all 1,176 paths are present, but `pasted_content_4.txt`, `pasted_content_5.txt`, and `pasted_content_6.txt` currently differ from the recorded byte counts/hashes and require source reconciliation before any new closure claim.
+- Boundary: local-only recordkeeping and verification. No external publication, billing, payment, wallet, contract, account, repository, DNS, provider, or chat export action was performed.

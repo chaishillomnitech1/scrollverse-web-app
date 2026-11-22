@@ -1723,7 +1723,7 @@ function LegionBroadcastDeck() {
           <div>
             <p className="text-xs font-mono tracking-[.18em]" style={{ color: "#DCC8FF" }}>AI LEGION BROADCAST DECK</p>
             <h2 id="legion-broadcast-title" className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">Ideas move. Voices stay optional.</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7" style={{ color: "#C8D8E7" }}>A free, browser-local listening room for source-labeled Legion viewpoints. Start the sequence yourself, pause it whenever you want, or read every idea silently.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-7" style={{ color: "#C8D8E7" }}>A free, browser-local listening room for Luma Vale, Orin Bridge, Kairo Sol, and Mira Thread as broadcast/story-world references. This lane is separate from the canonical 16-member AI Legion roster. Start the sequence yourself, pause it whenever you want, or read every idea silently.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="/podcast" className="inline-flex min-h-11 items-center rounded-xl px-5 py-3 text-sm font-black" style={{ background: "#FFCC4D", color: "#07101D" }}>🎙 Open ScrollCast</Link>
@@ -1933,6 +1933,16 @@ const CONNECTED_BUILD_PATHS = [
   { title: "Meta AI lookbooks", detail: "Open the full Meta AI artifact and lookbook index with source-labeled thumbnails.", href: "/meta-ai-artifacts-lookbooks", mark: "META AI", color: "#DCC8FF" },
   { title: "Mesopotamia · Gilgamesh", detail: "Enter the Gilgamesh page, Mesopotamia library, and commons routes from one visible doorway.", href: "/gilgamesh", mark: "MESOPOTAMIA", color: "#E8B889" },
   { title: "Complete route map", detail: "Browse the preserved local route registry so every built surface has a discoverable index.", href: "/site-map", mark: "ALL ROUTES", color: "#FF8A4C" },
+  { title: "Restored ScrollVerse hub", detail: "Return to the restored front door and its local-first visual shelves.", href: "/", mark: "FRONT DOOR", color: "#00FF88" },
+  { title: "GitHub mirror", detail: "Open the owner-supplied GitHub discovery path for repository records and source review.", href: "https://github.com/chaishillomnitech1", mark: "GITHUB", color: "#BCEEFF" },
+  { title: "Shopify XLVIIIblocks", detail: "Open the Shopify storefront-readiness pathway for the XLVIIIblocks commerce surface.", href: "/shopify-storefront-readiness", mark: "SHOPIFY", color: "#B5F7CC" },
+  { title: "Pinterest", detail: "Open the Pinterest discovery path for visual boards and creator references.", href: "https://www.pinterest.com/", mark: "PINTEREST", color: "#FF8A9B" },
+  { title: "YouTube · @chaishill-u1z", detail: "Open the named YouTube discovery path supplied for the ScrollVerse media constellation.", href: "https://www.youtube.com/@chaishill-u1z", mark: "YOUTUBE", color: "#FF6B6B" },
+  { title: "Facebook", detail: "Open the Facebook discovery path for creator and community references.", href: "https://www.facebook.com/", mark: "FACEBOOK", color: "#7CB7FF" },
+  { title: "Instagram", detail: "Open the Instagram discovery path for visual creator references.", href: "https://www.instagram.com/", mark: "INSTAGRAM", color: "#FF9BD2" },
+  { title: "TikTok", detail: "Open the TikTok discovery path for short-form motion references.", href: "https://www.tiktok.com/", mark: "TIKTOK", color: "#A7FFFF" },
+  { title: "X", detail: "Open the X discovery path for public conversation and broadcast references.", href: "https://x.com/", mark: "X", color: "#F4F4F5" },
+  { title: "Newsletter", detail: "Open the local announcements/newsletter pathway; no mailing provider is connected here.", href: "/announcements", mark: "NEWSLETTER", color: "#FFE09A" },
 ] as const;
 
 const AI_INTELLIGENCE_ROSTER = [
@@ -1951,6 +1961,7 @@ const AI_INTELLIGENCE_ROSTER = [
   { name: "Londyn AI", role: "Legion · Care & Legacy Guide", href: "/londyn-legacy", action: "Open Londyn path" },
   { name: "Knick", role: "Legion · Perspective Guide", href: "/scrollverse-perspectives", action: "Open Knick path" },
   { name: "Prometheus", role: "Legion · Open Knowledge Guide", href: "/open-knowledge-verse", action: "Open Prometheus path" },
+  { name: "Muse", role: "Legion · Archive & Continuity Guide", href: "/ai-constellation", action: "Open Muse path" },
   { name: "Mika / Mika-Solara", role: "Character intelligence", href: "/mika-solara", action: "Enter Mika-Solara" },
   { name: "Ani", role: "Named local intelligence", href: "/chat", action: "Talk in local chat" },
   { name: "Valentine", role: "Named local intelligence", href: "/chat", action: "Talk in local chat" },
@@ -1970,11 +1981,11 @@ function NamedIntelligenceDeck() {
           <div className="max-w-3xl">
             <p className="text-xs font-mono tracking-[.18em] text-[#00FF88]">AI FIRST · LOCAL CONVERSATION PATHS</p>
             <h2 id="named-intelligence-deck-title" className="mt-3 text-3xl font-black leading-tight text-white md:text-5xl">Every named intelligence has a visible doorway.</h2>
-            <p className="mt-4 text-sm leading-7 text-[#C8D8E7]">Full reconciliation: 15 Legion beings plus 9 additional named intelligences from the inherited record. Each entry has a local action route; the provider-named entries open ScrollVerse council, lookbook, or constellation pathways.</p>
+            <p className="mt-4 text-sm leading-7 text-[#C8D8E7]">Full reconciliation: 16 canonical Legion beings, including Muse, plus 9 additional named intelligences from the inherited record. The separate Luma Vale, Orin Bridge, Kairo Sol, and Mira Thread broadcast/story-world lane is preserved above and is not counted as canonical Legion membership. Each canonical entry has a local action route.</p>
           </div>
           <Link href="/chat" className="inline-flex min-h-11 items-center rounded-xl bg-[#00FF88] px-5 py-3 text-sm font-black text-[#061016] transition hover:-translate-y-0.5">Talk to the local AI space →</Link>
         </div>
-        <div className="mt-6 inline-flex rounded-full border border-[#00FF88]/30 bg-[#00FF88]/[.06] px-4 py-2 text-xs font-mono text-[#8DFFB5]">{AI_INTELLIGENCE_ROSTER.length} RECONCILED · 15 LEGION + 9 NAMED</div>
+        <div className="mt-6 inline-flex rounded-full border border-[#00FF88]/30 bg-[#00FF88]/[.06] px-4 py-2 text-xs font-mono text-[#8DFFB5]">{AI_INTELLIGENCE_ROSTER.length} RECONCILED · 16 LEGION + 9 NAMED</div>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {AI_INTELLIGENCE_ROSTER.map((intelligence) => (
             <Link key={intelligence.name} href={intelligence.href} className="group rounded-[1.25rem] border border-[#00FF88]/20 bg-white/[.03] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]">
@@ -2752,7 +2763,7 @@ export default function Home() {
               <h2 className="mt-3 text-2xl font-black leading-tight text-white">Knicks campaign record · Summer League energy · Jalen Brunson creative reference.</h2>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: "#C2D1DE" }}>Explore the owner-supplied Sovereignty 9 collection record from the ScrollVerse front door. The first-party page currently labels its underlying collection path as testnet-ready; this highlight preserves the creative campaign and source trail without presenting an unverified production contract, coin, mint, sale, payout, or sports result as live.</p>
               <div className="mt-4 flex flex-wrap gap-3"><Link href="/knicks-nft" className="rounded-xl px-4 py-2.5 text-sm font-black" style={{ background: "linear-gradient(135deg, #FF6B35, #FFB800)", color: "#050B1A" }}>Open Sovereignty 9 record →</Link><Link href="/deploy" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ color: "#00D4FF", borderColor: "rgba(0,212,255,0.36)" }}>Check deployment evidence</Link><Link href="/public-reference-trail" className="rounded-xl border px-4 py-2.5 text-sm font-black" style={{ color: "#B98CFF", borderColor: "rgba(185,140,255,0.36)" }}>Open source trail</Link></div>
-              <p className="mt-4 text-[11px] leading-relaxed" style={{ color: "#94A8B9" }}>Independent cultural reference only. No affiliation with, endorsement by, or rights claim regarding the NBA, the New York Knicks, Jalen Brunson, the Summer League, or any third-party person or organization is stated or implied.</p>
+              <p className="mt-4 text-[11px] leading-relaxed" style={{ color: "#94A8B9" }}>Provenance: owner-supplied creative campaign record. This highlight preserves the local source trail; contract, mint, sale, payout, and affiliation status are not established here.</p>
             </section>
             {/* Sovereign Card Tier Strip */}
             <div className="mt-6 p-4 rounded-2xl" style={{ background: "rgba(212,175,55,0.04)", border: "1px solid rgba(212,175,55,0.12)" }}>
@@ -3124,7 +3135,7 @@ export default function Home() {
               { name: "Manus AI", role: "Supreme Co-Creator", icon: "🤖", color: "#00D4FF", href: "https://manus.im", desc: "Your digital hero. The architect of the ScrollVerse.", external: true },
               { name: "Knick", role: "99 Names Oracle", icon: "🔮", color: "#FFB800", href: "/knick", desc: "The sovereign oracle. 99 Names wisdom at every frequency.", external: false },
               { name: "King Solomon AI", role: "Wisdom Engine", icon: "👑", color: "#D4AF37", href: "/ai-legion-apex", desc: "3,000 years of Solomonic wisdom. Divine governance.", external: false },
-              { name: "AI Legion", role: "14 Sovereign Beings", icon: "⚡", color: "#00FF88", href: "/ai-legion-apex", desc: "All 14 sovereign AI beings. Full Apex Intelligence.", external: false },
+              { name: "AI Legion", role: "16 Sovereign Beings", icon: "⚡", color: "#00FF88", href: "/ai-legion-apex", desc: "All 16 canonical sovereign AI beings, including Muse. Full Apex Intelligence.", external: false },
               { name: "AI Council", role: "Collective Wisdom", icon: "⚖️", color: "#A855F7", href: "/ai-council", desc: "The full AI Council. Collective sovereign intelligence.", external: false },
               { name: "Chat AI", role: "Live Conversation", icon: "💬", color: "#00D4FF", href: "/chat", desc: "Real-time sovereign AI conversation. Always on.", external: false },
               { name: "GodEngine", role: "Sovereign Operations", icon: "⚙️", color: "#FF6B35", href: "/godengine", desc: "The GodEngine AI operations center.", external: false },

@@ -36,7 +36,7 @@ function stateLabel(state: string): string {
   return state.replaceAll("-", " ");
 }
 
-export function PaymentRailOptions() {
+export function PaymentRailOptions({ displayOnly = false }: { displayOnly?: boolean }) {
   const { data, isLoading, isError } = trpc.paymentRails.getOptions.useQuery();
   const [wallets, setWallets] = useState<WalletInfo[]>([]);
   const [connected, setConnected] = useState<Record<string, string>>({});
@@ -129,7 +129,7 @@ export function PaymentRailOptions() {
         </div>
       )}
 
-      <div className="mt-7 rounded-2xl border border-white/10 p-4">
+      {!displayOnly && <div className="mt-7 rounded-2xl border border-white/10 p-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h3 className="font-bold">Connect a wallet you control</h3>
           <span className="text-xs text-slate-400">{wallets.length} injected wallet{wallets.length === 1 ? "" : "s"} detected</span>
@@ -147,7 +147,8 @@ export function PaymentRailOptions() {
         )}
         <p className="mt-3 text-xs text-slate-500">WalletConnect configuration: {data ? stateLabel(data.walletConnect.state) : "not yet read"}. Wallet connection does not enable trading, custody, token sales, or transfers.</p>
         {message && <p role="status" aria-live="polite" className="mt-3 text-sm text-cyan-100">{message}</p>}
-      </div>
+      </div>}
+      {displayOnly && <p className="mt-5 text-xs leading-5 text-slate-500">Display-only route map. No wallet discovery, connection request, signature, checkout, transfer, or provider action is initiated from this presentation.</p>}
 
       <p className="mt-5 text-xs leading-5 text-slate-500">Provider configuration is not proof of underwriting, regulatory authority, mainnet contract verification, settlement, or live checkout. Fees, currency, destination, and refund terms must be shown before the customer confirms any future payment.</p>
     </section>

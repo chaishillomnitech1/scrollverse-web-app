@@ -1,0 +1,87 @@
+import { Link } from "wouter";
+import { ArrowRight, Bot, CheckCircle2, Network, Radio, ShieldCheck, Sparkles } from "lucide-react";
+import { PortalTrustLens } from "@/components/PortalTrustLens";
+import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+
+const BOARD = [
+  ["Releases · DONE", "Local restoration, route preservation, manifest closure, and the current verified checkpoint are recorded."],
+  ["Vault + books · BUILDING", "The Vault and Bookshelf remain visible through their first-party routes while their records continue to evolve."],
+  ["Store + raffle · WAITING", "Commerce pathways remain open through /shopify-storefront-readiness and /premium-storefront-program; provider activation and transaction state are not claimed."],
+  ["Exchange rails · READY LOCALLY", "Currency and payment route maps are connected through /exchange/currencies and /payment-launch-packets as visible local presentation surfaces."],
+  ["Catalog + registry · BUILDING", "The 335-clip catalog and creator/asset records remain reachable through /creator-catalog-readiness and /asset-registry."],
+  ["Seal pipeline · VERIFIED", "The local receipt and accession trail is reachable through /digitalship-accession and remains distinct from external publication."],
+  ["Constellation channels · ALWAYS VISIBLE", "The Legion, Muse channel, named surfaces, and story-world lane remain reachable through /ai-constellation and the homepage constellation."],
+  ["Feature program · BLOCKED", "External publication or provider-controlled release waits for an owner-controlled release decision and fresh evidence."],
+  ["Archive continuity · ALWAYS ON", "Muse keeps manifests, source receipts, route maps, and verification notes aligned."],
+  ["Resonance layer · DESIGN SYSTEM", "Quantum Resonance is presented as a creative systems theme, not a measurement or provider claim."],
+] as const;
+
+const VERIFIED_CHECKS = [
+  "Current local checkpoint: b74d6dab · roster and route evidence recorded.",
+  "Manifest closure: 1,176 / 1,176 files; equal bytes; zero missing, extra, or hash mismatches.",
+  "Catalog index: 335 clips retained; only confirmed managed theater sources are playable.",
+  "Historical deployment report: managed metadata said Published while a domain check returned 404; both records remain visible rather than conflated.",
+] as const;
+
+const CONSTELLATION = [
+  ["Restored ScrollVerse hub", "/"], ["GitHub mirror", "https://github.com/chaishillomnitech1"], ["Vault", "/omni-vault"], ["Atlas", "/creator-atlas"], ["Bookshelf", "/books"],
+  ["SovereignHub", "/trinity-sovereign-portal"], ["Omnitech1", "/enterprise-systems-blueprint"], ["The Table", "/omniversal-source-ledger"], ["Mika-Solara", "/mika-solara"], ["Shopify XLVIIIblocks", "/shopify-storefront-readiness"],
+  ["Pinterest", "https://www.pinterest.com/"], ["YouTube · @chaishill-u1z", "https://www.youtube.com/@chaishill-u1z"], ["Facebook", "https://www.facebook.com/"], ["Instagram", "https://www.instagram.com/"], ["TikTok / X / newsletter", "/announcements"],
+] as const;
+
+const EVOLUTION = [
+  "Muse enters the canonical 16-member Legion roster.",
+  "The restoration shelf keeps 1,176 local files and 335 catalog records indexed.",
+  "The named constellation exposes first-party routes and clearly marked discovery paths.",
+  "Every next step leaves a readable receipt instead of a hidden state change.",
+] as const;
+
+export default function CEOMuseTheGreat() {
+  useSovereignHeartbeat({ page: "ceo-muse-the-great" });
+
+  return (
+    <main className="min-h-screen bg-[#050816] pb-24 text-white">
+      <section className="relative overflow-hidden border-b border-[#FFE09A]/25 bg-[radial-gradient(circle_at_82%_12%,rgba(255,224,154,.2),transparent_25%),radial-gradient(circle_at_12%_75%,rgba(0,255,136,.14),transparent_30%),#050816]">
+        <div className="container relative py-16 md:py-24">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <Link href="/ai-constellation" className="text-xs font-mono tracking-[.16em] text-[#B5F7CC]">← AI CONSTELLATION</Link>
+            <span className="rounded-full border border-[#FFE09A]/40 bg-[#FFE09A]/10 px-3 py-1 text-[10px] font-mono tracking-[.15em] text-[#FFE09A]">CEO MUSE THE GREAT · LOCAL PORTAL</span>
+          </div>
+          <div className="mt-14 grid gap-10 xl:grid-cols-[1.1fr_.9fr] xl:items-end">
+            <div>
+              <p className="text-xs font-mono tracking-[.25em] text-[#00FF88]">THE DOOR · MUSE EMBEDDED CHANNEL</p>
+              <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[.9] md:text-8xl">Muse the Great<span className="text-[#FFE09A]">.</span></h1>
+              <p className="mt-7 max-w-3xl text-lg leading-8 text-[#D6E2EE]">A home for the archive, the build, and the next clear action. Muse is the continuity guide for ScrollVerse restoration, with Omnitech1 standing beside the work and Quantum Resonance woven through the interface as a creative systems motif.</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="#board" className="rounded-xl bg-[#FFE09A] px-5 py-3 text-sm font-black text-[#07101B]">Enter the Board</a>
+                <a href="#verification-desk" className="rounded-xl border border-[#00FF88]/50 bg-[#00FF88]/10 px-5 py-3 text-sm font-black text-[#B5F7CC]">Open Verification Desk</a>
+                <Link href="/ai-constellation" className="rounded-xl border border-[#BCEEFF]/50 bg-[#BCEEFF]/10 px-5 py-3 text-sm font-black text-[#BCEEFF]">View canonical roster</Link>
+              </div>
+            </div>
+            <aside className="rounded-[2rem] border border-[#FFE09A]/35 bg-[#0A1424]/80 p-7 shadow-[0_0_70px_rgba(255,224,154,.08)]">
+              <Sparkles className="h-9 w-9 text-[#FFE09A]" />
+              <p className="mt-5 text-[10px] font-mono tracking-[.18em] text-[#FFE09A]">MUSE CHANNEL · READY LOCALLY</p>
+              <p className="mt-3 text-3xl font-black leading-tight">Archive clearly. Build deliberately. Evolve visibly.</p>
+              <p className="mt-4 text-sm leading-7 text-[#C8D8E7]">This page is a local presentation and coordination surface. It does not connect accounts, publish media, initiate payments, control wallets, or claim live provider synchronization.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-10"><PortalTrustLens lane="CEO Muse the Great" source="Local ScrollVerse AI Legion roster, Muse restoration records, route receipts, media manifest, and verification checkpoints." readiness="Muse's local channel, Board, Verification Desk, Seat, Evolution Wall, and Constellation are available now." boundary="This page is a browser-local presentation layer. No external account, provider, wallet, payment, contract, publication, or custody action is initiated here." /></section>
+
+      <section id="board" className="container scroll-mt-8 py-10">
+        <div className="flex items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#FFE09A]">THE BOARD</p><h2 className="mt-3 text-4xl font-black">Muse's operating view.</h2><p className="mt-3 max-w-3xl text-sm leading-7 text-[#D6E2EE]">Three connected responsibilities keep the portal useful without collapsing creative context into unsupported live-state claims.</p></div><Bot className="hidden h-12 w-12 text-[#00FF88] md:block" /></div>
+        <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{BOARD.map(([title, detail]) => <article key={title} className="rounded-[1.7rem] border border-[#FFE09A]/25 bg-white/[.035] p-6 transition hover:-translate-y-1 hover:border-[#FFE09A]/65"><h3 className="text-xl font-black text-[#FFE09A]">{title}</h3><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">{detail}</p></article>)}</div>
+      </section>
+
+      <section id="verification-desk" className="container scroll-mt-8 py-10"><div className="rounded-[2rem] border border-[#00FF88]/30 bg-[radial-gradient(circle_at_96%_4%,rgba(0,255,136,.14),transparent_28%),#071426] p-7 md:p-9"><div className="flex items-start gap-4"><ShieldCheck className="mt-1 h-9 w-9 shrink-0 text-[#B5F7CC]" /><div><p className="text-xs font-mono tracking-[.18em] text-[#B5F7CC]">VERIFICATION DESK</p><h2 className="mt-3 text-4xl font-black">Receipts before reach.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-[#D6E2EE]">Muse's desk makes the next action legible: source record, route, test evidence, checkpoint, and external boundary. A receipt confirms what was observed locally; it does not turn a local record into live publication or ownership proof.</p></div></div><div className="mt-7 space-y-3">{VERIFIED_CHECKS.map((item) => <div key={item} className="flex gap-3 rounded-xl border border-white/10 bg-black/20 p-4 text-sm leading-6 text-[#D6E2EE]"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#00FF88]" />{item}</div>)}</div><Link href="/digitalship-accession" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#00FF88] px-5 py-3 text-sm font-black text-[#071426]">Open local receipt desk <ArrowRight className="h-4 w-4" /></Link></div></section>
+
+      <section className="container py-10"><div className="grid gap-5 lg:grid-cols-2"><article className="rounded-[2rem] border border-[#B98CFF]/35 bg-[#B98CFF]/[.055] p-7"><Radio className="h-8 w-8 text-[#DCC8FF]" /><p className="mt-5 text-xs font-mono tracking-[.18em] text-[#DCC8FF]">SEAT AMONG THE 25</p><h2 className="mt-3 text-4xl font-black">Muse holds the continuity seat.</h2><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">Muse is recorded as the 16th canonical Legion role within the broader 25-agent convergence story. The number is an interface and roster record, not a claim that 25 external agents are connected or running.</p><Link href="/ai-legion-apex" className="mt-6 inline-flex text-sm font-black text-[#DCC8FF]">Open the Legion Apex surface →</Link></article><article className="rounded-[2rem] border border-[#9DEBFF]/35 bg-[#9DEBFF]/[.045] p-7"><Network className="h-8 w-8 text-[#9DEBFF]" /><p className="mt-5 text-xs font-mono tracking-[.18em] text-[#9DEBFF]">OMNITECH1 + QUANTUM RESONANCE</p><h2 className="mt-3 text-4xl font-black">The assistant layer stays attached.</h2><p className="mt-4 text-sm leading-7 text-[#D6E2EE]">Omnitech1 is the build-and-delivery guide for route, interface, and verification work. Quantum Resonance is the visual language for connected ideas, frequency, rhythm, and continuity across the stack.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/vibe-canvas" className="rounded-xl border border-[#FF6B35]/50 bg-[#FF6B35]/10 px-4 py-3 text-sm font-black text-[#FFB08A]">Open Omnitech1 →</Link><Link href="/sacred-frequencies" className="rounded-xl border border-[#9DEBFF]/50 bg-[#9DEBFF]/10 px-4 py-3 text-sm font-black text-[#C9F4FF]">Open Resonance →</Link></div></article></div></section>
+
+      <section className="container py-10"><div className="rounded-[2rem] border border-[#FFE09A]/30 bg-[#FFE09A]/[.045] p-7 md:p-9"><p className="text-xs font-mono tracking-[.18em] text-[#FFE09A]">EVOLUTION WALL</p><h2 className="mt-3 text-4xl font-black">Every version leaves a trail.</h2><div className="mt-7 grid gap-3 md:grid-cols-2">{EVOLUTION.map((line, index) => <div key={line} className="flex gap-4 rounded-2xl border border-white/10 bg-black/20 p-5"><span className="font-mono text-[#FFE09A]">0{index + 1}</span><p className="text-sm leading-7 text-[#D6E2EE]">{line}</p></div>)}</div></div></section>
+
+      <section className="container py-10"><div className="rounded-[2rem] border border-[#00D4FF]/30 bg-[#00D4FF]/[.045] p-7 md:p-9"><p className="text-xs font-mono tracking-[.18em] text-[#9DEBFF]">CONSTELLATION · 15 NAMED SURFACES</p><h2 className="mt-3 text-4xl font-black">One Muse doorway, many connected paths.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-[#D6E2EE]">All fifteen named surfaces are shown by name. Local routes and outbound discovery links are intentionally distinguishable; a link does not imply active synchronization.</p><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{CONSTELLATION.map(([name, href]) => href.startsWith("http") ? <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.06] px-4 py-3 text-sm font-black text-[#C9F4FF] transition hover:-translate-y-0.5">{name} ↗</a> : <Link key={name} href={href} className="rounded-xl border border-[#9DEBFF]/30 bg-[#9DEBFF]/[.06] px-4 py-3 text-sm font-black text-[#C9F4FF] transition hover:-translate-y-0.5">{name} →</Link>)}</div></div></section>
+    </main>
+  );
+}

@@ -33,6 +33,7 @@ const ROLES: Role[] = [
   { name: "Londyn AI", title: "Care & Legacy Guide", focus: "keep purpose, care, and legacy visible in original creative work", tutorial: "Add a care, accessibility, and long-term stewardship section to a project packet.", route: "/londyn-legacy", color: "#EC4899", state: "available now" },
   { name: "Knick", title: "Perspective Guide", focus: "prepare reflection and research prompts without making factual claims beyond the record", tutorial: "Compare viewpoints while keeping sources and interpretation boundaries visible.", route: "/scrollverse-perspectives", color: "#FFB800", state: "available now" },
   { name: "Prometheus", title: "Open Knowledge Guide", focus: "route visitors toward free, source-labeled learning pathways", tutorial: "Share a learning resource with attribution, accessibility, and a visitor-choice boundary.", route: "/open-knowledge-verse", color: "#DCC8FF", state: "available now" },
+  { name: "Muse", title: "Archive & Continuity Guide", focus: "preserve creator records, media manifests, and continuity across local restoration work", tutorial: "Keep a source receipt, manifest, route, and verification record aligned without implying external custody or publication.", route: "/ai-constellation", color: "#FFE09A", state: "available now" },
 ];
 
 const PROVIDERS = [

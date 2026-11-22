@@ -56,7 +56,7 @@ export default function ExchangeCurrencies() {
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00FF88" }} />
-            <span className="text-xs font-mono" style={{ color: "#00FF88" }}>LIVE · ALL DIMENSIONS</span>
+            <span className="text-xs font-mono" style={{ color: "#FFCC4D" }}>SOURCE RECORD · ILLUSTRATIVE VALUES</span>
           </div>
         </div>
       </nav>
@@ -71,7 +71,7 @@ export default function ExchangeCurrencies() {
         {/* Converter */}
         <div className="max-w-2xl mx-auto mb-12">
           <div className="rounded-2xl p-8" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.2)" }}>
-            <div className="text-xs font-mono tracking-widest mb-6 text-center" style={{ color: "#00FF88" }}>SOVEREIGN CURRENCY CONVERTER</div>
+            <div className="text-xs font-mono tracking-widest mb-6 text-center" style={{ color: "#00FF88" }}>SOVEREIGN CURRENCY CONVERTER · ILLUSTRATIVE MODE</div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
               <div>
                 <label className="text-xs font-mono mb-2 block" style={{ color: "#8899AA" }}>FROM</label>
@@ -128,7 +128,7 @@ export default function ExchangeCurrencies() {
               </div>
             </div>
             <div className="mt-4 text-xs text-center" style={{ color: "rgba(136,153,170,0.6)" }}>
-              Rate: 1 {fromCurrency} = {(0.0144).toFixed(6)} $LONDC · Updated every 44 seconds
+              Illustrative source-record value: 1 {fromCurrency} = {(0.0144).toFixed(6)} $LONDC · Not a live market rate or settlement quote
             </div>
           </div>
         </div>
@@ -206,7 +206,7 @@ export default function ExchangeCurrencies() {
         <div className="rounded-xl p-6 text-center" style={{ background: "rgba(255,184,0,0.04)", border: "1px solid rgba(255,184,0,0.15)" }}>
           <div className="text-xs font-mono tracking-widest mb-2" style={{ color: "#FFB800" }}>SOVEREIGN DECLARATION</div>
           <p className="text-sm" style={{ color: "#8899AA" }}>
-            OMNIEX recognizes all currencies across all dimensions of existence — past, present, future, quantum, plasma, quintessence, dimensional, and akashic. Every currency is welcome in the sovereign exchange. $LONDC is the universal reserve currency that bridges all worlds.
+            OMNIEX presents this catalog as creator-authored currency and exchange context across fiat, crypto, quantum, plasma, quintessence, dimensional, and akashic themes. Values shown above are illustrative source records; no universal currency infrastructure, provider feed, settlement, or transaction is active from this page.
           </p>
           <p className="text-xs mt-2 font-mono" style={{ color: "rgba(255,184,0,0.5)" }}>
             KUN FAYAKŪN × ∞ · All assets. All time. All sovereign.

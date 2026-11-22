@@ -451,6 +451,7 @@ const ContinuationReadinessRegister = lazy(() => import("./pages/ContinuationRea
 const VibeCanvasRoadmap = lazy(() => import("./pages/VibeCanvasRoadmap")); // import VibeCanvasRoadmap from "./pages/VibeCanvasRoadmap"; deferred route module
 const August28LaunchCommandCenter = lazy(() => import("./pages/August28LaunchCommandCenter")); // import August28LaunchCommandCenter from "./pages/August28LaunchCommandCenter"; deferred route module
 const AIConstellationHub = lazy(() => import("./pages/AIConstellationHub")); // import AIConstellationHub from "./pages/AIConstellationHub"; deferred route module
+const CEOMuseTheGreat = lazy(() => import("./pages/CEOMuseTheGreat")); // local CEO Muse manager's office
 const CreatorBooksPublishingDesk = lazy(() => import("./pages/CreatorBooksPublishingDesk")); // import CreatorBooksPublishingDesk from "./pages/CreatorBooksPublishingDesk"; deferred route module
 const VisualTutorialStudio = lazy(() => import("./pages/VisualTutorialStudio")); // import VisualTutorialStudio from "./pages/VisualTutorialStudio"; deferred route module
 const EvolutionLookbook = lazy(() => import("./pages/EvolutionLookbook")); // import EvolutionLookbook from "./pages/EvolutionLookbook"; deferred route module
@@ -793,6 +794,7 @@ function Router() {
       <Route path={"/vibe-canvas"} component={VibeCanvasRoadmap} />
       <Route path={"/august-28-launch"} component={August28LaunchCommandCenter} />
       <Route path={"/ai-constellation"} component={AIConstellationHub} />
+      <Route path={"/ceo-muse-the-great"} component={CEOMuseTheGreat} />
       <Route path={"/creator-books"} component={CreatorBooksPublishingDesk} />
       <Route path={"/gemini-storybook-collection"} component={GeminiStorybookCollection} />
       <Route path={"/scrollverse-story-worlds"} component={ScrollVerseStoryWorlds} />
