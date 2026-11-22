@@ -6911,3 +6911,10 @@
 - [x] Add a keyboard-activated detail viewer with Escape and close-button behavior; render visitor-controlled video only when a hosted source exists using `controls`, `preload="none"`, `playsInline`, and no autoplay.
 - [x] Verification passed: focused Phase 1019 2/2, full Vitest 466 files / 1269 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, `git diff --check`, and desktop/mobile local preview review.
 - [x] Saved managed WebDev checkpoint `7dc90255`; supplied source bodies remain metadata-only and no external upload, wallet, billing, payment, contract, account, repository write, or publication action was performed.
+
+## Phase 1022 — Optional Books Fallback Filter Integrity
+- [x] Preserve the exact missing `scrollverse_books` fallback and unrelated database-error behavior.
+- [x] Apply category and tier filters consistently when the optional table is unavailable during either seed or read paths.
+- [x] Add focused regression coverage and update `scrollverse-media-restoration` with the optional-catalog fallback rule.
+- [x] Verification passed: focused Phase 1008 regression 4/4, full Vitest 472 files / 1301 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; the existing non-blocking >500 kB React runtime warning remains.
+- Boundary: no payment, wallet, contract, account, hosting, repository, upload, publication, or provider action was performed; remaining unchecked tracker entries remain owner/provider-controlled.

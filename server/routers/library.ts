@@ -236,6 +236,17 @@ export function getStaticSovereignCatalog() {
   }));
 }
 
+export function filterStaticSovereignCatalog(
+  catalog: ReturnType<typeof getStaticSovereignCatalog>,
+  input: { category: string; tier: string },
+) {
+  return catalog.filter((book) => {
+    if (input.category !== "all" && book.category !== input.category) return false;
+    if (input.tier !== "all" && book.tier !== input.tier) return false;
+    return true;
+  });
+}
+
 async function seedBooksIfEmpty(): Promise<boolean> {
   const db = await getDb();
   if (!db) return false;
@@ -266,11 +277,7 @@ export const libraryRouter = router({
     .query(async ({ input }) => {
       const seeded = await seedBooksIfEmpty();
       if (!seeded) {
-        return getStaticSovereignCatalog().filter((book) => {
-          if (input.category !== "all" && book.category !== input.category) return false;
-          if (input.tier !== "all" && book.tier !== input.tier) return false;
-          return true;
-        });
+        return filterStaticSovereignCatalog(getStaticSovereignCatalog(), input);
       }
       const db = await getDb();
       if (!db) return [];
@@ -278,7 +285,9 @@ export const libraryRouter = router({
       try {
         books = await db.select().from(scrollverseBooks).orderBy(scrollverseBooks.sortOrder);
       } catch (error) {
-        if (isMissingOptionalLibraryTableError(error)) return getStaticSovereignCatalog();
+        if (isMissingOptionalLibraryTableError(error)) {
+          return filterStaticSovereignCatalog(getStaticSovereignCatalog(), input);
+        }
         throw error;
       }
       return books.filter((b: typeof books[0]) => {

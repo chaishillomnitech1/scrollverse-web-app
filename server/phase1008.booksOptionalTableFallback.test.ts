@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  filterStaticSovereignCatalog,
   getStaticSovereignCatalog,
   isMissingOptionalLibraryTableError,
 } from "./routers/library";
@@ -24,6 +25,19 @@ describe("optional library table fallback", () => {
       slug: "vaultbook-xv-scroll-of-scrolls",
       title: "VaultBook XV: The Scroll of Scrolls",
       downloadCount: 0,
+    });
+  });
+
+  it("preserves category and tier filters in the static fallback", () => {
+    const catalog = filterStaticSovereignCatalog(getStaticSovereignCatalog(), {
+      category: "prophecy",
+      tier: "sovereign",
+    });
+
+    expect(catalog).toHaveLength(1);
+    expect(catalog[0]).toMatchObject({
+      category: "prophecy",
+      tier: "sovereign",
     });
   });
 });
