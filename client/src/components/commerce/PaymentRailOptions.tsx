@@ -23,7 +23,7 @@ type Announcement = {
 function getInjectedFallbacks(): WalletInfo[] {
   const ethereum = (window as Window & { ethereum?: Eip1193Provider }).ethereum;
   if (!ethereum) return [];
-  const providers = ethereum.providers?.length ? ethereum.providers : [ethereum];
+  const providers: Eip1193Provider[] = ethereum.providers?.length ? ethereum.providers : [ethereum];
   return providers.map((provider, index) => ({
     uuid: `injected-${index}`,
     name: provider.isCoinbaseWallet ? "Coinbase Wallet" : provider.isMetaMask ? "MetaMask" : "Browser wallet",
