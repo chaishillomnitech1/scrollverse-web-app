@@ -7,7 +7,7 @@
     "/home/ubuntu/webdev-static-assets"
   ],
   "fileCount": 1176,
-  "totalBytes": 2740842152,
+  "totalBytes": 2740663722,
   "records": [
     {
       "root": "/home/ubuntu/upload",
@@ -6354,9 +6354,9 @@
     {
       "root": "/home/ubuntu/upload",
       "relativePath": "pasted_content_2.txt",
-      "bytes": 17461,
+      "bytes": 14301,
       "mime": "text/plain",
-      "sha256": "8c615e95101a7cb5b5882c86f2cf42e8e2a5a7aa88fa4ef12773690a4243c02b"
+      "sha256": "f135c966d55d99033b53c4e70d7ee597ebe9d6f200aeb560bb9a71876a4eaf23"
     },
     {
       "root": "/home/ubuntu/upload",
@@ -6431,9 +6431,9 @@
     {
       "root": "/home/ubuntu/upload",
       "relativePath": "pasted_content_3.txt",
-      "bytes": 181654,
+      "bytes": 6384,
       "mime": "text/plain",
-      "sha256": "e7646709af564b0dadb5f6bfea73193f088f9469728e3e9951cd36d201569f70"
+      "sha256": "bc91ad3bd2326bdcde05ca337bfe8431e4746787dddcf431a65a34a24cb46d6c"
     },
     {
       "root": "/home/ubuntu/upload",

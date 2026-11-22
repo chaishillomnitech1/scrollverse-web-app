@@ -24,8 +24,8 @@ Use this as a structured ledger for future local work:
 | Lane | Local evidence/status | Next local action | External proof still needed |
 |---|---|---|---|
 | Homepage restoration | Implemented and checkpointed | Continue visual preview checks and route crosswalk maintenance | None for local code; domain availability is separate |
-| Media provenance | Inventory and SHA-256 receipts available | Maintain manifests and compare returned/exported bytes | Owner-provided expected hashes for any independent repair inventory |
-| 79 homepage records / 60 matching bytes | Existing project records are preserved; exact Muse inventory was not attached in this message | Ingest Muse’s 48-reference / 16-fingerprint inventory when supplied as a file | Source-specific expected hashes and mapping rules |
+| Media provenance | Inventory and SHA-256 receipts available; refreshed manifest covers 1,176 files / 2,740,663,722 bytes | Maintain manifests and compare returned/exported bytes | Owner-provided expected hashes for any independent repair inventory |
+| Muse repair inventory | `pasted_content_2.txt` and `pasted_content_3.txt` are accessioned as untrusted source records; all 17 extracted fingerprints from the inventory match current local records | Keep the source claim and current-runtime cross-check side by side | Complete 48-reference mapping and the historical 79/60 crosswalk remain separate evidence tasks |
 | AI Twin / Legion | Local UI preserves truthful provider-dependent states | Keep retry and unavailable states visible; no fabricated activation | Provider/backend evidence from the owner’s infrastructure |
 | Commerce/payment routes | Route surface preserved locally | Keep routes visible and source-labeled | Live provider, billing, checkout, and settlement evidence |
 | Publishing/registrations | Treated as creator-supplied statements | Preserve as metadata-only claims | Primary GitHub/Vydia/Zenodo/OpenTimestamps records if verification is requested |
@@ -67,4 +67,4 @@ Any future scheduled automation must be separately configured, observable, stopp
 
 ## What remains
 
-The remaining restoration lanes are primarily evidence and provider lanes: the Muse independent repair inventory and repair build report were referenced but not present as separate attachments here; the exact 79/60 crosswalk therefore remains pending. Custom-domain billing/availability, external AI backend activation, DNS cutover, payment settlement, marketplace/store publication, and external repository changes remain unclaimed until fresh primary evidence is available.
+The remaining restoration lanes are primarily evidence and provider lanes: the Muse independent repair inventory and repair build report are now accessioned, and the current runtime confirms 17/17 listed fingerprints against local files; the complete 48-reference mapping and exact 79/60 crosswalk remain pending because the supplied records describe different workspace snapshots. Custom-domain billing/availability, external AI backend activation, DNS cutover, payment settlement, marketplace/store publication, and external repository changes remain unclaimed until fresh primary evidence is available.
