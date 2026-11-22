@@ -44,6 +44,7 @@ const entries: Array<[string, string, string, string, ConnectorState, string?]> 
   ["cloudflare", "Edge infrastructure", "Cloudflare Workers Bindings", "manage Workers, KV, R2, D1, and Hyperdrive", ownerAuth],
   ["hugging-face", "AI research", "Hugging Face Hub", "search models, datasets, papers, and documentation", ownerAuth],
   ["heygen", "Avatar video", "HeyGen", "generate avatar videos with voices and gestures", ownerAuth],
+  ["higgsfield", "Cinematic production", "Higgsfield Inc.", "Generate cinematic images, videos, character-consistent assets, and campaign-ready visuals; first-use authorization may be required", available],
   ["zapier", "Automation", "Zapier", "search connected apps and execute configured workflows", ownerAuth],
   ["prisma-postgres", "Managed Postgres", "Prisma Postgres", "inspect tables, query SQL, backups, and migrations", ownerAuth],
   ["dify", "Workflow automation", "Dify", "trigger configured workflows and query integrated data", ownerAuth],
@@ -106,12 +107,12 @@ export const TOOL_SURFACE_COUNT = ENUMERATED_TOOL_SURFACE_COUNT;
 export const DISCOVERED_TOOL_SURFACE_COUNT = 424;
 export const AWAITING_ENUMERATION_COUNT = DISCOVERED_TOOL_SURFACE_COUNT - ENUMERATED_TOOL_SURFACE_COUNT;
 export const TRUTHFUL_STATE = "TRUTHFUL STATE";
-export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 79 ENUMERATED LOCALLY";
+export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 80 ENUMERATED LOCALLY";
 
 export const CONNECTOR_DIRECTORY_LABELS = [
   "MANUS TOOLS", "GMAIL", "GOOGLE CALENDAR", "OUTLOOK MAIL", "OUTLOOK CALENDAR", "SESSION REFERENCES", "HUBSPOT", "INTERCOM", "SENTRY", "TODOIST", "MINIMAX", "XERO", "NEON", "LINEAR", "WEBFLOW", "PAYPAL FOR BUSINESS", "ASANA", "WIX", "AIRTABLE", "STRIPE", "CLOUDFLARE", "HUGGING FACE", "HEYGEN", "ZAPIER", "PRISMA POSTGRES", "DIFY", "HANDOFF", "MANUS TASKS", "SLIDES", "TRIGGERS", "TRIP", "WORKFLOW",
 ] as const;
 
-if (ENUMERATED_TOOL_SURFACE_COUNT !== 79) {
-  throw new Error(`Connector surface must contain 79 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
+if (ENUMERATED_TOOL_SURFACE_COUNT !== 80) {
+  throw new Error(`Connector surface must contain 80 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
 }

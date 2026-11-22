@@ -8,7 +8,7 @@ describe("Phase 1039 — connector surface", () => {
   it("exposes the configured resource families and honest connector states", () => {
     for (const marker of [
       "CONNECTOR SURFACE",
-      "79 ENUMERATED LOCALLY",
+      "80 ENUMERATED LOCALLY",
       "CONNECTED",
       "OWNER AUTHORIZATION REQUIRED",
       "AVAILABLE",
