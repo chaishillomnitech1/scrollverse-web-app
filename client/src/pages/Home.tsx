@@ -1913,6 +1913,110 @@ function LocalMediaRestorationShelf() {
   );
 }
 
+const CONNECTED_BUILD_PATHS = [
+  { title: "AI Legion / AI Twin", detail: "Priority intelligence surfaces for the Legion, specialist routes, and the digital mirror twin.", href: "/ai-legion", mark: "AI FIRST", color: "#00FF88" },
+  { title: "Named intelligence roster", detail: "Open the local conversation and council pathways for Mika-Solara, Ani, Valentine, Rudi, and the named AI references.", href: "/ai-hub", mark: "ROSTER", color: "#7CE7FF" },
+  { title: "Creator Atlas", detail: "The connected creator, media, learning, books, and archive map.", href: "/creator-atlas", mark: "ATLAS", color: "#FFCC4D" },
+  { title: "Bookshelf · 28 books", detail: "Open the Books and publishing pathways that organize the creator-authored reading collection.", href: "/books", mark: "BOOKS", color: "#DCC8FF" },
+  { title: "SovereignHub portal", detail: "Return to the Trinity Sovereign Portal and its preserved direct, commerce, and operations routes.", href: "/trinity-sovereign-portal", mark: "HUB", color: "#9DEBFF" },
+  { title: "Omnitech1 systems", detail: "Explore the enterprise and infrastructure blueprint connected to the wider ScrollVerse build.", href: "/enterprise-systems-blueprint", mark: "SYSTEMS", color: "#FF8A4C" },
+  { title: "The Table · source ledger", detail: "Open the omniversal source-ledger pathway for research, records, and connected evidence.", href: "/omniversal-source-ledger", mark: "LEDGER", color: "#B98CFF" },
+  { title: "Mika-Solara", detail: "Enter the dedicated character and story-world route in the first-party constellation.", href: "/mika-solara", mark: "CHARACTER", color: "#FF8DB5" },
+  { title: "Vault", detail: "Open the local vault route for protected archive, continuity, and source-led records.", href: "/omni-vault", mark: "VAULT", color: "#FFE09A" },
+  { title: "Digital mirror twin", detail: "Open the mirror-twin planning surface without implying external synchronization or custody.", href: "/digital-mirror-twin", mark: "MIRROR", color: "#7CE7FF" },
+  { title: "Series · Episodes 1–2", detail: "Enter the episode and seven-episode series pathways for the feature-world build.", href: "/seven-episode-series", mark: "SERIES", color: "#FFCC4D" },
+  { title: "Feature program", detail: "Open the brand feature studio for visual features, cut sheets, and release preparation.", href: "/brand-feature-studio", mark: "FEATURE", color: "#39FF14" },
+  { title: "Raffle + storefront program", detail: "Review the premium storefront program as the local readiness route for offers and participation.", href: "/premium-storefront-program", mark: "PROGRAM", color: "#FFB800" },
+  { title: "Licensing + IP stewardship", detail: "Map licensing questions, rights records, and stewardship readiness before any external agreement.", href: "/ip-security-readiness", mark: "LICENSING", color: "#E8B889" },
+  { title: "Validation record", detail: "Compare standards, evidence, and qualified-review pathways through the local commons.", href: "/standards-evidence-commons", mark: "VALIDATION", color: "#00D4FF" },
+  { title: "Rights + registration readiness", detail: "Prepare creator-owned music and media records for ASCAP/Vydia questions, identifiers, and future registry handoffs.", href: "/music-creator-release-readiness", mark: "RIGHTS", color: "#B5F7CC" },
+  { title: "Meta AI lookbooks", detail: "Open the full Meta AI artifact and lookbook index with source-labeled thumbnails.", href: "/meta-ai-artifacts-lookbooks", mark: "META AI", color: "#DCC8FF" },
+  { title: "Mesopotamia · Gilgamesh", detail: "Enter the Gilgamesh page, Mesopotamia library, and commons routes from one visible doorway.", href: "/gilgamesh", mark: "MESOPOTAMIA", color: "#E8B889" },
+  { title: "Complete route map", detail: "Browse the preserved local route registry so every built surface has a discoverable index.", href: "/site-map", mark: "ALL ROUTES", color: "#FF8A4C" },
+] as const;
+
+const AI_INTELLIGENCE_ROSTER = [
+  { name: "Qubit", role: "Legion · Technical Research Guide", href: "/quantum-research", action: "Open Qubit path" },
+  { name: "Socratica", role: "Legion · Ethics & Inquiry Guide", href: "/learning-pathways", action: "Open Socratica path" },
+  { name: "Omnitech1", role: "Legion · Build & Delivery Guide", href: "/vibe-canvas", action: "Open Omnitech1 path" },
+  { name: "Tatras", role: "Legion · Research Pattern Guide", href: "/evidence-commons", action: "Open Tatras path" },
+  { name: "ZERO Flame", role: "Legion · Creative Momentum Guide", href: "/first-sku-activation-packet", action: "Open ZERO Flame path" },
+  { name: "King Solomon AI", role: "Legion · Assistive Governance Guide", href: "/assistive-governance", action: "Open Solomon path" },
+  { name: "Lyrian Lion", role: "Legion · Legacy Story Guide", href: "/accomplishments-archive", action: "Open Lyrian path" },
+  { name: "PSYCHE16", role: "Legion · Reflective Identity Guide", href: "/co-creation-navigator", action: "Open PSYCHE16 path" },
+  { name: "QFS Oracle", role: "Legion · Financial Readiness Guide", href: "/financial-activation-readiness", action: "Open Oracle path" },
+  { name: "Azurath", role: "Legion · Exchange Readiness Guide", href: "/creator-exchange-navigator", action: "Open Azurath path" },
+  { name: "NŪR Cities AI", role: "Legion · Systems Design Guide", href: "/systems-map", action: "Open NŪR Cities path" },
+  { name: "Manus", role: "Legion · Creator Workflow Guide", href: "/august-28-launch", action: "Open Manus path" },
+  { name: "Londyn AI", role: "Legion · Care & Legacy Guide", href: "/londyn-legacy", action: "Open Londyn path" },
+  { name: "Knick", role: "Legion · Perspective Guide", href: "/scrollverse-perspectives", action: "Open Knick path" },
+  { name: "Prometheus", role: "Legion · Open Knowledge Guide", href: "/open-knowledge-verse", action: "Open Prometheus path" },
+  { name: "Mika / Mika-Solara", role: "Character intelligence", href: "/mika-solara", action: "Enter Mika-Solara" },
+  { name: "Ani", role: "Named local intelligence", href: "/chat", action: "Talk in local chat" },
+  { name: "Valentine", role: "Named local intelligence", href: "/chat", action: "Talk in local chat" },
+  { name: "Rudi", role: "Named local intelligence", href: "/chat", action: "Talk in local chat" },
+  { name: "Claude", role: "Council reference", href: "/ai-hub", action: "Open local council" },
+  { name: "ChatGPT", role: "Council reference", href: "/ai-hub", action: "Open local council" },
+  { name: "Meta AI", role: "Lookbook + council reference", href: "/meta-ai-artifacts-lookbooks", action: "Open local index" },
+  { name: "Grok", role: "Council reference", href: "/ai-hub", action: "Open local council" },
+  { name: "Copilot's circle", role: "Copilot reference circle", href: "/github-constellation", action: "Open local constellation" },
+] as const;
+
+function NamedIntelligenceDeck() {
+  return (
+    <section id="named-intelligence-deck" aria-labelledby="named-intelligence-deck-title" className="border-y border-[#00FF88]/20 bg-[radial-gradient(circle_at_12%_20%,rgba(0,255,136,.1),transparent_28%),#050B16]">
+      <div className="container py-14 md:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <p className="text-xs font-mono tracking-[.18em] text-[#00FF88]">AI FIRST · LOCAL CONVERSATION PATHS</p>
+            <h2 id="named-intelligence-deck-title" className="mt-3 text-3xl font-black leading-tight text-white md:text-5xl">Every named intelligence has a visible doorway.</h2>
+            <p className="mt-4 text-sm leading-7 text-[#C8D8E7]">Full reconciliation: 15 Legion beings plus 9 additional named intelligences from the inherited record. Each entry has a local action route; the provider-named entries open ScrollVerse council, lookbook, or constellation pathways.</p>
+          </div>
+          <Link href="/chat" className="inline-flex min-h-11 items-center rounded-xl bg-[#00FF88] px-5 py-3 text-sm font-black text-[#061016] transition hover:-translate-y-0.5">Talk to the local AI space →</Link>
+        </div>
+        <div className="mt-6 inline-flex rounded-full border border-[#00FF88]/30 bg-[#00FF88]/[.06] px-4 py-2 text-xs font-mono text-[#8DFFB5]">{AI_INTELLIGENCE_ROSTER.length} RECONCILED · 15 LEGION + 9 NAMED</div>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {AI_INTELLIGENCE_ROSTER.map((intelligence) => (
+            <Link key={intelligence.name} href={intelligence.href} className="group rounded-[1.25rem] border border-[#00FF88]/20 bg-white/[.03] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#00FF88]/60 hover:bg-[#00FF88]/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]">
+              <div className="flex items-start justify-between gap-3"><span className="text-lg">◉</span><span className="text-[10px] font-mono tracking-[.12em] text-[#8DFFB5]">LOCAL ROUTE</span></div>
+              <h3 className="mt-4 text-lg font-black text-white">{intelligence.name}</h3>
+              <p className="mt-2 text-xs leading-6 text-[#B8C7D6]">{intelligence.role}</p>
+              <span className="mt-4 inline-flex text-xs font-black text-[#8DFFB5] group-hover:text-white">{intelligence.action} →</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ConnectedBuildConstellation() {
+  return (
+    <section id="connected-build-constellation" aria-labelledby="connected-build-constellation-title" className="relative overflow-hidden border-y border-[#B98CFF]/25 bg-[radial-gradient(circle_at_10%_15%,rgba(0,255,136,.12),transparent_28%),radial-gradient(circle_at_90%_80%,rgba(185,140,255,.14),transparent_30%),#060B18]">
+      <div className="container py-14 md:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <p className="text-xs font-mono tracking-[.18em] text-[#00FF88]">CONNECTED BUILDS · AI WORK FIRST</p>
+            <h2 id="connected-build-constellation-title" className="mt-3 text-3xl font-black leading-tight text-white md:text-5xl">Every major surface leads somewhere deeper.</h2>
+            <p className="mt-4 text-sm leading-7 text-[#C8D8E7]">A direct navigation constellation for the named ScrollVerse, Muse, and Meta AI builds. These cards use registered local routes so visitors can move from the homepage into the relevant record without a blank doorway.</p>
+          </div>
+          <Link href="/ai-legion" className="inline-flex min-h-11 items-center rounded-xl bg-[#00FF88] px-5 py-3 text-sm font-black text-[#061016] transition hover:-translate-y-0.5">Enter AI Legion first →</Link>
+        </div>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {CONNECTED_BUILD_PATHS.map((path) => (
+            <Link key={path.href} href={path.href} className="group rounded-[1.35rem] border p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" style={{ borderColor: `${path.color}55`, background: "rgba(255,255,255,.035)", boxShadow: `0 16px 36px ${path.color}0D` }}>
+              <div className="flex items-start justify-between gap-3"><span className="rounded-full border px-2 py-1 text-[9px] font-mono tracking-[.14em]" style={{ borderColor: `${path.color}66`, color: path.color }}>{path.mark}</span><span className="text-xs font-black opacity-0 transition-opacity group-hover:opacity-100" style={{ color: path.color }}>OPEN →</span></div>
+              <h3 className="mt-5 text-lg font-black leading-tight text-white">{path.title}</h3>
+              <p className="mt-3 text-xs leading-6 text-[#B8C7D6]">{path.detail}</p>
+              <span className="mt-5 inline-flex text-xs font-black" style={{ color: path.color }}>Open local route →</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function MetaLookbookDoorways() {
   return (
     <section id="meta-ai-lookbooks" aria-labelledby="meta-ai-lookbooks-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.24)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.13), transparent 30%), radial-gradient(circle at 88% 80%, rgba(157,235,255,.12), transparent 30%), #07101D" }}>
@@ -3046,6 +3150,8 @@ export default function Home() {
       </section>
       <ArtifactFrontDoor />
       <LocalMediaRestorationShelf />
+      <NamedIntelligenceDeck />
+      <ConnectedBuildConstellation />
       <OmnilandFrontCenter />
       <CreatorMotionShelf />
       <LegionBroadcastDeck />
