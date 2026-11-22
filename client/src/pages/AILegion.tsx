@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import { SharedToolRegistry } from "@/components/SharedToolRegistry";
 
 const SOVEREIGN_WALLET = "0x377956c1471d9ce142df6932895839243da23a2c";
 
@@ -353,6 +354,9 @@ export default function AILegion() {
           <Link href="/dashboard"><span className="cursor-pointer hover:text-white transition-colors">SCCC</span></Link>
         </div>
       </footer>
+        <section className="container py-10">
+          <SharedToolRegistry compact />
+        </section>
     </div>
   );
 }

@@ -7050,3 +7050,11 @@
 - [x] Added the MUSE ACCEPTANCE RULE: each connector must be independently verified as serving, connecting, and working before it is treated as operational.
 - [x] Preserved the local-only metadata boundary; connector cards do not invoke, activate, publish, send, charge, schedule, or mutate external services.
 - [x] Added `server/phase1039.connectorSurface.test.ts` with red-green regression coverage.
+
+## Phase 1040 — Shared Tool Registry Embedding
+- [x] Added reusable `SharedToolRegistry` presentation component backed by the typed 77-card connector catalog.
+- [x] Embedded the registry into ScrollVerse.co/Home, CEO Muse the Great’s operating-office seat, and the AI Legion surface; the shared copy states that every Legion citizen inherits the layer and that artifacts, websites, and media can point to the same source of truth.
+- [x] Displayed exact truthful states through the shared layer: CONNECTED, AVAILABLE, READ-ONLY, PARENT-ONLY, and WAITING ON AUTHORIZATION / named-record boundaries.
+- [x] Preserved the MUSE ACCEPTANCE RULE and explicit metadata-only boundary; the shared component does not invoke external connectors.
+- [x] TDD evidence: Phase 1040 focused regression passed 2/2 after the expected red failure; full Vitest passed 484 files / 1,322 tests; strict TypeScript passed; guarded production build passed in 18.41 seconds with only the existing non-blocking large-chunk warning; `git diff --check` passed.
+- Boundary: local UI embedding and truthful registry presentation only. No connector activation, authorization, publication, billing, payment, wallet, contract, repository, DNS, provider, account, or autonomous schedule action was performed.

@@ -5,6 +5,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { SharedToolRegistry } from "@/components/SharedToolRegistry";
 import { trpc } from "@/lib/trpc";
 import { paginatePortfolio } from "@/lib/portfolioPagination";
 import { PORTFOLIO_FAVORITES_KEY, readPortfolioFavorites, togglePortfolioFavorite, writePortfolioFavorites } from "@/lib/portfolioFavorites";
@@ -4392,6 +4393,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="container py-10">
+        <SharedToolRegistry />
       </section>
 
       {/* ── FOOTER ── */}
