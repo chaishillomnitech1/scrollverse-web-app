@@ -6898,3 +6898,16 @@
 - [x] Add `server/phase1017.receiptAndRetryPolish.test.ts`; focused regression passed 2/2.
 - [x] Full verification passed: Vitest, strict TypeScript, guarded production build in 17.05s, reusable-skill validation, and `git diff --check`.
 - Boundary: no supplied attachment body was executed, interpreted, extracted, rendered, transformed, uploaded, embedded, or treated as independently verified; no wallet, billing, payment, contract, account, provider, or repository write was performed.
+
+
+## Phase 1018 — Theme, Navigation, and Contact Readiness
+- [x] Add persistent light/dark theme state, smooth reduced-motion-safe navigation feedback, and browser-local contact validation with explicit mailto preparation language.
+- [x] Repair specialist routing and deployment URL normalization without changing payment-route visibility or performing external actions.
+- [x] Verification passed: focused regressions, full Vitest, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; only the existing non-blocking large runtime chunk warning remains.
+
+## Phase 1019 — Thumbnail-First Artifact Front Door
+- [x] Add one compact homepage shelf combining the first eight visual doorway records with up to four hosted theater screenings.
+- [x] Make every card clickable with stable thumbnails, descriptive labels, visible OPEN/PLAY affordances, resilient `SourceVisual` fallbacks, and direct full-record routes.
+- [x] Add a keyboard-activated detail viewer with Escape and close-button behavior; render visitor-controlled video only when a hosted source exists using `controls`, `preload="none"`, `playsInline`, and no autoplay.
+- [x] Verification passed: focused Phase 1019 2/2, full Vitest 466 files / 1269 tests, strict TypeScript, guarded production build exit 0, reusable-skill validation, `git diff --check`, and desktop/mobile local preview review.
+- [x] Saved managed WebDev checkpoint `7dc90255`; supplied source bodies remain metadata-only and no external upload, wallet, billing, payment, contract, account, repository write, or publication action was performed.
