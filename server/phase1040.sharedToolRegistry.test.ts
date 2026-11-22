@@ -25,7 +25,7 @@ describe("Phase 1040 — shared tool registry embedding", () => {
 
   it("records the observed 424-card directory separately from the locally enumerated catalog", () => {
     expect(DISCOVERED_TOOL_SURFACE_COUNT).toBe(424);
-    expect(ENUMERATED_TOOL_SURFACE_COUNT).toBe(78);
+    expect(ENUMERATED_TOOL_SURFACE_COUNT).toBe(79);
     expect(files[0]).toContain("AWAITING ENUMERATION");
     expect(files[0]).toContain("424 OBSERVED CARDS");
   });

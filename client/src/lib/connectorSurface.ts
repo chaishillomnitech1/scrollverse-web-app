@@ -96,6 +96,7 @@ const entries: Array<[string, string, string, string, ConnectorState, string?]> 
   ["workflow-reduce", "Result aggregation", "Workflow", "aggregate deterministic subtask results", available],
   ["connector-export", "Connector export", "ScrollVerse local registry", "export the current connector surface as metadata", connected],
   ["shopify-xlviiiblocks", "Storefront admin", "Shopify · XLVIIIblocks", "review storefront products, orders, discounts, and pre-order or rewards readiness after owner sign-in", ownerAuth, "https://admin.shopify.com/store/juv8tg-1n"],
+  ["paypal-payments", "PayPal Checkout", "PayPal for Business", "stage checkout, order capture, refunds, and payment reconciliation after owner authorization or sign-in", ownerAuth],
 ];
 
 export const connectorToolSurface: ConnectorCapability[] = entries.map(([id, name, connector, canDo, state, adminUrl]) => ({ id, name, connector, connectsTo: connector, canDo, state, ...(adminUrl ? { adminUrl } : {}) }));
@@ -105,12 +106,12 @@ export const TOOL_SURFACE_COUNT = ENUMERATED_TOOL_SURFACE_COUNT;
 export const DISCOVERED_TOOL_SURFACE_COUNT = 424;
 export const AWAITING_ENUMERATION_COUNT = DISCOVERED_TOOL_SURFACE_COUNT - ENUMERATED_TOOL_SURFACE_COUNT;
 export const TRUTHFUL_STATE = "TRUTHFUL STATE";
-export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 78 ENUMERATED LOCALLY";
+export const TOOL_SURFACE_LABEL = "424 OBSERVED CARDS · 79 ENUMERATED LOCALLY";
 
 export const CONNECTOR_DIRECTORY_LABELS = [
   "MANUS TOOLS", "GMAIL", "GOOGLE CALENDAR", "OUTLOOK MAIL", "OUTLOOK CALENDAR", "SESSION REFERENCES", "HUBSPOT", "INTERCOM", "SENTRY", "TODOIST", "MINIMAX", "XERO", "NEON", "LINEAR", "WEBFLOW", "PAYPAL FOR BUSINESS", "ASANA", "WIX", "AIRTABLE", "STRIPE", "CLOUDFLARE", "HUGGING FACE", "HEYGEN", "ZAPIER", "PRISMA POSTGRES", "DIFY", "HANDOFF", "MANUS TASKS", "SLIDES", "TRIGGERS", "TRIP", "WORKFLOW",
 ] as const;
 
-if (ENUMERATED_TOOL_SURFACE_COUNT !== 78) {
-  throw new Error(`Connector surface must contain 78 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
+if (ENUMERATED_TOOL_SURFACE_COUNT !== 79) {
+  throw new Error(`Connector surface must contain 79 locally enumerated capability cards; found ${ENUMERATED_TOOL_SURFACE_COUNT}`);
 }
