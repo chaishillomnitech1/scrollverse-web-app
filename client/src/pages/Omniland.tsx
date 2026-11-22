@@ -185,6 +185,28 @@ function OmnilandMarketPosture() {
   );
 }
 
+function FiveWayCoverageRegister() {
+  const legs = [
+    { label: "MANUS BUILD RECORD", detail: "Checkpoint, source receipt, route, and verification evidence held in the local Manus project.", state: "LOCAL RECEIPT", accent: "#A7EEFF" },
+    { label: "MUSE RECORD", detail: "Parallel Muse accession and continuity record, reconciled only when the underlying receipt is available.", state: "PREPARED METADATA", accent: "#B5F7CC" },
+    { label: "GIT REGISTRY", detail: "Repository, commit, branch, or archive reference when supplied and locally observable; no push is implied.", state: "LOCAL RECEIPT", accent: "#FFE09A" },
+    { label: "VYDIA COMPOSITION", detail: "Composition, release, UPC/ISRC, and distribution metadata lane for authorized catalog handoff.", state: "EXTERNAL REGISTRATION · NOT REGISTERED HERE", accent: "#FFB7CF" },
+    { label: "ASCAP / PRO METADATA", detail: "Performance-rights organization and publisher/work metadata lane, kept distinct from Vydia distribution records.", state: "EXTERNAL REGISTRATION · NOT REGISTERED HERE", accent: "#DCC8FF" },
+    { label: "COPYRIGHT DOCUMENTATION", detail: "Work identity, authorship, dates, hashes, and deposit/registration preparation without claiming a completed filing.", state: "PREPARED METADATA", accent: "#FFCC4D" },
+  ] as const;
+
+  return (
+    <section className="container py-8" aria-labelledby="five-way-coverage-heading">
+      <div className="rounded-[2rem] border border-[#FFCC4D]/35 bg-[radial-gradient(circle_at_12%_12%,rgba(255,204,77,.13),transparent_30%),radial-gradient(circle_at_88%_88%,rgba(185,140,255,.12),transparent_32%),#071426] p-6 md:p-9">
+        <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-mono tracking-[.2em] text-[#FFE09A]">PROVENANCE REGISTER</p><h2 id="five-way-coverage-heading" className="mt-3 text-3xl font-black md:text-4xl">FIVE-WAY COVERAGE · EVERY WORK</h2></div><span className="rounded-full border border-[#FFCC4D]/35 bg-[#FFCC4D]/10 px-3 py-1.5 text-[10px] font-mono tracking-[.12em] text-[#FFE09A]">DOCUMENT · PROTECT · PRESENT</span></div>
+        <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Each design, doctrine, page, and record can carry a six-leg evidence view: Manus, Muse, Git, Vydia, ASCAP/PRO, and copyright documentation. The register keeps local receipts complete while clearly separating prepared metadata from external registrations that have not been performed here.</p>
+        <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">{legs.map((leg) => <article key={leg.label} className="rounded-2xl border border-white/10 bg-[#030914]/65 p-5"><div className="flex items-start justify-between gap-3"><h3 className="text-sm font-black leading-tight" style={{ color: leg.accent }}>{leg.label}</h3><span className="max-w-[12rem] text-right text-[9px] font-mono leading-4 text-[#C8D8E7]">{leg.state}</span></div><p className="mt-3 text-xs leading-6 text-[#C8D8E7]">{leg.detail}</p></article>)}</div>
+        <p className="mt-5 text-[11px] leading-5 text-[#B8C7D6]">A hash identifies observed bytes; it does not by itself prove ownership, rights clearance, registration, publication, or commercial availability. External Vydia, ASCAP/PRO, copyright, repository, and Muse actions remain separately evidenced gates.</p>
+      </div>
+    </section>
+  );
+}
+
 export default function Omniland() {
   useSovereignHeartbeat({ page: "omniland" });
 
@@ -216,6 +238,8 @@ export default function Omniland() {
       <OmnilandScopeCharter />
 
       <OmnilandMarketPosture />
+
+      <FiveWayCoverageRegister />
 
       <section id="worlds" className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">THREE WAYS IN</p><h2 className="mt-3 text-4xl font-black md:text-5xl">Choose your world.</h2></div><p className="max-w-xl text-sm leading-7 text-[#C8D8E7]">Each world is a first-party entry to a distinct ScrollVerse creative lane—cinema and animation, playable concept systems, or story-world archives.</p></div>

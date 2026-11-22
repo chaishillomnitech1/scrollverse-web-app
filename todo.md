@@ -7036,3 +7036,9 @@
 - [x] Preserve the partner/licensing gate and explicitly avoid claiming universal device support, third-party rights clearance, pricing commitments, financial outcomes, or activated integrations.
 - [x] TDD evidence: the Phase 1037 regression failed before implementation, then passed 1/1 after implementation.
 - Boundary: local UI and source-led market posture only. Partner contracts, licensing, system integrations, third-party rights verification, pricing commitments, financial infrastructure, publication, and external activation remain separate gates.
+
+## Phase 1038 — Five-Way Coverage and Provenance Register
+- [x] Add a visible six-leg provenance register for Manus build records, Muse records, Git registry evidence, Vydia composition metadata, ASCAP / PRO metadata, and copyright documentation.
+- [x] Distinguish LOCAL RECEIPT, PREPARED METADATA, and EXTERNAL REGISTRATION · NOT REGISTERED HERE states; keep hashes and records from being treated as proof of ownership, rights clearance, publication, or registration.
+- [x] TDD evidence: the Phase 1038 regression failed before implementation, then passed 1/1 after implementation.
+- Boundary: local provenance presentation and metadata planning only. Vydia, ASCAP/PRO, copyright filing, repository, Muse, publication, licensing, payment, wallet, contract, account, provider, and external actions remain separately evidenced gates.
