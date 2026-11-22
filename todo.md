@@ -7013,3 +7013,12 @@
 - [x] Accession the verified local `Playable-Game-Ui-Sovereign.html` byte artifact as `BUILD-PLAYABLE-GAME-UI-SOVEREIGN` with 4,874,590 bytes and SHA-256 `656e5c5503312c1f599351326e51a08bdb6b7ec3af3bb74784a6842f20f18c79`; expose it as a `LOCAL DOWNLOAD RECORD · NOT HOSTED` entry with its known `/game-worlds-studio` build route, never as a fabricated public file URL.
 - [x] TDD evidence: focused Phase 1034 regression passed 3/3 after the expected red failure; the source bytes and SHA-256 were reverified.
 - Boundary: local UI, typed catalog, metadata/source-record presentation, and verification only. Muse’s parallel sizzle, unhosted catalog clips, Instagram footage, external publication, billing, payment, wallet, contract, account, repository, DNS, provider, and autonomous schedule lanes remain separate and unchecked.
+
+## Phase 1035 — Omniland Player-Owned Input and Umbrella Partner Lane
+- [x] Add typed, SSR-safe input compatibility helpers for console pads, Oculus / Meta XR, TV, phone, keyboard, and touch.
+- [x] Detect only browser-reported Gamepad API, WebXR, WebGPU, PWA, and touch signals; distinguish `detected`, `available`, `browser support signal`, and `fallback` states.
+- [x] Add the accessible `BRING YOUR OWN INPUT` section with `NO PROPRIETARY CONTROLLER`, WebGPU/PWA client language, Gamepad API/WebXR signaling, and keyboard/touch fallback.
+- [x] Record the Omniland umbrella’s direct console-less lane and stream-compatible `PARTNER / LICENSING LANE` for established game systems, licenses, imports, and console-less versions; partner activation remains unclaimed.
+- [x] Preserve thumbnail-first and native visitor-controlled playback boundaries; no proprietary-controller purchase path added.
+- [x] TDD evidence: Phase 1035 failed before the helper/page implementation, passed 3/3 after implementation, and the complete suite then passed 480 files / 1,314 tests; strict TypeScript passed; guarded production build passed with only the existing non-blocking large-chunk warning; `git diff --check` passed.
+- Boundary: local UI, browser capability signaling, typed product direction, and verification only. No external partnership, licensing activation, hosting, billing, payment, wallet, contract, account, repository, DNS, provider, publication, or autonomous schedule action was performed.

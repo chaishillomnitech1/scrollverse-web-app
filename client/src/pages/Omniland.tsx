@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
 import { gameBuildArtifacts, gamePreviewBuildRoutes, gamePreviewGenres, gamePreviewRecords, type GamePreviewGenre } from "@/lib/omnilandGamePreview";
+import { capabilityStateForMode, detectOmnilandCapabilities, inputCompatibilityModes } from "@/lib/omnilandInputCompatibility";
 
 const HERO = "/manus-storage/omniland-hero_78e42db3.png";
 
@@ -100,6 +101,51 @@ function GamePreviewBoard() {
   );
 }
 
+function BringYourOwnInput() {
+  const capabilities = detectOmnilandCapabilities();
+
+  return (
+    <section id="bring-your-own-input" className="container py-8" aria-labelledby="bring-your-own-input-heading">
+      <div className="overflow-hidden rounded-[2rem] border border-[#00D4FF]/30 bg-[radial-gradient(circle_at_88%_12%,rgba(0,212,255,.14),transparent_34%),radial-gradient(circle_at_10%_90%,rgba(0,255,136,.1),transparent_32%),#071426] p-6 md:p-9">
+        <div className="grid gap-8 xl:grid-cols-[.8fr_1.2fr] xl:items-start">
+          <div>
+            <p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">PLAYER-OWNED DEVICE COMPATIBILITY</p>
+            <h2 id="bring-your-own-input-heading" className="mt-3 text-4xl font-black md:text-5xl">BRING YOUR OWN INPUT</h2>
+            <p className="mt-4 text-base font-black leading-7 text-[#FFE09A]">NO PROPRIETARY CONTROLLER.</p>
+            <p className="mt-3 max-w-xl text-sm leading-7 text-[#D6E2EE]">Omniland ships no proprietary controller and does not create a hardware purchase path. Use the input you already own: console pads, Oculus / Meta headsets and glasses, TV, phone, keyboard, or touch.</p>
+            <p className="mt-3 max-w-xl text-xs leading-6 text-[#B8C7D6]">The client is designed around WebGPU/PWA language, the browser Gamepad API, and WebXR capability signaling. These labels report browser support signals only; they never claim access to a device that has not been detected.</p>
+            <div className="mt-5 grid gap-2 sm:grid-cols-2" aria-label="Browser capability signals">
+              {[{ label: "Gamepad API", value: capabilities.gamepadApi ? "detected" : "browser support signal" }, { label: "WebXR", value: capabilities.webXr ? "detected" : "browser support signal" }, { label: "WebGPU", value: capabilities.webGpu ? "available" : "browser support signal" }, { label: "PWA client", value: capabilities.pwa ? "detected" : "available" }].map((signal) => <div key={signal.label} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2"><p className="text-[10px] font-mono tracking-[.12em] text-[#9DEBFF]">{signal.label}</p><p className="mt-1 text-xs font-black text-[#B5F7CC]">{signal.value}</p></div>)}
+            </div>
+          </div>
+          <div>
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><p className="text-xs font-mono tracking-[.16em] text-[#A7EEFF]">INPUT MODES</p><span className="text-xs font-mono text-[#B8C7D6]">KEYBOARD / TOUCH FALLBACK INCLUDED</span></div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{inputCompatibilityModes.map((mode) => <article key={mode.id} className="rounded-2xl border border-white/10 bg-[#030914]/65 p-4 transition hover:-translate-y-0.5 hover:border-[#00FF88]/50 motion-reduce:transform-none"><div className="flex items-start justify-between gap-3"><h3 className="text-sm font-black leading-tight">{mode.label}</h3><span className="rounded-full border border-[#00FF88]/30 bg-[#00FF88]/10 px-2 py-1 text-[9px] font-mono text-[#B5F7CC]">{capabilityStateForMode(mode, capabilities)}</span></div><p className="mt-3 text-xs leading-6 text-[#C8D8E7]">{mode.detail}</p></article>)}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OmnilandUmbrellaLanes() {
+  return (
+    <section className="container py-8" aria-labelledby="umbrella-lanes-heading">
+      <div className="rounded-[2rem] border border-[#FFCC4D]/30 bg-[linear-gradient(120deg,rgba(255,204,77,.08),rgba(0,212,255,.06)),#071426] p-6 md:p-9">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div><p className="text-xs font-mono tracking-[.2em] text-[#FFE09A]">OMNILAND UMBRELLA</p><h2 id="umbrella-lanes-heading" className="mt-3 text-3xl font-black md:text-4xl">Direct play and partner play can share one world.</h2></div>
+          <span className="rounded-full border border-[#FFCC4D]/35 bg-[#FFCC4D]/10 px-3 py-1.5 text-[10px] font-mono tracking-[.12em] text-[#FFE09A]">STREAM-COMPATIBLE DIRECTION</span>
+        </div>
+        <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Omniland is an umbrella, not only a competitor: the direct lane is our own console-less system, while the partner lane makes room for established game systems to stream, partner, license, and import compatible system experiences into the same tech.</p>
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <article className="rounded-2xl border border-[#00FF88]/30 bg-[#030914]/55 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#B5F7CC]">DIRECT LANE</p><h3 className="mt-2 text-2xl font-black">Our console-less system</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">Build browser-first worlds on the Omniland umbrella with player-owned inputs, WebGPU/PWA client language, Gamepad API support, WebXR signaling, and keyboard/touch fallback.</p><span className="mt-4 inline-flex rounded-full border border-[#00FF88]/25 bg-[#00FF88]/10 px-3 py-1.5 text-[10px] font-mono text-[#B5F7CC]">LOCAL BUILD DIRECTION</span></article>
+          <article className="rounded-2xl border border-[#9DEBFF]/30 bg-[#030914]/55 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#A7EEFF]">PARTNER / LICENSING LANE</p><h3 className="mt-2 text-2xl font-black">Established systems can come in</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">The partner lane is stream-compatible: established game systems can partner in, licenses can be honored, their systems can be imported under the console-less umbrella, and console-less versions can be built for all game systems.</p><span className="mt-4 inline-flex rounded-full border border-[#9DEBFF]/25 bg-[#9DEBFF]/10 px-3 py-1.5 text-[10px] font-mono text-[#A7EEFF]">PARTNER PATH · NOT ACTIVATED</span></article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Omniland() {
   useSovereignHeartbeat({ page: "omniland" });
 
@@ -123,6 +169,10 @@ export default function Omniland() {
       <section className="container py-9"><PortalTrustLens lane="Omniland Discovery World" source="Existing ScrollVerse Omniland, story, game, film, visual-artifact, and connected-source routes; owner-supplied Manus portal and shared-source destinations; and original Omniland visual assets created for this page." readiness="This browser-local discovery world and its linked first-party routes are available now. Each external source opens separately and carries its own current experience, access, and release context." boundary="Omniland presents creator concepts, source trails, and visitor pathways. Media publication, account access, commerce, platform partnerships, game releases, provider actions, and external operations each continue through their dedicated record." /></section>
 
       <GamePreviewBoard />
+
+      <BringYourOwnInput />
+
+      <OmnilandUmbrellaLanes />
 
       <section id="worlds" className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">THREE WAYS IN</p><h2 className="mt-3 text-4xl font-black md:text-5xl">Choose your world.</h2></div><p className="max-w-xl text-sm leading-7 text-[#C8D8E7]">Each world is a first-party entry to a distinct ScrollVerse creative lane—cinema and animation, playable concept systems, or story-world archives.</p></div>
