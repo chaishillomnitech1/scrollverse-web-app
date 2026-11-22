@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { theaterScreenings } from "../client/src/lib/metaLegionArchive";
-import { gamePreviewGenres, gamePreviewRecords } from "../client/src/lib/omnilandGamePreview";
+import { gameBuildArtifacts, gamePreviewGenres, gamePreviewRecords } from "../client/src/lib/omnilandGamePreview";
 
 const page = readFileSync("client/src/pages/Omniland.tsx", "utf8");
 
@@ -33,5 +33,18 @@ describe("Phase 1034 — Omniland live game-preview build", () => {
     expect(page).not.toContain("Instagram reel playable");
     expect(gamePreviewRecords.filter((record) => record.sourceUrl).every((record) => record.sourceLabel === "CONFIRMED THEATER MEDIA")).toBe(true);
     expect(gamePreviewRecords.filter((record) => !record.sourceUrl).every((record) => record.sourceLabel === "LOCAL CATALOG RECORD")).toBe(true);
+  });
+
+  it("indexes concrete local build artifacts without presenting them as hosted downloads", () => {
+    expect(page).toContain("LOCAL BUILD ARTIFACTS");
+    expect(gameBuildArtifacts).toContainEqual(expect.objectContaining({
+      id: "BUILD-PLAYABLE-GAME-UI-SOVEREIGN",
+      filename: "Playable-Game-Ui-Sovereign.html",
+      bytes: 4874590,
+      sha256: "656e5c5503312c1f599351326e51a08bdb6b7ec3af3bb74784a6842f20f18c79",
+      availability: "LOCAL DOWNLOAD RECORD · NOT HOSTED",
+    }));
+    expect(page).toContain("NOT HOSTED");
+    expect(page).not.toContain('href="file:///home/ubuntu/upload');
   });
 });

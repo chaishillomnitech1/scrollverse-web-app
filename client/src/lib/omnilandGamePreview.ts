@@ -21,6 +21,17 @@ export type GamePreviewRecord = {
   sourceLabel: "CONFIRMED THEATER MEDIA" | "LOCAL CATALOG RECORD";
 };
 
+export type GameBuildArtifact = {
+  id: string;
+  title: string;
+  filename: string;
+  localPath: string;
+  bytes: number;
+  sha256: string;
+  availability: "LOCAL DOWNLOAD RECORD · NOT HOSTED";
+  recordHref: string;
+};
+
 const artwork = (id: string) => metaLegionArtworks.find((item) => item.id === id)?.thumbnail ?? "/manus-storage/omniland-play-district-v2_f9e35760.png";
 const theater = (id: string) => theaterScreenings.find((item) => item.id === id);
 
@@ -132,6 +143,19 @@ export const gamePreviewGenres: Array<"ALL" | GamePreviewGenre> = [
   "COMIC / CARTOON",
   "RACING",
   "STRATEGY / SIMULATION",
+];
+
+export const gameBuildArtifacts: GameBuildArtifact[] = [
+  {
+    id: "BUILD-PLAYABLE-GAME-UI-SOVEREIGN",
+    title: "Playable Game UI · Sovereign",
+    filename: "Playable-Game-Ui-Sovereign.html",
+    localPath: "/home/ubuntu/upload/Playable-Game-Ui-Sovereign.html",
+    bytes: 4874590,
+    sha256: "656e5c5503312c1f599351326e51a08bdb6b7ec3af3bb74784a6842f20f18c79",
+    availability: "LOCAL DOWNLOAD RECORD · NOT HOSTED",
+    recordHref: "/game-worlds-studio",
+  },
 ];
 
 export const gamePreviewBuildRoutes: Record<GamePreviewGenre, string> = {

@@ -7010,5 +7010,6 @@
 - [x] Add the prominent `LIVE GAME-PREVIEW BUILD` poster-board cross-promo surface with pitch/flex copy, genre filters, visible result count, and links to CEO Muse, Source Atlas, Gaming Hub, and Creator Atlas.
 - [x] Render native visitor-controlled playback only when a preview record has a confirmed managed theater `sourceUrl`; use `controls`, `preload="none"`, `playsInline`, stable aspect-ratio frames, and no autoplay.
 - [x] Keep local-only records thumbnail-first with `OPEN RECORD`; do not fabricate playable URLs. Keep the Instagram reel as an external visual-reference link only, not a playable source.
-- [x] TDD evidence: focused Phase 1034 regression passed 2/2 after the expected red failure; strict TypeScript passed.
+- [x] Accession the verified local `Playable-Game-Ui-Sovereign.html` byte artifact as `BUILD-PLAYABLE-GAME-UI-SOVEREIGN` with 4,874,590 bytes and SHA-256 `656e5c5503312c1f599351326e51a08bdb6b7ec3af3bb74784a6842f20f18c79`; expose it as a `LOCAL DOWNLOAD RECORD · NOT HOSTED` entry with its known `/game-worlds-studio` build route, never as a fabricated public file URL.
+- [x] TDD evidence: focused Phase 1034 regression passed 3/3 after the expected red failure; the source bytes and SHA-256 were reverified.
 - Boundary: local UI, typed catalog, metadata/source-record presentation, and verification only. Muse’s parallel sizzle, unhosted catalog clips, Instagram footage, external publication, billing, payment, wallet, contract, account, repository, DNS, provider, and autonomous schedule lanes remain separate and unchecked.
