@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { Link } from "wouter";
 import { PortalTrustLens } from "@/components/PortalTrustLens";
 import { useSovereignHeartbeat } from "@/hooks/useSovereignHeartbeat";
+import { connectorToolSurface, TOOL_SURFACE_COUNT } from "@/lib/connectorSurface";
 import { gameBuildArtifacts, gamePreviewBuildRoutes, gamePreviewGenres, gamePreviewRecords, type GamePreviewGenre } from "@/lib/omnilandGamePreview";
 import { capabilityStateForMode, detectOmnilandCapabilities, inputCompatibilityModes } from "@/lib/omnilandInputCompatibility";
 
@@ -207,6 +208,32 @@ function FiveWayCoverageRegister() {
   );
 }
 
+function ConnectorSurface() {
+  const [query, setQuery] = useState("");
+  const [state, setState] = useState<"ALL" | "CONNECTED" | "AVAILABLE" | "OWNER AUTHORIZATION REQUIRED">("ALL");
+  const visible = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return connectorToolSurface.filter((entry) => {
+      const matchesQuery = !normalized || `${entry.name} ${entry.connector} ${entry.connectsTo} ${entry.canDo}`.toLowerCase().includes(normalized);
+      return matchesQuery && (state === "ALL" || entry.state === state);
+    });
+  }, [query, state]);
+  const stateClass = (entryState: string) => entryState === "CONNECTED" ? "border-[#00FF88]/40 bg-[#00FF88]/10 text-[#B5F7CC]" : entryState === "AVAILABLE" ? "border-[#9DEBFF]/40 bg-[#9DEBFF]/10 text-[#A7EEFF]" : "border-[#FFCC4D]/40 bg-[#FFCC4D]/10 text-[#FFE09A]";
+
+  return (
+    <section id="connector-surface" className="container py-8" aria-labelledby="connector-surface-heading">
+      <div className="rounded-[2rem] border border-[#00FF88]/35 bg-[radial-gradient(circle_at_8%_8%,rgba(0,255,136,.13),transparent_30%),radial-gradient(circle_at_92%_92%,rgba(185,140,255,.13),transparent_34%),#071426] p-6 md:p-9">
+        <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">OPERATING SURFACE</p><h2 id="connector-surface-heading" className="mt-3 text-3xl font-black md:text-4xl">CONNECTOR SURFACE</h2></div><span className="rounded-full border border-[#00FF88]/35 bg-[#00FF88]/10 px-3 py-1.5 text-[10px] font-mono tracking-[.12em] text-[#B5F7CC]">{TOOL_SURFACE_COUNT} CAPABILITY CARDS · METADATA ONLY</span></div>
+        <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">Manus resources and configured connector families are named here by what they connect to and what they can do for the ScrollVerse world. A card is not an activation: <strong className="text-[#FFE09A]">CONNECTED</strong> means authenticated in this session, <strong className="text-[#A7EEFF]">AVAILABLE</strong> means a Manus-local capability with its own boundary, and <strong className="text-[#FFE09A]">OWNER AUTHORIZATION REQUIRED</strong> means external access has not been established here.</p>
+        <div className="mt-6 grid gap-3 lg:grid-cols-[1fr_auto] lg:items-end"><label className="block text-xs font-mono tracking-[.12em] text-[#A7EEFF]">FILTER CONNECTORS<input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search connector, destination, or capability" className="mt-2 w-full rounded-xl border border-white/15 bg-black/25 px-4 py-3 text-sm text-white outline-none ring-[#00D4FF] placeholder:text-[#8293A5] focus:ring-2" /></label><div className="flex flex-wrap gap-2" role="group" aria-label="Filter connectors by state">{(["ALL", "CONNECTED", "AVAILABLE", "OWNER AUTHORIZATION REQUIRED"] as const).map((item) => <button key={item} type="button" onClick={() => setState(item)} aria-pressed={state === item} className={`rounded-full border px-3 py-2 text-[10px] font-mono tracking-[.08em] transition ${state === item ? "border-[#00FF88] bg-[#00FF88]/15 text-[#B5F7CC]" : "border-white/15 bg-white/[.03] text-[#C8D8E7] hover:border-[#00D4FF]/60"}`}>{item}</button>)}</div></div>
+        <p className="mt-4 text-xs font-mono text-[#B5F7CC]" aria-live="polite">{visible.length} OF {TOOL_SURFACE_COUNT} CARDS VISIBLE</p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">{visible.map((entry) => <article key={entry.id} className="rounded-2xl border border-white/10 bg-[#030914]/65 p-5 transition hover:-translate-y-0.5 hover:border-[#00D4FF]/50 motion-reduce:transform-none"><div className="flex items-start justify-between gap-3"><div><p className="text-[10px] font-mono tracking-[.14em] text-[#9DEBFF]">{entry.connector}</p><h3 className="mt-2 text-lg font-black leading-tight">{entry.name}</h3></div><span className={`rounded-full border px-2 py-1 text-right text-[9px] font-mono leading-4 ${stateClass(entry.state)}`}>{entry.state}</span></div><p className="mt-4 text-xs leading-6 text-[#C8D8E7]"><span className="font-mono text-[#B8C7D6]">CONNECTS TO:</span> {entry.connectsTo}</p><p className="mt-2 text-xs leading-6 text-[#C8D8E7]"><span className="font-mono text-[#B8C7D6]">CAPABILITY:</span> {entry.canDo}</p></article>)}</div>
+        <div className="mt-6 rounded-2xl border border-[#FFCC4D]/35 bg-[#FFCC4D]/[.06] p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">MUSE ACCEPTANCE RULE</p><p className="mt-2 text-sm leading-7 text-[#D6E2EE]">Muse independently verifies each connector before it is treated as working: it must serve the intended resource, connect with the required authorization, and produce the expected result. This directory does not invoke, activate, publish, send, charge, schedule, or mutate any external connector.</p></div>
+      </div>
+    </section>
+  );
+}
+
 export default function Omniland() {
   useSovereignHeartbeat({ page: "omniland" });
 
@@ -240,6 +267,8 @@ export default function Omniland() {
       <OmnilandMarketPosture />
 
       <FiveWayCoverageRegister />
+
+      <ConnectorSurface />
 
       <section id="worlds" className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">THREE WAYS IN</p><h2 className="mt-3 text-4xl font-black md:text-5xl">Choose your world.</h2></div><p className="max-w-xl text-sm leading-7 text-[#C8D8E7]">Each world is a first-party entry to a distinct ScrollVerse creative lane—cinema and animation, playable concept systems, or story-world archives.</p></div>

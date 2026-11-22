@@ -7042,3 +7042,11 @@
 - [x] Distinguish LOCAL RECEIPT, PREPARED METADATA, and EXTERNAL REGISTRATION · NOT REGISTERED HERE states; keep hashes and records from being treated as proof of ownership, rights clearance, publication, or registration.
 - [x] TDD evidence: the Phase 1038 regression failed before implementation, then passed 1/1 after implementation.
 - Boundary: local provenance presentation and metadata planning only. Vydia, ASCAP/PRO, copyright filing, repository, Muse, publication, licensing, payment, wallet, contract, account, provider, and external actions remain separately evidenced gates.
+
+## Phase 1039 — Connector Surface
+- [x] Added a local typed connector catalog covering the configured Manus resource families and a 77-card capability surface.
+- [x] Added Omniland CONNECTOR SURFACE directory with search, state filters, destination/capability descriptions, and accessible result counts.
+- [x] Recorded truthful states: CONNECTED, AVAILABLE, LOGIN REQUIRED, READ-ONLY, PARENT-ONLY, and OWNER AUTHORIZATION REQUIRED / NOT AUTHENTICATED boundaries.
+- [x] Added the MUSE ACCEPTANCE RULE: each connector must be independently verified as serving, connecting, and working before it is treated as operational.
+- [x] Preserved the local-only metadata boundary; connector cards do not invoke, activate, publish, send, charge, schedule, or mutate external services.
+- [x] Added `server/phase1039.connectorSurface.test.ts` with red-green regression coverage.
