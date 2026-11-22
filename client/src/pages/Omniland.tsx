@@ -146,6 +146,25 @@ function OmnilandUmbrellaLanes() {
   );
 }
 
+function OmnilandScopeCharter() {
+  return (
+    <section className="container py-8" aria-labelledby="omniland-scope-charter-heading">
+      <div className="rounded-[2rem] border border-[#B98CFF]/35 bg-[radial-gradient(circle_at_10%_10%,rgba(185,140,255,.14),transparent_34%),radial-gradient(circle_at_90%_90%,rgba(255,204,77,.1),transparent_34%),#071426] p-6 md:p-9">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div><p className="text-xs font-mono tracking-[.2em] text-[#DCC8FF]">OMNILAND SCOPE CHARTER</p><h2 id="omniland-scope-charter-heading" className="mt-3 text-3xl font-black md:text-4xl">One umbrella, separated lanes, clear guardrails.</h2></div>
+          <span className="rounded-full border border-[#FFCC4D]/35 bg-[#FFCC4D]/10 px-3 py-1.5 text-[10px] font-mono tracking-[.12em] text-[#FFE09A]">RESEARCH + DESIGN · NOT ACTIVATED</span>
+        </div>
+        <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">The promo and partner/licensing lane are designed to invite established game companies into the Omniland umbrella. Crypto-friendly exchange concepts are recorded as research and product-design directions, not as live financial infrastructure or a promise of value.</p>
+        <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          <article className="rounded-2xl border border-[#FFCC4D]/30 bg-[#030914]/60 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">CRYPTO / DIGITAL ASSET RESEARCH LANE</p><h3 className="mt-2 text-xl font-black">Game tokens, digital coins, NFTs</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">Research covers token utility, digital-asset records, NFT provenance, player rewards, custody, eligibility, and exchange integrations. Any live market, wallet, contract, or payout remains a separately gated owner/provider action.</p></article>
+          <article className="rounded-2xl border border-[#FF8DB5]/30 bg-[#030914]/60 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFB7CF]">ADULTS-ONLY AMENITIES DISTRICT</p><h3 className="mt-2 text-xl font-black">Age-gated commerce research</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">Adult film, trade / buy / sell commerce, exchange concepts, and potential casino experiences are isolated to an adults-only design lane with age gating, consent, moderation, jurisdiction review, and no access from children’s surfaces.</p><span className="mt-4 inline-flex rounded-full border border-[#FF8DB5]/25 bg-[#FF8DB5]/10 px-3 py-1.5 text-[10px] font-mono text-[#FFB7CF]">AGE-GATED · NOT ACTIVATED</span></article>
+          <article className="rounded-2xl border border-[#00FF88]/30 bg-[#030914]/60 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#B5F7CC]">CHILDREN'S CREATION DISTRICT</p><h3 className="mt-2 text-xl font-black">Learn, make, and play safely</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">Children can learn, help create games, and receive age-appropriate recognition for impact and creativity. This district is walled off from adult, casino, exchange, wallet, and token-trading lanes with child safety, privacy, moderation, and guardian-consent requirements built in.</p><span className="mt-4 inline-flex rounded-full border border-[#00FF88]/25 bg-[#00FF88]/10 px-3 py-1.5 text-[10px] font-mono text-[#B5F7CC]">WALLED OFF · CHILD-SAFE DESIGN LAW</span></article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Omniland() {
   useSovereignHeartbeat({ page: "omniland" });
 
@@ -173,6 +192,8 @@ export default function Omniland() {
       <BringYourOwnInput />
 
       <OmnilandUmbrellaLanes />
+
+      <OmnilandScopeCharter />
 
       <section id="worlds" className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">THREE WAYS IN</p><h2 className="mt-3 text-4xl font-black md:text-5xl">Choose your world.</h2></div><p className="max-w-xl text-sm leading-7 text-[#C8D8E7]">Each world is a first-party entry to a distinct ScrollVerse creative lane—cinema and animation, playable concept systems, or story-world archives.</p></div>

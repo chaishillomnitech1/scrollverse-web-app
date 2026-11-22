@@ -7022,3 +7022,10 @@
 - [x] Preserve thumbnail-first and native visitor-controlled playback boundaries; no proprietary-controller purchase path added.
 - [x] TDD evidence: Phase 1035 failed before the helper/page implementation, passed 3/3 after implementation, and the complete suite then passed 480 files / 1,314 tests; strict TypeScript passed; guarded production build passed with only the existing non-blocking large-chunk warning; `git diff --check` passed.
 - Boundary: local UI, browser capability signaling, typed product direction, and verification only. No external partnership, licensing activation, hosting, billing, payment, wallet, contract, account, repository, DNS, provider, publication, or autonomous schedule action was performed.
+
+## Phase 1036 — Omniland Scope Charter and Separated Safety Lanes
+- [x] Record the Omniland umbrella scope: promo-led partner/licensing direction, crypto-friendly game-token/digital-asset/NFT research, an age-gated adults-only amenities lane, and a walled-off children's creation district.
+- [x] Keep crypto, exchange, casino, adult-market, wallet, token, payout, and licensing concepts explicitly research/design-only and not activated; no live financial or adult service was created.
+- [x] Make the children's district a design law with child-safe learning/game creation, age-appropriate recognition, privacy, moderation, guardian consent, and separation from adult, casino, exchange, wallet, and token-trading lanes.
+- [x] TDD evidence: the new scope regression failed for missing markers, then passed 4/4 after implementation.
+- Boundary: local UI, scope documentation, safety architecture, and provenance-aware planning only. No Vydia registration, IP filing, crypto deployment, exchange execution, adult-content publication, casino operation, payment, wallet, contract, account, repository, DNS, provider, partnership, licensing, or autonomous action was performed.

@@ -39,4 +39,20 @@ describe("Phase 1035 — Omniland input compatibility", () => {
     expect(page).toContain("console-less versions");
     expect(page).toContain("licenses");
   });
+
+  it("records separated adult, crypto research, and children creation lanes", () => {
+    for (const marker of [
+      "OMNILAND SCOPE CHARTER",
+      "CRYPTO / DIGITAL ASSET RESEARCH LANE",
+      "ADULTS-ONLY AMENITIES DISTRICT",
+      "CHILDREN'S CREATION DISTRICT",
+      "AGE-GATED",
+      "WALLED OFF",
+      "Game tokens",
+      "NFTs",
+    ]) {
+      expect(page).toContain(marker);
+    }
+    expect(page).toContain("NOT ACTIVATED");
+  });
 });
