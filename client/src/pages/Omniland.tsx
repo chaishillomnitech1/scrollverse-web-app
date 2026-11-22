@@ -165,6 +165,26 @@ function OmnilandScopeCharter() {
   );
 }
 
+function OmnilandMarketPosture() {
+  return (
+    <section className="container py-8" aria-labelledby="omniland-market-posture-heading">
+      <div className="rounded-[2rem] border border-[#00D4FF]/35 bg-[radial-gradient(circle_at_88%_10%,rgba(0,212,255,.14),transparent_32%),radial-gradient(circle_at_8%_90%,rgba(255,204,77,.12),transparent_34%),#071426] p-6 md:p-9">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div><p className="text-xs font-mono tracking-[.2em] text-[#A7EEFF]">MARKET POSTURE</p><h2 id="omniland-market-posture-heading" className="mt-3 text-3xl font-black md:text-4xl">Show the tech. Source every number.</h2></div>
+          <span className="rounded-full border border-[#00FF88]/35 bg-[#00FF88]/10 px-3 py-1.5 text-[10px] font-mono tracking-[.12em] text-[#B5F7CC]">SOURCE-LED · NOT ACTIVATED</span>
+        </div>
+        <p className="mt-4 max-w-4xl text-sm leading-7 text-[#D6E2EE]">The product direction is universal compatibility: demonstrate samples across every game-system family the research can substantiate, beginning with Sizzle One, while the partner/licensing lane handles any system-specific rights and activation work.</p>
+        <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          <article className="rounded-2xl border border-[#00D4FF]/30 bg-[#030914]/60 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#A7EEFF]">UNIVERSAL COMPATIBILITY</p><h3 className="mt-2 text-xl font-black">EVERY GAME SYSTEM · RESEARCH TARGET</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">The board communicates the ambition to reach every known game-system family and lets visitors see representative samples. Compatibility is a product direction until each device, browser, stream, and partner path is individually tested.</p><span className="mt-4 inline-flex rounded-full border border-[#00D4FF]/25 bg-[#00D4FF]/10 px-3 py-1.5 text-[10px] font-mono text-[#A7EEFF]">DIRECTION · DEVICE TESTS REQUIRED</span></article>
+          <article className="rounded-2xl border border-[#FFCC4D]/30 bg-[#030914]/60 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#FFE09A]">SIZZLE ONE</p><h3 className="mt-2 text-xl font-black">First public sample</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">Sizzle One is the first sample on the poster board: a visual proof-of-concept for the experience, not a claim that every referenced game, system, or clip is cleared for public release.</p><span className="mt-4 inline-flex rounded-full border border-[#FFCC4D]/25 bg-[#FFCC4D]/10 px-3 py-1.5 text-[10px] font-mono text-[#FFE09A]">SAMPLE SURFACE · SOURCE RECORDS</span></article>
+          <article className="rounded-2xl border border-[#B98CFF]/30 bg-[#030914]/60 p-5"><p className="text-[10px] font-mono tracking-[.16em] text-[#DCC8FF]">PRICING + ANALYTICS RESEARCH</p><h3 className="mt-2 text-xl font-black">Expansion with receipts</h3><p className="mt-3 text-sm leading-6 text-[#C8D8E7]">Pricing, market analytics, quantum-computing exploration, and ecosystem expansion belong in a sourced research pack. Every number needs a dated source, method, and scope; no rights clearance or financial outcome is claimed here.</p><span className="mt-4 inline-flex rounded-full border border-[#B98CFF]/25 bg-[#B98CFF]/10 px-3 py-1.5 text-[10px] font-mono text-[#DCC8FF]">QUANTUM COMPUTING RESEARCH · NO RIGHTS CLEARANCE CLAIM</span></article>
+        </div>
+        <p className="mt-5 text-[11px] leading-5 text-[#B8C7D6]">Research/design only and not activated: partner contracts, licensing, system integrations, pricing commitments, financial infrastructure, and third-party rights verification remain separate gates.</p>
+      </div>
+    </section>
+  );
+}
+
 export default function Omniland() {
   useSovereignHeartbeat({ page: "omniland" });
 
@@ -194,6 +214,8 @@ export default function Omniland() {
       <OmnilandUmbrellaLanes />
 
       <OmnilandScopeCharter />
+
+      <OmnilandMarketPosture />
 
       <section id="worlds" className="container py-8">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-mono tracking-[.2em] text-[#B5F7CC]">THREE WAYS IN</p><h2 className="mt-3 text-4xl font-black md:text-5xl">Choose your world.</h2></div><p className="max-w-xl text-sm leading-7 text-[#C8D8E7]">Each world is a first-party entry to a distinct ScrollVerse creative lane—cinema and animation, playable concept systems, or story-world archives.</p></div>
