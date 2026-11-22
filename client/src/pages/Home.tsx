@@ -1762,6 +1762,63 @@ const META_LOOKBOOK_DOORWAYS = [
   { href: "/meta-ai-artifacts-lookbooks", title: "Zebra Brand · Free Name Toggle", detail: "Enter the source-labeled Zebra / ZER(B)RA artifact shelf with the voiced, both, and silent presentation concepts.", mark: "ZEBRA", src: SUN_XIX_CDN, accent: "#F4F4F5" },
 ] as const;
 
+const ARTIFACT_FRONT_DOOR_ITEMS = [
+  ...META_LOOKBOOK_DOORWAYS.slice(0, 8).map((item, index) => ({
+    id: `artifact-${index + 1}-${item.mark.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+    title: item.title,
+    detail: item.detail,
+    image: item.src,
+    video: undefined as string | undefined,
+    href: item.href,
+    accent: item.accent,
+    kind: "VISUAL ARTIFACT" as const,
+  })),
+  ...theaterScreenings.slice(0, 4).map((item) => ({
+    id: `screening-${item.id}`,
+    title: item.title,
+    detail: item.description,
+    image: item.poster,
+    video: item.video,
+    href: "/meta-ai-legion-archive",
+    accent: "#9DEBFF",
+    kind: "PLAYABLE THEATER" as const,
+  })),
+];
+
+function ArtifactFrontDoor() {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selected = ARTIFACT_FRONT_DOOR_ITEMS.find((item) => item.id === selectedId) ?? null;
+  useEffect(() => {
+    if (!selected) return;
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setSelectedId(null); };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [selected]);
+  return (
+    <section id="artifact-front-door" aria-labelledby="artifact-front-door-title" className="relative overflow-hidden border-y border-[#FFCC4D]/25 bg-[radial-gradient(circle_at_12%_18%,rgba(255,204,77,.16),transparent_30%),radial-gradient(circle_at_88%_78%,rgba(0,255,136,.12),transparent_30%),#050B18]">
+      <div className="container py-12 md:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-mono tracking-[.18em] text-[#FFCC4D]">SCROLLVERSE ARTIFACT FRONT DOOR</p>
+            <h2 id="artifact-front-door-title" className="mt-3 text-3xl font-black leading-tight text-white md:text-5xl">See it. Open it. Play it.</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#C8D8E7]">One visual shelf for the creator’s worlds, lookbooks, comics, and playable theater references.</p>
+          </div>
+          <span className="rounded-full border border-[#00FF88]/35 bg-[#00FF88]/10 px-3 py-2 text-[10px] font-mono tracking-[.14em] text-[#B5F7CC]">{ARTIFACT_FRONT_DOOR_ITEMS.length} ARTIFACTS · CLICK TO OPEN</span>
+        </div>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {ARTIFACT_FRONT_DOOR_ITEMS.map((item) => (
+            <button key={item.id} type="button" onClick={() => setSelectedId(item.id)} className="group overflow-hidden rounded-[1.45rem] border bg-white/[.025] text-left transition duration-300 hover:-translate-y-1 hover:bg-white/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" style={{ borderColor: `${item.accent}55` }} aria-label={`Open artifact ${item.title}`}>
+              <span aria-label="Artifact thumbnail" className="block"><SourceVisual src={item.image} alt={`${item.title} thumbnail`} title={item.title} mark={item.kind} className="aspect-[4/3] w-full transition duration-300 group-hover:scale-[1.03]" /></span>
+              <div className="p-4"><div className="flex items-center justify-between gap-2"><span className="text-[10px] font-mono tracking-[.12em]" style={{ color: item.accent }}>{item.kind}</span><span className="text-xs font-black text-white">{item.video ? "▶ PLAY" : "OPEN ↗"}</span></div><h3 className="mt-2 text-base font-black text-white">{item.title}</h3></div>
+            </button>
+          ))}
+        </div>
+      </div>
+      {selected && <div role="dialog" aria-modal="true" aria-labelledby="artifact-viewer-title" className="fixed inset-0 z-[70] grid place-items-center bg-[#02050de8] p-4" onClick={() => setSelectedId(null)}><div className="max-h-[94vh] w-full max-w-5xl overflow-auto rounded-[2rem] border border-[#FFCC4D]/40 bg-[#081223] p-5 shadow-2xl md:p-7" onClick={(event) => event.stopPropagation()}><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-mono tracking-[.16em] text-[#FFCC4D]">{selected.kind}</p><h2 id="artifact-viewer-title" className="mt-2 text-2xl font-black text-white md:text-4xl">{selected.title}</h2></div><button type="button" onClick={() => setSelectedId(null)} className="min-h-11 rounded-xl border border-white/20 px-4 text-sm font-black text-white focus-visible:outline-2 focus-visible:outline-[#FFCC4D]">Close artifact viewer</button></div><div className="mt-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/40 p-3">{selected.video ? <video className="aspect-video w-full rounded-xl bg-black object-contain" controls preload="none" poster={selected.image} aria-label={selected.title} playsInline><source src={selected.video} type="video/mp4" />Your browser does not support this video.</video> : <SourceVisual src={selected.image} alt={`${selected.title} full-size thumbnail`} title={selected.title} mark={selected.kind} className="min-h-72 w-full rounded-xl" />}</div><div className="mt-5 flex flex-wrap items-center justify-between gap-3"><p className="text-sm leading-6 text-[#D6E2EE]">{selected.detail}</p>{selected.video && <span className="rounded-full border border-[#00FF88]/35 bg-[#00FF88]/10 px-3 py-2 text-xs font-black text-[#B5F7CC]">Play selected artifact</span>}<Link href={selected.href} className="rounded-xl border border-[#9DEBFF]/35 bg-[#9DEBFF]/10 px-4 py-3 text-xs font-black text-[#C9F4FF] focus-visible:outline-2 focus-visible:outline-[#9DEBFF]">Open full record →</Link></div></div></div>}
+    </section>
+  );
+}
+
 function MetaLookbookDoorways() {
   return (
     <section id="meta-ai-lookbooks" aria-labelledby="meta-ai-lookbooks-title" className="relative overflow-hidden border-y" style={{ borderColor: "rgba(255,204,77,.24)", background: "radial-gradient(circle at 12% 18%, rgba(255,204,77,.13), transparent 30%), radial-gradient(circle at 88% 80%, rgba(157,235,255,.12), transparent 30%), #07101D" }}>
@@ -2893,6 +2950,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ArtifactFrontDoor />
       <OmnilandFrontCenter />
       <CreatorMotionShelf />
       <LegionBroadcastDeck />
