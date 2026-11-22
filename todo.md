@@ -6918,3 +6918,11 @@
 - [x] Add focused regression coverage and update `scrollverse-media-restoration` with the optional-catalog fallback rule.
 - [x] Verification passed: focused Phase 1008 regression 4/4, full Vitest 472 files / 1301 tests, strict TypeScript, guarded production build, reusable-skill validation, and `git diff --check`; the existing non-blocking >500 kB React runtime warning remains.
 - Boundary: no payment, wallet, contract, account, hosting, repository, upload, publication, or provider action was performed; remaining unchecked tracker entries remain owner/provider-controlled.
+
+## Phase 1023 — Owner-Held Local Extraction Package
+- [x] Build a read-only database export from the existing local `DATABASE_URL`: 102 tables discovered, 102 tables exported, zero table errors, credentials excluded.
+- [x] Snapshot source code from verified checkpoint `18589d8` into an owner-held archive without `.env` files or credentials.
+- [x] Include `local-media-inventory.md`, `route-receipt-comparison-report.md`, Muse’s restoration record, and the exact 1,176-file SHA-256 media manifest.
+- [x] Add repeatable local-only database and media-manifest/export utilities; source bytes were not uploaded or copied into `client/public`.
+- [x] Verify focused Phase 1008 regression 4/4, strict TypeScript, manifest invariants, script syntax, package assembly, and `git diff --check`.
+- Boundary: Muse’s separate 48-reference / 16-fingerprint repair inventory was not attached as a separate file; the 79-record / 60-byte-match crosswalk remains unverified.
