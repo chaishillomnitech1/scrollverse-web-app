@@ -1807,11 +1807,16 @@ function ArtifactFrontDoor() {
           <span className="rounded-full border border-[#00FF88]/35 bg-[#00FF88]/10 px-3 py-2 text-[10px] font-mono tracking-[.14em] text-[#B5F7CC]">{ARTIFACT_FRONT_DOOR_ITEMS.length} ARTIFACTS · CLICK TO OPEN</span>
         </div>
         <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {ARTIFACT_FRONT_DOOR_ITEMS.map((item) => (
-            <button key={item.id} type="button" onClick={() => setSelectedId(item.id)} className="group overflow-hidden rounded-[1.45rem] border bg-white/[.025] text-left transition duration-300 hover:-translate-y-1 hover:bg-white/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" style={{ borderColor: `${item.accent}55` }} aria-label={`Open artifact ${item.title}`}>
+          {ARTIFACT_FRONT_DOOR_ITEMS.map((item) => item.video ? (
+            <button key={item.id} type="button" onClick={() => setSelectedId(item.id)} className="group overflow-hidden rounded-[1.45rem] border bg-white/[.025] text-left transition duration-300 hover:-translate-y-1 hover:bg-white/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" style={{ borderColor: `${item.accent}55` }} aria-label={`Open artifact to play ${item.title}`}>
               <span aria-label="Artifact thumbnail" className="block"><SourceVisual src={item.image} alt={`${item.title} thumbnail`} title={item.title} mark={item.kind} className="aspect-[4/3] w-full transition duration-300 group-hover:scale-[1.03]" /></span>
-              <div className="p-4"><div className="flex items-center justify-between gap-2"><span className="text-[10px] font-mono tracking-[.12em]" style={{ color: item.accent }}>{item.kind}</span><span className="text-xs font-black text-white">{item.video ? "▶ PLAY" : "OPEN ↗"}</span></div><h3 className="mt-2 text-base font-black text-white">{item.title}</h3></div>
+              <div className="p-4"><div className="flex items-center justify-between gap-2"><span className="text-[10px] font-mono tracking-[.12em]" style={{ color: item.accent }}>{item.kind}</span><span className="text-xs font-black text-white">▶ PLAY</span></div><h3 className="mt-2 text-base font-black text-white">{item.title}</h3></div>
             </button>
+          ) : (
+            <Link key={item.id} href={item.href} className="group overflow-hidden rounded-[1.45rem] border bg-white/[.025] text-left transition duration-300 hover:-translate-y-1 hover:bg-white/[.07] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFCC4D]" style={{ borderColor: `${item.accent}55` }} aria-label={`Open visual artifact ${item.title}`}>
+              <span aria-label="Artifact thumbnail" className="block"><SourceVisual src={item.image} alt={`${item.title} thumbnail`} title={item.title} mark={item.kind} className="aspect-[4/3] w-full transition duration-300 group-hover:scale-[1.03]" /></span>
+              <div className="p-4"><div className="flex items-center justify-between gap-2"><span className="text-[10px] font-mono tracking-[.12em]" style={{ color: item.accent }}>{item.kind}</span><span className="text-xs font-black text-white">OPEN ↗</span></div><h3 className="mt-2 text-base font-black text-white">{item.title}</h3></div>
+            </Link>
           ))}
         </div>
       </div>
