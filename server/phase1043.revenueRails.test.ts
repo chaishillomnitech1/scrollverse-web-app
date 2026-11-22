@@ -16,7 +16,7 @@ describe("Phase 1043 — local revenue rails", () => {
     expect(board).toContain("TEST ORDER #1001");
     expect(board).toContain("$1.00");
     expect(board).toContain("CAPTURED AND PAID · OWNER-REPORTED");
-    expect(board).toContain("NOT VERIFIED IN THIS SESSION");
+    expect(board).toContain("AUTHORIZATION NOW REPORTED COMPLETE");
   });
 
   it("stages every revenue lane without activating payments or public rails", () => {

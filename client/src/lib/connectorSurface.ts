@@ -95,7 +95,7 @@ const entries: Array<[string, string, string, string, ConnectorState, string?]> 
   ["workflow-agents", "Agent fan-out", "Workflow", "run structured parallel research units", available],
   ["workflow-reduce", "Result aggregation", "Workflow", "aggregate deterministic subtask results", available],
   ["connector-export", "Connector export", "ScrollVerse local registry", "export the current connector surface as metadata", connected],
-  ["shopify-xlviiiblocks", "Storefront admin", "Shopify · XLVIIIblocks", "review storefront products, orders, discounts, and pre-order or rewards readiness after owner sign-in", ownerAuth, "https://admin.shopify.com/store/juv8tg-1n"],
+  ["shopify-xlviiiblocks", "Storefront admin", "Shopify · XLVIIIblocks", "review storefront products, orders, discounts, and pre-order or rewards readiness through the installed Manus connector", connected, "https://admin.shopify.com/store/juv8tg-1n"],
   ["paypal-payments", "PayPal Checkout", "PayPal for Business", "stage checkout, order capture, refunds, and payment reconciliation after owner authorization or sign-in", ownerAuth],
 ];
 

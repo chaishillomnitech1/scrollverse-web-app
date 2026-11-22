@@ -10,9 +10,9 @@ describe("Phase 1042 — Shopify storefront connector", () => {
     expect(catalog).toContain("shopify");
     expect(catalog).toContain("XLVIIIblocks");
     expect(catalog).toContain("https://admin.shopify.com/store/juv8tg-1n");
-    expect(catalog).toContain("OWNER AUTHORIZATION REQUIRED");
+    expect(catalog).toContain('"CONNECTED"');
     expect(registry).toContain("ADMIN DOOR");
-    expect(registry).toContain("LOGIN REQUIRED");
+    expect(registry).toContain("CONNECTED");
   });
 
   it("links Shopify readiness to the storefront, pre-order, and raffle lanes", () => {
