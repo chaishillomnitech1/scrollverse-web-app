@@ -19,6 +19,16 @@ describe("Phase 1046 — episode monetization dashboard and connector explorer",
     expect(registry).toContain("Higgsfield");
     expect(registry).toContain("HIGGSFIELD · FEATURED");
     expect(registry).toContain("useMemo");
+    expect(registry).toContain("role=\"tooltip\"");
+    expect(registry).toContain("title={entry.canDo}");
+  });
+
+  it("supports revenue-priority sorting and local favorites for staged cards", () => {
+    expect(board).toContain("Sort by highest revenue");
+    expect(board).toContain("revenuePriority");
+    expect(board).toContain("Save to Favorites");
+    expect(board).toContain("aria-pressed");
+    expect(board).toContain("setFavorites");
   });
 
   it("adds hover and reduced-motion-safe transitions to production surfaces", () => {
