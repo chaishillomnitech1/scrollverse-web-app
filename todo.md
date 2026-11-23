@@ -7094,4 +7094,6 @@
 
 
 ## Phase 1046 interaction extensions — verified
-The Phase 1046 surfaces now include hover/focus tooltips for every connector description, a local planning-priority control labeled “Sort by highest revenue” for the episode dashboard, and local-only Save to Favorites buttons for the staged YouTube and private contest cards. The reusable skill documents these patterns. Verification remains green at 490 Vitest files / 1,341 tests, strict TypeScript, production build, skill validation, and `git diff --check`.
+- [x] Add hover/focus tooltips for every connector description, a local planning-priority control labeled “Sort by highest revenue” for the episode dashboard, and local-only Save to Favorites buttons for the staged YouTube and private contest cards.
+- [x] Document the reusable interaction patterns in `/home/ubuntu/skills/scrollverse-episode-monetization/SKILL.md` and validate the skill.
+- [x] Verification remains green at 490 Vitest files / 1,341 tests, strict TypeScript, production build, skill validation, and `git diff --check`; blocked external/provider lanes remain intentionally unchecked.
